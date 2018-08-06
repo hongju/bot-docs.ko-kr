@@ -1,0 +1,11 @@
+# [FAQ](../bot-service-resources-bot-framework-faq.md)
+# [지원 받기](../bot-service-resources-links-help.md)
+# [식별자에 대한 가이드](../bot-service-resources-identifiers-guide.md)
+# [App Insights 키](../bot-service-resources-app-insights-keys.md)
+# [사용자 에이전트 요청](../bot-service-resources-user-agent.md)
+# [봇 검토 지침](../bot-service-review-guidelines.md)
+# [Bot Framework 작업 사양](../bot-service-activity-spec.md)
+# [Bot Service 준수](../v4sdk/bot-service-compliance.md)
+# 문제 해결
+## [일반 문제 해결](../bot-service-troubleshoot-general-problems.md)
+## [인증 문제 해결](../bot-service-troubleshoot-authentication-problems.md)

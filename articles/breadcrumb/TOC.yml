@@ -1,0 +1,17 @@
+- name: Docs
+  href: /
+  homepage: /
+  items:
+    - name: Bot 서비스
+      tocHref: /Bot-Framework/
+      topicHref: /Bot-Framework/index
+      items:
+        - name: .NET용 봇 작성기 SDK
+          tocHref: /Bot-Framework/dotnet
+          topicHref: /Bot-Framework/dotnet/
+        - name: Node.js용 봇 작성기 SDK
+          tocHref: /Bot-Framework/nodejs
+          topicHref: /Bot-Framework/nodejs/
+        - name: Bot Framework REST API
+          tocHref: /Bot-Framework/rest-api
+          topicHref: /Bot-Framework/rest-api/
