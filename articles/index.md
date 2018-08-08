@@ -8,14 +8,17 @@ ms.topic: landing-page
 layout: LandingPage
 ms.prod: bot-framework
 ms.date: 05/03/2018
-ms.openlocfilehash: 2264f714b28b52691da2ee0d421506b408a43ef3
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: 6759a870538265fa9f8ae089486946b8fe648649
+ms.sourcegitcommit: 9a38d76afb0e82fdccc1f36f9b1a65042671e538
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39116421"
+ms.lasthandoff: 08/04/2018
+ms.locfileid: "39514993"
 ---
 ::: moniker range="azure-bot-service-3.0"
+
+> [!NOTE]
+> 이 항목은 SDK v3(안정화) 릴리스에 적용됩니다. SDK v4 시험판 버전에 대한 문서는 [여기](https://docs.microsoft.com/en-us/azure/bot-service/?view=azure-bot-service-4.0)에서 볼 수 있습니다.
 
 <div class="content">
     <h1>Azure Bot Service 설명서</h1>
@@ -90,10 +93,12 @@ ms.locfileid: "39116421"
 
 ::: moniker range="azure-bot-service-4.0"
 
+> [!NOTE] 
+> 이 항목은 V4 SDK 콘텐츠에 대한 시험판 설명서이며 변경될 수 있습니다. V3 SDK(안정화) 콘텐츠는 [여기](https://docs.microsoft.com/en-us/azure/bot-service/?view=azure-bot-service-3.0)에서 확인할 수 있습니다.
+
 <div class="content">
     <h1>Azure Bot Service 설명서</h1>
     <div class="intro" style="min-width: 200px">
-        <p><b> [이 항목은 시험판 설명서이며 변경될 수 있습니다.] </b></p>
         <p>Azure Bot Service는 봇 개발에 특화된 통합 환경을 제공하여 지능형 봇을 한 곳에서 빌드하고, 연결하고, 테스트하고, 배포하고, 관리할 수 있습니다. Azure Bot Service는 C#, JavaScript, Python 및 Java에 대한 지원에서 봇 작성기 SDK를 활용합니다. 빠른 시작, 자습서 및 샘플을 통해 Bot Service를 사용하는 방법을 알아봅니다.
 </p>
 </div>
