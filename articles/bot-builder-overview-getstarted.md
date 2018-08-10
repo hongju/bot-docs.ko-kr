@@ -8,14 +8,17 @@ ms.topic: get-started-article
 ms.prod: bot-framework
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 208bd5a49400f9e9ff230dafb6dd20c36d50dfad
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: 21186c5d3b0769311e4703ca1dab2f48a0a0081a
+ms.sourcegitcommit: 67445b42796d90661afc643c6bb6533e9a662cbc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39300989"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39574889"
 ---
 # <a name="develop-bots-with-bot-builder"></a>Bot Builder를 사용하여 봇 개발
+
+[!INCLUDE [pre-release-label](includes/pre-release-label-v3.md)]
+
 Bot Builder는 봇을 빌드하고 디버그하는 데 도움이 되는 SDK, 라이브러리, 샘플 및 도구를 제공합니다. Bot Service를 사용하여 봇을 빌드할 경우 봇은 Bot Builder SDK에서 지원됩니다. Bot Builder SDK를 사용하여 C# 또는 Node.js를 통해 처음부터 봇을 만들 수도 있습니다. Bot Builder에는 봇을 테스트하기 위한 Bot Framework Emulator 및 다른 채널에서 봇의 사용자 환경을 미리 보기 위한 채널 검사기가 포함됩니다.
 
 원하는 프로그래밍 언어를 사용하여 봇을 빌드하려면 REST API를 사용하면 됩니다.

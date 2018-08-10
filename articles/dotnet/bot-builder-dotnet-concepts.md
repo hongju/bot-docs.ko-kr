@@ -8,14 +8,17 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 0a8c64cced0cb6c10daeedee4edfd777ff6d8e78
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: 34a4cb3623c4265b062eb66ebfb2180551ac1985
+ms.sourcegitcommit: 67445b42796d90661afc643c6bb6533e9a662cbc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39300901"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39574569"
 ---
 # <a name="key-concepts-in-the-bot-builder-sdk-for-net"></a>.NET용 Bot Builder SDK의 주요 개념
+
+[!INCLUDE [pre-release-label](../includes/pre-release-label-v3.md)]
+
 > [!div class="op_single_selector"]
 > - [.NET](../dotnet/bot-builder-dotnet-concepts.md)
 > - [Node.js](../nodejs/bot-builder-nodejs-concepts.md)
@@ -28,7 +31,7 @@ ms.locfileid: "39300901"
 
 .NET용 Bot Builder SDK에서는 [Connector][connectorLibrary] 라이브러리를 통해 Connector에 액세스할 수 있습니다. 
 
-## <a name="activity"></a>활동
+## <a name="activity"></a>작업
 
 [!INCLUDE [Activity concept overview](../includes/snippet-dotnet-concept-activity.md)]
 
