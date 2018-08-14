@@ -8,14 +8,17 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 0dc869aa1464c086b6596ee83d8e6e488d8a8a55
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: 4e0bde9d05ed49f6674b2d721e07235b26c5cea4
+ms.sourcegitcommit: 67445b42796d90661afc643c6bb6533e9a662cbc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39302530"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39574759"
 ---
 # <a name="enterprise-productivity-bot-scenario"></a>엔터프라이즈 생산성 봇 시나리오
+
+[!INCLUDE [pre-release-label](includes/pre-release-label-v3.md)]
+
 엔터프라이즈 봇은 Office 365 일정 및 기타 서비스와 봇을 통합하여 생산성을 높일 수 있는 방법을 보여 줍니다.
 
 창을 열지 않고도 고객 정보에 빠르게 액세스할 수 있는 것이 바로 엔터프라이즈 생산성 봇의 핵심입니다. 판매 담당자는 간단한 채팅 명령을 사용하여 고객을 조회하고 Graph API 및 Office 365를 통해 다음 약속을 확인할 수 있습니다. 여기에서 Dynamics CRM에 저장되는 고객별 정보(예: 사례 접수 또는 새 계정 만들기)에 액세스할 수 있습니다.

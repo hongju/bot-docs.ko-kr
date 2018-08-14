@@ -8,14 +8,16 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: c8919712331a5f78bdbc35f28adeab966435d737
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: 2a5c9dcad0d9fd70caaf28ff7ac95830bd47e2d6
+ms.sourcegitcommit: 67445b42796d90661afc643c6bb6533e9a662cbc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39302547"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39574599"
 ---
 # <a name="send-and-receive-activities"></a>작업 보내기 및 받기
+
+[!INCLUDE [pre-release-label](../includes/pre-release-label-v3.md)]
 
 Bot Framework Connector는 봇이 Skype, 이메일, Slack 등과 같은 여러 채널에서 통신할 수 있게 해주는 단일 REST API를 제공합니다. 봇에서 채널로, 그리고 채널에서 봇으로 메시지를 릴레이하면 봇과 사용자 간에 쉽게 통신할 수 있습니다. 
 
