@@ -8,14 +8,17 @@ ms.topic: get-started-article
 ms.prod: bot-framework
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 7259e1336965733b860a6129d51b3c2eb10362c7
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: 6159997ec5ea3dbd3188ba2ea4b6207b5d9db08f
+ms.sourcegitcommit: 97bb24f15041caccef4ca5736aa14f144881e0c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39302146"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39567552"
 ---
 # <a name="create-a-bot-with-the-bot-builder-sdk-for-nodejs"></a>Node.js용 Bot Builder SDK를 사용하여 봇 만들기
+
+[!INCLUDE [pre-release-label](../includes/pre-release-label-v3.md)]
+
 > [!div class="op_single_selector"]
 > - [.NET](../dotnet/bot-builder-dotnet-quickstart.md)
 > - [Node.js](../nodejs/bot-builder-nodejs-quickstart.md)

@@ -8,14 +8,17 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: b809e98ec971abaac98fd33c4fb2c285baca898f
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: 15745bc25013df2fd18b0a2045ae2314d6c361e2
+ms.sourcegitcommit: 67445b42796d90661afc643c6bb6533e9a662cbc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39303803"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39574859"
 ---
 # <a name="commerce-bot-scenario"></a>상거래 봇 시나리오
+
+[!INCLUDE [pre-release-label](includes/pre-release-label-v3.md)]
+
 [상거래 봇](bot-service-scenario-commerce.md) 시나리오는 사람들이 기존의 호텔 컨시어지 서비스와 가져왔던 기존 이메일 및 전화 통화 상호 작용을 대체하는 봇을 설명합니다. 봇은 Cognitive Services를 활용하여 백 엔드 서비스와의 통합에서 수집된 컨텍스트로 텍스트 및 음성을 통해 고객 요청을 더 잘 처리합니다.
 
 ![응용 프로그램 봇 다이어그램](~/media/scenarios/bot-service-scenario-commerce-bot.png)
@@ -42,13 +45,13 @@ ms.locfileid: "39303803"
 -   Application Insights
 
 ### <a name="azure-active-directory-azure-ad"></a>Azure AD(Azure Active Directory)
-Azure Active Directory(Azure AD)는 Microsoft의 다중 테넌트 클라우드 기반 디렉터리 및 ID 관리 서비스입니다. Azure AD를 사용하면 전 세계 수백만 개의 조직에서 사용하는 세계 정상급 ID 관리 솔루션과 쉽고 빠르고 통합할 수 있기 때문 봇 개발자가 봇을 구축하는 데 집중할 수 있습니다. Azure AD는 B2C 커넥터를 지원하여 Google, Facebook 또는 Microsoft 계정과 같은 외부 ID를 사용하여 개인을 식별할 수 있습니다. Azure AD를 사용하면 사용자의 자격 증명을 관리해야 할 책임이 없어지기 때문에 봇의 사용자를 응용 프로그램에서 노출되는 올바른 데이터와 상호 연결할 수 있다는 점을 알고 봇의 솔루션에 더 집중할 수 있습니다.
+Azure Active Directory(Azure AD)는 Microsoft의 다중 테넌트 클라우드 기반 디렉터리 및 ID 관리 서비스입니다. 봇 개발자인 Azure AD를 통해 전 세계 수백 만 개 조직에서 사용하는 세계 최고의 ID 관리 솔루션과 빠르고 쉽게 통합함으로써, 봇을 구축하는 데 집중할 수 있습니다. Azure AD는 B2C 커넥터를 지원하여 Google, Facebook 또는 Microsoft 계정과 같은 외부 ID를 사용하여 개인을 식별할 수 있습니다. Azure AD를 사용하면 사용자의 자격 증명을 관리해야 할 책임이 없어지기 때문에 봇의 사용자를 응용 프로그램에서 노출되는 올바른 데이터와 상호 연결할 수 있다는 점을 알고 봇의 솔루션에 더 집중할 수 있습니다.
 
 ### <a name="cognitive-services-luis"></a>Cognitive Services: LUIS
 Cognitive Services 제품군 기술에 속하는 Language Understanding(LUIS)를 사용하면 앱에 머신 러닝의 기능을 앱에 적용할 수 있습니다. 현재, LUIS는 사람이 원하는 것을 봇이 이해할 수 있도록 하는 여러 가지 언어를 지원합니다. LUIS와 통합할 때, 의도를 표현하고 봇이 이해하는 엔터티를 정의합니다. 그런 다음, 예제 발언을 통해 봇을 학습시켜서 의도와 엔터티를 이해하도록 봇을 교육합니다. 특정한 대화 요구에 맞게 봇을 최대한 유동적으로 만들 수 있도록 문구 목록과 regex 기능을 사용하여 통합을 조정할 수 있습니다.
 
 ### <a name="application-insights"></a>Application Insights
-Application Insights는 APM(응용 프로그램 성능 관리) 및 즉각적인 분석을 통해 실행 가능한 통찰력을 가져오도록 도와줍니다. 기본적으로 다양한 성능 모니터링, 강력한 경고 및 사용이 간편한 대시보드를 통해 봇을 사용할 수 있도록 보장하고 예상대로 수행할 수 있습니다. 문제가 있는지 신속하게 확인한 다음, 근본 원인을 분석하여 문제를 찾아 해결할 수 있습니다.
+Application Insights는 APM(응용 프로그램 성능 관리) 및 즉각적인 분석을 통해 실행 가능한 통찰력을 가져오도록 도와줍니다. 기본적으로 다양한 성능 모니터링, 강력한 경고 및 사용이 간편한 대시보드를 통해 봇의 가용성과 올바른 작동을 보장할 수 있습니다. 문제가 있는지 신속하게 확인한 다음, 근본 원인을 분석하여 문제를 찾아 해결할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 다음은, Cortana 기술 봇 시나리오에 대해 알아봅니다.

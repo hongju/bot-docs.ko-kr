@@ -8,14 +8,17 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 7c85227d062f32f9f1e8096f1dad83c09ed85a9f
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: 43eb8e25e2a17e1d6b1d30e767dd15569fcad78b
+ms.sourcegitcommit: 67445b42796d90661afc643c6bb6533e9a662cbc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39303458"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39574869"
 ---
 # <a name="information-bot-scenario"></a>정보 봇 시나리오
+
+[!INCLUDE [pre-release-label](includes/pre-release-label-v3.md)]
+
 이 정보 봇은 Cognitive Services QnA Maker를 사용하여 기술 자료 집합이나 FAQ에 정의된 질문에 답변하고 Azure Search를 사용하여 제한 없이 더 많은 질문에 답변할 수 있습니다.
 
 종종 정보는 검색을 통해 쉽게 표시될 수 있는 SQL Server와 같은 구조화된 데이터 저장소에 포함되어 있습니다. 간단한 대화형 명령을 사용하여 고객의 주문 상태를 조회한다고 가정합니다. Cognitive Services QnA Maker를 사용하여 고객 조회, 고객의 가장 최근 주문 검토 등과 같은 유효한 검색 옵션의 집합이 표시됩니다. 정의된 QnA 형식을 사용하여 사용자는 SQL Database에 저장된 데이터를 조회할 수 있는 Azure Search에서 지원되는 질문에 쉽게 답할 수 있습니다.
@@ -54,7 +57,7 @@ Cognitive Services QnA Maker는 사용자가 봇에서 쿼리할 수 있는 FAQ 
 Azure Search는 검색 인덱스를 신속하게 준비하여 사용할 수 있는 앱용 클라우드 검색 서비스입니다. Microsoft Azure를 기반으로 실행되기 때문에 사용량에 따라 쉽게 확장 및 축소할 수 있습니다. 검색 순위를 효과적으로 제어하고 데이터베이스에 숨겨진 데이터를 겉으로 드러내서 검색 결과를 비즈니스 목표에 연결할 수 있습니다.
 
 ### <a name="application-insights"></a>Application Insights
-Application Insights는 APM(응용 프로그램 성능 관리) 및 즉각적인 분석을 통해 실행 가능한 통찰력을 가져오도록 도와줍니다. 기본적으로 다양한 성능 모니터링, 강력한 경고 및 사용이 간편한 대시보드를 통해 봇을 사용할 수 있도록 보장하고 예상대로 수행할 수 있습니다. 문제가 있는지 신속하게 확인한 다음, 근본 원인을 분석하여 문제를 찾아 해결할 수 있습니다.
+Application Insights는 APM(응용 프로그램 성능 관리) 및 즉각적인 분석을 통해 실행 가능한 통찰력을 가져오도록 도와줍니다. 기본적으로 다양한 성능 모니터링, 강력한 경고 및 사용이 간편한 대시보드를 통해 봇의 가용성과 올바른 작동을 보장할 수 있습니다. 문제가 있는지 신속하게 확인한 다음, 근본 원인을 분석하여 문제를 찾아 해결할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 다음으로, 사물 인터넷 봇 시나리오에 대해 알아봅니다.

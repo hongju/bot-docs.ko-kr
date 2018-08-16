@@ -9,14 +9,16 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 5/10/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 62ff445e4aabf2afd41cc4bf1f15badb3f47e945
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: a5c55d4437033968f9c08ed49c07b9586cb9b7d8
+ms.sourcegitcommit: 9a38d76afb0e82fdccc1f36f9b1a65042671e538
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39304138"
+ms.lasthandoff: 08/04/2018
+ms.locfileid: "39514973"
 ---
 # <a name="ask-the-user-questions"></a>사용자에게 질문하기
+
+[!INCLUDE [pre-release-label](~/includes/pre-release-label.md)]
 
 핵심은, 봇이 사용자와의 대화를 중심으로 빌드되었다는 것입니다. 대화는 [다양한 형식](bot-builder-conversations.md)을 취할 수 있습니다. 짧을 수도 있고, 더 복잡할 수도 있고, 질문하거나 질문에 답하는 형식일 수도 있습니다. 대화의 모양새는 몇 가지 요인에 따라 다르지만 모두 대화라는 범주에 포함됩니다.
 
@@ -182,7 +184,7 @@ dialogs.add('textPrompt', new botbuilder_dialogs.TextPrompt());
 
 질문할 `dialogs`를 정의했으므로 대화 상자에서 호출하여 프롬프트 프로세스를 시작해야 합니다.
 
-## <a name="start-the-dialog"></a>대화 상자 시작
+## <a name="start-the-dialog"></a>dialog 시작
 
 # <a name="ctabcstab"></a>[C#](#tab/cstab)
 
@@ -337,7 +339,7 @@ public CafeBot()
 
 # <a name="javascripttabjstab"></a>[JavaScript](#tab/jstab)
 
-`reserveTable` 대화 상자는 다음과 같습니다.
+`reserveTable` dialog는 다음과 같은 모양입니다.
 
 ```javascript
 // Reserve a table:
@@ -408,7 +410,7 @@ dialogs.add('partySizePrompt', new botbuilder_dialogs.NumberPrompt());
 
 이제 봇 논리에 이를 연결할 준비가 되었습니다.
 
-## <a name="start-the-dialog"></a>대화 상자 시작
+## <a name="start-the-dialog"></a>dialog 시작
 
 # <a name="ctabcstab"></a>[C#](#tab/cstab)
 다음 코드를 포함하도록 봇의 `OnTurn`을 수정합니다.

@@ -8,14 +8,16 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 0eb14f4bf52a293d3405762c786259f771aecad6
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: 43c178c4bbdf0bb04384bb8ada397066e6f7dd12
+ms.sourcegitcommit: 67445b42796d90661afc643c6bb6533e9a662cbc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39303115"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39574619"
 ---
 # <a name="bot-builder-sdk-for-nodejs-samples"></a>Node.js용 Bot Builder SDK 샘플
+
+[!INCLUDE [pre-release-label](../includes/pre-release-label-v3.md)]
 
 이 샘플은 Node.js용 Bot Builder SDK의 기능을 활용하는 방법을 보여주는 작업에 중점을 두고 있는 봇을 설명합니다. 샘플을 사용하여 다양한 기능이 포함된 유용한 봇 빌드를 빠르게 시작할 수 있습니다.
 

@@ -8,14 +8,17 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: ec16b89a6c25c4113048a40f6b9b3edb6ce2af5e
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: 6a32bc5712937c615962e4f6edfc7ea691d3ec39
+ms.sourcegitcommit: 67445b42796d90661afc643c6bb6533e9a662cbc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39301851"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39574979"
 ---
 # <a name="register-a-bot-with-bot-service"></a>Bot Service를 사용하여 봇 등록
+
+[!INCLUDE [pre-release-label](includes/pre-release-label-v3.md)]
+
 이미 다른 곳에서 봇을 호스트했으며 Bot Service를 사용하여 다른 채널에 연결하려는 경우, Bot Service에 봇을 등록해야 합니다. 이 항목에서는 **봇 채널 등록** Bot Service를 사용하여 Bot Service에 봇을 등록하는 방법을 알아봅니다.
 
 > [!IMPORTANT] 

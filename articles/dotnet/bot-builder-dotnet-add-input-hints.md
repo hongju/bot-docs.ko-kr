@@ -8,14 +8,17 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 2f56a855990675ccae4845c13541150ab205379a
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: 87fc068c831dba752fa52a6430327232719a74a9
+ms.sourcegitcommit: 67445b42796d90661afc643c6bb6533e9a662cbc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39303858"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39574829"
 ---
 # <a name="add-input-hints-to-messages"></a>메시지에 입력 힌트 추가
+
+[!INCLUDE [pre-release-label](../includes/pre-release-label-v3.md)]
+
 > [!div class="op_single_selector"]
 > - [.NET](../dotnet/bot-builder-dotnet-add-input-hints.md)
 > - [Node.js](../nodejs/bot-builder-nodejs-send-input-hints.md)
@@ -27,23 +30,38 @@ ms.locfileid: "39303858"
 
 봇이 입력에 대해 수동적으로 준비하지만 사용자의 응답을 기다리지 않고 있음을 나타내려면 메시지의 입력 힌트를 `InputHints.AcceptingInput`으로 설정합니다. 많은 채널에서 이렇게 하면 클라이언트의 입력 상자가 활성화되고 마이크는 닫히지만 사용자는 계속 액세스할 수 있습니다. 예를 들어 사용자가 마이크 단추를 누르고 있으면 Cortana는 마이크를 열고 사용자의 입력을 허용합니다. 다음 예제 코드는 봇이 사용자 입력을 수락한다는 것을 나타내는 메시지를 만듭니다.
 
-[!code-csharp[Accepting input](../includes/code/dotnet-input-hints.cs#InputHintAcceptingInput)]
+```cs
+Activity reply = activity.CreateReply("This is the text that will be displayed.");
+reply.Speak = "This is the text that will be spoken.";
+reply.InputHint = InputHints.AcceptingInput;
+await connector.Conversations.ReplyToActivityAsync(reply);
+```
 
 ## <a name="expecting-input"></a>입력 필요
 
 봇이 사용자의 응답을 기다리고 있다고 나타내려면 메시지의 입력 힌트를 `InputHints.ExpectingInput`으로 설정합니다. 많은 채널에서 이렇게 하면 클라이언트의 입력 상자가 활성화되고 마이크가 열립니다. 다음 예제 코드는 봇이 사용자 입력을 기다리고 있음을 나타내는 메시지를 만듭니다.
 
-[!code-csharp[Expecting input](../includes/code/dotnet-input-hints.cs#InputHintExpectingInput)]
+```cs
+Activity reply = activity.CreateReply("This is the text that will be displayed.");
+reply.Speak = "This is the text that will be spoken.";
+reply.InputHint = InputHints.ExpectingInput;
+await connector.Conversations.ReplyToActivityAsync(reply);
+```
 
 ## <a name="ignoring-input"></a>입력 무시
- 
+
 봇이 사용자의 입력을 받을 준비가 되어 있지 않다고 나타내려면 메시지의 입력 힌트를 `InputHints.IgnorningInput`로 설정합니다. 많은 채널에서 이렇게 하면 클라이언트의 입력 상자가 비활성화되고 마이크가 닫힙니다. 다음 예제 코드는 봇이 사용자 입력을 무시하고 있는 것을 나타내는 메시지를 만듭니다.
 
-[!code-csharp[Ignoring input](../includes/code/dotnet-input-hints.cs#InputHintIgnoringInput)]
+```cs
+Activity reply = activity.CreateReply("This is the text that will be displayed.");
+reply.Speak = "This is the text that will be spoken.";
+reply.InputHint = InputHints.IgnoringInput;
+await connector.Conversations.ReplyToActivityAsync(reply);
+```
 
 ## <a name="default-values-for-input-hint"></a>입력 힌트에 대한 기본값
 
-메시지에 대한 입력 힌트를 설정하지 않은 경우 Bot Builder SDK가 이 논리를 사용하여 자동으로 입력 힌트를 설정해줍니다. 
+메시지에 대한 입력 힌트를 설정하지 않은 경우 Bot Builder SDK가 이 논리를 사용하여 자동으로 입력 힌트를 설정해줍니다.
 
 - 봇이 프롬프트를 보내면, 메시지에 대한 입력 힌트가 봇에 **입력이 필요**하다는 것을 지정합니다.</li>
 - 봇이 단일 메시지를 보내는 경우 메시지에 대한 입력 힌트는 봇이 **입력을 허용**하고 있음을 지정합니다.</li>

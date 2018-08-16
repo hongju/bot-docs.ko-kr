@@ -8,14 +8,17 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 286d7057afb28983964ef992de2c11cebd74e0da
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: ab1f0b938703f404417e48520467dc75b9f0717d
+ms.sourcegitcommit: 67445b42796d90661afc643c6bb6533e9a662cbc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39302818"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39574839"
 ---
 # <a name="bot-service-templates"></a>Bot Service 템플릿
+
+[!INCLUDE [pre-release-label](includes/pre-release-label-v3.md)]
+
 Bot Service에는 봇 빌드를 시작하는 데 도움이 되는 5가지 템플릿이 포함되어 있습니다. 이러한 템플릿은 바로 사용 가능하며 모든 기능을 갖춘 봇을 제공하므로 신속하게 시작할 수 있습니다. [봇을 만들 때](bot-service-quickstart.md) 봇에 대한 템플릿과 SDK 언어를 선택합니다.
 
 각 템플릿은 봇의 핵심 기능을 기준으로 시작점을 제공합니다. 

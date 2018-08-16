@@ -8,14 +8,17 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 3583c4382a9262b959b31d5a9a1b7b1b97fc8a04
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: 3b65f323427760fa43586f471aefb6811ef3e675
+ms.sourcegitcommit: 67445b42796d90661afc643c6bb6533e9a662cbc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39301827"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39574527"
 ---
 # <a name="internet-of-things-iot-bot-scenario"></a>IoT(사물 인터넷) 봇 시나리오
+
+[!INCLUDE [pre-release-label](includes/pre-release-label-v3.md)]
+
 이 IoT(사물 인터넷) 봇을 통해 음성 또는 대화형 채팅 명령을 사용하여 Philips Hue 조명과 같은 집 주변의 장치를 쉽게 제어할 수 있습니다.
 
 사람들은 사물에게 이야기하는 것을 좋아합니다. 최초의 원격 TV 시절 이래로 사람들은 환경에 영향을 주는 방식으로 전환하는 것을 좋아하지 않았습니다. 이 IoT 봇을 사용하면 간단한 채팅 명령 또는 음성으로 Philips Hue를 관리할 수 있습니다. 또한 채팅을 사용할 경우 선택할 색상과 관련된 시각적 옵션을 제공할 수 있습니다.
@@ -48,4 +51,4 @@ Philips Hue의 연결된 전구 및 브리지를 사용하여 조명을 완전�
 IFTTT는 애플릿이라는 간단한 조건문 체인을 만드는 데 사용할 수 있는 무료 웹 기반 서비스입니다. 봇에서 애플릿을 트리거하여 사용자를 대신해 작업을 수행하도록 할 수 있습니다. 조명을 켜거나 끄고, 장면을 변경하는 등에 사용할 수 있는 미리 정의된 다양한 Hue 애플릿이 있습니다.
 
 ### <a name="application-insights"></a>Application Insights
-Application Insights는 APM(응용 프로그램 성능 관리) 및 즉각적인 분석을 통해 실행 가능한 통찰력을 가져오도록 도와줍니다. 기본적으로 다양한 성능 모니터링, 강력한 경고 및 사용이 간편한 대시보드를 통해 봇을 사용할 수 있도록 보장하고 예상대로 수행할 수 있습니다. 문제가 있는지 신속하게 확인한 다음, 근본 원인을 분석하여 문제를 찾아 해결할 수 있습니다.
+Application Insights는 APM(응용 프로그램 성능 관리) 및 즉각적인 분석을 통해 실행 가능한 통찰력을 가져오도록 도와줍니다. 기본적으로 다양한 성능 모니터링, 강력한 경고 및 사용이 간편한 대시보드를 통해 봇의 가용성과 올바른 작동을 보장할 수 있습니다. 문제가 있는지 신속하게 확인한 다음, 근본 원인을 분석하여 문제를 찾아 해결할 수 있습니다.

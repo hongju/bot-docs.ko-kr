@@ -8,20 +8,23 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 06be4330d34068bf86466b04686d6636971d0a5e
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: 8d1ae09585898ce8babde6c06e525a0ade46c761
+ms.sourcegitcommit: 67445b42796d90661afc643c6bb6533e9a662cbc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39304547"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39574919"
 ---
 # <a name="bot-scenarios"></a>봇 시나리오
+
+[!INCLUDE [pre-release-label](includes/pre-release-label-v3.md)]
+
 이 항목에서는 Bot Service를 사용하여 빌드된 강력하고 성공적인 봇에 대한 주요 시나리오를 살펴봅니다.
 
 모든 시나리오 봇 샘플의 소스 코드는 [일반적인 Bot Framework 시나리오에 대한 샘플](https://aka.ms/bot/scenarios)에서 다운로드하거나 복제할 수 있습니다.
 
 ## <a name="commerce-bot-scenario"></a>상거래 봇 시나리오
-[상거래 봇](bot-service-scenario-commerce.md) 시나리오는 사용자가 일반적으로 호텔의 컨시어지 서비스를 사용하여 갖는 기존 이메일 및 전화 통화 상호 작용을 대체하는 봇을 설명합니다. 봇은 Cognitive Services를 활용하여 백 엔드 서비스와의 통합에서 수집된 컨텍스트로 텍스트 및 음성을 통해 고객 요청을 더 잘 처리합니다.
+[상거래 봇](bot-service-scenario-commerce.md) 시나리오는 사람들이 기존의 호텔 컨시어지 서비스와 가져왔던 기존 이메일 및 전화 통화 상호 작용을 대체하는 봇을 설명합니다. 봇은 Cognitive Services를 활용하여 백 엔드 서비스와의 통합에서 수집된 컨텍스트로 텍스트 및 음성을 통해 고객 요청을 더 잘 처리합니다.
 
 상거래 봇 시나리오에서 고객은 호텔의 컨시어지 서비스를 요청할 수 있습니다. Azure Active Directory v2 인증 엔드포인트를 통해 인증됩니다. 봇은 고객의 예약을 조회하고 다른 서비스 옵션을 제공할 수 있습니다. 예를 들어 고객은 수영장 옆의 카바나를 예약할 수 있습니다. 봇은 LUIS(Language Understanding Intelligent Services)를 사용하여 요청을 구문 분석한 다음, 사용자에게 기존 예약에 대한 카바나 예약의 프로세스를 안내합니다.
 

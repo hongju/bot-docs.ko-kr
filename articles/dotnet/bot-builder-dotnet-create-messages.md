@@ -8,14 +8,16 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: a97d21e64ce12f6158f276889762a73ac2aff49b
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: 00ea81558bf4b8206dc6142ab26e47e3652be563
+ms.sourcegitcommit: 67445b42796d90661afc643c6bb6533e9a662cbc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39304386"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39574549"
 ---
 # <a name="create-messages"></a>메시지 만들기
+
+[!INCLUDE [pre-release-label](../includes/pre-release-label-v3.md)]
 
 봇은 사용자에게 정보를 전달하도록 **메시지** [작업](bot-builder-dotnet-activities.md)을 보내고 마찬가지로 사용자에게 **메시지** 작업을 받습니다. 일부 메시지는 단순히 일반 텍스트로 구성될 수 있지만 기타 메시지에는 [음성화된 텍스트](bot-builder-dotnet-text-to-speech.md), [제안된 작업](bot-builder-dotnet-add-suggested-actions.md), [미디어 첨부 파일](bot-builder-dotnet-add-media-attachments.md), [다양한 카드](bot-builder-dotnet-add-rich-card-attachments.md) 및 [채널 관련 데이터](bot-builder-dotnet-channeldata.md)와 같은 다양한 콘텐츠가 포함될 수 있습니다. 
 
@@ -88,7 +90,7 @@ ms.locfileid: "39304386"
 
 ### <a name="consume-entities"></a>엔터티 사용
 
-엔터티를 사용하려면 `dynamic` 키워드 또는 강력한 형식의 클래스를 사용합니다.
+엔터티를 사용하려면 `dynamic` 키워드 또는 강력한 형식의 클래스 중 하나를 사용합니다.
 
 이 코드 예제는 `dynamic` 키워드를 사용하여 메시지의 `Entities` 속성 내에서 엔터티를 처리하는 방법을 보여줍니다.
 

@@ -8,21 +8,24 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: f338a405ccc74e66606c0eba5604776edb1fc1ff
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: f5cc520704c4bebef6250195fd3e6cbdc3b0be3f
+ms.sourcegitcommit: 67445b42796d90661afc643c6bb6533e9a662cbc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39303155"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39574959"
 ---
 # <a name="send-proactive-messages"></a>사전 대응 메시지 보내기
+
+[!INCLUDE [pre-release-label](../includes/pre-release-label-v3.md)]
+
 > [!div class="op_single_selector"]
 > - [.NET](../dotnet/bot-builder-dotnet-proactive-messages.md)
 > - [Node.js](../nodejs/bot-builder-nodejs-proactive-messages.md)
 
 [!INCLUDE [Introduction to proactive messages - part 1](../includes/snippet-proactive-messages-intro-1.md)]
 
-## <a name="types-of-proactive-messages"></a>사전 대응 메시지 형식 
+## <a name="types-of-proactive-messages"></a>자동 관리 메시지 형식 
 
 [!INCLUDE [Introduction to proactive messages - part 2](../includes/snippet-proactive-messages-intro-2.md)]
 
@@ -177,7 +180,7 @@ public class SurveyDialog : IDialog<object>
 
 ## <a name="additional-resources"></a>추가 리소스
 
-- [대화 흐름 디자인 및 제어](../bot-service-design-conversation-flow.md)
+- [대화 흐름 설계 및 제어](../bot-service-design-conversation-flow.md)
 - <a href="/dotnet/api/?view=botbuilder-3.11.0" target="_blank">.NET용 Bot Builder SDK 참조</a>
 - <a href="https://github.com/Microsoft/BotBuilder-Samples/tree/master/CSharp/core-proactiveMessages" target="_blank">사전 대응 메시지 샘플(GitHub)</a>
 

@@ -9,14 +9,17 @@ ms.topic: get-started-article
 ms.prod: bot-framework
 ms.date: 04/27/2018
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: fcb21fa38750c09f110a3c71f763a941c4437979
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: 16ca658dddbba987545b7aa18c1e8f63f13983f1
+ms.sourcegitcommit: 97bb24f15041caccef4ca5736aa14f144881e0c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39304074"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39567572"
 ---
 # <a name="create-a-bot-with-the-bot-builder-sdk-for-net"></a>.NET용 Bot Builder SDK를 사용하여 봇 만들기
+
+[!INCLUDE [pre-release-label](../includes/pre-release-label-v3.md)]
+
 > [!div class="op_single_selector"]
 > - [.NET](../dotnet/bot-builder-dotnet-quickstart.md)
 > - [Node.js](../nodejs/bot-builder-nodejs-quickstart.md)
@@ -121,7 +124,7 @@ public class RootDialog : IDialog<object>
 
 ### <a name="start-the-emulator-and-connect-your-bot"></a>에뮬레이터 시작 및 봇 연결
 
-이 시점에서 봇이 로컬로 실행됩니다.
+이때 봇은 로컬에서 실행됩니다.
 다음으로, 에뮬레이터를 시작한 다음, 에뮬레이터에서 봇에 연결합니다.
 
 1. 새 봇 구성을 만듭니다. 주소 표시줄에 `http://localhost:port-number/api/messages`를 입력합니다. 여기서 *port-number*는 응용 프로그램이 실행 중인 브라우저에 표시되는 포트 번호와 일치합니다.

@@ -8,14 +8,17 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: bd89017714a46c541468ccc9ed9990dde14719b7
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: 9a2103247f0637246c4d6540981a38b9fb4528b2
+ms.sourcegitcommit: 67445b42796d90661afc643c6bb6533e9a662cbc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39301842"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39574989"
 ---
 # <a name="bot-builder-sdk-for-net"></a>.NET용 Bot Builder SDK
+
+[!INCLUDE [pre-release-label](../includes/pre-release-label-v3.md)]
+
 > [!div class="op_single_selector"]
 > - [.NET](../dotnet/bot-builder-dotnet-overview.md)
 > - [Node.js](../nodejs/bot-builder-nodejs-overview.md)
