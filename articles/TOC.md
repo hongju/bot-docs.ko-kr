@@ -1,9 +1,9 @@
 # [Azure Bot Service 설명서](index.md)
 # 개요
-## [Azure Bot Service 소개](bot-service-overview-introduction.md)
+## [Azure Bot Service 정보](bot-service-overview-introduction.md)
 # 빠른 시작
-## [Bot Service를 사용하여 봇 만들기](~/bot-service-quickstart.md)
-## 봇 작성기 SDK를 사용하여 봇 만들기
+## [Azure Bot Service로 봇 만들기](~/bot-service-quickstart.md)
+## 로컬에서 봇 만들기
 ### [.NET](dotnet/bot-builder-dotnet-quickstart.md)
 ### [.NET](dotnet/bot-builder-dotnet-sdk-quickstart.md)
 ### [Node.js](nodejs/bot-builder-nodejs-quickstart.md)
