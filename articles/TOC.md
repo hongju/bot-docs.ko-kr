@@ -48,7 +48,7 @@
 ## [관리](manage/TOC.md)
 ## 개발
 ### [메시지 보내기](v4sdk/bot-builder-howto-send-messages.md)
-### [미디어 첨부 파일 추가](v4sdk/bot-builder-howto-add-media-attachments.md)
+### [메시지에 미디어 추가](v4sdk/bot-builder-howto-add-media-attachments.md)
 ### [메시지에 입력 힌트 추가](v4sdk/bot-builder-howto-add-input-hints.md)
 ### [메시지에 제안된 작업 추가](v4sdk/bot-builder-howto-add-suggested-actions.md)
 ### [사용자 입력을 수집하도록 고유한 메시지 만들기](v4sdk/bot-builder-primitive-prompts.md)
