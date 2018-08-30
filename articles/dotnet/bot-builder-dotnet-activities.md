@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: f7fe3181a4c361b47a7ef6fbdf815b4c495c6f76
-ms.sourcegitcommit: 67445b42796d90661afc643c6bb6533e9a662cbc
+ms.openlocfilehash: 834702024c99873ca9f0bbedb53a24a16ba55878
+ms.sourcegitcommit: e8c513d3af5f0c514cadcbcd0a737a7393405afa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39574639"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42756466"
 ---
 # <a name="activities-overview"></a>활동 개요
 
@@ -31,7 +31,6 @@ ms.locfileid: "39574639"
 | [conversationUpdate](#conversationupdate) | IConversationUpdateActivity | 봇이 대화에 추가되었거나, 다른 구성원이 대화에서 추가 또는 제거되었거나, 대화 메타데이터가 변경되었음을 나타냅니다. |
 | [contactRelationUpdate](#contactrelationupdate) | IContactRelationUpdateActivity | 봇이 사용자의 연락처 목록에서 추가 또는 제거되었음을 나타냅니다. |
 | [typing](#typing) | ITypingActivity | 대화의 상대편인 사용자 또는 봇이 응답을 컴파일하는 중임을 나타냅니다. | 
-| [ping](#ping) | 해당 없음 | 봇의 엔드포인트에 액세스할 수 있는지 여부를 확인하려는 시도를 나타냅니다. | 
 | [deleteUserData](#deleteuserdata) | 해당 없음 | 사용자가 봇이 저장했을 수도 있는 모든 사용자 데이터를 봇에게 삭제하도록 요청했음을 나타냅니다. |
 | [endOfConversation](#endofconversation) | IEndOfConversationActivity | 대화의 종료를 나타냅니다. |
 | [event](#event) | IEventActivity | 사용자에게 표시되지 않는 봇에게 전송한 통신을 나타냅니다. |
@@ -62,10 +61,6 @@ ms.locfileid: "39574639"
 ## <a name="typing"></a>typing
 
 봇은 사용자가 응답을 입력 중임을 나타내는 **typing** 활동을 수신합니다. 봇이 요청을 수행하거나 응답을 컴파일하기 위해 작동 중임을 사용자에게 표시하는 **typing** 활동을 전송할 수 있습니다. 
-
-## <a name="ping"></a>ping
-
-봇은 해당 엔드포인트에 액세스할 수 있는지 여부를 결정하는 **ping** 활동을 수신합니다. 봇은 HTTP 상태 코드 200(정상), 403(금지됨) 또는 401(권한 없음)을 사용하여 응답해야 합니다.
 
 ## <a name="deleteuserdata"></a>deleteUserData
 
