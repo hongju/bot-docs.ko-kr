@@ -8,14 +8,16 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: ac8e01a81e3f8acca3aa6976eec47017876c3042
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: fcda5bb35712f3a1ec27fba64a492ced911c41db
+ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39302267"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42905965"
 ---
 # <a name="define-conversation-steps-with-waterfalls"></a>폭포를 사용하여 대화 단계 정의
+
+[!INCLUDE [pre-release-label](../includes/pre-release-label-v3.md)]
 
 대화는 일련의 사용자와 봇 간에 교환되는 일련의 메시지입니다. 봇의 목표가 사용자를 일련의 단계로 안내하는 것이면, 폭포를 사용하여 대화의 단계를 정의할 수 있습니다.
 

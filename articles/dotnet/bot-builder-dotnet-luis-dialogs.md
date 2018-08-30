@@ -8,22 +8,26 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: b98eea6bdae097beec85e93301e5380a1de991c3
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: fc260f34f28e406dc88dd5b688d84cd79c7e9449
+ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39303242"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42905955"
 ---
 # <a name="recognize-intents-and-entities-with-luis"></a>LUIS를 통해 의도 및 엔터티 인식 
 
-이 문서에서는 Note(메모)를 작성하는 봇 예제를 사용하여, Language Understanding([LUIS][LUIS])이 봇이 자연어 입력에 적절하게 응답하는 데 어떻게 도움이 될 수 있는지를 보여줍니다. 봇은 사용자의 **의도**를 파악하여 사용자가 원하는 것을 감지합니다. 의도는 음성이나 텍스트 입력 또는 **발언**을 통해 결정됩니다. 의도는 봇이 취하는 동작에 발언을 매핑합니다. 예를 들어 Note(메모)를 작성하는 봇은 `Notes.Create` 의도를 인식하여 메모를 생성하는 기능을 호출합니다. 봇은 발언에서 중요한 단어인 **엔터티**를 추출해야 할 수 도 있습니다. Note(메모)를 작성하는 봇의 예에서 `Notes.Title` 엔터티는 각 메모의 제목을 식별합니다.
+[!INCLUDE [pre-release-label](../includes/pre-release-label-v3.md)]
+
+이 문서에서는 Note(메모)를 작성하는 봇 예제를 사용하여, Language Understanding([LUIS][LUIS])이 봇이 자연어 입력에 적절하게 응답하는 데 어떻게 도움이 될 수 있는지를 보여줍니다. 봇은 **의도**를 식별하여 사용자가 원하는 바를 감지합니다. 의도는 음성이나 텍스트 입력 또는 **발언**을 통해 결정됩니다. 의도는 봇이 취하는 동작에 발언을 매핑합니다. 예를 들어 Note(메모)를 작성하는 봇은 `Notes.Create` 의도를 인식하여 메모를 생성하는 기능을 호출합니다. 봇은 발언에서 중요한 단어인 **엔터티**를 추출해야 할 수 도 있습니다. 메모 작성 봇의 예에서 `Notes.Title` 엔터티는 각 메모의 제목을 식별합니다.
 
 ## <a name="create-a-language-understanding-bot-with-bot-service"></a>Bot Service를 사용하여 Language Understanding 봇 만들기
 
-1. [Azure Portal](https://portal.azure.com)의 메뉴 블레이드에서 **새 리소스 만들기**를 선택하고 **모두 표시**를 클릭합니다.<!-- Start with the steps in [Create a bot with Bot Service](../bot-service-quickstart.md) to start creating a new bot service.  -->
+1. [Azure Portal](https://portal.azure.com)의 메뉴 블레이드에서 **새 리소스 만들기**를 선택하고 **모두 표시**를 클릭합니다.
 
-    ![새 리소스 만들기](../media/bot-builder-dotnet-use-luis/bot-service-creation.png)
+<!-- Start with the steps in [Create a bot with Bot Service](../bot-service-quickstart.md) to start creating a new bot service.  -->
+
+    ![Create new resource](../media/bot-builder-dotnet-use-luis/bot-service-creation.png)
 
 2. 검색 상자에서 **웹앱 봇**을 검색합니다. 
 
@@ -60,9 +64,9 @@ LUIS 앱은 취소, 인사말, 도움말 및 없음이라는 4가지 의도로 �
 
 다음 단계에서는 Note.Create, Note.ReadAloud 및 Note.Delete 의도를 추가합니다. 
 
-1. 페이지의 왼쪽 아래에서 **Prebuit Domains**(미리 빌드된 도메인)을 클릭합니다. **Note**(메모) 도메인을 찾아서 **도메인 추가**를 클릭합니다.
+1. 페이지의 왼쪽 아래에서 **Prebuit Domains**(미리 빌드된 도메인)을 클릭합니다. **메모** 도메인을 찾아서 **도메인 추가**를 클릭합니다.
 
-2. 이 자습서에서는 미리 빌드된 **Note**(메모) 도메인에 포함된 의도 중 일부만 사용합니다. **의도** 페이지에서 다음 의도 이름 각각을 클릭한 다음, **Delete Intent**(의도 삭제) 단추를 클릭합니다.
+2. 이 자습서에서는 미리 빌드된 **메모** 도메인에 포함된 의도 중 일부만 사용합니다. **의도** 페이지에서 다음 의도 이름 각각을 클릭한 다음, **의도 삭제** 단추를 클릭합니다.
    * Note.ShowNext
    * Note.DeleteNoteItem
    * Note.Confirm
@@ -81,7 +85,7 @@ LUIS 앱은 취소, 인사말, 도움말 및 없음이라는 4가지 의도로 �
 
      ![LUIS 앱에 표시된 의도](../media/bot-builder-dotnet-use-luis/luis-intent-list.png)
 
-3. 오른쪽 위에 있는 **Train**(학습) 단추를 클릭하여 앱을 학습시킵니다.
+3. 오른쪽 위에 있는 **학습** 단추를 클릭하여 앱을 학습시킵니다.
 4. 위쪽 탐색 모음에 있는 **게시**를 클릭하여 **게시** 페이지를 엽니다. **Publish to production slot**(프로덕션 슬롯 게시) 단추를 클릭합니다. 게시에 성공하면 **앱 게시** 페이지의 **엔드포인트** 열에 표시된 URL을 리소스 이름이 Starter_Key로 시작하는 행에 복사합니다. URL을 나중에 봇의 코드에 사용할 수 있도록 저장합니다. URL은 아래 예와 유사한 형식입니다. `https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx?subscription-key=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx&timezoneOffset=0&verbose=true&q=`
 
 ## <a name="modify-the-bot-code"></a>봇 코드 수정
@@ -362,8 +366,8 @@ Note.Create 의도를 처리하려면 다음 코드를 `BasicLuisDialog` 클래�
 
 ## <a name="test-the-bot"></a>봇 테스트
 
-Azure Portal에서 **Test in Web Chat**(웹 채팅에서 테스트)를 클릭하여 봇을 테스트합니다. "Create a note"(메모 생성), "read my notes"(메모 읽기) 및 "delete notes"(메모 삭제)와 같은 메시지를 입력해봅니다.
-   ![웹 채팅에서 Note(메모) 봇 테스트](../media/bot-builder-dotnet-use-luis/bot-service-test-notebot.png)
+Azure Portal에서 **Web Chat에서 테스트**를 클릭하여 봇을 테스트합니다. "Create a note"(메모 생성), "read my notes"(메모 읽기) 및 "delete notes"(메모 삭제)와 같은 메시지를 입력해봅니다.
+   ![Web Chat에서 메모 봇 테스트](../media/bot-builder-dotnet-use-luis/bot-service-test-notebot.png)
 
 > [!TIP]
 > 봇이 항상 올바른 의도나 엔터티를 인식하지는 않는다는 것을 알게 되면 더 많은 예제 발화를 제공하여 학습시키는 방식으로 LUIS 앱 성능을 개선합니다. 봇의 코드를 수정하지 않고 LUIS 앱을 다시 학습시킬 수 있습니다. [예제 발화 추가](/azure/cognitive-services/LUIS/add-example-utterances) 및 [LUIS 앱 학습 및 테스트](/azure/cognitive-services/LUIS/train-test)를 참조하세요.
@@ -382,7 +386,7 @@ Azure Portal에서 **Test in Web Chat**(웹 채팅에서 테스트)를 클릭하
 
 ## <a name="additional-resources"></a>추가 리소스
 
-- [Dialogs](bot-builder-dotnet-dialogs.md)(대화)
+- [다이얼로그](bot-builder-dotnet-dialogs.md)
 - [Dialogs(대화)를 사용하여 대화 흐름 관리](bot-builder-dotnet-manage-conversation-flow.md)
 - <a href="https://www.luis.ai" target="_blank">LUIS</a>
 - <a href="/dotnet/api/?view=botbuilder-3.11.0" target="_blank">.NET용 Bot Builder SDK 참조</a>

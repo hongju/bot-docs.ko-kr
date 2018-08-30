@@ -8,14 +8,16 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: b737b11db3876d8b98cbd9f46f6e23f8b8564244
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: 67dc8a196393458b37bb6447ceaa8f36a28a564a
+ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39304203"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42905934"
 ---
 # <a name="recognize-user-intent-from-message-content"></a>메시지 콘텐츠에서 사용자 의도 인식
+
+[!INCLUDE [pre-release-label](../includes/pre-release-label-v3.md)]
 
 봇이 사용자로부터 메시지를 받으면 봇은 **인식기**를 사용하여 메시지를 검사하고 의도를 확인합니다. 의도는 메시지에서 호출할 대화 상자로 매핑을 제공합니다. 이 문서에서는 정규식을 사용하거나 메시지의 콘텐츠를 검사하여 의도를 인식하는 방법을 설명합니다. 예를 들어, 봇은 정규식을 사용하여 메시지에 단어 “help”가 포함되는지 검사하고, 도움말 대화 상자를 호출할 수 있습니다. 또한 봇은 사용자 메시지의 속성을 검사할 수 있습니다. 예를 들어 사용자가 텍스트 대신 이미지를 전송했는지를 확인하고 이미지 처리 대화 상자를 호출합니다. 
 

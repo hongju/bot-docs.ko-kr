@@ -7,14 +7,17 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: e2d8e6a5a390a27b61b11ad22f07ce0ab95f1686
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: e5ff23caa1bdb1158ab19fa7c66e1fe4f6899f49
+ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39303915"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42905116"
 ---
 # <a name="manage-custom-state-data-with-azure-table-storage-for-net"></a>.NET용 Azure Table Storage를 사용하여 사용자 지정 상태 데이터 관리
+
+[!INCLUDE [pre-release-label](../includes/pre-release-label-v3.md)]
+
 이 문서에서는 봇의 상태 데이터를 저장 및 관리하도록 Azure Table Storage를 구현합니다. 봇에서 사용되는 기본 커넥터 상태 서비스는 프로덕션 환경에서 사용할 수 없습니다. GitHub에서 제공되는 [Azure 확장](https://github.com/Microsoft/BotBuilder-Azure)을 사용하거나 선택한 데이터 저장소 플랫폼을 사용하여 사용자 지정 상태 클라이언트를 구현해야 합니다. 사용자 지정 상태 저장소를 사용하는 몇 가지 이유는 다음과 같습니다.
  - 상태 API 처리량 증가(성능에 대한 제어 강화)
  - 지역 복제에 대한 대기 시간 감소

@@ -8,14 +8,16 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 109353d6dc26b957d23ae29e77b1c36811d2c2a2
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: a192b69b2ffbac428d80b2fe7c3fd9180caacd4f
+ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39303819"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42905585"
 ---
 # <a name="customize-user-experience-with-pattern-language"></a>패턴 언어를 사용하여 사용자 환경 사용자 지정
+
+[!INCLUDE [pre-release-label](../includes/pre-release-label-v3.md)]
 
 프롬프트를 사용자 지정 하거나 기본 템플릿을 재정의하는 경우 패턴 언어를 사용하여 프롬프트의 콘텐츠 및/또는 형식을 지정할 수 있습니다. 
 

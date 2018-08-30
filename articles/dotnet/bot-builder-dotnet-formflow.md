@@ -8,14 +8,16 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: f38424c2fa86fd4456ab6f8dee81bde71bfd6753
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: cf3d69f7941d8c3177788bd00e4b58416a71cf5e
+ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39301763"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42904627"
 ---
 # <a name="basic-features-of-formflow"></a>FormFlow의 기본 기능
+
+[!INCLUDE [pre-release-label](../includes/pre-release-label-v3.md)]
 
 [다이얼로그](bot-builder-dotnet-dialogs.md)는 매우 강력하고 유연하지만 샌드위치 주문과 같은 안내형 대화를 처리하려면 많은 노력이 필요할 수 있습니다. 대화의 각 지점에서는 진행될 다음 과정에 대한 여러 가능성이 있습니다. 예를 들어, 모호성을 없애거나, 도움말을 제공하거나, 뒤로 이동하거나, 진행 상태를 표시해야 할 수 있습니다. .NET용 Bot Builder SDK 내에서 **FormFlow**를 사용하여 이와 같은 안내형 대화를 관리하는 프로세스를 크게 간소화할 수 있습니다. 
 

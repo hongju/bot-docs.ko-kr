@@ -9,16 +9,16 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 03/28/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: abb2b18d45fb722d7de98c5cd02bd88350aad803
-ms.sourcegitcommit: 9a38d76afb0e82fdccc1f36f9b1a65042671e538
+ms.openlocfilehash: eaf1a8f714ea8711985b732f797951d241abbca2
+ms.sourcegitcommit: 44f100a588ffda19c275b118f4f97029f12d1449
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/04/2018
-ms.locfileid: "39515093"
+ms.lasthandoff: 08/26/2018
+ms.locfileid: "42928301"
 ---
 # <a name="channels-and-the-bot-connector-service"></a>채널 및 Bot Connector Service
 
-[!INCLUDE [pre-release-label](~/includes/pre-release-label.md)]
+[!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
 
 채널은 Facebook, Skype, 이메일, Slack 등 사용자가 봇에 연결되어 있는 엔드포인트입니다. [Azure Portal](https://portal.azure.com)을 통해 구성된 Bot Connector Service는 봇을 이러한 채널에 연결하고, 봇과 사용자 간 통신을 용이하게 합니다. 
 

@@ -9,14 +9,16 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 03/13/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 802d245112baa6d5fb10f4e992d9f6722b70a224
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: b90b3c2635121f7a12f7766852990addb314542e
+ms.sourcegitcommit: f89ed979eb6321232fb21100ef376d9b0d5113c9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39303834"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42914613"
 ---
 # <a name="add-suggested-actions-to-messages"></a>메시지에 제안된 동작 추가
+
+[!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
 
 [!include[Introduction to suggested actions](../includes/snippet-suggested-actions-intro.md)] 
 
@@ -61,3 +63,4 @@ await context.sendActivity(basicMessage);
 ## <a name="additional-resources"></a>추가 리소스
 
 기능을 미리 보려면 [채널 검사기](../bot-service-channel-inspector.md)를 사용해보세요.
+

@@ -8,16 +8,16 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 6/22/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 6154ac5c77f818192503e5586986b37062b105bf
-ms.sourcegitcommit: 67445b42796d90661afc643c6bb6533e9a662cbc
+ms.openlocfilehash: 19dc16d6e90192ec758b4b73789d930053ad0462
+ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39574528"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42905797"
 ---
 # <a name="migrate-your-bot-to-azure"></a>Azure에 봇 마이그레이션
 
-[!INCLUDE [pre-release-label](includes/pre-release-label-v3.md)]
+
 
 [Bot Framework Portal](http://dev.botframework.com)의 모든 **Azure Bot Service(미리 보기)** 는 Azure의 새 Bot Service로 마이그레이션해야 합니다. 이 서비스는 2017년 12월에 일반 제공(GA)되었습니다. 
 

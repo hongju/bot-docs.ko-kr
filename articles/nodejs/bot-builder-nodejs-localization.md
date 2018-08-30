@@ -8,14 +8,16 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 8f58c8d0b884e929c575e01aa5e0fee5c21ea4e6
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: f9af8cbbc5f457d5e8684ad57bb147f9d42a62c7
+ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39303586"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42905147"
 ---
 # <a name="support-localization"></a>지역화 지원
+
+[!INCLUDE [pre-release-label](../includes/pre-release-label-v3.md)]
 
 Bot Builder에는 여러 언어로 사용자와 통신할 수 있는 봇을 빌드하기 위한 풍부한 지역화 시스템이 포함됩니다. 봇의 디렉터리 구조에 저장된 JSON 파일을 사용하여 봇의 프롬프트를 모두 지역화할 수 있습니다. LUIS 같은 시스템을 사용하여 자연어 처리를 수행할 경우 봇이 지원하는 언어별 모델이 포함된 [LuisRecognizer][LUISRecognizer]를 구성할 수 있으며, SDK가 사용자의 기본 설정 로캘과 일치하는 모델을 자동으로 선택합니다.
 

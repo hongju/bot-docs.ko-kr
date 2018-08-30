@@ -8,14 +8,16 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: bb0ac4b8e3fa34ec8863bb323ae968db37972a6f
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: 587e21049ed8c9c3259f04f929784153d06db40c
+ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39301875"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42904227"
 ---
 # <a name="localize-form-content"></a>폼 콘텐츠 지역화
+
+[!INCLUDE [pre-release-label](../includes/pre-release-label-v3.md)]
 
 폼의 지역화 언어는 현재 스레드의 [CurrentUICulture](https://msdn.microsoft.com/en-us/library/system.threading.thread.currentuiculture(v=vs.110).aspx) 및 [CurrentCulture](https://msdn.microsoft.com/en-us/library/system.threading.thread.currentculture(v=vs.110).aspx)에 따라 결정됩니다. 기본적으로 문화권은 현재 메시지의 **로캘** 필드에서 파생되지만, 해당 기본 동작을 재정의할 수 있습니다. 봇이 생성되는 방식에 따라, 지역화된 정보를 다음과 같은 최대 3개의 원본에서 가져올 수 있습니다.
 

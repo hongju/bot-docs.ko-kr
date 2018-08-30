@@ -8,21 +8,23 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: f432a570f5a8393a2aef3e4ec97c5e7e8cbaa43f
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: 509cba25eae229d1e454cd1846a97474f0af957b
+ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39303283"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42904267"
 ---
 # <a name="send-proactive-messages"></a>사전 대응 메시지 보내기
+[!INCLUDE [pre-release-label](../includes/pre-release-label-v3.md)]
+
 > [!div class="op_single_selector"]
 > - [.NET](../dotnet/bot-builder-dotnet-proactive-messages.md)
 > - [Node.js](../nodejs/bot-builder-nodejs-proactive-messages.md)
 
 [!INCLUDE [Introduction to proactive messages - part 1](../includes/snippet-proactive-messages-intro-1.md)]
 
-## <a name="types-of-proactive-messages"></a>사전 대응 메시지 형식
+## <a name="types-of-proactive-messages"></a>자동 관리 메시지 형식
 
 [!INCLUDE [Introduction to proactive messages - part 2](../includes/snippet-proactive-messages-intro-2.md)]
 
@@ -119,7 +121,7 @@ bot.dialog('survey', function (session, args, next) {
 
 ## <a name="sample-code"></a>샘플 코드
 
-Node.js용 Bot Builder SDK를 사용하여 사전 대응 메시지를 보내는 방법을 보여 주는 전체 샘플은 GitHub의 <a href="https://github.com/Microsoft/BotBuilder-Samples/tree/master/Node/core-proactiveMessages" target="_blank">Proactive Messages sample</a>(사전 대응 메시지 샘플)을 참조하세요. 사전 대응 메시지 샘플 내에서 <a href="https://github.com/Microsoft/BotBuilder-Samples/tree/master/Node/core-proactiveMessages/simpleSendMessage" target="_blank">simpleSendMessage</a>는 임시 사전 대응 메시지를 보내는 방법을 보여 주고 <a href="https://github.com/Microsoft/BotBuilder-Samples/tree/master/Node/core-proactiveMessages/startNewDialog" target="_blank">startNewDialog</a>는 대화 상자 기반 사전 대응 메시지를 보내는 방법을 보여 줍니다.
+Node.js용 Bot Builder SDK를 사용하여 사전 대응 메시지를 보내는 방법을 보여 주는 전체 샘플은 GitHub의 <a href="https://github.com/Microsoft/BotBuilder-Samples/tree/master/Node/core-proactiveMessages" target="_blank">Proactive Messages sample</a>(사전 대응 메시지 샘플)을 참조하세요. 사전 대응 메시지 샘플 내에서 <a href="https://github.com/Microsoft/BotBuilder-Samples/tree/master/Node/core-proactiveMessages/simpleSendMessage" target="_blank">simpleSendMessage</a>는 임시 사전 대응 메시지를 보내는 방법을 보여주고 <a href="https://github.com/Microsoft/BotBuilder-Samples/tree/master/Node/core-proactiveMessages/startNewDialog" target="_blank">startNewDialog</a>는 대화 상자 기반 사전 대응 메시지를 보내는 방법을 보여줍니다.
 
 ## <a name="additional-resources"></a>추가 리소스
 

@@ -7,14 +7,16 @@ manager: kamrani
 ms.topic: article
 ms.prod: bot-framework
 ms.date: 2/13/2018
-ms.openlocfilehash: 1f14329958711cc7f9ef8832b267587e1232da2a
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: 60a3796e255611ff09d5418cdeaa6f363ad8da15
+ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39301282"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42904969"
 ---
 # <a name="create-task-automation-bots"></a>태스크 자동화 봇 만들기
+
+[!INCLUDE [pre-release-label](./includes/pre-release-label-v3.md)]
 
 태스크 자동화 봇을 사용하면 사람의 도움 없이 특정 태스크이나 태스크 집합을 완료할 수 있습니다. 이러한 유형의 봇은 일반적인 앱 또는 웹 사이트와 비슷한 경우가 많으며 주로 풍부한 사용자 컨트롤 및 텍스트를 통해 사용자와 소통합니다. 사용자와의 대화를 보강하기 위해 자연어 이해 기능을 포함할 수도 있습니다. 
 

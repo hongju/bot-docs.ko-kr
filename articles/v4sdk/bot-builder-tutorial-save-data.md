@@ -8,14 +8,16 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 4/23/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 10c1cb240a22c1c16dd0d946ee55531d514f332e
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: 86f70fd66f1bc2261339cbe0590061913b51ddbc
+ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39303187"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42904441"
 ---
 # <a name="save-user-state-data"></a>사용자 상태 데이터 저장
+
+[!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
 
 봇에서 사용자에게 입력을 요청하는 경우, 일부 정보를 어떤 형태의 저장소에 유지하려는 경우가 있습니다. Bot Builder SDK를 사용하면 메모리 내 저장소, 파일 저장소, *CosmosDB* 또는 *SQL*과 같은 데이터베이스 저장소를 사용하여 사용자 입력을 저장할 수 있습니다. 
 

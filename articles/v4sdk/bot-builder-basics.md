@@ -9,16 +9,16 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 04/18/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 48c32a1dd1c43bbb84c0f771be7dff691f0996ec
-ms.sourcegitcommit: f95702d27abbd242c902eeb218d55a72df56ce56
+ms.openlocfilehash: 34564b411f911ae82197d5a34cb954a103abe70b
+ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39304634"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42905417"
 ---
 # <a name="basic-bot-structure"></a>기본 봇 구조
 
-[!INCLUDE [pre-release-label](~/includes/pre-release-label.md)]
+[!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
 
 Azure Bot Service 및 Bot Builder SDK는 봇을 빌드하고 디버그하는 데 도움이 되는 라이브러리, 샘플 및 도구를 제공합니다. 그러나 그 중 하나에 대해 자세히 살펴보기 전에 봇의 기본 구조 및 작동 방식을 이해해야 합니다. 이러한 개념은 선택한 프로그래밍 언어에 상관없이 적용됩니다. 전체에 걸쳐 자세한 콘텐츠에 대한 링크가 제공됩니다. 이 문서에서는 봇의 작동 방식에 대한 초기 멘탈 프레임워크를 제공합니다.
 

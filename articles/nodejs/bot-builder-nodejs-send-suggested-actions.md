@@ -8,14 +8,17 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 06/06/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 510a340506416e61f906228ccd26c0bdd6e5d4d3
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: 15313b6938c01fe84d4fea93c3dc9f607eeb95d2
+ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39301746"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42904300"
 ---
-# <a name="add-suggested-actions-to-messages"></a>메시지에 제안된 작업 추가
+# <a name="add-suggested-actions-to-messages"></a>메시지에 제안된 동작 추가
+
+[!INCLUDE [pre-release-label](../includes/pre-release-label-v3.md)]
+
 > [!div class="op_single_selector"]
 > - [.NET](../dotnet/bot-builder-dotnet-add-suggested-actions.md)
 > - [Node.js](../nodejs/bot-builder-nodejs-send-suggested-actions.md)

@@ -8,14 +8,16 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: d24e43a3f48db024ab55c2089acbc42edebab929
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: 3ad843530b70b75a6db728a399a315534d2234ac
+ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39303891"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42904196"
 ---
 # <a name="customize-a-form-using-formbuilder"></a>FormBuilder를 사용하여 양식 사용자 지정
+
+[!INCLUDE [pre-release-label](../includes/pre-release-label-v3.md)]
 
 [FormFlow의 기본 기능](bot-builder-dotnet-formflow.md)은 상당히 일반적인 사용자 환경을 제공하는 기본 FormFlow 구현을 설명하고 [FormFlow의 고급 기능](bot-builder-dotnet-formflow-advanced.md)은 비즈니스 논리 및 특성을 사용하여 사용자 환경을 사용자 지정하는 방법을 설명합니다. 이 문서에서는 [FormBuilder][formBuilder]를 사용하여 양식이 단계를 실행하는 순서를 지정하고 필드 값, 확인 및 메시지를 동적으로 정의하여 사용자 환경을 보다 많이 사용자 지정하는 방법에 대해 설명합니다. 
 

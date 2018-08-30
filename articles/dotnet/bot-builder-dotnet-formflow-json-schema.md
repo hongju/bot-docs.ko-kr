@@ -8,14 +8,16 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: a7f6e3f186e0c4b9f6096cad72a91ef6f3fdffd4
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: 03478431822c8be0e696577a18a2e693d441509b
+ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39303867"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42904554"
 ---
 # <a name="define-a-form-using-json-schema"></a>JSON 스키마를 사용하여 양식 정의
+
+[!INCLUDE [pre-release-label](../includes/pre-release-label-v3.md)]
 
 FormFlow로 봇을 만들 때 [C# 클래스](bot-builder-dotnet-formflow.md#create-class)를 사용하여 양식을 정의하면 C# 형식의 정적 정의에서 양식이 파생됩니다. 아니면 <a href="http://json-schema.org/documentation.html" target="_blank">JSON 스키마</a>를 대신 사용하여 양식을 정의할 수 있습니다. JSON 스키마를 사용하여 정의된 양식은 순전히 데이터 기반입니다. 스키마를 업데이트하여 양식(따라서, 봇의 동작)을 간단히 변경할 수 있습니다. 
 

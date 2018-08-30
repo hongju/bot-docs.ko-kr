@@ -8,14 +8,16 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/17
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 331effc0bf604388995288e5d7c3ca9d54537f94
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: 376982396ac11cbcf54f26255235b3779e0e1c26
+ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39301452"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42905715"
 ---
 # <a name="secure-your-bot"></a>봇 보안 유지
+
+[!INCLUDE [pre-release-label](../includes/pre-release-label-v3.md)]
 
 봇은 Bot Framework Connector 서비스를 통해 여러 다른 통신 채널(Skype, SMS, 메일 및 기타)에 연결될 수 있습니다. 이 문서에서는 HTTPS 및 Bot Framework 인증을 사용하여 봇 보안을 유지하는 방법을 설명합니다.
 
@@ -49,6 +51,6 @@ web.config 파일에 저장된 인증 자격 증명을 사용하려면 매개 �
 
 ## <a name="additional-resources"></a>추가 리소스
 
-- [.NET용 Bot Builder SDK](bot-builder-dotnet-overview.md)
+- [.NET용 봇 작성기 SDK](bot-builder-dotnet-overview.md)
 - [.NET용 Bot Builder SDK의 주요 개념](bot-builder-dotnet-concepts.md)
 - [Bot Framework에 봇 등록](~/bot-service-quickstart-registration.md)

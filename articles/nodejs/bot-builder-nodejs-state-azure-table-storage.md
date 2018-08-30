@@ -8,23 +8,25 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: c77b07801b8eb0168ac3e09d7b271ddfb17a04ac
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: 84fdbecfe59db49e2e88567a6c942c300ea226a2
+ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39302282"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42904363"
 ---
 # <a name="manage-custom-state-data-with-azure-table-storage-for-nodejs"></a>Node.js용 Azure Table Storage를 사용하여 사용자 지정 상태 데이터 관리
 
-이 문서에서는 봇의 상태 데이터를 저장 및 관리하도록 Azure Table Storage를 구현합니다. 봇에서 사용되는 기본 커넥터 상태 서비스는 프로덕션 환경용으로 제작되지 않았습니다. GitHub에서 사용할 수 있는 [Azure 확장](https://www.npmjs.com/package/botbuilder-azure)을 사용하거나 원하는 데이터 저장소 플랫폼을 사용하여 사용자 지정 상태 클라이언트를 구현해야 합니다. 다음은 사용자 지정 상태 저장소를 사용하게 되는 몇 가지 이유입니다.
+[!INCLUDE [pre-release-label](../includes/pre-release-label-v3.md)]
+
+이 문서에서는 봇의 상태 데이터를 저장 및 관리하도록 Azure Table Storage를 구현합니다. 봇에서 사용되는 기본 커넥터 상태 서비스는 프로덕션 환경에서 사용할 수 없습니다. GitHub에서 제공되는 [Azure 확장](https://www.npmjs.com/package/botbuilder-azure)을 사용하거나 선택한 데이터 저장소 플랫폼을 사용하여 사용자 지정 상태 클라이언트를 구현해야 합니다. 사용자 지정 상태 저장소를 사용하는 몇 가지 이유는 다음과 같습니다.
 
 - 상태 API 처리량 증가(성능에 대한 제어 강화)
 - 지역 복제에 대한 대기 시간 감소
 - 데이터가 저장되는 위치 제어(예: 미국 서부 및 미국 동부)
 - 실제 상태 데이터에 대한 액세스
-- 상태 데이터 db가 다른 봇과 공유되지 않음
-- 32kb 이상의 저장소
+- 상태 데이터 DB가 다른 봇과 공유되지 않음
+- 32kb 초과 저장소
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -34,7 +36,7 @@ ms.locfileid: "39302282"
 - [Storage 탐색기](http://storageexplorer.com/)
 
 ## <a name="create-azure-account"></a>Azure 계정 만들기
-Azure 계정이 없으면 [여기](https://azure.microsoft.com/en-us/free/)를 클릭하여 무료 계정으로 등록하세요.
+Azure 계정이 없으면 [여기](https://azure.microsoft.com/en-us/free/)를 클릭하여 체험 계정으로 등록하세요.
 
 ## <a name="set-up-the-azure-table-storage-service"></a>Azure Table Storage 서비스 설정
 1. Azure Portal에 로그인한 후 **새로 만들기**를 클릭하여 새 Azure Table Storage 서비스를 만듭니다. 
@@ -107,9 +109,9 @@ node app.js
 
 ## <a name="connect-your-bot-to-the-emulator"></a>에뮬레이터에 봇 연결
 
-이때 봇은 로컬에서 실행됩니다. 에뮬레이터를 시작한 다음, 에뮬레이터에서 봇에 연결합니다.
+이 시점에서 봇이 로컬로 실행됩니다. 에뮬레이터를 시작한 다음, 에뮬레이터에서 봇에 연결합니다.
 
-1. 에뮬레이터의 주소 표시줄에 <strong>를 입력합니다. 여기서 http://localhost:port-number/api/messagesport-number</strong>는 응용 프로그램이 실행 중인 브라우저에 표시되는 포트 번호와 일치합니다. 지금은 <strong>Microsoft App ID</strong> 및 <strong>Microsoft App Password</strong> 필드를 비워 둘 수 있습니다. [봇을 등록](~/bot-service-quickstart-registration.md)하면 나중에 이 정보를 가져올 수 있습니다.
+1. 에뮬레이터의 주소 표시줄에 <strong>http://localhost:port-number/api/messages</strong>를 입력합니다. 여기서 port-number는 응용 프로그램이 실행 중인 브라우저에 표시되는 포트 번호와 일치합니다. 지금은 <strong>Microsoft 앱 ID</strong> 및 <strong>Microsoft 앱 암호</strong> 필드를 비워 둘 수 있습니다. 나중에 [봇을 등록](~/bot-service-quickstart-registration.md)할 때 이 정보를 가져올 수 있습니다.
 2. **Connect**를 클릭합니다.
 3. 봇에 메시지를 전송하여 봇을 테스트합니다. 평소와 같이 봇과 상호 작용합니다. 완료되면 **Storage 탐색기**로 이동한 후 저장된 상태 데이터를 확인합니다.
 

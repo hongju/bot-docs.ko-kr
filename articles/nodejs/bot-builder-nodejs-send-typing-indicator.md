@@ -8,15 +8,16 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: aff2509a426fb42f136fb9d2b4a2df9ec1accda0
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: 1c6b01b1cab9165b1513bfda5af182f27635290e
+ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39303914"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42904385"
 ---
 # <a name="send-a-typing-indicator"></a>타이핑 표시기 보내기 
 
+[!INCLUDE [pre-release-label](../includes/pre-release-label-v3.md)]
 
 사용자는 자신의 메시지에 제때 응답할 것을 기대합니다. 봇이 사용자의 요청을 들었다는 표시를 하지 않고 서버를 호출하거나 쿼리를 실행하는 것과 같이 장기간 실행되는 작업을 수행하는 경우, 사용자가 기다리지 못하고 추가로 메시지를 보내거나 봇에 문제가 있는 것으로 추측할 수 있습니다.
 많은 채널이 메시지가 수신되어 처리되고 있다는 것을 사용자에게 보여주는 타이핑 표시 전송을 지원합니다.

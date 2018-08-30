@@ -7,20 +7,20 @@ ms.author: v-ivorb
 manager: kamrani
 ms.topic: article
 ms.prod: bot-framework
-ms.date: 04/04/2018
+ms.date: 08/24/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: ac18b57b7c738e1f15776bfb87bfaf27c3b719d8
-ms.sourcegitcommit: b45e16cac2febb7034da4ccd3af3bd7e6f430c31
+ms.openlocfilehash: 02c6cf56a0c1161fa0393880810c1481c5eb2461
+ms.sourcegitcommit: f89ed979eb6321232fb21100ef376d9b0d5113c9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39469300"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42914633"
 ---
 # <a name="add-input-hints-to-messages"></a>메시지에 입력 힌트 추가
 
 [!INCLUDE [pre-release-label](~/includes/pre-release-label.md)]
 
-메시지에 대해 입력 힌트를 지정하여 메시지를 클라이언트에 전달한 후 봇이 사용자 입력을 허용, 필요 또는 무시하는지 여부를 나타낼 수 있습니다. 많은 채널의 경우 이를 사용하면 클라이언트가 사용자 입력 제어 상태를 적절히 설정할 수 있습니다. 예를 들어 메시지의 입력 힌트가 봇이 사용자 입력을 무시하는 것을 표시하는 경우 클라이언트는 사용자가 입력을 제공하지 못하게 막으려면 마이크를 종료하고 입력란을 사용하지 않도록 설정할 수 있습니다.
+메시지에 대한 입력 힌트를 지정하여 메시지를 클라이언트에 전달한 후 봇이 사용자 입력을 허용, 필요 또는 무시하는지 여부를 나타낼 수 있습니다. 많은 채널에서 이 기능을 사용하여 클라이언트가 사용자 입력 컨트롤 상태를 적절히 설정할 수 있습니다. 예를 들어 메시지의 입력 힌트가 봇이 사용자 입력을 무시하는 것을 표시하는 경우 클라이언트는 사용자가 입력을 제공하지 못하게 막으려면 마이크를 종료하고 입력란을 사용하지 않도록 설정할 수 있습니다.
 
 필요한 라이브러리가 입력 힌트에 포함되게 해야 합니다.
 
@@ -71,7 +71,7 @@ await context.sendActivity(basicMessage);
 
 ## <a name="expecting-input"></a>입력 필요
 
-봇이 사용자의 응답을 기다리고 있음을 나타내려면 메시지의 입력 힌트를 _입력 필요_로 설정합니다. 많은 채널에서 이렇게 하면 클라이언트의 입력 상자를 사용하고 마이크를 시작하게 됩니다. 다음 예제 코드는 봇이 사용자 입력이 필요함을 나타내는 메시지를 만듭니다.
+봇이 사용자의 응답을 기다리고 있음을 나타내려면 메시지의 입력 힌트를 _입력 필요_로 설정합니다. 많은 채널에서 이렇게 하면 클라이언트의 입력 상자를 사용하고 마이크를 시작하게 됩니다. 다음 예제 코드는 봇이 사용자 입력을 기다리고 있음을 나타내는 메시지를 만듭니다.
 
 # <a name="ctabcs"></a>[C#](#tab/cs)
 
@@ -94,7 +94,7 @@ await context.sendActivity(basicMessage);
 
 ## <a name="ignoring-input"></a>입력 무시
 
-봇이 사용자의 입력을 받을 준비가 되어 있지 않음을 나타내려면 메시지의 입력 힌트를 _입력 무시_로 설정합니다. 많은 채널에서 이렇게 하면 클라이언트의 입력 상자를 사용하지 않고 마이크를 종료하게 됩니다. 다음 예제 코드는 봇이 사용자 입력을 무시하고 있음을 나타내는 메시지를 만듭니다.
+봇이 사용자의 입력을 받을 준비가 되어 있지 않음을 나타내려면 메시지의 입력 힌트를 _입력 무시_로 설정합니다. 많은 채널에서 이렇게 하면 클라이언트의 입력 상자를 사용하지 않고 마이크를 종료하게 됩니다. 다음 예제 코드는 봇이 사용자 입력을 무시하고 있는 것을 나타내는 메시지를 만듭니다.
 
 # <a name="ctabcs"></a>[C#](#tab/cs)
 
@@ -117,7 +117,7 @@ await context.sendActivity(basicMessage);
 
 ## <a name="default-values-for-input-hint"></a>입력 힌트에 대한 기본값
 
-메시지에 대해 입력 힌트를 설정하지 않은 경우 Bot Builder SDK가 이 논리를 사용하여 자동으로 설정합니다.
+메시지에 대한 입력 힌트를 설정하지 않은 경우 Bot Builder SDK가 이 논리를 사용하여 자동으로 입력 힌트를 설정해줍니다.
 
 - 봇이 프롬프트를 보내는 경우 메시지에 대한 입력 힌트는 봇이 **입력이 필요**함을 지정합니다.</li>
 - 봇이 단일 메시지를 보내는 경우 메시지에 대한 입력 힌트는 봇이 **입력을 허용**하고 있음을 지정합니다.</li>

@@ -8,14 +8,16 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 04/25/2018
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 20258949cd8ea403e5cc9bf774d6a3b7c1e86e7e
-ms.sourcegitcommit: dcbc8ad992a3e242a11ebcdf0ee99714d919a877
+ms.openlocfilehash: 1eb47e76ef1bd6765d5ba93c27b97a8d9e6143db
+ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39352902"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42905307"
 ---
 # <a name="create-bots-with-azure-cli"></a>Azure CLI를 사용하여 봇 만들기
+
+[!INCLUDE [pre-release-label](./includes/pre-release-label-v3.md)]
 
 [봇 작성기 도구](https://github.com/microsoft/botbuilder-tools)는 명령줄에서 바로 봇 리소스를 관리하고 조작할 수 있게 해주는 새 도구 집합입니다. 
 
@@ -37,7 +39,7 @@ ms.locfileid: "39352902"
 
 ## <a name="1-enable-azure-cli"></a>1. Azure CLI를 사용하도록 설정
 
-이제 다른 모든 Azure 리소스처럼 [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/?view=azure-cli-latest)를 사용하여 봇을 관리할 수 있습니다. Azure CLI를 사용하려면 다음 단계를 수행합니다.
+이제 다른 모든 Azure 리소스처럼 [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)를 사용하여 봇을 관리할 수 있습니다. Azure CLI를 사용하려면 다음 단계를 수행합니다.
 
 1. Azure CLI가 아직 없는 경우 [다운로드](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)합니다. 
 
@@ -64,7 +66,7 @@ az login
 ![Azure Bot CLI](media/bot-builder-tools/az-cli-bot.png)
 
 
- Azure CLI 명령의 전체 목록은 [여기를 클릭](https://docs.microsoft.com/en-us/cli/azure/reference-index?view=azure-cli-latest)합니다.
+ Azure CLI 명령의 전체 목록은 [여기를 클릭](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest)합니다.
 
 
 ## <a name="2-create-a-new-bot-from-azure-cli"></a>2. Azure CLI에서 새 봇 만들기
@@ -83,7 +85,7 @@ az bot [command]
 | 표시 |기존 봇 리소스를 표시합니다.|
 | update| 기존 봇 서비스 업데이트|
 
-CLI에서 새 봇을 만들려면 기존 [리소스 그룹](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview)을 선택하거나 새로 만들어야 합니다. 
+CLI에서 새 봇을 만들려면 기존 [리소스 그룹](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)을 선택하거나 새로 만들어야 합니다. 
 
 ```azurecli
 az bot create --resource-group "my-resource-group" --name "my-bot-name" --kind "my-resource-type" --description "description-of-my-bot"
@@ -183,7 +185,7 @@ az bot show -n my-bot-name -g my-resource-group --msbot | msbot connect azure --
 > 모든 봇 작성기 도구에는 **-h** 또는 **-help**를 입력하여 명령줄에서 액세스할 수 있는 글로벌 도움말 명령이 포함되어 있습니다. 이 명령은 언제든지 모든 작업에서 사용할 수 있으며, 사용 가능한 옵션의 유용한 표시를 설명과 함께 제공합니다.
 
 ### <a name="ludown"></a>LUDown
-[LUDown](https://github.com/Microsoft/botbuilder-tools/tree/master/Ludown)을 사용하면 **.lu** 파일을 통해 봇의 강력한 언어 구성 요소를 설명하고 만들 수 있습니다. 새 .lu 파일은 LUDown 도구가 대상 서비스와 관련된 .json 파일을 사용하고 출력하는 markdown 형식 유형입니다. 이제 .lu 파일을 사용하여 새로운 [LUIS](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-get-started-create-app) 응용 프로그램 또는 [QnA](https://qnamaker.ai/Documentation/CreateKb) 기술 자료를 각각 다른 형식으로 만들 수 있습니다. LUDown은 npm 모듈로 제공되며, 머신에 글로벌로 설치하여 사용할 수 있습니다.
+[LUDown](https://github.com/Microsoft/botbuilder-tools/tree/master/Ludown)을 사용하면 **.lu** 파일을 통해 봇의 강력한 언어 구성 요소를 설명하고 만들 수 있습니다. 새 .lu 파일은 LUDown 도구가 대상 서비스와 관련된 .json 파일을 사용하고 출력하는 markdown 형식 유형입니다. 이제 .lu 파일을 사용하여 새로운 [LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-create-app) 응용 프로그램 또는 [QnA](https://qnamaker.ai/Documentation/CreateKb) 기술 자료를 각각 다른 형식으로 만들 수 있습니다. LUDown은 npm 모듈로 제공되며, 머신에 전역으로 설치하여 사용할 수 있습니다.
 
 ```shell
 npm install -g ludown
@@ -193,9 +195,9 @@ LUDown 도구를 사용하여 LUIS와 QnA 둘 다에 대한 새 .json 모델을 
 
 ### <a name="creating-a-luis-application-with-ludown"></a>LUDown를 사용하여 LUIS 응용 프로그램 만들기
 
-LUIS 포털에서와 마찬가지로, LUIS 응용 프로그램에 대한 [의도](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/add-intents) 및 [엔터티](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/add-entities)를 정의할 수 있습니다. 
+LUIS 포털에서와 마찬가지로, LUIS 응용 프로그램에 대한 [의도](https://docs.microsoft.com/azure/cognitive-services/luis/add-intents) 및 [엔터티](https://docs.microsoft.com/azure/cognitive-services/luis/add-entities)를 정의할 수 있습니다. 
 
-`# \<intent-name\>`은 새 의도 정의 섹션을 설명합니다. 이후 줄에는 의도를 설명하는 [발언](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/add-example-utterances)이 포함됩니다.
+`# \<intent-name\>`은 새 의도 정의 섹션을 설명합니다. 이후 줄에는 의도를 설명하는 [발언](https://docs.microsoft.com/azure/cognitive-services/luis/add-example-utterances)이 포함됩니다.
 
 예를 들어 다음과 같이 단일 .lu 파일에 여러 개의 LUIS 의도를 만들 수 있습니다. 
 

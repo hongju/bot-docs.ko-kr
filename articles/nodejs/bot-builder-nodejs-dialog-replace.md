@@ -8,14 +8,16 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: d1a2eca2ebdfccf6dacdf773c48c8b41444559ca
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: 4343e9742d6bfabeab1ccb6a96f0d379d824125e
+ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39301731"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42905737"
 ---
 # <a name="replace-dialogs"></a>다이얼로그 바꾸기
+
+[!INCLUDE [pre-release-label](../includes/pre-release-label-v3.md)]
 
 다이얼로그를 바꾸는 기능은 대화 과정 중에 사용자 입력이 유효한지 검사하거나 작업을 반복적으로 수행해야 할 경우에 유용할 수 있습니다. Node.js용 Bot Builder SDK를 사용하면 [`session.replaceDialog`](http://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.session#replacedialog) 메서드를 사용하여 다이얼로그를 바꿀 수 있습니다. 이 메서드를 사용하면 호출자로 돌아가지 않고도 현재 다이얼로그를 종료한 후 새 다이얼로그로 바꿀 수 있습니다. 
 

@@ -8,14 +8,16 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: b4c050ba785edcf700de4a6e4f76056464a9f649
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: 5286f0cc6a6a5d7558de997fc776671219c70aa5
+ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39300685"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42904872"
 ---
 # <a name="use-the-backchannel-mechanism"></a>백채널 메커니즘 사용
+
+[!INCLUDE [pre-release-label](../includes/pre-release-label-v3.md)]
 
 [!INCLUDE [Introduction to backchannel mechanism](../includes/snippet-backchannel.md)]
 

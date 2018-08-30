@@ -8,14 +8,16 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 04/06/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 7241b67b582b3e31c1b3c15dc5474e750b7cc558
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: e316ff90b68f860274579f06e7196deec364e082
+ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39304395"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42905636"
 ---
 # <a name="translate-from-the-users-language-to-make-your-bot-multilingual"></a>사용자의 언어에서 번역하여 다국어 봇 만들기
+
+[!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
 
 봇은 [Microsoft Translator](https://www.microsoft.com/en-us/translator/)를 사용하여 봇이 이해하는 언어로 메시지를 자동으로 번역하고 필요에 따라 봇의 응답을 사용자의 언어로 다시 번역할 수 있습니다.
 <!-- 
@@ -475,7 +477,7 @@ public async Task OnTurn(ITurnContext context)
 }          
 ```
 
-## <a name="bypass-translation-for-specified-patterns"></a>특정 패턴에 대한 바이패스 번역
+## <a name="bypass-translation-for-specified-patterns"></a>특정 패턴에 대한 번역 바이패스
 적절한 이름과 같은 봇에서 번역하길 원치 않는 특정 단어가 있을 수 있습니다. 번역해서는 안 되는 패턴을 나타내기 위한 정규식을 제공할 수 있습니다. 예를 들어 사용자가 봇의 비 네이티브 언어로 "My name is ..."를 말하고, 해당 이름을 번역하지 않으려는 경우 이를 지정하는 패턴을 사용할 수 있습니다.
 
 # <a name="ctabcsbypass"></a>[C#](#tab/csbypass)
@@ -522,7 +524,7 @@ adapter.use(languageTranslator);
 
 ![날짜 변환 없이 날짜를 번역하는 봇](./media/how-to-bot-translate/locale-date-before.png)
 
-다음은 `LocaleConverterMiddleware`가 추가되는 경우 동일한 봇을 보여줍니다.
+다음은 `LocaleConverterMiddleware`가 추가되는 경우 동일한 봇을 보여 줍니다.
 
 ![날짜 변환 없이 날짜를 번역하는 봇](./media/how-to-bot-translate/locale-date-after.png)
 

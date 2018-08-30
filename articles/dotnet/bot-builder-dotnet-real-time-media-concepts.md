@@ -8,14 +8,16 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 255248449ab7adb6512db93ece51389d65c01dee
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: eed4ac20664d15fbc40969551a1f23fc91b4f120
+ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39301963"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42906227"
 ---
 # <a name="real-time-media-calling-with-skype"></a>Skype를 사용한 실시간 미디어 호출
+
+[!INCLUDE [pre-release-label](../includes/pre-release-label-v3.md)]
 
 봇용 실시간 미디어 플랫폼은 실시간 음성, 영상 및 화면 공유 형식을 사용하도록 설정하여 봇이 사용자와 상호 작용하는 방식을 한 차원 발전시킵니다. 이를 통해 뛰어난 대화형 엔터테인먼트, 교육 및 지원 봇을 빌드하는 능력이 구현됩니다. 사용자는 Skype를 사용하여 실시간 미디어 봇과 소통합니다.
 

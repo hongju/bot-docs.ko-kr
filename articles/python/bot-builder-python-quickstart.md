@@ -9,12 +9,12 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 02/21/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 3df88215141fa513fb2b97b8f13d1cc358660d86
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: ba16adebe6bbb9b79949cd9842e975e35c3f2aa6
+ms.sourcegitcommit: d486dd088b87a44fc8142f7a08877ff993861a42
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39300864"
+ms.lasthandoff: 08/26/2018
+ms.locfileid: "42928412"
 ---
 # <a name="create-a-bot-with-the-bot-builder-sdk-for-python"></a>Python용 Bot Builder SDK를 사용하여 봇 만들기
 [!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
@@ -136,15 +136,13 @@ python main.py
 
 2. **봇 이름**을 입력하고 봇 코드에 대한 디렉터리 경로를 입력합니다. 봇 구성 파일은 이 경로에 저장됩니다.
 
-3. **엔드포인트 URL** 필드에 `http://localhost:port-number/api/messages`를 입력합니다. 여기서 *port-number*는 응용 프로그램이 실행되는 브라우저에 표시된 포트 번호와 일치합니다.
+3. **끝점 URL** 필드에 `http://localhost:port-number/api/messages`를 입력합니다. 여기서 *port-number*는 응용 프로그램이 실행되는 브라우저에 표시된 포트 번호와 일치합니다.
 
 4. **연결**을 클릭하여 봇에 연결합니다. **Microsoft 앱 ID** 및 **Microsoft 앱 암호**를 지정하지 않아도 됩니다. 지금은 이러한 필드를 비워 둘 수 있습니다. 나중에 봇을 등록할 때 이 정보를 가져올 수 있습니다.
 
 에뮬레이터에서 **Hello**를 입력하면 봇이 **You said “Hello”** 라고 반환합니다.
 
 ## <a name="next-steps"></a>다음 단계
-
-이제 봇과 봇의 작동 방식을 설명하는 개념으로 이동합니다.
 
 > [!div class="nextstepaction"]
 > [기본 봇 개념](../v4sdk/bot-builder-basics.md)

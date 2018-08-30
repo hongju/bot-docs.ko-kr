@@ -7,20 +7,23 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: b99dc4cd9011871d52479ade92968ebb29c8c73f
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: cb64d25582589b7bcbbe715cb4288cf56ac93e1c
+ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39303634"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42906087"
 ---
 # <a name="manage-custom-state-data-with-azure-cosmos-db-for-net"></a>.NET용 Azure Cosmos DB를 사용하여 사용자 지정 상태 데이터 관리
+
+[!INCLUDE [pre-release-label](../includes/pre-release-label-v3.md)]
+
 이 문서에서는 Azure Cosmos DB를 구현하여 봇의 상태 데이터를 저장 및 관리합니다. 봇에서 사용되는 기본 커넥터 상태 서비스는 프로덕션 환경에서 사용할 수 없습니다. GitHub에서 제공되는 [Azure 확장](https://github.com/Microsoft/BotBuilder-Azure)을 사용하거나 선택한 데이터 저장소 플랫폼을 사용하여 사용자 지정 상태 클라이언트를 구현해야 합니다. 사용자 지정 상태 저장소를 사용하는 몇 가지 이유는 다음과 같습니다.
  - 상태 API 처리량 증가(성능에 대한 제어 강화)
  - 지역 복제에 대한 대기 시간 감소
  - 데이터 저장 위치에 대한 제어
  - 실제 상태 데이터에 대한 액세스
- - 32kb가 넘는 데이터 저장
+ - 32kb를 초과하는 데이터 저장
  
 ## <a name="prerequisites"></a>필수 조건
 필요한 사항:
@@ -37,7 +40,7 @@ Azure 계정이 없으면 [여기](https://azure.microsoft.com/en-us/free/)를 �
 1. Azure Portal에 로그인한 후 **새로 만들기**를 클릭하여 새 *Azure Cosmos DB* 데이터베이스를 만듭니다. 
 2. **데이터베이스**를 클릭합니다. 
 3. **Azure Cosmos DB**를 찾고 **만들기**를 클릭합니다.
-4. 필드를 입력합니다. **API** 필드에 **SQL(DocumentDB)** 을 선택합니다. 모든 필드를 다 입력하면 화면 아래쪽에 있는 **만들기** 단추를 클릭하여 새 데이터베이스를 배포합니다. 
+4. 필드를 입력합니다. **API** 필드에 **SQL(DocumentDB)** 을 선택합니다. 모든 필드를 다 입력했으면 화면 아래쪽에 있는 **만들기** 단추를 클릭하여 새 데이터베이스를 배포합니다. 
 5. 새 데이터베이스가 배포된 후 새 데이터베이스로 이동합니다. **액세스 키**를 클릭하여 키 및 연결 문자열을 찾습니다. 봇은 이 정보를 사용하여 상태 데이터를 저장하기 위한 저장소 서비스를 호출합니다.
 
 ## <a name="install-nuget-packages"></a>NuGet 패키지 설치

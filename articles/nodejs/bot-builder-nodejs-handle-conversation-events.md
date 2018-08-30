@@ -8,14 +8,16 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 23cb3189de10a67a524114d0c7d9f1f9d2b0441d
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: c37823b94a5cc4715dd1278bba196335de3e3bdb
+ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39301939"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42906026"
 ---
 # <a name="handle-user-and-conversation-events"></a>사용자 및 대화 이벤트 처리
+
+[!INCLUDE [pre-release-label](../includes/pre-release-label-v3.md)]
 
 이 문서에서는 봇이 사용자의 대화 참여, 연락처 목록에 봇 추가 또는 봇이 대화에서 젝저되고 있을 때 **Goodbye**라고 말하는 것과 같은 이벤트를 처리하는 방법을 보여 줍니다.
 

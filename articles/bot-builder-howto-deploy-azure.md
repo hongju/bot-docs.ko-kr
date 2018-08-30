@@ -8,14 +8,16 @@ manager: kamrani
 ms.topic: get-started-article
 ms.prod: bot-framework
 ms.date: 05/14/2018
-ms.openlocfilehash: 70a3b7f093bb80dd16c854c65331c141fbba3725
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: f3e5ed5b14ffb81c597b10aeac45854464bad8b0
+ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39303826"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42905595"
 ---
 # <a name="deploy-your-bot-to-azure"></a>Azure에 봇 배포
+
+[!INCLUDE [pre-release-label](./includes/pre-release-label-v3.md)]
 
 봇을 생성하고 로컬에서 확인한 후에는 어디서나 액세스할 수 있도록 Azure로 푸시할 수 있습니다. 이렇게 하려면 먼저 봇을 App Service에서 Azure로 배포한 다음, 봇 채널 등록 항목을 사용하여 Azure Bot Service로 봇을 구성합니다.
 

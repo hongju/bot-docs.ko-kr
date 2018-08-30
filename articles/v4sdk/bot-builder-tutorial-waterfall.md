@@ -9,16 +9,16 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 5/10/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: a5c55d4437033968f9c08ed49c07b9586cb9b7d8
-ms.sourcegitcommit: 9a38d76afb0e82fdccc1f36f9b1a65042671e538
+ms.openlocfilehash: 7546b46a0bbca86665538b47e8f7b05d5812a920
+ms.sourcegitcommit: 44f100a588ffda19c275b118f4f97029f12d1449
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/04/2018
-ms.locfileid: "39514973"
+ms.lasthandoff: 08/26/2018
+ms.locfileid: "42928321"
 ---
 # <a name="ask-the-user-questions"></a>사용자에게 질문하기
 
-[!INCLUDE [pre-release-label](~/includes/pre-release-label.md)]
+[!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
 
 핵심은, 봇이 사용자와의 대화를 중심으로 빌드되었다는 것입니다. 대화는 [다양한 형식](bot-builder-conversations.md)을 취할 수 있습니다. 짧을 수도 있고, 더 복잡할 수도 있고, 질문하거나 질문에 답하는 형식일 수도 있습니다. 대화의 모양새는 몇 가지 요인에 따라 다르지만 모두 대화라는 범주에 포함됩니다.
 

@@ -9,16 +9,16 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 03/22/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 8e08ac4721ee78bbd5d13dac09d9e505d3a1b134
-ms.sourcegitcommit: f95702d27abbd242c902eeb218d55a72df56ce56
+ms.openlocfilehash: 278005c25e98c7c5b7d523030846909aed830224
+ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39304659"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42905356"
 ---
 # <a name="activity-processing"></a>작업 처리
 
-[!INCLUDE [pre-release-label](~/includes/pre-release-label.md)]
+[!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
 
 봇과 사용자는 작업을 통해 정보를 교환합니다. 봇 응용 프로그램이 받은 각 작업은 봇 어댑터로 전달되고, 봇 어댑터는 작업 정보를 봇 논리로 전달하고 궁극적으로 사용자에게 응답을 보냅니다.
 

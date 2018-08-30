@@ -8,14 +8,17 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: e6bfd890944cfea052e07ee99451ab90db75415b
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: a3d049e349a86437f8c342df1702281600aeddd4
+ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39300696"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42904395"
 ---
-# <a name="build-a-speech-enabled-bot-with-cortana-skills"></a>Cortana 기술을 사용하여 음성 지원 봇 빌드
+# <a name="build-a-speech-enabled-bot-with-cortana-skills"></a>Cortana Skill을 사용하여 음성 지원 봇 빌드
+
+[!INCLUDE [pre-release-label](../includes/pre-release-label-v3.md)]
+
 > [!div class="op_single_selector"]
 > - [.NET](../dotnet/bot-builder-dotnet-cortana-skill.md)
 > - [Node.js](../nodejs/bot-builder-nodejs-cortana-skill.md)
@@ -77,7 +80,7 @@ reply.InputHint = InputHints.ExpectingInput;
 
 음성 응답 외에도 Cortana에서 카드 첨부 파일을 표시할 수 있습니다. Cortana는 다음과 같은 서식 있는 카드를 지원합니다.
 
-| 카드 종류 | 설명 |
+| 카드 형식 | 설명 |
 |----|----|
 | [HeroCard][heroCard] | 일반적으로 하나의 큰 이미지, 하나 이상의 단추 및 텍스트를 포함하는 카드입니다. |
 | [ThumbnailCard][thumbnailCard] | 일반적으로 하나의 미리 보기 이미지, 하나 이상의 단추 및 텍스트를 포함하는 카드입니다. |
@@ -93,9 +96,9 @@ The following code demonstrates how to add the `Speak` and `InputHint` propertie
 
 
 ## <a name="sample-rollerskill"></a>샘플: RollerSkill
-다음 섹션의 코드는 주사위 굴리기에 대한 샘플 Cortana 기술에서 가져온 것입니다. [BotBuilder 샘플 리포지토리](https://github.com/Microsoft/BotBuilder-Samples/)에서 봇의 전체 코드를 다운로드합니다.
+다음 섹션의 코드는 주사위 굴리기에 대한 샘플 Cortana Skill에서 가져온 것입니다. [BotBuilder 샘플 리포지토리](https://github.com/Microsoft/BotBuilder-Samples/)에서 봇의 전체 코드를 다운로드합니다.
 
-Cortana에 해당 [호출 이름][InvocationNameGuidelines]을 말하여 기술을 호출합니다. 롤러 기술의 경우, [Cortana 채널에 봇을 추가][CortanaChannel]하고 Cortana 기술로 등록한 후 Cortana에 “Ask Roller” 또는 “Ask Roller to roll dice”라고 말해 기술을 호출할 수 있습니다.
+Cortana에 해당 [호출 이름][InvocationNameGuidelines]을 말하여 기술을 호출합니다. 롤러 기술의 경우, [Cortana 채널에 봇을 추가][CortanaChannel]하고 Cortana Skill로 등록한 후 Cortana에 “Ask Roller” 또는 “Ask Roller to roll dice”라고 말해 기술을 호출할 수 있습니다.
 
 ### <a name="explore-the-code"></a>코드 탐색
 
@@ -324,7 +327,7 @@ Cortana에 해당 [호출 이름][InvocationNameGuidelines]을 말하여 기술�
 
 
 ## <a name="additional-resources"></a>추가 리소스
-* [Cortana 기술 키트][CortanaGetStarted]
+* [Cortana Skill 키트][CortanaGetStarted]
 * [메시지에 음성 추가](bot-builder-dotnet-text-to-speech.md)
 * [SSML 참조][SSMLRef]
 * [Cortana 음성 디자인 모범 사례][VoiceDesign]

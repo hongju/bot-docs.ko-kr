@@ -8,14 +8,16 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 9d3e1c315399ce3cadc6371ceb93055c836590a6
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: e326147f32161c2e99dacdfa24ff41080a9b33e9
+ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39304107"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42906237"
 ---
 # <a name="manage-custom-state-data-with-azure-cosmos-db-for-nodejs"></a>Node.js용 Azure Cosmos DB를 사용하여 사용자 지정 상태 데이터 관리
+
+[!INCLUDE [pre-release-label](../includes/pre-release-label-v3.md)]
 
 이 문서에서는 Cosmos DB 저장소를 구현하여 봇의 상태 데이터를 저장 및 관리합니다. 봇에서 사용되는 기본 커넥터 상태 서비스는 프로덕션 환경에서 사용할 수 없습니다. GitHub에서 제공되는 [Azure 확장](https://www.npmjs.com/package/botbuilder-azure)을 사용하거나 선택한 데이터 저장소 플랫폼을 사용하여 사용자 지정 상태 클라이언트를 구현해야 합니다. 사용자 지정 상태 저장소를 사용하는 몇 가지 이유는 다음과 같습니다.
 

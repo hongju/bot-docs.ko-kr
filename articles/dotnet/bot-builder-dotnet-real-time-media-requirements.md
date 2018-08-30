@@ -8,14 +8,16 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/17
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 71e04d2c76d6bff22352c6b4e90aae933f209638
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: 091c90da9b14c0abe70d08f45f528a3cce818cef
+ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39303275"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42904037"
 ---
 # <a name="requirements-and-considerations-for-real-time-media-bots"></a>실시간 미디어 봇의 요구 사항 및 고려 사항
+
+[!INCLUDE [pre-release-label](../includes/pre-release-label-v3.md)]
 
 메시징 및 IVR 호출 봇 개발에 적용되는 모든 지침이 실시간 미디어 봇 빌드에 똑같이 적용되는 것은 아닙니다. 이 문서에서는 실시간 미디어 봇 개발을 위한 일부 중요한 요구 사항 및 고려 사항을 설명합니다. 
 

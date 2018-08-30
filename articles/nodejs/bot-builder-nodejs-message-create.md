@@ -8,14 +8,17 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 09/7/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: e7dfb72f69202011c4fda06c3d55e0afa8d3d045
-ms.sourcegitcommit: dcbc8ad992a3e242a11ebcdf0ee99714d919a877
+ms.openlocfilehash: 804081e52a03a27da418f549f0fadb6dc8bca52b
+ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39352912"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42905677"
 ---
 # <a name="create-messages"></a>메시지 만들기
+
+[!INCLUDE [pre-release-label](../includes/pre-release-label-v3.md)]
+
 봇과 사용자는 메시지를 통해 통신합니다. 봇은 사용자에게 정보를 전달하도록 메시지 작업을 보내고 마찬가지로 사용자에게서 메시지 작업을 받습니다. 일부 메시지는 단순히 일반 텍스트로 구성될 수 있지만 기타 메시지에는 음성화된 텍스트, 제안된 작업, 미디어 첨부 파일, 다양한 카드 및 채널 관련 데이터와 같은 다양한 콘텐츠가 포함될 수 있습니다.
 
 이 문서에서는 사용자 환경을 개선하는 데 사용할 수 있는 일반적으로 통용되는 메시지 메서드 중 일부를 설명합니다.

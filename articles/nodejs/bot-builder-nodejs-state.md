@@ -8,14 +8,17 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 1001f1aa2fe76127073551e98548fc20ef9e1bd7
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: cdd35bc5b487b5bf0d49006cf168f2541e17a057
+ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39302803"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42904375"
 ---
 # <a name="manage-state-data"></a>상태 데이터 관리
+
+[!INCLUDE [pre-release-label](../includes/pre-release-label-v3.md)]
+
 > [!div class="op_single_selector"]
 > - [.NET](../dotnet/bot-builder-dotnet-state.md)
 > - [Node.js](../nodejs/bot-builder-nodejs-state.md)
@@ -197,7 +200,7 @@ session.dialogData = {};
 > [대화 흐름 관리](bot-builder-nodejs-dialog-manage-conversation-flow.md)
 
 ## <a name="additional-resources"></a>추가 리소스
-- [사용자에게 입력할 프롬프트 창 표시](bot-builder-nodejs-dialog-prompt.md)
+- [사용자에게 입력 프롬프트](bot-builder-nodejs-dialog-prompt.md)
 
 [userDataURL]: https://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.session.html#userdata
 [conversationDataURL]: https://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.session.html#conversationdata

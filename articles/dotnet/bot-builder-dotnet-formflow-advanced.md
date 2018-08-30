@@ -8,14 +8,16 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 8860c6b3fa0eaaf9f9bfc92984a501c066f2fe5c
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: 6637876b016b8680fe722602f530a0c6b0ddfc5a
+ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39300704"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42905407"
 ---
 # <a name="advanced-features-of-formflow"></a>FormFlow의 고급 기능
+
+[!INCLUDE [pre-release-label](../includes/pre-release-label-v3.md)]
 
 [FormFlow의 기본 기능](bot-builder-dotnet-formflow.md)에서는 일반적인 사용자 환경을 제공하는 기본 FormFlow 구현에 대해 설명합니다. FormFlow를 사용하여 보다 사용자 지정된 사용자 환경을 제공하려면 초기 양식 상태를 지정하고, 비즈니스 논리를 추가하여 필드 간 상호 종속성을 관리하고 사용자 입력을 처리한 다음, 특성을 사용하여 프롬프트 사용자 지정, 템플릿 재정의, 선택적 필드 지정, 사용자 입력 일치 및 사용자 입력의 유효성 검사를 수행합니다. 
 

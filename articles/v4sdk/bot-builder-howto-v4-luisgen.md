@@ -9,14 +9,16 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 5/16/17
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 6a88b0a7f44f43d0676ba88314fbba7c486e6be4
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: 07f4ad7d53c456de53be196977458a3d8b03c6f0
+ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39301603"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42906197"
 ---
 # <a name="extract-intents-and-entities-using-luisgen"></a>LUISGen을 사용하여 의도 및 엔터티 추출
+
+[!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
 
 의도를 인식하는 것 외에, LUIS 앱은 사용자 요청 이행에 중요한 단어에 해당하는 엔터티도 추출할 수 있습니다. 예를 들어, 레스토랑 예약 예제에서 LUIS 앱은 사용자의 메시지에서 파티 규모, 예약 날짜 또는 식당 위치를 추출할 수 있습니다. 
 

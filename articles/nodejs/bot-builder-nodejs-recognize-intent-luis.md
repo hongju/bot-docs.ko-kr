@@ -8,14 +8,16 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 03/28/2018
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 9c1a0944a24af3f2a51a90818890c50edfe139d4
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: 82a4d0843a9aaab25779d833f2b1b1d2ab2516c2
+ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39303003"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42905105"
 ---
 # <a name="recognize-intents-and-entities-with-luis"></a>LUIS를 통해 의도 및 엔터티 인식 
+
+[!INCLUDE [pre-release-label](../includes/pre-release-label-v3.md)]
 
 이 문서에서는 Note(메모)를 작성하는 봇 예제를 사용하여, Language Understanding([LUIS][LUIS])이 봇이 자연어 입력에 적절하게 응답하는 데 어떻게 도움이 될 수 있는지를 보여줍니다. 봇은 **의도**를 식별하여 사용자가 원하는 바를 감지합니다. 의도는 음성이나 텍스트 입력 또는 **발언**을 통해 결정됩니다. 의도는 대화 상자 호출처럼 봇이 취하는 동작에 발언을 매핑합니다. 봇은 발언에서 중요한 단어인 **엔터티**를 추출해야 할 수도 있습니다. 경우에 따라 의도 충족을 위해 엔터티가 필요합니다. 메모 작성 봇의 예에서 `Notes.Title` 엔터티는 각 메모의 제목을 식별합니다.
 
@@ -60,7 +62,7 @@ LUIS 앱은 취소, 인사말, 도움말 및 없음이라는 4가지 의도로 �
 
 다음 단계에서는 Note.Create, Note.ReadAloud 및 Note.Delete 의도를 추가합니다. 
 
-1. 페이지의 왼쪽 아래에서 **미리 빌드된 도메인**을 클릭합니다. **메모** 도메인을 찾아서 **도메인 추가**를 클릭합니다.
+1. 페이지의 왼쪽 아래에서 **Prebuit Domains**(미리 빌드된 도메인)을 클릭합니다. **메모** 도메인을 찾아서 **도메인 추가**를 클릭합니다.
 
 2. 이 자습서에서는 미리 빌드된 **메모** 도메인에 포함된 의도 중 일부만 사용합니다. **의도** 페이지에서 다음 의도 이름 각각을 클릭한 다음, **의도 삭제** 단추를 클릭합니다.
    * Note.ShowNext

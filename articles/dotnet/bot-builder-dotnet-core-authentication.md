@@ -8,14 +8,16 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/17
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 6df7923caa708ac2b10af37d860dfac317e113a0
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: 431367cf4afe702fd83feff60b0ee4e260d50f17
+ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39301874"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42905765"
 ---
 # <a name="authenticating-activities-using-net-core"></a>.NET Core를 사용하여 활동 인증
+
+[!INCLUDE [pre-release-label](../includes/pre-release-label-v3.md)]
 
 [.NET Core](/dotnet/core/index)를 사용하여 봇을 개발하려는 경우 [Bot Framework Connector](bot-builder-dotnet-connector.md)를 사용하여 봇에서 [활동](https://docs.botframework.com/en-us/csharp/builder/sdkreference/dc/d2f/class_microsoft_1_1_bot_1_1_connector_1_1_activity.html) 메시지를 보내고 받을 수 있습니다. Connector 서비스를 사용하려면 대상으로 지정할 프레임워크 버전에 대해 적절한 인증 모델을 설정해야 합니다.
 

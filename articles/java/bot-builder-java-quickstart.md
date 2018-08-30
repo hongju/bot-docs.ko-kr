@@ -9,12 +9,12 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 05/02/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: ca4714d3b3988fd08021f55a4905d9426996b7eb
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: 3b618bfb7cd1a462390aee4d564778c8ec0a7247
+ms.sourcegitcommit: d486dd088b87a44fc8142f7a08877ff993861a42
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39301907"
+ms.lasthandoff: 08/26/2018
+ms.locfileid: "42928432"
 ---
 # <a name="create-a-bot-with-the-bot-builder-sdk-for-java"></a>Java용 Bot Builder SDK를 사용하여 봇 만들기
 [!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
@@ -165,8 +165,6 @@ Maven을 사용하는 경우 이 리포지토리의 샘플 폴더에서 pom.xml 
 봇에 "Hi"를 보내면 봇은 해당 메시지를 다시 에코합니다.
 
 ## <a name="next-steps"></a>다음 단계
-
-이제 봇과 봇의 작동 방식을 설명하는 개념으로 이동합니다.
 
 > [!div class="nextstepaction"]
 > [기본 봇 개념](../v4sdk/bot-builder-basics.md)

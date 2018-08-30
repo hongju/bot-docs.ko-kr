@@ -8,14 +8,16 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/17
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 3e990da2abcb63c695cc79d5d8d9af40d8966cfa
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: 35aca6f5f50602d0a90c41997eff2e8b1d2cdb4e
+ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39302611"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42905615"
 ---
 # <a name="build-a-real-time-media-bot-for-skype"></a>Skype용 실시간 미디어 봇 빌드
+
+[!INCLUDE [pre-release-label](../includes/pre-release-label-v3.md)]
 
 봇용 실시간 미디어 플랫폼은 봇이 프레임 단위로 음성 및 비디오를 주고받을 수 있게 하는 고급 기능입니다. 봇은 음성, 비디오, 화면 공유 실시간 형식에 대한 "원시" 액세스를 갖습니다. 이 문서에서는 오디오/비디오 호출 봇을 빌드하고 실시간 형식에 액세스하는 개요를 제공합니다.
 

@@ -9,16 +9,16 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 4/23/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 539e9e1cd772495d849ce106ee7d6a157fc1a9c0
-ms.sourcegitcommit: 9a38d76afb0e82fdccc1f36f9b1a65042671e538
+ms.openlocfilehash: 28377a1e611464012df28d3edf78d1cf01351345
+ms.sourcegitcommit: 44f100a588ffda19c275b118f4f97029f12d1449
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/04/2018
-ms.locfileid: "39515083"
+ms.lasthandoff: 08/26/2018
+ms.locfileid: "42928371"
 ---
 # <a name="persist-user-data"></a>사용자 데이터 유지
 
-[!INCLUDE [pre-release-label](~/includes/pre-release-label.md)]
+[!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
 
 봇에서 사용자에게 입력을 요청하는 경우 일부 형태의 저장소에 일부 정보를 유지하려는 경우가 있습니다. Bot Builder SDK를 통해 *메모리 내 저장소*, *파일 저장소* 또는 *CosmosDB* 또는 *SQL*과 같은 데이터베이스 저장소를 사용하여 사용자 입력을 저장할 수 있습니다. 여기서 로컬 저장소 유형은 주로 테스트 및 프로토타입에 사용되고 뒤의 저장소 유형은 프로덕션 봇에 가장 적합합니다.
 
@@ -51,7 +51,7 @@ options.Middleware.Add(new UserState<MyBot.userState>(storage));
 
 Bot Builder SDK는 선택할 수 있는 다양한 범위로 세 가지 상태 개체를 제공합니다.
 
-| 시스템 상태 | 범위 | 설명 |
+| 상태 | 범위 | 설명 |
 | ---- | ---- | ---- |
 | `dc.ActiveDialog.State` | 대화 상자 | 폭포 대화 상자의 단계에 사용할 수 있는 상태입니다. |
 | `ConversationState` | 대화 | 현재 대화에 사용할 수 있는 상태입니다. |
@@ -70,7 +70,7 @@ adapter.use(new BotStateSet(convoState, userState));
 
 `BotStateSet`는 `ConversationState` 및 `UserState` 모두를 동시에 관리할 수 있습니다. 사용자 데이터를 저장할 때 선택할 수 있습니다. Bot Builder SDK는 선택할 수 있는 다양한 범위로 세 가지 상태 개체를 제공합니다.
 
-| 시스템 상태 | 범위 | 설명 |
+| 상태 | 범위 | 설명 |
 | ---- | ---- | ---- |
 | `dc.activeDialog.state` | 대화 상자 | 폭포 대화 상자의 단계에 사용할 수 있는 상태입니다. |
 | `ConversationState` | 대화 | 현재 대화에 사용할 수 있는 상태입니다. |

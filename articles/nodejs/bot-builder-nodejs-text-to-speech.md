@@ -8,14 +8,17 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 04d1f92687668267ca8226257ee83f993b5d09df
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: 58086bfb29846e39a219beb2f7f0e8d977415559
+ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39302786"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42904918"
 ---
 # <a name="add-speech-to-messages"></a>메시지에 음성 추가
+
+[!INCLUDE [pre-release-label](../includes/pre-release-label-v3.md)]
+
 > [!div class="op_single_selector"]
 > - [.NET](../dotnet/bot-builder-dotnet-text-to-speech.md)
 > - [Node.js](../nodejs/bot-builder-nodejs-text-to-speech.md)

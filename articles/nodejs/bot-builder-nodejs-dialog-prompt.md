@@ -8,14 +8,16 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 571851001e565dd54d4254b692c9209729bc5432
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: aa20dc396b68ede3271d12a8deab2e673a79d1d1
+ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39303571"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42904485"
 ---
 # <a name="prompt-for-user-input"></a>사용자 입력을 위한 프롬프트
+
+[!INCLUDE [pre-release-label](../includes/pre-release-label-v3.md)]
 
 Node.js용 Bot Builder SDK는 사용자의 입력을 수집하는 과정을 단순화하는 기본 제공 프롬프트 집합을 제공합니다. 
 

@@ -8,21 +8,24 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: d6c8ad06b9fb198e684deae26e9cbad05a86a611
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: 656b6304a576c553db948a348b1c6d8c3fc5ae71
+ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39304027"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42905667"
 ---
-# <a name="manage-conversation-flow-with-dialogs"></a>dialog를 사용하여 대화 흐름 관리
+# <a name="manage-conversation-flow-with-dialogs"></a>다이얼로그를 사용하여 대화 흐름 관리
+
+[!INCLUDE [pre-release-label](../includes/pre-release-label-v3.md)]
+
 > [!div class="op_single_selector"]
 > - [.NET](../dotnet/bot-builder-dotnet-manage-conversation-flow.md)
 > - [Node.js](../nodejs/bot-builder-nodejs-dialog-manage-conversation-flow.md)
 
 대화 흐름 관리는 봇을 빌드하는 데 필수적인 작업입니다. 봇은 핵심적인 작업을 원활하게 수행하고 중단을 정상적으로 처리할 수 있어야 합니다. Node.js용 Bot Builder SDK를 사용하면 dialog를 사용하여 대화 흐름을 관리할 수 있습니다.
 
-dialog는 프로그램의 함수와 같습니다. 대개 특정 작업을 수행하도록 설계되며 필요한 만큼 호출할 수 있습니다. 여러 개의 dialog를 함께 연결하여 봇이 처리할 대화 흐름을 처리할 수 있습니다. Node.js용 Bot Builder SDK에는 대화 흐름을 관리하는 데 도움이 되는 [prompt](bot-builder-nodejs-dialog-prompt.md) 및 [waterfall](bot-builder-nodejs-dialog-waterfall.md)과 같은 기본 제공 기능이 포함됩니다.
+dialog는 프로그램의 함수와 같습니다. 대개 특정 작업을 수행하도록 디자인되며 필요한 만큼 호출할 수 있습니다. 여러 개의 dialog를 함께 연결하여 봇이 처리할 대화 흐름을 처리할 수 있습니다. Node.js용 Bot Builder SDK에는 대화 흐름을 관리하는 데 도움이 되는 [prompt](bot-builder-nodejs-dialog-prompt.md) 및 [waterfall](bot-builder-nodejs-dialog-waterfall.md)과 같은 기본 제공 기능이 포함됩니다.
 
 이 문서에서는 간단한 대화 흐름과 복잡한 대화 흐름을 관리하는 방법을 설명하는 일련의 예제를 제공합니다. 여기서 봇은 dialog를 사용하여 중단을 처리하고 정상적으로 흐름을 재개할 수 있습니다. 예제는 다음 시나리오를 기반으로 합니다. 
 

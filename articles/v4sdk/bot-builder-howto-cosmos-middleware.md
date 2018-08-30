@@ -9,14 +9,16 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 03/21/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 29edff2db0e513a37b8ca8ac0f97e0647282567d
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: 3f36b00a91644859445676676374f7d321087800
+ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39302171"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42906104"
 ---
 # <a name="create-middleware-that-logs-in-cosmos-db"></a>Cosmos DB에 기록하는 미들웨어 만들기
+
+[!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
 
 SDK에는 유용한 미들웨어가 제공되지만, 원하는 목표를 달성하기 위해 사용자 고유의 미들웨어를 구현해야 하는 경우가 있습니다.
 

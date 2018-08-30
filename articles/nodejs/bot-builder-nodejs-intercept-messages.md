@@ -8,14 +8,17 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 9160e81f9086f88f808b41e8eb01745776e0fc9f
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: f7470fa3b3702b9231bc03566aa85b23ee883a05
+ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39302258"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42904216"
 ---
 # <a name="intercept-messages"></a>메시지 가로채기
+
+[!INCLUDE [pre-release-label](../includes/pre-release-label-v3.md)]
+
 > [!div class="op_single_selector"]
 > - [.NET](../dotnet/bot-builder-dotnet-middleware.md)
 > - [Node.js](../nodejs/bot-builder-nodejs-intercept-messages.md)
