@@ -2,7 +2,7 @@
 
 일부 채널은 [메시지 텍스트 및 첨부 파일](../dotnet/bot-builder-dotnet-create-messages.md)만을 사용하여 구현될 수 없는 기능을 제공합니다. 채널 관련 기능을 구현하려면 `Activity` 개체의 `ChannelData` 속성에서 채널에 네이티브 메타데이터를 전달할 수 있습니다. 예를 들어 봇은 `ChannelData` 속성을 사용하여 Telegram에 스티커를 보내도록 지시하거나 Office365에 이메일을 보내도록 지시할 수 있습니다.
 
-이 문서에서는 메시지 작업의 `ChannelData` 속성을 사용하여 이 채널 관련 기능을 구현하는 방법을 설명합니다.
+이 문서에서는 메시지 작업의 `ChannelData` 속성을 사용하여 다음과 같은 채널 관련 기능을 구현하는 방법을 설명합니다.
 
 | 채널 | 기능 |
 |----|----|
@@ -45,7 +45,7 @@
 > [!NOTE]
 > Slack 메시지에서 단추를 지원하려면 Slack 채널에 [봇을 연결](../bot-service-manage-channels.md)할 때 **대화형 메시지**를 활성화해야 합니다.
 
-이 코드 조각은 사용자 지정 Slack 메시지에 대한 `channelData` 속성의 예제를 보여줍니다.
+이 코드 조각은 사용자 지정 Slack 메시지에 대한 `channelData` 속성의 예제를 보여 줍니다.
 
 ```json
 "channelData": {
@@ -120,8 +120,125 @@
 }
 ```
 
-봇은 [일반적인 방식](../dotnet/bot-builder-dotnet-connector.md#create-reply)으로 이 메시지에 응답하거나 `payload` 개체의 `response_url` 속성으로 지정된 엔드포인트에 해당 응답을 직접 게시할 수 있습니다.
+봇은 [일반적인 방식](../dotnet/bot-builder-dotnet-connector.md#create-reply)으로 이 메시지에 응답하거나 `payload` 개체의 `response_url` 속성으로 지정된 끝점에 해당 응답을 직접 게시할 수 있습니다.
 `response_url`에 응답을 게시하는 시기 및 방법에 대한 정보는 <a href="https://api.slack.com/docs/message-buttons" target="_blank">Slack 단추</a>를 참조하세요. 
+
+다음 코드를 사용하여 동적 단추를 만들 수 있습니다.
+```cs
+private async Task DemoButtonsAsync(IDialogContext context)
+        {
+            var reply = context.MakeMessage();
+
+            string s = @"{
+                ""text"": ""Would you like to play a game ? "",
+                ""attachments"": [
+                    {
+                        ""text"": ""Choose a game to play!"",
+                        ""fallback"": ""You are unable to choose a game"",
+                        ""callback_id"": ""wopr_game"",
+                        ""color"": ""#3AA3E3"",
+                        ""attachment_type"": ""default"",
+                        ""actions"": [
+                            {
+                                ""name"": ""game"",
+                                ""text"": ""Chess"",
+                                ""type"": ""button"",
+                                ""value"": ""chess""
+                            },
+                            {
+                                ""name"": ""game"",
+                                ""text"": ""Falken's Maze"",
+                                ""type"": ""button"",
+                                ""value"": ""maze""
+                            },
+                            {
+                                ""name"": ""game"",
+                                ""text"": ""Thermonuclear War"",
+                                ""style"": ""danger"",
+                                ""type"": ""button"",
+                                ""value"": ""war"",
+                                ""confirm"": {
+                                    ""title"": ""Are you sure?"",
+                                    ""text"": ""Wouldn't you prefer a good game of chess?"",
+                                    ""ok_text"": ""Yes"",
+                                    ""dismiss_text"": ""No""
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }";
+
+            reply.Text = null;
+            reply.ChannelData = JObject.Parse(s);
+            await context.PostAsync(reply);
+            context.Wait(MessageReceivedAsync);
+        }
+```
+
+대화형 메뉴를 만들려면 다음 코드를 사용합니다.
+```cs
+private async Task DemoMenuAsync(IDialogContext context)
+        {
+            var reply = context.MakeMessage();
+
+            string s = @"{
+                ""text"": ""Would you like to play a game ? "",
+                ""response_type"": ""in_channel"",
+                ""attachments"": [
+                    {
+                        ""text"": ""Choose a game to play"",
+                        ""fallback"": ""If you could read this message, you'd be choosing something fun to do right now."",
+                        ""color"": ""#3AA3E3"",
+                        ""attachment_type"": ""default"",
+                        ""callback_id"": ""game_selection"",
+                        ""actions"": [
+                            {
+                                ""name"": ""games_list"",
+                                ""text"": ""Pick a game..."",
+                                ""type"": ""select"",
+                                ""options"": [
+                                    {
+                                        ""text"": ""Hearts"",
+                                        ""value"": ""menu_id_hearts""
+                                    },
+                                    {
+                                        ""text"": ""Bridge"",
+                                        ""value"": ""menu_id_bridge""
+                                    },
+                                    {
+                                        ""text"": ""Checkers"",
+                                        ""value"": ""menu_id_checkers""
+                                    },
+                                    {
+                                        ""text"": ""Chess"",
+                                        ""value"": ""menu_id_chess""
+                                    },
+                                    {
+                                        ""text"": ""Poker"",
+                                        ""value"": ""menu_id_poker""
+                                    },
+                                    {
+                                        ""text"": ""Falken's Maze"",
+                                        ""value"": ""menu_id_maze""
+                                    },
+                                    {
+                                        ""text"": ""Global Thermonuclear War"",
+                                        ""value"": ""menu_id_war""
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }";
+
+            reply.Text = null;
+            reply.ChannelData = JObject.Parse(s);
+            await context.PostAsync(reply);
+            context.Wait(MessageReceivedAsync);
+        }
+```
 
 ## <a name="create-a-facebook-notification"></a>Facebook 알림 만들기
 
@@ -135,7 +252,7 @@ Facebook 알림을 만들려면 `Activity` 개체의 `ChannelData` 속성을 이
 > [!NOTE]
 > `notification_type` 속성 및 `attachment` 속성의 형식 및 콘텐츠에 대한 자세한 내용은 <a href="https://developers.facebook.com/docs/messenger-platform/send-api-reference#guidelines" target="_blank">Facebook API 설명서</a>를 참조하세요. 
 
-이 코드 조각은 Facebook 영수증 첨부 파일에 대한 `channelData` 속성의 예제를 보여줍니다.
+이 코드 조각은 Facebook 영수증 첨부 파일에 대한 `channelData` 속성의 예제를 보여 줍니다.
 
 ```json
 "channelData": {
@@ -159,7 +276,7 @@ Facebook 알림을 만들려면 `Activity` 개체의 `ChannelData` 속성을 이
 | 메서드 | 호출할 Telegram Bot API 메서드입니다. |
 | 매개 변수 | 지정된 메서드의 매개 변수입니다. |
 
-이러한 Telegram 메서드가 지원됩니다. 
+다음과 같은 Telegram 메서드가 지원됩니다. 
 
 - answerInlineQuery
 - editMessageCaption
@@ -187,7 +304,7 @@ Facebook 알림을 만들려면 `Activity` 개체의 `ChannelData` 속성을 이
 > <li>파일 콘텐츠 인라인을 전달하는 대신 아래 예제에서와 같이 URL 및 미디어 형식을 사용하여 파일을 지정합니다.</li>
 > <li>봇이 Telegram 채널에서 받는 각 메시지 내에서 <code>ChannelData</code> 속성은 봇이 이전에 전송한 메시지를 포함합니다.</li></ul>
 
-이 코드 조각은 단일 Telegram 메서드를 지정하는 `channelData` 속성의 예제를 보여줍니다.
+이 코드 조각은 단일 Telegram 메서드를 지정하는 `channelData` 속성의 예제를 보여 줍니다.
 
 ```json
 "channelData": {
@@ -232,7 +349,7 @@ Facebook 알림을 만들려면 `Activity` 개체의 `ChannelData` 속성을 이
 |----|----|
 | 메시지의 최대 전달 수 | Kik 메시지의 배열입니다. Kik 메시지 형식에 대한 자세한 내용은 <a href="https://dev.kik.com/#/docs/messaging#message-formats" target="_blank">Kik 메시지 형식</a>을 참조하세요. |
 
-이 코드 조각은 네이티브 Kik 메시지에 대한 `channelData` 속성의 예제를 보여줍니다.
+이 코드 조각은 네이티브 Kik 메시지에 대한 `channelData` 속성의 예제를 보여 줍니다.
 
 ```json
 "channelData": {
@@ -262,4 +379,4 @@ Facebook 알림을 만들려면 `Activity` 개체의 `ChannelData` 속성을 이
 
 - [작업 개요](../dotnet/bot-builder-dotnet-activities.md)
 - [메시지 만들기](../dotnet/bot-builder-dotnet-create-messages.md)
-- <a href="https://docs.botframework.com/en-us/csharp/builder/sdkreference/dc/d2f/class_microsoft_1_1_bot_1_1_connector_1_1_activity.html" target="_blank">작업 클래스</a>
+- <a href="https://docs.botframework.com/en-us/csharp/builder/sdkreference/dc/d2f/class_microsoft_1_1_bot_1_1_connector_1_1_activity.html" target="_blank">활동 클래스</a>

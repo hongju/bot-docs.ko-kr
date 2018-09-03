@@ -9,12 +9,12 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 04/11/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 679109cad2f7b0c0c5826a47884b98e1149cb380
-ms.sourcegitcommit: f95702d27abbd242c902eeb218d55a72df56ce56
+ms.openlocfilehash: 32486cb024dfe852a7478ccba4a0eedc476431b0
+ms.sourcegitcommit: ee63d9dc1944a6843368bdabf5878950229f61d0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39304635"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42795032"
 ---
 # <a name="conversation-flow"></a>대화 흐름
 [!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
@@ -52,7 +52,7 @@ The EchoBot sample in the BotBuilder SDK is a single-turn bot. Here are other ex
 
 ![단일 턴(single-turn) 날씨 봇](./media/concept-conversation/weather-single-turn.png)
 
-날씨 봇은 단일 턴(single-turn) 흐름을 가지며 도시 또는 날짜에 대해 질문을 주고받지 않고 사용자에게 날씨 보고서를 제공합니다. 날씨 보고서를 표시하기 위한 모든 논리는 봇이 받은 메시지를 기반으로 합니다. 대화의 각 턴에서 봇은 다음에 수행할 작업 및 대화 흐름 방식을 결정하는 데 사용할 수 있는 턴 컨텍스트를 받습니다. 
+날씨 봇은 단일 턴(single-turn) 흐름을 가지며 도시 또는 날짜에 대해 질문을 주고받지 않고 사용자에게 날씨 보고서를 제공합니다. 날씨 보고서를 표시하기 위한 모든 논리는 봇이 받은 메시지를 기반으로 합니다. 대화의 각 턴에서 봇은 다음에 수행할 작업 및 대화 흐름 방식을 결정하는 데 사용할 수 있는 [턴 컨텍스트](bot-builder-concept-activity-processing.md#turn-context)를 받습니다. 
 
 ## <a name="multiple-turns"></a>다중 턴
 
@@ -84,7 +84,7 @@ The EchoBot sample in the BotBuilder SDK is a single-turn bot. Here are other ex
 
 ### <a name="recognize-intent"></a>의도 인식
 
-Bot Builder SDK는 각 들어오는 메시지를 처리하여 의도를 확인하는 _인식기_를 제공하므로 봇은 적절한 대화형 흐름을 시작할 수 있습니다. _콜백을 수신_하기 전에 인식기는 사용자의 메시지 콘텐츠를 확인하여 의도를 확인한 다음, 턴 컨텍스트 개체에 **상위 의도**로 저장된 수신 콜백 내에서 턴 컨텍스트 개체를 사용하여 봇에 의도를 반환합니다. 
+Bot Builder SDK는 각 들어오는 메시지를 처리하여 의도를 확인하는 _인식기_를 제공하므로 봇은 적절한 대화형 흐름을 시작할 수 있습니다. _콜백을 수신_하기 전에 인식기는 사용자의 메시지 콘텐츠를 확인하여 의도를 확인한 다음, [턴 컨텍스트](bot-builder-concept-activity-processing.md#turn-context) 개체에 **상위 의도**로 저장된 수신 콜백 내에서 턴 컨텍스트 개체를 사용하여 봇에 의도를 반환합니다. 
 
 **상위 의도**를 확인하는 인식기는 미들웨어로 개발하는 정규식, LUIS(Language Understanding) 또는 다른 논리를 간단히 사용할 수 있습니다. 다음은 인식기의 예제일 수 있습니다.
    

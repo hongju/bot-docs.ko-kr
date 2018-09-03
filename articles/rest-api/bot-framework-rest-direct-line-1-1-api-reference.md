@@ -7,12 +7,12 @@ manager: kamrani
 ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/2017
-ms.openlocfilehash: 2f688b9c80e762b93c2eba8f4671ff1760f624f9
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: 3569e3bfbb3be51cf9023b4686ed4693e90ed50c
+ms.sourcegitcommit: ee63d9dc1944a6843368bdabf5878950229f61d0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39303594"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42795182"
 ---
 # <a name="api-reference---direct-line-api-11"></a>API 참조 - 직접 회선 API 1.1
 
@@ -55,7 +55,8 @@ Authorization: BotConnector SECRET_OR_TOKEN
 | 401 | 클라이언트에는 요청할 수 있는 권한이 없습니다. `Authorization` 헤더가 누락되거나 형식이 잘못되어 이 상태 코드가 종종 발생합니다. |
 | 403 | 클라이언트는 요청한 작업을 수행하는 데 허용되지 않습니다. `Authorization` 헤더에 잘못된 토큰 또는 비밀이 지정되어 이 상태 코드가 종종 발생합니다. |
 | 404 | 요청된 리소스를 찾을 수 없습니다. 일반적으로 이 상태 코드는 잘못된 요청 URI를 나타냅니다. |
-| 500 | 직접 회선 서비스 내에서 내부 서버 오류가 발생했거나 봇 내에서 오류가 발생했습니다. 봇에 메시지를 게시할 때 500 오류가 표시되면 봇의 실패로 인해 오류가 트리거되었을 수 있습니다. **이는 일반적인 오류 코드입니다.** |
+| 500 | 직접 회선 서비스 내에서 내부 서버 오류가 발생했습니다. |
+| 502 | 봇 내에서 오류가 발생하여 봇을 사용할 수 없거나 오류가 반환되었습니다.  **이는 일반적인 오류 코드입니다.** |
 
 ## <a name="token-operations"></a>토큰 작업 
 이러한 작업을 사용하여 클라이언트가 단일 대화에 액세스하는 데 사용할 수 있는 토큰을 만들거나 새로 고칩니다.
@@ -153,14 +154,14 @@ POST /api/conversations/{conversationId}/upload?userId={userId}
 
 클라이언트가 봇에 보내거나 봇에서 받는 메시지를 정의합니다.
 
-| 속성 | type | 설명 |
+| 자산 | type | 설명 |
 |----|----|----|
 | **id** | string | 메시지를 고유하게 식별하는 ID입니다(직접 회선에서 할당됨). | 
 | **conversationId** | string | 대화를 식별하는 ID입니다.  | 
 | **created** | string | <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO-8601</a> 형식으로 표시된, 메시지가 생성된 날짜 및 시간입니다. | 
 | **from** | string | 메시지를 보낸 사람인 사용자를 식별하는 ID입니다. 메시지를 만들 때 클라이언트는 이 속성을 안정적인 사용자 ID로 설정해야 합니다. 아무것도 제공되지 않은 경우 직접 회선은 사용자 ID를 할당하지만 일반적으로 이로 인해 예기치 않은 동작이 발생합니다. | 
-| **text** | string | 사용자가 봇으로 또는 봇이 사용자에게 보내는 메시지의 텍스트입니다. | 
-| **channelData** | object | 채널 관련 콘텐츠를 포함하는 개체입니다. 일부 채널은 첨부 파일 스키마를 사용하여 나타낼 수 없는 추가 정보를 요구하는 기능을 제공합니다. 이러한 경우에는 채널 설명서에 정의된 대로 이 속성을 채널 관련 콘텐츠로 설정합니다. 이 데이터는 클라이언트와 봇 간에 수정되지 않은 상태로 전송됩니다. 이 속성은 복합 개체로 설정하거나 비워 두어야 합니다. 문자열, 숫자 또는 기타 단순 형식으로 설정하지 마세요. | 
+| **text** | string | 사용자가 봇으로 보내거나 봇에서 사용자로 보내는 메시지의 텍스트입니다. | 
+| **channelData** | object | 채널 관련 콘텐츠가 포함된 개체입니다. 일부 채널에서는 첨부 파일 스키마를 사용하여 표현할 수 없는 추가 정보가 필요한 기능을 제공합니다. 이러한 경우에는 채널 설명서에 정의된 대로 이 속성을 채널 관련 콘텐츠로 설정합니다. 이 데이터는 클라이언트와 봇 간에 수정되지 않은 상태로 전송됩니다. 이 속성은 복합 개체로 설정하거나 비워 두어야 합니다. 문자열, 숫자 또는 기타 단순 형식으로 설정하지 마세요. | 
 | **images** | string[] | 메시지에 포함된 이미지의 URL을 포함하는 문자열 배열입니다. 경우에 따라 이 배열의 문자열은 상대 URL일 수 있습니다. 이 배열의 문자열이 “http” 또는 “https”로 시작되지 않으면 `https://directline.botframework.com`을 문자열에 추가하여 완전한 URL을 구성합니다. | 
 | **attachments** | [Attachment](#attachment-object)[] | 메시지에 포함된 이미지가 아닌 첨부 파일을 나타내는 **Attachment** 개체의 배열입니다. 배열의 각 개체에는 `url` 속성과 `contentType` 속성이 포함됩니다. 클라이언트가 봇에서 받는 메시지에서 `url` 속성에 상대 URL이 지정되는 경우가 있을 수 있습니다. “http” 또는 “https”로 시작되지 않는 `url` 속성 값의 경우, `https://directline.botframework.com`을 문자열에 추가하여 완전한 URL을 구성합니다. | 
 
@@ -195,7 +196,7 @@ POST /api/conversations/{conversationId}/upload?userId={userId}
 ### <a name="messageset-object"></a>MessageSet 개체 
 메시지 집합을 정의합니다.<br/><br/>
 
-| 속성 | type | 설명 |
+| 자산 | type | 설명 |
 |----|----|----|
 | **messages** | [Message](#message-object)[] | **Message** 개체의 배열입니다. |
 | **watermark** | string | 집합 내 메시지의 최대 워터마크입니다. 클라이언트는 `watermark` 값을 사용하여 [봇에서 메시지를 검색](bot-framework-rest-direct-line-1-1-receive-messages.md)할 때 확인한 가장 최근 메시지를 나타냅니다. |
@@ -203,24 +204,24 @@ POST /api/conversations/{conversationId}/upload?userId={userId}
 ### <a name="attachment-object"></a>Attachment 개체
 이미지가 아닌 첨부 파일을 정의합니다.<br/><br/> 
 
-| 속성 | type | 설명 |
+| 자산 | type | 설명 |
 |----|----|----|
-| **contentType** | string | 첨부 파일에 있는 콘텐츠의 미디어 형식입니다. |
-| **url** | string | 첨부 파일의 콘텐츠 URL입니다. |
+| **contentType** | string | 첨부 파일에 있는 콘텐츠의 미디어 유형입니다. |
+| **url** | string | 첨부 파일의 콘텐츠에 대한 URL입니다. |
 
 ### <a name="conversation-object"></a>Conversation 개체
 직접 회선 대화를 정의합니다.<br/><br/>
 
-| 속성 | type | 설명 |
+| 자산 | type | 설명 |
 |----|----|----|
 | **conversationId** | string | 지정된 토큰이 유효한 대화를 고유하게 식별하는 ID입니다. |
-| **token** | string | 지정된 대화에 유효한 토큰입니다. |
+| **토큰** | string | 지정된 대화에 유효한 토큰입니다. |
 | **expires_in** | number | 토큰이 만료되기 전 시간(초)입니다. |
 
 ### <a name="error-object"></a>Error 개체
 오류를 정의합니다.<br/><br/> 
 
-| 속성 | type | 설명 |
+| 자산 | type | 설명 |
 |----|----|----|
 | **code** | string | 오류 코드 다음 값 중 하나: **MissingProperty**, **MalformedData**, **NotFound**, **ServiceError**, **Internal**, **InvalidRange**, **NotSupported**, **NotAllowed**, **BadCertificate**. |
 | **message** | string | 오류에 대한 설명입니다. |
@@ -230,7 +231,7 @@ POST /api/conversations/{conversationId}/upload?userId={userId}
 표준화된 메시지 오류 페이로드입니다.<br/><br/> 
 
 
-|        속성        |          type          |                                 설명                                 |
+|        자산        |          type          |                                 설명                                 |
 |------------------------|------------------------|-----------------------------------------------------------------------------|
 | <strong>error</strong> | [오류](#error-object) | 오류에 대한 정보를 포함하는 <strong>Error</strong> 개체입니다. |
 

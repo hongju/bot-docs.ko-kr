@@ -1,5 +1,5 @@
 ---
-title: dialog 컨테이너를 사용하여 모듈식 봇 논리 만들기 | Microsoft Docs
+title: 대화 상자의 통합된 집합 만들기 | Microsoft Docs
 description: Node.js 및 C#용 Bot Builder SDK에서 dialog 컨테이너를 사용하여 봇 논리를 모듈화하는 방법을 알아봅니다.
 keywords: 복합 컨트롤, 모듈식 봇 논리
 author: v-ducvo
@@ -9,14 +9,14 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 4/27/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 2441a32167618ebb08e6a43d68d74076c3351d8f
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: 93037d70a33d66269f3a79ce7e2a55900d25a6a9
+ms.sourcegitcommit: ee63d9dc1944a6843368bdabf5878950229f61d0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39303922"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42795202"
 ---
-# <a name="create-modular-bot-logic-with-a-dialog-container"></a>dialog 컨테이너를 사용하여 모듈식 봇 논리 만들기
+# <a name="create-an-integrated-set-of-dialogs"></a>대화 상자의 통합된 집합 만들기
 
 [!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
 
@@ -74,7 +74,7 @@ public class UserInfo
 ```
 
 봇 턴(turn) 내에서 dialog 집합의 `CreateContext` 메서드는 dialog 상태를 설정합니다.
-메서드는 턴(turn) 컨텍스트와 상태 개체를 매개 변수로 사용합니다.
+메서드는 [턴(turn) 컨텍스트](bot-builder-concept-activity-processing.md#turn-context)와 상태 개체를 매개 변수로 사용합니다.
 
 dialog에 대해 이 상태 개체는 `IDictionary<string, object>` 인터페이스를 구현해야 합니다. 봇은 대화 상태만을 사용하여 dialog 상태를 포함하기 때문에 대화 상태 클래스는 간단한 사전이 될 수 있습니다.
 
@@ -104,7 +104,7 @@ public class ConversationInfo : Dictionary<string, object> { }
 1. 투숙하려는 객실을 질문합니다.
 1. 확인 메시지를 보내고 dialog를 완료합니다.
 
-dialog와 waterfall에 대한 자세한 내용은 [dialog를 사용하여 대화 흐름 관리](bot-builder-dialog-manage-conversation-flow.md)를 참조하세요.
+대화 상자와 폭포에 대한 자세한 내용은 [대화 상자를 사용하여 간단한 대화 흐름 관리](bot-builder-dialog-manage-conversation-flow.md)를 참조하세요.
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 

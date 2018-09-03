@@ -1,5 +1,5 @@
 ---
-title: Bot Service의 원본 코드 다운로드 및 재배포 | Microsoft Docs
+title: 봇 소스 코드 다운로드 및 재배포 | Microsoft Docs
 description: Bot Service를 다운로드하고 게시하는 방법을 알아봅니다.
 keywords: 원본 코드 다운로드, 재배포, 배포, zip 파일, 게시
 author: v-ducvo
@@ -8,14 +8,14 @@ manager: kamrani
 ms.topic: article
 ms.prod: bot-framework
 ms.date: 03/08/2018
-ms.openlocfilehash: 6d76388712ffeff94c56ba89b4bf4f4831caf45c
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: b77e096d28f51f605db9c49d36e796553f9293ef
+ms.sourcegitcommit: 1abc32353c20acd103e0383121db21b705e5eec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39303322"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42756713"
 ---
-# <a name="download-and-redeploy-bot-service-source-code"></a>Bot Service 원본 코드 다운로드 및 재배포
+# <a name="download-and-redeploy-bot-source-code"></a>봇 소스 코드 다운로드 및 재배포
 
 Bot Service를 사용하면 봇에 대한 전체 원본 프로젝트를 다운로드할 수 있습니다. 이를 통해 선택한 IDE를 사용하여 로컬에서 봇 관련 작업을 할 수 있습니다. 변경을 완료하면 변경 내용을 다시 Azure에 게시할 수 있습니다. 
 

@@ -7,12 +7,12 @@ manager: kamrani
 ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/2017
-ms.openlocfilehash: 8f50c54c0841db5778c7966e30ec33f89938b376
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: 6aae4e9f6cb6a4e892b8036eafb9489dfaedbb36
+ms.sourcegitcommit: ee63d9dc1944a6843368bdabf5878950229f61d0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39301803"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42795099"
 ---
 # <a name="embed-a-bot-in-a-website"></a>웹 사이트에 봇 포함
 
@@ -51,7 +51,7 @@ Skype 웹 컨트롤은 단순히 Skype용 프런트 엔드의 역할을 하므�
 ## <a name="additional-resources"></a>추가 리소스
 
 - [직접 회선 API][directLineAPI]
-- [TODO](~/dotnet/bot-builder-dotnet-activities.md)
+- [오픈 소스 웹 채팅 컨트롤](https://github.com/Microsoft/BotFramework-WebChat)
 - [백채널 메커니즘 사용](~/nodejs/bot-builder-nodejs-backchannel.md)
 
 [directLineAPI]: https://docs.botframework.com/en-us/restapi/directline3/#navtitle

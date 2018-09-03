@@ -1,5 +1,5 @@
 ---
-title: Cognitive Services를 통해 봇에 인텔리전스 추가 | Microsoft Docs
+title: Cognitive Services | Microsoft Docs
 description: Microsoft Cognitive Services를 통해 봇에 인공 지능을 추가하여 더 유용하고 매력적으로 만드는 방법에 대해 알아봅니다.
 keywords: 언어 이해, 정보 추출, 음성 인식, 웹 검색
 author: RobStand
@@ -8,14 +8,14 @@ manager: rstand
 ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/17/2017
-ms.openlocfilehash: 168e538720423721a21b720b811d559d8c811adb
-ms.sourcegitcommit: 67445b42796d90661afc643c6bb6533e9a662cbc
+ms.openlocfilehash: 85b3c86582ce1d653159e0d36516b4a90f5a3220
+ms.sourcegitcommit: 1abc32353c20acd103e0383121db21b705e5eec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39574579"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42756619"
 ---
-# <a name="add-intelligence-to-bots-with-cognitive-services"></a>Cognitive Services를 통해 봇에 인텔리전스 추가
+# <a name="cognitive-services"></a>Cognitive Services
 
 Microsoft Cognitive Services를 사용하면 컴퓨터 비전, 음성, 자연어 처리, 정보 추출 및 웹 검색 분야의 전문가에 의해 개발된, 성장하고 있는 강력한 AI 알고리즘을 활용할 수 있습니다. 서비스는 다양한 AI 기반 작업을 간소화함으로써 최신 인텔리전스 기술을 단 몇 줄의 코드만으로 봇에 추가하는 빠른 방법을 제공합니다. API는 최신 언어 및 플랫폼에 통합됩니다. 또한 API는 지속적으로 개선되고, 학습하며, 영리해지므로 환경을 항상 최신 상태로 유지합니다. 
 

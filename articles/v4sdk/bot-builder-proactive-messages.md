@@ -1,5 +1,5 @@
 ---
-title: 자동 관리 메시지 | Microsoft Docs
+title: 사전 대응 메시지 | Microsoft Docs
 description: 메시지를 자동으로 관리하는 방법을 이해합니다.
 keywords: 사용자 환경, 대화 시작
 author: ivorb
@@ -9,14 +9,14 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 03/21/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 47f3dd9405a36260a01b28bcc389355d6726ae11
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: f311f70e9bfb72db780546b5e289f09d803589dc
+ms.sourcegitcommit: 1abc32353c20acd103e0383121db21b705e5eec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39301915"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42756712"
 ---
-# <a name="proactive-messaging"></a>자동 관리 메시지
+# <a name="proactive-messages"></a>사전 대응 메시지
 [!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
 <!--
 When you think about the exchange of messages between your bot and the user, you're probably thinking about the scenario where the user sends a message to your bot and your bot then replies to the user with a message of its own. We call this _reactive messaging_ and it's by far the most common flow that you should optimize your bot's code for.

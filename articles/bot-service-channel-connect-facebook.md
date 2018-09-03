@@ -7,21 +7,19 @@ ms.author: RobStand
 manager: kamrani
 ms.topic: article
 ms.prod: bot-framework
-ms.date: 12/13/2017
-ms.openlocfilehash: 0a9ad7d51234b417d5d0f27dbcffe4ce839ba94a
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.date: 08/16/2018
+ms.openlocfilehash: 7fbff06966ac64260244e8af375aaa6f8f945fcd
+ms.sourcegitcommit: e8c513d3af5f0c514cadcbcd0a737a7393405afa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39301205"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42756760"
 ---
 # <a name="connect-a-bot-to-facebook-messenger"></a>Facebook Messenger에 봇 연결
 
 Facebook Messenger 개발에 대한 자세한 내용은 [Messenger 플랫폼 설명서](https://developers.facebook.com/docs/messenger-platform)를 참조하세요. Facebook의 [사전 실행 지침](https://developers.facebook.com/docs/messenger-platform/product-overview/launch#app_public), [빠른 시작](https://developers.facebook.com/docs/messenger-platform/guides/quick-start) 및 [설치 가이드](https://developers.facebook.com/docs/messenger-platform/guides/setup)를 검토할 수 있습니다.
 
 Facebook Messenger를 사용하여 통신하도록 봇을 구성하려면 Facebook 페이지에서 Facebook Messenger를 사용하도록 설정하고 앱에 봇을 연결합니다.
-
-[!INCLUDE [Channel Inspector intro](~/includes/snippet-channel-inspector.md)]
 
 > [!NOTE]
 > Facebook UI는 사용 중인 버전에 따라 약간 다를 수 있습니다.
@@ -72,7 +70,7 @@ Facebook Messenger를 사용하여 통신하도록 봇을 구성하려면 Facebo
 
 ## <a name="provide-webhook-callback-url-and-verify-token"></a>웹후크 콜백 URL 제공 및 토큰 확인
 
-[Bot Framework 포털](https://dev.botframework.com/)로 돌아갑니다. 봇을 열고 **채널** 탭을 클릭한 후 **Facebook Messenger**를 클릭합니다.
+[Azure Portal](https://portal.azure.com/)에서 봇을 열고 **채널** 탭을 클릭한 다음, **Facebook Messenger**를 클릭합니다.
 
 * 포털에서 **콜백 URL** 및 **토큰 확인** 값을 복사합니다.
 
@@ -93,7 +91,7 @@ Facebook Messenger를 사용하여 통신하도록 봇을 구성하려면 Facebo
 
 ## <a name="provide-facebook-credentials"></a>Facebook 자격 증명 제공
 
-Bot Framework 포털에서 이전에 Facebook Messenger에서 복사한 **페이지 ID**, **앱 ID**, **앱 암호** 및 **페이지 액세스 토큰** 값을 붙여넣습니다.
+Azure Portal에서 이전에 Facebook Messenger에서 복사한 **Facebook 앱 ID**, **Facebook 앱 비밀**, **페이지 ID** 및 **페이지 액세스 토큰** 값을 붙여넣습니다. 페이지 ID 및 액세스 토큰을 추가하여 동일한 봇을 여러 Facebook 페이지에서 사용할 수 있습니다.
 
 ![자격 증명 입력](~/media/channels/fb-credentials2.png)
 
@@ -110,3 +108,6 @@ Facebook의 기본 앱 설정 페이지에서 개인 정보 취급 방침 URL �
 
 검토가 성공적으로 완료되면 앱 검토(App Review) 아래의 App Dashboard(앱 대시보드)에서 앱을 Public(공개)으로 설정합니다.
 이 봇과 연결된 Facebook 페이지가 게시되는지 확인합니다. 페이지 설정에 상태가 표시됩니다.
+
+> [!NOTE]
+> Facebook Workplace를 사용할 수도 있습니다. 이를 사용하려면 Workplace에 [사용자 지정 통합](https://developers.facebook.com/docs/workplace/custom-integrations-new)을 만들고 해당 앱 ID, 앱 비밀 및 액세스 토큰을 사용합니다. 기존의 pageID 대신 정보 페이지에서 통합 이름 다음에 오는 번호를 사용합니다. 웹후크는 Azure에 표시된 자격 증명과 연결할 수 있습니다.
