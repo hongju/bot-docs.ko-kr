@@ -6,13 +6,13 @@ ms.author: v-demak
 manager: kamrani
 ms.topic: article
 ms.prod: bot-framework
-ms.date: 05/03/2018
-ms.openlocfilehash: e59f9b10686b10ae821b8c4bf259a1fc301ac702
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.date: 08/28/2018
+ms.openlocfilehash: 63aa65e2591d9f98d763863d8d4d56cd0df185ea
+ms.sourcegitcommit: f667ce3f1635ebb2cb19827016210a88c8e45d58
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39301225"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43142429"
 ---
 # <a name="bot-framework-frequently-asked-questions"></a>Bot Framework 질문과 대답
 
@@ -50,20 +50,34 @@ Bot Framework는 Skype 및 기타 다양한 채널을 위한 응답성과 성능
 
 I/O 서비스를 제공하기 위해 Bot Framework는 사용자가 사용한 채팅 서비스에서 봇으로 메시지 및 메시지 콘텐츠(사용자 ID 포함)를 전송합니다.
 
+### <a name="can-i-host-my-bot-on-my-own-servers"></a>내 서버에서 내 봇을 호스트할 수 있나요?
+예. 봇은 인터넷상의 어느 곳에서나 호스팅할 수 있습니다. 자체 서버, Azure 또는 다른 데이터 센터에서 호스팅할 수 있습니다. 유일한 요구 사항은 봇이 공개적으로 액세스 가능한 HTTPS 엔드포인트를 공개해야 한다는 것입니다.
+
 ### <a name="how-do-you-ban-or-remove-bots-from-the-service"></a>서비스에서 봇을 금지하거나 제거하려면 어떻게 하나요?
 
 사용자는 디렉터리에 있는 봇의 연락처 카드를 통해 오작동하는 봇을 보고할 수 있습니다. 개발자는 서비스에 참여하려면 Microsoft 서비스 약관을 준수해야 합니다.
 
-### <a name="which-specific-urls-do-i-need-to-whitelist-in-my-corporate-firewall-to-access-bot-services"></a>Bot Service에 액세스하기 위해 회사 방화벽에서 허용 목록에 포함해야 하는 특정 URL이 있나요?
-
-회사 방화벽에서 다음 URL을 허용 목록에 추가해야 합니다.
+### <a name="which-specific-urls-do-i-need-to-whitelist-in-my-corporate-firewall-to-access-bot-framework-services"></a>Bot Framework Service에 액세스하기 위해 회사 방화벽에서 허용 목록에 포함해야 하는 특정 URL이 있나요?
+봇에서 인터넷으로 보내는 트래픽을 차단하는 아웃바운드 방화벽이 있는 경우, 해당 방화벽에서 다음 URL을 허용 목록에 포함해야 합니다.
 - login.botframework.com(봇 인증)
 - login.microsoftonline.com(봇 인증)
 - westus.api.cognitive.microsoft.com(Luis.ai NLP 통합용)
 - state.botframework.com(프로토타입 생성을 위한 봇 상태 저장소)
 - cortanabfchanneleastus.azurewebsites.net(Cortana 채널)
 - cortanabfchannelwestus.azurewebsites.net(Cortana 채널)
-- *.botFramework.com(채널)
+- *.botframework.com(채널)
+
+### <a name="can-i-block-all-traffic-to-my-bot-except-traffic-from-the-bot-connector-service"></a>제 봇으로 들어오는 트래픽 중에서 Bot Connector Service에서 들어오는 트래픽을 제외한 모든 트래픽을 차단할 수 있나요?
+아니요. 이러한 종류의 IP 주소 또는 DNS 허용 목록은 허용되지 않습니다. Bot Framework Connector Service는 전 세계 Azure 데이터 센터에서 호스팅되고 Azure IP 목록은 지속적으로 변경됩니다. 허용 목록에 추가한 특정 Azure IP 주소가 다음 날 Azure IP 주소가 변경되면서 차단될 수도 있습니다.
+ 
+### <a name="what-keeps-my-bot-secure-from-clients-impersonating-the-bot-framework-connector-service"></a>Bot Framework Connector Service를 가장하는 클라이언트로부터 내 봇을 보호하기 위해 필요한 것은 무엇인가요?
+1. 봇에 대한 모든 요청에 첨부되는 보안 토큰에는 ServiceUrl이 인코딩되어 있으므로, 공격자가 토큰에 액세스하더라도 대화를 새 ServiceUrl로 리디렉션할 수 없습니다. 이는 SDK의 모든 구현에 의해 적용되며 인증 [참조](https://docs.microsoft.com/en-us/azure/bot-service/rest-api/bot-framework-rest-connector-authentication?view=azure-bot-service-3.0#bot-to-connector) 자료에 문서화되어 있습니다.
+
+2. 들어오는 토큰이 없거나 형식이 잘못된 경우 Bot Framework SDK는 응답에서 토큰을 생성하지 않습니다. 이렇게 하면 봇이 잘못 구성된 경우 피해를 줄일 수 있습니다.
+3. 봇 내부에서 토큰에 제공된 ServiceUrl을 수동으로 확인할 수 있습니다. 이 방법은 가능하기는 하지만 서비스 토폴로지가 변경될 경우 봇이 더 취약해지므로 권장하지는 않습니다.
+
+
+이는 봇에서 인터넷으로의 아웃바운드 연결입니다. Bot Framework Connector Service가 봇과 통신할 때 사용하는 IP 주소 또는 DNS 이름 목록이 없습니다. 인바운드 IP 주소 허용 목록은 지원되지 않습니다.
 
 ## <a name="rate-limiting"></a>속도 제한
 ### <a name="what-is-rate-limiting"></a>속도 제한이란?

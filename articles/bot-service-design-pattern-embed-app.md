@@ -6,13 +6,13 @@ ms.author: mateusv
 manager: kamrani
 ms.topic: article
 ms.prod: bot-framework
-ms.date: 12/13/2017
-ms.openlocfilehash: 3264388cf253bb949eabe3be04fdaebabdc36b99
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.date: 08/15/2018
+ms.openlocfilehash: 68d2d4f7a19aecfcb2c630e5e9e55ca5b8a21d89
+ms.sourcegitcommit: e8c513d3af5f0c514cadcbcd0a737a7393405afa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39301843"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42756532"
 ---
 # <a name="embed-a-bot-in-an-app"></a>앱에 봇 포함
 
@@ -42,9 +42,7 @@ IoT 앱은 [직접 회선 API][directLineAPI]를 사용하여 Bot Framework와 �
 
 봇을 실행하는 모바일 앱을 만드는 이 예제에서는 플랫폼 간 모바일 응용 프로그램을 빌드하기 위한 인기 있는 도구인 <a href="https://www.xamarin.com/" target="_blank">Xamarin</a>을 사용합니다. 
 
-먼저 간단한 웹 보기 구성 요소를 만들고 <a href="https://github.com/Microsoft/BotFramework-WebChat" target="_blank">웹 채팅 컨트롤</a>을 호스트하는 데 사용합니다. 그런 후 Bot Framework 포털을 사용하여 웹 채팅 채널에 대해 [TODO](~/bot-service-manage-channels.md)를 수행합니다. 
-
-![봇 구성 설정](~/media/bot-service-design-pattern-embed-app/webchat-channel.png)
+먼저 간단한 웹 보기 구성 요소를 만들고 <a href="https://github.com/Microsoft/BotFramework-WebChat" target="_blank">웹 채팅 컨트롤</a>을 호스트하는 데 사용합니다. 그런 다음, Azure Portal을 사용하여 웹 채팅 채널을 추가합니다. 
 
 다음으로, 등록된 웹 채팅 URL을 Xamarin 앱의 웹 보기 컨트롤에 대한 원본으로 지정합니다.
 

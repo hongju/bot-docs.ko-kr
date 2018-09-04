@@ -1,6 +1,6 @@
 ---
-title: 입력에 대해 사용자에게 확인 | Microsoft Docs
-description: Node.js용 Bot Builder SDK에서 입력에 대해 사용자에게 확인하는 방법에 대해 알아봅니다.
+title: Dailogs 라이브러리를 사용하여 사용자에게 입력 요청 | Microsoft Docs
+description: Node.js용 Bot Builder SDK의 대화 상자 라이브러리를 사용하여 사용자에게 입력을 요청하는 방법에 대해 알아봅니다.
 keywords: prompts, dialogs, AttachmentPrompt, ChoicePrompt, ConfirmPrompt, DatetimePrompt, NumberPrompt, TextPrompt, reprompt, validation
 author: v-ducvo
 ms.author: v-ducvo
@@ -9,20 +9,20 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 4/10/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: b08c087bcce4a3dcee5de20311e2f7b890ea2f6b
-ms.sourcegitcommit: b45e16cac2febb7034da4ccd3af3bd7e6f430c31
+ms.openlocfilehash: 0b238ed510fd1d6fda82734af373f344b0dc28e3
+ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39469280"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42905367"
 ---
-# <a name="prompt-users-for-input"></a>입력에 대해 사용자에게 확인
+# <a name="prompt-users-for-input-using-the-dialogs-library"></a>대화 상자 라이브러리를 사용하여 사용자에게 입력 요청
 
-[!INCLUDE [pre-release-label](~/includes/pre-release-label.md)]
+[!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
 
-봇은 종종 사용자에게 제기된 질문을 통해 해당 정보를 수집합니다. 문자열 입력을 요청하려면 설정 컨텍스트 개체의 _보내기 작업_ 메서드를 사용하여 사용자에게 표준 메시지를 보낼 수 있지만 Bot Builder SDK는 다른 유형의 정보를 요청하는 데 사용할 수 있는 **대화 상자** 라이브러리를 제공합니다. 이 항목에서는 **프롬프트**를 사용하여 사용자에게 입력을 요청하는 방법을 설명합니다.
+봇은 종종 사용자에게 제기된 질문을 통해 해당 정보를 수집합니다. 문자열 입력을 요청하려면 [턴 컨텍스트](bot-builder-concept-activity-processing.md#turn-context) 개체의 _보내기 작업_ 메서드를 사용하여 사용자에게 표준 메시지를 보낼 수 있지만, Bot Builder SDK는 다른 유형의 정보를 요청하는 데 사용할 수 있는 **대화 상자** 라이브러리를 제공합니다. 이 항목에서는 **프롬프트**를 사용하여 사용자에게 입력을 요청하는 방법을 설명합니다.
 
-이 문서에서는 대화 상자 내에서 프롬프트를 사용하는 방법을 설명합니다. 일반적으로 대화 상자를 사용하는 방법에 대한 정보는 [대화 상자를 사용하여 대화 흐름 관리](bot-builder-dialog-manage-conversation-flow.md)를 참조하세요.
+이 문서에서는 대화 상자 내에서 프롬프트를 사용하는 방법을 설명합니다. 일반적으로 대화 상자를 사용하는 방법에 대한 정보는 [대화 상자를 사용하여 간단한 대화 흐름 관리](bot-builder-dialog-manage-conversation-flow.md)를 참조하세요.
 
 ## <a name="prompt-types"></a>프롬프트 형식
 
@@ -33,13 +33,13 @@ ms.locfileid: "39469280"
 | **AttachmentPrompt** | 문서 또는 이미지 같은 첨부 파일에 대해 사용자에게 확인합니다. |
 | **ChoicePrompt** | 옵션 집합에서 선택하도록 사용자에게 확인합니다. |
 | **ConfirmPrompt** | 사용자에게 작업을 확인하라는 메시지가 표시됩니다. |
-| **DatetimePrompt** | 날짜-시간에 대해 사용자에게 확인합니다. 사용자는 "내일에 오후 8시" 또는 "금요일 오전 10시" 같은 자연어를 사용하여 응답할 수 있습니다. Bot Framework SDK는 LUIS `builtin.datetimeV2` 미리 작성된 엔터티를 사용합니다. 자세한 내용은 [builtin.datetimev2](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-reference-prebuilt-entities#builtindatetimev2)를 참조합니다. |
+| **DatetimePrompt** | 날짜-시간에 대해 사용자에게 확인합니다. 사용자는 "내일에 오후 8시" 또는 "금요일 오전 10시" 같은 자연어를 사용하여 응답할 수 있습니다. Bot Framework SDK는 LUIS `builtin.datetimeV2` 미리 작성된 엔터티를 사용합니다. 자세한 내용은 [builtin.datetimev2](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-prebuilt-entities#builtindatetimev2)를 참조합니다. |
 | **NumberPrompt** | 숫자에 대해 사용자에게 확인합니다. 사용자는 "10" 또는 "열"을 사용하여 응답할 수 있습니다. 응답이 "열"인 경우 예를 들어 프롬프트는 응답을 숫자로 변환하고 결과로 `10`을 반환합니다. |
 | **TextPrompt** | 텍스트 문자열에 대해 사용자에게 확인합니다. |
 
 ## <a name="add-references-to-prompt-library"></a>라이브러리를 확인하려면 참조 추가
 
-봇에 **대화 상자** 패키지를 추가하여 **대화 상자** 라이브러리를 가져올 수 있습니다. [대화 상자를 사용하여 대화 흐름 관리](bot-builder-dialog-manage-conversation-flow.md)에서 대화 상자를 관리하지만 프롬프트에 대해 대화 상자를 사용합니다.
+봇에 **대화 상자** 패키지를 추가하여 **대화 상자** 라이브러리를 가져올 수 있습니다. [대화 상자를 사용하여 간단한 대화 흐름 관리](bot-builder-dialog-manage-conversation-flow.md)에서 대화 상자를 관리하지만 프롬프트에 대해 대화 상자를 사용합니다.
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
@@ -75,7 +75,7 @@ public class MyDialog : DialogSet
 NPM에서 대화 상자 패키지를 설치합니다.
 
 ```cmd
-npm install --save botbuilder-dialogs
+npm install --save botbuilder-dialogs@preview
 ```
 
 봇에서 **대화 상자**를 사용하려면 이를 봇 코드에 포함시킵니다.
@@ -93,7 +93,7 @@ const dialogs = new DialogSet();
 
 입력에 대해 사용자에게 확인하려면 대화에 프롬프트를 추가할 수 있습니다. 예를 들어 **TextPrompt** 형식의 프롬프트를 정의하고 **textPrompt**라는 대화 ID를 지정할 수 있습니다.
 
-프롬프트 대화 상자를 추가하면 간단한 2단계 폭포 대화 상자에서 사용하거나 다단계 폭포 대화 상자에서 여러 프롬프트를 함께 사용할 수 있습니다. *폭포* 대화 상자는 단계의 시퀀스를 정의하기 위한 방법일 뿐입니다. 자세한 내용은 [대화 상자를 사용하여 대화 흐름 관리](bot-builder-dialog-manage-conversation-flow.md)에서 [대화 상자 사용](bot-builder-dialog-manage-conversation-flow.md#using-dialogs-to-guide-the-user-through-steps) 섹션을 참조하세요.
+프롬프트 대화 상자를 추가하면 간단한 2단계 폭포 대화 상자에서 사용하거나 다단계 폭포 대화 상자에서 여러 프롬프트를 함께 사용할 수 있습니다. *폭포* 대화 상자는 단계의 시퀀스를 정의하기 위한 방법일 뿐입니다. 자세한 내용은 [대화 상자를 사용하여 간단한 대화 흐름 관리](bot-builder-dialog-manage-conversation-flow.md)에서 [대화 상자 사용](bot-builder-dialog-manage-conversation-flow.md#using-dialogs-to-guide-the-user-through-steps) 섹션을 참조하세요.
 
 첫 번째로 대화 상자는 사용자의 이름을 확인하며, 두 번째로 대화 상자는 사용자 입력을 프롬프트에 대한 응답으로 처리합니다.
 
@@ -129,13 +129,13 @@ public class MyDialog : DialogSet
             async (dc, args, next) =>
             {
                 // Prompt for the user's name.
-                await dc.Prompt(Inputs.Text, "What is your name?").ConfigureAwait(false);
+                await dc.Prompt(Inputs.Text, "What is your name?");
             },
             async(dc, args, next) =>
             {
                 var user = (string)args["Text"];
-                await dc.Context.SendActivity($"Hi {user}!").ConfigureAwait(false);
-                await dc.End().ConfigureAwait(false);
+                await dc.Context.SendActivity($"Hi {user}!");
+                await dc.End();
             }
         });
     }
@@ -166,7 +166,7 @@ dialogs.add('greetings', [
 ---
 
 > [!NOTE]
-> 대화 상자를 시작하려면 대화 컨텍스트를 가져오고 해당 _시작_ 메서드를 사용합니다. 자세한 내용은 [관리되는 대화 흐름에 대화 상자 사용](./bot-builder-dialog-manage-conversation-flow.md)을 참조합니다.
+> 대화 상자를 시작하려면 대화 컨텍스트를 가져오고 해당 _시작_ 메서드를 사용합니다. 자세한 내용은 [대화 상자를 사용하여 간단한 대화 흐름 관리](./bot-builder-dialog-manage-conversation-flow.md)를 참조합니다.
 
 ## <a name="reusable-prompts"></a>다시 사용할 수 있는 프롬프트
 
@@ -197,21 +197,21 @@ public class MyDialog : DialogSet
             async (dc, args, next) =>
             {
                 // Prompt for the user's name.
-                await dc.Prompt(Inputs.Text, "What is your name?").ConfigureAwait(false);
+                await dc.Prompt(Inputs.Text, "What is your name?");
             },
             async(dc, args, next) =>
             {
                 var user = (string)args["Text"];
 
                 // Ask them where they work.
-                await dc.Prompt(Inputs.Text, $"Hi {user}! Where do you work?").ConfigureAwait(false);
+                await dc.Prompt(Inputs.Text, $"Hi {user}! Where do you work?");
             },
             async(dc, args, next) =>
             {
                 var workplace = (string)args["Text"];
 
-                await dc.Context.SendActivity($"{workplace} is a cool place!").ConfigureAwait(false);
-                await dc.End().ConfigureAwait(false);
+                await dc.Context.SendActivity($"{workplace} is a cool place!");
+                await dc.End();
             }
         });
     }
@@ -273,21 +273,21 @@ public MyDialog()
         async (dc, args, next) =>
         {
             // Prompt for the user's name.
-            await dc.Prompt(Inputs.Name, "What is your name?").ConfigureAwait(false);
+            await dc.Prompt(Inputs.Name, "What is your name?");
         },
         async(dc, args, next) =>
         {
             var user = (string)args["Text"];
 
             // Ask them where they work.
-            await dc.Prompt(Inputs.Work, $"Hi {user}! Where do you work?").ConfigureAwait(false);
+            await dc.Prompt(Inputs.Work, $"Hi {user}! Where do you work?");
         },
         async(dc, args, next) =>
         {
             var workplace = (string)args["Text"];
 
-            await dc.Context.SendActivity($"{workplace} is a cool place!").ConfigureAwait(false);
-            await dc.End().ConfigureAwait(false);
+            await dc.Context.SendActivity($"{workplace} is a cool place!");
+            await dc.End();
         }
     });
 }
@@ -334,7 +334,7 @@ dialogs.Add("numberPrompt", new NumberPrompt<int>(Culture.English));
 await dc.Prompt("numberPrompt", "How many people are in your party?", new PromptOptions()
 {
     RetryPromptString = "Sorry, please specify the number of people in your party."
-}).ConfigureAwait(false);
+});
 ```
 
 # <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
@@ -405,14 +405,14 @@ public class MyDialog : DialogSet
                     Choices = ChoiceFactory.ToChoices(Colors),
                     RetryPromptActivity =
                         MessageFactory.SuggestedActions(Colors, "Please choose a color.") as Activity
-                }).ConfigureAwait(false);
+                });
             },
             async(dc, args, next) =>
             {
                 var color = (FoundChoice)args["Value"];
 
-                await dc.Context.SendActivity($"You chose {color.Value}.").ConfigureAwait(false);
-                await dc.End().ConfigureAwait(false);
+                await dc.Context.SendActivity($"You chose {color.Value}.");
+                await dc.End();
             }
         });
     }
@@ -482,14 +482,14 @@ public class MyDialog : DialogSet
                 await dc.Prompt(Inputs.Size, "How many people are in your party?", new PromptOptions()
                 {
                     RetryPromptString = "Please specify party size between 6 and 20."
-                }).ConfigureAwait(false);
+                });
             },
             async(dc, args, next) =>
             {
                 var size = (int)args["Value"];
 
-                await dc.Context.SendActivity($"Okay, {size} people!").ConfigureAwait(false);
-                await dc.End().ConfigureAwait(false);
+                await dc.Context.SendActivity($"Okay, {size} people!");
+                await dc.End();
             }
         });
     }
@@ -569,7 +569,7 @@ private static async Task TimeValidator(ITurnContext context, DateTimeResult res
 {
     if (result.Resolution.Count == 0)
     {
-        await context.SendActivity("Sorry, I did not recognize the time that you entered.").ConfigureAwait(false);
+        await context.SendActivity("Sorry, I did not recognize the time that you entered.");
         result.Status = PromptStatus.NotRecognized;
     }
 
@@ -588,7 +588,7 @@ private static async Task TimeValidator(ITurnContext context, DateTimeResult res
     else
     {
         // Otherwise, flag the input as out of range.
-        await context.SendActivity("Please enter a time in the future, such as \"tomorrow at 9am\"").ConfigureAwait(false);
+        await context.SendActivity("Please enter a time in the future, such as \"tomorrow at 9am\"");
         result.Status = PromptStatus.OutOfRange;
     }
 }
@@ -635,5 +635,4 @@ dialogs.add('dateTimePrompt', new botbuilder_dialogs.DatetimePrompt( async (cont
 
 사용자에게 입력을 확인하는 방법에 대해 배웠으므로 대화 상자를 통해 다양한 대화 흐름을 관리하여 봇 코드 및 사용자 환경을 향상시켜보겠습니다.
 
-> [!div class="nextstepaction"]
-> [대화 상자를 사용하여 대화 흐름 관리](bot-builder-dialog-manage-conversation-flow.md)
+

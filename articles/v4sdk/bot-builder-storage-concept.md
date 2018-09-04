@@ -1,5 +1,5 @@
 ---
-title: 상태 저장 및 데이터에 액세스 | Microsoft Docs
+title: 상태 및 저장소 | Microsoft Docs
 description: 어떤 상태 관리자, 대화 상태 및 사용자 상태가 Bot Builder SDK 내에 있는지 설명합니다.
 keywords: LUIS, 대화 상태, 사용자 상태, 저장소, 상태 관리
 author: DeniseMak
@@ -9,21 +9,21 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 02/15/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 56814ab12a85d18e52b0d5ec83fd81682f3b9f60
-ms.sourcegitcommit: f95702d27abbd242c902eeb218d55a72df56ce56
+ms.openlocfilehash: e25ecec3aec1cdebe3b9eae4bff0d3c434cb610b
+ms.sourcegitcommit: 1abc32353c20acd103e0383121db21b705e5eec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39304626"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42756482"
 ---
-# <a name="save-state-and-access-data"></a>상태 저장 및 데이터에 액세스
+# <a name="state-and-storage"></a>상태 및 저장소
 [!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
 
 좋은 봇 디자인의 핵심은 대화의 컨텍스트를 추적하여 이전 질문에 대한 답변 같은 것을 기억하도록 하는 것입니다.
 봇의 용도에 따라 상태의 트랙을 유지하거나 대화의 수명보다 오랫동안 정보를 저장해야 할 수 있습니다.
 봇의 *상태*는 들어오는 메시지에 적절하게 응답하기 위해 기억하는 정보입니다. Bot Builder SDK는 사용자 또는 대화와 연결된 개체로 상태 데이터를 저장 및 검색하기 위한 클래스를 제공합니다.
 
-* **대화 속성**은 봇이 사용자와 갖는 현재 대화의 트랙을 유지하도록 돕습니다. 봇에서 대화 항목 간의 단계 또는 전환의 시퀀스를 완료해야 하는 경우 대화 속성을 사용하여 시퀀스의 단계를 관리하거나 현재 항목을 추적할 수 있습니다. 대화 속성은 현재 대화의 상태를 반영하므로 일반적으로 봇에서 _대화 종료_ 작업을 받을 때 세션의 끝에서 이를 지웁니다.
+* **대화 속성**은 봇이 사용자와 갖는 현재 대화의 트랙을 유지하도록 돕습니다. 봇에서 대화 항목 간의 단계 또는 전환의 시퀀스를 완료해야 하는 경우 대화 속성을 사용하여 시퀀스의 단계를 관리하거나 현재 항목을 추적할 수 있습니다. 대화 속성은 현재 대화의 상태를 반영하므로 일반적으로 봇에서 _대화 종료_ 작업을 받을 때 대화의 끝에서 이를 지웁니다.
 * **사용자 속성**은 사용자의 이전 대화를 중단한 위치를 확인하거나 단순히 이름별로 돌아온 사용자에게 인사말을 제공하는 등의 다양한 용도로 사용할 수 있습니다. 사용자의 기본 설정을 저장하면 이 정보를 사용하여 다음에 채팅할 때 대화를 사용자 지정할 수 있습니다. 예를 들어 관심 있는 주제에 대한 뉴스 기사를 사용자에게 알리거나 약속이 가능해질 때 사용자에게 알릴 수 있습니다. 봇에서 _사용자 데이터 삭제_ 작업을 수신하는 경우 이를 지워야 합니다.
 
 [저장소](bot-builder-howto-v4-storage.md)를 사용하여 영구 저장소에서 읽고 작성할 수 있습니다. 이를 통해 봇에서 공유 리소스 업데이트, RSVP 또는 응답 기록 또는 과거 날씨 데이터 읽기와 같은 작업을 수행할 수 있습니다. 동일한 방식으로 앱은 저장소를 사용하여 해당 목표를 달성하고, 봇은 사용자와의 대화 내에서 이를 수행할 수 있습니다.

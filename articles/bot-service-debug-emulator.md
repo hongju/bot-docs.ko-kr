@@ -8,14 +8,14 @@ manager: kamrani
 ms.topic: article
 ms.prod: bot-framework
 ms.date: 04/30/2018
-ms.openlocfilehash: bc1da99c7d0f7a6431ad0c2746b8583ef7bfbd5f
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: 2a92281e9bbee09d8dfb00fbbc67fe6ac6b6c69b
+ms.sourcegitcommit: 1abc32353c20acd103e0383121db21b705e5eec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39302594"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42756517"
 ---
-# <a name="debug-bots-with-the-bot-framework-emulator"></a>Bot Framework Emulator를 사용한 봇 디버그
+# <a name="debug-with-the-bot-framework-emulator"></a>Bot Framework Emulator를 사용하여 디버그
 
 Bot Framework Emulator는 봇 개발자가 로컬 또는 원격으로 봇을 테스트 및 디버그할 수 있는 데스크톱 응용 프로그램입니다. 에뮬레이터를 사용하면 봇과 채팅하고 봇이 보내고 받는 메시지를 검사할 수 있습니다. 에뮬레이터는 봇과 메시지를 교환할 때 메시지가 웹 채팅 UI에 표시되는 대로 메시지를 표시하며 JSON 요청과 응답을 기록합니다. 
 

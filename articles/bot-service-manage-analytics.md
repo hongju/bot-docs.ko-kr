@@ -8,12 +8,12 @@ manager: kamrani
 ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/2017
-ms.openlocfilehash: 503e9b2231b198346f5a7cd767a1e6a866e9e5b3
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: 3b0032db8e99c75ec8697f79a78cd6b0bd915db9
+ms.sourcegitcommit: e8c513d3af5f0c514cadcbcd0a737a7393405afa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39301882"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42756625"
 ---
 # <a name="bot-analytics"></a>봇 분석
 분석은 [Application Insights](/azure/application-insights/app-insights-analytics)의 확장입니다. Application Insights는 트래픽, 대기 시간 및 통합과 같은 **서비스 수준** 및 계측 데이터를 제공합니다. 또한 분석은 사용자에 대한 **대화 수준** 보고, 메시지 및 채널 데이터를 제공합니다.
@@ -40,7 +40,7 @@ ms.locfileid: "39301882"
 전체 시간 프레임을 변경하면 그래프의 시간 증분(x축)도 그에 따라 변경됩니다.
 
 ### <a name="grand-totals"></a>총합계
-지정된 시간 프레임 동안 활성 사용자 및 송수신된 메시지의 총 수입니다.
+지정된 시간 프레임 동안 활성 사용자 및 송수신된 활동의 총 수입니다.
 대시 `--`는 활동이 없음을 나타냅니다.
 
 ### <a name="retention"></a>보존
@@ -60,14 +60,14 @@ ms.locfileid: "39301882"
 * 꺾은선형 그래프는 특정 시간에 봇에 액세스하고 있던 사용자 수를 나타냅니다.
 * 꺾은선형 그래프의 범례는 어떤 색이 어떤 채널을 나타내는지 지정하고, 지정된 기간 동안의 사용자 총 수를 포함합니다.
 
-### <a name="messages"></a>메시지
-메시지 그래프는 지정된 시간 프레임 동안 얼마나 많은 메시지가 어떤 채널을 사용하여 송수신되었는지를 추적합니다.
+### <a name="activities"></a>활동
+활동 그래프는 지정된 시간 프레임 동안 얼마나 많은 활동이 어떤 채널을 사용하여 송수신되었는지를 추적합니다.
 
-![메시지 그래프](~/media/analytics-messages.png)
+![활동 그래프](~/media/analytics-activities.png)
 
-* 백분율 차트는 각 채널을 통해 전달된 메시지의 비율을 보여 줍니다.
-* 꺾은선형 그래프는 지정된 시간 프레임 동안 송수신된 메시지 수를 나타냅니다.
-* 꺾은선형 그래프의 범례는 어떤 색이 각 채널을 나타내는지를 지정하고, 지정된 기간 동안 해당 채널에서 송수신된 메시지의 나타냅니다. 
+* 백분율 차트는 각 채널을 통해 전달된 활동의 비율을 보여 줍니다.
+* 꺾은선형 그래프는 지정된 시간 프레임 동안 송수신된 활동 수를 나타냅니다.
+* 꺾은선형 그래프의 범례는 어떤 색이 각 채널을 나타내는지를 지정하고, 지정된 기간 동안 해당 채널에서 송수신된 총 활동 수를 나타냅니다. 
 
 ## <a name="enable-analytics"></a>분석 사용
 분석은 Application Insights가 사용되도록 설정되고 구성될 때까지 사용할 수 없습니다. Application Insights는 사용되도록 설정되는 즉시, 데이터 수집을 시작합니다. 예를 들어, Application Insights가 6개월 된 봇에 대해 1주일 전부터 사용되도록 설정된 경우 1주일 동안의 데이터를 수집하게 됩니다.

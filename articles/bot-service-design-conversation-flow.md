@@ -8,34 +8,37 @@ manager: kamrani
 ms.topic: article
 ms.prod: bot-framework
 ms.date: 4/8/2018
-ms.openlocfilehash: 09568fca31649880df0f5b4fbc47f50288e907cb
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: 6e661d030f49cb8004f122de72de7514e804cb9c
+ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39301185"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42905542"
 ---
 ::: moniker range="azure-bot-service-3.0"
 
 # <a name="design-and-control-conversation-flow"></a>대화 흐름 디자인 및 제어
 
+[!INCLUDE [pre-release-label](./includes/pre-release-label-v3.md)]
+
 기존 응용 프로그램에서 UI(사용자 인터페이스)는 일련의 화면입니다. 
 단일 앱 또는 웹 사이트는 필요에 따라 하나 이상의 화면을 사용하여 사용자와 정보를 교환할 수 있습니다. 
 대부분의 응용 프로그램은 사용자가 처음에 방문하는 기본 화면으로 시작되고 새 주문 시작, 제품 찾아보기 또는 도움말 검색 등의 다양한 기능에 대한 다른 화면으로 이동되는 탐색 기능을 제공합니다.
 
-앱 및 웹 사이트처럼 봇은 UI를 포함하지만 화면 대신에 **대화 상자**로 구성됩니다. 
+앱 및 웹 사이트처럼 봇은 UI를 포함하지만 화면 대신에 **대화 상자**로 구성됩니다. 대화 상자는 대화 내에서 위치를 유지하고, 필요한 경우 사용자에게 메시지를 표시하고, 입력 유효성 검사를 실행하는 데 도움이 됩니다. 다중 턴 대화와 간단한 "양식 기반" 정보 수집을 관리하여 항공편 예약과 같은 활동을 수행하는 데 유용합니다.
+
 대화 상자를 사용하면 봇 개발자는 논리적으로 봇 기능의 다양한 영역을 구분하고 대화형 흐름을 안내할 수 있습니다. 예를 들어, 하나의 대화 상자에는 사용자가 제품을 찾아보도록 도와주는 논리를 포함하고 별도의 대화 상자에 사용자가 새 주문을 만들도록 도와주는 논리를 포함하도록 디자인할 수 있습니다. 
 
 대화 상자에 그래픽 인터페이스가 포함되거나 포함되지 않을 수 있습니다. 대화 상자에 단추, 텍스트 및 기타 요소를 포함할 수도 있고 완전히 음성 기반 대화 상자가 될 수도 있습니다. 대화 상자는 다른 대화 상자를 호출 하거나 사용자 입력을 처리하는 등의 작업을 수행하기 위한 동작도 포함합니다.
 
 ## <a name="using-dialogs-to-manage-conversation-flow"></a>대화 상자를 사용하여 대화 흐름 관리
 
-[!INCLUDE [Dialog flow example](~/includes/snippet-dotnet-manage-conversation-flow-intro.md)]
+[!INCLUDE [Dialog flow example](./includes/snippet-dotnet-manage-conversation-flow-intro.md)]
 
 대화 상자 및 Bot Builder SDK를 사용하여 대화 흐름을 관리하는 자세한 연습은 다음을 참조하세요.
 
-- [대화 상자를 사용하여 대화 흐름 관리(.NET)](~/dotnet/bot-builder-dotnet-manage-conversation-flow.md)
-- [대화 상자를 사용하여 대화 흐름 관리(Node.js)](~/nodejs/bot-builder-nodejs-manage-conversation-flow.md)
+- [대화 상자를 사용하여 대화 흐름 관리(.NET)](./dotnet/bot-builder-dotnet-manage-conversation-flow.md)
+- [대화 상자를 사용하여 대화 흐름 관리(Node.js)](./nodejs/bot-builder-nodejs-manage-conversation-flow.md)
 
 ## <a name="dialog-stack"></a>대화 상자 스택
 
@@ -57,7 +60,7 @@ ms.locfileid: "39301185"
 사용자는 “스택” 방식으로 통신하지 않습니다. 마음이 자주 바뀌는 경향이 있습니다. 
 다음 예제를 살펴보세요. 
 
-![봇](~/media/bot-service-design-conversation-flow/stack-issue.png)
+![봇](./media/bot-service-design-conversation-flow/stack-issue.png)
 
 봇이 대화 상자 스택을 논리적으로 생성했을 수 있지만, 사용자는 완전히 다른 어떤 작업을 수행하거나 현재 항목과 관련이 없을 수 있는 질문을 하려고 할 수 있습니다. 
 예제에서 사용자는 대화 상자가 예상하는 예/아니요 응답을 제공하는 대신 질문을 합니다. 
@@ -67,12 +70,12 @@ ms.locfileid: "39301185"
 - 사용자가 이전에 수행한 모든 작업을 무시하고, 전체 대화 상자 스택을 다시 설정하고, 사용자의 질문에 답변함으로써 처음부터 시작합니다. 
 - 사용자의 질문에 답변한 다음, 해당 예/아니요 질문으로 돌아가서 다시 시작해 봅니다. 
 
-최상의 솔루션은 시나리오의 세부 정보와 사용자가 봇의 응답을 합리적으로 예상하는 방법에 따라 결정되므로 이 질문에 대한 ‘올바른’ 답변은 없습니다. 
+최상의 솔루션은 시나리오의 세부 정보와 사용자가 봇의 응답을 합리적으로 예상하는 방법에 따라 결정되므로 이 질문에 대한 *올바른* 답변은 없습니다. 그러나 대화 복잡성이 증가함에 따라 **대화 상자**를 관리하기가 어려워집니다. 복잡한 분기 상황의 경우, 제어 논리의 흐름을 직접 만들어 사용자의 대화를 추적하는 것이 더 쉬울 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 대화 상자 사이에서 사용자의 탐색을 관리하고 사용자가 목적을 달성할 수 있는 방식으로(비선형 방식 포함) 대화 흐름을 디자인하는 것이 봇 디자인의 기초 과제입니다. 
-[다음 문서](~/bot-service-design-navigation.md)에서는 잘못 디자인된 탐색의 일부 일반적인 위험을 검토하고 해당 트랩을 방지하기 위한 전략을 설명합니다. 
+[다음 문서](./bot-service-design-navigation.md)에서는 잘못 디자인된 탐색의 일부 일반적인 위험을 검토하고 해당 트랩을 방지하기 위한 전략을 설명합니다. 
 
 ::: moniker-end
 
@@ -96,7 +99,7 @@ ms.locfileid: "39301185"
 
 자유 형식에서 순차에 이르는 범위에서 원하는 방식으로 흐르도록 모듈을 구성할 수 있습니다. Bot Builder SDK는 봇에 필요한 대화 흐름을 생성할 수 있는 여러 가지 라이브러리를 제공합니다. 예를 들어, `prompts` 라이브러리를 사용하면 사용자에게 입력을 요청할 수 있고, `waterfall` 라이브러리를 사용하면 질문/답변 쌍의 시퀀스를 정의할 수 있고, `dialog control` 라이브러리를 사용하면 대화 흐름 논리 등을 모듈화할 수 있습니다. 이러한 라이브러리는 모두 `dialogs` 개체를 통해 함께 연결됩니다. 대화 흐름을 디자인 및 관리하기 위해 모듈을 `dialogs`로 구현하는 방법을 자세히 살펴보고 해당 흐름이 기존 응용 프로그램 흐름과 어떻게 비슷한지 확인해 보겠습니다.
 
-![봇](~/media/designing-bots/core/dialogs-screens.png)
+![봇](./media/designing-bots/core/dialogs-screens.png)
 
 기존 응용 프로그램에서는 모든 것이 **기본 화면**에서 시작합니다.
 **기본 화면**은 **새 주문 화면**을 호출합니다.
@@ -119,7 +122,7 @@ ms.locfileid: "39301185"
 사용자는 순차적 `dialogs`에서 통신하지 않습니다. 마음이 자주 바뀌는 경향이 있습니다. 
 다음 예제를 살펴보세요. 
 
-![봇](~/media/bot-service-design-conversation-flow/stack-issue.png)
+![봇](./media/bot-service-design-conversation-flow/stack-issue.png)
 
 봇은 절차 중심일 수 있지만, 사용자는 완전히 다른 어떤 작업을 수행하거나 현재 항목과 관련이 없을 수 있는 질문을 하려고 할 수 있습니다. 
 위의 예제에서 사용자는 봇이 예상하는 예/아니요 응답을 제공하는 대신 질문을 합니다. 

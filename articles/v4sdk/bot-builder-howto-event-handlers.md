@@ -1,5 +1,5 @@
 ---
-title: 이벤트 처리기 | Microsoft Docs
+title: 이벤트 처리기 사용 | Microsoft Docs
 description: 이벤트 처리기를 사용하는 방법을 살펴봅니다.
 author: ivorb
 ms.author: v-ivorb
@@ -8,14 +8,16 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 06/14/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 0c054b8f4209004806e4564be45e83bdf3a8ec25
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: 36bd2638c599de1662a37dd85790b6126184d51b
+ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39303642"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42905692"
 ---
-# <a name="event-handlers"></a>이벤트 처리기
+# <a name="using-event-handlers"></a>이벤트 처리기 사용
+
+[!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
 
 이벤트 처리기는 [회전](bot-builder-basics.md#defining-a-turn) 내에서 미래 활동 이벤트에 추가할 수 있는 함수입니다. 해당 활동은 `SendActivity`, `UpdateActivity` 및 `DeleteActivity`이며 각 활동에는 자체 처리기가 포함됩니다. 이러한 처리기는 현재 컨텍스트 개체에 대한 해당 형식의 모든 미래 활동에서 어떤 것을 수행해야 할 경우 유용합니다.
 

@@ -8,14 +8,17 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: e276b7f3f4cc46e0978b3ee182b8251e39b86ead
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: fd81b9dfe5d3e16096ffd6ab25c1ee23ff77f79f
+ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39302587"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42904931"
 ---
 # <a name="key-concepts-in-the-bot-builder-sdk-for-nodejs"></a>Node.js용 Bot Builder SDK의 주요 개념
+
+[!INCLUDE [pre-release-label](../includes/pre-release-label-v3.md)]
+
 > [!div class="op_single_selector"]
 > - [.NET](../dotnet/bot-builder-dotnet-concepts.md)
 > - [Node.js](../nodejs/bot-builder-nodejs-concepts.md)
@@ -43,7 +46,8 @@ Node.js용 Bot Builder SDK는 Bot Framework 커넥터를 통해 메시지를 주
 대화 상자는 봇의 대화 논리를 구성하도록 도와주며, [대화 흐름을 설계](../bot-service-design-conversation-flow.md)하는 데 핵심입니다. 대화 상자에 대한 소개는 [대화 상자로 대화 관리](bot-builder-nodejs-dialog-manage-conversation.md)를 참조하세요.
 
 ## <a name="actions"></a>작업
-대화 흐름 중 언제든지 취소나 도움 요청과 같은 중단을 처리할 수 있도록 봇을 설계해야 합니다. Node.js용 Bot Builder SDK는 취소 또는 다른 대화 상자 호출과 같은 작업을 트리거하는 글로벌 메시지 처리기를 제공합니다. [triggerAction][triggerAction] 처리기를 사용하는 방법에 대한 예제는 <!--[Handling cancel](bot-builder-nodejs-manage-conversation-flow.md#handling-cancel), [Confirming interruptions](bot-builder-nodejs-manage-conversation-flow.md#confirming-interruptions) and-->[사용자 작업 처리](bot-builder-nodejs-dialog-actions.md)를 참조하세요.
+대화 흐름 중 언제든지 취소나 도움 요청과 같은 중단을 처리할 수 있도록 봇을 설계해야 합니다. Node.js용 Bot Builder SDK는 취소 또는 다른 대화 상자 호출과 같은 작업을 트리거하는 글로벌 메시지 처리기를 제공합니다. [triggerAction][triggerAction] 처리기를 사용하는 방법에 대한 예제는 [사용자 작업 처리](bot-builder-nodejs-dialog-actions.md)를 참조하세요.
+<!--[Handling cancel](bot-builder-nodejs-manage-conversation-flow.md#handling-cancel), [Confirming interruptions](bot-builder-nodejs-manage-conversation-flow.md#confirming-interruptions) and-->
 
 
 ## <a name="recognizers"></a>인식기

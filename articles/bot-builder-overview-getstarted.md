@@ -8,16 +8,16 @@ ms.topic: get-started-article
 ms.prod: bot-framework
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 21186c5d3b0769311e4703ca1dab2f48a0a0081a
-ms.sourcegitcommit: 67445b42796d90661afc643c6bb6533e9a662cbc
+ms.openlocfilehash: 3ee7843e64dfa95427ebcb132740eab3db281ffc
+ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39574889"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42904016"
 ---
 # <a name="develop-bots-with-bot-builder"></a>Bot Builder를 사용하여 봇 개발
 
-[!INCLUDE [pre-release-label](includes/pre-release-label-v3.md)]
+
 
 Bot Builder는 봇을 빌드하고 디버그하는 데 도움이 되는 SDK, 라이브러리, 샘플 및 도구를 제공합니다. Bot Service를 사용하여 봇을 빌드할 경우 봇은 Bot Builder SDK에서 지원됩니다. Bot Builder SDK를 사용하여 C# 또는 Node.js를 통해 처음부터 봇을 만들 수도 있습니다. Bot Builder에는 봇을 테스트하기 위한 Bot Framework Emulator 및 다른 채널에서 봇의 사용자 환경을 미리 보기 위한 채널 검사기가 포함됩니다.
 
@@ -55,7 +55,7 @@ Node.js용 Bot Builder SDK는 Node.js 개발자가 봇을 작성할 수 있는 �
 
 [Node.js 빠른 시작](~/nodejs/bot-builder-nodejs-quickstart.md)에서는 Node.js용 Bot Builder SDK를 사용하여 봇을 만드는 과정을 안내합니다. 
 
-Node.js용 Bot Builder SDK는 npm 패키지로 제공됩니다. Node.js용 Bot Builder SDK와 관련 종속성을 설치하려면 먼저 봇에 대한 폴더를 만들고 해당 폴더로 이동하여 다음 **npm** 명령을 실행합니다.
+Node.js용 Bot Builder SDK는 npm 패키지로 제공됩니다. Node.js용 Bot Builder SDK와 관련 종속 항목을 설치하려면 먼저 봇에 대한 폴더를 만들고 해당 폴더로 이동하여 다음 **npm** 명령을 실행합니다.
 
 ```nodejs
 npm init

@@ -1,5 +1,5 @@
 ---
-title: 봇 테스트 및 디버그 | Microsoft Docs
+title: 테스트 및 디버깅 지침 | Microsoft Docs
 description: 봇을 테스트 및 디버그하는 방법을 살펴봅니다.
 keywords: 테스트 원칙, 모의 요소, faq, 테스트 수준
 author: ivorb
@@ -9,14 +9,16 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 04/09/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: ea1c458e98f67f76c56fdd70595307a0e0252c1d
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: caa424ed0ea0944805836739ed48a7a61f78d21c
+ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39300925"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42905262"
 ---
-# <a name="testing-and-debugging-your-bot"></a>봇 테스트 및 디버그
+# <a name="testing-and-debugging-guidelines"></a>테스트 및 디버깅 지침
+
+[!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
 
 봇은 수많은 다양한 파트가 함께 작동하는 복잡한 앱입니다. 다른 복잡한 앱의 경우처럼 흥미로운 버그가 발생하거나 봇이 예상과 다르게 동작할 수 있습니다.
 

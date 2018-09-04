@@ -1,5 +1,5 @@
 ---
-title: 사전 대응 메시지를 사용하는 방법 | Microsoft Docs
+title: 사전 대응 메시지 보내기 | Microsoft Docs
 description: 봇을 통해 사전에 메시지를 보내는 방법을 이해합니다.
 keywords: 사전 대응 메시지
 author: jonathanfingold
@@ -9,14 +9,17 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 05/01/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: fd53a897d9847432fd337402d40edfcd6f4ff061
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: c22ce6a35d4d49506360a78a439f15137c429d9d
+ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39303130"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42905137"
 ---
-# <a name="how-to-use-proactive-messaging"></a>사전 대응 메시지를 사용하는 방법
+# <a name="send-proactive-messages"></a>사전 대응 메시지 보내기 
+
+[!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
+
 
 봇은 _반응(reactive) 메시지_를 보내는 경우가 대부분이지만 [사전 대응 메시지](bot-builder-proactive-messages.md)를 보내야 하는 경우도 있습니다. 
 
@@ -120,7 +123,7 @@ public void ConfigureServices(IServiceCollection services)
 
 시작하는 작업은 간단한 5초 타이머이며 사전 대응 메시지를 보내면 완료됩니다.
 - 어댑터의 대화 계속 메서드를 호출하면 봇에 의해 시작되는 새로운 턴(turn)이 만들어집니다.
-- 이 턴(turn)에는 자체적인 턴(turn) 컨텍스트가 있으며 여기에서 상태 정보를 검색합니다.
+- 이 턴(turn)에는 자체적인 [턴(turn) 컨텍스트](bot-builder-concept-activity-processing.md#turn-context)가 있으며 여기에서 상태 정보를 검색합니다.
 - 이 컨텍스트를 사용하여 사용자에게 사전 대응 메시지를 보냅니다.
 
 

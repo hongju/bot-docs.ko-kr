@@ -7,12 +7,12 @@ manager: kamrani
 ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/2017
-ms.openlocfilehash: 53643f21e2cf1ebdfd84caed38f8f84c330ef71b
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: 998586820a0489bc4cca1d25b53cb6ac8162c452
+ms.sourcegitcommit: 0b2be801e55f6baa048b49c7211944480e83ba95
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39302819"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43115048"
 ---
 # <a name="authentication"></a>인증
 
@@ -24,7 +24,7 @@ ms.locfileid: "39302819"
 [.NET용 Bot Builder SDK](../dotnet/bot-builder-dotnet-overview.md) 또는 [Node.js용 Bot Builder SDK](../nodejs/index.md)를 사용할 경우 SDK가 자동으로 작업을 수행하므로 이 문서의 보안 절차를 실행할 필요가 없습니다. [등록](../bot-service-quickstart-registration.md) 중에 봇에 대해 얻은 앱 ID와 암호로 프로젝트를 구성하기만 하면 SDK가 나머지를 처리합니다.
 
 > [!WARNING]
-> 2016년 12월에 Bot Framework 보안 프레임워크 v3.1이 도입되어 토큰 생성 및 유효성 검사 중에 사용되는 몇 가지 값에 대한 변경이 있었습니다. 2017년 늦가을에 Bot Framework 보안 프레임워크 v3.2가 도입되어 토큰 생성 및 유효성 검사 중에 사용되는 값에 대한 변경 내용이 다시 한 번 포함되었습니다.
+> 2016년 12월에 Bot Framework 보안 프레임워크 v3.1이 도입되어 토큰 생성 및 유효성 검사 중에 사용되는 몇 가지 값에 대한 변경이 있었습니다. 2017년 늦가을에 토큰 생성 및 유효성 검사 중에 사용되는 값에 대한 변경 내용을 포함하는 Bot Framework 보안 프로토콜 v3.2가 도입되었습니다.
 > 자세한 내용은 [보안 프로토콜 변경 내용](#security-protocol-changes)을 참조하세요.
 
 ## <a name="authentication-technologies"></a>인증 기술

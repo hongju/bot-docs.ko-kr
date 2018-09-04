@@ -1,5 +1,5 @@
 ---
-title: 웹 채팅 채널에서 음성 사용 | Microsoft Docs
+title: 웹 채팅에서 음성 사용 | Microsoft Docs
 description: 웹 채팅 채널에 연결된 봇에 대해 웹 채팅 컨트롤에서 음성을 사용하도록 설정하는 방법을 알아봅니다.
 keywords: 말하기, 웹 채팅, 음성, 마이크, 오디오
 author: DeniseMak
@@ -8,14 +8,14 @@ manager: kamrani
 ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/2017
-ms.openlocfilehash: 37e18f49eb55fcb7d0bf94e96051479753eec8aa
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: 2499197d82b618d7a535efca78f98ce260dd15a7
+ms.sourcegitcommit: 1abc32353c20acd103e0383121db21b705e5eec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39301586"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42756522"
 ---
-# <a name="how-to-enable-speech-in-web-chat"></a>웹 채팅에서 음성을 사용하도록 설정하는 방법
+# <a name="enable-speech-in-web-chat"></a>웹 채팅에서 음성 사용
 웹 채팅 컨트롤에서 음성 인터페이스를 사용하도록 설정할 수 있습니다. 웹 채팅 컨트롤에서 마이크를 사용하여 음성 인터페이스로 상호 작용합니다.
 
 ![웹 채팅 음성 샘플](~/media/bot-service-channel-webchat/webchat-sample-speech.png)

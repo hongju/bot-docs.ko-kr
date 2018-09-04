@@ -1,5 +1,5 @@
 ---
-title: 나만의 미들웨어 작성 | Microsoft Docs
+title: 고유한 미들웨어 만들기 | Microsoft Docs
 description: 미들웨어를 직접 작성하는 방법을 이해합니다.
 keywords: 미들웨어, 사용자 지정 미들웨어, 단락, 대체, 활동 처리기
 author: ivorb
@@ -9,20 +9,22 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 03/21/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 6bc73b2886374fbb50d8257c387df54f21a12ed7
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: b774f2de5856e6001d1b75c47b92aff6399d8fe3
+ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39303195"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42904353"
 ---
-# <a name="write-your-own-middleware"></a>나만의 미들웨어 작성
+# <a name="create-your-own-middleware"></a>고유한 미들웨어 만들기
+
+[!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
 
 미들웨어를 사용하면 봇을 위해 풍부한 플러그인을 작성할 수 있고, 다른 사람도 사용할 수 있습니다. 이 문서에서는 기본 미들웨어를 추가하고 구현하는 방법과 어떻게 작동하는지를 보여줍니다. v4 SDK에는 상태 관리, LUIS, QnAMaker 및 변환 등과 같은 몇 가지 미들웨어가 제공됩니다. 자세한 내용은 [.NET](https://github.com/Microsoft/botbuilder-dotnet) 또는 [JavaScript](https://github.com/Microsoft/botbuilder-js)용 Bot Builder SDK를 참조하세요.
 
 ## <a name="adding-middleware"></a>미들웨어 추가
 
-아래 예제에서는 기본 HelloBot 샘플을 기반으로 두 가지 유형의 미들웨어 조각이 각 클래스의 새 인스턴스와 함께 서비스에 추가됩니다.
+아래 예제에서는 [시작](~/bot-service-quickstart.md) 환경을 통해 만든 기본 봇 샘플을 기반으로 두 가지 미들웨어가 각 클래스의 새 인스턴스와 함께 서비스에 추가됩니다.
 
 > [!IMPORTANT]
 > 옵션에 추가되는 순서에 따라 옵션이 실행되는 순서가 결정됩니다. 둘 이상의 미들웨어 조각을 사용하는 경우 어떻게 작동할지를 고려해야 합니다.

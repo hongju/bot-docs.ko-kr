@@ -1,5 +1,5 @@
 ---
-title: 데이터 저장 | Microsoft Docs
+title: 저장소에 직접 작성 | Microsoft Docs
 description: .NET용 Bot Builder SDK V4를 통해 직접 저장소에 기록하는 방법을 살펴봅니다.
 keywords: 저장소, 읽기 및 쓰기, 메모리 저장소, eTag
 author: DeniseMak
@@ -9,14 +9,14 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 05/2/18
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 653ec6a1983dd59c485a91b2c08ea07d9f2a34c8
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: 76f8976aefe3d4fefcffc46e691dbd0b35e41ec7
+ms.sourcegitcommit: 1abc32353c20acd103e0383121db21b705e5eec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39302827"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42756437"
 ---
-# <a name="save-data-directly-to-storage"></a>저장소에 직접 저장
+# <a name="write-directly-to-storage"></a>저장소에 직접 작성
 
 <!--
  Note for V4: You can write directly to storage without using the state manager. Therefore, this topic isn't called "managing state". State is in a separate topic.

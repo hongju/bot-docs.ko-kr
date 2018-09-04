@@ -8,14 +8,18 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 45f138d53ebf12325e17659148f2a95ebabfe1dd
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: 7f94ea05fcccfe7bdeb1dec187d735cef28b1d7c
+ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39301495"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42905397"
 ---
 # <a name="add-rich-card-attachments-to-messages"></a>메시지에 서식 있는 카드 첨부 파일 추가
+
+[!INCLUDE [pre-release-label](../includes/pre-release-label-v3.md)]
+
+
 > [!div class="op_single_selector"]
 > - [.NET](../dotnet/bot-builder-dotnet-add-rich-card-attachments.md)
 > - [Node.js](../nodejs/bot-builder-nodejs-send-rich-cards.md)
@@ -26,14 +30,14 @@ Skype 및 Facebook과 같은 일부 채널은 사용자가 클릭하여 작업�
 ## <a name="types-of-rich-cards"></a>서식 있는 카드 종류 
 Bot Framework는 현재 8가지 형식의 서식 있는 카드를 지원합니다. 
 
-| 카드 종류 | 설명 |
+| 카드 형식 | 설명 |
 |------|------|
-| <a href="/adaptive-cards/get-started/bots">적응형 카드</a> | 텍스트, 음성, 이미지, 단추 및 입력 필드의 조합을 포함할 수 있는 사용자 지정 가능한 카드입니다.  [채널당 지원](/adaptive-cards/get-started/bots#channel-status)을 참조하세요. |
+| <a href="/adaptive-cards/get-started/bots">적응형 카드</a> | 텍스트, 음성, 이미지, 단추 및 입력 필드의 조합을 포함할 수 있는 사용자 지정 가능한 카드입니다.  [채널별 지원](/adaptive-cards/get-started/bots#channel-status)을 참조하세요. |
 | [애니메이션 카드][animationCard] | 애니메이션 GIF 또는 짧은 비디오를 재생할 수 있는 카드입니다. |
 | [오디오 카드][audioCard] | 오디오 파일을 재생할 수 있는 카드입니다. |
-| [Hero 카드][heroCard] | 일반적으로 하나의 큰 이미지, 하나 이상의 단추 및 텍스트를 포함하는 카드입니다. |
-| [미리 보기 카드][thumbnailCard] | 일반적으로 하나의 미리 보기 이미지, 하나 이상의 단추 및 텍스트를 포함하는 카드입니다.|
-| [수신 카드][receiptCard] | 봇이 사용자에게 확인 메일을 제공할 수 있는 카드입니다. 일반적으로 확인 메일, 세금 및 총 정보에 포함할 항목 목록과 기타 텍스트를 포함합니다. |
+| [영웅 카드][heroCard] | 일반적으로 하나의 큰 이미지, 하나 이상의 단추 및 텍스트를 포함하는 카드입니다. |
+| [썸네일 카드][thumbnailCard] | 일반적으로 하나의 썸네일 이미지, 하나 이상의 단추 및 텍스트를 포함하는 카드입니다.|
+| [수신 확인 카드][receiptCard] | 봇이 사용자에게 수신 확인을 제공할 수 있는 카드입니다. 일반적으로 확인 메일, 세금 및 총 정보에 포함할 항목 목록과 기타 텍스트를 포함합니다. |
 | [로그인 카드][signinCard] | 봇이 사용자가 로그인하도록 요청할 수 있는 카드입니다. 일반적으로 사용자가 로그인 프로세스를 시작하기 위해 클릭할 수 있는 하나 이상의 단추와 텍스트를 포함합니다. |
 | [비디오 카드][videoCard] | 비디오를 재생할 수 있는 카드입니다. |
 
@@ -154,7 +158,7 @@ Bot Framework는 봇의 여러 메시지가 뒤죽박죽 표시되는 경우를 
 
 Node.js를 사용하여 적응형 카드를 만들려면 <a href="http://adaptivecards.io" target="_blank">적응형 카드</a> 사이트 내의 정보를 이용하여 적응형 카드 스키마를 이해하고, 적응형 카드 요소를 살펴보고, 다양한 컴퍼지션 및 복잡성이 포함된 카드를 만드는 데 사용할 수 있는 JSON 샘플을 확인합니다. 또한 대화형 시각화 도우미를 사용하여 적응형 카드 페이로드를 디자인하고 카드 출력을 미리 볼 수 있습니다.
 
-이 코드 예제에서는 일정 미리 알림을 위한 Adaptive Card를 포함하는 메시지를 만드는 방법을 보여 줍니다. 
+이 코드 예제에서는 일정 미리 알림을 위한 적응형 카드를 포함하는 메시지를 만드는 방법을 보여 줍니다. 
 
 [!code-javascript[Add Adaptive Card attachment](../includes/code/node-send-card-buttons.js#addAdaptiveCardAttachment)]
 

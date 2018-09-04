@@ -1,5 +1,5 @@
 ---
-title: Bot Builder SDK를 사용하여 메시지 보내기 | Microsoft Docs
+title: 메시지 보내기 | Microsoft Docs
 description: Bot Builder SDK 안에서 메시지를 보내는 방법을 살펴봅니다.
 keywords: 메시지 보내기, 메시지 활동, 단문 메시지, 음성, 음성 메시지
 author: ivorb
@@ -7,18 +7,20 @@ ms.author: v-ivorb
 manager: kamrani
 ms.topic: article
 ms.prod: bot-framework
-ms.date: 04/04/2018
+ms.date: 08/23/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: b854eeb4ecb45a875ab3be5d867333cd63babffd
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: b56ad56e19691cfbd7b39606832ed10fce951aa3
+ms.sourcegitcommit: f89ed979eb6321232fb21100ef376d9b0d5113c9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39302795"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42914593"
 ---
-# <a name="sending-messages"></a>메시지 보내기
+# <a name="send-messages"></a>메시지 보내기
 
-봇이 사용자와 커뮤니케이션하고 마찬가지로 커뮤니케이션을 수신하는 기본 방법은 **메시지** 활동입니다. 일부 메시지는 단순히 일반 텍스트로 구성되지만 다른 메시지는 카드나 첨부 파일 같이 서식이 더 많은 콘텐츠를 포함할 수 있습니다. 봇의 전환 처리기는 사용자로부터 메시지를 수신하고 거기서부터 사용자에게 응답을 보낼 수 있습니다. 전환 컨텍스트 개체는 메시지를 다시 사용자에게 보내기 위한 메서드를 제공합니다. 일반적인 활동 처리에 대한 자세한 내용은 [활동 처리](bot-builder-concept-activity-processing.md)를 참조하세요.
+[!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
+
+봇이 사용자와 커뮤니케이션하고 마찬가지로 커뮤니케이션을 수신하는 기본 방법은 **메시지** 활동입니다. 일부 메시지는 단순히 일반 텍스트로 구성되지만 다른 메시지는 카드나 첨부 파일 같이 서식이 더 많은 콘텐츠를 포함할 수 있습니다. 봇의 전환 처리기는 사용자로부터 메시지를 수신하고 거기서부터 사용자에게 응답을 보낼 수 있습니다. [턴 컨텍스트](bot-builder-concept-activity-processing.md#turn-context) 개체는 메시지를 다시 사용자에게 보내기 위한 메서드를 제공합니다. 일반적인 활동 처리에 대한 자세한 내용은 [활동 처리](bot-builder-concept-activity-processing.md)를 참조하세요.
 
 이 문서에서는 단문 및 음성 메시지를 보내는 방법을 설명합니다. 서식이 더 많은 콘텐츠를 보내려면 [서식 있는 미디어 첨부 파일 추가](bot-builder-howto-add-media-attachments.md) 방법을 참조하세요. 프롬프트 개체 사용 방법에 대한 자세한 내용은 [사용자에게 입력할 프롬프트 창 표시](bot-builder-prompts.md)를 참조하세요.
 

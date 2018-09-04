@@ -1,5 +1,5 @@
 ---
-title: LUIS 및 QnA Maker에 대해 디스패치 도구 사용 | Microsoft Docs
+title: 디스패치 도구를 사용하여 여러 LUIS 및 QnA 서비스 통합 | Microsoft Docs
 description: 봇에서 LUIS 및 QnA Maker를 사용하는 방법에 대해 알아봅니다.
 keywords: Luis, QnA, 디스패치 도구, 여러 서비스
 author: DeniseMak
@@ -7,18 +7,18 @@ ms.author: v-demak
 manager: kamrani
 ms.topic: article
 ms.prod: bot-framework
-ms.date: 04/25/2018
+ms.date: 08/27/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: d3c9355a0e87d31029b92614dc182f3d7010c736
-ms.sourcegitcommit: 9a38d76afb0e82fdccc1f36f9b1a65042671e538
+ms.openlocfilehash: 02dffcdd8cb4fd27f59fa8a763d7f2027aa0bcf2
+ms.sourcegitcommit: 0b2be801e55f6baa048b49c7211944480e83ba95
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/04/2018
-ms.locfileid: "39514943"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43115038"
 ---
-## <a name="integrate-multiple-luis-apps-and-qna-services-with-the-dispatch-tool"></a>디스패치 도구를 사용하여 여러 LUIS 앱 및 QnA 서비스 통합
+# <a name="integrate-multiple-luis-and-qna-services-with-the-dispatch-tool"></a>디스패치 도구를 사용하여 여러 LUIS 및 QnA 서비스 통합
 
-[!INCLUDE [pre-release-label](~/includes/pre-release-label.md)]
+[!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
 
 이 자습서에는 디스패치 도구에서 생성된 LUIS 모델을 사용하여 봇을 여러 LUIS(Language Understanding) 앱 및 QnAMaker 서비스와 통합하는 방법을 보여줍니다. 
 
@@ -30,20 +30,22 @@ ms.locfileid: "39514943"
 | LUIS 앱 | Weather | Weather.GetForecast 및 Weather.GetCondition 의도를 인식합니다.|
 | QnAMaker 서비스 | FAQ  | 가정 자동화 조명 시스템에 대한 질문에 답변을 제공합니다. |
 
-먼저 앱 및 서비스를 만든 다음, 함께 통합해 보겠습니다.
-
-> [!NOTE]
-> 디스패치가 성공적으로 액세스하도록 동일한 Azure 위치 내에서 모든 세 개의 앱을 만들어야 합니다. 아래 예제 디스패치 코드에서는 미국 서부 예제 위치를 사용합니다.
+먼저 앱과 서비스를 만든 다음, 디스패치 도구를 사용하여 함께 통합해 보겠습니다.
 
 ## <a name="create-the-luis-apps"></a>LUIS 앱 만들기
 
-HomeAutomation 및 날씨 LUIS 앱을 만드는 가장 빠른 방법은 [homeautomation.json][HomeAutomationJSON] 및 [weather.json][WeatherJSON] 파일을 다운로드하는 것입니다. 그런 다음, [LUIS 웹 사이트](https://www.luis.ai/home)로 이동하고 로그인합니다. **내 앱** > **새 앱 가져오기**를 클릭하고 homeautomation.json 파일을 선택합니다. 새 앱의 이름을 `homeautomation`으로 지정합니다. **내 앱** > **새 앱 가져오기**를 클릭하고 weather.json 파일을 선택합니다. 이 다른 새 앱의 이름을 `weather`로 지정합니다.
+*HomeAutomation* 및 *날씨* LUIS 앱을 만드는 가장 빠른 방법은 [homeautomation.json][HomeAutomationJSON] 및 [weather.json][WeatherJSON] 파일을 다운로드하는 것입니다. 그런 다음, 이 단계를 수행하여 이러한 두 LUIS 앱을 가져옵니다.
+
+1. [LUIS 웹 사이트](https://www.luis.ai/home)로 이동하여 로그인합니다. 
+2. **내 앱** 페이지에서 **새 앱 가져오기**를 클릭합니다.
+   1. *homeautomation* 앱의 경우 **homeautomation.json** 파일을 선택하고 이름을 "homeautomation"으로 지정합니다. **완료**를 클릭하여 앱을 가져옵니다. 앱을 가져온 후 **게시**를 클릭하여 앱을 게시합니다.
+   1. *날씨* 앱의 경우 **weather.json** 파일을 선택하고 이름을 "weather"로 지정합니다. **완료**를 클릭하여 앱을 가져옵니다. 앱을 가져온 후 **게시**를 클릭하여 앱을 게시합니다.
 
 ## <a name="create-the-qna-cognitive-service-in-azure"></a>Azure에서 QnA Cognitive Service 만들기
 
-QnA Maker 서비스는 두 부분, Azure의 Cognitive Service와 Cognitive Service를 사용하여 게시하는 질문 및 답변 쌍의 기술 자료를 포함합니다.
+QnA Maker 서비스는 두 부분, Azure의 Cognitive Service와 Cognitive Service를 사용하여 게시하는 질문 및 답변 쌍의 기술 자료를 포함합니다. 기술 자료를 만들 때 이 단계에서 만든 **Azure 서비스 이름**을 선택하여 기술 자료를 Azure 서비스에 연결할 수 있습니다.
 
-Azure에서 Cognitive Service를 만들려면 https://portal.azure.com에서 Azure Portal에 로그인하고, 다음을 수행합니다.
+Azure에서 Cognitive Service를 만들려면 [Azure Portal](https://portal.azure.com)에 로그인하고 다음을 수행합니다.
 
 1. **모든 서비스**를 클릭합니다.
 1. `Cognitive`를 검색하고 **Cognitive Services**를 선택합니다.
@@ -63,39 +65,54 @@ Azure에서 Cognitive Service를 만들려면 https://portal.azure.com에서 Azu
     * 사용할 응용 프로그램 이름을 입력합니다. 기본값 `SmartLightQnA`를 유지합니다.
     * 웹 사이트 위치를 선택합니다. `West US`를 사용합니다.
     * 앱 인사이트를 활성화하는 기본값을 유지합니다.
-    * 앱 인사이트 위치를 선택합니다. `West US 2`를 사용합니다.
+    * 앱 인사이트 위치를 선택합니다. `West US`를 사용합니다.
     * **만들기**를 클릭하여 QnA Maker 서비스를 만듭니다.
     * Azure에서 서비스를 만들고 배포를 시작합니다.
 
 1. 서비스가 배포되면 알림을 확인하고 **리소스로 이동**을 클릭하여 서비스에 대한 블레이드로 이동합니다.
 1. **키**를 클릭하여 키를 가져옵니다.
 
-    * 서비스의 이름 및 첫 번째 키를 복사합니다. 다음 단계에서 필요합니다.
+    * 서비스의 이름과 첫 번째 키를 복사합니다. 기술 자료(KB)를 만들 때는 서비스가 KB와 연결되도록 이 이름을 사용해야 합니다. 아래 디스패처 단계에서 YOUR-AZURE-QNA-SUBSCRIPTION-KEY 대신 이 키를 사용할 수도 있습니다.
     * 서비스를 중단하지 않고 한 번에 둘 중 하나를 다시 생성할 수 있도록 두 개의 키를 가져옵니다.
 
 ## <a name="create-and-publish-the-qna-maker-knowledge-base"></a>QnA Maker 기술 자료 만들기 및 게시
 
-[QnA Maker 웹 사이트](https://qnamaker.ai)로 이동하고 로그인합니다. **기술 자료 만들기**를 선택하고 "FAQ"라는 새 기술 자료를 만듭니다. **파일 선택** 단추를 클릭하고 [샘플 TSV 파일][FAQ_TSV]을 업로드합니다. **만들기**를 클릭하고, 서비스가 만들어지면 **게시**를 클릭합니다.
+KB를 만들려면 다음을 수행합니다.
+
+1. [QnA Maker 웹 사이트](https://qnamaker.ai)로 이동하고 로그인합니다. 
+1. **기술 자료 만들기**를 클릭하여 새 기술 자료를 만듭니다. Azure에서 이미 Cognitive Service를 만들었으므로 **1단계**를 건너뛸 수 있습니다.
+1. **2단계**에서 **Azure QnA 서비스** 필드에 Azure에서 만든 Cognitive Service 이름을 선택합니다. 그러면 이 KB가 Azure에서 만든 서비스와 연결됩니다.
+1. **3단계**에서 이 KB의 이름을 "FAQ"로 지정합니다. 
+1. **4단계**에서 이 [샘플 TSV 파일][FAQ_TSV]로 KB를 채웁니다. 또는 웹 페이지의 콘텐츠를 사용합니다. 이 경우 링크를 **URL** 필드에 붙여 넣습니다.
+1. **5단계**에서 **KB 만들기**를 클릭하여 KB를 만듭니다.
+
+KB를 만든 후 KB를 **게시**하여 KB ID와 엔드포인트를 가져와야 합니다. 이러한 항목은 이 프로세스의 후반부에서 필요합니다.
+
 
 ## <a name="use-the-dispatch-tool-to-create-the-dispatcher-luis-app"></a>디스패치 도구를 사용하여 디스패처 LUIS 앱 만들기
+이제 두 개의 LUIS 앱과 하나의 KB를 만들었습니다. 다음으로, 디스패치 도구를 사용하여 하나로 결합된 LUIS 앱을 생성해 보겠습니다. 
 
-다음으로 LUIS 앱을 만들어 만든 각 서비스를 결합해 보겠습니다.
+### <a name="step-1-install-the-dispatch-tool"></a>1단계: 디스패치 도구 설치
 
-Node.js 명령 프롬프트에서 이 명령을 실행하여 [디스패치 도구][DispatchTool]를 설치합니다.
+**명령 프롬프트** 창을 열고 디스패처 프로젝트로 이동합니다. 그런 다음, 다음 NPM 명령을 실행하여 [디스패치 도구][DispatchTool]를 설치합니다.
 
-```
+```cmd
 npm install -g botdispatch
 ```
 
-다음 명령을 실행하여 `CombineWeatherAndLights`라는 이름의 디스패치 도구를 초기화합니다. `"YOUR-LUIS-AUTHORING-KEY"`에 대한 [LUIS 작성 키](https://docs.microsoft.com/en-us/azure/cognitive-services/LUIS/luis-concept-keys)를 대체합니다.
+### <a name="step-2-initialize-the-dispatch-tool"></a>2단계 - 디스패치 도구 초기화
 
-```
+다음 명령을 실행하여 `CombineWeatherAndLights`라는 이름으로 디스패치 도구를 초기화합니다. 아래 명령줄에서 [LUIS 작성 키](https://docs.microsoft.com/en-us/azure/cognitive-services/LUIS/luis-concept-keys)를 `"YOUR-LUIS-AUTHORING-KEY"`로 대체합니다.
+
+```cmd
 dispatch init -name CombineWeatherAndLights -luisAuthoringKey "YOUR-LUIS-AUTHORING-KEY" -luisAuthoringRegion westus
 ```
 
-사용자가 만든 각 LUIS 앱에 대해 LUIS 앱 ID를 가져옵니다. 각 앱에 대해 [LUIS 사이트](https://www.luis.ai/home)의 **내 앱** 아래에서 찾을 수 있습니다. 앱 이름을 클릭한 다음, **설정**을 클릭하여 응용 프로그램 ID를 확인합니다. 
+### <a name="step-3-add-apps-to-dispatcher"></a>3단계: 디스패처로 앱 추가
 
-그런 다음, 사용자가 만든 각 LUIS 앱에 대해 `dispatch add` 명령을 실행합니다.
+사용자가 만든 각 LUIS 앱의 LUIS 앱 ID를 가져옵니다. 각 앱의 ID는 [LUIS 사이트](https://www.luis.ai/home)의 **내 앱** 아래에서 찾을 수 있습니다. 앱 이름을 클릭한 다음, **설정**을 클릭하여 **응용 프로그램 ID**를 확인합니다. **2단계**에서 가져온 것과 동일한 *LUIS 작성 키*를 사용합니다.
+
+생성한 각 LUIS 앱에 대해 다음 명령을 실행합니다(예: **homeautomation** 및 **날씨**). 아래의 해당 명령에서 적절한 ID를 대체해야 합니다.
 
 ```
 dispatch add -type luis -id "HOMEAUTOMATION-APP-ID" -name homeautomation -version 0.1 -key "YOUR-LUIS-AUTHORING-KEY"
@@ -103,19 +120,21 @@ dispatch add -type luis -id "WEATHER-APP-ID" -name weather -version 0.1 -key "YO
 
 ```
 
-사용자가 만든 QnA Maker 서비스에 대해 `dispatch add` 명령을 실행합니다. `-key` 매개 변수는 [Azure에서 QnA Cognitive Service 만들기](./bot-builder-tutorial-dispatch.md#create-the-qna-cognitive-service-in-azure)에 대한 단계에서 완료했을 때 저장한 Azure Portal의 키여야 합니다.
+다음으로, 다음 명령을 실행하여 QnAMaker KB를 추가합니다. 이 명령에서 `QNA-KB-ID`는 사용자가 KB를 게시한 후 제공한 KB ID를 참조하고, `YOUR-AZURE-QNA-SUBSCRIPTION-KEY`는 사용자가 Azure에서 만든 Cognitive Service에서 가져온 키를 참조합니다.
 
 ```
-dispatch add -type qna -id "QNA-KB-ID" -name faq -key "YOUR-QNA-SUBSCRIPTION-KEY"
+dispatch add -type qna -id "QNA-KB-ID" -name faq -key "YOUR-AZURE-QNA-SUBSCRIPTION-KEY"
 ```
 
-`dispatch create`를 실행합니다.
+### <a name="step-4-create-the-dispatcher-luis-app"></a>4단계: 디스패처 LUIS 앱 만들기
+
+모든 앱이 디스패치 도구에 추가된 후 다음 명령을 실행하여 디스패치 앱을 만듭니다. 디스패치 파일을 검사하려면 확장명이 **.dispatch**인 파일에서 정보를 확인하면 됩니다.
 
 ```
 dispatch create
 ```
 
-**CombineWeatherAndLights**라는 디스패처 LUIS 앱을 만듭니다. [https://www.luis.ai/home](https://www.luis.ai/home)에서 새 앱을 볼 수 있습니다. 
+이 명령은 **CombineWeatherAndLights**라는 디스패처 LUIS 앱을 만듭니다. [https://www.luis.ai/home](https://www.luis.ai/home)에서 새 앱을 볼 수 있습니다. 
 
 ![LUIS.ai의 디스패처 앱](media/tutorial-dispatch/dispatch-app-in-luis.png)
 
@@ -123,7 +142,7 @@ dispatch create
 
 ![LUIS.ai의 디스패처 의도](media/tutorial-dispatch/dispatch-intents-in-luis.png)
 
-**학습** 단추를 클릭하여 LUIS 앱을 학습하고, **게시** 탭을 사용하여 [게시](https://docs.microsoft.com/en-us/azure/cognitive-services/LUIS/publishapp)합니다. **설정**을 클릭하여 봇에서 사용할 새 앱의 ID를 복사합니다.
+**학습** 단추를 클릭하여 LUIS 앱을 학습하고, **게시** 탭을 사용하여 [게시](https://docs.microsoft.com/en-us/azure/cognitive-services/LUIS/publishapp)합니다. **설정**을 클릭하여 새 앱의 ID를 복사합니다. 이 ID는 이 앱에 봇을 연결할 때 필요합니다.
 
 ## <a name="create-the-bot"></a>봇 만들기
 
@@ -162,7 +181,7 @@ dispatch create
 | `Luis-ModelId-HomeAutomation` | homeautomation.json에서 만든 앱의 앱 ID  | 
 | `Luis-ModelId-Weather` | weather.json에서 만든 앱의 앱 ID | 
 | `QnAMaker-Endpoint-Url` | 미리 보기 QnA Maker 서비스에 대해 https://westus.api.cognitive.microsoft.com/qnamaker/v2.0으로 설정되어야 합니다. <br/>새 (GA) QnA Maker 서비스에 대해 https://YOUR-QNA-SERVICE-NAME.azurewebsites.net/qnamaker로 설정합니다.|
-| `QnAMaker-SubscriptionKey` | QnA Maker 구독 키입니다. | 
+| `QnAMaker-SubscriptionKey` | Azure QnA Maker 구독 키입니다. | 
 | `QnAMaker-KnowledgeBaseId` | [QnAMaker 포털](https://qnamaker.ai)에서 만드는 기술 자료의 ID입니다.| 
 
 
@@ -316,9 +335,15 @@ private static async Task<(IEnumerable<string> intents, IEnumerable<string> enti
 
 # <a name="javascripttabjsbotconfig"></a>[JavaScript](#tab/jsbotconfig)
 
-[디스패치 봇 샘플][DispatchBotJs]의 코드를 사용하여 시작합니다. **app.js**를 열고 필요에 따라 `appId` 필드를 사용자가 만든 LUIS 앱의 ID와 바꿉니다. 원래대로 `appId` 필드를 두는 경우 데모용으로 만든 공용 LUIS 앱을 사용하게 됩니다.
+[디스패치 봇 샘플][DispatchBotJs]의 코드를 사용하여 시작합니다. **app.js**를 열고 필요에 따라 `appId` 필드를 사용자가 만든 LUIS 앱의 ID와 바꿉니다. 원래대로 `appId` 필드를 두는 경우 데모용으로 만든 공용 LUIS 앱을 사용하게 됩니다. `LUIS_SUBSCRIPTION_KEY`의 경우 LUIS 앱의 게시 페이지에서 찾을 수 있습니다. 해당 페이지의 엔드포인트 링크 내에 포함되어 있습니다.
 
 ```javascript
+// Packages
+const { BotFrameworkAdapter, MemoryStorage, ConversationState } = require('botbuilder');
+const { restify } = require('restify');
+const { LuisRecognizer, QnAMaker } = require('botbuilder-ai');
+const { DialogSet } = require('botbuilder-dialogs');
+
 // Create LuisRecognizers and QnAMaker
 // The LUIS applications are public, meaning you can use your own subscription key to test the applications.
 // For QnAMaker, users are required to create their own knowledge base.

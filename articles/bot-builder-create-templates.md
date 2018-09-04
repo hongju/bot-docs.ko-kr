@@ -8,19 +8,22 @@ manager: kamrani
 ms.topic: article
 ms.prod: bot-framework
 ms.date: 04/25/2018
-ms.openlocfilehash: 7cf05b3396099f1c65fce7abbceb143a3ad43e9a
-ms.sourcegitcommit: 67445b42796d90661afc643c6bb6533e9a662cbc
+ms.openlocfilehash: 8004389aba58b5cf79f1559b3ce65d1d66c5358c
+ms.sourcegitcommit: 44f100a588ffda19c275b118f4f97029f12d1449
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39574589"
+ms.lasthandoff: 08/26/2018
+ms.locfileid: "42928341"
 ---
 # <a name="create-bots-with-botbuilder-templates"></a>Botbuilder 템플릿을 사용하여 봇 만들기
+
+> [!NOTE]
+> 이 항목은 SDK의 v3 및 v4 버전에 적용됩니다. 아래의 추가적인 참고 사항을 참조하세요.
 
 이제 템플릿을 사용하여 다음 Botbuilder SDK 플랫폼에서 각각 봇을 만들 수 있습니다. 
 
 - Node.js
-- 파이썬
+- Python
 - 자바
 - .NET
 
@@ -96,7 +99,7 @@ npm install generator-botbuilder-java
 
 ## <a name="store-your-bot-information-with-msbot"></a>MSBot을 사용하여 봇 정보 저장
 
-새로운 [MSBot](https://github.com/Microsoft/botbuilder-tools/tree/master/MSBot) 도구를 사용하면 봇이 사용하는 다양한 서비스에 대한 메타데이터를 모두 한곳에 저장하는 **.bot** 파일을 만들 수 있습니다. 이 파일을 사용하면 봇이 CLI에서 이러한 서비스에 연결할 수도 있습니다. 이 도구는 npm 모듈로 제공됩니다. 도구를 설치하려면 다음을 실행합니다.
+새로운 [MSBot](https://github.com/Microsoft/botbuilder-tools/tree/master/MSBot) 도구를 사용하면 봇이 사용하는 다양한 서비스에 대한 메타데이터를 모두 한곳에 저장하는 **.bot** 파일을 만들 수 있습니다. 이 파일을 사용하면 봇이 CLI에서 이러한 서비스에 연결할 수도 있습니다. 도구는 npm 모듈로 제공됩니다. 도구를 설치하려면 다음을 실행합니다.
 
 ```shell
 npm install -g msbot 
@@ -117,9 +120,9 @@ msbot connect [Service]
 | ------ | ----------- |
 | azure  |봇을 Azure Bot Service 등록에 연결합니다.|
 |localhost| 봇을 localhost 엔드포인트에 연결합니다.|
-|luis     | 봇을 LUIS 응용 프로그램에 연결합니다. |
-| qna     |봇을 QnA 기술 자료에 연결합니다.|
-|help [cmd]  |[cmd]에 대한 도움말을 표시합니다.|
+|luis     | 봇을 LUIS 응용 프로그램에 연결 |
+| qna     |봇을 QnA 기술 자료에 연결|
+|도움말[cmd]  |[cmd]에 대한 도움말을 표시|
 
 ### <a name="connect-your-bot-to-abs-with-the-bot-file"></a>.bot 파일을 사용하여 봇을 ABS에 연결
 

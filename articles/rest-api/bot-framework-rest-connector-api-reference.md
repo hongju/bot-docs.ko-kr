@@ -7,12 +7,12 @@ manager: kamrani
 ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/2017
-ms.openlocfilehash: 1eb334f719279c987b30e604eacfb3878970ba02
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: d76daffcfc4661a87d1efaf85e6bb08e3e999988
+ms.sourcegitcommit: e8c513d3af5f0c514cadcbcd0a737a7393405afa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39304123"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42756432"
 ---
 # <a name="api-reference"></a>API 참조
 
@@ -22,7 +22,7 @@ ms.locfileid: "39304123"
 Bot Framework 내에서 Bot Connector 서비스는 봇에서 Bot Framework 포털에 구성된 채널의 사용자와 메시지를 교환할 수 있게 하며, Bot State 서비스를 사용하면 봇에서 Bot Connector 서비스를 통해 수행하는 대화와 관련된 상태 데이터를 저장하고 검색할 수 있습니다. 두 서비스는 모두 HTTPS를 통해 업계 표준 REST와 JSON을 사용합니다.
 
 > [!IMPORTANT]
-> Bot Framework State Service API는 프로덕션 환경에 권장되지 않으며, 이후 릴리스에서 사용되지 않을 수 있습니다. 테스트를 위해 메모리 내 저장소를 사용하거나 프로덕션 봇에 **Azure 확장** 중 하나를 사용하도록 봇 코드를 업데이트하는 것이 좋습니다. 자세한 내용은 [.NET](~/dotnet/bot-builder-dotnet-state.md) 또는 [Node](~/nodejs/bot-builder-nodejs-state.md) 구현에 대한 **상태 데이터 관리** 항목을 참조하세요.
+> Bot Framework State Service API는 프로덕션 환경에 권장되지 않으며, 이후 릴리스에서 사용되지 않을 수 있습니다. 테스트 용도로 메모리 내 저장소를 사용하거나 프로덕션 봇용으로 **Azure 확장**을 사용하도록 봇 코드를 업데이트하는 것이 좋습니다. 자세한 내용은 [.NET](~/dotnet/bot-builder-dotnet-state.md) 또는 [Node](~/nodejs/bot-builder-nodejs-state.md) 구현에 대한 **상태 데이터 관리** 항목을 참조하세요.
 
 ## <a name="base-uri"></a>기본 URI
 
@@ -420,7 +420,7 @@ DELETE /v3/botstate/{channelId}/users/{userId}
 | **textFormat** | string | 메시지의 **text** 형식입니다. **markdown**, **plain**, **xml** 값 중 하나입니다. 텍스트 형식에 대한 자세한 내용은 [메시지 만들기](bot-framework-rest-connector-create-messages.md)를 참조하세요. |
 | **timestamp** | string | 메시지를 UTC 표준 시간대로 보낸 날짜와 시간으로 <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO-8601</a> 형식으로 표시됩니다. |
 | **topicName** | string | 활동이 속한 대화의 주제입니다. |
-| **type** | string | 활동의 유형입니다. **contactRelationUpdate**, **conversationUpdate**, **deleteUserData**, **message**, **ping**, **typing**, **endOfConversation** 값 중 하나입니다. 활동 유형에 대한 자세한 내용은 [활동 개요](bot-framework-rest-connector-activities.md)를 참조하세요. |
+| **type** | string | 활동의 유형입니다. **contactRelationUpdate**, **conversationUpdate**, **deleteUserData**, **message**, **typing**, **endOfConversation** 값 중 하나입니다. 활동 유형에 대한 자세한 내용은 [활동 개요](bot-framework-rest-connector-activities.md)를 참조하세요. |
 | **값** | object | 무한 값입니다. |
 
 <a href="#objects">스키마 표로 이동</a>

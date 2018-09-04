@@ -8,14 +8,16 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/17
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: fbfe65526335b7a8797ab229871472d540735e20
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: 35af3a339a20fe0e7e70d001db035aec2647aa35
+ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39301195"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42905322"
 ---
 # <a name="support-audio-calls-with-skype"></a>Skype를 사용하여 음성 통화 지원
+
+[!INCLUDE [pre-release-label](../includes/pre-release-label-v3.md)]
 
 Skype는 호출 봇이라는 풍부한 기능을 지원합니다.  이 기능이 사용되도록 설정되면 봇에 음성 통화를 걸고 IVR(대화형 음성 응답)을 사용하여 상호 작용할 수 있습니다.  Node.js용 Bot Builder SDK에는 개발자가 챗봇에 호출 기능을 추가하는 데 사용할 수 있는 특수한 [Calling SDK][calling_sdk]가 포함되어 있습니다.   
 
@@ -70,7 +72,7 @@ Skype 클라이언트를 사용하여 봇을 테스트할 수 있습니다. 봇 
 호출 단추를 누르면 봇으로 전화를 걸게 되며, “Watson... come here!”라고 말하는 소리가 들립니다. 그러면 끊어야 합니다.
 
 ## <a name="calling-basics"></a>호출 기본 사항
-[UniversalCallBot](http://docs.botframework.com/en-us/node/builder/calling-reference/classes/_botbuilder_d_.universalcallbot) 및 [CallConnector](http://docs.botframework.com/en-us/node/builder/calling-reference/classes/_botbuilder_d_.callconnector) 클래스를 사용하여 챗봇의 경우와 같은 방식으로 호출 봇을 작성할 수 있습니다. [채팅 다이얼로그](bot-builder-nodejs-manage-conversation-flow.md)와 기본적으로 동일한 다이얼로그를 봇에 추가합니다. 봇에 [폭포형 패턴](bot-builder-nodejs-prompts.md)을 추가할 수 있습니다. 세션 개체, [CallSession](http://docs.botframework.com/en-us/node/builder/calling-reference/classes/_botbuilder_d_.callsession) 클래스에는 현재 호출을 관리하기 위한 [answer()](http://docs.botframework.com/en-us/node/builder/calling-reference/classes/_botbuilder_d_.callsession#answer), [hangup()](http://docs.botframework.com/en-us/node/builder/calling-reference/classes/_botbuilder_d_.callsession#hangup) 및 [reject()](http://docs.botframework.com/en-us/node/builder/calling-reference/classes/_botbuilder_d_.callsession#reject) 메서드가 추가되었습니다. 그렇지만 일반적으로 CallSession에는 사용자를 위해 호출을 자동으로 관리하는 논리가 있으므로 이러한 호출 제어 메서드에 대해서는 걱정할 필요가 없습니다. 사용자가 메시지를 전송하거나 기본 제공 프롬프트를 호출하는 것과 같은 작업을 수행하면 세션은 자동으로 호출에 응답합니다. 또한 [endConversation()](http://docs.botframework.com/en-us/node/builder/calling-reference/classes/_botbuilder_d_.callsession#endconversation)을 호출하는 경우 세션은 호출을 자동으로 끊거나 거부하고, 사용자가 발신자 질문에 답변을 중지했음을 감지합니다(기본 제공 프롬프트를 호출하지 않음)
+[UniversalCallBot](http://docs.botframework.com/en-us/node/builder/calling-reference/classes/_botbuilder_d_.universalcallbot) 및 [CallConnector](http://docs.botframework.com/en-us/node/builder/calling-reference/classes/_botbuilder_d_.callconnector) 클래스를 사용하여 챗봇의 경우와 같은 방식으로 호출 봇을 작성할 수 있습니다. [채팅 다이얼로그](bot-builder-nodejs-manage-conversation-flow.md)와 기본적으로 동일한 다이얼로그를 봇에 추가합니다. 봇에 [폭포형 패턴](bot-builder-nodejs-prompts.md)을 추가할 수 있습니다. 세션 개체인 [CallSession](http://docs.botframework.com/en-us/node/builder/calling-reference/classes/_botbuilder_d_.callsession) 클래스가 있으며, 현재 호출을 관리하기 위한 [answer()](http://docs.botframework.com/en-us/node/builder/calling-reference/classes/_botbuilder_d_.callsession#answer), [hangup()](http://docs.botframework.com/en-us/node/builder/calling-reference/classes/_botbuilder_d_.callsession#hangup) 및 [reject()](http://docs.botframework.com/en-us/node/builder/calling-reference/classes/_botbuilder_d_.callsession#reject) 메서드가 추가되었습니다. 그렇지만 일반적으로 CallSession에는 사용자를 위해 호출을 자동으로 관리하는 논리가 있으므로 이러한 호출 제어 메서드에 대해서는 걱정할 필요가 없습니다. 사용자가 메시지를 전송하거나 기본 제공 프롬프트를 호출하는 것과 같은 작업을 수행하면 세션은 자동으로 호출에 응답합니다. 또한 [endConversation()](http://docs.botframework.com/en-us/node/builder/calling-reference/classes/_botbuilder_d_.callsession#endconversation)을 호출하는 경우 세션은 호출을 자동으로 끊거나 거부하고, 사용자가 발신자 질문에 답변을 중지했음을 감지합니다(기본 제공 프롬프트를 호출하지 않음)
 
 호출 봇과 챗봇의 또 다른 차이점은 챗봇은 일반적으로 사용자에게 메시지, 카드 및 키보드를 전송하지만, 호출 봇은 작업 및 결과를 처리한다는 것입니다. Skype 호출 봇은 하나 이상의 [작업](http://docs.botframework.com/en-us/node/builder/calling-reference/interfaces/_botbuilder_d_.iaction)으로 구성되는 [워크플로](http://docs.botframework.com/en-us/node/builder/calling-reference/interfaces/_botbuilder_d_.iworkflow)를 만드는 데 필요합니다.  Bot Builder 호출 SDK가 이러한 작업을 대부분 관리하므로 실제로는 크게 걱정할 필요가 없습니다. [CallSession.send()](http://docs.botframework.com/en-us/node/builder/calling-reference/classes/_botbuilder_d_.callsession#send) 메서드를 사용하여 [PlayPromptActions](http://docs.botframework.com/en-us/node/builder/calling-reference/classes/_botbuilder_d_.playpromptaction)로 전환되는 작업 또는 문자열을 제공할 수 있습니다.  세션에는 여러 작업을 호출 서비스로 제출되는 단일 워크플로에 결합하는 자동 일괄 처리 논리가 포함되어 있으므로 send()를 여러 번 호출해도 안전합니다.  또한 사용자는 SDK의 기본 제공 [프롬프트](bot-builder-nodejs-prompts.md)를 사용하여 프롬프트가 모든 결과를 처리할 때 사용자로부터 입력을 수집해야 합니다.  
 

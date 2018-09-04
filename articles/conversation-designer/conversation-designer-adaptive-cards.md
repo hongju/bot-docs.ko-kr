@@ -7,12 +7,12 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/2017
 ROBOTS: NoIndex, NoFollow
-ms.openlocfilehash: 01f52a6aa6e2c9fc3d2613ff03386a7d87e64a3a
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: 2dec87fbdce1cc556c15f7220200da98a4496513
+ms.sourcegitcommit: a2f3d87c0f252e876b3e63d75047ad1e7e110b47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39303811"
+ms.lasthandoff: 08/25/2018
+ms.locfileid: "42928218"
 ---
 # <a name="configure-adaptive-cards"></a>적응형 카드 구성
 > [!IMPORTANT]
@@ -24,18 +24,16 @@ ms.locfileid: "39303811"
 
 적응형 카드는 여러 가지 다른 주요 위치에서 정의할 수 있습니다.
 
-- 작업의 [동작](conversation-designer-tasks.md)에 대한 간단한 응답.
+- 작업의 동작에 대한 간단한 응답.
 - 대화의 피드백 상태.
 - 대화의 프롬프트 상태. 프롬프트에는 별도의 카드가 있을 수 있습니다. 하나는 응답용이고 다른 하나는 재 프롬프트용입니다.
 
 적응형 카드를 정의하려면 관련 편집기로 이동합니다. 기존 적응형 카드 템플릿 중 하나를 찾아서 선택하거나 JSON 코드편집기에서 직접 작성합니다. 
 
-<!--TODO: Insert screenshot -->
-
 카드를 작성하는 대로 카드의 다양한 미리 보기가 작성하는 포털에 렌더링됩니다.
 
 > [!NOTE]
-> 적응형 카드의 기능에 대한 개발은 아직 진행 중입니다. 현재는 모든 채널에서 일부 적응형 카드 기능을 지원하지 않습니다. 각 채널이 지원하는 채널을 보려면 [채널 상태](/adaptive-cards/get-started/bots#channel-status) 섹션을 참조하세요.
+> 적응형 카드의 기능에 대한 개발은 아직 진행 중입니다. 현재는 모든 채널에서 일부 적응형 카드 기능을 지원하지 않습니다. 각 채널이 지원하는 채널을 보려면 채널 상태 섹션을 참조하세요.
 
 ## <a name="input-form"></a>입력 양식
 
@@ -74,13 +72,7 @@ ms.locfileid: "39303811"
 * `entityName`은 카드 내 엔터티를 사용합니다.
 * `responseTemplateName`은 카드 내 간단한 또는 조건부 응답 템플릿을 사용합니다.
 
-<!--
-# Binding form flow input fields to bot entities
-TODO: fill this out based on design/ implementation -->
-
-<!-- ## Adaptive Card schema
-
-You can learn more about adaptive cards here  TODO: Insert link to adaptive cards schema documentation -->
+적응형 카드에 대한 자세한 내용은 여기에서 확인할 수 있습니다. TODO: 적응형 카드 스키마 설명서에 대한 링크 삽입 -->
 
 ## <a name="sample-adaptive-card-payload"></a>간단한 적응형(adaptive) 카드 페이로드
 
@@ -149,6 +141,3 @@ You can learn more about adaptive cards here  TODO: Insert link to adaptive card
 }
 ```
 
-## <a name="next-step"></a>다음 단계
-> [!div class="nextstepaction"]
-> [채널에 연결](conversation-designer-deploy.md)

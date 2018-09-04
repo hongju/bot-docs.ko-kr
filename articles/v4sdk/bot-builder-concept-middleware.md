@@ -9,16 +9,16 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 05/24/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 9986ac7d46acfa94694456d653b91dd66c1f55f0
-ms.sourcegitcommit: f95702d27abbd242c902eeb218d55a72df56ce56
+ms.openlocfilehash: d8201da0fb406f30888dfaa4ff6017f125990104
+ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39304651"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42905377"
 ---
 # <a name="middleware"></a>미들웨어
 
-[!INCLUDE [pre-release-label](~/includes/pre-release-label.md)]
+[!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
 
 미들웨어는 간단하게 말해서 어댑터와 봇 논리 사이에 위치하는 클래스로, 초기화하는 동안 어댑터의 미들웨어 컬렉션에 추가됩니다. SDK를 사용하면 사용자 고유의 미들웨어를 작성하거나 다른 사람이 만든 재사용 가능한 미들웨어 구성 요소를 추가할 수 있습니다. 미들웨어에서 무엇을 할 수 있나요? 무엇이든 가능합니다... 봇으로 들어오거나 봇에서 나가는 모든 작업은 미들웨어를 통과합니다.
 
@@ -36,7 +36,7 @@ bot이 모든 작업 또는 특정 유형의 모든 작업에 대해 무언가�
 
 ### <a name="modifying-or-enhancing-the-turn-context"></a>턴 컨텍스트 수정 또는 개선
 
-작업에 제공되는 정보보다 더 많은 정보를 봇이 갖고 있으면 특정 대화가 훨씬 유익할 수 있습니다. 이 경우 미들웨어는 지금까지의 대화 상태 정보를 살펴보고, 외부 데이터 원본을 쿼리하고, 컨텍스트 개체에 추가한 후 봇 논리에 대한 실행을 전달할 수 있습니다.
+작업에 제공되는 정보보다 더 많은 정보를 봇이 갖고 있으면 특정 대화가 훨씬 유익할 수 있습니다. 이 경우 미들웨어는 지금까지의 대화 상태 정보를 살펴보고, 외부 데이터 원본을 쿼리하고, [턴 컨텍스트](bot-builder-concept-activity-processing.md#turn-context) 개체에 추가한 후 봇 논리에 대한 실행을 전달할 수 있습니다.
 예를 들어 미들웨어는 대화 ID 및 상태 같은 대화 세부 정보를 식별한 다음, 디렉터리 서비스에 정보를 쿼리할 수 있습니다. 미들웨어는 외부 쿼리에서 받은 사용자 개체를 컨텍스트 개체에 추가 및 전달하고, 봇이 요청을 잘 처리할 수 있도록 사용자에 대한 더 많은 데이터를 제공합니다.
 
 미들웨어는 위의 사용자 또는 또 다른 사용자로 완전히 나눌 수 있습니다. 이는 사용자가 원하는 봇의 구조 및 봇의 목적에 따라 결정됩니다.

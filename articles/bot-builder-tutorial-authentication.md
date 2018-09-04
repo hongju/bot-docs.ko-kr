@@ -8,17 +8,13 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 7/2/2018
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 6d2e22bdfaa9fc4e3ce55bc1dd969921e90c87cc
-ms.sourcegitcommit: 97bb24f15041caccef4ca5736aa14f144881e0c6
+ms.openlocfilehash: ca9ccb0f0425bd0cabf1ce7ef236acb7a008aefe
+ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39567512"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42905914"
 ---
-# <a name="add-authentication-to-your-bot-via-azure-bot-service"></a>Azure Bot Service를 통해 봇에 인증 추가
-
-[!INCLUDE [pre-release-label](includes/pre-release-label-v3.md)]
-
 이 자습서에서는 사용자를 Azure AD(Azure Active Directory), GitHub 및 Uber 등과 같은 다양한 ID 공급자에 인증하는 봇을 쉽게 개발하는 기능을 제공하는 Azure Bot Service에서 새 봇 인증 기능을 사용합니다. 이러한 업데이트는 또한 일부 클라이언트에 대한 _매직 코드 확인_을 제거하여 향상된 사용자 환경을 위한 단계를 수행합니다.
 
 이전에 봇은 OAuth 컨트롤러 및 로그인 링크를 포함하고, 대상 클라이언트 ID 및 비밀을 저장하고, 사용자 토큰 관리를 수행해야 했습니다.
@@ -48,7 +44,7 @@ These capabilities were bundled in the BotAuth and AuthBot samples that are on G
 > [!NOTE]
 > 인증 기능은 또한 BotBuilder v3을 사용하여 Node.js와 작동합니다. 그러나 이 문서에서는 샘플 C# 코드만을 설명합니다.
 
-추가 정보 및 지원은 [Bot Framework 추가 리소스](https://docs.microsoft.com/en-us/azure/bot-service/bot-service-resources-links-help)를 참조하세요.
+추가 정보 및 지원은 [Bot Framework 추가 리소스](https://docs.microsoft.com/azure/bot-service/bot-service-resources-links-help)를 참조하세요.
 
 ## <a name="overview"></a>개요
 
@@ -90,7 +86,7 @@ v1 및 v2 엔드포인트 간의 차이점에 대한 정보는 [v1-v2 비교](ht
    1. **응용 프로그램 유형**을 **웹앱/API**로 설정합니다.
    1. **로그온 URL**을 `https://token.botframework.com/.auth/web/redirect`로 설정합니다.
    1. **만들기**를 클릭합니다.
-      - 만들어지면 **등록된 앱** 블레이드에 표시됩니다.
+      - 만들어지면 **등록된 앱** 창에 표시됩니다.
       - **응용 프로그램 ID** 값을 기록합니다. 나중에 이를 _클라이언트 ID_로 제공합니다.
 1. **설정**을 클릭하여 응용 프로그램을 구성합니다.
 1. **키**를 클릭하여 **키** 패널을 엽니다.
@@ -178,7 +174,7 @@ v1 및 v2 엔드포인트 간의 차이점에 대한 정보는 [v1-v2 비교](ht
 
 #### <a name="to-register-an-azure-ad-v2-application"></a>Azure AD v2 응용 프로그램을 등록하려면
 
-1. [Azure Portal](http://portal.azure.com/)에서 봇의 봇 채널 등록 블레이드로 이동합니다.
+1. [Azure Portal](http://portal.azure.com/)에서 봇의 봇 채널 등록 페이지로 이동합니다.
 1. **설정**을 클릭합니다.
 1. 페이지 아래쪽의 **OAuth 연결 설정** 아래에서 **설정 추가**를 클릭합니다.
 1. 다음과 같이 양식을 채웁니다.
@@ -205,7 +201,7 @@ v1 및 v2 엔드포인트 간의 차이점에 대한 정보는 [v1-v2 비교](ht
 #### <a name="to-test-your-connection"></a>연결을 테스트하려면
 
 1. 방금 만든 연결을 엽니다.
-1. **서비스 공급자 연결 설정** 블레이드의 맨 위에 있는 **연결 테스트**를 클릭합니다.
+1. **서비스 공급자 연결 설정** 창의 맨 위에 있는 **연결 테스트**를 클릭합니다.
 1. 처음에 앱에서 요청하는 사용 권한을 나열하는 새 브라우저 탭을 열고 수락하라는 메시지를 표시해야 합니다.
 1. **Accept**를 클릭합니다.
 1. 그런 다음, **`<your-connection-name>' Succeeded에 대한 연결 테스트** 페이지로 리디렉션해야 합니다.

@@ -1,5 +1,5 @@
 ---
-title: 직접 회선 봇 및 클라이언트를 만드는 방법 | Microsoft Docs
+title: 직접 회선 봇 및 클라이언트 만들기 | Microsoft Docs
 description: .NET용 Bot Builder SDK V4를 사용하여 직접 회선 봇 및 클라이언트를 만드는 방법을 알아봅니다.
 keywords: 직접 회선 봇, 직접 회선 클라이언트, 사용자 지정 채널, 콘솔 기반, 게시
 author: v-royhar
@@ -9,14 +9,16 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 4/16/18
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: ac96e35763d690c91e6584ff9a840b490e0a32cd
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: 23380231c15c40875f78921f72bcf9d57effb3bf
+ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39300909"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42905233"
 ---
-# <a name="how-to-create-a-direct-line-bot-and-client"></a>직접 회선 봇 및 클라이언트를 만드는 방법
+# <a name="create-a-direct-line-bot-and-client"></a>직접 회선 봇 및 클라이언트 만들기
+
+[!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
 
 Microsoft Bot Framework 직접 회선 봇은 사용자가 디자인한 사용자 지정 클라이언트에서 작동할 수 있는 봇입니다. 직접 회산 봇은 일반 봇과 매우 유사합니다. 단지 제공된 채널을 사용할 필요가 없는 수준이 아닙니다.
 
@@ -189,9 +191,6 @@ namespace DirectLineBotSample
                     break;
 
                 case ActivityTypes.Typing:
-                    break;
-
-                case ActivityTypes.Ping:
                     break;
 
                 case ActivityTypes.DeleteUserData:

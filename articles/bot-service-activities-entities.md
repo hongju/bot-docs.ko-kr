@@ -8,12 +8,12 @@ manager: kamrani
 ms.topic: article
 ms.prod: bot-framework
 ms.date: 03/01/2018
-ms.openlocfilehash: 984c0d59c0c80bb53c8cef42db79d444d85941f3
-ms.sourcegitcommit: dcbc8ad992a3e242a11ebcdf0ee99714d919a877
+ms.openlocfilehash: 8f4b6c27fc28e4cf3b800dad11c3e6bd58561387
+ms.sourcegitcommit: 0b2be801e55f6baa048b49c7211944480e83ba95
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39352942"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43115068"
 ---
 # <a name="entities-and-activity-types"></a>엔터티 및 작업 형식
 
@@ -169,9 +169,9 @@ if(context.activity.type === 'message'){
 | [endOfConversation](#endofconversation) | IEndOfConversationActivity(C#) <br> 작업(JS) | 대화의 끝을 나타냅니다. |
 | [event](#event) | IEventActivity(C#) <br> 작업(JS) | 사용자에게 표시되지 않는 봇에게 전송한 통신을 나타냅니다. |
 | [installationUpdate](#installationupdate) | IInstallationUpdateActivity(C#) <br> 작업(JS) | 채널의 조직 단위(예: 고객 테넌트 또는 “팀”) 내에서 봇의 설치 또는 제거를 나타냅니다. |
-| [호출](#invoke) | IInvokeActivity(C#) <br> 작업(JS) | 특정 작업을 수행하도록 요청하는 봇에 전송된 통신을 나타냅니다. 이 작업 유형은 Microsoft Bot Framework에 의해 내부 용도로 예약됐습니다. |
+| [호출](#invoke) | IInvokeActivity(C#) <br> 작업(JS) | 특정 작업을 수행하도록 요청하는 봇에 전송된 통신을 나타냅니다. 이 활동 유형은 Microsoft Bot Framework에 의해 내부 용도로 예약됐습니다. |
 | [messageReaction](#messagereaction) | IMessageReactionActivity(C#) <br> 작업(JS) | 사용자가 기존 활동에 대응했음을 나타냅니다. 예를 들어 사용자는 메시지에서 "좋아요" 단추를 클릭합니다. |
-| [입력](#typing) | ITypingActivity(C#) <br> 작업(JS) | 대화의 한쪽 끝에서 사용자 또는 봇이 응답을 컴파일하는 것을 나타냅니다. |
+| [입력](#typing) | ITypingActivity(C#) <br> 작업(JS) | 대화의 상대편인 사용자 또는 봇이 응답을 컴파일하는 중임을 나타냅니다. |
 
 ## <a name="message"></a>Message
 
@@ -226,7 +226,7 @@ if(context.activity.type === 'message'){
 
 ## <a name="messagereaction"></a>messageReaction
 
-사용자가 기존 작업에 반응하는 경우 일부 채널은 봇에게 메시지 반응 작업을 보냅니다. 예를 들어 사용자는 메시지에서 "좋아요" 단추를 클릭합니다. 회신에 따르면 속성은 사용자가 반응하는 작업을 나타냅니다.
+사용자가 기존 작업에 반응하는 경우 일부 채널은 봇에게 메시지 반응 작업을 보냅니다. 예를 들어 사용자가 메시지에 "좋아요" 단추를 클릭합니다. replyToId 속성은 사용자가 반응한 활동을 나타냅니다.
 
 메시지 반응 작업은 채널이 정의한 많은 메시지 반응 유형과 부합할 수 있습니다. 예를 들어 채널이 보낼 수 있는 반응 유형으로 "좋아요" 또는 "PlusOne"이 있습니다.
 
@@ -238,5 +238,5 @@ if(context.activity.type === 'message'){
 ::: moniker range="azure-bot-service-3.0"
 ## <a name="additional-resources"></a>추가 리소스
 
-- <a href="https://docs.botframework.com/en-us/csharp/builder/sdkreference/dc/d2f/class_microsoft_1_1_bot_1_1_connector_1_1_activity.html" target="_blank">작업 클래스</a>
+- <a href="https://docs.botframework.com/en-us/csharp/builder/sdkreference/dc/d2f/class_microsoft_1_1_bot_1_1_connector_1_1_activity.html" target="_blank">활동 클래스</a>
 ::: moniker-end

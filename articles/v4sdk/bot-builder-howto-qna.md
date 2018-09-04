@@ -1,5 +1,5 @@
 ---
-title: QnA Maker 사용 | Microsoft Docs
+title: QnA Maker를 사용하여 질문에 답변 | Microsoft Docs
 description: 봇에서 QnA Maker를 사용하는 방법에 대해 알아봅니다.
 keywords: 질문 및 답변, QnA, FAQ, 미들웨어
 author: ivorb
@@ -9,16 +9,18 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 03/13/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 78bc2c849a2c1900da33c7419693a7ff84c43cb0
-ms.sourcegitcommit: dcbc8ad992a3e242a11ebcdf0ee99714d919a877
+ms.openlocfilehash: 7dd973e2b5a151e754925e6f19c6e4f82507f745
+ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39352952"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42906177"
 ---
-# <a name="how-to-use-qna-maker"></a>QnA Maker 사용하는 방법
+# <a name="use-qna-maker-to-answer-questions"></a>QnA Maker를 사용하여 질문에 답변
 
-봇을 지원하는 간단한 질문 및 답변을 추가하려면 [QnA Maker](https://qnamaker.ai/) 서비스를 사용할 수 있습니다.
+
+봇을 지원하는 간단한 질문 및 답변을 추가하려면 [QnA Maker](https://docs.microsoft.com/en-us/azure/cognitive-services/qnamaker/home) 서비스를 사용할 수 있습니다.
+
 
 사용자 고유의 QnA Maker 서비스를 작성하는 기본적인 요구 사항 중 하나는 질문 및 답변을 통해 보내는 것입니다. 대부분의 경우 질문 및 답변은 이미 FAQ 또는 기타 설명서와 같은 콘텐츠에 있습니다. 다른 경우 더 자연스러운 대화식으로 질문에 대한 답변을 사용자 지정하려고 합니다. 
 

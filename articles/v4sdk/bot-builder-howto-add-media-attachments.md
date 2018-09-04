@@ -7,14 +7,14 @@ ms.author: v-ivorb
 manager: kamrani
 ms.topic: article
 ms.prod: bot-framework
-ms.date: 04/03/2018
+ms.date: 08/24/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 30a0c463698d9ab7e3b2b0f9ddb0e872f007d1d8
-ms.sourcegitcommit: 9a38d76afb0e82fdccc1f36f9b1a65042671e538
+ms.openlocfilehash: 5883b31df95da26fa0432f4cfe195f12fc3089ad
+ms.sourcegitcommit: 86ddf3ebe6cc3385d1c4d30b971ac9c3e1fc5a77
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/04/2018
-ms.locfileid: "39515043"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43055997"
 ---
 # <a name="add-media-to-messages"></a>메시지에 미디어 추가
 
@@ -233,8 +233,13 @@ await context.sendActivity(hero);
 ---
 
 ## <a name="send-an-adaptive-card"></a>적응형 카드 보내기
+적응형 카드 및 MessageFactory는 사용자와 통신하기 위해 텍스트, 이미지, 비디오, 오디오 및 파일이 포함된 서식 있는 메시지를 보내는 데 사용됩니다. 하지만 이들 사이에는 약간의 차이점이 있습니다. 
 
-적응형 카드를 첨부 파일로 보낼 수도 있습니다. 현재 일부 채널은 적응형 카드를 지원하지 않습니다. 적응형 카드 채널 지원에 대한 최신 정보는 <a href="http://adaptivecards.io/visualizer/">적응형 카드 시각화 도우미</a>를 참조하세요.
+첫째, 일부 채널만 적응형 카드를 지원하며, 이를 지원하는 채널은 부분적으로 적응형 카드를 지원할 수 있습니다. 예를 들어, Facebook에서 적응형 카드를 보내면 텍스트와 이미지가 제대로 작동하는 동안 단추가 작동하지 않습니다. MessageFactory는 Bot Builder SDK 내의 도우미 클래스로, 생성 단계를 자동화할 수 있으며, 대부분의 채널에서 지원됩니다. 
+
+둘째, 적응형 카드는 카드 양식의 메시지를 전달하며, 채널은 카드의 레이아웃을 결정합니다. MessageFactory가 제공하는 메시지 양식은 채널에 따라 다르며, 적응형 카드가 첨부 파일의 일부가 아니라면 카드 양식이 아니어도 됩니다. 
+
+적응형 카드 채널 지원에 대한 최신 정보는 <a href="http://adaptivecards.io/visualizer/">적응형 카드 시각화 도우미</a>를 참조하세요.
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 적응형 카드를 사용하려면 `Microsoft.AdaptiveCards` NuGet 패키지를 추가해야 합니다.

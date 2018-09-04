@@ -7,18 +7,18 @@ manager: kamrani
 ms.topic: article
 ms.prod: bot-framework
 ms.date: 05/03/2018
-ms.openlocfilehash: 129c3a2b92297980e6b5e209f6e7f400a854d3a1
-ms.sourcegitcommit: 9a38d76afb0e82fdccc1f36f9b1a65042671e538
+ms.openlocfilehash: 7aff56dfc60d9d5cce42a5b6a2624c1364ff1b72
+ms.sourcegitcommit: 44f100a588ffda19c275b118f4f97029f12d1449
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/04/2018
-ms.locfileid: "39515073"
+ms.lasthandoff: 08/26/2018
+ms.locfileid: "42928381"
 ---
-::: moniker range="azure-bot-service-3.0"
-
 # <a name="bot-builder-sdk-for-net-samples"></a>.NET용 Bot Builder SDK 샘플
 
-[!INCLUDE [pre-release-label](~/includes/pre-release-label-v3.md)]
+::: moniker range="azure-bot-service-3.0"
+
+[!INCLUDE [pre-release-label](../includes/pre-release-label-v3.md)]
 
 이 샘플은 .NET용 Bot Builder SDK의 기능을 활용하는 방법을 보여주는 작업에 중점을 두고 있는 봇을 설명합니다. 샘플을 사용하여 다양한 기능이 포함된 유용한 봇 빌드를 빠르게 시작할 수 있습니다.
 
@@ -43,8 +43,8 @@ GitHub에서 샘플을 살펴보고 Azure에 직접 배포할 수도 있습니�
 [첨부 파일 받기](https://github.com/Microsoft/BotBuilder-Samples/tree/master/CSharp/core-ReceiveAttachment) | 사용자가 보낸 첨부 파일을 받아서 다운로드하는 샘플 봇. 
 [새 대화 만들기](https://github.com/Microsoft/BotBuilder-Samples/tree/master/CSharp/core-CreateNewConversation)  | 이전에 저장된 사용자 주소를 사용하여 새로운 대화를 시작하는 샘플 봇.
 [대화 멤버 가져오기](https://github.com/Microsoft/BotBuilder-Samples/tree/master/CSharp/core-GetConversationMembers) | 대화의 멤버 목록을 검색하고 변경 내용을 검색하는 샘플 봇. 
-[직접 회선](https://github.com/Microsoft/BotBuilder-Samples/tree/master/CSharp/core-DirectLine) | Direct Line API를 사용하여 서로 통신하는 샘플 봇과 사용자 지정 클라이언트. 
-[직접 회선(WebSocket)](https://github.com/Microsoft/BotBuilder-Samples/tree/master/CSharp/core-DirectLineWebSockets) | Direct Line API + WebSocket을 사용하여 서로 통신하는 샘플 봇과 사용자 지정 클라이언트. 
+[Direct Line](https://github.com/Microsoft/BotBuilder-Samples/tree/master/CSharp/core-DirectLine) | Direct Line API를 사용하여 서로 통신하는 샘플 봇과 사용자 지정 클라이언트. 
+[Direct Line(WebSockets)](https://github.com/Microsoft/BotBuilder-Samples/tree/master/CSharp/core-DirectLineWebSockets) | Direct Line API + WebSocket을 사용하여 서로 통신하는 샘플 봇과 사용자 지정 클라이언트. 
 [다중 대화 상자](https://github.com/Microsoft/BotBuilder-Samples/tree/master/CSharp/core-MultiDialogs) | 다양한 대화 상자를 보여주는 샘플 봇.
 [상태 API](https://github.com/Microsoft/BotBuilder-Samples/tree/master/CSharp/core-State) | 대화의 컨텍스트를 추적하는 상태 비저장 샘플 봇.
 [사용자 지정 상태 API](https://github.com/Microsoft/BotBuilder-Samples/tree/master/CSharp/core-CustomState) | 사용자 지정 저장소 공급자를 사용하여 대화의 컨텍스트를 추적하는 상태 비저장 샘플 봇.
@@ -89,10 +89,10 @@ GitHub에서 샘플을 살펴보고 Azure에 직접 배포할 수도 있습니�
 ::: moniker-end
 
 ::: moniker range="azure-bot-service-4.0"
-# <a name="bot-builder-sdk-v4-net-samples"></a>Bot Builder SDK v4 .NET 샘플
+
 [!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
 
-이 샘플은 .NET용 Bot Builder SDK의 기능을 활용하는 방법을 보여주는 작업에 중점을 두고 있는 봇을 설명합니다. 샘플을 사용하여 다양한 기능이 포함된 유용한 봇 빌드를 빠르게 시작할 수 있습니다. 
+이 샘플은 .NET용 Bot Builder SDK v4의 기능을 활용하는 방법을 보여주는 작업에 중점을 두고 있는 봇을 설명합니다. 샘플을 사용하여 다양한 기능이 포함된 유용한 봇 빌드를 빠르게 시작할 수 있습니다. 
 
 참고: SDK v4는 활발히 개발되고 있으며 실험을 위해서만 사용해야 합니다. 
 
