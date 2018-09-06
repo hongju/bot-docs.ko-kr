@@ -8,13 +8,14 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 7/2/2018
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: ca9ccb0f0425bd0cabf1ce7ef236acb7a008aefe
-ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
+ms.openlocfilehash: 37189bb9efbee5a2ad5f40f58106d4d85eda4473
+ms.sourcegitcommit: bff936a6a3dd5b1bd3ddfeed8bd1023e52929f08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42905914"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43312477"
 ---
+# <a name="add-authentication-to-your-bot-via-azure-bot-service"></a>Azure Bot Service를 통해 봇에 인증 추가
 이 자습서에서는 사용자를 Azure AD(Azure Active Directory), GitHub 및 Uber 등과 같은 다양한 ID 공급자에 인증하는 봇을 쉽게 개발하는 기능을 제공하는 Azure Bot Service에서 새 봇 인증 기능을 사용합니다. 이러한 업데이트는 또한 일부 클라이언트에 대한 _매직 코드 확인_을 제거하여 향상된 사용자 환경을 위한 단계를 수행합니다.
 
 이전에 봇은 OAuth 컨트롤러 및 로그인 링크를 포함하고, 대상 클라이언트 ID 및 비밀을 저장하고, 사용자 토큰 관리를 수행해야 했습니다.

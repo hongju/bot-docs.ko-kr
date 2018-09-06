@@ -7,14 +7,14 @@ ms.author: jonathanfingold
 manager: kamrani
 ms.topic: article
 ms.prod: bot-framework
-ms.date: 02/21/2018
+ms.date: 08/21/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: ba16adebe6bbb9b79949cd9842e975e35c3f2aa6
-ms.sourcegitcommit: d486dd088b87a44fc8142f7a08877ff993861a42
+ms.openlocfilehash: 6458bac5140fae14e8925e7af37aa8ac4ef1f1f5
+ms.sourcegitcommit: 7b5675bbf7f1c2432bfc831ee5d627f6e5659e01
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2018
-ms.locfileid: "42928412"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43380999"
 ---
 # <a name="create-a-bot-with-the-bot-builder-sdk-for-python"></a>Python용 Bot Builder SDK를 사용하여 봇 만들기
 [!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
@@ -81,7 +81,7 @@ class BotRequestHandler(http.server.BaseHTTPRequestHandler):
         credential_provider = SimpleCredentialProvider(APP_ID, APP_PASSWORD)
         loop = asyncio.new_event_loop()
         try:
-            loop.run_until_complete(JwtTokenValidation.assert_valid_activity(
+            loop.run_until_complete(JwtTokenValidation.authenticate_request(
                 activity, self.headers.get("Authorization"), credential_provider))
             return True
         except Exception as ex:

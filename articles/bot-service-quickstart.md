@@ -7,21 +7,19 @@ ms.author: v-ducvo
 manager: kamrani
 ms.topic: article
 ms.prod: bot-framework
-ms.date: 04/13/2018
-ms.openlocfilehash: fef9a3056839f99fe4da47bb22a1a0980293dc5d
-ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
+ms.date: 08/13/2018
+ms.openlocfilehash: e62d57a39c87e9de32a1a492b2dc1386d6574fd3
+ms.sourcegitcommit: bff936a6a3dd5b1bd3ddfeed8bd1023e52929f08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42905387"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43312497"
 ---
 ::: moniker range="azure-bot-service-3.0"
 
-[!INCLUDE [pre-release-label](includes/pre-release-label-v3.md)]
-
 # <a name="create-a-bot-with-bot-service"></a>Bot Service를 사용하여 봇 만들기
 
-[!INCLUDE [pre-release-label](./includes/pre-release-label-v3.md)]
+[!INCLUDE [pre-release-label](includes/pre-release-label-v3.md)]
 
 Bot Service는 봇 개발을 위한 Bot Builder SDK 및 채널에 봇을 연결하기 위한 Bot Framework를 포함하여 봇 만들기의 핵심 구성 요소를 제공합니다. Bot Service는 .NET 및 Node.js를 지원하는 봇을 만들 때 선택할 수 있는 5가지 템플릿을 제공합니다. 이 항목에서는 Bot Service를 통해 Bot Builder SDK를 사용하는 새 봇 만드는 방법을 알아봅니다.
 
