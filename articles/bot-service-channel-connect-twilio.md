@@ -29,7 +29,7 @@ Twilio 계정이 없는 경우 <a href="https://www.twilio.com/try-twilio" targe
 
 ![앱 만들기](~/media/channels/twi-StepTwiml.png)
 
- 메시징 아래에서 요청 URL은 **https://sms.botframework.com/api/sms**여야 합니다.
+ 메시징 아래에서 요청 URL은 **https://sms.botframework.com/api/sms** 여야 합니다.
 
 ## <a name="select-or-add-a-phone-number"></a>전화 번호 선택 또는 추가
 
