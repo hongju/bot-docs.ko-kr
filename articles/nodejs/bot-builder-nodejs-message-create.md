@@ -100,7 +100,7 @@ session.send(customMessage);
 | [`textLocale(locale:string)`](https://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.message.html#textlocale) | 메시지의 대상 언어를 설정합니다. |
 | [`toMessage()`](https://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.message.html#tomessage) | 메시지에 대한 JSON을 가져옵니다. |
 | [`composePrompt(session:Session, prompts:string[], args?:any[])`](https://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.message.html#composeprompt-1) | 프롬프트 배열을 단일 지역화된 프롬프트에 결합한 다음, 전달된 인수를 사용하여 필요에 따라 프롬프트 템플릿 슬롯을 채웁니다. |
-| [`randomPrompt(prompts:TextType)`](https://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.message.html#randomprompt) | 전달되는 **프롬프트*의 배열에서 임의의 프롬프트를 가져옵니다. |
+| [`randomPrompt(prompts:TextType)`](https://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.message.html#randomprompt) | 전달되는 \* *프롬프트* 의 배열에서 임의의 프롬프트를 가져옵니다. |
 
 ## <a name="next-step"></a>다음 단계
 
