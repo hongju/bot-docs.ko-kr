@@ -1,3 +1,12 @@
+# 엔터프라이즈 템플릿
+## [소개](../v4sdk/bot-builder-enterprise-template-overview.md)
+## [개요](../v4sdk/bot-builder-enterprise-template-overview-detail.md)
+## [프로젝트 만들기](../v4sdk/bot-builder-enterprise-template-create-project.md)
+## [템플릿 사용자 지정](../v4sdk/bot-builder-enterprise-template-customize.md)
+## [템플릿 배포](../v4sdk/bot-builder-enterprise-template-deployment.md)
+## [분석](../v4sdk/bot-builder-enterprise-template-powerbi.md)
+# 가상 도우미 
+## [개요](../v4sdk/bot-builder-virtual-assistant-introduction.md)
 # [FAQ](../bot-service-resources-bot-framework-faq.md)
 # [지원 받기](../bot-service-resources-links-help.md)
 # [식별자에 대한 가이드](../bot-service-resources-identifiers-guide.md)
