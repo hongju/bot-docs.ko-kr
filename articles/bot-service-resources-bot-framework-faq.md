@@ -7,12 +7,12 @@ manager: kamrani
 ms.topic: article
 ms.prod: bot-framework
 ms.date: 08/28/2018
-ms.openlocfilehash: 63aa65e2591d9f98d763863d8d4d56cd0df185ea
-ms.sourcegitcommit: f667ce3f1635ebb2cb19827016210a88c8e45d58
+ms.openlocfilehash: f6a15d0c478bffce6fbae1a322ba9b108f760755
+ms.sourcegitcommit: 3cb288cf2f09eaede317e1bc8d6255becf1aec61
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43142429"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47389822"
 ---
 # <a name="bot-framework-frequently-asked-questions"></a>Bot Framework 질문과 대답
 
@@ -124,7 +124,7 @@ Microsoft는 Cortana Intelligence를 사용하여 엔터프라이즈 고객이 �
 * [포함 가능한 웹 채팅 채널][WebChat]이 제공하는 것 이상의 사용자 지정이 필요한 웹 페이지
 * 서비스 간 응용 프로그램
 
-[DirectLineAPI]: http://docs.botframework.com/en-us/restapi/directline/
+[DirectLineAPI]: https://docs.microsoft.com/en-us/azure/bot-service/rest-api/bot-framework-rest-direct-line-3-0-concepts
 [Support]: bot-service-resources-links-help.md
 [WebChat]: bot-service-channel-connect-webchat.md
 

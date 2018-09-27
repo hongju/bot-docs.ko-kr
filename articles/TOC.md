@@ -69,6 +69,6 @@
 # 관련 항목
 ## [Web Apps](https://docs.microsoft.com/azure/app-service/)
 ## [함수](https://docs.microsoft.com/azure/azure-functions/)
-## [Cognitive Services](https://docs.microsoft.com/azure/index#pivot=products&panel=cognitive)
-## [Application Insights](https://docs.microsoft.com/azure/application-insights/)
+## [Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/)
+## [Application Insights](https://docs.microsoft.com/azure/azure-monitor/)
 # [리소스](resources/TOC.md)

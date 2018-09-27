@@ -7,12 +7,12 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: cb64d25582589b7bcbbe715cb4288cf56ac93e1c
-ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
+ms.openlocfilehash: 5951df2fa7e89cce03bd8b7f9404585f720a9247
+ms.sourcegitcommit: 3bf3dbb1a440b3d83e58499c6a2ac116fe04b2f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42906087"
+ms.lasthandoff: 09/23/2018
+ms.locfileid: "46707309"
 ---
 # <a name="manage-custom-state-data-with-azure-cosmos-db-for-net"></a>.NET용 Azure Cosmos DB를 사용하여 사용자 지정 상태 데이터 관리
 
@@ -76,6 +76,7 @@ namespace SampleApp
     {
         protected void Application_Start()
         {
+            GlobalConfiguration.Configure(WebApiConfig.Register);
             var uri = new Uri(ConfigurationManager.AppSettings["DocumentDbUrl"]);
             var key = ConfigurationManager.AppSettings["DocumentDbKey"];
             var store = new DocumentDbBotDataStore(uri, key);

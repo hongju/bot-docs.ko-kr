@@ -7,12 +7,12 @@ manager: kamrani
 ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/2017
-ms.openlocfilehash: 2fbff9c6d7fe1e06fa87e5b2695056dbc1414570
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: 62088ecdf2f8402ec5456eea758f5db994de0cf9
+ms.sourcegitcommit: 3bf3dbb1a440b3d83e58499c6a2ac116fe04b2f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39304394"
+ms.lasthandoff: 09/23/2018
+ms.locfileid: "46707319"
 ---
 # <a name="create-messages"></a>메시지 만들기
 
@@ -23,8 +23,6 @@ ms.locfileid: "39304394"
 메시지 텍스트는 **일반**, **Markdown** 또는 **xml**을 사용하여 서식 지정될 수 있습니다. `textFormat` 속성에 대한 기본 형식은 **Markdown**이며 Markdown 서식 지정 표준을 사용하여 텍스트를 해석합니다. 텍스트 형식 지원의 수준은 채널에 따라 달라집니다. 대상으로 하는 채널에서 사용하려는 기능이 지원되는지 확인하려면 [채널 검사기][ChannelInspector]를 사용하여 기능을 미리 봅니다. 
 
 [Activity][Activity] 개체의 `textFormat` 속성은 텍스트의 서식을 지정하는 데 사용할 수 있습니다. 예를 들어 일반 텍스트만 포함하는 기본 메시지를 만들려면 [Activity][Activity] 개체의 `textFormat` 속성을 **일반**으로 설정하고, `text` 속성을 메시지의 콘텐츠로 설정하고 `locale` 속성을 발신자의 로캘로 설정합니다. 
-
-일반적으로 지원되는 텍스트 서식 지정 목록은 [텍스트 서식 지정](../bot-service-channel-inspector.md#text-formatting)을 참조하세요.
 
 ## <a name="attachments"></a>첨부 파일
 
@@ -56,7 +54,7 @@ ms.locfileid: "39304394"
 
 ## <a name="additional-resources"></a>추가 리소스
 
-- [채널 검사기를 사용하여 미리 보기 기능][ChannelInspector]
+- [채널 검사기를 사용하여 기능 미리 보기][ChannelInspector]
 - [작업 개요](bot-framework-rest-connector-activities.md)
 - [메시지 보내기 및 받기](bot-framework-rest-connector-send-and-receive-messages.md)
 - [메시지에 미디어 첨부 파일 추가](bot-framework-rest-connector-add-media-attachments.md)

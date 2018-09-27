@@ -9,12 +9,12 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 08/24/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 02c6cf56a0c1161fa0393880810c1481c5eb2461
-ms.sourcegitcommit: f89ed979eb6321232fb21100ef376d9b0d5113c9
+ms.openlocfilehash: acf119a05d4c9f37b74c4fcaf2ad944978504560
+ms.sourcegitcommit: 3bf3dbb1a440b3d83e58499c6a2ac116fe04b2f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42914633"
+ms.lasthandoff: 09/23/2018
+ms.locfileid: "46707249"
 ---
 # <a name="add-input-hints-to-messages"></a>메시지에 입력 힌트 추가
 
@@ -122,3 +122,4 @@ await context.sendActivity(basicMessage);
 - 봇이 프롬프트를 보내는 경우 메시지에 대한 입력 힌트는 봇이 **입력이 필요**함을 지정합니다.</li>
 - 봇이 단일 메시지를 보내는 경우 메시지에 대한 입력 힌트는 봇이 **입력을 허용**하고 있음을 지정합니다.</li>
 - 봇이 일련의 연속 메시지를 보내는 경우 그 중 최종 메시지를 제외한 모든 메시지에 대한 입력 힌트는 봇이 **입력을 무시**하고 있음을 지정하고 최종 메시지에 대한 입력 힌트는 **입력을 허용**하고 있음을 지정합니다.
+

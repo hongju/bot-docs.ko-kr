@@ -7,14 +7,17 @@ manager: kamrani
 ms.topic: article
 ms.prod: bot-framework
 ms.date: 05/01/18
-ms.openlocfilehash: 25474f821d64ea50442d9777d8f891124eb27573
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+monikerRange: azure-bot-service-3.0
+ms.openlocfilehash: ceeb854ace1388b6e0435aacc3acf9027763ee73
+ms.sourcegitcommit: 3bf3dbb1a440b3d83e58499c6a2ac116fe04b2f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39301819"
+ms.lasthandoff: 09/23/2018
+ms.locfileid: "46707969"
 ---
 # <a name="test-a-cortana-skill"></a>Cortana 스킬 테스트
+
+[!INCLUDE [pre-release-label](includes/pre-release-label-v3.md)]
  
 Bot Builder SDK를 사용하여 Cortana 스킬을 빌드한 경우 Cortana에서 호출하여 테스트할 수 있습니다. 다음 지침에서는 Cortana 스킬을 사용해보는 데 필요한 단계를 안내합니다.
 
@@ -82,8 +85,7 @@ Cortana 스킬이 시작되지 않으면 다음을 확인합니다.
 Cortana 스킬을 테스트했으며 원하는 방식대로 작동하는지 확인했으면 베타 테스터 그룹에 배포하거나 공개적으로 릴리스할 수 있습니다. 자세한 내용은 [Cortana 스킬 게시][Cortana-Publish]를 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
-* [Cortana 스킬 키트][CortanaGetStarted]
-* [채널 검사기를 사용하여 기능 미리 보기](bot-service-channel-inspector.md)
+* [Cortana Skill 키트][CortanaGetStarted]
 
 [CortanaGetStarted]: /cortana/getstarted
 

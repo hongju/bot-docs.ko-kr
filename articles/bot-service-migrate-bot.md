@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 6/22/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 19dc16d6e90192ec758b4b73789d930053ad0462
-ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
+ms.openlocfilehash: 41f3355102147e0d403629f23de79a90ac301209
+ms.sourcegitcommit: 3bf3dbb1a440b3d83e58499c6a2ac116fe04b2f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42905797"
+ms.lasthandoff: 09/23/2018
+ms.locfileid: "46707899"
 ---
 # <a name="migrate-your-bot-to-azure"></a>Azure에 봇 마이그레이션
 
@@ -43,7 +43,7 @@ ms.locfileid: "42905797"
 
 Node.js로 만든 Functions 봇은 마이그레이션하기 전에 [Funcpack](https://github.com/Azure/azure-functions-pack)을 사용하여 압축해야 합니다. 프로젝트를 Funcpack하려면 다음 단계를 따릅니다.
 
-1.  아직 없으면 코드를 로컬로 [다운로드](bot-service-build-download-source-code.md#download-bot-source-code)합니다.
+1.  아직 없으면 코드를 로컬로 [다운로드](bot-service-build-download-source-code.md)합니다.
 2.  **packages.json**의 모든 npm 패키지를 최신 버전으로 업데이트한 다음, `npm install`을 실행합니다.
 3.  **messages/index.js**를 열고 `module.exports = { default: connector.listen() }`을 `module.exports = connector.listen();`으로 변경합니다.
 4.  npm: `npm install -g azure-functions-pack`을 통해 Funcpack을 설치합니다.

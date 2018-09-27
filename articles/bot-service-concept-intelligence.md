@@ -8,12 +8,13 @@ manager: rstand
 ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/17/2017
-ms.openlocfilehash: 85b3c86582ce1d653159e0d36516b4a90f5a3220
-ms.sourcegitcommit: 1abc32353c20acd103e0383121db21b705e5eec3
+monikerRange: azure-bot-service-3.0
+ms.openlocfilehash: 05841f6d708b8d22d29fb44b217e97b06053dbb4
+ms.sourcegitcommit: 3bf3dbb1a440b3d83e58499c6a2ac116fe04b2f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42756619"
+ms.lasthandoff: 09/23/2018
+ms.locfileid: "46707999"
 ---
 # <a name="cognitive-services"></a>Cognitive Services
 

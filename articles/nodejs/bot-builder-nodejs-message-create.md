@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 09/7/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 804081e52a03a27da418f549f0fadb6dc8bca52b
-ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
+ms.openlocfilehash: ebe95791d795b0117da34cc0352847c5f27f837c
+ms.sourcegitcommit: 3bf3dbb1a440b3d83e58499c6a2ac116fe04b2f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42905677"
+ms.lasthandoff: 09/23/2018
+ms.locfileid: "46707299"
 ---
 # <a name="create-messages"></a>메시지 만들기
 
@@ -68,8 +68,6 @@ session.send(customMessage);
 범위 내에 `session` 개체가 없는 경우에는 `bot.send` 메서드를 사용하여 사용자에게 서식이 지정된 메시지를 보낼 수 있습니다.
 
 메시지의 `textFormat` 속성은 텍스트의 서식을 지정하는 데 사용할 수 있습니다. `textFormat` 속성은 **일반**, **Markdown** 또는 **xml**로 설정할 수 있습니다. `textFormat`의 기본값은 **Markdown**입니다. 
-
-일반적으로 지원되는 텍스트 서식 지정 목록은 [텍스트 서식 지정](../bot-service-channel-inspector.md#text-formatting)을 참조하세요. 대상 채널이 사용하려는 기능을 지원하는지 확인하려면 [채널 검사기](../bot-service-channel-inspector.md)를 사용하여 기능을 미리 보기합니다.
 
 ## <a name="message-property"></a>메시지 속성
 
