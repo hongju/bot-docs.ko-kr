@@ -7,23 +7,23 @@ manager: kamrani
 ms.topic: landing-page
 layout: LandingPage
 ms.prod: bot-framework
-ms.date: 09/17/2018
-ms.openlocfilehash: 737cd0f2f39ff512f82d4ea8611098fa265e4776
-ms.sourcegitcommit: 3bf3dbb1a440b3d83e58499c6a2ac116fe04b2f6
+ms.date: 09/27/2018
+ms.openlocfilehash: 061354d57fed8863f12a01e976ef0b11faf699c0
+ms.sourcegitcommit: 1ef8f4fd2cb8955270a1bc317c9039e5b8f6bbc4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/23/2018
-ms.locfileid: "46706999"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47418835"
 ---
 ::: moniker range="azure-bot-service-3.0"
 
 > [!NOTE]
-> 이 항목은 이전 버전의 SDK(v3)에 적용됩니다. 현재 버전의 SDK(v4)에 대한 문서는 [여기](https://docs.microsoft.com/en-us/azure/bot-service/?view=azure-bot-service-4.0)에서 볼 수 있습니다.
+> 이 항목은 **이전 버전의 SDK (v3)** 에 적용됩니다. 현재 버전의 SDK(v4)에 대한 문서는 [여기](https://docs.microsoft.com/en-us/azure/bot-service/?view=azure-bot-service-4.0)에서 볼 수 있습니다.
 
 <div class="content">
     <h1>Azure Bot Service 설명서</h1>
     <div class="intro" style="min-width: 200px">
-        <p>Bot Service는 봇 개발에 특화된 통합 환경을 제공하여 지능형 봇을 한 곳에서 빌드하고, 연결하고, 테스트하고, 배포하고, 관리할 수 있습니다. Azure Bot Service는 .NET 및 Node.js에 대한 지원에서 Bot Builder SDK를 활용합니다. 빠른 시작, 자습서 및 샘플을 통해 Bot Service를 사용하는 방법을 알아봅니다.</p>
+        <p>Bot Service는 봇 개발에 특화된 통합 환경을 제공하여 지능형 봇을 한 곳에서 빌드하고, 연결하고, 테스트하고, 배포하고, 관리할 수 있습니다. Azure Bot Service는 .NET 및 Node.js에 대한 지원에서 Bot Builder SDK를 활용합니다. 빠른 시작 및 샘플을 통해 Bot Service를 사용하는 방법을 알아봅니다.</p>
     </div>
 <h2 style="margin-top: 18px; margin-bottom: 0px;">5분 빠른 시작</h2>
 <div class="ico48Case">
@@ -33,31 +33,16 @@ ms.locfileid: "46706999"
             <span>Bot Service</span>
         </a>
     </div>
-    <div class="ico48Link">
-        <a href="/bot-framework/dotnet/bot-builder-dotnet-quickstart">
-            <img src="media/index/logo_csharp.svg" alt="">
-            <span>C&#35;</span>
-        </a>
-    </div>
-    <div class="ico48Link">
-        <a href="/bot-framework/nodejs/bot-builder-nodejs-quickstart">
-            <img src="media/index/logo_nodejs.svg" alt="">
-            <span>Nodejs</span>
-        </a>
-    </div>
 </div>
  
 <h2 style="margin-top: 36px">샘플</h2>
 <p>다양한 기능이 포함된 유용한 봇을 빌드하기 시작합니다.</p>
 <ul>
-    <li><a href="/bot-framework/dotnet/bot-builder-dotnet-samples">.NET</a></li>
-    <li><a href="/bot-framework/nodejs/bot-builder-nodejs-samples">Node.js</a></li>
+    <li><a href="https://github.com/Microsoft/BotBuilder-Samples/tree/v3-sdk-samples/CSharp">.NET</a></li>
+    <li><a href="https://github.com/Microsoft/BotBuilder-Samples/tree/v3-sdk-samples/Node">Node.js</a></li>
 </ul>
 <h2 style="margin-top: 36px">단계별 자습서</h2>
-<p>Azure Bot Service를 사용하여 봇 개발:</p>
-<ol>
-    <li><a href="/bot-framework/bot-builder-tutorial-authentication">봇에 인증 추가</a></li>
-</ol>
+<p> <a href="/bot-framework/bot-builder-tutorial-authentication">봇에 인증 추가</a> </p>
 <h2 style="margin-top: 36px">참고 자료</h2>
 <ul class="panelContent cardsD">
     <li>
@@ -68,18 +53,6 @@ ms.locfileid: "46706999"
                         <h3>언어</h3>
                         <p><a href="/dotnet/api/?view=botbuilder-3.12.2.4">.NET</a></p>
                         <p><a href="https://docs.botframework.com/en-us/node/builder/chat-reference/modules/_botbuilder_d_.html">Node.js</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>REST (영문)</h3>
-                        <p><a href="/Bot-Framework/rest-api/bot-framework-rest-connector-api-reference">REST API 참조</a></p>
                     </div>
                 </div>
             </div>

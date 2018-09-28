@@ -4,16 +4,13 @@
 # 빠른 시작
 ## [Azure Bot Service로 봇 만들기](~/bot-service-quickstart.md)
 ## 로컬에서 봇 만들기
-### [.NET](dotnet/bot-builder-dotnet-quickstart.md)
 ### [.NET](dotnet/bot-builder-dotnet-sdk-quickstart.md)
-### [Node.js](nodejs/bot-builder-nodejs-quickstart.md)
 ### [JavaScript](javascript/bot-builder-javascript-quickstart.md)
 # 자습서
 ## [디스패치 도구와 함께 LUIS 앱 및 QnA 서비스 사용](v4sdk/bot-builder-tutorial-dispatch.md)
-## [Azure CLI를 사용하여 봇 만들기](bot-builder-tools-az-cli.md)
+## [봇에 인증 추가](bot-builder-tutorial-authentication.md)
 # 샘플
-## [GitHub 샘플 리포지토리](bot-builder-samples.md)
-## [Node.js](~/nodejs/bot-builder-nodejs-samples.md)
+## [샘플 리포지토리](https://github.com/Microsoft/BotBuilder-Samples/blob/master/readme.md)
 # 개념
 ## [봇 작동 방식](v4sdk/bot-builder-basics.md)
 ## [다이얼로그 라이브러리](v4sdk/bot-builder-concept-dialog.md)
@@ -50,7 +47,7 @@
 ### [대화 상자에 데이터 유지](v4sdk/bot-builder-tutorial-persist-user-inputs.md)
 ### [Language Understanding에 대해 LUIS 사용](v4sdk/bot-builder-howto-v4-luis.md)
 ### [QnA Maker를 사용하여 질문에 답변](v4sdk/bot-builder-howto-qna.md)
-### [봇에 인증 추가](bot-builder-tutorial-authentication.md)
+### [봇에 인증 추가](v4sdk/bot-builder-authentication.md)
 ### [봇 코드 다운로드 및 재배포](bot-service-build-download-source-code.md)
 ### [지속적인 배포 설정](bot-service-build-continuous-deployment.md)
 ### [Azure에 로컬 봇 배포](bot-builder-howto-deploy-azure.md)
