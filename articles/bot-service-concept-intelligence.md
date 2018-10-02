@@ -34,7 +34,7 @@ Cognitive Services는 언어 이해를 위해 다음과 같은 API를 제공합�
 
 - <a href="https://www.microsoft.com/cognitive-services/en-us/bing-spell-check-api" target="_blank">Bing Spell Check API</a>는 강력한 맞춤법 검사 기능을 제공하며, 이름, 브랜드 이름 및 은어 간의 차이점을 인식할 수 있습니다.
 
-- <a href="https://docs.microsoft.com/en-us/azure/machine-learning/studio/text-analytics-module-tutorial" target ="_blank">Text Analytics Models in Azure Machine Learning Studio</a>를 사용하면 단어의 기본형 분석 및 텍스트 전처리와 같은 텍스트 분석 모델을 빌드하고 운용할 수 있습니다. 이러한 모델은 문서 분류 또는 정서 분석과 같은 문제를 해결하는 데 유용할 수 있습니다.
+- <a href="https://docs.microsoft.com/en-us/azure/machine-learning/studio/text-analytics-module-tutorial" target ="_blank">Azure Machine Learning Studio의 텍스트 분석 모델</a>를 사용하면 단어의 기본형 분석 및 텍스트 전처리와 같은 텍스트 분석 모델을 빌드하고 운용할 수 있습니다. 이러한 모델은 문서 분류 또는 정서 분석과 같은 문제를 해결하는 데 유용할 수 있습니다.
 
 Microsoft Cognitive Services를 통한 [언어 이해][language]에 대해 자세히 알아보세요.
 
