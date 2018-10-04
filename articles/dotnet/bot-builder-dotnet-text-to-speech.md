@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: a8bc0b68b3dfa63ba4e91103c57d4fac60ddca79
-ms.sourcegitcommit: 67445b42796d90661afc643c6bb6533e9a662cbc
+ms.openlocfilehash: 55663bb493808d5efce2f25699f9df5aca4db968
+ms.sourcegitcommit: d4afc924b0e1907c4d6f7a6fc5ac1fe521aeef7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39574999"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47447338"
 ---
 # <a name="add-speech-to-messages"></a>메시지에 음성 추가
 
@@ -58,7 +58,7 @@ Cortana와 같은 음성 지원 채널을 위한 봇을 빌드하는 경우 봇�
 
 ## <a name="sample-code"></a>샘플 코드 
 
-.NET용 Bot Builder SDK를 사용하여 음성 지원 봇을 만드는 방법을 보여주는 전체 샘플은 GitHub의 <a href="https://github.com/Microsoft/BotBuilder-Samples/tree/master/CSharp/demo-RollerSkill" target="_blank">롤러 스킬 샘플</a>을 참조하세요.
+.NET용 Bot Builder SDK를 사용하여 음성 지원 봇을 만드는 방법을 보여주는 전체 샘플은 GitHub의 <a href="https://github.com/Microsoft/BotBuilder-Samples/tree/v3-sdk-samples/CSharp" target="_blank">롤러 스킬 샘플</a>을 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 

@@ -7,12 +7,12 @@ manager: kamrani
 ms.topic: article
 ms.prod: bot-framework
 ms.date: 2/13/2018
-ms.openlocfilehash: 60a3796e255611ff09d5418cdeaa6f363ad8da15
-ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
+ms.openlocfilehash: 3bf6bef805e4a86b6e070693660eb5cb20468ffd
+ms.sourcegitcommit: f0b22c6286e44578c11c9f15d22b542c199f0024
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42904969"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47404009"
 ---
 # <a name="create-task-automation-bots"></a>태스크 자동화 봇 만들기
 
@@ -92,18 +92,20 @@ Contoso의 숙련된 개발자인 John은 암호 재설정 태스크를 자동�
 
 ## <a name="bot-app-or-website"></a>봇, 앱 또는 웹 사이트?
 
-태스크 자동화 봇이 앱이나 웹 사이트와 매우 유사하다면 왜 앱이나 웹 사이트를 빌드하지 않는 것인지 의문이 생길 수 있습니다. 특정 시나리오에 따라, 봇 대신 앱이나 웹 사이트를 빌드하는 것이 훨씬 더 적절할 수 있습니다. [Bot Framework 직접 회선 API][directLineAPI] 또는 <a href="https://github.com/Microsoft/BotFramework-WebChat" target="_blank">웹 채팅 컨트롤</a>을 사용하여 앱에 봇을 포함하도록 선택할 수도 있습니다. 앱 컨텍스트에서 봇을 구현하면 풍부한 앱 환경과 대화형 환경이라는 두 가지 장점을 한 곳에서 제공할 수 있습니다. 
+태스크 자동화 봇이 앱이나 웹 사이트와 매우 유사하다면 왜 앱이나 웹 사이트를 빌드하지 않는 것인지 의문이 생길 수 있습니다. 특정 시나리오에 따라, 봇 대신 앱이나 웹 사이트를 빌드하는 것이 훨씬 더 적절할 수 있습니다. [Bot Framework 직접 회선 API][directLineAPI] 또는 <a href="https://aka.ms/BotFramework-WebChat" target="_blank">웹 채팅 컨트롤</a>을 사용하여 앱에 봇을 포함하도록 선택할 수도 있습니다. 앱 컨텍스트에서 봇을 구현하면 풍부한 앱 환경과 대화형 환경이라는 두 가지 장점을 한 곳에서 제공할 수 있습니다. 
 
 그렇지만 대부분의 경우 앱이나 웹 사이트를 빌드하는 것이 봇을 빌드하는 것보다 훨씬 더 복잡하고 비용도 많이 들 수 있습니다. 앱 또는 웹 사이트는 종종 여러 클라이언트와 플랫폼을 지원해야 하고, 패키징 및 배포도 까다롭고 시간이 많이 소요되며, 앱을 다운로드하여 설치하는 사용자 환경이 편리하지 않은 경우도 많습니다. 이러한 이유로, 봇은 종종 당면한 문제를 해결할 수 있는 훨씬 더 간단한 방법을 제공할 수 있습니다. 
 
 또한 봇은 쉽게 확장될 수 있는 유연성도 제공합니다. 예를 들어, 개발자는 암호 재설정 봇에 자연어 및 음성 기능을 추가하여 전화 통화를 통해 액세스하거나 문자 메시지 지원을 추가할 수도 있습니다. 회사는 건물 전체에 키오스크를 설치하고 해당 환경에 암호 재설정 봇을 포함할 수 있습니다.
 
 ::: moniker range="azure-bot-service-3.0"
-## <a name="sample-code"></a>샘플 코드
+<!-- TODO: SimpleTaskAutomation no longer exists
+## Sample code
 
-.NET용 Bot Builder SDK를 사용하여 간단한 태스크 자동화를 구현하는 방법을 보여 주는 전체 샘플을 보려면 GitHub에서 <a href="https://github.com/Microsoft/BotBuilder-Samples/tree/master/CSharp/capability-SimpleTaskAutomation" target="_blank">단순 작업 자동화 샘플</a>을 참조하세요.
+For a complete sample that shows how to implement simple task automation using the Bot Builder SDK for .NET, see the <a href="https://aka.ms/capability-SimpleTaskAutomation" target="_blank">Simple Task Automation sample</a> in GitHub.
 
-Node.js용 Bot Builder SDK를 사용하여 간단한 태스크 자동화를 구현하는 방법을 보여 주는 전체 샘플을 보려면 GitHub에서 <a href="https://github.com/Microsoft/BotBuilder-Samples/tree/master/Node/capability-SimpleTaskAutomation" target="_blank">단순 작업 자동화 샘플</a>을 참조하세요.
+For a complete sample that shows how to implement simple task automation using the Bot Builder SDK for Node.js, see the <a href="https://aka.ms/capability-SimpleTaskAutomation" target="_blank">Simple Task Automation sample</a> in GitHub.
+-->
 
 ## <a name="additional-resources"></a>추가 리소스
 

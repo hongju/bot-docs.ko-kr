@@ -7,12 +7,12 @@ manager: kamrani
 ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/2017
-ms.openlocfilehash: 6aae4e9f6cb6a4e892b8036eafb9489dfaedbb36
-ms.sourcegitcommit: ee63d9dc1944a6843368bdabf5878950229f61d0
+ms.openlocfilehash: a19145c446c74468cef3ae5d9abf6e90e91196ff
+ms.sourcegitcommit: f0b22c6286e44578c11c9f15d22b542c199f0024
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42795099"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47403980"
 ---
 # <a name="embed-a-bot-in-a-website"></a>웹 사이트에 봇 포함
 
@@ -30,7 +30,7 @@ Skype 웹 컨트롤은 단순히 Skype용 프런트 엔드의 역할을 하므�
 
 ## <a name="open-source-web-control"></a>오픈 소스 웹 컨트롤
 
-<a href="https://github.com/Microsoft/BotFramework-WebChat" target="_blank">오픈 소스 웹 채팅 컨트롤</a>은 ReactJS를 기준으로 하며 [직접 회선 API][directLineAPI]를 사용하여 Bot Framework와 통신합니다. 웹 채팅 컨트롤은 웹 채팅을 구현하기 위한 빈 캔버스를 제공하고 사용자가 해당 동작 및 제공되는 사용자 환경을 완전히 제어할 수 있도록 합니다. 
+<a href="https://aka.ms/BotFramework-WebChat" target="_blank">오픈 소스 웹 채팅 컨트롤</a>은 ReactJS를 기준으로 하며 [직접 회선 API][directLineAPI]를 사용하여 Bot Framework와 통신합니다. 웹 채팅 컨트롤은 웹 채팅을 구현하기 위한 빈 캔버스를 제공하고 사용자가 해당 동작 및 제공되는 사용자 환경을 완전히 제어할 수 있도록 합니다. 
 
 *백채널* 메커니즘을 통해 컨트롤을 호스트하는 웹 페이지는 사용자가 전혀 볼 수 없는 방식으로 봇과 직접 통신할 수 있습니다. 이 기능을 사용하면 다음과 같은 다양한 시나리오가 지원될 수 있습니다. 
 
@@ -46,7 +46,7 @@ Skype 웹 컨트롤은 단순히 Skype용 프런트 엔드의 역할을 하므�
 
 ## <a name="sample-code"></a>샘플 코드
 
-<a href="https://github.com/Microsoft/BotFramework-WebChat" target="_blank">오픈 소스 웹 채팅 컨트롤</a>은 GitHub를 통해 사용할 수 있습니다. Node.js용 오픈 소스 웹 채팅 컨트롤 및 Bot Builder SDK를 사용하여 백채널 메커니즘을 구현하는 방법에 대한 자세한 내용은 [백채널 메커니즘 사용](~/nodejs/bot-builder-nodejs-backchannel.md)을 참조하세요.
+<a href="https://aka.ms/BotFramework-WebChat" target="_blank">오픈 소스 웹 채팅 컨트롤</a>은 GitHub를 통해 사용할 수 있습니다. Node.js용 오픈 소스 웹 채팅 컨트롤 및 Bot Builder SDK를 사용하여 백채널 메커니즘을 구현하는 방법에 대한 자세한 내용은 [백채널 메커니즘 사용](~/nodejs/bot-builder-nodejs-backchannel.md)을 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 

@@ -7,12 +7,12 @@ manager: kamrani
 ms.topic: article
 ms.prod: bot-framework
 ms.date: 08/15/2018
-ms.openlocfilehash: 68d2d4f7a19aecfcb2c630e5e9e55ca5b8a21d89
-ms.sourcegitcommit: e8c513d3af5f0c514cadcbcd0a737a7393405afa
+ms.openlocfilehash: 53148b178b937fdee5bde9a47ef016eedbb92da4
+ms.sourcegitcommit: f0b22c6286e44578c11c9f15d22b542c199f0024
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42756532"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47403899"
 ---
 # <a name="embed-a-bot-in-an-app"></a>앱에 봇 포함
 
@@ -62,9 +62,11 @@ public class WebPage : ContentPage
 
 ![백채널](~/media/bot-service-design-pattern-embed-app/xamarin-apps.png)
 
-## <a name="sample-code"></a>샘플 코드
+<!-- TODO: No sample bot available
+## Sample code
 
-봇을 실행하는 플랫폼 간 모바일 앱을 만드는 방법을 보여 주는 전체 샘플(이 문서에 설명됨)에 대해서는 GitHub의 <a href="https://github.com/Microsoft/BotBuilder-Samples/tree/master/CSharp/capability-BotInApps" target="_blank">앱 내 봇 샘플</a>을 참조하세요.
+For a complete sample that shows how to create a cross-platform mobile app that runs a bot (as described in this article), see the <a href="https://github.com/Microsoft/BotBuilder-Samples/tree/master/CSharp/capability-BotInApps" target="_blank">Bot in Apps sample</a> in GitHub.
+-->
 
 ## <a name="additional-resources"></a>추가 리소스
 

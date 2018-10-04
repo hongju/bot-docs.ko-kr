@@ -6,13 +6,13 @@ ms.author: kamrani
 manager: kamrani
 ms.topic: article
 ms.prod: bot-framework
-ms.date: 12/13/2017
-ms.openlocfilehash: ba5939faf95546b854703978bf7f512e7665eb3b
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.date: 09/28/2018
+ms.openlocfilehash: 3e9756f08690820950d0f6d0b8128521cb94f60b
+ms.sourcegitcommit: d4afc924b0e1907c4d6f7a6fc5ac1fe521aeef7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39304099"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47447378"
 ---
 # <a name="key-concepts-in-direct-line-api-30"></a>직접 회선 API 3.0의 주요 개념
 
@@ -46,16 +46,20 @@ Bot Framework는 C# 및 Node.js를 통해 직접 회선 API 3.0에 쉽게 액세
 
 C# 또는 Node.js 클라이언트 라이브러리를 사용하는 대신, <a href="https://docs.botframework.com/en-us/restapi/directline3/swagger.json" target="_blank">직접 회선 API 3.0 Swagger 파일</a>을 사용하여 선택한 언어로 고유한 클라이언트 라이브러리를 생성할 수 있습니다.
 
+::: moniker range="azure-bot-service-3.0"
+
 ### <a name="sample-code"></a>샘플 코드
 
-<a href="https://github.com/Microsoft/BotBuilder-Samples" target="_blank">BotBuilder 샘플</a> GitHub 리포지토리에는 C# 및 Node.js를 사용하여 직접 회선 API 3.0을 사용하는 방법을 보여 주는 여러 샘플이 포함되어 있습니다.
+<a href="https://github.com/Microsoft/BotBuilder-Samples/tree/v3-sdk-samples" target="_blank">BotBuilder 샘플</a> GitHub 리포지토리에는 C# 및 Node.js를 사용하여 직접 회선 API 3.0을 사용하는 방법을 보여 주는 여러 샘플이 포함되어 있습니다.
 
 | 샘플 | 언어 | 설명 |
 |----|----|----|
-| <a href="https://github.com/Microsoft/BotBuilder-Samples/tree/master/CSharp/core-DirectLine" target="_blank">직접 회선 봇 샘플</a> | C# | 직접 회선 API를 사용하여 서로 통신하는 샘플 봇과 사용자 지정 클라이언트. |
-| <a href="https://github.com/Microsoft/BotBuilder-Samples/tree/master/CSharp/core-DirectLineWebSockets" target="_blank">직접 회선 봇 샘플(클라이언트 Websockets 사용)</a> | C# | 직접 회선 API 및 WebSockets를 사용하여 서로 통신하는 샘플 봇과 사용자 지정 클라이언트. |
-| <a href="https://github.com/Microsoft/BotBuilder-Samples/tree/master/Node/core-DirectLine" target="_blank">직접 회선 봇 샘플</a> | JavaScript | 직접 회선 API를 사용하여 서로 통신하는 샘플 봇과 사용자 지정 클라이언트. |
-| <a href="https://github.com/Microsoft/BotBuilder-Samples/tree/master/Node/core-DirectLineWebSockets" target="_blank">직접 회선 봇 샘플(클라이언트 Websockets 사용)</a> | JavaScript | 직접 회선 API 및 WebSockets를 사용하여 서로 통신하는 샘플 봇과 사용자 지정 클라이언트. |
+| <a href="https://github.com/Microsoft/BotBuilder-Samples/tree/v3-sdk-samples/CSharp/core-DirectLine" target="_blank">직접 회선 봇 샘플</a> | C# | 직접 회선 API를 사용하여 서로 통신하는 샘플 봇과 사용자 지정 클라이언트. |
+| <a href="https://github.com/Microsoft/BotBuilder-Samples/tree/v3-sdk-samples/CSharp/core-DirectLineWebSockets" target="_blank">직접 회선 봇 샘플(클라이언트 Websockets 사용)</a> | C# | 직접 회선 API 및 WebSockets를 사용하여 서로 통신하는 샘플 봇과 사용자 지정 클라이언트. |
+| <a href="https://github.com/Microsoft/BotBuilder-Samples/tree/v3-sdk-samples/Node/core-DirectLine" target="_blank">직접 회선 봇 샘플</a> | JavaScript | 직접 회선 API를 사용하여 서로 통신하는 샘플 봇과 사용자 지정 클라이언트. |
+| <a href="https://github.com/Microsoft/BotBuilder-Samples/tree/v3-sdk-samples/Node/core-DirectLineWebSockets" target="_blank">직접 회선 봇 샘플(클라이언트 Websockets 사용)</a> | JavaScript | 직접 회선 API 및 WebSockets를 사용하여 서로 통신하는 샘플 봇과 사용자 지정 클라이언트. |
+
+::: moniker-end
 
 ### <a name="web-chat-control"></a>웹 채팅 컨트롤 
 

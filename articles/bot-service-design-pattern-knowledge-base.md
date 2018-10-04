@@ -7,12 +7,12 @@ manager: kamrani
 ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/2017
-ms.openlocfilehash: 5b510187f85a5384e976f239bc72c7aabf47f1cb
-ms.sourcegitcommit: f95702d27abbd242c902eeb218d55a72df56ce56
+ms.openlocfilehash: dd8869c26a87718177462db2508e41aa82810e21
+ms.sourcegitcommit: f0b22c6286e44578c11c9f15d22b542c199f0024
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39304667"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47404079"
 ---
 # <a name="design-knowledge-bots"></a>지식 봇 설계
 
@@ -52,7 +52,7 @@ ms.locfileid: "39304667"
 
 봇은 각 단계에서 사용자 입력을 처리하고 관련 옵션을 제공하여 사용자를 사용자가 찾는 정보로 안내합니다. 봇은 일단 정보를 제공한 후에는 나중에 유사한 정보를 보다 효율적으로 찾는 방법에 대한 지침을 제공할 수도 있습니다. 
 
-![대화 구조](~/media/bot-service-design-pattern-knowledge-base/Training.png)
+![다이얼로그 구조](~/media/bot-service-design-pattern-knowledge-base/Training.png)
 
 ### <a name="azure-search"></a>Azure Search
 
@@ -136,7 +136,9 @@ Bot Builder SDK는 LUIS 및 QnA Maker를 기본적으로 지원합니다. 따라
 
 ## <a name="sample-code"></a>샘플 코드
 
-- .NET용 Bot Builder SDK를 사용하여 기본 지식 봇을 만드는 방법을 보여주는 샘플은 GitHub의 <a href="https://github.com/Microsoft/BotBuilder-Samples/tree/master/CSharp/sample-KnowledgeBot" target="_blank">기술 봇 샘플</a>을 참조하세요. 
-- .NET용 Bot Builder SDK를 사용하여 복잡한 지식 봇을 만드는 방법을 보여주는 샘플은 GitHub의 <a href="https://github.com/Microsoft/BotBuilder-Samples/tree/master/CSharp/demo-Search" target="_blank">검색 중심 봇 샘플</a>을 참조하세요.
+- .NET용 Bot Builder SDK를 사용하여 기본 지식 봇을 만드는 방법을 보여주는 샘플은 GitHub의 <a href="https://aka.ms/qna-with-appinsights" target="_blank">기술 봇 샘플</a>을 참조하세요. 
+<!-- TODO: Do not have a current bot sample to work with this
+- For a sample that shows how to create more complex knowledge bots using the Bot Builder SDK for .NET, see the <a href="https://github.com/Microsoft/BotBuilder-Samples/tree/master/CSharp/demo-Search" target="_blank">Search-powered Bots sample</a> in GitHub.
+-->
 
 [qnamakerTemplate]: https://docs.botframework.com/en-us/azure-bot-service/templates/qnamaker/#navtitle
