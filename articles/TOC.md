@@ -19,7 +19,6 @@
 ## [사용자 환영](v4sdk/bot-builder-welcome-user.md)
 ## [언어 이해](v4sdk/bot-builder-concept-luis.md)
 ## [Bot Service 템플릿](bot-service-concept-templates.md)
-## [봇 작성기를 사용하여 개발](bot-builder-overview-getstarted.md)
 ## [Cognitive Services](bot-service-concept-intelligence.md)
 ## [봇에 대한 주요 시나리오](bot-service-scenario-overview.md)
 ### [상거래 봇](bot-service-scenario-commerce.md)
