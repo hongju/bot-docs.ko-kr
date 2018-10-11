@@ -9,12 +9,12 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 09/23/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: be1ee882729e7744300f42d08b180c211fb9ecc3
-ms.sourcegitcommit: 3bf3dbb1a440b3d83e58499c6a2ac116fe04b2f6
+ms.openlocfilehash: 473ae0ce9daff8d93ef91268fffff4fbf45e7752
+ms.sourcegitcommit: abde9e0468b722892f94caf2029fae165f96092f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/23/2018
-ms.locfileid: "46708819"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48875700"
 ---
 ```
 {
@@ -34,7 +34,7 @@ ms.locfileid: "46708819"
             "name": "basic-bot-LUIS",
             "appId": "<your app id>",
             "version": "0.1",
-            "authoringKey": "<your authoring key>"
+            "authoringKey": "<your authoring key>",
             "subscriptionKey": "<your subscription key>",
             "region": "westus",
             "id": "206"

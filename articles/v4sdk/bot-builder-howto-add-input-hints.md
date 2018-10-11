@@ -9,12 +9,12 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 08/24/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: acf119a05d4c9f37b74c4fcaf2ad944978504560
-ms.sourcegitcommit: 3bf3dbb1a440b3d83e58499c6a2ac116fe04b2f6
+ms.openlocfilehash: fbd3378e5be743b17d1a19db06c69a0d292f1524
+ms.sourcegitcommit: abde9e0468b722892f94caf2029fae165f96092f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/23/2018
-ms.locfileid: "46707249"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48875670"
 ---
 # <a name="add-input-hints-to-messages"></a>메시지에 입력 힌트 추가
 
@@ -57,7 +57,7 @@ var reply = MessageFactory.Text(
     "This is the text that will be displayed.",
     "This is the text that will be spoken.",
     InputHints.AcceptingInput);
-await context.SendActivity(reply).ConfigureAwait(false);
+await context.SendActivityAsync(reply).ConfigureAwait(false);
 ```
 
 # <a name="javascripttabjs"></a>[JavaScript](#tab/js)
@@ -80,7 +80,7 @@ var reply = MessageFactory.Text(
     "This is the text that will be displayed.",
     "This is the text that will be spoken.",
     InputHints.ExpectingInput);
-await context.SendActivity(reply).ConfigureAwait(false);
+await context.SendActivityAsync(reply).ConfigureAwait(false);
 ```
 
 # <a name="javascripttabjs"></a>[JavaScript](#tab/js)
@@ -103,7 +103,7 @@ var reply = MessageFactory.Text(
     "This is the text that will be displayed.",
     "This is the text that will be spoken.",
     InputHints.IgnoringInput);
-await context.SendActivity(reply).ConfigureAwait(false);
+await context.SendActivityAsync(reply).ConfigureAwait(false);
 ```
 
 # <a name="javascripttabjs"></a>[JavaScript](#tab/js)
