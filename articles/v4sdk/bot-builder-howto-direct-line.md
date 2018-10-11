@@ -9,18 +9,18 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 4/16/18
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: dee0f9700fefede2a231ff2395e50ff17522806e
-ms.sourcegitcommit: 3bf3dbb1a440b3d83e58499c6a2ac116fe04b2f6
+ms.openlocfilehash: 81b6f1f9373c18bd3aedb393cfc4966587bf24cb
+ms.sourcegitcommit: 6c2426c43cd2212bdea1ecbbf8ed245145b3c30d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/23/2018
-ms.locfileid: "46707399"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48852208"
 ---
 # <a name="create-a-direct-line-bot-and-client"></a>직접 회선 봇 및 클라이언트 만들기
 
 [!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
 
-Microsoft Bot Framework 직접 회선 봇은 사용자가 디자인한 사용자 지정 클라이언트에서 작동할 수 있는 봇입니다. 직접 회산 봇은 일반 봇과 매우 유사합니다. 단지 제공된 채널을 사용할 필요가 없는 수준이 아닙니다.
+Microsoft Bot Framework 직접 회선 봇은 사용자가 디자인한 사용자 지정 클라이언트에서 작동할 수 있는 봇입니다. 직접 회산 봇은 일반 봇과 매우 유사합니다. 단지 제공된 채널을 사용할 필요가 없습니다.
 
 직접 회선 클라이언트는 원하는 대로 작성할 수 있습니다. Android 클라이언트, iOS 클라이언트, 심지어 콘솔 기반 클라이언트 응용 프로그램까지도 작성할 수 있습니다.
 
@@ -34,17 +34,17 @@ Microsoft Bot Framework 직접 회선 봇은 사용자가 디자인한 사용자
 
 ### <a name="create-the-solution-in-visual-studio"></a>Visual Studio에서 솔루션 만들기
 
-Visual Studio 2015 이상에에서 직접 회선 봇에 대한 솔루션을 만들려면
+Visual Studio 2015 이상에서 직접 회선 봇에 대한 솔루션을 만들려면
 
 1. **Visual C#** > **.NET Core**에서 새 **ASP.NET Core 웹 응용 프로그램**을 만듭니다.
 
-1. 이름으로 **DirectLineBotSample**을 입력하고 **확인**을 클릭릭합니다.
+1. 이름으로 **DirectLineBotSample**을 입력하고 **확인**을 클릭합니다.
 
 1. **.NET Core** 및 **ASP.NET Core 2.0**이 선택되어 있는지 확인하고 **비어 있음** 프로젝트 템플릿을 클릭한 후 **확인**을 클릭합니다.
 
 #### <a name="add-dependencies"></a>종속성 추가
 
-1. **솔루션 탐색기**에서 **종속성**을 마우스 오른쪽 단추로 클릭한 후 **NuGet 패키지 관리**를 선택합니다.
+1. **솔루션 탐색기**에서 **종속성**을 마우스 오른쪽 단추를 클릭한 후 **NuGet 패키지 관리**를 선택합니다.
 
 1. **찾아보기**를 클릭하고 **시험판 포함** 확인란을 선택합니다.
 
@@ -52,6 +52,7 @@ Visual Studio 2015 이상에에서 직접 회선 봇에 대한 솔루션을 만�
     - Microsoft.Bot.Builder
     - Microsoft.Bot.Builder.Core.Extensions
     - Microsoft.Bot.Builder.Integration.AspNet.Core
+    - Microsoft.Rest.ClientRuntime
     - Newtonsoft.Json
 
 ### <a name="create-the-appsettingsjson-file"></a>appsettings.json 파일 만들기
@@ -60,7 +61,7 @@ appsettings.json 파일에는 Microsoft 앱 ID, 앱 암호 및 데이터 연결 
 
 **appsettings.json** 파일을 만들려면
 
-1. 마우스 오른쪽 단추로 **DirectLineBotSample** 프로젝트를 클릭하고 **추가** > **새 항목**을 선택택합니다.
+1. 마우스 오른쪽 단추로 **DirectLineBotSample** 프로젝트를 클릭하고 **추가** > **새 항목**을 선택합니다.
 
 1. **ASP.NET Core**에서 **ASP.NET 구성 파일**을 클릭합니다.
 
@@ -288,7 +289,7 @@ namespace DirectLineBotSample
 
 ### <a name="create-bot-channels-registration-bot-on-microsoft-azure"></a>Microsoft Azure에서 봇 채널 등록 봇 만들기
 
-직접 회선 봇은 어떤 플랫폼에도 호스트할 수 있습니다. 이 예제에서 봇은 Microsoft Azure에서 호스트됩니다. 
+직접 회선 봇은 어떤 플랫폼에도 호스트할 수 있습니다. 이 예제에서 봇의 호스트는 Microsoft Azure입니다. 
 
 Microsoft Azure에서 봇을 만들려면
 
@@ -296,19 +297,19 @@ Microsoft Azure에서 봇을 만들려면
 
 1. **만들기**를 클릭합니다. 봇 채널 등록 블레이드가 표시됩니다.
 
-    ![봇 채널 등록 블레이드, 봇 이름용 필드드, 구독, 리소스 그룹, 위치, 가격 책정 계층, 메시징 끝점, 기타 필드](media/bot-builder-howto-direct-line/bot-service-registration-blade.png)
+    ![봇 채널 등록 블레이드, 봇 이름용 필드, 구독, 리소스 그룹, 위치, 가격 책정 계층, 메시징 끝점, 기타 필드](media/bot-builder-howto-direct-line/bot-service-registration-blade.png)
 
 1. 봇 채널 등록 블레이드에서 **봇 이름**, **구독**, **리소스 그룹**, **위치** 및 **가격 책정 계층**을 입력합니다.
 
 1. **메시징 끝점**은 비워 둡니다. 이 값은 나중에 입력됩니다.
 
-1. **Microsoft 앱 ID 및 암호**를 클릭하고 **자동 앱 ID 및 암호 만들기**를 클릭릭합니다.
+1. **Microsoft 앱 ID 및 암호**를 클릭하고 **자동 앱 ID 및 암호 만들기**를 클릭합니다.
 
 1. **대시보드에 고정** 확인란을 선택합니다.
 
 1. **만들기** 단추를 클릭합니다.
 
-배포는 몇 분 정도 걸리지만 완료되면 대시보드에 표시됩니다.
+배포에 몇 분 가량 소요되며 완료되면 대시보드에 표시됩니다.
 
 ### <a name="update-the-appsettingsjson-file"></a>appsettings.json 파일 업데이트
 
@@ -338,7 +339,7 @@ Microsoft Azure에서 봇을 만들려면
 
 1. 주소를 **메시징 끝점**에 붙여넣습니다.
 
-1. "https://"로 시작하고 "/api/messages"로 끝나도록 주소를 편집합니다. 예를 들어 브라우저에서 복사한 주소가 "http://v-royhar-dlbot-directlinebotsample20180329044602.azurewebsites.net"이면 "https://v-royhar-dlbot-directlinebotsample20180329044602.azurewebsites.net/api/messages"로 편집합니다.
+1. "https://"로 시작하고 "/api/messages"로 끝나도록 주소를 편집합니다. 예를 들어 브라우저에서 복사한 주소가 "http://v-royhar-dlbot-directlinebotsample20180329044602.azurewebsites.net"이면 "https://v-royhar-dlbot-directlinebotsample20180329044602.azurewebsites.net/api/messages"(으)로 편집합니다.
 
 1. 설정 블레이드의 **저장** 단추를 클릭합니다.
 
@@ -356,7 +357,7 @@ Microsoft Azure에서 봇을 만들려면
 
 1. App Service 블레이드의 **시작** 단추를 클릭합니다.
 
-### <a name="test-your-bot-in-webchat"></a>웹 채팅에서서 봇 테스트
+### <a name="test-your-bot-in-webchat"></a>웹 채팅에서 봇 테스트
 
 봇이 작동하는지 확인하려면 웹 채팅에서 봇을 확인합니다.
 
@@ -916,7 +917,7 @@ function renderHeroCard(attachment) {
 
 콘솔 클라이언트 앱이 시작됩니다. 앱을 테스트하려면 
 
-1. “Hi”를 입력합니다. 봇이 'You said "Hi"'를 표시합니다.
+1. "Hi"를 입력합니다. 봇이 'You said "Hi"'를 표시합니다.
 
 1. "show me a hero card"를 입력합니다. 봇이 Hero 카드를 표시합니다.
 
@@ -928,7 +929,7 @@ function renderHeroCard(attachment) {
 
 샘플을 실행하려면 DirectLineClient 앱을 실행해야 합니다.
 
-1. CMD 콘솔 열기 및 DirectLineClient 디렉터리로 CD
+1. CMD 콘솔을 열고 DirectLineClient 디렉터리로 명령
 
 1. `node app.js` 실행
 

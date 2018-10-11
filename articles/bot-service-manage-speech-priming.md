@@ -8,12 +8,12 @@ manager: kamrani
 ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/2017
-ms.openlocfilehash: 2e0b85af834bc92a9da8c9f9be2794da88c2b3bc
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: ba2aec255cf160a72c11c3ddfda021baae304568
+ms.sourcegitcommit: 3cb288cf2f09eaede317e1bc8d6255becf1aec61
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39301192"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47389642"
 ---
 # <a name="configure-speech-priming"></a>음성 초기화 구성
 
@@ -27,6 +27,9 @@ ms.locfileid: "39301192"
 > [!IMPORTANT]
 > 음성 초기화는 Cortana 채널 또는 웹 채팅 채널용으로 구성된 봇에만 적용됩니다.
 
+> [!IMPORTANT]
+> eu.luis.ai 및 au.luis.ai를 포함한 미국 이외 지역 LUIS 앱에서는 초기화가 지원되지 않습니다.
+
 ## <a name="change-the-list-of-luis-apps-your-bot-uses"></a>봇이 사용자는 LUIS 앱 목록 변경
 
 봇에서 Bing Speech가 사용하는 LUIS 앱 목록을 변경하려면 다음을 수행합니다.
@@ -36,7 +39,7 @@ ms.locfileid: "39301192"
  
     a. 목록에서 LUIS 앱을 선택하려면 확인란이 나타날 때까지 LUIS 모델 위로 마우스를 가져간 후 확인란을 선택합니다.
      
-    나. 목록에 없는 LUIS 앱을 선택하려면 아래쪽으로 스크롤하고 텍스트 상자에 LUIS 응용 프로그램 ID GUID를 입력합니다.
+    b. 목록에 없는 LUIS 앱을 선택하려면 아래쪽으로 스크롤하고 텍스트 상자에 LUIS 응용 프로그램 ID GUID를 입력합니다.
      
 3. **저장**을 클릭하여 봇에 대한 Bing Speech와 연결된 LUIS 앱 목록을 저장합니다.
 

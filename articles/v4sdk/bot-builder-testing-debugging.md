@@ -9,12 +9,12 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 04/09/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: caa424ed0ea0944805836739ed48a7a61f78d21c
-ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
+ms.openlocfilehash: 4195ae016513c809e4677879e0abe1b2bf8d799e
+ms.sourcegitcommit: 3cb288cf2f09eaede317e1bc8d6255becf1aec61
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42905262"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47389782"
 ---
 # <a name="testing-and-debugging-guidelines"></a>테스트 및 디버깅 지침
 
@@ -50,7 +50,7 @@ ms.locfileid: "42905262"
 
 ### <a name="level-2-use-a-direct-line-client"></a>수준 2: 직접 회선 클라이언트 사용
 
-봇이 원하는 대로 작동하는지 확인한 후 다음 단계에서 봇을 채널에 연결합니다. 이렇게 하려면 봇을 준비 서버에 배포하고 봇을 연결할 고유한 [직접 회선 클라이언트](bot-builder-howto-direct-line.md)를 만듭니다.
+봇이 원하는 대로 작동하는지 확인한 후 다음 단계에서 봇을 채널에 연결합니다. 이렇게 하려면 봇을 준비 서버에 배포하고 봇을 연결할 고유한 <!--IBTODO [Direct Line client](bot-builder-howto-direct-line.md)--> 직접 회선 클라이언트를 만듭니다.
 
 고유한 클라이언트를 만들면 채널의 내부 작업을 정의할 뿐만 아니라 특히 봇이 특정 활동 교환에 어떻게 응답하는지 테스트할 수 있습니다. 클라이언트에 연결된 후 테스트를 실행하여 봇 상태를 설정하고 기능을 확인합니다. 봇이 음성 같은 기능을 사용하는 경우, 이러한 채널을 사용하면 해당 기능을 확인할 수 있습니다.
 
@@ -64,7 +64,7 @@ ms.locfileid: "42905262"
 
 ### <a name="other-testing"></a>기타 테스트
 
-다양한 유형의 테스트를 위의 수준과 함께 수행하거나 스트레스 테스트, 성능 테스트 또는 봇 활동 프로파일링과 같은 여러 가지 측면에서 수행할 수 있습니다. Visual Studio는 이 작업을 로컬에서 수행할 수 있는 메서드와 앱 테스트를 위한 [도구 모음](https://www.visualstudio.com/team-services/testing-tools/)을 제공하고 [Azure Portal](https://portal.azure.com)은 봇의 작동 방식에 대한 인사이트를 제공합니다.
+다양한 유형의 테스트를 위의 수준과 함께 수행하거나 스트레스 테스트, 성능 테스트 또는 봇 활동 프로파일링과 같은 여러 가지 측면에서 수행할 수 있습니다. Visual Studio는 이 작업을 로컬에서 수행할 수 있는 메서드와 앱 테스트를 위한 [도구 모음](https://azure.microsoft.com/en-us/solutions/dev-test/)을 제공하고 [Azure Portal](https://portal.azure.com)은 봇의 작동 방식에 대한 인사이트를 제공합니다.
 
 ## <a name="debugging"></a>디버그
 
@@ -74,7 +74,17 @@ ms.locfileid: "42905262"
 
 **에뮬레이터를 사용하여 봇 활동 이해**
 
-봇은 일반 ‘메시지’ 활동 외에도 다양한 유형의 [활동](bot-builder-concept-activity-processing.md)을 처리합니다. [에뮬레이터](../bot-service-debug-emulator.md)를 사용하면 해당 활동이 무엇이고, 언제 수행되고, 어떤 정보를 포함하는지 확인할 수 있습니다. 해당 활동을 파악하면 봇을 효율적으로 코딩할 수 있고 봇이 보내고 받는 활동이 예상한 활동인지 확인할 수 있습니다.
+봇은 일반 ‘메시지’ 활동 외에도 다양한 유형의 [활동](bot-builder-basics.md#the-activity-processing-stack)을 처리합니다. [에뮬레이터](../bot-service-debug-emulator.md)를 사용하면 해당 활동이 무엇이고, 언제 수행되고, 어떤 정보를 포함하는지 확인할 수 있습니다. 해당 활동을 파악하면 봇을 효율적으로 코딩할 수 있고 봇이 보내고 받는 활동이 예상한 활동인지 확인할 수 있습니다.
+
+**기록을 통해 사용자 상호 작용 저장 및 검색**
+
+Azure Blob 기록 저장소는 사용자 및 봇 간의 상호 작용을 포함하는 [기록을 저장 및 검색](bot-builder-howto-v4-storage.md)을 모두 할 수 있는 특수화된 리소스를 제공합니다.  
+
+또한 사용자 입력 상호 작용이 저장되면 Azure의 "_저장소 탐색기_"를 사용하여 Blob 기록 저장소 내에 저장된 기록에 포함된 데이터를 수동으로 확인할 수 있습니다. 다음 예제에서는 "_mynewtestblobstorage_"에 대한 설정에서 "_저장소 탐색기_"를 엽니다. 저장된 사용자 입력을 열려면 Blob 컨테이너 > ChannelId > TranscriptId > ConversationId를 선택합니다.
+
+![Examine_stored_transcript_text](./media/examine_transcript_text_in_azure.png)
+
+이는 저장된 사용자 대화 입력을 JSON 형식으로 엽니다. 사용자 입력은 "_텍스트:_" 키와 함께 유지됩니다.
 
 **미들웨어의 작동 방식**
 
@@ -84,7 +94,7 @@ ms.locfileid: "42905262"
 
 `next()` 대리자가 호출되지 않는 경우 이를 [단락 라우팅](bot-builder-concept-middleware.md#short-circuiting)이라고 합니다. 미들웨어가 현재 활동에 만족하고 실행을 전달할 필요가 없다고 판단하면 이 경우가 발생합니다. 
 
-미들웨어가 단락되는 시기와 이유를 파악하면 파이프라인에서 최우선으로 고려해야 하는 미들웨어의 조각을 나타낼 수 있습니다. 또한 SDK 또는 다른 개발자에 의해 제공되는 기본 제공 미들웨어의 경우, 예상 결과를 파악하는 것이 중요합니다. 미들웨어를 자세히 살펴보기 전에 먼저 [고유한 미들웨어를 만들어](bot-builder-create-middleware.md) 테스트해 보는 것이 유용할 수 있습니다.
+미들웨어가 단락되는 시기와 이유를 파악하면 파이프라인에서 최우선으로 고려해야 하는 미들웨어의 조각을 나타낼 수 있습니다. 또한 SDK 또는 다른 개발자에 의해 제공되는 기본 제공 미들웨어의 경우, 예상 결과를 파악하는 것이 중요합니다. 기본 제공 미들웨어를 자세히 살펴보려면 먼저 고유한 미들웨어를 만들어 테스트해 보는 것이 유용할 수 있습니다.
 
 예를 들어, [QnA Maker](bot-builder-howto-qna.md)는 특정 상호 작용을 처리하고 파이프라인을 단락하도록 설계되므로 사용 방법을 처음 배울 때 혼란스러울 수 있습니다.
 
