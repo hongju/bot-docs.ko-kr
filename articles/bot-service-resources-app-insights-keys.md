@@ -7,12 +7,12 @@ manager: kamrani
 ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/2017
-ms.openlocfilehash: 3d098afd70bef9cf1a3b3fab87455e96ffd9c292
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: 07fb6e9630996a61932da99b0575d43f4604141e
+ms.sourcegitcommit: 3cb288cf2f09eaede317e1bc8d6255becf1aec61
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39300885"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47389432"
 ---
 # <a name="application-insights-keys"></a>Application Insights 키
 
@@ -30,7 +30,7 @@ Azure **Application Insights**는 Microsoft Azure 리소스에 응용 프로그�
 ## <a name="instrumentation-key"></a>계측 키
 
 계측 키를 가져오려면 다음을 수행합니다.
-1. [portal.azure.com](http://portal.azure.com)의 모니터 섹션에서 새 **Application Insights** 리소스를 만들거나 기존 리소스를 사용합니다.
+1. [Azure portal](http://portal.azure.com)의 [모니터] 섹션에서 새 **Application Insights** 리소스를 만들거나 기존 리소스를 사용합니다.
 ![Application Insights 목록의 포털 화면 캡처](~/media/portal-app-insights-add-new.png)
 
 2. Application Insights 리소스 목록에서 방금 만든 Application Insight 리소스를 클릭합니다.

@@ -7,195 +7,594 @@ ms.author: v-ducvo
 manager: kamrani
 ms.topic: article
 ms.prod: bot-framework
-ms.date: 4/23/2018
+ms.date: 09/19/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 28377a1e611464012df28d3edf78d1cf01351345
-ms.sourcegitcommit: 44f100a588ffda19c275b118f4f97029f12d1449
+ms.openlocfilehash: b70f0bfbc76ad06be30fc7f590118b69ab1baf92
+ms.sourcegitcommit: 3cb288cf2f09eaede317e1bc8d6255becf1aec61
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2018
-ms.locfileid: "42928371"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47389742"
 ---
 # <a name="persist-user-data"></a>사용자 데이터 유지
 
 [!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
 
-봇에서 사용자에게 입력을 요청하는 경우 일부 형태의 저장소에 일부 정보를 유지하려는 경우가 있습니다. Bot Builder SDK를 통해 *메모리 내 저장소*, *파일 저장소* 또는 *CosmosDB* 또는 *SQL*과 같은 데이터베이스 저장소를 사용하여 사용자 입력을 저장할 수 있습니다. 여기서 로컬 저장소 유형은 주로 테스트 및 프로토타입에 사용되고 뒤의 저장소 유형은 프로덕션 봇에 가장 적합합니다.
+봇에서 사용자에게 입력을 요청하는 경우 일부 형태의 저장소에 일부 정보를 유지하려는 경우가 있습니다. Bot Builder SDK를 사용하면 *메모리 내 저장소* 또는 *CosmosDB* 같은 데이터베이스 저장소를 사용하여 사용자 입력을 저장할 수 있습니다. 로컬 저장소 형식은 봇 테스트 또는 프로토타입 제작에 주로 사용됩니다. 그러나 데이터베이스 저장소 같은 영구 저장소 형식은 프로덕션 봇에 가장 적합합니다. 
 
-이 자습서에서는 저장소 개체를 정의하고 사용자 입력이 유지될 수 있도록 저장소 개체에 저장하는 방법을 보여줍니다. 
+이 토픽에서는 저장소 개체를 정의하고, 사용자 입력이 유지될 수 있도록 저장소 개체에 저장하는 방법을 보여줍니다. 아직 사용자 이름이 없는 경우 대화 상자를 사용하여 사용자에게 이름을 요청할 것입니다. 사용하도록 선택한 저장소 유형에 관계없이 데이터 연결 및 유지를 위한 프로세스는 동일합니다. 이 토픽의 코드는 `CosmosDB`를 저장소로 사용하여 데이터를 유지합니다.
 
-> [!NOTE]
-> 사용하도록 선택한 저장소 유형에 관계없이 데이터 연결 및 유지를 위한 프로세스는 동일합니다. 이 자습서에서는 데이터를 유지할 저장소로 `FileStorage`를 사용합니다.
-> 상태 및 기타 저장소 유형에 대한 자세한 내용은 [대화 및 사용자 상태 관리](bot-builder-howto-v4-state.md)를 참조하세요.
+## <a name="prerequisites"></a>필수 조건
 
-## <a name="prequisite"></a>필수 구성 요소 
+사용하려는 개발 환경에 따라 특정 리소스가 필요합니다.
 
-이 자습서는 [테이블 예약](bot-builder-tutorial-waterfall.md) 자습서를 기본으로 합니다. 해당 자습서에서는 사용자에게 식당에서 테이블 예약에 대한 세 가지 정보를 요청하는 봇을 빌드합니다. 그러나 사용자의 입력은 유지되지 않았습니다. 이 자습서는 해당 봇에 데이터 저장소 지속성을 추가합니다.
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
-## <a name="add-storage-to-middleware-layer"></a>미들웨어 계층에 저장소 추가
+* [Visual Studio 2015 이상을 설치](https://www.visualstudio.com/downloads/)합니다.
+* [BotBuilder V4 템플릿을 설치](https://marketplace.visualstudio.com/items?itemName=BotBuilder.botbuilderv4)합니다.
 
-Bot Builder V4 SDK는 상태 관리자 미들웨어를 통해 상태 및 저장소를 처리합니다. 미들웨어는 기본 저장소의 형식과 관계없이 간단한 키-값 저장소를 사용하여 속성에 액세스할 수 있는 추상화 계층을 제공합니다. 상태 관리자는 기본 저장소 유형이 메모리 내, 파일 저장소 또는 Azure 테이블 저장소인지 여부에 따라 저장소에 데이터 작성 및 동시성 관리를 담당합니다. 이 자습서에서는 `FileStorage`를 사용하여 사용자 입력을 유지합니다.
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
-`FileStorage` 공급자는 `bot-builder` 패키지와 함께 제공됩니다. 함께 시작한 샘플은 `MemoryStorage` 공급자를 사용합니다. 해당 저장소 유형은 봇이 다시 시작되면 삭제되는 봇의 휘발성 *메모리 내*를 사용합니다. 반대로 `FileStorage` 라이브러리는 데이터베이스와 유사하게 동작합니다. 즉, 이 라이브러리는 로컬 컴퓨터의 파일에 저장소 정보를 작성합니다. 나중에 검사할 수 있도록 이 저장소 파일을 넣을 위치를 지정할 수 있습니다.
+* [Visual Studio Code를 설치](https://www.visualstudio.com/downloads/)합니다.
+* [Node.js v8.5 이상을 설치](https://nodejs.org/en/)합니다.
+* [Yeoman을 설치](http://yeoman.io/)합니다.
+* Node.js v4 Botbuilder 템플릿 생성기를 설치합니다.
 
-`FileStorage`를 사용하려면 `conversationState` 개체가 정의된 봇에서 명령문을 찾고 `new botbuilder.FileStorage("c:/temp")`를 만들도록 업데이트합니다. 또한 이 저장소 파일이 작성되어야 하는 위치를 정의할 수 있습니다. 이렇게 하면 쉽게 찾아서 유지될 콘텐츠를 검사할 수 있습니다.
-
-# <a name="ctabcstab"></a>[C#](#tab/cstab)
-```cs
-var storage = new FileStorage("c:/temp");
-
-// These two classes are simply Dictionaries to store state
-options.Middleware.Add(new ConversationState<MyBot.convoState>(storage));
-options.Middleware.Add(new UserState<MyBot.userState>(storage));
-```
-
-Bot Builder SDK는 선택할 수 있는 다양한 범위로 세 가지 상태 개체를 제공합니다.
-
-| 상태 | 범위 | 설명 |
-| ---- | ---- | ---- |
-| `dc.ActiveDialog.State` | 대화 상자 | 폭포 대화 상자의 단계에 사용할 수 있는 상태입니다. |
-| `ConversationState` | 대화 | 현재 대화에 사용할 수 있는 상태입니다. |
-| `UserState` | 사용자 | 여러 대화에 사용할 수 있는 상태입니다. |
-
-# <a name="javascripttabjstab"></a>[JavaScript](#tab/jstab)
-
-**app.js**
-```javascript
-// Storage
-const storage = new FileStorage("c:/temp");
-const convoState = new ConversationState(storage);
-const userState  = new UserState(storage);
-adapter.use(new BotStateSet(convoState, userState));
-```
-
-`BotStateSet`는 `ConversationState` 및 `UserState` 모두를 동시에 관리할 수 있습니다. 사용자 데이터를 저장할 때 선택할 수 있습니다. Bot Builder SDK는 선택할 수 있는 다양한 범위로 세 가지 상태 개체를 제공합니다.
-
-| 상태 | 범위 | 설명 |
-| ---- | ---- | ---- |
-| `dc.activeDialog.state` | 대화 상자 | 폭포 대화 상자의 단계에 사용할 수 있는 상태입니다. |
-| `ConversationState` | 대화 | 현재 대화에 사용할 수 있는 상태입니다. |
-| `UserState` | 사용자 | 여러 대화에 사용할 수 있는 상태입니다. |
+    ```shell
+    npm install generator-botbuilder
+    ```
 
 ---
- 
 
-## <a name="persist-state"></a>상태 유지
+이 자습서에서는 다음 패키지를 사용합니다.
 
-봇의 경우 저장하려는 항목 및 유지해야 하는 시간에 따라 세 개의 상태 위치 중 하나에 작성할 수 있습니다.  
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
-# <a name="ctabcstab"></a>[C#](#tab/cstab)
+NuGet 패킷 관리자에서 다음 패키지를 설치합니다.
 
-*상태 관리자 미들웨어*는 각 순서의 끝에서 상태 작성을 처리합니다. 따라서 봇에서 수행해야 하는 작업은 원하는 상태 개체에 데이터를 할당하는 것입니다. 이 예제에서는 `dc.ActiveDialog.State`를 사용하여 예약에 대한 사용자 입력을 추적합니다. 이러한 방식으로 사용자 입력을 글로벌 변수에 저장하는 대신 대화 상자에 대한 임시 저장소 개체 범위에 저장할 수 있습니다. 이 개체는 대화 상자가 활성화되는 한 존재하며, 더 길게 유지하려는 경우 다른 상태 개체 중 하나에 전송해야 합니다. 이 경우 예약 `msg`를 폭포의 마지막 단계에서 대화 상태에 할당합니다.
+* **Microsoft.Bot.Builder.Azure**
+* **Microsoft.Bot.Builder.Dialogs**
+* **Microsoft.Bot.Builder.Integration.AspNet.Core**
 
-```cs
-dialogs.Add("reserveTable", new WaterfallStep[]
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+봇의 프로젝트 폴더로 이동하고 NPM에서 `botbuilder-dialogs` 패키지를 설치합니다.
+
+```cmd
+npm install --save botbuilder-dialogs
+npm install --save botbuilder-azure
+```
+
+---
+
+이 자습서에서 만든 봇을 테스트하려면 [BotFramework Emulator](https://github.com/Microsoft/BotFramework-Emulator)를 설치해야 합니다.
+
+## <a name="create-a-cosmosdb-service-and-update-your-application-settings"></a>CosmosDB 서비스를 만들고 응용 프로그램 설정 업데이트
+CosmosDB 서비스 및 데이터베이스를 설정하려면 [CosmosDB 사용](bot-builder-howto-v4-storage.md#using-cosmos-db)의 지침을 따릅니다. 단계는 아래에 요약되어 있습니다.
+   1. 새 브라우저 창에서 <a href="http://portal.azure.com/" target="_blank">Azure Portal</a>에 로그인합니다.
+   1. **리소스 만들기 > 데이터베이스 > Azure Cosmos DB**를 클릭합니다.
+   1. **새 계정 페이지**의 **ID** 필드에 고유한 이름을 입력합니다. **API**의 경우 **SQL**을 선택하고 **구독**, **위치** 및 **리소스 그룹** 정보를 제공합니다.
+   1. **만들기**를 클릭합니다.
+
+그런 다음, 이 봇에 사용할 컬렉션을 해당 서비스에 추가합니다.
+
+컬렉션을 추가하는 데 사용한 데이터베이스 ID 및 컬렉션 ID와 컬렉션 키 설정의 URI 및 기본 키를 기록해 둡니다. 봇을 서비스에 연결하려면 필요합니다.
+
+### <a name="update-your-application-settings"></a>응용 프로그램 설정 업데이트
+
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+
+CosmosDB에 대한 연결 정보를 포함하도록 **appsettings.json** 파일을 업데이트합니다.
+
+```csharp
 {
-    async (dc, args, next) =>
-    {
-        // Prompt for the guest's name.
-        await dc.Context.SendActivity("Welcome to the reservation service.");
+  // Settings for CosmosDB.
+  "CosmosDB": {
+    "DatabaseID": "<your-database-identifier>",
+    "CollectionID": "<your-collection-identifier>",
+    "EndpointUri": "<your-CosmosDB-endpoint>",
+    "AuthenticationKey": "<your-primary-key>"
+  }
+}
+```
 
-        dc.ActiveDialog.State = new Dictionary<string, object>();
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
-        await dc.Prompt("dateTimePrompt", "Please provide a reservation date and time.");
-    },
-    async(dc, args, next) =>
-    {
-        var dateTimeResult = ((DateTimeResult)args).Resolution.First();
+프로젝트 폴더에서 **.env** 파일을 찾은 다음, Cosmos 관련 데이터를 사용하여 다음 항목을 이 파일에 추가합니다.
 
-        dc.ActiveDialog.State["date"] = Convert.ToDateTime(dateTimeResult.Value);
-        
-        // Ask for next info
-        await dc.Prompt("partySizePrompt", "How many people are in your party?");
+**.env**
 
-    },
-    async(dc, args, next) =>
-    {
-        dc.ActiveDialog.State["partySize"] = (int)args["Value"];
+```cmd
+DB_SERVICE_ENDPOINT=<database service endpoint>
+AUTH_KEY=<authentication key>
+DATABASE=<database name>
+COLLECTION=<collection name>
+```
 
-        // Ask for next info
-        await dc.Prompt("textPrompt", "Who's name will this be under?");
-    },
-    async(dc, args, next) =>
-    {
-        dc.ActiveDialog.State["name"] = args["Text"];
-        string msg = "Reservation confirmed. Reservation details - " +
-        $"\nDate/Time: {dc.ActiveDialog.State["date"].ToString()} " +
-        $"\nParty size: {dc.ActiveDialog.State["partySize"].ToString()} " +
-        $"\nReservation name: {dc.ActiveDialog.State["name"]}";
+그런 다음, 봇의 주 **index.js** 파일에서 `MemoryStorage` 대신 `CosmosDbStorage`를 사용하도록 `storage`를 바꿉니다. 런타임 중에 환경 변수를 끌어와서 이러한 필드가 채워집니다.
 
-        var convo = ConversationState<convoState>.Get(dc.Context);
-
-        // In production, you may want to store something more helpful
-        convo[$"{dc.ActiveDialog.State["name"]} reservation"] = msg;
-
-        await dc.Context.SendActivity(msg);
-        await dc.End();
-    }
+```javascript
+const storage = new CosmosDbStorage({
+    serviceEndpoint: process.env.DB_SERVICE_ENDPOINT, 
+    authKey: process.env.AUTH_KEY, 
+    databaseId: process.env.DATABASE,
+    collectionId: process.env.COLLECTION
 });
 ```
 
-# <a name="javascripttabjstab"></a>[JavaScript](#tab/jstab)
+---
 
-*상태 관리자 미들웨어*는 각 순서의 끝에서 파일에 상태 작성을 처리합니다. 따라서 봇에서 수행해야 하는 작업은 원하는 상태 개체에 데이터를 할당하는 것입니다. 이 예제에서는 `dc.activeDialog.state`를 사용하여 `reservervationInfo` 개체에서 사용자 입력을 추적합니다. 이러한 방식으로 사용자 입력을 글로벌 변수에 저장하는 대신 대화 상자에 대한 임시 저장소 개체 범위에 저장할 수 있습니다. 이 개체는 대화 상자가 활성화되는 한 존재하므로 유지하려는 경우 다른 상태 개체 중 하나에 전송해야 합니다. 이 경우 `reservationInfo`를 폭포의 마지막 단계에서 `convo` 상태에 할당합니다.
+## <a name="create-storage-state-manager-and-state-property-accessor-objects"></a>저장소, 상태 관리자 및 상태 속성 접근자 개체 만들기
+
+봇은 상태 관리 및 저장소 개체를 사용하여 상태를 관리하고 유지합니다. 관리자는 기본 저장소의 유형에 관계없이 상태 속성 접근자를 사용하여 상태 속성에 액세스할 수 있는 추상화 레이어를 제공합니다. 상태 관리자를 사용하여 저장소에 데이터를 씁니다. 
+
+
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+
+### <a name="define-a-class-for-your-user-data"></a>사용자 데이터에 대한 클래스 정의
+
+**CounterState.cs** 파일 이름을 **UserData.cs**로 바꾸고, **CounterState** 클래스 이름을 **UserData**로 바꿉니다.
+
+수집하는 데이터를 보존하도록 이 클래스를 업데이트합니다.
+
+```csharp
+/// <summary>
+/// Class for storing persistent user data.
+/// </summary>
+public class UserData
+{
+    public string Name { get; set; }
+}
+```
+
+### <a name="define-a-class-for-your-state-and-state-property-accessor-objects"></a>상태 및 상태 속성 접근자 개체에 대한 클래스 정의
+
+**EchoBotAccessors.cs** 파일 이름을 **BotAccessors.cs**로 바꾸고, **EchoBotAccessors** 클래스 이름을 **BotAccessors**로 바꿉니다.
+
+봇에 필요한 상태 개체 및 상태 속성 접근자를 저장하도록 이 클래스를 업데이트합니다.
+
+```csharp
+using Microsoft.Bot.Builder;
+using Microsoft.Bot.Builder.Dialogs;
+using System;
+
+public class BotAccessors
+{
+    public UserState UserState { get; }
+
+    public ConversationState ConversationState { get; }
+
+    public IStatePropertyAccessor<DialogState> DialogStateAccessor { get; set; }
+
+    public IStatePropertyAccessor<UserData> UserDataAccessor { get; set; }
+
+    public BotAccessors(UserState userState, ConversationState conversationState)
+    {
+        this.UserState = userState
+            ?? throw new ArgumentNullException(nameof(userState));
+
+        this.ConversationState = conversationState
+            ?? throw new ArgumentNullException(nameof(conversationState));
+    }
+}
+```
+
+### <a name="update-the-startup-code-for-your-bot"></a>봇의 시작 코드 업데이트
+
+**Startup.cs** 파일에서 using 문을 업데이트합니다.
+
+```csharp
+using System;
+using System.Linq;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Bot.Builder;
+using Microsoft.Bot.Builder.Azure;
+using Microsoft.Bot.Builder.BotFramework;
+using Microsoft.Bot.Builder.Dialogs;
+using Microsoft.Bot.Builder.Integration;
+using Microsoft.Bot.Builder.Integration.AspNet.Core;
+using Microsoft.Bot.Builder.TraceExtensions;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Options;
+```
+
+`ConfigureServices` 메서드에서, 백업 저장소 개체를 만드는 위치부터 시작하여 봇 추가 호출을 업데이트한 다음, 봇 접근자 개체를 등록합니다.
+
+대화 상자 상태를 추적하려면 `DialogState` 개체에 대한 대화 상태가 필요합니다. 대화 상자 상태 속성 접근자 및 봇에서 사용할 대화 상자 집합에 대한 싱글톤을 등록할 것입니다. 봇은 사용자 상태에 대한 고유의 상태 속성 접근자를 만듭니다.
+
+`BotAccessors` 접근자는 봇의 여러 상태 개체에 대한 저장소를 효율적으로 관리하는 방법입니다.
+
+```cs
+public void ConfigureServices(IServiceCollection services)
+{
+    // Register your bot.
+    services.AddBot<UserDataBot>(options =>
+    {
+        // ...
+
+        // Use persistent storage and create state management objects.
+        var CosmosSettings = Configuration.GetSection("CosmosDB");
+        IStorage storage = new CosmosDbStorage(
+            new CosmosDbStorageOptions
+            {
+                DatabaseId = CosmosSettings["DatabaseID"],
+                CollectionId = CosmosSettings["CollectionID"],
+                CosmosDBEndpoint = new Uri(CosmosSettings["EndpointUri"]),
+                AuthKey = CosmosSettings["AuthenticationKey"],
+            });
+        options.State.Add(new ConversationState(storage));
+        options.State.Add(new UserState(storage));
+    });
+
+    // Register the bot's state and state property accessor objects.
+    services.AddSingleton<BotAccessors>(sp =>
+    {
+        var options = sp.GetRequiredService<IOptions<BotFrameworkOptions>>().Value;
+        var userState = options.State.OfType<UserState>().FirstOrDefault();
+        var conversationState = options.State.OfType<ConversationState>().FirstOrDefault();
+
+        return new BotAccessors(userState, conversationState)
+        {
+            UserDataAccessor = userState.CreateProperty<UserData>("UserDataBot.UserData"),
+            DialogStateAccessor = conversationState.CreateProperty<DialogState>("UserDataBot.DialogState"),
+        };
+    });
+}
+```
+
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+### <a name="indexjs"></a>index.js
+
+주 봇의 **index.js** 파일에서 다음 require 문을 업데이트합니다.
 
 ```javascript
-// Reserve a table:
-// Help the user to reserve a table
+const { BotFrameworkAdapter, ConversationState, UserState } = require('botbuilder');
+const { CosmosDbStorage } = require('botbuilder-azure');
+```
 
-dialogs.add('reserveTable', [
-    async function(dc, args, next){
-        await dc.context.sendActivity("Welcome to the reservation service.");
+`UserState`를 사용하여 이 자습서의 데이터를 저장할 것입니다. 새 `userState` 개체를 만들고 `MainDialog` 클래스에 두 번째 매개 변수를 전달하도록 이 코드 줄을 업데이트해야 합니다.
 
-        dc.activeDialog.state.reservationInfo = {}; // Clears any previous data
-        await dc.prompt('dateTimePrompt', "Please provide a reservation date and time.");
-    },
-    async function(dc, result){
-        dc.activeDialog.state.reservationInfo.dateTime = result[0].value;
+```javascript
+// Create conversation state with in-memory storage provider. 
+const conversationState = new ConversationState(storage);
+const userState = new UserState(storage);
 
-        // Ask for next info
-        await dc.prompt('partySizePrompt', "How many people are in your party?");
-    },
-    async function(dc, result){
-        dc.activeDialog.state.reservationInfo.partySize = result;
+// Create the main dialog.
+const mainDlg = new MainDialog(conversationState, userState);
+```
 
-        // Ask for next info
-        await dc.prompt('textPrompt', "Who's name will this be under?");
-    },
-    async function(dc, result){
-        dc.activeDialog.state.reservationInfo.reserveName = result;
-        
-        // Persist data
-        var convo = conversationState.get(dc.context);; // conversationState.get(dc.context);
-        convo.reservationInfo = dc.activeDialog.state.reservationInfo;
+### <a name="dialogsmaindialogindexjs"></a>dialogs/mainDialog/index.js
 
-        // Confirm reservation
-        var msg = `Reservation confirmed. Reservation details: 
-            <br/>Date/Time: ${dc.activeDialog.state.reservationInfo.dateTime} 
-            <br/>Party size: ${dc.activeDialog.state.reservationInfo.partySize} 
-            <br/>Reservation name: ${dc.activeDialog.state.reservationInfo.reserveName}`;
-            
-        await dc.context.sendActivity(msg);
-        await dc.end();
-    }
-]);
+`MainDialog` 클래스에서, 봇이 작동하는 데 필요한 라이브러리를 요구합니다. 이 자습서에서는 **대화 상자** 라이브러리를 사용하겠습니다.
+
+```javascript
+// Required packages for this bot
+const { ActivityTypes } = require('botbuilder');
+const { DialogSet, WaterfallDialog, TextPrompt, NumberPrompt } = require('botbuilder-dialogs');
+
+```
+
+두 번째 매개 변수를 `userState`로 수락하도록 `MainDialog` 클래스의 생성자를 업데이트합니다. 또한 이 자습서에 필요한 상태, 대화 상자 및 프롬프트를 정의하도록 생성자를 업데이트합니다. 이 예에서는 _1단계_에서 사용자에게 이름을 요청하고 _2단계_에서 사용자 입력을 반환하는 2단계 폭포를 정의합니다. 해당 정보의 유지 여부는 봇의 기본 논리에 달렸습니다.
+
+```javascript
+constructor (conversationState, userState) {
+
+    // creates a new state accessor property. see https://aka.ms/about-bot-state-accessors to learn more about the bot state and state accessors 
+    this.conversationState = conversationState;
+    this.userState = userState;
+
+    this.dialogState = this.conversationState.createProperty('dialogState');
+
+    this.userDataAccessor = this.userState.createProperty('userData');
+
+    this.dialogs = new DialogSet(this.dialogState);
+    
+    // Add prompts
+    this.dialogs.add(new TextPrompt('textPrompt'));
+    
+    // Check in user:
+    this.dialogs.add(new WaterfallDialog('greetings', [
+        async function (step) {
+            return await step.prompt('textPrompt', "What is your name?");
+        },
+        async function (step){
+            return await step.endDialog(step.result);
+        }
+    ]));
+}
 ```
 
 ---
 
-이제 봇 논리에 연결할 준비가 되었습니다.
+사용자 데이터를 저장할 때 선택할 수 있습니다. SDK는 범위를 선택할 수 있는 몇 가지 상태 개체를 제공합니다. 여기서는 대화 상태를 사용하여 대화 상자 상태 개체를 관리하고 사용자 상태를 사용하여 사용자 데이터를 관리할 것입니다.
 
-## <a name="start-the-dialog"></a>대화 상자 시작
+저장소 및 상태에 대한 일반적인 내용은 [저장소](bot-builder-howto-v4-storage.md) 및 [대화 및 사용자 상태를 관리하는 방법](bot-builder-howto-v4-state.md)을 참조하세요.
 
-여기에서 변경해야 하는 코드 변경 내용이 없습니다. 단순히 봇을 실행하고 메시지를 전송하여 `reserveTable` 대화를 시작합니다.
+## <a name="create-a-greeting-dialog"></a>인사 대화 상자 만들기
 
-## <a name="check-file-storage-content"></a>파일 저장소 콘텐츠 확인
+대화 상자를 사용하여 사용자 이름을 수집할 수 있습니다. 이 시나리오를 간단하게 유지하기 위해, 대화 상자는 사용자 이름을 반환하고, 봇은 사용자 데이터 개체 및 상태를 관리합니다.
 
-봇을 실행하고 `reserveTable` 대화를 완료한 후 지정한 위치에서 파일에 저장된 정보를 찾습니다(예: "C:/temp"). 파일 이름 앞에 "conversation!" 또는 "user!"가 추가됩니다. 최신 항목을 더 쉽게 찾을 수 있도록 날짜별로 파일을 정렬하도록 도울 수 있습니다.
+**GreetingsDialog** 클래스를 만들고 다음 코드를 포함합니다.
+
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+
+```cs
+using Microsoft.Bot.Builder;
+using Microsoft.Bot.Builder.Dialogs;
+
+/// <summary>Defines a dialog for collecting a user's name.</summary>
+public class GreetingsDialog : DialogSet
+{
+    /// <summary>The ID of the main dialog.</summary>
+    public const string MainDialog = "main";
+
+    /// <summary>The ID of the the text prompt to use in the dialog.</summary>
+    private const string TextPrompt = "textPrompt";
+
+    /// <summary>Creates a new instance of this dialog set.</summary>
+    /// <param name="dialogState">The dialog state property accessor to use for dialog state.</param>
+    public GreetingsDialog(IStatePropertyAccessor<DialogState> dialogState)
+        : base(dialogState)
+    {
+        // Add the text prompt to the dialog set.
+        Add(new TextPrompt(TextPrompt));
+
+        // Define the main dialog and add it to the set.
+        Add(new WaterfallDialog(MainDialog, new WaterfallStep[]
+        {
+            async (stepContext, cancellationToken) =>
+            {
+                // Ask the user for their name.
+                return await stepContext.PromptAsync(TextPrompt, new PromptOptions
+                {
+                    Prompt = MessageFactory.Text("What is your name?"),
+                }, cancellationToken);
+            },
+            async (stepContext, cancellationToken) =>
+            {
+                // Assume that they entered their name, and return the value.
+                return await stepContext.EndDialogAsync(stepContext.Result, cancellationToken);
+            },
+        }));
+    }
+}
+```
+
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+`MainDialog`의 생성자 내에 대화 상자를 만드는 위의 섹션을 참조하세요.
+
+---
+
+대화 상자에 대한 자세한 내용은 [입력을 요청하는 방법](bot-builder-prompts.md) 및 [단순 대화 흐름을 관리하는 방법](bot-builder-dialog-manage-conversation-flow.md)을 참조하세요.
+
+## <a name="update-your-bot-to-use-the-dialog-and-user-state"></a>대화 상자 및 사용자 상태를 사용하도록 봇 업데이트
+
+봇을 만들고 사용자 입력을 별도로 관리하는 방법을 알아보겠습니다.
+
+### <a name="add-the-dialog-and-a-user-state-accessor"></a>대화 상자 및 사용자 상태 접근자 추가
+
+대화 상자 인스턴스 및 사용자 데이터에 대한 상태 속성 접근자를 추적해야 합니다.
+
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+
+봇을 초기화하는 코드를 추가합니다.
+
+```cs
+using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
+using Microsoft.Bot.Builder;
+using Microsoft.Bot.Builder.Dialogs;
+using Microsoft.Bot.Schema;
+
+/// <summary>Defines the bot for the persisting user data tutorial.</summary>
+public class UserDataBot : IBot
+{
+    /// <summary>The bot's state and state property accessor objects.</summary>
+    private BotAccessors Accessors { get; }
+
+    /// <summary>The dialog set that has the dialog to use.</summary>
+    private GreetingsDialog GreetingsDialog { get; }
+
+    /// <summary>Create a new instance of the bot.</summary>
+    /// <param name="options">The options to use for our app.</param>
+    /// <param name="greetingsDialog">An instance of the dialog set.</param>
+    public UserDataBot(BotAccessors botAccessors)
+    {
+        // Retrieve the bot's state and accessors.
+        Accessors = botAccessors;
+
+        // Create the greetings dialog.
+        GreetingsDialog = new GreetingsDialog(Accessors.DialogStateAccessor);
+    }
+}
+```
+
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+`MainDialog`의 생성자 내에 이러한 상태 접근자가 정의되는 위의 섹션을 참조하세요.
+
+---
+
+### <a name="update-the-turn-handler"></a>순서 처리기 업데이트
+
+순서 처리기는 사용자가 처음으로 대화에 참여하면 사용자에게 인사하고, 사용자가 봇에 메시지를 보내면 사용자에게 대답합니다. 봇은 사용자의 이름을 모르는 경우 인사 대화 상자를 시작하여 사용자의 이름을 묻습니다. 대화 상자가 완료되면 상태 속성 접근자가 생성한 상태 개체를 사용하여 사용자 이름을 사용자 상태에 저장할 것입니다. 순서가 종료되면 접근자 및 상태 관리자는 개체 변경 내용을 저장소에 씁니다.
+
+_사용자 데이터 삭제_ 작업을 위한 지원도 추가될 예정입니다.
+
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+
+봇의 `OnTurnAsync` 메서드를 업데이트합니다.
+
+```cs
+/// <summary>Handles incoming activities to the bot.</summary>
+/// <param name="turnContext">The context object for the current turn.</param>
+/// <param name="cancellationToken">A cancellation token that can be used by other objects
+/// or threads to receive notice of cancellation.</param>
+/// <returns>A task that represents the work queued to execute.</returns>
+public async Task OnTurnAsync(ITurnContext turnContext, CancellationToken cancellationToken = default(CancellationToken))
+{
+    // Retrieve user data from state.
+    UserData userData = await Accessors.UserDataAccessor.GetAsync(turnContext, () => new UserData());
+
+    // Establish context for our dialog from the turn context.
+    DialogContext dc = await GreetingsDialog.CreateContextAsync(turnContext);
+
+    // Handle conversation update, message, and delete user data activities.
+    switch (turnContext.Activity.Type)
+    {
+        case ActivityTypes.ConversationUpdate:
+
+            // Greet any user that is added to the conversation.
+            IConversationUpdateActivity activity = turnContext.Activity.AsConversationUpdateActivity();
+            if (activity.MembersAdded.Any(member => member.Id != activity.Recipient.Id))
+            {
+                if (userData.Name is null)
+                {
+                    // If we don't already have their name, start a dialog to collect it.
+                    await turnContext.SendActivityAsync("Welcome to the User Data bot.");
+                    await dc.BeginDialogAsync(GreetingsDialog.MainDialog);
+                }
+                else
+                {
+                    // Otherwise, greet them by name.
+                    await turnContext.SendActivityAsync($"Hi {userData.Name}! Welcome back to the User Data bot.");
+                }
+            }
+
+            break;
+
+        case ActivityTypes.Message:
+
+            // If there's a dialog running, continue it.
+            if (dc.ActiveDialog != null)
+            {
+                var dialogTurnResult = await dc.ContinueDialogAsync();
+                if (dialogTurnResult.Status == DialogTurnStatus.Complete
+                    && dialogTurnResult.Result is string name
+                    && !string.IsNullOrWhiteSpace(name))
+                {
+                    // If it completes successfully and returns a valid name, save the name and greet the user.
+                    userData.Name = name;
+                    await turnContext.SendActivityAsync($"Pleased to meet you {userData.Name}.");
+                }
+            }
+            // Else, if we don't have the user's name yet, ask for it.
+            else if (userData.Name is null)
+            {
+                await dc.BeginDialogAsync(GreetingsDialog.MainDialog);
+            }
+            // Else, echo the user's message text.
+            else
+            {
+                await turnContext.SendActivityAsync($"{userData.Name} said, '{turnContext.Activity.Text}'.");
+            }
+
+            break;
+
+        case ActivityTypes.DeleteUserData:
+
+            // Delete the user's data.
+            userData.Name = null;
+            await turnContext.SendActivityAsync("I have deleted your user data.");
+
+            break;
+    }
+
+    // Update the user data in the turn's state cache.
+    await Accessors.UserDataAccessor.SetAsync(turnContext, userData, cancellationToken);
+
+    // Persist any changes to storage.
+    await Accessors.UserState.SaveChangesAsync(turnContext, false, cancellationToken);
+    await Accessors.ConversationState.SaveChangesAsync(turnContext, false, cancellationToken);
+}
+```
+
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+`MainDialog`의 `onTurn` 처리기를 업데이트합니다.
+
+**dialogs/mainDialog/index.js**
+
+```javascript
+async onTurn(turnContext) {
+        
+    const dc = await this.dialogs.createContext(turnContext); // Create dialog context
+    const userData = await this.userDataAccessor.get(turnContext, {});
+
+    switch(turnContext.activity.type){
+        case ActivityTypes.ConversationUpdate:
+            if (turnContext.activity.membersAdded[0].name !== 'Bot') {
+                if(userData.name){
+                    await turnContext.sendActivity(`Hi ${userData.name}! Welcome back to the User Data bot.`);
+                }
+                else {
+                    // send a "this is what the bot does" message
+                    await turnContext.sendActivity('Welcome to the User Data bot.');
+                    await dc.beginDialog('greetings');
+                }
+            }
+        break;
+        case ActivityTypes.Message:
+            // If there is an active dialog running, continue it
+            if(dc.activeDialog){
+                var turnResult = await dc.continueDialog();
+                if(turnResult.status == "complete" && turnResult.result){
+                    // If it completes successfully and returns a value, save the name and greet the user.
+                    userData.name = turnResult.result;
+                    await this.userDataAccessor.set(turnContext, userData);
+                    await turnContext.sendActivity(`Pleased to meet you ${userData.name}.`);
+                }
+            }
+            // Else, if we don't have the user's name yet, ask for it.
+            else if(!userData.name){
+                await dc.beginDialog('greetings');
+            }
+            // Else, echo the user's message text.
+            else {
+                await turnContext.sendActivity(`${userData.name} said, ${turnContext.activity.text}.`);
+            }
+        break;
+        case "deleteUserData":
+            // Delete the user's data.
+            // Note: You can use the emuluator to send this activity.
+            userData.name = null;
+            await this.userDataAccessor.set(turnContext, userData);
+            await turnContext.sendActivity("I have deleted your user data.");
+        break;
+    }
+
+    // Save changes to the user name.
+    await this.userState.saveChanges(turnContext);
+
+    // End this turn by saving changes to the conversation state.
+    await this.conversationState.saveChanges(turnContext);
+
+}
+
+```
+
+---
+
+## <a name="start-your-bot-in-visual-studio"></a>Visual Studio에서 봇 시작
+응용 프로그램을 빌드하고 실행합니다.
+
+## <a name="start-the-emulator-and-connect-your-bot"></a>에뮬레이터 시작 및 봇 연결
+
+에뮬레이터를 시작한 다음, 에뮬레이터에서 봇에 연결합니다.
+
+1. 에뮬레이터 "시작" 탭에서 **봇 열기** 링크를 클릭합니다. 
+2. Visual Studio 솔루션을 만든 디렉터리에서 .bot 파일을 선택합니다.
+
+## <a name="interact-with-your-bot"></a>봇과의 상호 작용
+봇에 메시지를 보내면 봇이 메시지를 통해 응답합니다.
+![에뮬레이터 실행](../media/emulator-v4/emulator-running.png)
+
 
 ## <a name="next-steps"></a>다음 단계
-
-이제 사용자 입력을 저장하는 방법을 배웠으므로 프롬프트 라이브러리를 사용하여 사용자에게 요청할 수 있는 입력의 유형을 살펴봅시다.
-
 > [!div class="nextstepaction"]
-> [사용자에게 입력할 프롬프트 창 표시](~/v4sdk/bot-builder-prompts.md)
+> [대화 및 사용자 상태 관리](bot-builder-howto-v4-state.md)

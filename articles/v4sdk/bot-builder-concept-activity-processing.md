@@ -7,37 +7,30 @@ ms.author: jonathanfingold
 manager: kamrani
 ms.topic: article
 ms.prod: bot-framework
-ms.date: 03/22/2018
+ms.date: 09/13/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 278005c25e98c7c5b7d523030846909aed830224
-ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
+ms.openlocfilehash: fbcc9532e39fab96b6794c80c29dfc349ad552b1
+ms.sourcegitcommit: 3bf3dbb1a440b3d83e58499c6a2ac116fe04b2f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42905356"
+ms.lasthandoff: 09/23/2018
+ms.locfileid: "46707709"
 ---
 # <a name="activity-processing"></a>작업 처리
 
 [!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
 
-봇과 사용자는 작업을 통해 정보를 교환합니다. 봇 응용 프로그램이 받은 각 작업은 봇 어댑터로 전달되고, 봇 어댑터는 작업 정보를 봇 논리로 전달하고 궁극적으로 사용자에게 응답을 보냅니다.
+봇과 사용자는 작업을 통해 상호 작용하고 정보를 교환합니다. 봇 응용 프로그램이 받은 각 작업은 봇 어댑터로 전달되고, 봇 어댑터는 작업 정보를 봇 논리로 전달하고 궁극적으로 사용자에게 응답을 보냅니다. 작업 받기 및 이후의 봇을 통한 처리를 순서라고 하며, 봇의 전체 주기 하나를 나타냅니다. 순서는 모든 실행이 수행되고, 작업이 완전히 처리되고 봇의 모든 계층이 완료된 경우 종료합니다.
 
-[!INCLUDE [Define a turn](~/includes/snippet-definition-turn.md)]
-
-> [!IMPORTANT]
-> 작업, 특히 봇 턴 동안 [생성하는](#generating-responses) 작업은 비동기적으로 처리됩니다. 봇 빌드에서 필수적인 부분입니다. 작동 원리를 다시 살펴보려면 선택한 언어에 따라 [.NET용 비동기](https://docs.microsoft.com/en-us/dotnet/csharp/async) 또는 [JavaScript용 비동기](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function)를 확인하세요.
+작업, 특히 봇 턴 동안 [봇에서 보낸](#generating-responses) 작업은 비동기적으로 처리됩니다. 봇 빌드에서 필수적인 부분입니다. 작동 원리를 다시 살펴보려면 선택한 언어에 따라 [.NET용 비동기](https://docs.microsoft.com/en-us/dotnet/csharp/async) 또는 [JavaScript용 비동기](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function)를 확인하세요.
 
 ## <a name="the-bot-adapter"></a>봇 어댑터
-
-봇은 **어댑터**의 지시를 받으며, 어댑터를 봇의 지휘자라고 생각하셔도 좋습니다. 어댑터는 인증, 들어오고 나가는 통신의 라우팅 등을 담당합니다. 어댑터는 환경에 따라 달라지지만(어댑터는 Azure와는 달리 내부적으로 다르게 로컬로 작동) 각 인스턴스에서 동일한 목표를 달성합니다. 템플릿에서 봇을 만드는 경우처럼 어댑터를 직접 작업하는 경우는 별로 없지만, 어댑터가 있다는 사실과 담당하는 역할을 알고 있으면 도움이 됩니다.
 
 봇 어댑터는 인증 프로세스를 캡슐화하고 Bot Connector Service와 작업을 주고받습니다. 봇이 작업을 받으면 어댑터는 해당 작업에 대한 모든 항목을 래핑하고, 턴에 대한 [컨텍스트 개체](#turn-context)를 만들어서 봇의 응용 프로그램 논리에 전달하고, 봇이 생성한 응답을 다시 사용자의 채널로 보냅니다.
 
 ## <a name="authentication"></a>인증
 
-어댑터는 작업의 정보 및 REST 요청의 `Authentication` 헤더를 사용하여 응용 프로그램에서 수신하는 각 들어오는 작업을 인증합니다.
-
-어댑터는 커넥터 개체 및 응용 프로그램의 자격 증명을 사용하여 사용자에 대한 아웃바운드 작업을 인증합니다.
+어댑터는 작업의 정보 및 REST 요청의 `Authentication` 헤더를 사용하여 응용 프로그램에서 수신하는 각 들어오는 작업을 인증합니다. 어댑터는 커넥터 개체 및 응용 프로그램의 자격 증명을 사용하여 사용자에 대한 아웃바운드 작업을 인증합니다.
 
 Bot Connector Service 인증에는 JWT(JSON 웹 토큰) `Bearer` 토큰 및 **Microsoft 앱 ID**, 그리고 봇 서비스를 만들 때 또는 봇을 등록할 때 Azure가 자동으로 만든 **Microsoft 앱 암호**가 사용됩니다. 어댑터가 트래픽을 인증하려면 초기화 시 응용 프로그램에서 이러한 자격 증명이 필요합니다.
 
@@ -50,29 +43,26 @@ Bot Connector Service 인증에는 JWT(JSON 웹 토큰) `Bearer` 토큰 및 **Mi
 
 * 대화 - 대화를 식별하고 대화에 참여한 봇과 사용자에 대한 정보를 포함합니다.
 * 작업 - 대화의 요청과 회신은 모두 작업 형식입니다. 이 컨텍스트는 라우팅 정보, 채널 정보, 대화, 보낸 사람 및 받는 사람에 대한 정보를 포함하여 들어오는 작업에 대한 정보를 제공합니다.
-* 상태 - 대화에서 사용자와 함께 있는 위치, 해당 사용자에 대한 정보, 기타 비즈니스 논리 정보 등 [상태](~/v4sdk/bot-builder-storage-concept.md)를 추적하는 데 사용되는 속성입니다.
 * 사용자 지정 정보 - 미들웨어를 구현하여 또는 봇 논리 내에서 봇을 확장하는 경우 각 턴에서 추가 정보를 제공할 수 있습니다.
 
-또한 컨텍스트 개체는 사용자에게 응답을 보내고, 새 대화를 만들거나 기존 대화를 계속 진행하도록 어댑터에 대한 참조를 가져오는 데 사용할 수 있습니다.
+또한 컨텍스트 개체는 사용자에게 응답을 보내고, 어댑터에 대한 참조를 가져오는 데 사용될 수 있습니다<!-- to create a new conversation or continue an existing one-->.
 
 > [!NOTE]
 > 응용 프로그램 및 어댑터는 요청을 비동기적으로 처리하지만, 비즈니스 논리가 요청-응답 기반일 필요는 없습니다.
 
 ## <a name="middleware"></a>미들웨어
 
-어댑터에 미들웨어를 추가할 수 있습니다. 미들웨어는 봇과 코어 봇 논리에 추가된 플러그 인 레이어입니다. 미들웨어에 대한 자세한 내용은 독립적인 [미들웨어 문서](~/v4sdk/bot-builder-concept-middleware.md)를 참조하세요.
-
-미들웨어 및 봇 논리는 컨텍스트 개체를 사용하여 작업에 대한 정보를 검색하고 그에 따라 작동합니다. 미들웨어 및 봇은 턴, 대화 또는 기타 범위에 대한 추적 상태와 같은 정보를 업데이트하거나 컨텍스트 개체에 추가할 수도 있습니다. SDK는 봇에 상태 지속성을 추가하는 데 사용할 수 있는 _상태 미들웨어_를 제공합니다.
+어댑터에 미들웨어를 추가할 수 있습니다. 미들웨어 및 봇 논리는 컨텍스트 개체를 사용하여 작업에 대한 정보를 검색하고 그에 따라 작동합니다. 미들웨어 및 봇은 턴, 대화 또는 기타 범위에 대한 추적 상태와 같은 정보를 업데이트하거나 컨텍스트 개체에 추가할 수도 있습니다. 미들웨어에 대한 자세한 내용은 [미들웨어 문서](~/v4sdk/bot-builder-concept-middleware.md)를 참조하세요.
 
 ## <a name="generating-responses"></a>응답 생성
 
 컨텍스트 개체는 코드가 작업에 응답하도록 허용하는 작업 응답 메서드를 제공합니다.
 
-* _send activity_ 및 _send activities_ 메서드는 하나 이상의 활동을 대화에 보냅니다.
+* _send activity_ 및 _send activities_ 메서드는 하나 이상의 작업을 대화에 보냅니다.
 * 채널에서 지원되는 경우 _update activity_ 메서드는 대화 내에서 작업을 업데이트합니다.
 * 채널에서 지원되는 경우 _delete activity_ 메서드는 대화에서 작업을 제거합니다.
 
-각 응답 메서드는 비동기 프로세스에서 실행됩니다. 작업 응답 메서드는 호출되면 처리기를 호출하기 전까지 연결된 이벤트 처리기 목록을 복제합니다. 즉, 이 시점까지 추가된 모든 처리기를 포함하지만, 프로세스가 시작된 후에 추가된 항목을 전혀 포함하지 않습니다.
+각 응답 메서드는 비동기 프로세스에서 실행됩니다. 작업 응답 메서드는 호출되면 처리기를 호출하기 전까지 연결된 [이벤트 처리기](#response-event-handlers) 목록을 복제합니다. 즉, 이 시점까지 추가된 모든 처리기를 포함하지만, 프로세스가 시작된 후에 추가된 항목을 전혀 포함하지 않습니다.
 
 이는 응답의 순서가 보장되지 않는다는 뜻이며, 한 작업이 다른 작업보다 복잡한 경우에 더욱 그렇습니다. 봇이 들어오는 작업에 대한 여러 응답을 생성할 수 있는 경우 사용자가 받는 순서대로 의미가 통해야 합니다.
 
@@ -81,20 +71,16 @@ Bot Connector Service 인증에는 JWT(JSON 웹 토큰) `Bearer` 토큰 및 **Mi
 
 ## <a name="response-event-handlers"></a>응답 이벤트 처리기
 
-봇 및 미들웨어 논리 외에도, 컨텍스트 개체에 응답 처리기(이벤트 처리기 또는 작업 이벤트 처리기라고도 함)를 추가할 수 있습니다. 이러한 처리기는 현재 컨텍스트 개체에서 관련 응답이 발생하면 실제 응답을 실행하기 전에 호출됩니다. 이러한 처리기는 실제 이벤트 전에 또는 후에 현재 응답의 나머지 부분에서 해당 형식의 모든 작업에 대해 무엇을 할 것인지 알고 있는 경우에 유용 합니다.
+봇 및 미들웨어 논리 외에도, 컨텍스트 개체에 응답 처리기(이벤트 처리기 또는 작업 이벤트 처리기라고도 함)를 추가할 수 있습니다. 이러한 처리기는 현재 컨텍스트 개체에서 관련 [응답](#generating-responses)이 발생하면 실제 응답을 실행하기 전에 호출됩니다. 이러한 처리기는 실제 이벤트 전에 또는 후에 현재 응답의 나머지 부분에서 해당 형식의 모든 작업에 대해 무엇을 할 것인지 알고 있는 경우에 유용 합니다.
 
 > [!WARNING]
 > 각 응답 이벤트 처리기 내부에서 작업 응답 메서드를 호출하지 않도록 주의해야 합니다. 예를 들어 _on send activity_ 처리기 내에서 send activity 메서드를 호출하면 안 됩니다. 호출하면 무한 루프가 생성될 수 있습니다.
 
 새 작업마다 실행할 새 스레드가 생깁니다. 작업을 처리하는 스레드가 생성되면 해당 작업에 대한 처리기 목록이 해당하는 새 스레드에 복사됩니다. 해당 시점 이후 추가된 처리기는 해당 활동 이벤트에 대해 실행되지 않습니다.
 
-어댑터는 컨텍스트 개체에 등록된 처리기를 [미들웨어 파이프라인](~/v4sdk/bot-builder-concept-middleware.md#the-bot-middleware-pipeline)과 매우 비슷한 방법으로 관리합니다.
-
-즉, 처리기는 추가된 순서대로 호출되며, _다음_ 대리자를 호출하면 등록된 그 다음 이벤트 처리기에 컨트롤이 전달됩니다. 처리기가 다음 대리자를 호출하지 않으면 어댑터는 후속 이벤트 처리기를 호출하지 않으며([단락](~/v4sdk/bot-builder-concept-middleware.md#short-circuiting) 이벤트), 어댑터는 채널에 응답을 보내지 않습니다.
+컨텍스트 개체에 등록된 처리기는 어댑터에서 [미들웨어 파이프라인](~/v4sdk/bot-builder-concept-middleware.md#the-bot-middleware-pipeline)을 관리하는 방법과 매우 비슷하게 처리됩니다. 즉, 처리기는 추가된 순서대로 호출되며, _다음_ 대리자를 호출하면 등록된 그 다음 이벤트 처리기에 컨트롤이 전달됩니다. 처리기가 다음 대리자를 호출하지 않으면 후속 이벤트 처리기는 호출되지 않으며([단락](~/v4sdk/bot-builder-concept-middleware.md#short-circuiting) 이벤트), 어댑터는 채널에 응답을 보내지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
-
-봇의 몇 가지 주요 개념에 익숙해졌으니, 봇이 사전 대응 메시지를 보내는 방법을 자세히 살펴보겠습니다.
 
 > [!div class="nextstepaction"]
 > [미들웨어](~/v4sdk/bot-builder-concept-middleware.md)

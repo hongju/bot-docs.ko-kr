@@ -7,12 +7,12 @@ manager: kamrani
 ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/17
-ms.openlocfilehash: a64edda73832f4d3fff49b08b5eaf6792c021ece
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: 5373b18ce5c11dae4e971cb1a70307ae2901ad36
+ms.sourcegitcommit: 3cb288cf2f09eaede317e1bc8d6255becf1aec61
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39303338"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47389662"
 ---
 # <a name="troubleshooting-bot-framework-authentication"></a>Bot Framework 인증 문제 해결
 
@@ -25,10 +25,10 @@ ms.locfileid: "39303338"
 
 봇 보안은 Bot Framework에 봇을 등록할 때 받은 **Microsoft 앱 ID** 및 **Microsoft 앱 암호**를 통해 구성됩니다. 일반적으로 이러한 값은 봇의 구성 파일 내에서 지정되고 Microsoft 계정 서비스에서 액세스 토큰을 검색하는 데 사용됩니다. 
 
-아직 하지 않은 경우 [봇을 등록](~/bot-service-quickstart-registration.md)하여 인증에 사용할 수 있도록 **Microsoft 앱 ID** 및 **Microsoft 앱 암호**를 가져옵니다. 
+아직 봇을 배포하지 않은 경우 [봇을 azure에 배포](~/bot-builder-howto-deploy-azure.md)하여 인증에 사용할 수 있도록 **Microsoft 앱 ID** 및 **Microsoft 앱 암호**를 가져옵니다. 
 
 > [!NOTE]
-> 봇의 **AppID** 및 **AppPassword**를 찾으려면 [MicrosoftAppID 및 MicrosoftAppPassword](bot-service-manage-overview.md#microsoftappid-and-microsoftapppassword)를 참조하세요.
+> 이미 배포된 봇의 **AppID** 및 **AppPassword**를 찾으려면 [MicrosoftAppID 및 MicrosoftAppPassword](bot-service-manage-overview.md#microsoftappid-and-microsoftapppassword)를 참조하세요.
 
 ## <a name="step-1-disable-security-and-test-on-localhost"></a>1단계: localhost에서 보안 및 테스트 사용 안 함
 

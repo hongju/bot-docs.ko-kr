@@ -9,12 +9,12 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 4/16/18
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 23380231c15c40875f78921f72bcf9d57effb3bf
-ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
+ms.openlocfilehash: dee0f9700fefede2a231ff2395e50ff17522806e
+ms.sourcegitcommit: 3bf3dbb1a440b3d83e58499c6a2ac116fe04b2f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42905233"
+ms.lasthandoff: 09/23/2018
+ms.locfileid: "46707399"
 ---
 # <a name="create-a-direct-line-bot-and-client"></a>직접 회선 봇 및 클라이언트 만들기
 
@@ -492,7 +492,7 @@ server.post('/api/messages', (req, res) => {
 
 ```
 
-준비가 완료되면 원본을 다시 Azure에 게시할 수 있습니다. [봇을 Azure에 다시 게시하는 방법을 알아보려면 다음 단계를 수행합니다.](../bot-service-build-download-source-code.md#publish-node-bot-source-code-to-azure)
+준비가 완료되면 원본을 다시 Azure에 게시할 수 있습니다. 봇을 [Azure](../bot-service-build-download-source-code.md)에 다시 게시하는 방법을 알아보려면 다음 단계를 수행합니다.
 
 ---
 

@@ -7,17 +7,18 @@ ms.author: v-ducvo
 manager: kamrani
 ms.topic: article
 ms.prod: bot-framework
-ms.date: 08/13/2018
-ms.openlocfilehash: e62d57a39c87e9de32a1a492b2dc1386d6574fd3
-ms.sourcegitcommit: bff936a6a3dd5b1bd3ddfeed8bd1023e52929f08
+ms.date: 09/18/2018
+ms.openlocfilehash: e676a9bf2c9dac46d728f8a37d87eae6e56df341
+ms.sourcegitcommit: 3bf3dbb1a440b3d83e58499c6a2ac116fe04b2f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43312497"
+ms.lasthandoff: 09/23/2018
+ms.locfileid: "46707689"
 ---
 ::: moniker range="azure-bot-service-3.0"
 
-# <a name="create-a-bot-with-bot-service"></a>Bot Service를 사용하여 봇 만들기
+
+# <a name="create-a-bot-with-azure-bot-service"></a>Azure Bot Service로 봇 만들기
 
 [!INCLUDE [pre-release-label](includes/pre-release-label-v3.md)]
 
@@ -78,7 +79,7 @@ Bot Service는 봇 개발을 위한 Bot Builder SDK 및 채널에 봇을 연결�
 
 ::: moniker range="azure-bot-service-4.0"
 
-# <a name="create-a-bot-with-bot-service"></a>Bot Service를 사용하여 봇 만들기
+# <a name="create-a-bot-with-azure-bot-service"></a>Azure Bot Service로 봇 만들기
 [!INCLUDE [pre-release-label](includes/pre-release-label.md)]
 
 Azure Bot Service는 봇 개발을 위한 Bot Builder SDK 및 채널에 봇을 연결하기 위한 Bot Service를 포함하여 봇 만들기의 핵심 구성 요소를 제공합니다. 이 항목에서 .NET 또는 Node.js 템플릿을 선택하여 Bot Builder SDK v4의 미리 보기 버전을 사용하는 봇을 만들 수 있습니다.
@@ -106,7 +107,7 @@ Azure Bot Service는 봇 개발을 위한 Bot Builder SDK 및 채널에 봇을 �
  | **위치**: | 기본 위치 | 리소스 그룹의 지리적 위치를 선택합니다. 나열된 모든 위치 중에 선택할 수 있지만, 고객에게 가장 가까운 위치를 선택하는 것이 좋습니다. 봇이 만들어진 후에는 위치를 변경할 수 없습니다. |
  | **가격 책정 계층** | F0 | 가격 책정 계층을 선택합니다. 언제든지 가격 책정 계층을 업데이트할 수 있습니다. 자세한 내용은 [Bot Service 가격](https://azure.microsoft.com/en-us/pricing/details/bot-service/)을 참조하세요. |
  | **앱 이름** | 고유한 이름 | 봇의 고유한 URL 이름입니다. 예를 들어, 봇 이름을 *myawesomebot*으로 지정하면 봇 URL은 `http://myawesomebot.azurewebsites.net`입니다. 이름에는 영숫자 및 밑줄 문자만 사용해야 합니다. 이 필드는 35자로 제한됩니다. 봇이 만들어진 후에는 앱 이름을 변경할 수 없습니다. |
- | **봇 템플릿** | Basic | **SDK v4**를 선택합니다. C# 또는 Node.js를 선택하고, 이 빠른 시작의 **기본** 템플릿을 선택한 다음, **선택**을 클릭합니다. 기본 템플릿은 에코 봇을 만듭니다. 
+ | **봇 템플릿** | Echo 봇 | **SDK v4**를 선택합니다. 이 빠른 시작에 대해 C# 또는 Node.js를 선택한 다음, **선택**을 클릭합니다.  
  | **App Service 계획/위치** | App Service 계획  | [App Service 계획](https://azure.microsoft.com/en-us/pricing/details/app-service/plans/) 위치를 선택합니다. 나열된 모든 위치 중에 선택할 수 있지만, 고객에게 가장 가까운 위치를 선택하는 것이 좋습니다. |
  | **Azure Storage** | Azure Storage 계정 | 새 데이터 저장소 계정을 만들거나 기존 계정을 사용할 수 있습니다. 기본적으로 봇은 [Table Storage](/azure/storage/common/storage-introduction#table-storage)를 사용합니다. |
  | **Application Insights** | 다른 | [Application Insights](/bot-framework/bot-service-manage-analytics)를 **켜기** 또는 **끄기**로 설정할지 결정합니다. **켜기**를 선택하면 지역 위치를 지정해야 합니다. 나열된 모든 위치 중에 선택할 수 있지만, 고객에게 가장 가까운 위치를 선택하는 것이 좋습니다. |
@@ -116,12 +117,18 @@ Azure Bot Service는 봇 개발을 위한 Bot Builder SDK 및 채널에 봇을 �
 
 **알림**을 선택하여 봇이 배포되었는지 확인합니다. 알림이 **배포 진행 중...** 에서 **배포 성공**으로 변경됩니다. **리소스로 이동** 단추를 클릭하여 봇의 리소스 블레이드를 엽니다.
 
+이제 봇을 만들었으므로 웹 채팅에서 테스트합니다. 
+
 ## <a name="test-the-bot"></a>봇 테스트
-이제 봇을 만들었으므로 [웹 채팅](bot-service-manage-test-webchat.md)에서 테스트합니다. 메시지를 입력하면 봇이 응답합니다.
+**봇 관리** 섹션에서 **웹 채팅에서 테스트**를 클릭합니다. Azure Bot Service가 웹 채팅 컨트롤을 로드하고 봇에 연결합니다. 
+
+![Azure 웹 채팅 테스트](~/media/azure-bot-quickstarts/azure-webchat-test.png)
+
+메시지를 입력하면 봇이 응답합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-이 항목에서는 Bot Service를 사용하여 **기본** 웹앱 봇을 만드는 방법을 알아보고 Azure 내에서 기본 제공 웹 채팅 컨트롤을 사용하여 봇의 기능을 확인했습니다. 이제 봇을 관리하는 방법을 알아보고 원본 코드 작업을 시작합니다.
+이 항목에서는 Azure Bot Service를 사용하여 **Echo** 웹앱 봇을 만드는 방법을 알아보고 기본 제공 웹 채팅 컨트롤을 사용하여 봇의 기능을 확인했습니다. 이제 봇을 관리하는 방법을 알아보고 원본 코드 작업을 시작합니다.
 
 > [!div class="nextstepaction"]
 > [봇 관리](bot-service-manage-overview.md)

@@ -8,12 +8,12 @@ manager: kamrani
 ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/2017
-ms.openlocfilehash: a8c3d4fb469ce7c52dfffbcfc3a17e08c167ea66
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: 53ad7069f8ec8e7757c7ee4ea1a517d44436b8e9
+ms.sourcegitcommit: 3cb288cf2f09eaede317e1bc8d6255becf1aec61
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39303491"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47389672"
 ---
 # <a name="connect-a-bot-to-office-365-email"></a>Office 365 메일에 봇 연결
 
@@ -67,7 +67,7 @@ AAD를 대체하는 공급업체를 사용하는 페더레이션 인증은 지�
 ::: moniker-end
 
 ::: moniker range="azure-bot-service-4.0"
-`channelData` 사용에 대한 자세한 내용은 [Node.js](https://github.com/Microsoft/BotBuilder-Samples/tree/master/Node/core-ChannelData) 샘플 또는 [.NET](~/v4sdk/bot-builder-channeldata.md) 문서를 참조하세요.
+`channelData` 사용 방법에 대한 자세한 내용은 [채널 관련 기능을 구현하는 방법](~/v4sdk/bot-builder-channeldata.md)을 참조하세요.
 ::: moniker-end
 
 ## <a name="additional-resources"></a>추가 리소스

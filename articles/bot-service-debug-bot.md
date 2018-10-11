@@ -8,12 +8,12 @@ manager: kamrani
 ms.topic: article
 ms.prod: bot-framework
 ms.date: 07/13/2018
-ms.openlocfilehash: 5e7fc6fa4fbce9b13d74d5dc7877de44840c51e6
-ms.sourcegitcommit: dcbc8ad992a3e242a11ebcdf0ee99714d919a877
+ms.openlocfilehash: 73cf6cedecd9acaef828bd41f4fccdaad2ae5731
+ms.sourcegitcommit: 3bf3dbb1a440b3d83e58499c6a2ac116fe04b2f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39352882"
+ms.lasthandoff: 09/23/2018
+ms.locfileid: "46707169"
 ---
 # <a name="debug-a-bot-service-bot"></a>Bot Service 봇 디버그
 
@@ -27,7 +27,7 @@ ms.locfileid: "39352882"
 
 JavaScript 봇을 디버그할 수 있기 전에 이러한 작업을 완료해야 합니다.
 
-- [봇 소스 코드 다운로드](bot-service-build-download-source-code.md?#download-bot-source-code)에 설명된 대로 Azure에서 봇에 대한 소스 코드를 다운로드합니다.
+- [봇 소스 코드 다운로드](bot-service-build-download-source-code.md)에 설명된 대로 Azure에서 봇에 대한 소스 코드를 다운로드합니다.
 - [Bot Framework Emulator](https://github.com/Microsoft/BotFramework-Emulator/releases)를 다운로드하고 설치합니다.
 - <a href="https://code.visualstudio.com" target="_blank">Visual Studio Code</a> 같은 코드 편집기를 다운로드하여 설치합니다.
 
@@ -72,7 +72,7 @@ JavaScript 봇을 디버그할 수 있기 전에 이러한 작업을 완료해�
 
 웹앱 C# 봇을 디버그할 수 있기 전에 이러한 작업을 완료해야 합니다.
 
-- [봇 소스 코드 다운로드](bot-service-build-download-source-code.md?#download-bot-source-code)에 설명된 대로 Azure에서 봇에 대한 소스 코드를 다운로드합니다.
+- [봇 소스 코드 다운로드](bot-service-build-download-source-code.md)에 설명된 대로 Azure에서 봇에 대한 소스 코드를 다운로드합니다.
 - [Bot Framework Emulator](https://github.com/Microsoft/BotFramework-Emulator/releases)를 다운로드하고 설치합니다.
 - <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017</a>(Community Edition 이상)를 다운로드하고 설치합니다.
 
@@ -146,13 +146,6 @@ Visual Studio 2017에서 중단점을 사용하여 코드를 디버그할 수 �
 또한 콘솔 창에서 로그 세부 정보를 볼 수 있습니다.
 
 ![콘솔 창](~/media/bot-service-debug-bot/csharp-azureservice-debug-debughostlogging.png)
-
-::: moniker-end
-::: moniker range="azure-bot-service-4.0" 
-
-## <a id="debug-csharp-serverless"></a> 소비 계획 C\# 함수 봇 디버그
-
-Bot Builder SDK V4용 함수 봇이 출시될 예정입니다.
 
 ::: moniker-end
 

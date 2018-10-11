@@ -6,29 +6,29 @@ ms.author: v-demak
 manager: kamrani
 ms.topic: article
 ms.prod: bot-framework
-ms.date: 12/13/2017
-ms.openlocfilehash: 648a2e3be901bfa82d84423358fa7df32d403391
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.date: 09/26/2018
+ms.openlocfilehash: 410f50f02dcea2bb64ccf0389e20f5cb76e2fd6b
+ms.sourcegitcommit: 3cb288cf2f09eaede317e1bc8d6255becf1aec61
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39302811"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47389842"
 ---
 # <a name="troubleshooting-general-problems"></a>일반 문제 해결
 이 질문과 대답은 일반 봇 개발 또는 운영 문제를 해결할 수 있습니다.
 
 ## <a name="how-can-i-troubleshoot-issues-with-my-bot"></a>봇과 관련된 문제는 어떻게 해결할 수 있나요?
 
-1. [Visual Studio Code](debug-bots-locally-vscode.md) 또는 Visual Studio를 사용하여 봇 소스 코드를 디버그합니다.
+1. [Visual Studio Code](debug-bots-locally-vscode.md) 또는 [Visual Studio](https://docs.microsoft.com/en-us/visualstudio/debugger/navigating-through-code-with-the-debugger?view=vs-2017)를 사용하여 봇 소스 코드를 디버그합니다.
 2. 클라우드에 배포하기 전에 [에뮬레이터](bot-service-debug-emulator.md)를 사용하여 테스트합니다.
-3. Azure와 같은 플랫폼을 호스팅하는 클라우드에 봇을 배포한 다음, <a href="https://dev.botframework.com" target="_blank">Bot Framework Portal</a>의 봇 대시보드에서 기본 제공 웹 챗 제어를 사용하여 봇 연결을 테스트합니다. Azure에 배포한 후 문제가 발생하면 [Visual Studio를 사용하여 Azure App Service에서 웹 앱 문제 해결](https://azure.microsoft.com/en-us/documentation/articles/web-sites-dotnet-bot-service-troubleshoot-visual-studio/) 가이드를 사용할 수 있습니다.
+3. Azure와 같은 플랫폼을 호스팅하는 클라우드에 봇을 배포한 다음, <a href="https://dev.botframework.com" target="_blank">Bot Framework Portal</a>의 봇 대시보드에서 기본 제공 웹 챗 제어를 사용하여 봇 연결을 테스트합니다. Azure에 봇을 배포한 후 문제가 발생하면 이 블로그 게시물 [Azure 문제 해결 및 지원 이해](https://azure.microsoft.com/en-us/blog/understanding-azure-troubleshooting-and-support/)를 사용하는 것이 좋을 수 있습니다.
 4. [인증][TroubleshootingAuth]은 가능한 문제에서 배제합니다.
 5. Skype에서 봇을 테스트합니다. 이렇게 하면 통합형 사용자 환경의 유효성을 검사하는 데 도움이 됩니다.
 6. Direct Line 또는 Web Chat 같은 추가 인증 요구 사항이 있는 채널에서 봇을 테스트하는 것이 좋습니다.
 
 ## <a name="how-can-i-troubleshoot-authentication-issues"></a>인증 문제는 어떻게 해결하나요?
 
-봇을 사용한 인증 문제 해결에 대한 자세한 내용은 [Bot Framework 인증 문제 해결][TroubleshootingAuth]을 참조하세요.
+봇을 사용한 인증 문제 해결에 대한 자세한 내용은 Bot Framework 인증 [문제 해결][TroubleshootingAuth]을 참조하세요.
 
 ## <a name="im-using-the-bot-builder-sdk-for-net-how-can-i-troubleshoot-issues-with-my-bot"></a>.NET용 Bot Builder SDK를 사용하고 있습니다. 봇과 관련된 문제는 어떻게 해결할 수 있나요?
 
@@ -91,7 +91,7 @@ Bot Framework 및 많은 채널은 텍스트가 [Markdown](https://en.wikipedia.
 
 ## <a name="how-do-identifiers-work-in-the-bot-framework"></a>식별자는 Bot Framework에서 어떻게 작동하나요?
 
-Bot Framework의 식별자에 대한 자세한 내용은 [Bot Framework 식별자 가이드][BotFrameworkIDGuide]를 참조하세요.
+Bot Framework의 식별자에 대한 자세한 내용은 Bot Framework [식별자 가이드][BotFrameworkIDGuide]를 참조하세요.
 
 ## <a name="how-can-i-get-access-to-the-user-id"></a>사용자 ID에 대한 액세스는 어떻게 얻나요?
 
@@ -107,7 +107,7 @@ Kik 개발에서는 봇에 50명의 구독자가 허용됩니다. 고유 사용�
 
 ## <a name="how-can-i-use-authenticated-services-from-my-bot"></a>봇에서 인증된 서비스는 어떻게 사용하나요?
 
-Azure Active Directory 인증의 경우 [BotAuth NuGet](https://www.nuget.org/packages/BotAuth) 라이브러리를 사용하는 것이 좋습니다. Facebook 인증 예제는 GitHub에서 [.NET용 Bot Builder SDK 샘플](https://github.com/Microsoft/BotBuilder/tree/master/CSharp/Samples)을 참조하세요. 
+Azure Active Directory 인증은 [V3](https://docs.microsoft.com/en-us/azure/bot-service/bot-builder-tutorial-authentication?view=azure-bot-service-3.0&tabs=csharp) | [V4](https://docs.microsoft.com/en-us/azure/bot-service/bot-builder-tutorial-authentication?view=azure-bot-service-4.0&tabs=csharp) 인증 추가를 참조하세요. 
 
 > [!NOTE] 
 > 봇에 인증 및 보안 기능을 추가할 경우 코드에서 구현한 패턴이 응용 프로그램에 적합한 보안 표준을 준수해야 합니다.
@@ -141,7 +141,7 @@ Direct Line 3.0은 봇 연결을 시도했으나 요청이 성공적으로 완�
 
 ## <a name="how-can-i-send-proactive-messages-to-the-user"></a>사용자에게 사전 메시지를 보내려면 어떻게 해야 하나요?
 
-사전 메시지를 보내는 방법을 보여 주는 예제는 GitHub의 BotBuilder-Samples 리포지토리에서 [C# 샘플](https://github.com/Microsoft/BotBuilder-Samples/tree/master/CSharp/core-proactiveMessages) 및 [Node.js 샘플](https://github.com/Microsoft/BotBuilder-Samples/tree/master/Node/core-proactiveMessages)을 참조하세요.
+사전 메시지를 보내는 방법을 보여 주는 예제는 GitHub의 BotBuilder-Samples 리포지토리 내의 [C# V4 샘플](https://github.com/Microsoft/BotBuilder-Samples/tree/master/samples/csharp_dotnetcore/16.proactive-messages) 및 [Node.js V4 샘플](https://github.com/Microsoft/BotBuilder-Samples/tree/master/samples/javascript_nodejs/16.proactive-messages)을 참조하세요.
 
 ## <a name="how-can-i-reference-non-serializable-services-from-my-c-dialogs"></a>C# 대화에서 직렬화할 수 없는 서비스는 어떻게 참조하나요?
 
@@ -151,6 +151,8 @@ Direct Line 3.0은 봇 연결을 시도했으나 요청이 성공적으로 완�
 * [NonSerialized](https://msdn.microsoft.com/en-us/library/system.nonserializedattribute(v=vs.110).aspx) 및 [OnDeserialized](https://msdn.microsoft.com/en-us/library/system.runtime.serialization.ondeserializedattribute(v=vs.110).aspx) 특성을 사용하여 역직렬화의 종속성을 복원합니다. 이것이 가장 간단한 솔루션입니다.
 * 종속성을 저장하지 않으므로 직렬화되지 않습니다. 이 솔루션은 기술적으로 가능하지만 권장되지는 않습니다.
 * 리플렉션 직렬화 서로게이트를 사용합니다. 이 솔루션은 일부 경우 불가능하며 직렬화가 너무 많이 발생할 위험이 있습니다.
+
+::: moniker range="azure-bot-service-3.0"
 
 ## <a name="where-is-conversation-state-stored"></a>대화 상태는 어디에 저장되나요?
 
@@ -171,6 +173,8 @@ Direct Line 3.0은 봇 연결을 시도했으나 요청이 성공적으로 완�
 > [!IMPORTANT]
 > Bot Framework 상태 서비스 API는 프로덕션 환경에는 권장되지 않으며 이후 릴리스에서 사용되지 않을 수 있습니다. 테스트 용도로 메모리 내 저장소를 사용하거나 프로덕션 봇용으로 **Azure 확장**을 사용하도록 봇 코드를 업데이트하는 것이 좋습니다. 자세한 내용은 [.NET](~/dotnet/bot-builder-dotnet-state.md) 또는 [Node](~/nodejs/bot-builder-nodejs-state.md) 구현에 대한 **상태 데이터 관리** 항목을 참조하세요.
 
+::: moniker-end
+
 ## <a name="what-is-an-etag--how-does-it-relate-to-bot-data-bag-storage"></a>ETag란?  봇 데이터 저장소와는 어떤 관계가 있나요?
 
 [ETag](https://en.wikipedia.org/wiki/HTTP_ETag)는 [낙관적 동시성 제어](https://en.wikipedia.org/wiki/Optimistic_concurrency_control)를 위한 메커니즘입니다. 이 봇 데이터 모음은 데이터 업데이트 충돌을 방지하기 위해 ETag를 사용합니다. HTTP 상태 코드 412 "전제 조건 실패"가 있는 ETag 오류는 해당 봇 데이터 모음에 대해 여러 "읽기-수정-쓰기" 시퀀스가 동시에 실행되고 있음을 의미합니다.
@@ -186,7 +190,11 @@ Direct Line 3.0은 봇 연결을 시도했으나 요청이 성공적으로 완�
 
 ## <a name="how-can-i-fix-precondition-failed-412-or-conflict-409-errors"></a>"전제 조건 실패"(412) 또는 "충돌" (409) 오류는 어떻게 해결하나요?
 
-이러한 오류는 봇이 한 번에 동일한 대화에 대해 여러 메시지를 처리했음을 의미합니다. 봇이 정확하게 정렬된 메시지를 요구하는 서비스에 연결된 경우 메시지가 병렬로 처리되지 않도록 대화 상태를 잠그는 것이 좋습니다. .NET용 Bot Builder SDK는 메모리 내 세마포를 통해 단일 대화의 처리를 비관적으로 직렬화하는 메커니즘(`IScope`를 구현하는 `LocalMutualExclusion` 클래스)을 제공합니다. 이 구현을 대화 주소를 통해 범위가 지정된 Redis 임대를 사용하도록 확장할 수 있습니다.
+이러한 오류는 봇이 한 번에 동일한 대화에 대해 여러 메시지를 처리했음을 의미합니다. 봇이 정확하게 정렬된 메시지를 요구하는 서비스에 연결된 경우 메시지가 병렬로 처리되지 않도록 대화 상태를 잠그는 것이 좋습니다. 
+
+::: moniker range="azure-bot-service-3.0"
+
+.NET용 Bot Builder SDK는 메모리 내 세마포를 통해 단일 대화의 처리를 비관적으로 직렬화하는 메커니즘(`IScope`를 구현하는 `LocalMutualExclusion` 클래스)을 제공합니다. 이 구현을 대화 주소를 통해 범위가 지정된 Redis 임대를 사용하도록 확장할 수 있습니다.
 
 봇이 외부 서비스에 연결되어 있지 않거나 동일한 대화로부터의 병렬 처리가 용인될 수 있는 경우, 이 코드를 추가하여 Bot State API에서 발생하는 충돌을 무시할 수 있습니다. 이렇게 하면 마지막 회신이 대화 상태를 설정할 수 있습니다.
 
@@ -199,15 +207,18 @@ builder
     .InstancePerLifetimeScope();
 builder.Update(Conversation.Container);
 ```
+::: moniker-end
 
 ## <a name="is-there-a-limit-on-the-amount-of-data-i-can-store-using-the-state-api"></a>State API를 사용하여 저장할 수 있는 데이터의 크기에 제한이 있나요?
 
 예, 각 상태 저장소(즉, 사용자, 대화 및 개인 봇 데이터 모음)는 최대 64KB의 데이터를 포함할 수 있습니다. 자세한 내용은 [상태 데이터 관리][StateAPI]를 참조하세요.
 
+::: moniker range="azure-bot-service-3.0"
+
 ## <a name="how-do-i-version-the-bot-data-stored-through-the-state-api"></a>State API를 통해 저장된 봇 데이터 버전은 어떻게 지정하나요?
 
 > [!IMPORTANT]
-> Bot Framework 상태 서비스 API는 프로덕션 환경에는 권장되지 않으며 이후 릴리스에서 사용되지 않을 수 있습니다. 테스트 용도로 메모리 내 저장소를 사용하거나 프로덕션 봇용으로 **Azure 확장**을 사용하도록 봇 코드를 업데이트하는 것이 좋습니다. 자세한 내용은 [.NET](~/dotnet/bot-builder-dotnet-state.md) 또는 [Node](~/nodejs/bot-builder-nodejs-state.md) 구현에 대한 **상태 데이터 관리** 항목을 참조하세요.
+> Bot Framework 상태 서비스 API는 프로덕션 환경 또는 v4 봇에는 권장되지 않으며 이후 릴리스에서 전혀 사용되지 않을 수 있습니다. 테스트 용도로 메모리 내 저장소를 사용하거나 프로덕션 봇용으로 **Azure 확장**을 사용하도록 봇 코드를 업데이트하는 것이 좋습니다. 자세한 내용은 [상태 데이터 관리](v4sdk/bot-builder-howto-v4-state.md) 항목을 참조하세요.
 
 상태 서비스를 사용하면 사용자가 나중에 위치를 잃지 않고 대화로 돌아올 수 있게 대화의 대화 상자에서 진행 상황을 유지할 수 있습니다. 이렇게 유지하기 위해, 봇의 코드를 수정할 때 State API를 통해 저장된 봇 데이터 속성 모음이 자동으로 지워지지 않습니다.  수정된 코드가 이전 데이터 버전과 호환 가능한지 여부에 따라 봇 데이터를 지울지 여부를 결정해야 합니다. 
 
@@ -216,6 +227,8 @@ builder.Update(Conversation.Container);
 
 > [!NOTE]
 > 코드가 너무 많이 변경되었거나 직렬화 형식이 변경되어 대화 스택이 올바르게 역직렬화될 수 없으면 대화 상태가 재설정됩니다.
+
+::: moniker-end
 
 ## <a name="what-are-the-possible-machine-readable-resolutions-of-the-luis-built-in-date-time-duration-and-set-entities"></a>LUIS 기본 제공 날짜, 시간, 기간, 설정 엔터티의 머신이 읽을 수 있는 가능한 해결책은 무엇인가요?
 

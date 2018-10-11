@@ -1,8 +1,8 @@
 # <a name="implement-channel-specific-functionality"></a>채널 관련 기능 구현
 
-일부 채널은 [메시지 텍스트 및 첨부 파일](../dotnet/bot-builder-dotnet-create-messages.md)만을 사용하여 구현될 수 없는 기능을 제공합니다. 채널 관련 기능을 구현하려면 `Activity` 개체의 `ChannelData` 속성에서 채널에 네이티브 메타데이터를 전달할 수 있습니다. 예를 들어 봇은 `ChannelData` 속성을 사용하여 Telegram에 스티커를 보내도록 지시하거나 Office365에 이메일을 보내도록 지시할 수 있습니다.
+일부 채널은 메시지 텍스트 및 첨부 파일만으로는 구현할 수 없는 기능을 제공합니다. 채널 관련 기능을 구현하려면 활동 개체의 _채널 데이터_ 속성에서 채널에 네이티브 메타데이터를 전달할 수 있습니다. 예를 들어, 봇은 채널 데이터 속성을 사용하여 Telegram에 스티커를 전송하도록 지시하거나 Office365에 이메일을 전송하도록 지시할 수 있습니다.
 
-이 문서에서는 메시지 작업의 `ChannelData` 속성을 사용하여 다음과 같은 채널 관련 기능을 구현하는 방법을 설명합니다.
+이 문서에서는 메시지 작업의 채널 데이터 속성을 사용하여 다음과 같은 채널 관련 기능을 구현하는 방법을 설명합니다.
 
 | 채널 | 기능 |
 |----|----|
@@ -10,40 +10,55 @@
 | Slack | 완전히 신뢰할 수 있는 Slack 메시지 보내기 |
 | Facebook | 고유하게 Facebook 알림 보내기 |
 | Telegram | 음성 메모 또는 스티커 공유와 같은 Telegram 관련 작업 수행 |
-| Kik | 네이티브 Kik 메시지 보내기 및 받기 | 
+| Kik | 네이티브 Kik 메시지 보내기 및 받기 |
 
 > [!NOTE]
-> `Activity` 개체의 `ChannelData` 속성 값은 JSON 개체입니다. 따라서 이 문서의 예제에서는 다양한 시나리오에서 예상되는 `channelData` JSON 속성의 형식을 보여줍니다. .NET을 사용하여 JSON 개체를 만들려면 `JObject`(.NET) 클래스를 사용합니다. 
+> 활동 개체의 채널 데이터 속성 값은 JSON 개체입니다.
+> 따라서 이 문서의 예제에서는 다양한 시나리오에서 예상되는 `channelData` JSON 속성의 형식을 보여줍니다.
+> .NET을 사용하여 JSON 개체를 만들려면 `JObject`(.NET) 클래스를 사용합니다.
 
 ## <a name="create-a-custom-email-message"></a>사용자 지정 이메일 메시지 만들기
 
-이메일 메시지를 만들려면 `Activity` 개체의 `ChannelData` 속성을 이러한 속성을 포함하는 JSON 개체로 설정합니다. 
+이메일 메시지를 만들려면 활동 개체의 채널 데이터 속성을 이러한 속성을 포함하는 JSON 개체로 설정합니다.
 
 | 자산 | 설명 |
 |----|----|
+| bccRecipients | 메시지의 Bcc(숨은 참조) 필드에 추가할 세미콜론(;)으로 구분된 이메일 주소 문자열입니다. |
+| ccRecipients | 메시지의 Cc(참조) 필드에 추가할 세미콜론(;)으로 구분된 이메일 주소 문자열입니다. |
 | htmlBody | 이메일 메시지의 본문을 지정하는 HTML 문서입니다. 지원되는 HTML 요소 및 특성에 대한 정보는 채널의 설명서를 참조하세요. |
 | 중요도 | 이메일의 중요도 수준입니다. 유효한 값은 **높음**, **기본** 및 **낮음**입니다. 기본값은 **기본**입니다. |
-| subject | 이메일의 제목입니다. 필드 요구 사항에 대한 정보는 채널의 설명서를 참조하세요. |
+| 제목 | 이메일의 제목입니다. 필드 요구 사항에 대한 정보는 채널의 설명서를 참조하세요. |
+| toRecipients | 메시지의 받는 사람 필드에 추가할 세미콜론(;)으로 구분된 이메일 주소 문자열입니다. |
 
 > [!NOTE]
-> 봇이 이메일 채널을 통해 사용자로부터 받는 메시지는 위에서 설명한 것과 같은 JSON 개체로 채워지는 `ChannelData` 속성을 포함할 수 있습니다.
+> 봇이 이메일 채널을 통해 사용자로부터 받는 메시지는 위에서 설명한 것과 같은 JSON 개체로 채워지는 채널 데이터 속성을 포함할 수 있습니다.
 
-이 코드 조각은 사용자 지정 이메일 메시지에 대한 `channelData` 속성의 예제를 보여줍니다.
+이 코드 조각은 사용자 지정 이메일 메시지에 대한 `channelData` 속성의 예제를 보여 줍니다.
 
 ```json
 "channelData": {
-    "htmlBody" : "<html><body style=\"font-family: Calibri; font-size: 11pt;\">This is the email body!</body></html>",
-    "subject":"This is the email subject",
-    "importance":"high"
+    "type": "message",
+    "locale": "en-Us",
+    "channelID": "email",
+    "from": { "id": "mybot@mydomain.com", "name": "My bot"},
+    "recipient": { "id": "joe@otherdomain.com", "name": "Joe Doe"},
+    "conversation": { "id": "123123123123", "topic": "awesome chat" },
+    "channelData":
+    {
+        "htmlBody": "<html><body style = /"font-family: Calibri; font-size: 11pt;/" >This is more than awesome.</body></html>",
+        "subject": "Super awesome message subject",
+        "importance": "high",
+        "ccRecipients": "Yasemin@adatum.com;Temel@adventure-works.com"
+    }
 }
 ```
 
 ## <a name="create-a-full-fidelity-slack-message"></a>완전히 신뢰할 수 있는 Slack 메시지 만들기
 
-완전히 신뢰할 수 있는 Slack 메시지를 만들려면 `Activity` 개체의 `ChannelData` 속성을 <a href="https://api.slack.com/docs/messages" target="_blank">Slack 메시지</a>, <a href="https://api.slack.com/docs/message-attachments" target="_blank">Slack 첨부 파일</a> 및/또는 <a href="https://api.slack.com/docs/message-buttons" target="_blank">Slack 단추</a>를 지정하는 JSON 개체로 설정합니다. 
+완전히 신뢰할 수 있는 Slack 메시지를 만들려면 활동 개체의 채널 데이터 속성을 <a href="https://api.slack.com/docs/messages" target="_blank">Slack 메시지</a>, <a href="https://api.slack.com/docs/message-attachments" target="_blank">Slack 첨부 파일</a> 및/또는 <a href="https://api.slack.com/docs/message-buttons" target="_blank">Slack 단추</a>를 지정하는 JSON 개체로 설정합니다.
 
 > [!NOTE]
-> Slack 메시지에서 단추를 지원하려면 Slack 채널에 [봇을 연결](../bot-service-manage-channels.md)할 때 **대화형 메시지**를 활성화해야 합니다.
+> 설정 단추에서 Slack 메시지를 지원 해야 합니다 **대화형 메시지** 때 있습니다 [봇을 연결](../bot-service-manage-channels.md) Slack 채널에 있습니다.
 
 이 코드 조각은 사용자 지정 Slack 메시지에 대한 `channelData` 속성의 예제를 보여 줍니다.
 
@@ -100,7 +115,8 @@
 }
 ```
 
-사용자가 Slack 메시지 내의 단추를 클릭하면 봇은 `ChannelData` 속성이 `payload` JSON 개체로 채워진 응답 메시지를 받습니다. `payload` 개체는 원본 메시지의 콘텐츠를 지정하고, 클릭된 단추를 식별하고, 단추를 클릭한 사용자를 식별합니다. 
+사용자가 Slack 메시지 내의 단추를 클릭하면 봇은 채널 데이터 속성이 `payload` JSON 개체로 채워진 응답 메시지를 받게 됩니다.
+`payload` 개체는 원본 메시지의 콘텐츠를 지정하고, 클릭된 단추를 식별하고, 단추를 클릭한 사용자를 식별합니다.
 
 이 코드 조각은 사용자가 Slack 메시지에서 단추를 클릭할 때 봇에서 수신하는 메시지에서 `channelData` 속성의 예제를 보여줍니다.
 
@@ -120,8 +136,8 @@
 }
 ```
 
-봇은 [일반적인 방식](../dotnet/bot-builder-dotnet-connector.md#create-reply)으로 이 메시지에 응답하거나 `payload` 개체의 `response_url` 속성으로 지정된 끝점에 해당 응답을 직접 게시할 수 있습니다.
-`response_url`에 응답을 게시하는 시기 및 방법에 대한 정보는 <a href="https://api.slack.com/docs/message-buttons" target="_blank">Slack 단추</a>를 참조하세요. 
+봇은 일반적인 방식으로 이 메시지에 응답하거나 `payload` 개체의 `response_url` 속성으로 지정된 엔드포인트에 해당 응답을 직접 게시할 수 있습니다.
+`response_url`에 응답을 게시하는 시기 및 방법에 대한 정보는 <a href="https://api.slack.com/docs/message-buttons" target="_blank">Slack 단추</a>를 참조하세요.
 
 다음 코드를 사용하여 동적 단추를 만들 수 있습니다.
 ```cs
@@ -242,7 +258,7 @@ private async Task DemoMenuAsync(IDialogContext context)
 
 ## <a name="create-a-facebook-notification"></a>Facebook 알림 만들기
 
-Facebook 알림을 만들려면 `Activity` 개체의 `ChannelData` 속성을 이러한 속성을 지정하는 JSON 개체로 설정합니다. 
+Facebook 알림을 만들려면 활동 개체의 채널 데이터 속성을 이러한 속성을 지정하는 JSON 개체로 설정합니다.
 
 | 자산 | 설명 |
 |----|----|
@@ -269,7 +285,7 @@ Facebook 알림을 만들려면 `Activity` 개체의 `ChannelData` 속성을 이
 
 ## <a name="create-a-telegram-message"></a>Telegram 메시지 만들기
 
-음성 메모 또는 스티커 공유와 같은 Telegram 관련 작업을 구현하는 메시지를 만들려면 `Activity` 개체의 `ChannelData` 속성을 이러한 속성을 지정하는 JSON 개체로 설정합니다. 
+음성 메모 또는 스티커 공유와 같은 Telegram 관련 작업을 구현하는 메시지를 만들려면 활동 개체의 채널 데이터 속성을 이러한 속성을 지정하는 JSON 개체로 설정합니다. 
 
 | 자산 | 설명 |
 |----|----|
@@ -343,7 +359,7 @@ Facebook 알림을 만들려면 `Activity` 개체의 `ChannelData` 속성을 이
 
 ## <a name="create-a-native-kik-message"></a>네이티브 Kik 메시지 만들기
 
-네이티브 Kik 메시지를 만들려면 `Activity` 개체의 `ChannelData` 속성을 이 속성을 지정하는 JSON 개체로 설정합니다. 
+네이티브 Kik 메시지를 만들려면 활동 개체의 채널 데이터 속성을 이 속성을 지정하는 JSON 개체로 설정합니다.
 
 | 자산 | 설명 |
 |----|----|
@@ -374,9 +390,8 @@ Facebook 알림을 만들려면 `Activity` 개체의 `ChannelData` 속성을 이
     ]
 }
 ```
- 
+
 ## <a name="additional-resources"></a>추가 리소스
 
-- [작업 개요](../dotnet/bot-builder-dotnet-activities.md)
-- [메시지 만들기](../dotnet/bot-builder-dotnet-create-messages.md)
-- <a href="https://docs.botframework.com/en-us/csharp/builder/sdkreference/dc/d2f/class_microsoft_1_1_bot_1_1_connector_1_1_activity.html" target="_blank">활동 클래스</a>
+- [엔터티 및 작업 형식](../bot-service-activities-entities.md)
+- [Bot Framework 작업 스키마](https://github.com/Microsoft/BotBuilder/blob/hub/specs/botframework-activity/botframework-activity.md)

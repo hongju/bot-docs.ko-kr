@@ -7,23 +7,22 @@ ms.author: v-ivorb
 manager: kamrani
 ms.topic: get-started-article
 ms.prod: bot-framework
-ms.date: 05/14/2018
-ms.openlocfilehash: f3e5ed5b14ffb81c597b10aeac45854464bad8b0
-ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
+ms.date: 09/19/2018
+ms.openlocfilehash: 1503d5e349839de6f3403ad9b769c7eb0ae41e78
+ms.sourcegitcommit: 3bf3dbb1a440b3d83e58499c6a2ac116fe04b2f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42905595"
+ms.lasthandoff: 09/23/2018
+ms.locfileid: "46706969"
 ---
 # <a name="deploy-your-bot-to-azure"></a>Azure에 봇 배포
 
-[!INCLUDE [pre-release-label](./includes/pre-release-label-v3.md)]
+[!INCLUDE [pre-release-label](./includes/pre-release-label.md)]
 
-봇을 생성하고 로컬에서 확인한 후에는 어디서나 액세스할 수 있도록 Azure로 푸시할 수 있습니다. 이렇게 하려면 먼저 봇을 App Service에서 Azure로 배포한 다음, 봇 채널 등록 항목을 사용하여 Azure Bot Service로 봇을 구성합니다.
+봇을 생성하고 로컬에서 확인한 후에는 어디서나 액세스할 수 있도록 Azure로 푸시할 수 있습니다. C# 봇의 경우 Visual Studio 또는 Azure CLI를 사용하여 봇을 Azure에 게시할 수 있습니다. 
 
 ## <a name="publish-from-visual-studio"></a>Visual Studio에서 게시
-
-Visual Studio를 사용하여 Azure에서 리소스를 만들고 코드를 게시합니다.
+먼저 App Service의 Visual Studio에서 Azure에 봇을 배포합니다. 그런 다음, 봇 채널 등록을 사용하여 Azure Bot Service로 봇을 구성합니다.
 
 [솔루션 탐색기] 창에서 프로젝트 노드를 마우스 오른쪽 단추로 클릭하고 [게시]를 선택합니다.
 
@@ -127,13 +126,16 @@ Azure Bot Service로 봇을 인증하려면 Azure App Service에서 봇의 응�
 ## <a name="test-your-bot-in-production"></a>프로덕션 환경에서 봇 테스트
 이 시점에서 기본 제공되는 웹 채팅 클라이언트를 사용하여 Azure에서 봇을 테스트할 수 있습니다.
 
-1. 포털의 리소스 그룹으로 돌아갑니다.
+1. Azure Portal의 리소스 그룹으로 돌아갑니다.
 
-2. 봇 등록을 엽니다.
+2. 봇을 엽니다.
 
-3. [봇 관리]에서 [웹 채팅에서 테스트]를 선택합니다.
+3. **봇 관리**에서 **웹 채팅에서 테스트**를 선택합니다.
 
 ![웹 채팅에서 테스트](media/azure-bot-quickstarts/getting-started-test-webchat.png)
 
 4. `Hi`와 같은 메시지를 입력하고 Enter 키를 누릅니다. 봇이 `Turn 1: You sent Hi`라고 반향합니다.
 
+## <a name="next-steps"></a>다음 단계
+> [!div class="nextstepaction"]
+> [지속적인 배포 설정](bot-service-build-continuous-deployment.md)

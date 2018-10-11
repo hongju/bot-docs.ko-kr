@@ -7,13 +7,13 @@ ms.author: v-ducvo
 manager: kamrani
 ms.topic: article
 ms.prod: bot-framework
-ms.date: 03/08/2018
-ms.openlocfilehash: bdb287e26c31a784bf6f53ad1601d586781c5ef3
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.date: 09/21/2018
+ms.openlocfilehash: 00342b624c43b8eea5bbc2bdd828703eafa5ef63
+ms.sourcegitcommit: 3bf3dbb1a440b3d83e58499c6a2ac116fe04b2f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39302531"
+ms.lasthandoff: 09/23/2018
+ms.locfileid: "46707859"
 ---
 # <a name="edit-a-bot-with-online-code-editor"></a>온라인 코드 편집기를 사용하여 봇 편집
 
@@ -21,9 +21,9 @@ ms.locfileid: "39302531"
 
 ## <a name="edit-bot-source-code-in-online-code-editor"></a>온라인 코드 편집기에서 봇 소스 코드 편집
 
-온라인 코드 편집기에서 봇의 소스 코드를 편집하려면 사용 중인 특정 유형에 맞게 다음을 수행합니다.
+온라인 코드 편집기에서 봇의 소스 코드를 편집하려면 사용 중인 봇의 유형에 맞게 다음을 수행합니다.
 
-### <a name="web-app-bot"></a>웹앱 봇
+### <a name="web-app-bot"></a>Web App 봇
 1. [Azure Portal](http://portal.azure.com)에 로그인하고 봇용 블레이드를 엽니다.
 2. **봇 관리** 섹션에서 **빌드**를 클릭합니다.
 3. **온라인 코드 편집기 열기**를 클릭합니다. 이렇게 하면 봇의 코드가 새 브라우저 창에서 열립니다. 
@@ -38,16 +38,14 @@ ms.locfileid: "39302531"
 
    ![Node.js 파일 구조](~/media/azure-bot-build/node-wwwroot-structure.png)
 
-4. 코드를 변경합니다. 예를 들어 C# 봇의 경우 **Dialogs/EchoDialog.cs** 파일로 시작할 수 있습니다. Node.js 봇의 경우 **App.js** 파일로 시작할 수 있습니다.
+4. 코드를 변경합니다. 예를 들어 C# 봇의 경우 .cs 파일로 시작할 수 있습니다. Node.js 봇의 경우 App.js 파일로 시작할 수 있습니다.
 
    > [!NOTE]
    > 프로젝트의 현재 원본 파일에 대한 코드를 변경할 수 있지만 온라인 코드 편집기를 사용하여 새 원본 파일을 만들 수는 없습니다. 봇에 새 원본 파일을 추가하려면 [소스 프로젝트를 다운로드](bot-service-build-download-source-code.md)하고 파일을 추가한 후 변경 내용을 Azure에 다시 게시해야 합니다.
 
-5. 변경 내용을 저장합니다. **소비 계획**에 있는 C# 봇과 모든 Node.js 봇의 경우 **저장** 단추를 클릭하여 소스 코드가 저장되면 봇이 자동으로 업데이트됩니다. 
+5. **소비 계획**에 있는 C# 봇 및 모든 Node.js 봇의 경우 봇은 자동으로 저장됩니다. 
 
-   ![Node.js 파일 구조](~/media/azure-bot-build/node-save-file.png)
-
-   **App Service** 계획에 있는 C# 봇의 경우 **콘솔** 블레이드를 열고 **build.cmd** 명령을 보냅니다. 
+6. **App Service** 계획에 있는 C# 봇의 경우 **콘솔** 블레이드를 열고 **build.cmd** 명령을 보냅니다. 
 
    ![콘솔 블레이드에서 프로젝트 빌드](~/media/azure-bot-build/cs-console-build-cmd.png)
  
@@ -55,7 +53,7 @@ ms.locfileid: "39302531"
    > 이 명령이 빌드에 실패하면 봇의 App Service를 다시 시작하고 빌드를 다시 시도합니다. App Service를 다시 시작하려면 봇의 블레이드에서 **모든 App Service 설정**을 클릭한 다음, **다시 시작** 단추를 클릭합니다.
    > ![웹앱 다시 시작](~/media/azure-bot-build/open-online-code-editor-restart-appservice.png)
 
-6. Azure Portal로 다시 전환하고 **웹 채팅 테스트**를 클릭하여 변경 내용을 테스트합니다. 이미 이 봇에 대한 웹 채팅이 열려 있는 경우 **다시 시작**을 클릭하여 새 변경 내용을 확인합니다.
+7. Azure Portal로 다시 전환하고 **웹 채팅 테스트**를 클릭하여 변경 내용을 테스트합니다. 이미 이 봇에 대한 웹 채팅이 열려 있는 경우 **다시 시작**을 클릭하여 새 변경 내용을 확인합니다.
 
 ### <a name="functions-bot"></a>함수 봇
 

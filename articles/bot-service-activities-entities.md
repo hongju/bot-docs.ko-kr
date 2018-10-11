@@ -8,12 +8,12 @@ manager: kamrani
 ms.topic: article
 ms.prod: bot-framework
 ms.date: 03/01/2018
-ms.openlocfilehash: 8f4b6c27fc28e4cf3b800dad11c3e6bd58561387
-ms.sourcegitcommit: 0b2be801e55f6baa048b49c7211944480e83ba95
+ms.openlocfilehash: f6bf1d99922351a66a4e5401e744fad190746747
+ms.sourcegitcommit: 3cb288cf2f09eaede317e1bc8d6255becf1aec61
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43115068"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47389812"
 ---
 # <a name="entities-and-activity-types"></a>엔터티 및 작업 형식
 
@@ -75,14 +75,14 @@ entity = [mention];
 | 주소 | 설명 또는 우편 주소 개체(이후) |
 | 지역 | GeoCoordinates |
 | HasMap | 맵 또는 맵 개체에 대한 URL(이후) |
-| Name | 장소의 이름 |
+| 이름 | 장소의 이름 |
 
 geoCoordinates 개체는 다음 속성을 포함합니다.
 
 | 자산 | 설명 |
 |----|----|
 | type | 엔터티의 형식("GeoCoordinates") |
-| Name | 장소의 이름 |
+| 이름 | 장소의 이름 |
 | 경도 | 위치의 경도(<a href="https://en.wikipedia.org/wiki/World_Geodetic_System" target="_blank">WGS 84</a>) |
 | 경도 | 위치의 위도(<a href="https://en.wikipedia.org/wiki/World_Geodetic_System" target="_blank">WGS 84</a>) |
 | 상승 | 위치의 상승(<a href="https://en.wikipedia.org/wiki/World_Geodetic_System" target="_blank">WGS 84</a>) |

@@ -1,7 +1,22 @@
-**임시 자동 관리 메시지**는 가장 간단한 형식의 자동 관리 메시지입니다. 봇은 메시지가 트리거될 때마다 사용자가 현재 봇과 다른 주제의 대화에 참여하고 있으며 대화를 변경하지 않으려고 하는지 여부에 관계없이 메시지를 간단히 대화에 삽입합니다. 
+**임시 자동 관리 메시지**는 가장 간단한 형식의 자동 관리 메시지입니다.
+봇은 메시지가 트리거될 때마다 사용자가 현재 봇과 다른 주제의 대화에 참여하고 있으며 대화를 변경하지 않으려고 하는지 여부에 관계없이 메시지를 간단히 대화에 삽입합니다.
 
-**다이얼로그 기반 자동 관리 메시지**는 임시 자동 관리 메시지보다 좀 더 복잡합니다. 봇은 이러한 유형의 자동 관리 메시지를 대화에 삽입하기 전에, 기존 대화의 컨텍스트를 식별하고 메시지를 중단한 후에 대화를 다시 시작하는 방법(또는 이와 같이 할지 여부)을 결정해야 합니다. 
+알림을 더 원활하게 처리하려면 대화 상태에 플래그를 설정하거나 알림을 큐에 추가하는 것처럼 알림을 대화 흐름에 통합하는 다른 방법을 사용하는 것이 좋습니다.
 
-예를 들어, 지정된 시점에 설문 조사를 시작해야 하는 봇이 있다고 가정해보겠습니다. 해당 시간이 되면 봇은 사용자와의 기존 대화를 중지하고 사용자를 `SurveyDialog`로 리디렉션합니다. `SurveyDialog`가 다이얼로그 스택 맨 위에 추가되고 대화를 제어합니다. 사용자가 `SurveyDialog`에서 필요한 모든 작업을 완료하면 `SurveyDialog`가 닫히고 이전 다이얼로그로 제어권이 반환됩니다. 그러면 사용자는 이전 대화 주제를 계속 진행할 수 있습니다.
+<!--Snip
+A **dialog-based proactive message** is more complex than an ad hoc proactive message. 
+Before it can inject this type of proactive message into the conversation, 
+the bot must identify the context of the existing conversation and decide how (or if)
+it will resume that conversation after the message interrupts. 
 
-다이얼로그 기반 자동 관리 메시지는 단순한 알림 이상의 기능을 갖습니다. 알림을 전송할 때, 봇은 기존 대화의 주제를 변경합니다. 그런 후 나중에 해당 대화를 다시 시작할지 또는 다이얼로그 스택을 다시 설정하여 해당 대화를 완전히 중단할지를 결정해야 합니다. 
+For example, consider a bot that needs to initiate a survey at a given point in time. 
+When that time arrives, the bot stops the existing conversation with the user and 
+redirects the user to a `SurveyDialog`. 
+The `SurveyDialog` is added to the top of the dialog stack and takes control of the conversation. 
+When the user finishes all required tasks at the `SurveyDialog`, the `SurveyDialog` closes,
+ returning control to the previous dialog, where the user can continue with the prior topic of conversation.
+
+A dialog-based proactive message is more than just simple notification. 
+In sending the notification, the bot changes the topic of the existing conversation. 
+It then must decide whether to resume that conversation later, or to abandon that conversation altogether by resetting the dialog stack. 
+/Snip-->

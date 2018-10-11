@@ -9,14 +9,14 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 08/23/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: b56ad56e19691cfbd7b39606832ed10fce951aa3
-ms.sourcegitcommit: f89ed979eb6321232fb21100ef376d9b0d5113c9
+ms.openlocfilehash: 075e9b3a41462bfbb1398bd72840cc7e50d3cfca
+ms.sourcegitcommit: 3bf3dbb1a440b3d83e58499c6a2ac116fe04b2f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42914593"
+ms.lasthandoff: 09/23/2018
+ms.locfileid: "46707519"
 ---
-# <a name="send-messages"></a>메시지 보내기
+# <a name="send-text-and-spoken-messages"></a>텍스트 및 음성 메시지 보내기
 
 [!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
 

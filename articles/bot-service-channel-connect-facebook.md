@@ -7,13 +7,13 @@ ms.author: RobStand
 manager: kamrani
 ms.topic: article
 ms.prod: bot-framework
-ms.date: 08/16/2018
-ms.openlocfilehash: 7fbff06966ac64260244e8af375aaa6f8f945fcd
-ms.sourcegitcommit: e8c513d3af5f0c514cadcbcd0a737a7393405afa
+ms.date: 09/16/2018
+ms.openlocfilehash: 60e39bb652ab5b7ffeeb5ba53bdf4c82f936553e
+ms.sourcegitcommit: 3bf3dbb1a440b3d83e58499c6a2ac116fe04b2f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42756760"
+ms.lasthandoff: 09/23/2018
+ms.locfileid: "46707869"
 ---
 # <a name="connect-a-bot-to-facebook-messenger"></a>Facebook Messenger에 봇 연결
 
@@ -78,7 +78,7 @@ Facebook Messenger를 사용하여 통신하도록 봇을 구성하려면 Facebo
 
 1. Facebook Messenger로 돌아가서 **콜백 URL** 및 **토큰 확인** 값을 붙여넣습니다.
 
-2. **Subscription Fields**(구독 필드) 아래에서 *message\_deliveries*, *messages*, *messaging\_options* 및 *messaging\_postbacks*를 선택합니다.
+2. **Subscription Fields**(구독 필드) 아래에서 *message\_deliveries*, *messages*, *messaging\_optins* 및 *messaging\_postbacks*를 선택합니다.
 
 3. **Verify and Save**(확인 및 저장)를 클릭합니다.
 
