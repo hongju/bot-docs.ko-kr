@@ -9,12 +9,12 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 09/23/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 53a701d4ccb861685b67258bd6c51f2bf6e62099
-ms.sourcegitcommit: 3bf3dbb1a440b3d83e58499c6a2ac116fe04b2f6
+ms.openlocfilehash: 2d32e618325e9ddc4abb5c3b42114c86c7644001
+ms.sourcegitcommit: 54ed5000c67a5b59e23b667547565dd96c7302f9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/23/2018
-ms.locfileid: "46708787"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49315139"
 ---
 # <a name="send-welcome-message-to-users"></a>사용자에게 환영 메시지 보내기
 
@@ -47,7 +47,7 @@ using Microsoft.Bot.Schema;
 /// In this example, we are tracking if the bot has replied to customer first interaction.
 public class WelcomeUserState
 {
-    public bool DidBotWelcomedUser { get; set; } = false;
+    public bool DidBotWelcomeUser { get; set; } = false;
 }
 
 /// Initializes a new instance of the <see cref="WelcomeUserStateAccessors"/> class.
@@ -58,7 +58,7 @@ public class WelcomeUserStateAccessors
         this.UserState = userState ?? throw new ArgumentNullException(nameof(userState));
     }
 
-    public IStatePropertyAccessor<bool> DidBotWelcomedUser { get; set; }
+    public IStatePropertyAccessor<bool> DidBotWelcomeUser { get; set; }
 
     public UserState UserState { get; }
 }
@@ -92,7 +92,7 @@ public WelcomeUserBot(WelcomeUserStateAccessors statePropertyAccessor)
 public async Task OnTurnAsync(ITurnContext turnContext, CancellationToken cancellationToken = new CancellationToken())
 {
     // Use state accessor to extract the didBotWelcomeUser flag
-    var didBotWelcomeUser = await _welcomeUserStateAccessors.DidBotWelcomedUser.GetAsync(turnContext, () => false);
+    var didBotWelcomeUser = await _welcomeUserStateAccessors.DidBotWelcomeUser.GetAsync(turnContext, () => false);
 
     if (turnContext.Activity.Type == ActivityTypes.Message)
     {
@@ -101,7 +101,7 @@ public async Task OnTurnAsync(ITurnContext turnContext, CancellationToken cancel
         if (didBotWelcomeUser == false)
         {
             // Update user state flag to reflect bot handled first user interaction.
-            await _welcomeUserStateAccessors.DidBotWelcomedUser.SetAsync(turnContext, true);
+            await _welcomeUserStateAccessors.DidBotWelcomeUser.SetAsync(turnContext, true);
             await _welcomeUserStateAccessors.UserState.SaveChangesAsync(turnContext);
 
             // the channel should sends the user name in the 'From' object
@@ -146,7 +146,7 @@ const { ActivityTypes } = require('botbuilder');
 const { CardFactory } = require('botbuilder');
 
 // Welcomed User property name
-const WELCOMED_USER = 'DidBotWelcomedUser';
+const WELCOMED_USER = 'DidBotWelcomeUser';
 
 class MainDialog {
     constructor (userState) {
@@ -160,13 +160,13 @@ class MainDialog {
         // See https://aka.ms/about-bot-activity-message to learn more about the message and other activity types.
         if (turnContext.activity.type === ActivityTypes.Message) 
         {
-            // Read UserState. If the 'DidBotWelcomedUser' does not exist (first time ever for a user)
+            // Read UserState. If the 'DidBotWelcomeUser' does not exist (first time ever for a user)
             // set the default to false.
-            let didBotWelcomedUser = await this.welcomedUserPropery.get(turnContext, false);
+            let didBotWelcomeUser = await this.welcomedUserPropery.get(turnContext, false);
 
             // Your bot should proactively send a welcome message to a personal chat the first time
             // (and only the first time) a user initiates a personal chat with your bot.
-            if (didBotWelcomedUser === false) 
+            if (didBotWelcomeUser === false) 
             {
                 // The channel should send the user name in the 'From' object
                 let userName = turnContext.activity.from.name;
@@ -227,7 +227,7 @@ module.exports = MainDialog;
 public async Task OnTurnAsync(ITurnContext turnContext, CancellationToken cancellationToken = new CancellationToken())
 {
     // Use state accessor to extract the didBotWelcomeUser flag
-    var didBotWelcomeUser = await _welcomeUserStateAccessors.DidBotWelcomedUser.GetAsync(turnContext, () => false);
+    var didBotWelcomeUser = await _welcomeUserStateAccessors.DidBotWelcomeUser.GetAsync(turnContext, () => false);
 
     if (turnContext.Activity.Type == ActivityTypes.Message)
     {
@@ -292,7 +292,7 @@ class MainDialog
             
             // Previous Code Sample
             
-            if (didBotWelcomedUser === false) 
+            if (didBotWelcomeUser === false) 
             {
                 // Previous Code Sample
             }

@@ -7,13 +7,13 @@ ms.author: kamrani
 manager: kamrani
 ms.topic: article
 ms.prod: bot-framework
-ms.date: 12/13/2017
-ms.openlocfilehash: 53ad7069f8ec8e7757c7ee4ea1a517d44436b8e9
-ms.sourcegitcommit: 3cb288cf2f09eaede317e1bc8d6255becf1aec61
+ms.date: 10/10/2018
+ms.openlocfilehash: 3aaf66352b0562faaa5da0043dc43a7244bec796
+ms.sourcegitcommit: 54ed5000c67a5b59e23b667547565dd96c7302f9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47389672"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49315109"
 ---
 # <a name="connect-a-bot-to-office-365-email"></a>Office 365 메일에 봇 연결
 

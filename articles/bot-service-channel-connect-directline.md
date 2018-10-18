@@ -7,13 +7,13 @@ ms.author: kamrani
 manager: kamrani
 ms.topic: article
 ms.prod: bot-framework
-ms.date: 03/08/2018
-ms.openlocfilehash: 2ec11c4cc0e12b6a130b2f703f30660c4bc9f072
-ms.sourcegitcommit: f95702d27abbd242c902eeb218d55a72df56ce56
+ms.date: 10/11/2018
+ms.openlocfilehash: d182d5aaf90cf684361b7e97294eff5837732bb4
+ms.sourcegitcommit: 54ed5000c67a5b59e23b667547565dd96c7302f9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39304666"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49315099"
 ---
 # <a name="connect-a-bot-to-direct-line"></a>직접 회선에 봇 연결
 

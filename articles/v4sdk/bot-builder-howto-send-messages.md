@@ -9,18 +9,18 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 08/23/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 075e9b3a41462bfbb1398bd72840cc7e50d3cfca
-ms.sourcegitcommit: 3bf3dbb1a440b3d83e58499c6a2ac116fe04b2f6
+ms.openlocfilehash: 5b7faaae63bdc084dac570cb33ebbc755ccbcc19
+ms.sourcegitcommit: aef7d80ceb9c3ec1cfb40131709a714c42960965
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/23/2018
-ms.locfileid: "46707519"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49383118"
 ---
 # <a name="send-text-and-spoken-messages"></a>텍스트 및 음성 메시지 보내기
 
 [!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
 
-봇이 사용자와 커뮤니케이션하고 마찬가지로 커뮤니케이션을 수신하는 기본 방법은 **메시지** 활동입니다. 일부 메시지는 단순히 일반 텍스트로 구성되지만 다른 메시지는 카드나 첨부 파일 같이 서식이 더 많은 콘텐츠를 포함할 수 있습니다. 봇의 전환 처리기는 사용자로부터 메시지를 수신하고 거기서부터 사용자에게 응답을 보낼 수 있습니다. [턴 컨텍스트](bot-builder-concept-activity-processing.md#turn-context) 개체는 메시지를 다시 사용자에게 보내기 위한 메서드를 제공합니다. 일반적인 활동 처리에 대한 자세한 내용은 [활동 처리](bot-builder-concept-activity-processing.md)를 참조하세요.
+봇이 사용자와 커뮤니케이션하고 마찬가지로 커뮤니케이션을 수신하는 기본 방법은 **메시지** 활동입니다. 일부 메시지는 단순히 일반 텍스트로 구성되지만 다른 메시지는 카드나 첨부 파일 같이 서식이 더 많은 콘텐츠를 포함할 수 있습니다. 봇의 전환 처리기는 사용자로부터 메시지를 수신하고 거기서부터 사용자에게 응답을 보낼 수 있습니다. 전환 컨텍스트 개체는 메시지를 다시 사용자에게 보내기 위한 메서드를 제공합니다. 일반적인 활동 처리에 대한 자세한 내용은 [활동 처리](~/v4sdk/bot-builder-basics.md#the-activity-processing-stack)를 참조하세요.
 
 이 문서에서는 단문 및 음성 메시지를 보내는 방법을 설명합니다. 서식이 더 많은 콘텐츠를 보내려면 [서식 있는 미디어 첨부 파일 추가](bot-builder-howto-add-media-attachments.md) 방법을 참조하세요. 프롬프트 개체 사용 방법에 대한 자세한 내용은 [사용자에게 입력할 프롬프트 창 표시](bot-builder-prompts.md)를 참조하세요.
 
