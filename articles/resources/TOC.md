@@ -13,9 +13,9 @@
 # [App Insights 키](../bot-service-resources-app-insights-keys.md)
 # [사용자 에이전트 요청](../bot-service-resources-user-agent.md)
 # [봇 검토 지침](../bot-service-review-guidelines.md)
-# [Bot Framework 작업 스키마](https://github.com/Microsoft/BotBuilder/blob/hub/specs/botframework-activity/botframework-activity.md)
-# [Bot Framework 카드 스키마](https://github.com/Microsoft/BotBuilder/blob/hub/specs/botframework-activity/botframework-cards.md)
-# [Bot Framework 대본 스키마](https://github.com/Microsoft/BotBuilder/blob/hub/specs/transcript/transcript.md)
+# [Bot Framework 작업 스키마](https://aka.ms/botSpecs-activitySchema)
+# [Bot Framework 카드 스키마](https://aka.ms/botSpecs-cardSchema)
+# [Bot Framework 대본 스키마](https://aka.ms/botSpecs-transcripts)
 # [Bot Service 준수](../v4sdk/bot-service-compliance.md)
 # 문제 해결
 ## [일반 문제 해결](../bot-service-troubleshoot-general-problems.md)
