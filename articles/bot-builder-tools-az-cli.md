@@ -6,24 +6,20 @@ ms.author: v-shimma
 manager: kamrani
 ms.topic: article
 ms.prod: bot-framework
-ms.date: 04/25/2018
+ms.date: 08/31/2018
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 1eb47e76ef1bd6765d5ba93c27b97a8d9e6143db
-ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
+ms.openlocfilehash: 96660ecb8bf7a69115e517bfa8ec97a79a3e8c90
+ms.sourcegitcommit: f0b22c6286e44578c11c9f15d22b542c199f0024
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42905307"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47404019"
 ---
 # <a name="create-bots-with-azure-cli"></a>Azure CLI를 사용하여 봇 만들기
 
 [!INCLUDE [pre-release-label](./includes/pre-release-label-v3.md)]
 
-[봇 작성기 도구](https://github.com/microsoft/botbuilder-tools)는 명령줄에서 바로 봇 리소스를 관리하고 조작할 수 있게 해주는 새 도구 집합입니다. 
-
-이 자습서에서는 다음에 대한 방법을 보여줍니다.
-
-- Azure CLI 봇 확장을 사용하도록 설정
+이 자습서에서 학습할 방법은 다음과 같습니다. 
 - Azure CLI를 사용하여 새 봇 만들기 
 - 개발에 대한 로컬 복사본 다운로드
 - 새 MSBot 도구를 사용하여 모든 봇 리소스 정보 저장
@@ -33,45 +29,34 @@ ms.locfileid: "42905307"
 
 ## <a name="prerequisites"></a>필수 조건
 
-명령줄에서 이러한 도구를 사용하도록 설정하려면 Node.js를 머신에 설치해야 합니다. 
-
+명령줄에서 이러한 도구를 사용하려면 머신에 Node.js가 설치되어 있어야 합니다. 
 - [Node.js(v 8.5 이상)](https://nodejs.org/en/)
 
-## <a name="1-enable-azure-cli"></a>1. Azure CLI를 사용하도록 설정
+## <a name="1-install-tools"></a>1. 도구 설치
+1. 최신 버전의 Azure CLI을 [설치](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)합니다.
+2. Bot Builder 도구를 [설치](https://aka.ms/botbuilder-tools-readme)합니다.
 
-이제 다른 모든 Azure 리소스처럼 [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)를 사용하여 봇을 관리할 수 있습니다. Azure CLI를 사용하려면 다음 단계를 수행합니다.
-
-1. Azure CLI가 아직 없는 경우 [다운로드](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)합니다. 
-
-2. Azure Bot 확장 배포 패키지를 다운로드하려면 다음 명령을 입력합니다.
-
-```azurecli
-az extension add -n botservice
-```
+이제 다른 Azure 리소스와 마찬가지로 Azure CLI를 사용하여 봇을 관리할 수 있습니다.
 
 >[!TIP]
 > Azure Bot 확장은 현재 v3 봇만 지원합니다.
   
-3. 다음 명령을 실행하여 Azure CLI에 [로그인](https://docs.microsoft.com/en-us/cli/azure/authenticate-azure-cli?view=azure-cli-latest)합니다.
+3. 다음 명령을 실행하여 Azure CLI에 로그인합니다.
 
 ```azurecli
 az login
 ```
-고유한 임시 인증 코드를 묻는 메시지가 나타납니다. 로그인하려면 웹 브라우저를 사용하여 Microsoft [장치 로그인](https://microsoft.com/devicelogin)을 방문하고 계속하려면 CLI에서 제공하는 코드를 붙여넣습니다. 
+로그인할 수 있는 브라우저 창이 열립니다. 로그인하면 다음 메시지가 표시됩니다.
 
-![MS 장치 로그인](media/bot-builder-tools/ms-device-login.png)
+![MS 장치 로그인](media/bot-builder-tools/az-browser-login.png)
 
-로그인에 성공하면 계정 및 리소스를 관리하는 사용할 수 있는 옵션 목록과 함께 Azure CLI 시작 화면이 표시됩니다.
+명령줄 창에 다음 정보가 표시됩니다.
 
-![Azure Bot CLI](media/bot-builder-tools/az-cli-bot.png)
-
-
- Azure CLI 명령의 전체 목록은 [여기를 클릭](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest)합니다.
-
+![Azure 로그인 명령](media/bot-builder-tools/az-login-command.png)
 
 ## <a name="2-create-a-new-bot-from-azure-cli"></a>2. Azure CLI에서 새 봇 만들기
 
-새 봇 확장 및 Azure CLI를 사용하여 명령줄에서 완전히 새로운 봇을 만들 수 있습니다. 
+Azure CLI를 사용하여 명령줄에서 완전히 새로운 봇을 만듭니다. 
 
 ```azurecli
 az bot [command]
@@ -88,11 +73,11 @@ az bot [command]
 CLI에서 새 봇을 만들려면 기존 [리소스 그룹](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)을 선택하거나 새로 만들어야 합니다. 
 
 ```azurecli
-az bot create --resource-group "my-resource-group" --name "my-bot-name" --kind "my-resource-type" --description "description-of-my-bot"
+az bot create --resource-group "my-resource-group" --name "my-bot-name" --kind "my-resource-type" --version v3 --description "description-of-my-bot"
 ```
-요청이 성공한 후 확인 메시지가 표시됩니다.
+`--kind`에 허용되는 값은 `function, registration, webapp`이고, `--version`에는 `v3, v4`입니다.  요청이 성공한 후 확인 메시지가 표시됩니다.
 ```
-obtained msa app id and password. Provisioning bot now.
+Obtained msa app id and password. Provisioning bot now.
 ```
 
 > [!TIP]
@@ -116,35 +101,30 @@ az bot create --resource-group "my-resource-group" --name "my-bot-name" --kind "
 
 ## <a name="3-download-the-bot-locally"></a>3. 로컬로 봇 다운로드
 
-두 가지 방법으로 새 봇의 소스 코드를 다운로드할 수 있습니다.
-- Azure Portal에서 다운로드합니다.
-- 새 Azure CLI를 사용하여 다운로드합니다.
+다음 두 가지 방법으로 소스 코드를 다운로드할 수 있습니다.
+- Azure Portal에서
+- 새 Azure CLI 사용
 
-포털에서 봇 소스 코드를 다운로드하려면 봇 관리 아래에서 봇 리소스 및 **빌드**를 차례로 선택합니다. 로컬로 봇의 소스 코드를 관리 또는 검색에 사용할 수 있는 여러 가지 옵션이 있습니다. 
+[Azure Portal](http://portal.azure.com)에서 봇 소스 코드를 다운로드하려면 봇 리소스를 선택하고, [봇 관리] 아래에서 **빌드**를 선택합니다. 로컬로 봇의 소스 코드를 관리 또는 검색에 사용할 수 있는 여러 가지 옵션이 있습니다.
 
 ![Azure Portal 봇 다운로드](media/bot-builder-tools/az-portal-manage-code.png)
 
-CLI를 사용하여 봇 소스를 다운로드하려면 다음 명령을 입력합니다. 봇은 하위 디렉터리에 다운로드됩니다. 하위 디렉터리가 아직 존재하지 않는 경우 명령을 입력하여 만듭니다.
+CLI를 사용하여 봇 소스를 다운로드하려면 다음 명령을 입력합니다. 봇이 로컬로 다운로드됩니다.
 
 ```azurecli
 az bot download --name "my-bot-name" --resource-group "my-resource-group"
 ```
-그러나 봇을 다운로드할 디렉터리를 지정할 수도 있습니다.
-예: 
 
 ![CLI 다운로드 명령](media/bot-builder-tools/cli-bot-download-command.png)
 
-![CLI 봇 다운로드](media/bot-builder-tools/cli-bot-download.png)
-
-위의 명령을 사용하면 로컬로 봇을 개발할 수 있도록 지정된 위치에 직접 봇의 소스 코드를 다운로드할 수 있습니다.
-
-
 ## <a name="4-store-your-bot-information-with-msbot"></a>4. MSBot을 사용하여 봇 정보 저장
 
-새로운 [MSBot](https://github.com/Microsoft/botbuilder-tools/tree/master/MSBot) 도구를 사용하면 봇이 사용하는 다양한 서비스에 대한 메타데이터를 모두 한곳에 저장하는 **.bot** 파일을 만들 수 있습니다. 이 파일을 사용하면 봇이 CLI에서 이러한 서비스에 연결할 수도 있습니다. 도구는 npm 모듈로 제공됩니다. 도구를 설치하려면 다음을 실행합니다.
+새 MSBot 도구를 사용하면 봇에서 사용하는 다양한 서비스에 대한 메타데이터를 모두 한곳에 저장하는 **.bot** 파일을 만들 수 있습니다. 이 파일을 사용하면 봇이 CLI에서 이러한 서비스에 연결할 수도 있습니다. MSBot 도구는 여러 명령을 지원합니다. 자세한 내용은 [추가 정보](https://aka.ms/botbuilder-tools-msbot-readme) 파일을 참조하세요. 
+
+MSBot을 설치하려면 다음을 실행합니다.
 
 ```shell
-npm install -g msbot 
+npm install -g msbot
 ```
 
 봇 파일을 만들려면 CLI에서 **msbot init**, 봇 이름, 대상 URL 엔드포인트를 차례로 입력합니다. 예를 들면 다음과 같습니다.
@@ -152,6 +132,7 @@ npm install -g msbot
 ```shell
 msbot init --name name-of-my-bot --endpoint http://localhost:bot-port-number/api/messages
 ```
+
 봇을 서비스에 연결하려면 CLI에서 **msbot connect**와 적절한 서비스를 차례로 입력합니다.
 
 ```shell
@@ -166,36 +147,39 @@ msbot connect service-type
 | qna     |봇을 QnA 기술 자료에 연결|
 |도움말[cmd]  |[cmd]에 대한 도움말을 표시|
 
+지원되는 서비스에 대한 전체 목록은 [추가 정보](https://aka.ms/botbuilder-tools-msbot-readme) 파일을 참조하세요.
+
 ### <a name="connect-your-bot-to-abs-with-the-bot-file"></a>.bot 파일을 사용하여 봇을 ABS에 연결
 
-MSBot 도구가 설치되어 있으면 az bot **show** 명령을 실행하여 Azure Bot Service의 기존 리소스 그룹에 봇을 쉽게 연결할 수 있습니다. 
+MSBot 도구가 설치되어 있으면 az bot **show** 명령을 실행하여 Azure Bot Service의 기존 리소스 그룹에 봇을 쉽게 연결할 수 있습니다.
 
 ```azurecli
 az bot show -n my-bot-name -g my-resource-group --msbot | msbot connect azure --stdin
 ```
 
-이렇게 하면 대상 리소스 그룹에서 현재 엔드포인트, MSA appID 및 암호를 가져와 .bot 파일의 정보를 적절하게 업데이트합니다. 
+이렇게 하면 대상 리소스 그룹에서 현재 엔드포인트, MSA appID 및 암호를 가져와 .bot 파일의 정보를 적절하게 업데이트합니다.
 
 
 ## <a name="5-manage-update-or-create-luis-and-qna-services-with--new-botbuilder-tools"></a>5. 새 botbuilder 도구를 사용하여 LUIS 및 QnA 서비스 관리, 업데이트 또는 만들기
 
-[봇 작성기 도구](https://github.com/microsoft/botbuilder-tools)는 명령줄에서 바로 봇 리소스를 관리하고 조작할 수 있게 해주는 새 도구 집합입니다. 
+[봇 작성기 도구](https://aka.ms/botbuilder-tools)는 명령줄에서 바로 봇 리소스를 관리하고 조작할 수 있게 해주는 새 도구 집합입니다.
 
 >[!TIP]
 > 모든 봇 작성기 도구에는 **-h** 또는 **-help**를 입력하여 명령줄에서 액세스할 수 있는 글로벌 도움말 명령이 포함되어 있습니다. 이 명령은 언제든지 모든 작업에서 사용할 수 있으며, 사용 가능한 옵션의 유용한 표시를 설명과 함께 제공합니다.
 
 ### <a name="ludown"></a>LUDown
-[LUDown](https://github.com/Microsoft/botbuilder-tools/tree/master/Ludown)을 사용하면 **.lu** 파일을 통해 봇의 강력한 언어 구성 요소를 설명하고 만들 수 있습니다. 새 .lu 파일은 LUDown 도구가 대상 서비스와 관련된 .json 파일을 사용하고 출력하는 markdown 형식 유형입니다. 이제 .lu 파일을 사용하여 새로운 [LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-create-app) 응용 프로그램 또는 [QnA](https://qnamaker.ai/Documentation/CreateKb) 기술 자료를 각각 다른 형식으로 만들 수 있습니다. LUDown은 npm 모듈로 제공되며, 머신에 전역으로 설치하여 사용할 수 있습니다.
+
+[LUDown](https://aka.ms/botbuilder-ludown)을 사용하면 **.lu** 파일을 통해 봇의 강력한 언어 구성 요소를 설명하고 만들 수 있습니다. 새 .lu 파일은 LUDown 도구가 대상 서비스와 관련된 .json 파일을 사용하고 출력하는 markdown 형식 유형입니다. 이제 .lu 파일을 사용하여 새로운 [LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-create-app) 응용 프로그램 또는 [QnA](https://qnamaker.ai/Documentation/CreateKb) 기술 자료를 각각 다른 형식으로 만들 수 있습니다. LUDown은 npm 모듈로 제공되며, 머신에 전역으로 설치하여 사용할 수 있습니다.
 
 ```shell
 npm install -g ludown
 ```
-LUDown 도구를 사용하여 LUIS와 QnA 둘 다에 대한 새 .json 모델을 만들 수 있습니다.  
 
+LUDown 도구를 사용하여 LUIS와 QnA 둘 다에 대한 새 .json 모델을 만들 수 있습니다.  
 
 ### <a name="creating-a-luis-application-with-ludown"></a>LUDown를 사용하여 LUIS 응용 프로그램 만들기
 
-LUIS 포털에서와 마찬가지로, LUIS 응용 프로그램에 대한 [의도](https://docs.microsoft.com/azure/cognitive-services/luis/add-intents) 및 [엔터티](https://docs.microsoft.com/azure/cognitive-services/luis/add-entities)를 정의할 수 있습니다. 
+LUIS 포털에서와 마찬가지로, LUIS 응용 프로그램에 대한 [의도](https://docs.microsoft.com/azure/cognitive-services/luis/add-intents) 및 [엔터티](https://docs.microsoft.com/azure/cognitive-services/luis/add-entities)를 정의할 수 있습니다.
 
 `# \<intent-name\>`은 새 의도 정의 섹션을 설명합니다. 이후 줄에는 의도를 설명하는 [발언](https://docs.microsoft.com/azure/cognitive-services/luis/add-example-utterances)이 포함됩니다.
 
@@ -296,7 +280,7 @@ ludown parse ToQna --in ludown-file-name.lu
 
 ### <a name="connect-to-luis-from-the-cli"></a>CLI에서 LUIS에 연결 
 
-새 도구 집합에는 LUIS 리소스를 독립적으로 관리할 수 있게 해주는 [LUIS 확장](https://github.com/Microsoft/botbuilder-tools/tree/master/LUIS)이 포함되어 있습니다. 다운로드할 수 있는 npm 모듈로 제공됩니다.
+새 도구 집합에는 LUIS 리소스를 독립적으로 관리할 수 있게 해주는 [LUIS 확장](https://aka.ms/botbuilder-luis-cli)이 포함되어 있습니다. 다운로드할 수 있는 npm 모듈로 제공됩니다.
 
 ```shell
 npm install -g luis-apis
@@ -324,7 +308,7 @@ luis import application --in luis-app.json | msbot connect luis --stdin
 
 ### <a name="connect-to-qna-from-the-cli"></a>CLI에서 QnA에 연결
 
-새 도구 집합에는 LUIS 리소스를 독립적으로 관리할 수 있게 해주는 [QnA 확장](https://github.com/Microsoft/botbuilder-tools/tree/master/QnAMaker)이 포함되어 있습니다. 다운로드할 수 있는 npm 모듈로 제공됩니다.
+새 도구 집합에는 LUIS 리소스를 독립적으로 관리할 수 있게 해주는 [QnA 확장](https://aka.ms/botbuilder-tools-qnaMaker)이 포함되어 있습니다. 다운로드할 수 있는 npm 모듈로 제공됩니다.
 
 ```shell
 npm install -g qnamaker
@@ -351,10 +335,5 @@ az bot publish --name "my-bot-name" --resource-group "my-resource-group"
 ```
 
 ## <a name="references"></a>참조
-- [BotBuilder 도구 소스 코드](https://github.com/Microsoft/botbuilder-tools)
-- [MSBot](https://github.com/Microsoft/botbuilder-tools/tree/master/MSBot)
-- [ChatDown](https://github.com/Microsoft/botbuilder-tools/tree/master/Chatdown)
-- [LUDown](https://github.com/Microsoft/botbuilder-tools/tree/master/ludown)
+- [Bot Builder 도구](https://aka.ms/botbuilder-tools-readme)
 - [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)
-
-

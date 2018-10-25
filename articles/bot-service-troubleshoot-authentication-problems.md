@@ -7,12 +7,12 @@ manager: kamrani
 ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/17
-ms.openlocfilehash: 5373b18ce5c11dae4e971cb1a70307ae2901ad36
-ms.sourcegitcommit: 3cb288cf2f09eaede317e1bc8d6255becf1aec61
+ms.openlocfilehash: 9e86ea0fb677105be920e031979980baf479e42f
+ms.sourcegitcommit: abde9e0468b722892f94caf2029fae165f96092f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47389662"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48875730"
 ---
 # <a name="troubleshooting-bot-framework-authentication"></a>Bot Framework 인증 문제 해결
 
@@ -41,7 +41,9 @@ ms.locfileid: "47389662"
 
 봇에 대한 보안을 사용하지 않으려면 해당 구성 설정을 편집하여 앱 ID 및 암호의 값을 제거합니다. 
 
-.NET용 Bot Builder SDK를 사용 중인 경우 Web.config 파일에서 다음 설정을 편집합니다.
+::: moniker range="azure-bot-service-3.0"
+
+.NET용 Bot Builder SDK를 사용 중인 경우 Web.config 파일에서 다음 설정을 편집합니다. 
 
 ```xml
 <appSettings>
@@ -58,6 +60,32 @@ var connector = new builder.ChatConnector({
   appPassword: null
 });
 ```
+
+::: moniker-end
+
+::: moniker range="azure-bot-service-4.0"
+
+.NET용 Bot Builder SDK를 사용 중인 경우 `appsettings.config` 파일에서 다음 설정을 편집합니다.
+
+```xml
+<appSettings>
+  <add key="MicrosoftAppId" value="" />
+  <add key="MicrosoftAppPassword" value="" />
+</appSettings>
+```
+
+Node.js용 Bot Builder SDK를 사용 중인 경우 다음 값을 편집하거나 해당 환경 변수를 업데이트합니다.
+
+```javascript
+const adapter = new BotFrameworkAdapter({
+    appId: null,
+    appPassword: null
+});
+```
+
+구성을 위해 `.bot` 파일을 사용하는 경우 `appId` 및 `appPassword`를 `""`로 업데이트할 수 있습니다.
+
+::: moniker-end
 
 ### <a name="test-your-bot-on-localhost"></a>localhost에서 봇 테스트 
 
@@ -115,7 +143,7 @@ curl -k -X POST https://login.microsoftonline.com/botframework.com/oauth2/v2.0/t
 
 봇이 localhost에서만 실행되는 경우에도 봇의 보안은 Microsoft 서비스를 사용합니다. 봇에 대한 보안을 사용하려면 해당 구성 설정을 편집하여 [2단계](#step-2)에서 확인한 값으로 앱 ID 및 암호를 채웁니다.
 
-.NET용 Bot Builder SDK를 사용 중인 경우 Web.config 파일에서 다음 설정을 채웁니다.
+.NET용 Bot Builder SDK를 사용 중인 경우 `.bot` 또는 `appsettings.config` 파일에서 다음 설정을 채웁니다.
 
 ```xml
 <appSettings>

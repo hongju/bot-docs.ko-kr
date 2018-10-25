@@ -1,26 +1,26 @@
 ---
 title: 메시지에 미디어 추가 | Microsoft Docs
 description: Bot Builder SDK를 사용하여 메시지에 미디어를 추가하는 방법에 대해 알아봅니다.
-keywords: 미디어, 메시지, 이미지, 오디오, 비디오, 파일, MessageFactory, 서식 있는 메시지
+keywords: 미디어, 메시지, 이미지, 오디오, 비디오, 파일, MessageFactory, 서식 있는 카드, 메시지, 적응형 카드, 영웅 카드, 제안된 작업
 author: ivorb
 ms.author: v-ivorb
 manager: kamrani
 ms.topic: article
 ms.prod: bot-framework
-ms.date: 08/24/2018
+ms.date: 09/10/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 5883b31df95da26fa0432f4cfe195f12fc3089ad
-ms.sourcegitcommit: 86ddf3ebe6cc3385d1c4d30b971ac9c3e1fc5a77
+ms.openlocfilehash: 87862e8fcbfa357c27a1c8fac0e8dd71d9bc2998
+ms.sourcegitcommit: bd4f9669c0d26ac2a4be1ab8e508f163a1f465f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43055997"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47430332"
 ---
 # <a name="add-media-to-messages"></a>메시지에 미디어 추가
 
 [!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
 
-사용자와 봇 간의 메시지 교환에는 이미지, 비디오, 오디오 및 파일과 같은 미디어 첨부 파일이 포함될 수 있습니다. Bot Builder SDK에는 사용자에게 서식 있는 메시지를 보내는 작업을 간소화하도록 설계된 새 `Microsoft.Bot.Builder.MessageFactory` 클래스가 포함되어 있습니다.
+사용자와 봇 간에 교환되는 메시지에는 이미지, 비디오, 오디오 및 파일과 같은 미디어 첨부 파일이 포함될 수 있습니다. Bot Builder SDK는 사용자에게 다양한 메시지를 보내는 작업을 지원합니다. 채널(Facebook, Skype, Slack 등)에서 지원하는 다양한 메시지의 유형을 결정하려면 채널 설명서에서 제한 사항에 대한 정보를 참조하세요. 사용 가능한 카드 목록은 [사용자 환경 디자인](../bot-service-design-user-experience.md)을 참조하세요. 
 
 ## <a name="send-attachments"></a>첨부 파일 보내기
 
@@ -28,71 +28,55 @@ ms.locfileid: "43055997"
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
-`Activity` 개체의 `Attachments` 속성에는 메시지에 첨부된 미디어 첨부 파일과 서식 있는 카드를 나타내는 `Attachment` 개체의 배열이 포함되어 있습니다. 메시지에 미디어 첨부 파일을 추가하려면 `message` 작업에 대한 `Attachment` 개체를 만들고 `ContentType`, `ContentUrl` 및 `Name` 속성을 설정합니다. 
+`Activity` 개체의 `Attachments` 속성에는 메시지에 첨부된 미디어 첨부 파일과 서식 있는 카드를 나타내는 `Attachment` 개체의 배열이 포함되어 있습니다. 메시지에 미디어 첨부 파일을 추가하려면 `message` 작업에 대한 `Attachment` 개체를 만들고 `ContentType`, `ContentUrl` 및 `Name` 속성을 설정합니다. `Activity` 개체의 `Attachments` 속성에는 메시지에 첨부된 미디어 첨부 파일과 서식 있는 카드를 나타내는 `Attachment` 개체의 배열이 포함되어 있습니다. 미디어 첨부 파일을 메시지에 추가하려면 `Attachment` 메서드를 사용하여 `message` 작업에 대한 `Attachment` 개체를 만들고, `ContentType`, `ContentUrl` 및 `Name` 속성을 설정합니다. 여기서 보여 주는 소스 코드는 [첨부 파일 처리](https://aka.ms/bot-attachments-sample-code) 샘플을 기반으로 합니다. 
 
 ```csharp
 using Microsoft.Bot.Builder;
 using Microsoft.Bot.Builder.Core.Extensions;
 using Microsoft.Bot.Schema;
 
-// Create the activity and add an attachment.
-var activity = MessageFactory.Attachment(
-    new Attachment { ContentUrl = "imageUrl.png", ContentType = "image/png" }
-);
+var reply = turnContext.Activity.CreateReply();
+
+// Create an attachment.
+var attachment = new Attachment
+    {
+        ContentUrl = "imageUrl.png",
+        ContentType = "image/png",
+        Name = "imageName",
+    };
+    
+// Add the attachment to our reply.
+reply.Attachments = new List<Attachment>() { attachment };
 
 // Send the activity to the user.
-await context.SendActivity(activity);
-```
-
-메시지 팩터리의 `Attachment` 메서드는 첨부 파일 목록을 다른 첨부 파일 위에 겹쳐서 보낼 수도 있습니다.
-
-```csharp
-using Microsoft.Bot.Builder;
-using Microsoft.Bot.Builder.Core.Extensions;
-using Microsoft.Bot.Schema;
-
-// Create the activity and add an attachment.
-var activity = MessageFactory.Attachment(new Attachment[]
-{
-    new Attachment { ContentUrl = "imageUrl1.png", ContentType = "image/png" },
-    new Attachment { ContentUrl = "imageUrl2.png", ContentType = "image/png" },
-    new Attachment { ContentUrl = "imageUrl3.png", ContentType = "image/png" }
-});
-
-// Send the activity to the user.
-await context.SendActivity(activity);
+await turnContext.SendActivityAsync(reply, cancellationToken);
 ```
 
 # <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
+여기서 보여 주는 소스 코드는 [JS 첨부 파일 처리](https://aka.ms/bot-attachments-sample-code-js) 샘플을 기반으로 합니다.
 사용자에게 이미지 또는 비디오와 같은 콘텐츠의 한 조각을 보내려면 URL에 포함된 미디어를 보내면 됩니다.
 
 ```javascript
-const {MessageFactory} = require('botbuilder');
-let imageOrVideoMessage = MessageFactory.contentUrl('imageUrl.png', 'image/jpeg')
-
+const { ActionTypes, ActivityTypes, CardFactory } = require('botbuilder');
+// Call function to get an attachment.
+reply.attachments = [this.getInternetAttachment()];
+reply.text = 'This is an internet attachment.';
 // Send the activity to the user.
-await context.sendActivity(imageOrVideoMessage);
-```
+await turnContext.sendActivity(reply);
 
-첨부 파일 목록을 보내려면 다른 <!-- TODO: Convert the hero cards to image attachments in this example. --> 위에 하나씩 쌓아 올립니다.
-
-```javascript
-// require MessageFactory and CardFactory from botbuilder.
-const {MessageFactory, CardFactory} = require('botbuilder');
-
-let messageWithCarouselOfCards = MessageFactory.list([
-    CardFactory.heroCard('title1', ['imageUrl1'], ['button1']),
-    CardFactory.heroCard('title2', ['imageUrl2'], ['button2']),
-    CardFactory.heroCard('title3', ['imageUrl3'], ['button3'])
-]);
-
-await context.sendActivity(messageWithCarouselOfCards);
+/* function getInternetAttachment - Returns an attachment to be sent to the user from a HTTPS URL */
+getInternetAttachment() {
+        return {
+            name: 'imageName.png',
+            contentType: 'image/png',
+            contentUrl: 'imageUrl.png'}
+}
 ```
 
 ---
 
-첨부 파일이 이미지, 오디오 또는 비디오인 경우 커넥터 서비스는 [채널](~/v4sdk/bot-builder-channeldata.md)이 대화 내의 해당 첨부 파일을 렌더링할 수 있도록 채널에 첨부 파일 데이터를 전달합니다. 첨부 파일이 파일인 경우 파일 URL은 대화 내 하이퍼링크로 렌더링됩니다.
+첨부 파일이 이미지, 오디오 또는 비디오인 경우 커넥터 서비스는 [채널](bot-builder-channeldata.md)이 대화 내의 해당 첨부 파일을 렌더링할 수 있도록 채널에 첨부 파일 데이터를 전달합니다. 첨부 파일이 파일인 경우 파일 URL은 대화 내 하이퍼링크로 렌더링됩니다.
 
 ## <a name="send-a-hero-card"></a>영웅 카드 보내기
 
@@ -100,56 +84,57 @@ await context.sendActivity(messageWithCarouselOfCards);
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
-영웅 카드와 단추로 메시지를 작성하려면 `HeroCard`를 메시지에 첨부하면 됩니다.
+영웅 카드와 단추가 있는 메시지를 작성하려면 `HeroCard`를 메시지에 첨부할 수 있습니다. 여기서 보여 주는 소스 코드는 [첨부 파일 처리](https://aka.ms/bot-attachments-sample-code) 샘플을 기반으로 합니다. 
 
 ```csharp
 using Microsoft.Bot.Builder;
 using Microsoft.Bot.Builder.Core.Extensions;
 using Microsoft.Bot.Schema;
 
-// Create the activity and attach a Hero card.
-var activity = MessageFactory.Attachment(
-    new HeroCard(
-        title: "White T-Shirt",
-        images: new CardImage[] { new CardImage(url: "imageUrl.png") },
-        buttons: new CardAction[]
-        {
-            new CardAction(title: "buy", type: ActionTypes.ImBack, value: "buy")
-        })
-    .ToAttachment());
+var reply = turnContext.Activity.CreateReply();
 
-// Send the activity as a reply to the user.
-await context.SendActivity(activity);
+// Create a HeroCard with options for the user to choose to interact with the bot.
+var card = new HeroCard
+{
+    Text = "You can upload an image or select one of the following choices",
+    Buttons = new List<CardAction>()
+    {
+        new CardAction(ActionTypes.ImBack, title: "1. Inline Attachment", value: "1"),
+        new CardAction(ActionTypes.ImBack, title: "2. Internet Attachment", value: "2"),
+        new CardAction(ActionTypes.ImBack, title: "3. Uploaded Attachment", value: "3"),
+    },
+};
+
+// Add the card to our reply.
+reply.Attachments = new List<Attachment>() { card.ToAttachment() };
+
+await turnContext.SendActivityAsync(reply, cancellationToken);
 ```
 
 # <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
-사용자에게 카드와 단추를 보내려면 메시지에 `heroCard`를 첨부하면 됩니다.
+영웅 카드와 단추가 있는 메시지를 작성하려면 `HeroCard`를 메시지에 첨부할 수 있습니다. 여기서 보여 주는 소스 코드는 [JS 첨부 파일 처리](https://aka.ms/bot-attachments-sample-code-js) 샘플을 기반으로 합니다.
 
 ```javascript
-// require MessageFactory and CardFactory from botbuilder.
-const {MessageFactory} = require('botbuilder');
-const {CardFactory} = require('botbuilder');
+const { ActionTypes, ActivityTypes, CardFactory } = require('botbuilder');
+// build buttons to display.
+const buttons = [
+            { type: ActionTypes.ImBack, title: '1. Inline Attachment', value: '1' },
+            { type: ActionTypes.ImBack, title: '2. Internet Attachment', value: '2' },
+            { type: ActionTypes.ImBack, title: '3. Uploaded Attachment', value: '3' }
+];
 
-const message = MessageFactory.attachment(
-     CardFactory.heroCard(
-        'White T-Shirt',
-        ['https://example.com/whiteShirt.jpg'],
-        ['buy']
-    )
- );
+// construct hero card.
+const card = CardFactory.heroCard('', undefined,
+buttons, { text: 'You can upload an image or select one of the following choices.' });
 
-await context.sendActivity(message);
+// add card to Activity.
+reply.attachments = [card];
+
+// Send hero card to the user.
+await turnContext.sendActivity(reply);
 ```
-
 ---
-
-<!--Lifted from the RESP API documentation-->
-
-서식 있는 카드는 제목, 설명, 링크 및 이미지로 구성됩니다. 메시지에는 목록 형식 또는 회전식 형식으로 표시되는 여러 서식 있는 카드가 포함될 수 있습니다. Bot Builder SDK는 현재 다양한 범위의 서식 있는 카드를 지원합니다. 지원되는 서식 있는 카드 및 채널 목록을 보려면 [UX 요소 설계](../bot-service-design-user-experience.md)를 참조하세요.
-
-> [!TIP]
-> 채널이 지원하는 서식 있는 카드의 형식을 확인하고 채널이 서식 있는 카드를 렌더링하는 방법을 알아보려면 [채널 검사기](https://docs.microsoft.com/en-us/azure/bot-service/bot-service-channel-inspector?view=azure-bot-service-4.0)를 참조하세요. 카드 콘텐츠에 대한 제한 사항 정보는 채널 설명서를 참조하세요(예: 최대 단추 수 또는 최대 제목 길이).
 
 ## <a name="process-events-within-rich-cards"></a>서식 있는 카드 내에서 이벤트 처리
 
@@ -157,7 +142,7 @@ await context.sendActivity(message);
 
 올바르게 작동하려면 카드의 클릭 가능한 각 항목에 작업 유형을 할당합니다. 이 표에서는 카드 작업 개체의 유형 속성에 대한 유효한 값을 나열하고 각 유형에 대한 값 속성의 예상 콘텐츠를 설명합니다.
 
-| type | 값 |
+| 유형 | 값 |
 | :---- | :---- |
 | openUrl | 기본 제공 브라우저에서 열리는 URL입니다. URL을 열어 탭 또는 클릭에 응답합니다. |
 | imBack | 단추를 클릭하거나 카드를 탭한 사용자에서 봇으로 전송할 메시지의 텍스트. 이 메시지(사용자에서 봇으로)는 대화를 호스트하고 있는 클라이언트 응용 프로그램을 통해 모든 대화 참가자에게 표시됩니다. |
@@ -180,30 +165,24 @@ using Microsoft.Bot.Builder;
 using Microsoft.Bot.Builder.Core.Extensions;
 using Microsoft.Bot.Schema;
 
-// Create the activity and attach a Hero card.
-var activity = MessageFactory.Attachment(
-    new HeroCard(
-        title: "Holler Back Buttons",
-        images: new CardImage[] { new CardImage(url: "imageUrl.png") },
-        buttons: new CardAction[]
-        {
-            new CardAction(title: "Shout Out Loud", type: ActionTypes.imBack, value: "You can ALL hear me!"),
-            new CardAction(title: "Much Quieter", type: ActionTypes.postBack, value: "Shh! My Bot friend hears me."),
-            new CardAction(title: "Show me how to Holler", type: ActionTypes.openURL, value: $"https://en.wikipedia.org/wiki/{cardContent.Key}")
-        })
-    .ToAttachment());
+var reply = turnContext.Activity.CreateReply();
 
-// Send the activity as a reply to the user.
-await context.SendActivity(activity);
+var card = new HeroCard
+{
+    Buttons = new List<CardAction>()
+    {
+        new CardAction(title: "Much Quieter", type: ActionTypes.PostBack, value: "Shh! My Bot friend hears me."),
+        new CardAction(ActionTypes.OpenUrl, title: "Azure Bot Service", value: "https://azure.microsoft.com/en-us/services/bot-service/"),
+    },
+};
+
 ```
 
 # <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const {ActionTypes} = require("botbuilder");
-```
 
-```javascript
 const hero = MessageFactory.attachment(
     CardFactory.heroCard(
         'Holler Back Buttons',
@@ -241,12 +220,15 @@ await context.sendActivity(hero);
 
 적응형 카드 채널 지원에 대한 최신 정보는 <a href="http://adaptivecards.io/visualizer/">적응형 카드 시각화 도우미</a>를 참조하세요.
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
-적응형 카드를 사용하려면 `Microsoft.AdaptiveCards` NuGet 패키지를 추가해야 합니다.
+적응형 카드를 사용하려면 `Microsoft.AdaptiveCards` NuGet 패키지를 추가해야 합니다. 
 
 
 > [!NOTE]
 > 해당 채널이 적응형 카드를 지원하는지 여부를 확인하려면 봇이 사용할 채널을 통해 이 기능을 테스트해야 합니다.
+
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+
+여기서 보여 주는 소스 코드는 [적응형 카드 사용](https://aka.ms/bot-adaptive-cards-sample-code) 샘플을 기반으로 합니다.
 
 ```csharp
 using AdaptiveCards;
@@ -254,164 +236,56 @@ using Microsoft.Bot.Builder;
 using Microsoft.Bot.Builder.Core.Extensions;
 using Microsoft.Bot.Schema;
 
-// Create the activity and attach an Adaptive Card.
-var card = new AdaptiveCard();
-card.Body.Add(new TextBlock()
+// Creates an attachment that contains an adaptive card
+// filePath is the path to JSON file
+private static Attachment CreateAdaptiveCardAttachment(string filePath)
 {
-    Text = "<title>",
-    Size = TextSize.Large,
-    Wrap = true,
-    Weight = TextWeight.Bolder
-});
-card.Body.Add(new TextBlock() { Text = "<message text>", Wrap = true });
-card.Body.Add(new TextInput()
-{
-    Id = "Title",
-    Value = string.Empty,
-    Style = TextInputStyle.Text,
-    Placeholder = "Title",
-    IsRequired = true,
-    MaxLength = 50
-});
-card.Actions.Add(new SubmitAction() { Title = "Submit", DataJson = "{ Action:'Submit' }" });
-card.Actions.Add(new SubmitAction() { Title = "Cancel", DataJson = "{ Action:'Cancel'}" });
+    var adaptiveCardJson = File.ReadAllText(filePath);
+    var adaptiveCardAttachment = new Attachment()
+    {
+        ContentType = "application/vnd.microsoft.card.adaptive",
+        Content = JsonConvert.DeserializeObject(adaptiveCardJson),
+    };
+    return adaptiveCardAttachment;
+}
 
-var activity = MessageFactory.Attachment(new Attachment(AdaptiveCard.ContentType, content: card));
+// Create adaptive card and attach it to the message 
+var cardAttachment = CreateAdaptiveCardAttachment(adaptiveCardJsonFilePath);
+var reply = turnContext.Activity.CreateReply();
+reply.Attachments = new List<Attachment>() { cardAttachment };
 
-// Send the activity as a reply to the user.
-await context.SendActivity(activity);
+await turnContext.SendActivityAsync(reply, cancellationToken);
 ```
 
 # <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
+여기서 보여 주는 소스 코드는 [JS 적응형 카드 사용](https://aka.ms/bot-adaptive-cards-js-sample-code) 샘플을 기반으로 합니다.
+
 ```javascript
-const {CardFactory} = require("botbuilder");
+const { BotFrameworkAdapter } = require('botbuilder');
 
-const message = CardFactory.adaptiveCard({
-    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
-    "version": "1.0",
-    "type": "AdaptiveCard",
-    "speak": "Your flight is confirmed for you from San Francisco to Amsterdam on Friday, October 10 8:30 AM",
-    "body": [
-        {
-            "type": "TextBlock",
-            "text": "Passenger",
-            "weight": "bolder",
-            "isSubtle": false
-        },
-        {
-            "type": "TextBlock",
-            "text": "Sarah Hum",
-            "separator": true
-        },
-        {
-            "type": "TextBlock",
-            "text": "1 Stop",
-            "weight": "bolder",
-            "spacing": "medium"
-        },
-        {
-            "type": "TextBlock",
-            "text": "Fri, October 10 8:30 AM",
-            "weight": "bolder",
-            "spacing": "none"
-        },
-        {
-            "type": "ColumnSet",
-            "separator": true,
-            "columns": [
-                {
-                    "type": "Column",
-                    "width": 1,
-                    "items": [
-                        {
-                            "type": "TextBlock",
-                            "text": "San Francisco",
-                            "isSubtle": true
-                        },
-                        {
-                            "type": "TextBlock",
-                            "size": "extraLarge",
-                            "color": "accent",
-                            "text": "SFO",
-                            "spacing": "none"
-                        }
-                    ]
-                },
-                {
-                    "type": "Column",
-                    "width": "auto",
-                    "items": [
-                        {
-                            "type": "TextBlock",
-                            "text": " "
-                        },
-                        {
-                            "type": "Image",
-                            "url": "http://messagecardplayground.azurewebsites.net/assets/airplane.png",
-                            "size": "small",
-                            "spacing": "none"
-                        }
-                    ]
-                },
-                {
-                    "type": "Column",
-                    "width": 1,
-                    "items": [
-                        {
-                            "type": "TextBlock",
-                            "horizontalAlignment": "right",
-                            "text": "Amsterdam",
-                            "isSubtle": true
-                        },
-                        {
-                            "type": "TextBlock",
-                            "horizontalAlignment": "right",
-                            "size": "extraLarge",
-                            "color": "accent",
-                            "text": "AMS",
-                            "spacing": "none"
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "type": "ColumnSet",
-            "spacing": "medium",
-            "columns": [
-                {
-                    "type": "Column",
-                    "width": "1",
-                    "items": [
-                        {
-                            "type": "TextBlock",
-                            "text": "Total",
-                            "size": "medium",
-                            "isSubtle": true
-                        }
-                    ]
-                },
-                {
-                    "type": "Column",
-                    "width": 1,
-                    "items": [
-                        {
-                            "type": "TextBlock",
-                            "horizontalAlignment": "right",
-                            "text": "$1,032.54",
-                            "size": "medium",
-                            "weight": "bolder"
-                        }
-                    ]
-                }
-            ]
-        }
-    ]
+// Import AdaptiveCard content.
+const FlightItineraryCard = require('./resources/FlightItineraryCard.json');
+const ImageGalleryCard = require('./resources/ImageGalleryCard.json');
+const LargeWeatherCard = require('./resources/LargeWeatherCard.json');
+const RestaurantCard = require('./resources/RestaurantCard.json');
+const SolitaireCard = require('./resources/SolitaireCard.json');
+
+// Create array of AdaptiveCard content, this will be used to send a random card to the user.
+const CARDS = [
+    FlightItineraryCard,
+    ImageGalleryCard,
+    LargeWeatherCard,
+    RestaurantCard,
+    SolitaireCard
+];
+// Select a random card to send.
+const randomlySelectedCard = CARDS[Math.floor((Math.random() * CARDS.length - 1) + 1)];
+// Send adaptive card.
+await context.sendActivity({
+      text: 'Here is an Adaptive Card:',
+       attachments: [CardFactory.adaptiveCard(randomlySelectedCard)]
 });
-
-// send adaptive card as attachment 
-await context.sendActivity({ attachments: [message] })
 ```
 
 ---
@@ -480,7 +354,4 @@ await context.sendActivity(messageWithCarouselOfCards);
 ---
 
 ## <a name="additional-resources"></a>추가 리소스
-
-[채널 검사기를 사용하여 기능 미리 보기](../bot-service-channel-inspector.md)
-
----
+샘플 코드는 [C#](https://aka.ms/bot-cards-sample-code)/[JS](https://aka.ms/bot-cards-js-sample-code) 카드, [C#](https://aka.ms/bot-adaptive-cards-sample-code)/[JS](https://aka.ms/bot-adaptive-cards-js-sample-code) 적응형 카드, [C#](https://aka.ms/bot-attachments-sample-code)/[JS](https://aka.ms/bot-attachments-sample-code-js) 첨부 파일 및 제안된 [C#](https://aka.ms/SuggestedActionsCSharp)/[JS](https://aka.ms/SuggestedActionsJS) 작업에서 찾을 수 있습니다. 추가 샘플은 [GitHub](https://github.com/Microsoft/BotBuilder-Samples)의 Bot Builder 샘플 리포지토리를 참조하세요.

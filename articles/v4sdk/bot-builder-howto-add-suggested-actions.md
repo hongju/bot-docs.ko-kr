@@ -9,12 +9,12 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 03/13/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: b90b3c2635121f7a12f7766852990addb314542e
-ms.sourcegitcommit: f89ed979eb6321232fb21100ef376d9b0d5113c9
+ms.openlocfilehash: 1a42a127606ee72e16bd54eb507ecb4884996996
+ms.sourcegitcommit: bd4f9669c0d26ac2a4be1ab8e508f163a1f465f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42914613"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47430322"
 ---
 # <a name="add-suggested-actions-to-messages"></a>메시지에 제안된 동작 추가
 
@@ -24,43 +24,47 @@ ms.locfileid: "42914613"
 
 ## <a name="send-suggested-actions"></a>제안된 동작 보내기
 
-단일-턴(single-turn) 대화에서 사용자에게 표시될 제안된 동작(다른 이름: “빠른 회신”) 목록을 만들 수 있습니다.
+단일-턴(single-turn) 대화에서 사용자에게 표시될 제안된 동작(다른 이름: “빠른 회신”) 목록을 만들 수 있습니다. 
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
+
+여기서 사용하는 소스 코드는 [GitHub](https://aka.ms/SuggestedActionsCSharp)에서 액세스할 수 있습니다.
 
 ```csharp
 using Microsoft.Bot.Builder;
 using Microsoft.Bot.Builder.Core.Extensions;
 using Microsoft.Bot.Schema;
 
-// Create the activity and add suggested actions.
-var activity = MessageFactory.SuggestedActions(
-    new CardAction[]
-    {
-        new CardAction(title: "red", type: ActionTypes.ImBack, value: "red"),
-        new CardAction( title: "green", type: ActionTypes.ImBack, value: "green"),
-        new CardAction(title: "blue", type: ActionTypes.ImBack, value: "blue")
-    }, text: "Choose a color");
+```csharp
+var reply = turnContext.Activity.CreateReply("What is your favorite color?");
 
-// Send the activity as a reply to the user.
-await context.SendActivity(activity);
+reply.SuggestedActions = new SuggestedActions()
+{
+    Actions = new List<CardAction>()
+    {
+        new CardAction() { Title = "Red", Type = ActionTypes.ImBack, Value = "Red" },
+        new CardAction() { Title = "Yellow", Type = ActionTypes.ImBack, Value = "Yellow" },
+        new CardAction() { Title = "Blue", Type = ActionTypes.ImBack, Value = "Blue" },
+    },
+
+};
+await turnContext.SendActivityAsync(reply, cancellationToken);
 ```
 
 # <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+여기서 사용하는 소스 코드는 [GitHub](https://aka.ms/SuggestActionsJS)에서 액세스할 수 있습니다.
 
 ```javascript
-// Require MessageFactory from botbuilder.
-const {MessageFactory} = require('botbuilder');
+const { ActivityTypes, MessageFactory, TurnContext } = require('botbuilder');
 
-//  Initialize the message object.
-const basicMessage = MessageFactory.suggestedActions(['red', 'green', 'blue'], 'Choose a color');
-
-await context.sendActivity(basicMessage);
+async sendSuggestedActions(turnContext) {
+    var reply = MessageFactory.suggestedActions(['Red', 'Yellow', 'Blue'], 'What is the best color?');
+    await turnContext.sendActivity(reply);
+}
 ```
 
 ---
 
 ## <a name="additional-resources"></a>추가 리소스
 
-기능을 미리 보려면 [채널 검사기](../bot-service-channel-inspector.md)를 사용해보세요.
-
+여기서 보여 주는 전체 소스 코드는 [[C#](https://aka.ms/SuggestedActionsCSharp) | [JS](https://aka.ms/SuggestActionsJS)] GitHub에서 액세스할 수 있습니다.

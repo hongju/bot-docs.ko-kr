@@ -9,12 +9,12 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 09/18/18
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 44ec9274e2edcb05a069d353ee5caffec66bb3ca
-ms.sourcegitcommit: 3cb288cf2f09eaede317e1bc8d6255becf1aec61
+ms.openlocfilehash: 21f864ba6f5beba5205e860f4a56697997048dfb
+ms.sourcegitcommit: 6c2426c43cd2212bdea1ecbbf8ed245145b3c30d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47389752"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48852298"
 ---
 # <a name="manage-conversation-and-user-state"></a>대화 및 사용자 상태 관리
 
@@ -62,6 +62,8 @@ public class UserProfile
 
 아래에 표시된 것처럼 `UserState`를 포함하도록 생성자를 업데이트했습니다.
 ```csharp
+using EchoBotWithCounter;
+
 public EchoBotAccessors(ConversationState conversationState, UserState userState)
 {
     ConversationState = conversationState ?? throw new ArgumentNullException(nameof(conversationState));
@@ -135,6 +137,8 @@ services.AddSingleton<EchoBotAccessors>(sp =>
 `EchoWithCounterBot : IBot` 클래스의 `OnTurnAsync` 처리기에서 코드를 수정하여 사용자 이름에 이어 전화 번호에 대한 메시지를 표시합니다. 현재 대화의 위치를 추적하려면 TopicState에서 정의된 프롬프트 속성을 사용합니다. 이 속성은 "askName"으로 초기화되었습니다. 사용자 이름을 가져온 후, "askNumber"로 설정하고 UserName을 사용자가 입력한 이름으로 설정합니다. 전화 번호를 받은 후 대화의 끝에 있으므로 확인 메시지를 보내고 프롬프트를 '확인'으로 설정합니다.
 
 ```csharp
+using EchoBotWithCounter;
+
 if (turnContext.Activity.Type == ActivityTypes.Message)
 {
     // Get the conversation state from the turn context.
@@ -181,8 +185,9 @@ if (turnContext.Activity.Type == ActivityTypes.Message)
 
         await turnContext.SendActivityAsync($"Got it, {user.UserName}. I'll call you later.");
 
-        // initialize prompt
-        convo.Prompt = ""; // End of conversation
+        // reset initial prompt state
+        convo.Prompt = "askName"; // Reset for a new conversation.
+        
         await _accessors.TopicState.SetAsync(turnContext, convo);
         await _accessors.ConversationState.SaveChangesAsync(turnContext);
     }
@@ -212,15 +217,18 @@ const { BotFrameworkAdapter, MemoryStorage, ConversationState, UserState } = req
 // Create conversation state with in-memory storage provider. 
 const conversationState = new ConversationState(memoryStorage);
 const userState = new UserState(memoryStorage);
-// Create the main dialog.
-const mainDlg = new MainDialog(conversationState, userState);
+// Create the main bot.
+const bot = new EchBot(conversationState, userState);
 ```
 
-`dialogs/mainDialog/index.js` 파일에서 생성자를 업데이트하여 두 번째 인수로 `userState`를 수락합니다. 그런 다음, `conversationState`에서 `topicStates` 속성을 만들고 `userState`에서 `userProfile` 속성을 만듭니다.
+`bot.js` 파일에서 생성자를 업데이트하여 두 번째 인수로 `userState`를 수락합니다. 그런 다음, `conversationState`에서 `topicState` 속성을 만들고 `userState`에서 `userProfile` 속성을 만듭니다.
 
-**dialogs/mainDialog/index.js**
+**bot.js**
 
 ```javascript
+const TOPIC_STATE = 'topic';
+const USER_PROFILE = 'user';
+
 constructor (conversationState, userState) {
     // creates a new state accessor property.see https://aka.ms/about-bot-state-accessors to learn more about the bot state and state accessors 
     this.conversationState = conversationState;
@@ -240,63 +248,63 @@ constructor (conversationState, userState) {
 
 ```javascript
 // see https://aka.ms/about-bot-activity-message to learn more about the message and other activity types
-if (context.activity.type === 'message') {
+if (turnContext.activity.type === 'message') {
     // read from state and set default object if object does not exist in storage.
-    let topicState = await this.topicState.get(context, {
+    let topicState = await this.topicState.get(turnContext, {
         //Define the topic state object
         prompt: "askName"
     });
-    let userProfile = await this.userProfile.get(context, {  
+    let userProfile = await this.userProfile.get(turnContext, {  
         // Define the user's profile object
-        "userName": undefined,
-        "telephoneNumber": undefined
+        "userName": "",
+        "telephoneNumber": ""
     });
 
     if(topicState.prompt == "askName"){
-        await context.sendActivity("What is your name?");
+        await turnContext.sendActivity("What is your name?");
 
         // Set next prompt state
         topicState.prompt = "askNumber";
 
         // Update state
-        await this.topicState.set(context, topicState);
+        await this.topicState.set(turnContext, topicState);
     }
     else if(topicState.prompt == "askNumber"){
         // Set the UserName that is defined in the UserProfile class
-        userProfile.userName = context.activity.text;
+        userProfile.userName = turnContext.activity.text;
 
         // Use the user name to prompt the user for phone number
-        await context.sendActivity(`Hello, ${userProfile.userName}. What's your telephone number?`);
+        await turnContext.sendActivity(`Hello, ${userProfile.userName}. What's your telephone number?`);
 
         // Set next prompt state
         topicState.prompt = "confirmation";
 
         // Update states
-        await this.topicState.set(context, topicState);
-        await this.userProfile.set(context, userProfile);
+        await this.topicState.set(turnContext, topicState);
+        await this.userProfile.set(turnContext, userProfile);
     }
     else if(topicState.prompt == "confirmation"){
         // Set the phone number
-        userProfile.telephoneNumber = context.activity.text;
+        userProfile.telephoneNumber = turnContext.activity.text;
 
         // Sent confirmation
-        await context.sendActivity(`Got it, ${userProfile.userName}. I'll call you later.`)
+        await turnContext.sendActivity(`Got it, ${userProfile.userName}. I'll call you later.`)
 
-        // Set next prompt state
-        topicState.prompt = undefined; // End of conversation
+        // reset initial prompt state
+        topicState.prompt = "askName"; // Reset for a new conversation
 
         // Update states
-        await this.topicState.set(context, topicState);
-        await this.userProfile.set(context, userProfile);
+        await this.topicState.set(turnContext, topicState);
+        await this.userProfile.set(turnContext, userProfile);
     }
     
     // Save state changes to storage
-    await this.conversationState.saveChanges(context);
-    await this.userState.saveChanges(context);
+    await this.conversationState.saveChanges(turnContext);
+    await this.userState.saveChanges(turnContext);
     
 }
 else {
-    await context.sendActivity(`[${context.activity.type} event detected]`);
+    await turnContext.sendActivity(`[${context.activity.type} event detected]`);
 }
 ```
 
@@ -309,11 +317,11 @@ else {
 에뮬레이터를 시작한 다음, 에뮬레이터에서 봇에 연결합니다.
 
 1. 에뮬레이터 "시작" 탭에서 **봇 열기** 링크를 클릭합니다. 
-2. Visual Studio 솔루션을 만든 디렉터리에 있는 .bot 파일을 선택합니다.
+2. Visual Studio 솔루션을 만든 디렉터리에서 .bot 파일을 선택합니다.
 
 ### <a name="interact-with-your-bot"></a>봇과의 상호 작용
 
-봇에 메시지를 보내면 봇이 메시지를 통해 다시 응답하게 됩니다.
+봇에 메시지를 보내면 봇이 메시지를 통해 응답합니다.
 ![에뮬레이터 실행](../media/emulator-v4/emulator-running.png)
 
 상태를 직접 관리하려는 경우 [고유한 프롬프트를 사용하여 대화 흐름 관리](bot-builder-primitive-prompts.md)를 참조하세요. 대안은 폭포 대화 상자를 사용하는 것입니다. 이 대화 상자는 자동으로 대화 상태를 추적하므로 상태를 추적하는 플래그를 만들 필요가 없습니다. 자세한 내용은 [대화 상자로 간단한 대화 관리](bot-builder-dialog-manage-conversation-flow.md)를 참조하세요.
