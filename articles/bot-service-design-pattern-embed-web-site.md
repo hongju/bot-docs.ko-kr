@@ -5,14 +5,15 @@ author: matvelloso
 ms.author: mateusv
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 12/13/2017
-ms.openlocfilehash: a19145c446c74468cef3ae5d9abf6e90e91196ff
-ms.sourcegitcommit: f0b22c6286e44578c11c9f15d22b542c199f0024
+ms.openlocfilehash: e11b99aeb8475ff27304c57c515e02a5c031e4ea
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47403980"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49998382"
 ---
 # <a name="embed-a-bot-in-a-website"></a>웹 사이트에 봇 포함
 

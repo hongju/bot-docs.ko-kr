@@ -5,15 +5,16 @@ author: RobStand
 ms.author: kamrani
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 5286f0cc6a6a5d7558de997fc776671219c70aa5
-ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
+ms.openlocfilehash: dc77a09f1eb7d6ccbdf98d1bee22000c56fe8e6b
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42904872"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49999690"
 ---
 # <a name="use-the-backchannel-mechanism"></a>백채널 메커니즘 사용
 

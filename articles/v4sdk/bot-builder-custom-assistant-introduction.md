@@ -5,21 +5,21 @@ author: darrenj
 ms.author: darrenj
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
 ms.date: 13/12/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: ddb1a7f8f189705de6b40bf2802a7bc2d1b49135
-ms.sourcegitcommit: 3bf3dbb1a440b3d83e58499c6a2ac116fe04b2f6
+ms.openlocfilehash: dcef01d8ba07d44aebaeeeecb5637af691caccb9
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/23/2018
-ms.locfileid: "46708747"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49997080"
 ---
 ## <a name="custom-assistant-overview"></a>사용자 지정 도우미 개요
 
 ## <a name="overview"></a>개요
 
-광범위한 대화형 캔버스 및 장치에 사용할 수 있으며, 해당 브랜드에 맞게 조정되고, 그들의 고객들에게 개인화된 대화형 도우미를 고객과 파트너에게 제공해야 할 필요성을 봐왔습니다. Bot Framework SDK에 대한 Microsoft 오픈 소스 접근 방식에 이어서, 오픈 소스 사용자 지정 개인 도우미는 기본 기능 집합에 빌드된 최종 사용자 환경에 대한 전체 제어를 제공합니다. 또한 진정으로 통합된 지능형 환경을 위해 최종 사용자에 대한 정보 및 모든 장치/에코 시스템 정보를 환경에 적용할 수 있습니다.
+광범위한 대화형 캔버스 및 장치에 사용할 수 있고, 브랜드에 맞게 조정되고, 고객에 맞게 개인화된 대화형 도우미를 요구하는 고객과 파트너가 매우 많습니다. Bot Framework SDK에 대한 Microsoft 오픈 소스 접근 방식에 이어서, 오픈 소스 사용자 지정 개인 도우미는 기본 기능 집합에 빌드된 최종 사용자 환경에 대한 전체 제어를 제공합니다. 또한 진정으로 통합된 지능형 환경을 위해 최종 사용자에 대한 정보 및 모든 장치/에코 시스템 정보를 환경에 적용할 수 있습니다.
 
 우리는 우리의 고객이 자신들의 고객 관계 및 정보를 직접 소유하고 강화해야 한다고 굳게 믿고 있습니다. 따라서 사용자 지정 도우미는 고객 및 파트너에게 완벽한 사용자 환경 제어를 제공합니다. 이름, 음성 및 성격을 조직의 요구에 맞게 변경할 수 있습니다. 사용자 지정 도우미 솔루션으로 사용자 고유의 도우미 만들기가 간소화되어 몇 분만에 시작할 수 있습니다. 
 
@@ -86,5 +86,5 @@ ms.locfileid: "46708747"
 
 ## <a name="getting-started"></a>시작하기
 
-이번에는 첫 번째 환경을 구현하기 위해 초기 미리 보기를 실행하고 오픈 소스 리포지토리의 초기 고객 및 파트너와 밀접한 협업을 진행하며, 다음 몇 달 동안 더 광범위하게 제공할 예정입니다. 자신의 관심사를 등록하거나 시작하려면 [이 양식](https://aka.ms/customassistantpreviewform)을 채우세요. 연락드리겠습니다.
+이번에는 첫 번째 환경을 구현하기 위해 초기 미리 보기를 실행하고 오픈 소스 리포지토리의 초기 고객 및 파트너와 밀접한 협업을 진행하며, 다음 몇 달 동안 더 광범위하게 제공할 예정입니다. 관심사를 등록하거나 시작하려면 [이 양식](https://aka.ms/customassistantpreviewform)을 채우세요. 그러면 저희 쪽에서 연락을 드리겠습니다.
 

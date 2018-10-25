@@ -5,14 +5,15 @@ author: matvelloso
 ms.author: mateusv
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 2/13/2018
-ms.openlocfilehash: 3bf6bef805e4a86b6e070693660eb5cb20468ffd
-ms.sourcegitcommit: f0b22c6286e44578c11c9f15d22b542c199f0024
+ms.openlocfilehash: 7f7bedb2c60c8ad3647d8e75377797e06f444e48
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47404009"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49998210"
 ---
 # <a name="create-task-automation-bots"></a>태스크 자동화 봇 만들기
 

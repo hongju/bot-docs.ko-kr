@@ -5,15 +5,16 @@ author: DucVo
 ms.author: v-ducvo
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 365513c6370025fda807bfc8266ba68f329ceb88
-ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
+ms.openlocfilehash: 26f6e9520fe5d2ebb83ceb4e6a497a35e9d2611f
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42905704"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49999260"
 ---
 # <a name="handle-user-actions"></a>사용자 작업 처리
 
@@ -21,7 +22,7 @@ ms.locfileid: "42905704"
 
 > [!div class="op_single_selector"]
 > - [.NET](../dotnet/bot-builder-dotnet-global-handlers.md)
-> - [Node.js](../nodejs/bot-builder-nodejs-dialog-actions.md)
+> - [Node.JS](../nodejs/bot-builder-nodejs-dialog-actions.md)
 
 사용자는 일반적으로 “help”, “cancel” 또는 “start over”와 같은 키워드를 사용하여 봇의 특정 기능에 액세스하려고 합니다. 사용자는 이를 대화 도중 봇이 다른 응답을 기다리는 경우에 자주 수행합니다. **작업**을 구현하면 이러한 요청을 더 정상적으로 처리하도록 봇을 디자인할 수 있습니다. 처리기는 사용자 입력에서 “help”, “cancel” 또는 “start over”와 같은 사용자가 지정한 키워드를 검사하고 적절하게 응답합니다. 
 

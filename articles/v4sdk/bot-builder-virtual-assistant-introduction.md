@@ -5,15 +5,15 @@ author: darrenj
 ms.author: darrenj
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
 ms.date: 13/12/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 075c090571eb7a45efc57b915a4bc912fc9c55df
-ms.sourcegitcommit: 87b5b0ca9b0d5e028ece9f7cc4948c5507062c2b
+ms.openlocfilehash: e93f7d24396b4e35fc81960d42148dd8942362d7
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47029853"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49998970"
 ---
 # <a name="virtual-assistant-solution-overview"></a>가상 도우미 솔루션 개요
 

@@ -5,14 +5,15 @@ author: RobStand
 ms.author: kamrani
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 12/13/2017
-ms.openlocfilehash: 18a5815a96e2052a54c48f6af211d8b28e20d983
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: 96f2963604d12c9c9e235288ad4df25924f45af4
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39302202"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49998012"
 ---
 # <a name="authentication"></a>인증
 
@@ -41,7 +42,7 @@ Authorization: Bearer SECRET_OR_TOKEN
 
 ## <a id="generate-token"></a> 직접 회선 토큰 생성
 
-단일 대화에 액세스하는 데 사용할 수 있는 직접 회선 토큰을 생성하려면 먼저 <a href="https://dev.botframework.com/" target="_blank">Bot Framework 포털</a>의 직접 회선 채널 구성 페이지에서 직접 회선 비밀을 획득합니다. 그런 다음 이 요청을 실행하여 직접 회선 비밀을 직접 회선 토큰과 교환합니다.
+단일 대화에 액세스하는 데 사용할 수 있는 직접 회선 토큰을 생성하려면 먼저 <a href="https://dev.botframework.com/" target="_blank">Bot Framework 포털</a>의 직접 회선 채널 구성 페이지에서 직접 회선 비밀을 획득합니다. 그런 다음, 이 요청을 실행하여 직접 회선 비밀을 직접 회선 토큰과 교환합니다.
 
 ```http
 POST https://directline.botframework.com/v3/directline/tokens/generate

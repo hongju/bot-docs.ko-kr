@@ -5,15 +5,16 @@ author: DeniseMak
 ms.author: v-demak
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: fd81b9dfe5d3e16096ffd6ab25c1ee23ff77f79f
-ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
+ms.openlocfilehash: 43b6f669cdbc91b78094d3d0d9e7a54f97f9884f
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42904931"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49998030"
 ---
 # <a name="key-concepts-in-the-bot-builder-sdk-for-nodejs"></a>Node.js용 Bot Builder SDK의 주요 개념
 
@@ -21,7 +22,7 @@ ms.locfileid: "42904931"
 
 > [!div class="op_single_selector"]
 > - [.NET](../dotnet/bot-builder-dotnet-concepts.md)
-> - [Node.js](../nodejs/bot-builder-nodejs-concepts.md)
+> - [Node.JS](../nodejs/bot-builder-nodejs-concepts.md)
 
 이 문서에서는 Node.js용 Bot Builder SDK의 주요 개념을 소개합니다. Bot Framework에 대한 소개는 [Bot Framework 개요](../overview-introduction-bot-framework.md)를 참조하세요.
 

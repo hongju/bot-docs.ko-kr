@@ -6,14 +6,15 @@ author: v-ducvo
 ms.author: rstand
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: abs
 ms.date: 12/13/2017
-ms.openlocfilehash: f64dddedc0215e1277a9570201b14e53fb031d9b
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: c1d8adef58c688b3678af7a80964021292d0b1d0
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39302266"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49997610"
 ---
 # <a name="manage-a-bot"></a>봇 관리
 

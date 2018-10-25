@@ -5,22 +5,23 @@ author: v-ducvo
 ms.author: v-ducvo
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 509cba25eae229d1e454cd1846a97474f0af957b
-ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
+ms.openlocfilehash: 4ca33d59c967bc4eebc2f88fa4ddd67a9a6af6d7
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42904267"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49997160"
 ---
 # <a name="send-proactive-messages"></a>사전 대응 메시지 보내기
 [!INCLUDE [pre-release-label](../includes/pre-release-label-v3.md)]
 
 > [!div class="op_single_selector"]
 > - [.NET](../dotnet/bot-builder-dotnet-proactive-messages.md)
-> - [Node.js](../nodejs/bot-builder-nodejs-proactive-messages.md)
+> - [Node.JS](../nodejs/bot-builder-nodejs-proactive-messages.md)
 
 [!INCLUDE [Introduction to proactive messages - part 1](../includes/snippet-proactive-messages-intro-1.md)]
 

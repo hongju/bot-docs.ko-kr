@@ -5,15 +5,16 @@ author: MalarGit
 ms.author: malarch
 manager: ssulzer
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 12/13/17
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: add83b0534ff950e9e7dd5c97a970d251b9c8fea
-ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
+ms.openlocfilehash: 22cce8ad5bef3c1c6f08a8efc28118e0209dd3af
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42904119"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49999440"
 ---
 # <a name="deploy-a-real-time-media-bot-from-visual-studio-to-azure"></a>Visual Studio에서 Azure로 실시간 미디어 봇 배포
 

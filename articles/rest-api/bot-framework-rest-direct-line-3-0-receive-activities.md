@@ -5,14 +5,15 @@ author: RobStand
 ms.author: kamrani
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 12/13/2017
-ms.openlocfilehash: 2993b75a26ed987a472c241133a62727e3b285d2
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: c2d4b9a8e2b8ffc1656df44e04ee1bde912e36ea
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39303498"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49998160"
 ---
 # <a name="receive-activities-from-the-bot"></a>봇에서 활동 수신
 

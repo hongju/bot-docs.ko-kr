@@ -5,15 +5,16 @@ author: RobStand
 ms.author: kamrani
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 55663bb493808d5efce2f25699f9df5aca4db968
-ms.sourcegitcommit: d4afc924b0e1907c4d6f7a6fc5ac1fe521aeef7e
+ms.openlocfilehash: dc542c7e85b3a79e1071edebea65d93c99742beb
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47447338"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "50000362"
 ---
 # <a name="add-speech-to-messages"></a>메시지에 음성 추가
 
@@ -21,8 +22,8 @@ ms.locfileid: "47447338"
 
 > [!div class="op_single_selector"]
 > - [.NET](../dotnet/bot-builder-dotnet-text-to-speech.md)
-> - [Node.js](../nodejs/bot-builder-nodejs-text-to-speech.md)
-> - [REST](../rest-api/bot-framework-rest-connector-text-to-speech.md)
+> - [Node.JS](../nodejs/bot-builder-nodejs-text-to-speech.md)
+> - [REST (영문)](../rest-api/bot-framework-rest-connector-text-to-speech.md)
 
 Cortana와 같은 음성 지원 채널을 위한 봇을 빌드하는 경우 봇의 음성 텍스트를 지정하는 메시지를 구성할 수 있습니다. 봇이 사용자 입력을 수락, 대기 또는 무시할지 여부를 나타내는 [입력 힌트](bot-builder-dotnet-add-input-hints.md)를 지정하여 클라이언트의 마이크 상태에 영향을 미칠 수 있습니다.
 

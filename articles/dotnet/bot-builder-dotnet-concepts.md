@@ -5,15 +5,16 @@ author: RobStand
 ms.author: kamrani
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 34a4cb3623c4265b062eb66ebfb2180551ac1985
-ms.sourcegitcommit: 67445b42796d90661afc643c6bb6533e9a662cbc
+ms.openlocfilehash: 3b01a0e672b2c020462289384ddf68aafedf5314
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39574569"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49997260"
 ---
 # <a name="key-concepts-in-the-bot-builder-sdk-for-net"></a>.NET용 Bot Builder SDK의 주요 개념
 
@@ -21,7 +22,7 @@ ms.locfileid: "39574569"
 
 > [!div class="op_single_selector"]
 > - [.NET](../dotnet/bot-builder-dotnet-concepts.md)
-> - [Node.js](../nodejs/bot-builder-nodejs-concepts.md)
+> - [Node.JS](../nodejs/bot-builder-nodejs-concepts.md)
 
 이 문서에서는 .NET용 Bot Builder SDK의 주요 개념을 소개합니다.
 

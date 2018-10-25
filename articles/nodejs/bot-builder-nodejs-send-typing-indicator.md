@@ -5,15 +5,16 @@ author: DeniseMak
 ms.author: v-demak
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 1c6b01b1cab9165b1513bfda5af182f27635290e
-ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
+ms.openlocfilehash: 738816e2e790dc365e858cb27ee5e58a9d8b6d97
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42904385"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "50000182"
 ---
 # <a name="send-a-typing-indicator"></a>타이핑 표시기 보내기 
 

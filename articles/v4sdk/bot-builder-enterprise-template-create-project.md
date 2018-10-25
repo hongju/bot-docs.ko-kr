@@ -5,15 +5,15 @@ author: darrenj
 ms.author: darrenj
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
 ms.date: 09/18/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 2c6736cc8aa607da73c392b04ea894a19c86ff29
-ms.sourcegitcommit: 87b5b0ca9b0d5e028ece9f7cc4948c5507062c2b
+ms.openlocfilehash: fc7b168cc8c509b81539682a3717b54ed5c2109c
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47029781"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49997120"
 ---
 # <a name="enterprise-bot-template---creating-a-new-project"></a>엔터프라이즈 봇 템플릿 - 새 프로젝트 만들기
 

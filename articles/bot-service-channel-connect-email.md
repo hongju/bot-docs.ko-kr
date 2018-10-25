@@ -6,14 +6,15 @@ author: RobStand
 ms.author: kamrani
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 10/10/2018
-ms.openlocfilehash: 3aaf66352b0562faaa5da0043dc43a7244bec796
-ms.sourcegitcommit: 54ed5000c67a5b59e23b667547565dd96c7302f9
+ms.openlocfilehash: 93270dd6211d8aef1ff44fb8e272855df2058b8a
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49315109"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49997210"
 ---
 # <a name="connect-a-bot-to-office-365-email"></a>Office 365 메일에 봇 연결
 

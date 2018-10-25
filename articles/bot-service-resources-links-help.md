@@ -5,14 +5,14 @@ author: RobStand
 ms.author: kamrani
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
 ms.date: 12/13/2017
-ms.openlocfilehash: 3ebfd7cf35221e1a6c6471c327815804d4010138
-ms.sourcegitcommit: 3cb288cf2f09eaede317e1bc8d6255becf1aec61
+ms.openlocfilehash: 6af5a685f5bfa4933398345387052773f40d9b6c
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47389602"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49997360"
 ---
 # <a name="bot-framework-additional-resources"></a>Bot Framework에 대한 추가 리소스
 

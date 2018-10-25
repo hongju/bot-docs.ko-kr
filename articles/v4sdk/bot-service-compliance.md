@@ -5,15 +5,15 @@ author: v-ducvo
 ms.author: v-ducvo
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
 ms.date: 05/9/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: be9047b27d7899ba398e5c737bed8ef03abf8dbc
-ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
+ms.openlocfilehash: 8fdfea45a9c52548d5d50b4f21c861c049ee4a42
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42905897"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "50000240"
 ---
 # <a name="bot-service-compliance"></a>Bot Service 준수
 

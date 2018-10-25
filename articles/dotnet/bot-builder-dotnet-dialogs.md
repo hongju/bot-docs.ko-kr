@@ -5,15 +5,16 @@ author: RobStand
 ms.author: kamrani
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: eb99be4699bba71a1fdc55bab19d035e4e31f536
-ms.sourcegitcommit: 67445b42796d90661afc643c6bb6533e9a662cbc
+ms.openlocfilehash: 943b206e4991c52f22928d2113977249ff9d9e04
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39574559"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49997580"
 ---
 # <a name="dialogs-in-the-bot-builder-sdk-for-net"></a>.NET용 Bot Builder SDK의 대화 상자
 
@@ -21,7 +22,7 @@ ms.locfileid: "39574559"
 
 > [!div class="op_single_selector"]
 > - [.NET](../dotnet/bot-builder-dotnet-dialogs.md)
-> - [Node.js](../nodejs/bot-builder-nodejs-dialog-overview.md)
+> - [Node.JS](../nodejs/bot-builder-nodejs-dialog-overview.md)
 
 .NET용 Bot Builder SDK를 사용하는 봇을 만들 경우 대화 상자를 사용하여 대화를 모델링하고 [대화 흐름](../bot-service-design-conversation-flow.md)을 관리할 수 있습니다. 각 대화 상자는 `IDialog`를 구현하는 C# 클래스에서 자체 상태를 캡슐화하는 추상화입니다. 대화 상자를 다른 대화 상자로 구성하여 재사용을 최대화할 수 있고 대화 상자 컨텍스트는 특정 시점에 대화에서 활성 상태인 [대화 상자 스택](../bot-service-design-conversation-flow.md#dialog-stack)을 유지 관리할 수 있습니다. 
 

@@ -5,15 +5,16 @@ author: jonathanfingold
 ms.author: jonathanfingold
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 09/19/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 68d1f13855fcb051fdb25babdaddbbc9e55f81ec
-ms.sourcegitcommit: 3cb288cf2f09eaede317e1bc8d6255becf1aec61
+ms.openlocfilehash: 4b38d0a66041403cc171d83216b3a57695170df3
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47389652"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49996840"
 ---
 # <a name="bot-builder-sdk-samples-repo"></a>Bot Builder SDK 샘플 리포지토리
 [!INCLUDE [pre-release-label](includes/pre-release-label.md)]

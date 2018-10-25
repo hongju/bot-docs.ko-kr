@@ -5,15 +5,16 @@ author: DucVo
 ms.author: v-ducvo
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: c37823b94a5cc4715dd1278bba196335de3e3bdb
-ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
+ms.openlocfilehash: 2e8cb9661079eafa988af4a7639e3e7dc1580bfa
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42906026"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49998140"
 ---
 # <a name="handle-user-and-conversation-events"></a>사용자 및 대화 이벤트 처리
 

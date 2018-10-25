@@ -5,15 +5,16 @@ author: v-ducvo
 ms.author: v-ducvo
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 7f94ea05fcccfe7bdeb1dec187d735cef28b1d7c
-ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
+ms.openlocfilehash: 12d18e83064cdf8ce43a662198a2fa94eb995b3b
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42905397"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "50000090"
 ---
 # <a name="add-rich-card-attachments-to-messages"></a>메시지에 서식 있는 카드 첨부 파일 추가
 
@@ -22,8 +23,8 @@ ms.locfileid: "42905397"
 
 > [!div class="op_single_selector"]
 > - [.NET](../dotnet/bot-builder-dotnet-add-rich-card-attachments.md)
-> - [Node.js](../nodejs/bot-builder-nodejs-send-rich-cards.md)
-> - [REST](../rest-api/bot-framework-rest-connector-add-rich-cards.md)
+> - [Node.JS](../nodejs/bot-builder-nodejs-send-rich-cards.md)
+> - [REST (영문)](../rest-api/bot-framework-rest-connector-add-rich-cards.md)
 
 Skype 및 Facebook과 같은 일부 채널은 사용자가 클릭하여 작업을 시작하는 대화형 단추를 포함하는 서식 있는 그래픽 카드를 사용자에게 전송하도록 지원합니다. 이 SDK는 카드를 만들어 보내는 데 사용할 수 있는 일부 메시지 및 카드 작성기 클래스를 제공합니다. Bot Framework Connector 서비스는 채널의 기본 스키마를 통해 이러한 카드를 렌더링하여 플랫폼 간 통신을 지원합니다. SMS와 같이 채널이 카드를 지원하지 않을 경우 Bot Framework는 사용자를 위해 합리적인 환경을 렌더링하기 위해 최선을 다합니다. 
 

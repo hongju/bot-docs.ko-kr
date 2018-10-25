@@ -5,21 +5,22 @@ author: RobStand
 ms.author: kamrani
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 12/13/2017
-ms.openlocfilehash: 3baf5bde772e67084a6046a8d2a8e7d631b245f6
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: 57babac9594118c12805ff9023cf7086e526a273
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39301739"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49997942"
 ---
 # <a name="create-a-bot-with-the-bot-connector-service"></a>Bot Connector Service를 사용하여 봇 만들기
 > [!div class="op_single_selector"]
 > - [.NET](../dotnet/bot-builder-dotnet-quickstart.md)
-> - [Node.js](../nodejs/bot-builder-nodejs-quickstart.md)
+> - [Node.JS](../nodejs/bot-builder-nodejs-quickstart.md)
 > - [Bot Service](../bot-service-quickstart.md)
-> - [REST](../rest-api/bot-framework-rest-connector-quickstart.md)
+> - [REST (영문)](../rest-api/bot-framework-rest-connector-quickstart.md)
 
 Bot Connector Service에서는 봇에서 HTTPS를 통해 업계 표준 REST 및 JSON을 사용하여 <a href="https://dev.botframework.com/" target="_blank">Bot Framework 포털</a>에 구성된 채널과 메시지를 교환할 수 있습니다. 이 자습서에서는 Bot Framework에서 액세스 토큰을 획득하고 Bot Connector service를 사용하여 사용자와 메시지를 교환하는 과정을 안내합니다.
 

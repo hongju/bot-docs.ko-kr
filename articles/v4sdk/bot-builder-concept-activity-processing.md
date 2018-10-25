@@ -6,15 +6,16 @@ author: jonathanfingold
 ms.author: jonathanfingold
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 09/13/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: fbcc9532e39fab96b6794c80c29dfc349ad552b1
-ms.sourcegitcommit: 3bf3dbb1a440b3d83e58499c6a2ac116fe04b2f6
+ms.openlocfilehash: 6ba140324fb6b50c2d6696aae6e4bd3e8824fd96
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/23/2018
-ms.locfileid: "46707709"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49997570"
 ---
 # <a name="activity-processing"></a>작업 처리
 

@@ -6,15 +6,16 @@ author: RobStand
 ms.author: rstand
 manager: rstand
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: cognitive-services
 ms.date: 12/17/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 05841f6d708b8d22d29fb44b217e97b06053dbb4
-ms.sourcegitcommit: 3bf3dbb1a440b3d83e58499c6a2ac116fe04b2f6
+ms.openlocfilehash: bd01eafa70247bed2887ff9421be40365a6b070f
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/23/2018
-ms.locfileid: "46707999"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "50000170"
 ---
 # <a name="cognitive-services"></a>Cognitive Services
 

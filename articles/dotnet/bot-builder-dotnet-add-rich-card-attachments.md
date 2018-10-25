@@ -5,15 +5,16 @@ author: RobStand
 ms.author: kamrani
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 9eb07a4ac63816b84830956bca0c3a3910669e0d
-ms.sourcegitcommit: 67445b42796d90661afc643c6bb6533e9a662cbc
+ms.openlocfilehash: f5687cc7faf4201485ced9535f2e98b0b4c2225a
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39574539"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49998180"
 ---
 # <a name="add-rich-card-attachments-to-messages"></a>메시지에 서식 있는 카드 첨부 파일 추가
 
@@ -21,8 +22,8 @@ ms.locfileid: "39574539"
 
 > [!div class="op_single_selector"]
 > - [.NET](../dotnet/bot-builder-dotnet-add-rich-card-attachments.md)
-> - [Node.js](../nodejs/bot-builder-nodejs-send-rich-cards.md)
-> - [REST](../rest-api/bot-framework-rest-connector-add-rich-cards.md)
+> - [Node.JS](../nodejs/bot-builder-nodejs-send-rich-cards.md)
+> - [REST (영문)](../rest-api/bot-framework-rest-connector-add-rich-cards.md)
 
 사용자와 봇 간의 메시지 교환에는 목록 또는 회전식으로 렌더링되는 하나 이상의 서식 있는 카드가 포함될 수 있습니다. <a href="https://docs.botframework.com/en-us/csharp/builder/sdkreference/dc/d2f/class_microsoft_1_1_bot_1_1_connector_1_1_activity.html" target="_blank">작업</a> 개체의 `Attachments` 속성에는 메시지 내의 서식 있는 카드 및 미디어 첨부 파일을 나타내는 <a href="https://docs.microsoft.com/en-us/dotnet/api/microsoft.bot.connector.attachments?view=botconnector-3.12.2.4" target="_blank">첨부 파일</a> 개체의 배열이 포함되어 있습니다. 
 

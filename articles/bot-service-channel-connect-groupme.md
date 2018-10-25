@@ -6,14 +6,15 @@ author: RobStand
 ms.author: RobStand
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 12/13/2017
-ms.openlocfilehash: 2cc3081f75c755d14f32f02fe9d0d3a3c48bcf14
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: a2004293ff10cfbc7132f58b7c0c834a2012cfd1
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39302259"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49998570"
 ---
 # <a name="connect-a-bot-to-groupme"></a>GroupMe에 봇 연결
 

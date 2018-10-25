@@ -5,15 +5,16 @@ author: RobStand
 ms.author: kamrani
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: c00913c4e6fa7133dad734e69167d2723257f75a
-ms.sourcegitcommit: 6c2426c43cd2212bdea1ecbbf8ed245145b3c30d
+ms.openlocfilehash: 201f1aa1aca0d75190335fa114ef8a26caed2a03
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48852308"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49998352"
 ---
 # <a name="send-proactive-messages"></a>사전 대응 메시지 보내기
 

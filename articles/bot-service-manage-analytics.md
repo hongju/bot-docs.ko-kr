@@ -6,14 +6,15 @@ author: RobStand
 ms.author: kamrani
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: abs
 ms.date: 12/13/2017
-ms.openlocfilehash: 3b0032db8e99c75ec8697f79a78cd6b0bd915db9
-ms.sourcegitcommit: e8c513d3af5f0c514cadcbcd0a737a7393405afa
+ms.openlocfilehash: 27dc7786554af14a24fc8d65b2f7ee31bc4864ef
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42756625"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49997928"
 ---
 # <a name="bot-analytics"></a>봇 분석
 분석은 [Application Insights](/azure/application-insights/app-insights-analytics)의 확장입니다. Application Insights는 트래픽, 대기 시간 및 통합과 같은 **서비스 수준** 및 계측 데이터를 제공합니다. 또한 분석은 사용자에 대한 **대화 수준** 보고, 메시지 및 채널 데이터를 제공합니다.

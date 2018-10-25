@@ -5,15 +5,16 @@ author: RobStand
 ms.author: kamrani
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 68546a9c46bdeb96d31195800cee8a8253fd207b
-ms.sourcegitcommit: 67445b42796d90661afc643c6bb6533e9a662cbc
+ms.openlocfilehash: 8fd9b181676eee24b1e9c64c79663d0d0ac8abfa
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39574751"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49997320"
 ---
 # <a name="add-media-attachments-to-messages"></a>메시지에 미디어 첨부 파일 추가
 
@@ -21,8 +22,8 @@ ms.locfileid: "39574751"
 
 > [!div class="op_single_selector"]
 > - [.NET](../dotnet/bot-builder-dotnet-add-media-attachments.md)
-> - [Node.js](../nodejs/bot-builder-nodejs-send-receive-attachments.md)
-> - [REST](../rest-api/bot-framework-rest-connector-add-media-attachments.md)
+> - [Node.JS](../nodejs/bot-builder-nodejs-send-receive-attachments.md)
+> - [REST (영문)](../rest-api/bot-framework-rest-connector-add-media-attachments.md)
 
 사용자와 봇 간의 메시지 교환에는 미디어 첨부 파일(예: 이미지, 비디오, 오디오, 파일)이 포함될 수 있습니다. <a href="https://docs.botframework.com/en-us/csharp/builder/sdkreference/dc/d2f/class_microsoft_1_1_bot_1_1_connector_1_1_activity.html" target="_blank">작업</a> 개체의 `Attachments` 속성에는 메시지 내의 미디어 첨부 파일과 서식 있는 카드를 나타내는 <a href="https://docs.microsoft.com/en-us/dotnet/api/microsoft.bot.connector.attachments?view=botconnector-3.12.2.4" target="_blank">첨부 파일</a> 개체의 배열이 포함되어 있습니다. 
 

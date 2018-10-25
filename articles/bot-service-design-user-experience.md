@@ -6,14 +6,15 @@ author: matvelloso
 ms.author: mateusv
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 09/20/2018
-ms.openlocfilehash: 94882202eca48a4c662f0ffa32a80065953f13fa
-ms.sourcegitcommit: 3cb288cf2f09eaede317e1bc8d6255becf1aec61
+ms.openlocfilehash: 0b5bc1e82b6ef2dc5550fcaa5db176d06a7d2ea7
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47389792"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49999700"
 ---
 # <a name="design-the-user-experience"></a>사용자 환경 디자인
 

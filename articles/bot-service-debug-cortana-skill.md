@@ -5,15 +5,15 @@ keywords: Bot Builder SDK, 봇 등록, cortana
 author: v-ducvo
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
 ms.date: 05/01/18
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: ceeb854ace1388b6e0435aacc3acf9027763ee73
-ms.sourcegitcommit: 3bf3dbb1a440b3d83e58499c6a2ac116fe04b2f6
+ms.openlocfilehash: 15711999271d1bb8e93c1ad72eb0bc4b6acb484a
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/23/2018
-ms.locfileid: "46707969"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49999970"
 ---
 # <a name="test-a-cortana-skill"></a>Cortana 스킬 테스트
 

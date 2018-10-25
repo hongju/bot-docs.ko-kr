@@ -6,15 +6,16 @@ author: ivorb
 ms.author: v-ivorb
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 03/21/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: b774f2de5856e6001d1b75c47b92aff6399d8fe3
-ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
+ms.openlocfilehash: 78c0afd6095cf9a10e04e1b0131d66ce6964f369
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42904353"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "50000200"
 ---
 # <a name="create-your-own-middleware"></a>고유한 미들웨어 만들기
 

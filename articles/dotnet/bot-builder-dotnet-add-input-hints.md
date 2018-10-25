@@ -5,15 +5,16 @@ author: RobStand
 ms.author: kamrani
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 87fc068c831dba752fa52a6430327232719a74a9
-ms.sourcegitcommit: 67445b42796d90661afc643c6bb6533e9a662cbc
+ms.openlocfilehash: a88461e8a03ac941671cc78080e38efecc26aa30
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39574829"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49998400"
 ---
 # <a name="add-input-hints-to-messages"></a>메시지에 입력 힌트 추가
 
@@ -21,8 +22,8 @@ ms.locfileid: "39574829"
 
 > [!div class="op_single_selector"]
 > - [.NET](../dotnet/bot-builder-dotnet-add-input-hints.md)
-> - [Node.js](../nodejs/bot-builder-nodejs-send-input-hints.md)
-> - [REST](../rest-api/bot-framework-rest-connector-add-input-hints.md)
+> - [Node.JS](../nodejs/bot-builder-nodejs-send-input-hints.md)
+> - [REST (영문)](../rest-api/bot-framework-rest-connector-add-input-hints.md)
 
 메시지에 대한 입력 힌트를 지정하여 메시지를 클라이언트에 전달한 후 봇이 사용자 입력을 허용, 필요 또는 무시하는지 여부를 나타낼 수 있습니다. 많은 채널에서 이 기능을 사용하여 클라이언트가 사용자 입력 컨트롤 상태를 적절히 설정할 수 있습니다. 예를 들어 메시지의 입력 힌트가 봇이 사용자 입력을 무시하고 있는 것으로 표시하면 클라이언트는 마이크를 닫고 사용자가 입력을 제공하지 못하도록 입력 상자를 비활성화할 수 있습니다.
 

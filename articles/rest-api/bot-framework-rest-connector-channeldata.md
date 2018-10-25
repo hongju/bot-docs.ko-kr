@@ -5,14 +5,15 @@ author: RobStand
 ms.author: kamrani
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 12/13/2017
-ms.openlocfilehash: 3cb6f552bee4857d3562e637b2a5728b30ac48a5
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: d69013c721552483cfd38b204936cb1c7f508f82
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39301587"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49996900"
 ---
 # <a name="implement-channel-specific-functionality"></a>채널 관련 기능 구현
 
@@ -270,7 +271,7 @@ Facebook 알림을 만들려면 [Activity][Activity] 개체의 `channelData` 속
 
 ## <a name="additional-resources"></a>추가 리소스
 
-- [활동 개요](bot-framework-rest-connector-activities.md)
+- [작업 개요](bot-framework-rest-connector-activities.md)
 - [메시지 만들기](bot-framework-rest-connector-create-messages.md)
 - [메시지 보내기 및 받기](bot-framework-rest-connector-send-and-receive-messages.md)
 - [채널 검사기를 사용하여 기능 미리 보기](../bot-service-channel-inspector.md)

@@ -5,14 +5,15 @@ author: RobStand
 ms.author: kamrani
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 12/13/2017
-ms.openlocfilehash: 3569e3bfbb3be51cf9023b4686ed4693e90ed50c
-ms.sourcegitcommit: ee63d9dc1944a6843368bdabf5878950229f61d0
+ms.openlocfilehash: 3607957cd5cb8738e8268ece6eba4417250bc596
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42795182"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49997963"
 ---
 # <a name="api-reference---direct-line-api-11"></a>API 참조 - 직접 회선 API 1.1
 
@@ -61,7 +62,7 @@ Authorization: BotConnector SECRET_OR_TOKEN
 ## <a name="token-operations"></a>토큰 작업 
 이러한 작업을 사용하여 클라이언트가 단일 대화에 액세스하는 데 사용할 수 있는 토큰을 만들거나 새로 고칩니다.
 
-| 작업 | 설명 |
+| 작업(Operation) | 설명 |
 |----|----|
 | [토큰 생성](#generate-token) | 새 대화에 대한 토큰을 생성합니다. | 
 | [토큰 새로 고침](#refresh-token) | 토큰을 새로 고칩니다. | 
@@ -91,7 +92,7 @@ GET /api/tokens/{conversationId}/renew
 ## <a name="conversation-operations"></a>대화 작업 
 이러한 작업을 사용하여 봇과 대화를 열고 클라이언트와 봇 간에 메시지를 교환합니다.
 
-| 작업 | 설명 |
+| 작업(Operation) | 설명 |
 |----|----|
 | [대화 시작](#start-conversation) | 봇과 새 대화를 엽니다. | 
 | [메시지 가져오기](#get-messages) | 봇에서 메시지를 검색합니다. |

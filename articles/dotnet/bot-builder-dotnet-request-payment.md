@@ -5,15 +5,16 @@ author: RobStand
 ms.author: kamrani
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 12/13/17
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 29359a2a0489863679158d87cdc4af2f3b52e232
-ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
+ms.openlocfilehash: b3d1a1cea450d1fe821a90951a7a319ca863dfed
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42904247"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49997690"
 ---
 # <a name="request-payment"></a>결제 요청
 
@@ -21,7 +22,7 @@ ms.locfileid: "42904247"
 
 > [!div class="op_single_selector"]
 > - [.NET](../dotnet/bot-builder-dotnet-request-payment.md)
-> - [Node.js](../nodejs/bot-builder-nodejs-request-payment.md)
+> - [Node.JS](../nodejs/bot-builder-nodejs-request-payment.md)
 
 봇을 통해 사용자가 항목을 구매할 수 있는 경우 [서식 있는 카드](bot-builder-dotnet-add-rich-card-attachments.md) 내 특수한 단추 유형을 포함시키면 결제를 요청할 수 있습니다. 이 문서에서는 .NET용 Bot Builder SDK를 사용하여 결제 요청을 보내는 방법을 설명합니다.
 

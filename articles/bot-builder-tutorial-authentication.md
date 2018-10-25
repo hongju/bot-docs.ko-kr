@@ -5,15 +5,15 @@ author: JonathanFingold
 ms.author: JonathanFingold
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
 ms.date: 10/04/2018
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: be53d50ebfa7738b37fe9a25941fe29764f18c26
-ms.sourcegitcommit: 6c2426c43cd2212bdea1ecbbf8ed245145b3c30d
+ms.openlocfilehash: 9b9a3594e3a1f6a93ce3d9b3314880c78b88a9c5
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48852198"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49998910"
 ---
 [!INCLUDE [pre-release-label](includes/pre-release-label-v3.md)]
 

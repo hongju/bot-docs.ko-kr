@@ -5,15 +5,16 @@ author: RobStand
 ms.author: kamrani
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: fbcb72fcd8f3903efc437d32dae4427538662c7f
-ms.sourcegitcommit: 67445b42796d90661afc643c6bb6533e9a662cbc
+ms.openlocfilehash: 21607dae5c2a8d08ed4b7bf1b6e6983cd9bf1196
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39574879"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49999730"
 ---
 # <a name="intercept-messages"></a>메시지 가로채기
 
@@ -21,7 +22,7 @@ ms.locfileid: "39574879"
 
 > [!div class="op_single_selector"]
 > - [.NET](../dotnet/bot-builder-dotnet-middleware.md)
-> - [Node.js](../nodejs/bot-builder-nodejs-intercept-messages.md)
+> - [Node.JS](../nodejs/bot-builder-nodejs-intercept-messages.md)
 
 [!INCLUDE [Introducton to message logging](../includes/snippet-message-logging-intro.md)]
 

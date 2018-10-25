@@ -5,20 +5,21 @@ author: RobStand
 ms.author: kamrani
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 12/13/2017
-ms.openlocfilehash: d162bdd3f34848b16380317c776f445bc4611157
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: 298a827af880223f80cee1876eaea745c6a4a88e
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39303226"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "50000080"
 ---
 # <a name="add-suggested-actions-to-messages"></a>메시지에 제안된 동작 추가
 > [!div class="op_single_selector"]
 > - [.NET](../dotnet/bot-builder-dotnet-add-suggested-actions.md)
-> - [Node.js](../nodejs/bot-builder-nodejs-send-suggested-actions.md)
-> - [REST](../rest-api/bot-framework-rest-connector-add-suggested-actions.md)
+> - [Node.JS](../nodejs/bot-builder-nodejs-send-suggested-actions.md)
+> - [REST (영문)](../rest-api/bot-framework-rest-connector-add-suggested-actions.md)
 
 [!INCLUDE [Introduction to suggested actions](../includes/snippet-suggested-actions-intro.md)]
 
@@ -77,7 +78,7 @@ Content-Type: application/json
 }
 ```
 
-사용자가 제안된 동작 중 하나를 탭하면 봇은 해당 동작의 `value`를 포함하는 메시지를 사용자로부터 수신합니다.
+사용자가 제안된 작업 중 하나를 탭하면 봇은 해당 동작의 `value`를 포함하는 메시지를 사용자로부터 수신합니다.
 
 ## <a name="additional-resources"></a>추가 리소스
 

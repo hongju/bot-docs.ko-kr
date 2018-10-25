@@ -5,15 +5,15 @@ author: darrenj
 ms.author: darrenj
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
 ms.date: 09/18/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 6f295794ca7d3cc17688337e70df2a52cdb665ed
-ms.sourcegitcommit: 87b5b0ca9b0d5e028ece9f7cc4948c5507062c2b
+ms.openlocfilehash: 5f5559ae16bc346d34e5cddfa741853044ec685f
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47029852"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49997350"
 ---
 # <a name="enterprise-template---detailed-overview"></a>엔터프라이즈 템플릿 - 자세한 개요
 
@@ -46,7 +46,7 @@ TurnState 개체의 ```TextModeratorResult```를 통해 텍스트와 화면을 �
 
 ## <a name="telemetry"></a>원격 분석
 
-봇의 사용자 참여에 대한 인사이트를 제공하는 것은 매우 가치 있는 것으로 입증되었습니다. 이 인사이트는 사용자 참여 수준, 사용자가 사용하는 봇의 기능(의도), 봇에서 응답할 수 없는 사용자의 질문을 이해하는 데 도움이 될 수 있습니다. 예를 들어 새로운 QnAMaker 문서를 통해 해결할 수 있는 봇의 지식에 대한 차이를 강조합니다.
+봇의 사용자 참여에 대한 인사이트를 제공하는 것은 매우 가치 있는 것으로 입증되었습니다. 이 정보는 봇이 대답할 수 없는 사람들의 질문과 함께 사용자 참여 수준, 사용자들이 사용 중인 봇의 기능(의도)에 대해 이해하는 데 도움이 될 수 있습니다. 예를 들어 새로운 QnAMaker 문서를 통해 해결될 수 있는 봇의 지식에 관한 차이를 강조합니다.
 
 Application Insights의 통합은 중요한 운영/기술적 인사이트를 즉시 제공하지만, 특정 봇 관련 이벤트, 즉 LUIS 및 QnAMaker 작업과 함께 보내고 받는 메시지를 캡처하는 데에도 사용할 수 있습니다.
 

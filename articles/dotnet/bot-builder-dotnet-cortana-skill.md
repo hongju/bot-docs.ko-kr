@@ -5,15 +5,16 @@ keywords: Bot Framework, Cortana 기술, 음성, .NET, Bot Builder, SDK, 주요 
 author: DeniseMak
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: a3d049e349a86437f8c342df1702281600aeddd4
-ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
+ms.openlocfilehash: 030d17fa25a436ee8e8a1d093924e61f12e14e18
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42904395"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49998316"
 ---
 # <a name="build-a-speech-enabled-bot-with-cortana-skills"></a>Cortana Skill을 사용하여 음성 지원 봇 빌드
 
@@ -21,7 +22,7 @@ ms.locfileid: "42904395"
 
 > [!div class="op_single_selector"]
 > - [.NET](../dotnet/bot-builder-dotnet-cortana-skill.md)
-> - [Node.js](../nodejs/bot-builder-nodejs-cortana-skill.md)
+> - [Node.JS](../nodejs/bot-builder-nodejs-cortana-skill.md)
 
 
 .NET용 Bot Builder SDK를 사용하면 Cortana 기술로 Cortana 채널에 연결하여 음성 지원 봇을 빌드할 수 있습니다. 

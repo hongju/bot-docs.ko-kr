@@ -6,14 +6,15 @@ author: RobStand
 ms.author: kamrani
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 10/11/2018
-ms.openlocfilehash: d182d5aaf90cf684361b7e97294eff5837732bb4
-ms.sourcegitcommit: 54ed5000c67a5b59e23b667547565dd96c7302f9
+ms.openlocfilehash: 9383e15590569458e795e9a0603df21f63609001
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49315099"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49997740"
 ---
 # <a name="connect-a-bot-to-direct-line"></a>직접 회선에 봇 연결
 

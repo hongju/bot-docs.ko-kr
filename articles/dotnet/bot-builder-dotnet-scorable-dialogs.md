@@ -5,15 +5,16 @@ author: matthewshim-ms
 ms.author: v-shimma
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 8ba63ad99c772c7cf5884180a62244e0dfe11db2
-ms.sourcegitcommit: 67445b42796d90661afc643c6bb6533e9a662cbc
+ms.openlocfilehash: a6a69bd1001c51b44ad42824a0da6a079c5ac5a0
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39574909"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49999520"
 ---
 # <a name="global-message-handlers-using-scorables"></a>점수 지정 가능 개체를 사용하는 전역 메시지 처리기
 

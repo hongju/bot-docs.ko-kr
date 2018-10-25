@@ -5,22 +5,23 @@ author: RobStand
 ms.author: kamrani
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 12/13/2017
-ms.openlocfilehash: 91385fa3e8ae1410679ca5274e40db7fe38bafea
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: 2aac000b7e8dd52b00659ffecde5184df6c29991
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39304219"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49998690"
 ---
 # <a name="add-speech-to-messages"></a>메시지에 음성 추가
 > [!div class="op_single_selector"]
 > - [.NET](../dotnet/bot-builder-dotnet-text-to-speech.md)
-> - [Node.js](../nodejs/bot-builder-nodejs-text-to-speech.md)
-> - [REST](../rest-api/bot-framework-rest-connector-text-to-speech.md)
+> - [Node.JS](../nodejs/bot-builder-nodejs-text-to-speech.md)
+> - [REST (영문)](../rest-api/bot-framework-rest-connector-text-to-speech.md)
 
-Cortana와 같은 음성 지원 채널을 위한 봇을 빌드하는 경우 봇에서 말하는 텍스트를 지정하는 메시지를 구성할 수 있습니다. 봇이 사용자 입력을 수락, 대기 또는 무시할지 여부를 나타내는 [입력 힌트](bot-framework-rest-connector-add-input-hints.md)를 지정하여 클라이언트의 마이크의 상태에 영향을 미칠 수 있습니다.
+Cortana와 같은 음성 지원 채널을 위한 봇을 빌드하는 경우 봇의 음성 텍스트를 지정하는 메시지를 구성할 수 있습니다. 봇이 사용자 입력을 수락, 대기 또는 무시할지 여부를 나타내는 [입력 힌트](bot-framework-rest-connector-add-input-hints.md)를 지정하여 클라이언트의 마이크 상태에 영향을 미칠 수 있습니다.
 
 ## <a name="specify-text-to-be-spoken-by-your-bot"></a>봇에서 말하는 텍스트 지정
 
@@ -58,7 +59,7 @@ Content-Type: application/json
 
 ## <a name="input-hints"></a>입력 힌트
 
-음성 지원 채널에서 메시지를 전송하는 경우 봇이 사용자 입력을 수락, 대기 또는 무시할지 여부를 나타내는 입력 힌트를 포함하여 클라이언트의 마이크의 상태에 영향을 미칠 수 있습니다. 자세한 내용은 [메시지에 입력 힌트 추가](bot-framework-rest-connector-add-input-hints.md)를 참조하세요.
+음성 지원 채널에서 메시지를 전송하는 경우 봇이 사용자 입력을 수락, 대기 또는 무시할지 여부를 나타내는 입력 힌트를 포함시켜서 클라이언트의 마이크의 상태에 영향을 미칠 수 있습니다. 자세한 내용은 [메시지에 입력 힌트 추가](bot-framework-rest-connector-add-input-hints.md)를 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 

@@ -6,14 +6,15 @@ author: RobStand
 ms.author: kamrani
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 12/13/2017
-ms.openlocfilehash: ccd6bbbf30a9af83d6c687ee68f94d2f31c1c9cd
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: efe38392117fb871b2b98e3f1d8d798bfaef0c41
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39301890"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49996510"
 ---
 # <a name="connect-a-bot-to-telegram"></a>Telegram에 봇 연결
 

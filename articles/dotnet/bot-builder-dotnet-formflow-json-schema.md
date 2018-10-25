@@ -5,15 +5,16 @@ author: RobStand
 ms.author: kamrani
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 03478431822c8be0e696577a18a2e693d441509b
-ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
+ms.openlocfilehash: 8bcc957dbe2d69790cdfa7c2d7c377ed28b5fa12
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42904554"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "50000330"
 ---
 # <a name="define-a-form-using-json-schema"></a>JSON 스키마를 사용하여 양식 정의
 
@@ -45,8 +46,8 @@ FormFlow는 표준 <a href="http://json-schema.org/documentation.html" target="_
 | 자산 | 값 |
 |----|----|
 | OnCompletion | 양식을 완료하기 위한 인수 `(IDialogContext context, JObject state)`가 있는 C# 스크립트입니다. |
-| 참조 | 스크립트에 포함할 참조입니다. 예: `[assemblyReference, ...]` 경로는 절대 경로 또는 현재 디렉터리의 상대 경로여야 합니다. 기본적으로 스크립트에 `Microsoft.Bot.Builder.dll`이 포함됩니다. |
-| 가져오기 | 스크립트에 포함할 가져오기입니다. 예: `[import, ...]` 기본적으로 스크립트에 `Microsoft.Bot.Builder`, `Microsoft.Bot.Builder.Dialogs`, `Microsoft.Bot.Builder.FormFlow`, `Microsoft.Bot.Builder.FormFlow.Advanced`, `System.Collections.Generic` 및 `System.Linq` 네임스페이스가 포함됩니다. |
+| 참조 | 스크립트에 포함할 참조입니다. 예: `[assemblyReference, ...]`. 경로는 절대 경로 또는 현재 디렉터리의 상대 경로여야 합니다. 기본적으로 스크립트에 `Microsoft.Bot.Builder.dll`이 포함됩니다. |
+| 가져오기 | 스크립트에 포함할 가져오기입니다. 예: `[import, ...]`. 기본적으로 스크립트에 `Microsoft.Bot.Builder`, `Microsoft.Bot.Builder.Dialogs`, `Microsoft.Bot.Builder.FormFlow`, `Microsoft.Bot.Builder.FormFlow.Advanced`, `System.Collections.Generic` 및 `System.Linq` 네임스페이스가 포함됩니다. |
 
 ### <a name="additional-properties-at-the-root-of-the-schema-or-as-peers-of-the-type-property"></a>스키마 루트의 추가 특성 또는 type 속성의 피어인 추가 속성
 

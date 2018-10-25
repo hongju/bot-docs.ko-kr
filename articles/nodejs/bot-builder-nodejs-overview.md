@@ -5,15 +5,16 @@ author: v-ducvo
 ms.author: v-ducvo
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 24da2cc90908a1f22bee9d2cd007607b116ac2cc
-ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
+ms.openlocfilehash: 67acd4d8b24b88ac705f997357166a3fdb9f26c0
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42904206"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49997180"
 ---
 # <a name="bot-builder-sdk-for-nodejs"></a>Node.js용 Bot Builder SDK
 
@@ -21,8 +22,8 @@ ms.locfileid: "42904206"
 
 > [!div class="op_single_selector"]
 > - [.NET](../dotnet/bot-builder-dotnet-overview.md)
-> - [Node.js](../nodejs/bot-builder-nodejs-overview.md)
-> - [REST](../rest-api/bot-framework-rest-overview.md)
+> - [Node.JS](../nodejs/bot-builder-nodejs-overview.md)
+> - [REST (영문)](../rest-api/bot-framework-rest-overview.md)
 
 Node.js용 Bot Builder SDK는 Node.js 개발자가 봇을 작성할 수 있는 친숙한 방법을 제공하는 강력하고 사용하기 쉬운 프레임워크입니다.
 이를 사용하여 간단한 프롬프트에서 자유 형식 대화까지 다양한 대화형 사용자 인터페이스를 빌드할 수 있습니다.

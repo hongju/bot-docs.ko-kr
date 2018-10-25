@@ -6,14 +6,15 @@ author: ivorb
 ms.author: v-ivorb
 manager: kamrani
 ms.topic: get-started-article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: abs
 ms.date: 09/19/2018
-ms.openlocfilehash: 1503d5e349839de6f3403ad9b769c7eb0ae41e78
-ms.sourcegitcommit: 3bf3dbb1a440b3d83e58499c6a2ac116fe04b2f6
+ms.openlocfilehash: 5f3fc43bed16d50c347d4e07a9154dfd307f0dc0
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/23/2018
-ms.locfileid: "46706969"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49999370"
 ---
 # <a name="deploy-your-bot-to-azure"></a>Azure에 봇 배포
 

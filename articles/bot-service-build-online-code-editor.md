@@ -6,14 +6,15 @@ author: v-ducvo
 ms.author: v-ducvo
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: tools
 ms.date: 09/21/2018
-ms.openlocfilehash: 00342b624c43b8eea5bbc2bdd828703eafa5ef63
-ms.sourcegitcommit: 3bf3dbb1a440b3d83e58499c6a2ac116fe04b2f6
+ms.openlocfilehash: ba8e87073f888f21afb806221108bd6b5391744c
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/23/2018
-ms.locfileid: "46707859"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49997240"
 ---
 # <a name="edit-a-bot-with-online-code-editor"></a>온라인 코드 편집기를 사용하여 봇 편집
 

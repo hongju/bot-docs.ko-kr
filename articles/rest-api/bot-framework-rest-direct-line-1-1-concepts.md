@@ -5,14 +5,15 @@ author: RobStand
 ms.author: kamrani
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 12/13/2017
-ms.openlocfilehash: f37d8e9215b0a2cd640431f237d1b8c53fad576b
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: a049d77d506fa3fa678a079de52aa424264847c9
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39300888"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49997050"
 ---
 # <a name="key-concepts-in-direct-line-api-11"></a>직접 회선 API 1.1의 주요 개념
 

@@ -5,15 +5,16 @@ author: RobStand
 ms.author: kamrani
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 3ad843530b70b75a6db728a399a315534d2234ac
-ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
+ms.openlocfilehash: 1c4e60f76ecebfa01664500b8343d60ccff0064c
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42904196"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49997700"
 ---
 # <a name="customize-a-form-using-formbuilder"></a>FormBuilder를 사용하여 양식 사용자 지정
 

@@ -5,14 +5,15 @@ author: RobStand
 ms.author: kamrani
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 12/13/2017
-ms.openlocfilehash: d76daffcfc4661a87d1efaf85e6bb08e3e999988
-ms.sourcegitcommit: e8c513d3af5f0c514cadcbcd0a737a7393405afa
+ms.openlocfilehash: cd4a0dd73feb18aa6f82699a51ab086c55c5d2cf
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42756432"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49998315"
 ---
 # <a name="api-reference"></a>API 참조
 
@@ -123,7 +124,7 @@ Authorization: Bearer ACCESS_TOKEN
 ## <a name="conversation-operations"></a>대화 작업 
 대화를 만들고, 메시지(활동)를 보내고, 대화 콘텐츠를 관리하는 데 사용하는 작업은 다음과 같습니다.
 
-| 작업 | 설명 |
+| 작업(Operation) | 설명 |
 |----|----|
 | [대화 만들기](#create-conversation) | 새 대화를 만듭니다. | 
 | [대화에 보내기](#send-to-conversation) | 지정한 대화의 끝에 활동(메시지)을 보냅니다. | 
@@ -225,7 +226,7 @@ POST /v3/conversations/{conversationId}/attachments
 ## <a name="attachment-operations"></a>첨부 파일 작업 
 첨부 파일에 대한 정보와 파일 자체의 이진 데이터를 검색하는 데 사용하는 작업은 다음과 같습니다.
 
-| 작업 | 설명 |
+| 작업(Operation) | 설명 |
 |----|----|
 | [첨부 파일 정보 가져오기](#get-attachment-info) | 파일 이름, 파일 형식 및 사용 가능한 보기(예: 원시 또는 썸네일 이미지)를 포함하여 지정한 첨부 파일에 대한 정보를 가져옵니다. |
 | [첨부 파일 가져오기](#get-attachment) | 지정한 첨부 파일에 대한 지정한 보기를 이진 콘텐츠로 가져옵니다. | 
@@ -255,7 +256,7 @@ GET /v3/attachments/{attachmentId}/views/{viewId}
 ## <a name="state-operations"></a>상태 작업
 상태 데이터를 저장하고 검색하는 데 사용하는 작업은 다음과 같습니다.
 
-| 작업 | 설명 |
+| 작업(Operation) | 설명 |
 |----|----|
 | [사용자 데이터 설정](#set-user-data) | 채널의 특정 사용자에 대한 상태 데이터를 저장합니다. | 
 | [대화 데이터 설정](#set-conversation-data) | 채널의 특정 대화에 대한 상태 데이터를 저장합니다. | 

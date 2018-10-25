@@ -5,15 +5,16 @@ author: v-ducvo
 ms.author: v-ducvo
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: abs
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: dc8b2723119a03e533f19dbf36446b7dbe0957df
-ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
+ms.openlocfilehash: dfc90f4c4c6e3ad00899569f667b5d3d88dcf042
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42906137"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49999960"
 ---
 # <a name="register-a-bot-with-bot-service"></a>Bot Service를 사용하여 봇 등록
 

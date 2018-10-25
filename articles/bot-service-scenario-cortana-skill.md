@@ -5,15 +5,16 @@ author: BrianRandell
 ms.author: v-brra
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: cognitive-services
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 049dffd2adc700323bec943e090d369a14ff696b
-ms.sourcegitcommit: 67445b42796d90661afc643c6bb6533e9a662cbc
+ms.openlocfilehash: 7676b7bd75a45130b62c1a691499095d6ba07291
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39574849"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "50000230"
 ---
 # <a name="cortana-skills-bot-scenario"></a>Cortana 스킬 봇 시나리오
 

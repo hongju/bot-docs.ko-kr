@@ -5,20 +5,21 @@ author: RobStand
 ms.author: kamrani
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 12/13/2017
-ms.openlocfilehash: d6d83edb390933cb8895b26efeb9775cafdb1acb
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: 632d0b1e603445954eb4894fcfc256d5ac738539
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39302147"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49998440"
 ---
 # <a name="bot-framework-rest-apis"></a>Bot Framework REST API
 > [!div class="op_single_selector"]
 > - [.NET](../dotnet/bot-builder-dotnet-overview.md)
-> - [Node.js](../nodejs/bot-builder-nodejs-overview.md)
-> - [REST](../rest-api/bot-framework-rest-overview.md)
+> - [Node.JS](../nodejs/bot-builder-nodejs-overview.md)
+> - [REST (영문)](../rest-api/bot-framework-rest-overview.md)
 
 Bot Framework REST API에서는 <a href="https://dev.botframework.com/" target="_blank">Bot Framework 포털</a>에 구성된 채널과 메시지를 교환하는 봇을 빌드하고, 상태 데이터를 저장 및 검색하고, 자체 클라이언트 응용 프로그램을 봇에 연결할 수 있습니다. 모든 Bot Framework 서비스는 HTTPS를 통해 업계 표준 REST와 JSON을 사용합니다.
 

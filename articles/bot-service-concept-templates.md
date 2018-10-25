@@ -5,15 +5,16 @@ author: robstand
 ms.author: kamrani
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: ab1f0b938703f404417e48520467dc75b9f0717d
-ms.sourcegitcommit: 67445b42796d90661afc643c6bb6533e9a662cbc
+ms.openlocfilehash: ce7b82d6d3bffe57d758370525cdd7dcc6cddea6
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39574839"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49999800"
 ---
 # <a name="bot-service-templates"></a>Bot Service 템플릿
 

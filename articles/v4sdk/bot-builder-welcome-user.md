@@ -6,15 +6,16 @@ author: dashel
 ms.author: dashel
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 8/30/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: beefa14fbfca10e8a9369793c6229b47a23b4adf
-ms.sourcegitcommit: 3bf3dbb1a440b3d83e58499c6a2ac116fe04b2f6
+ms.openlocfilehash: f9c58762e0733fbb379b43375710e651424095fc
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/23/2018
-ms.locfileid: "46708875"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49998750"
 ---
 # <a name="welcoming-the-user"></a>사용자 환영
 

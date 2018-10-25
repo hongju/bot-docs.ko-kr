@@ -6,14 +6,15 @@ ms.author: kamrani
 manager: kamrani
 ms.topic: landing-page
 layout: LandingPage
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 09/27/2018
-ms.openlocfilehash: 061354d57fed8863f12a01e976ef0b11faf699c0
-ms.sourcegitcommit: 1ef8f4fd2cb8955270a1bc317c9039e5b8f6bbc4
+ms.openlocfilehash: ec7a21e790c945b261e7381ec76298460fa079ee
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47418835"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "50000260"
 ---
 ::: moniker range="azure-bot-service-3.0"
 
@@ -39,7 +40,7 @@ ms.locfileid: "47418835"
 <p>다양한 기능이 포함된 유용한 봇을 빌드하기 시작합니다.</p>
 <ul>
     <li><a href="https://github.com/Microsoft/BotBuilder-Samples/tree/v3-sdk-samples/CSharp">.NET</a></li>
-    <li><a href="https://github.com/Microsoft/BotBuilder-Samples/tree/v3-sdk-samples/Node">Node.js</a></li>
+    <li><a href="https://github.com/Microsoft/BotBuilder-Samples/tree/v3-sdk-samples/Node">Node.JS</a></li>
 </ul>
 <h2 style="margin-top: 36px">단계별 자습서</h2>
 <p> <a href="/bot-framework/bot-builder-tutorial-authentication">봇에 인증 추가</a> </p>
@@ -52,7 +53,7 @@ ms.locfileid: "47418835"
                     <div class="cardText">
                         <h3>언어</h3>
                         <p><a href="/dotnet/api/?view=botbuilder-3.12.2.4">.NET</a></p>
-                        <p><a href="https://docs.botframework.com/en-us/node/builder/chat-reference/modules/_botbuilder_d_.html">Node.js</a></p>
+                        <p><a href="https://docs.botframework.com/en-us/node/builder/chat-reference/modules/_botbuilder_d_.html">Node.JS</a></p>
                     </div>
                 </div>
             </div>

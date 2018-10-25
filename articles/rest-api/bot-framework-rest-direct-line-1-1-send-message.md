@@ -5,14 +5,15 @@ author: RobStand
 ms.author: kamrani
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 12/13/2017
-ms.openlocfilehash: 3bc56d08f45ffd1e389a2dca1868a788d65e087e
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: 360ec3a6a6c9a3be16370aaf445f24a237a702e3
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39303898"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49998020"
 ---
 # <a name="send-a-message-to-the-bot"></a>봇에게 메시지 보내기
 
@@ -55,9 +56,9 @@ HTTP/1.1 204 No Content
 
 직접 회선 대화에 메시지를 POST하는 데 걸린 총 시간은 다음의 합계입니다.
 
-- HTTP 요청이 클라이언트에서 직접 회선 서비스로 이동하는 데 소요되는 전송 시간
-- 직접 회선 내부 처리 시간(일반적으로 120ms 미만)
-- 직접 회선 서비스에서 봇으로 전송 시간
+- HTTP 요청이 클라이언트에서 Direct Line 서비스로 이동하는 데 소요되는 전송 시간
+- Direct Line 내부 처리 시간(일반적으로 120ms 미만)
+- Direct Line 서비스에서 봇으로 전송 시간
 - 봇 내부 처리 시간
 - HTTP 응답이 클라이언트까지 다시 이동하는 데 소요되는 시간
 
@@ -75,7 +76,7 @@ HTTP/1.1 204 No Content
 
 ### <a id="upload-one-attachment"></a> 업로드를 통해 단일 첨부 파일 보내기
 
-업로드를 통해 단일 첨부 파일을 보내려면 이 요청을 발급합니다. 
+업로드를 통해 단일 첨부 파일을 보내려면 이 요청을 실행합니다. 
 
 ```http
 POST https://directline.botframework.com/api/conversations/{conversationId}/upload?userId={userId}

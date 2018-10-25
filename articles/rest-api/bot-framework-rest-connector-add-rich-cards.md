@@ -5,20 +5,21 @@ author: RobStand
 ms.author: kamrani
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 12/13/2017
-ms.openlocfilehash: 04f70777003ef5298de264f5ee8685b3a5005395
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: e38bb7ca93c5fc4174d67d1c5ebb0655eef68653
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39303330"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49997923"
 ---
 # <a name="add-rich-card-attachments-to-messages"></a>메시지에 서식 있는 카드 첨부 파일 추가
 > [!div class="op_single_selector"]
 > - [.NET](../dotnet/bot-builder-dotnet-add-rich-card-attachments.md)
-> - [Node.js](../nodejs/bot-builder-nodejs-send-rich-cards.md)
-> - [REST](../rest-api/bot-framework-rest-connector-add-rich-cards.md)
+> - [Node.JS](../nodejs/bot-builder-nodejs-send-rich-cards.md)
+> - [REST (영문)](../rest-api/bot-framework-rest-connector-add-rich-cards.md)
 
 일반적으로 봇 및 채널은 텍스트 문자열을 교환하지만, 일부 채널은 첨부 파일 교환도 지원하므로 이를 통해 봇에서 사용자에게 더 다양한 메시지를 보낼 수 있습니다. 예를 들어, 봇은 서식 있는 카드 및 미디어 첨부 파일(예: 이미지, 비디오, 오디오, 파일)을 보낼 수 있습니다. 이 문서에서는 Bot Connector 서비스를 사용하여 서식 있는 카드 첨부 파일을 메시지에 추가하는 방법을 설명합니다.
 
@@ -30,7 +31,7 @@ ms.locfileid: "39303330"
 서식 있는 카드는 제목, 설명, 링크 및 이미지로 구성됩니다. 메시지에는 목록 형식 또는 회전식 형식으로 표시되는 여러 서식 있는 카드가 포함될 수 있습니다.
 Bot Framework는 현재 8가지 형식의 서식 있는 카드를 지원합니다. 
 
-| 카드 종류 | 설명 |
+| 카드 형식 | 설명 |
 |----|----|
 | <a href="/adaptive-cards/get-started/bots">AdaptiveCard</a> | 텍스트, 음성, 이미지, 단추 및 입력 필드의 조합을 포함할 수 있는 사용자 지정 가능한 카드입니다. [채널당 지원](/adaptive-cards/get-started/bots#channel-status)을 참조하세요.  |
 | [AnimationCard][animationCard] | 애니메이션 GIF 또는 짧은 비디오를 재생할 수 있는 카드입니다. |
@@ -48,24 +49,24 @@ Bot Framework는 현재 8가지 형식의 서식 있는 카드를 지원합니�
 
 서식 있는 카드 내에서 이벤트를 처리하려면 [CardAction][CardAction] 개체를 사용하여 사용자가 단추를 클릭하거나 카드의 섹션을 탭할 때 수행되어야 하는 작업을 지정합니다. 각 [CardAction][CardAction] 개체는 다음 속성을 포함합니다.
 
-| 속성 | type | 설명 | 
+| 자산 | type | 설명 | 
 |----|----|----|
-| type | string | 작업 형식(아래 표에 지정된 값 중 하나) |
+| 형식 | string | 작업 형식(아래 표에 지정된 값 중 하나) |
 | title | string | 단추 제목 |
-| image | string | 단추의 이미지 URL |
-| value | string | 지정된 형식의 작업을 수행하는 데 필요한 값 |
+| 이미지 | string | 단추의 이미지 URL |
+| 값 | string | 지정된 형식의 작업을 수행하는 데 필요한 값 |
 
 > [!NOTE]
-> 적응형 카드 내의 단추를 만드는 데는 `CardAction` 개체를 사용하는 대신, <a href="http://adaptivecards.io" target="_blank">적응형 카드</a>에서 정의되는 스키마를 사용합니다. 적응형 카드에 단추를 추가하는 방법을 보여 주는 예제는 [메시지에 적응형 카드 추가](#adaptive-card)를 참조하세요.
+> 적응형 카드 내의 단추를 만들 때는 `CardAction` 개체를 사용하는 대신, <a href="http://adaptivecards.io" target="_blank">적응형 카드</a>에서 정의한 스키마를 사용합니다. 적응형 카드에 단추를 추가하는 방법을 보여 주는 예제는 [메시지에 적응형 카드 추가](#adaptive-card)를 참조하세요.
 
 이 표에서는 [CardAction][CardAction] 개체의 `type` 속성에 대한 유효한 값을 나열하고 각 형식에 대한 `value` 속성의 예상 콘텐츠를 설명합니다.
 
-| type | value | 
+| 형식 | 값 | 
 |----|----|
 | openUrl | 기본 제공 브라우저에서 열리는 URL |
 | imBack | 단추를 클릭하거나 카드를 탭한 사용자에서 봇으로 전송할 메시지의 텍스트. 이 메시지(사용자에서 봇으로)는 대화를 호스트하고 있는 클라이언트 응용 프로그램을 통해 모든 대화 참가자에게 표시됩니다. |
 | postBack | 단추를 클릭하거나 카드를 탭한 사용자에서 봇으로 전송할 메시지의 텍스트. 일부 클라이언트 응용 프로그램은 이 텍스트를 메시지 피드로 표시할 수 있습니다. 메시지 피드에서는 텍스트가 모든 대화 참가자에게 표시됩니다. |
-| call | 다음 형식의 전화 통화 대상: **tel:123123123123** |
+| 다음을 호출합니다. | 이 형식의 전화 통화 대상: **tel:123123123123** |
 | playAudio | 재생되는 오디오의 URL |
 | playVideo | 재생되는 비디오의 URL |
 | showImage | 표시되는 이미지의 URL |

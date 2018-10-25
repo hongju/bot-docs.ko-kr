@@ -5,15 +5,16 @@ author: v-ducvo
 ms.author: v-ducvo
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 12/13/17
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 431367cf4afe702fd83feff60b0ee4e260d50f17
-ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
+ms.openlocfilehash: f3aa350cbada77bd9e423a1910f93440a7a1682d
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42905765"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49996990"
 ---
 # <a name="authenticating-activities-using-net-core"></a>.NET Core를 사용하여 활동 인증
 

@@ -6,16 +6,17 @@ author: ivorb
 ms.author: v-ivorb
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 03/21/2018
 monikerRange: azure-bot-service-4.0
 ROBOTS: NOINDEX
-ms.openlocfilehash: 4c75f5820e25de5de5b39d40b730417509a9a69f
-ms.sourcegitcommit: 3bf3dbb1a440b3d83e58499c6a2ac116fe04b2f6
+ms.openlocfilehash: bd652036b9c9c3e42032701f99e791c921b6d4bd
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/23/2018
-ms.locfileid: "46707049"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49998562"
 ---
 <!--Snip
 # Proactive messages

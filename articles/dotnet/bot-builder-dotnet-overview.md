@@ -5,15 +5,16 @@ author: RobStand
 ms.author: kamrani
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 9a2103247f0637246c4d6540981a38b9fb4528b2
-ms.sourcegitcommit: 67445b42796d90661afc643c6bb6533e9a662cbc
+ms.openlocfilehash: 801925e2c179392804d9707e62bfaef082c8e81b
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39574989"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49996701"
 ---
 # <a name="bot-builder-sdk-for-net"></a>.NET용 Bot Builder SDK
 
@@ -21,8 +22,8 @@ ms.locfileid: "39574989"
 
 > [!div class="op_single_selector"]
 > - [.NET](../dotnet/bot-builder-dotnet-overview.md)
-> - [Node.js](../nodejs/bot-builder-nodejs-overview.md)
-> - [REST](../rest-api/bot-framework-rest-overview.md)
+> - [Node.JS](../nodejs/bot-builder-nodejs-overview.md)
+> - [REST (영문)](../rest-api/bot-framework-rest-overview.md)
 
 .NET용 Bot Builder SDK는 자유 형식 상호 작용 및 사용자가 가능한 값에서 선택하는 자세한 단계별 대화를 둘 다 처리할 수 있는 봇을 생성하기 위한 강력한 프레임워크입니다. 이 SDK는 사용하기 쉬우며 C#을 사용하여 .NET 개발자가 봇을 작성할 수 있는 친숙한 방법을 제공합니다.
 

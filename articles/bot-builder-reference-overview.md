@@ -5,15 +5,16 @@ author: RobStand
 ms.author: kamrani
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 52557ed98cefcfcfc9fdc0d29fd4728309cdcc40
-ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
+ms.openlocfilehash: 6b80fb9e38f19af5076cd578fdb8058a2d5cf932
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42904027"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49998390"
 ---
 # <a name="bot-framework-reference"></a>Bot Framework 참조
 

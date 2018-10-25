@@ -5,15 +5,16 @@ author: RobStand
 ms.author: kamrani
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 834702024c99873ca9f0bbedb53a24a16ba55878
-ms.sourcegitcommit: e8c513d3af5f0c514cadcbcd0a737a7393405afa
+ms.openlocfilehash: d5e1fd0b22883dbe4280bd2d375d389cbcabe6e7
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42756466"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49997600"
 ---
 # <a name="activities-overview"></a>활동 개요
 

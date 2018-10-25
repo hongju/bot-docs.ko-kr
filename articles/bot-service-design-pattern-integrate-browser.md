@@ -5,14 +5,15 @@ author: matvelloso
 ms.author: mateusv
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 12/13/2017
-ms.openlocfilehash: 7f3a6ace5e3ef8122cca32baf8ec4c9a1f250dfa
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: e3833595003edda46a6ffd1d508237262aad94e1
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39301835"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49999230"
 ---
 # <a name="integrate-your-bot-with-a-web-browser"></a>웹 브라우저와 봇 통합
 

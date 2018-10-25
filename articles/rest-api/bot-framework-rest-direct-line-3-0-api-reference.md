@@ -5,14 +5,15 @@ author: RobStand
 ms.author: kamrani
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 12/13/2017
-ms.openlocfilehash: 2e47591b04a91ce02cfeb6bd6485080426d201b5
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: d69f1f658520790ff429ecd25a190319e321164d
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39301866"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49998110"
 ---
 # <a name="api-reference---direct-line-api-30"></a>API 참조 - 직접 회선 API 3.0
 
@@ -87,7 +88,7 @@ HTTP/1.1 502 Bad Gateway
 ## <a name="token-operations"></a>토큰 작업 
 이러한 작업을 사용하여 클라이언트가 단일 대화에 액세스하는 데 사용할 수 있는 토큰을 만들거나 새로 고칩니다.
 
-| 작업 | 설명 |
+| 작업(Operation) | 설명 |
 |----|----|
 | [토큰 생성](#generate-token) | 새 대화에 대한 토큰을 생성합니다. | 
 | [토큰 새로 고침](#refresh-token) | 토큰을 새로 고칩니다. | 
@@ -117,7 +118,7 @@ POST /v3/directline/tokens/refresh
 ## <a name="conversation-operations"></a>대화 작업 
 이러한 작업을 사용하여 봇과 대화를 열고 클라이언트와 봇 간에 활동을 교환합니다.
 
-| 작업 | 설명 |
+| 작업(Operation) | 설명 |
 |----|----|
 | [대화 시작](#start-conversation) | 봇과 새 대화를 엽니다. | 
 | [대화 정보 가져오기](#get-conversation-information) | 기존 대화에 대한 정보를 가져옵니다. 이 작업은 클라이언트가 대화에 [다시 연결](bot-framework-rest-direct-line-3-0-reconnect-to-conversation.md)하는 데 사용할 수 있는 새로운 WebSocket 스트림 URL을 생성합니다. |

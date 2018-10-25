@@ -6,14 +6,15 @@ author: v-ducvo
 ms.author: v-ducvo
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 4/8/2018
-ms.openlocfilehash: 6e661d030f49cb8004f122de72de7514e804cb9c
-ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
+ms.openlocfilehash: 82503407c527bee4d56edc0cb58fa507239350e3
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42905542"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49998456"
 ---
 ::: moniker range="azure-bot-service-3.0"
 

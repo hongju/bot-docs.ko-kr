@@ -5,15 +5,15 @@ author: BrianRandell
 ms.author: v-brra
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 15745bc25013df2fd18b0a2045ae2314d6c361e2
-ms.sourcegitcommit: 67445b42796d90661afc643c6bb6533e9a662cbc
+ms.openlocfilehash: f880bc9a424fd9905f7e4ced25e97e2c37155072
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39574859"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49996830"
 ---
 # <a name="commerce-bot-scenario"></a>상거래 봇 시나리오
 
@@ -45,7 +45,7 @@ ms.locfileid: "39574859"
 -   Application Insights
 
 ### <a name="azure-active-directory-azure-ad"></a>Azure AD(Azure Active Directory)
-Azure Active Directory(Azure AD)는 Microsoft의 다중 테넌트 클라우드 기반 디렉터리 및 ID 관리 서비스입니다. 봇 개발자인 Azure AD를 통해 전 세계 수백 만 개 조직에서 사용하는 세계 최고의 ID 관리 솔루션과 빠르고 쉽게 통합함으로써, 봇을 구축하는 데 집중할 수 있습니다. Azure AD는 B2C 커넥터를 지원하여 Google, Facebook 또는 Microsoft 계정과 같은 외부 ID를 사용하여 개인을 식별할 수 있습니다. Azure AD를 사용하면 사용자의 자격 증명을 관리해야 할 책임이 없어지기 때문에 봇의 사용자를 응용 프로그램에서 노출되는 올바른 데이터와 상호 연결할 수 있다는 점을 알고 봇의 솔루션에 더 집중할 수 있습니다.
+Azure Active Directory(Azure AD)는 Microsoft의 다중 테넌트 클라우드 기반 디렉터리 및 ID 관리 서비스입니다. Azure AD를 사용하면 전 세계 수백만 개의 조직에서 사용하는 세계 정상급 ID 관리 솔루션과 쉽고 빠르고 통합할 수 있기 때문 봇 개발자가 봇을 구축하는 데 집중할 수 있습니다. Azure AD는 B2C 커넥터를 지원하여 Google, Facebook 또는 Microsoft 계정과 같은 외부 ID를 사용하여 개인을 식별할 수 있습니다. Azure AD를 사용하면 사용자의 자격 증명을 관리해야 할 책임이 없어지기 때문에 봇의 사용자를 응용 프로그램에서 노출되는 올바른 데이터와 상호 연결할 수 있다는 점을 알고 봇의 솔루션에 더 집중할 수 있습니다.
 
 ### <a name="cognitive-services-luis"></a>Cognitive Services: LUIS
 Cognitive Services 제품군 기술에 속하는 Language Understanding(LUIS)를 사용하면 앱에 머신 러닝의 기능을 앱에 적용할 수 있습니다. 현재, LUIS는 사람이 원하는 것을 봇이 이해할 수 있도록 하는 여러 가지 언어를 지원합니다. LUIS와 통합할 때, 의도를 표현하고 봇이 이해하는 엔터티를 정의합니다. 그런 다음, 예제 발언을 통해 봇을 학습시켜서 의도와 엔터티를 이해하도록 봇을 교육합니다. 특정한 대화 요구에 맞게 봇을 최대한 유동적으로 만들 수 있도록 문구 목록과 regex 기능을 사용하여 통합을 조정할 수 있습니다.

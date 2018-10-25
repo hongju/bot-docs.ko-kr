@@ -6,14 +6,14 @@ author: DeniseMak
 ms.author: v-demak
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
 ms.date: 09/20/2018
-ms.openlocfilehash: 9fb42795d789f89d0bdc74d348d50dbc0ccaa7cb
-ms.sourcegitcommit: 3cb288cf2f09eaede317e1bc8d6255becf1aec61
+ms.openlocfilehash: b1a20875eb25cbf4a07d8a96d79eed665b26157b
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47389526"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49996800"
 ---
 # <a name="debug-with-the-emulator"></a>에뮬레이터를 사용하여 디버그
 

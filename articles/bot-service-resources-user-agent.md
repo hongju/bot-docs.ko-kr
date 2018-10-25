@@ -5,14 +5,15 @@ author: JohnD-ms
 ms.author: v-jodemp
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 12/13/2017
-ms.openlocfilehash: 900881eea35af5f8137b99ccd5e50739342bf5e8
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: befd46cc13fa10a2d1a0f8cf2beed4cb041ab3bd
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39304571"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49998543"
 ---
 # <a name="bot-framework-user-agent-requests"></a>Bot Framework User-Agent 요청
 

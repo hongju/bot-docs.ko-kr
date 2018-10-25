@@ -6,14 +6,15 @@ ms.author: v-ducvo
 keywords: Bot Builder SDK, 지속적인 배포, 앱 서비스, 에뮬레이터
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 07/13/2018
-ms.openlocfilehash: 73cf6cedecd9acaef828bd41f4fccdaad2ae5731
-ms.sourcegitcommit: 3bf3dbb1a440b3d83e58499c6a2ac116fe04b2f6
+ms.openlocfilehash: 3312aa3508a7d9e57f1adc3e36c9d0325cdf6df6
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/23/2018
-ms.locfileid: "46707169"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49997550"
 ---
 # <a name="debug-a-bot-service-bot"></a>Bot Service 봇 디버그
 

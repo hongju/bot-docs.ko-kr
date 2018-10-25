@@ -5,15 +5,16 @@ author: v-ducvo
 ms.author: kamrani
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 06/06/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 15313b6938c01fe84d4fea93c3dc9f607eeb95d2
-ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
+ms.openlocfilehash: 1be5423de3859b32416b5acf9ba7b9d8e92ecb14
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42904300"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49997250"
 ---
 # <a name="add-suggested-actions-to-messages"></a>메시지에 제안된 동작 추가
 
@@ -21,8 +22,8 @@ ms.locfileid: "42904300"
 
 > [!div class="op_single_selector"]
 > - [.NET](../dotnet/bot-builder-dotnet-add-suggested-actions.md)
-> - [Node.js](../nodejs/bot-builder-nodejs-send-suggested-actions.md)
-> - [REST](../rest-api/bot-framework-rest-connector-add-suggested-actions.md)
+> - [Node.JS](../nodejs/bot-builder-nodejs-send-suggested-actions.md)
+> - [REST (영문)](../rest-api/bot-framework-rest-connector-add-suggested-actions.md)
 
 [!INCLUDE [Introduction to suggested actions](../includes/snippet-suggested-actions-intro.md)]
 

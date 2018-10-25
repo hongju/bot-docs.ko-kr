@@ -5,20 +5,21 @@ author: RobStand
 ms.author: kamrani
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 12/13/2017
-ms.openlocfilehash: 39247ec3be4da7129989041269e930de8fa766ae
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: 2a2cc13020c87616799ee768fbab6e72ab81cc8b
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39302290"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49997640"
 ---
 # <a name="add-media-attachments-to-messages"></a>메시지에 미디어 첨부 파일 추가
 > [!div class="op_single_selector"]
 > - [.NET](../dotnet/bot-builder-dotnet-add-media-attachments.md)
-> - [Node.js](../nodejs/bot-builder-nodejs-send-receive-attachments.md)
-> - [REST](../rest-api/bot-framework-rest-connector-add-media-attachments.md)
+> - [Node.JS](../nodejs/bot-builder-nodejs-send-receive-attachments.md)
+> - [REST (영문)](../rest-api/bot-framework-rest-connector-add-media-attachments.md)
 
 일반적으로 봇 및 채널은 텍스트 문자열을 교환하지만, 일부 채널은 첨부 파일 교환도 지원하므로 이를 통해 봇에서 사용자에게 더 다양한 메시지를 보낼 수 있습니다. 예를 들어, 봇은 미디어 첨부 파일(예: 이미지, 비디오, 오디오, 파일) 및 [서식 있는 카드](bot-framework-rest-connector-add-rich-cards.md)를 보낼 수 있습니다. 이 문서에서는 Bot Connector 서비스를 사용하여 미디어 첨부 파일을 메시지에 추가하는 방법을 설명합니다.
 

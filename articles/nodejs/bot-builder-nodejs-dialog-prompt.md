@@ -5,15 +5,16 @@ author: v-ducvo
 ms.author: v-ducvo
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: aa20dc396b68ede3271d12a8deab2e673a79d1d1
-ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
+ms.openlocfilehash: d448862720d159ee58883edfb42aab211d72e81a
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42904485"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "50000350"
 ---
 # <a name="prompt-for-user-input"></a>사용자 입력을 위한 프롬프트
 
@@ -161,7 +162,7 @@ bot.dialog('createAlarm', [
 
 `ListStyle` 열거형 값은 다음과 같습니다.
 
-| 인덱스 | Name | 설명 |
+| 인덱스 | 이름 | 설명 |
 | ---- | ---- | ---- |
 | 0 | 없음 | 렌더링되는 목록이 없습니다. 목록이 프롬프트의 일부로 포함될 경우 사용됩니다. |
 | 1 | inline | 선택 항목이 다음 형식의 인라인 목록으로 렌더링됩니다. “1. 빨강, 2. 녹색 또는 3. 파랑”. |

@@ -6,15 +6,16 @@ author: v-royhar
 ms.author: v-royhar
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 4/16/18
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 81b6f1f9373c18bd3aedb393cfc4966587bf24cb
-ms.sourcegitcommit: 6c2426c43cd2212bdea1ecbbf8ed245145b3c30d
+ms.openlocfilehash: c13733af0f6b26654952a0aab190f6d8cb06d059
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48852208"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49999980"
 ---
 # <a name="create-a-direct-line-bot-and-client"></a>직접 회선 봇 및 클라이언트 만들기
 

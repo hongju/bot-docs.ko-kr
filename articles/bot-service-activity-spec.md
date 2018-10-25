@@ -5,14 +5,15 @@ author: RobStand
 ms.author: kamrani
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 03/07/2018
-ms.openlocfilehash: 0406d489f7d1e27131b4b01411e86850ca4a17b8
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: 06e2289dd0176364467d34846ffa7716483f6578
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39300709"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "50000410"
 ---
 # <a name="bot-framework----activity"></a>Bot Framework - 활동
 
@@ -478,7 +479,7 @@ Activity 개체에는 필드라는 이름/값 쌍의 단순 목록이 포함되�
 
 `R5000`: 클라이언트가 응용 프로그램 사용자 지정을 허용하는 경우 채널이 클라이언트와 봇 간에 응용 프로그램 정의 이벤트 메시지를 허용할 수 있습니다.
 
-### <a name="name"></a>Name
+### <a name="name"></a>이름
 
 `name` 필드는 이벤트의 의미와 `value` 필드의 스키마를 제어합니다. `name` 필드의 값은 문자열 형식입니다.
 
@@ -512,7 +513,7 @@ Activity 개체에는 필드라는 이름/값 쌍의 단순 목록이 포함되�
 
 `R5301`: 채널이 클라이언트와 봇 간에 응용 프로그램 정의 호출 메시지를 허용하면 안 됩니다.
 
-### <a name="name"></a>Name
+### <a name="name"></a>이름
 
 `name` 필드는 호출의 의미와 `value` 필드의 스키마를 제어합니다. `name` 필드의 값은 문자열 형식입니다.
 
@@ -636,7 +637,7 @@ Activity 개체에는 필드라는 이름/값 쌍의 단순 목록이 포함되�
 
 `R7123`: 채널이 클라이언트 또는 봇에 데이터 URI를 보내면 안 됩니다.
 
-#### <a name="name"></a>Name
+#### <a name="name"></a>이름
 
 `name` 필드에는 첨부 파일의 선택적 이름 또는 파일 이름이 포함됩니다. `name` 필드의 값은 문자열 형식입니다.
 

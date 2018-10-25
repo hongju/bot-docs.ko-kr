@@ -5,14 +5,15 @@ author: matvelloso
 ms.author: mateusv
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 08/15/2018
-ms.openlocfilehash: 53148b178b937fdee5bde9a47ef016eedbb92da4
-ms.sourcegitcommit: f0b22c6286e44578c11c9f15d22b542c199f0024
+ms.openlocfilehash: e68358ed65b9300ed8595496b88c5d0736819671
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47403899"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49998220"
 ---
 # <a name="embed-a-bot-in-an-app"></a>앱에 봇 포함
 

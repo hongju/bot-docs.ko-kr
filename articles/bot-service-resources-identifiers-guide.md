@@ -6,14 +6,15 @@ author: RobStand
 ms.author: kamrani
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 12/13/2017
-ms.openlocfilehash: e32adc96efc21db59e2663e0a19483a2133c0531
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: 3c4f8549f40740961feea24f73aa2e4b9b7bc82f
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39303010"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49998890"
 ---
 # <a name="id-fields-in-the-bot-framework"></a>Bot Framework의 ID 필드
 

@@ -6,15 +6,16 @@ author: DeniseMak
 ms.author: v-demak
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 563fdd480ac5165d5301faa3ed43af3118d2f7d7
-ms.sourcegitcommit: 3bf3dbb1a440b3d83e58499c6a2ac116fe04b2f6
+ms.openlocfilehash: f98391f05e962bfc8846818d8a236d16846c8c5c
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/23/2018
-ms.locfileid: "46707479"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49997062"
 ---
 # <a name="enable-speech-in-web-chat"></a>웹 채팅에서 음성 사용
 웹 채팅 컨트롤에서 음성 인터페이스를 사용하도록 설정할 수 있습니다. 웹 채팅 컨트롤에서 마이크를 사용하여 음성 인터페이스로 상호 작용합니다.

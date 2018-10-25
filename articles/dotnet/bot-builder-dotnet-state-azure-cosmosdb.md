@@ -4,15 +4,16 @@ description: .NET용 Bot Builder SDK와 함께 Azure Cosmos DB를 사용하여 �
 author: kaiqb
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 5951df2fa7e89cce03bd8b7f9404585f720a9247
-ms.sourcegitcommit: 3bf3dbb1a440b3d83e58499c6a2ac116fe04b2f6
+ms.openlocfilehash: 76eff2bb7b862dad148d6741a2049e4f827fe731
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/23/2018
-ms.locfileid: "46707309"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49999050"
 ---
 # <a name="manage-custom-state-data-with-azure-cosmos-db-for-net"></a>.NET용 Azure Cosmos DB를 사용하여 사용자 지정 상태 데이터 관리
 

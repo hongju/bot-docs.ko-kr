@@ -5,15 +5,16 @@ author: v-ducvo
 ms.author: v-ducvo
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: abs
 ms.date: 6/22/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 41f3355102147e0d403629f23de79a90ac301209
-ms.sourcegitcommit: 3bf3dbb1a440b3d83e58499c6a2ac116fe04b2f6
+ms.openlocfilehash: 6a1ae4d0966928a1b95e45ea7bcc62e9c1d14666
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/23/2018
-ms.locfileid: "46707899"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "50000070"
 ---
 # <a name="migrate-your-bot-to-azure"></a>Azure에 봇 마이그레이션
 

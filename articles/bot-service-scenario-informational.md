@@ -5,15 +5,15 @@ author: BrianRandell
 ms.author: v-brra
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 43eb8e25e2a17e1d6b1d30e767dd15569fcad78b
-ms.sourcegitcommit: 67445b42796d90661afc643c6bb6533e9a662cbc
+ms.openlocfilehash: 22902f1f590661c0973d7f0427b13ee45f0d7227
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39574869"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49998990"
 ---
 # <a name="information-bot-scenario"></a>정보 봇 시나리오
 

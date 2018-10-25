@@ -6,14 +6,15 @@ author: v-royhar
 ms.author: v-royhar
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: cognitive-services
 ms.date: 12/13/2017
-ms.openlocfilehash: ba2aec255cf160a72c11c3ddfda021baae304568
-ms.sourcegitcommit: 3cb288cf2f09eaede317e1bc8d6255becf1aec61
+ms.openlocfilehash: 5cb47be530f9f82d83272684e6405730c72f3cb7
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47389642"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49997156"
 ---
 # <a name="configure-speech-priming"></a>음성 초기화 구성
 

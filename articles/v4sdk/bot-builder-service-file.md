@@ -6,15 +6,16 @@ author: jonathanfingold
 ms.author: jonathanfingold
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 09/23/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 473ae0ce9daff8d93ef91268fffff4fbf45e7752
-ms.sourcegitcommit: abde9e0468b722892f94caf2029fae165f96092f
+ms.openlocfilehash: 62451f8581d7a629f9e7ba628e70cdad7b531845
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48875700"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49998980"
 ---
 ```
 {

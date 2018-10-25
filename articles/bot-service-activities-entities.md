@@ -6,14 +6,15 @@ author: ivorb
 ms.author: v-ivorb
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 03/01/2018
-ms.openlocfilehash: f6bf1d99922351a66a4e5401e744fad190746747
-ms.sourcegitcommit: 3cb288cf2f09eaede317e1bc8d6255becf1aec61
+ms.openlocfilehash: d2f4692580843f530641827707d250fa726830e3
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47389812"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "50000400"
 ---
 # <a name="entities-and-activity-types"></a>엔터티 및 작업 형식
 

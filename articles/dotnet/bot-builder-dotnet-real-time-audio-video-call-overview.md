@@ -5,15 +5,16 @@ author: MalarGit
 ms.author: malarch
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 12/13/17
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 35aca6f5f50602d0a90c41997eff2e8b1d2cdb4e
-ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
+ms.openlocfilehash: 6ceeca9adc9cad9e60a73c1c7c91bea43b97fdd9
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42905615"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49997932"
 ---
 # <a name="build-a-real-time-media-bot-for-skype"></a>Skype용 실시간 미디어 봇 빌드
 
@@ -34,7 +35,7 @@ ms.locfileid: "42905615"
 
 * Bot Service에는 인식할 수 있는 인증 기관에서 발급한 인증서가 있어야 합니다. 인증서의 지문은 봇의 클라우드 서비스 구성에 저장되고 서비스 시작 중에 읽어야 합니다.
 
-* 공용 <a href="/azure/cloud-services/cloud-services-enable-communication-role-instances#instance-input-endpoint">인스턴스 입력 엔드포인트</a>를 프로비전해야 합니다. 이렇게 하면 봇 서비스의 각 VM(가상 머신) 인스턴스에 고유한 공공 포트가 할당됩니다. 이 포트는 실시간 미디어 플랫폼이 Skype Calling Cloud와 통신하는 데 사용됩니다.
+* 공용 <a href="/azure/cloud-services/cloud-services-enable-communication-role-instances#instance-input-endpoint">인스턴스 입력 엔드포인트</a>를 프로비전해야 합니다. 이렇게 하면 봇 서비스의 각 VM(가상 머신) 인스턴스에 고유한 공공 포트가 할당됩니다. 이 포트는 실시간 미디어 플랫폼이 Skype Calling Cloud와 통신하는 데 사용됩니다.
   ```xml
   <InstanceInputEndpoint name="InstanceMediaControlEndpoint" protocol="tcp" localPort="20100">
     <AllocatePublicPortFrom>
@@ -65,12 +66,12 @@ ms.locfileid: "42905615"
   </NetworkConfiguration>
   ```
 
-* 서비스 인스턴스 시작 중에 `MediaPlatformStartupScript.bat` 스크립트(Nuget 패키지의 일부로 제공)를 상승된 권한을 통해 스타트업 작업으로 실행해야 합니다. 스크립트 실행은 플랫폼의 초기화 메서드를 호출하기 전에 완료되어야 합니다. 
+* 서비스 인스턴스 시작 중에 `MediaPlatformStartupScript.bat` 스크립트(Nuget 패키지의 일부로 제공)를 상승된 권한을 통해 스타트업 작업으로 실행해야 합니다. 스크립트 실행은 플랫폼의 초기화 메서드를 호출하기 전에 완료되어야 합니다. 
 
 ```xml
 <Startup>
-<Task commandLine="MediaPlatformStartupScript.bat" executionContext="elevated" taskType="simple" />      
-</Startup> 
+<Task commandLine="MediaPlatformStartupScript.bat" executionContext="elevated" taskType="simple" />      
+</Startup> 
 ```
 
 ## <a name="initialize-the-media-platform-on-service-startup"></a>서비스 시작 시 미디어 플랫폼 초기화
@@ -237,25 +238,25 @@ private Task OnIncomingCallReceived(RealTimeMediaIncomingCallEvent incomingCallE
 `AnswerAppHostedMedia` 작업이 완료되면 `OnAnswerAppHostedMediaCompleted`가 발생합니다. `AnswerAppHostedMediaOutcomeEvent`의 `Outcome` 속성은 성공 또는 실패를 나타냅니다. 호출을 설정할 수 없으면 봇이 해당 호출을 위해 만든 AudioSocket 및 VideoSocket 개체를 삭제해야 합니다.
 
 ## <a name="receive-audio-media"></a>오디오 미디어 수신
-오디오 수신 기능을 통해 `AudioSocket`을 만든 경우 오디오 프레임을 수신할 때마다 `AudioMediaReceived` 이벤트가 호출됩니다. 봇은 오디오 콘텐츠를 소싱하고 있는 피어에 관계없이 초당 약 50회 이러한 이벤트를 처리합니다(오디오가 피어로부터 수신되지 않으면 쾌적 노이즈 버퍼가 로컬로 생성되기 때문). 오디오 콘텐츠의 각 패킷은 `AudioMediaBuffer` 개체로 배달됩니다. 이 개체는 디코딩된 오디오 콘텐츠를 포함하는 기본 힙 할당 메모리 버퍼에 대한 포인터를 포함합니다. 
+오디오 수신 기능을 통해 `AudioSocket`을 만든 경우 오디오 프레임을 수신할 때마다 `AudioMediaReceived` 이벤트가 호출됩니다. 봇은 오디오 콘텐츠를 소싱하고 있는 피어에 관계없이 초당 약 50회 이러한 이벤트를 처리합니다(오디오가 피어로부터 수신되지 않으면 쾌적 노이즈 버퍼가 로컬로 생성되기 때문). 오디오 콘텐츠의 각 패킷은 `AudioMediaBuffer` 개체로 배달됩니다. 이 개체는 디코딩된 오디오 콘텐츠를 포함하는 기본 힙 할당 메모리 버퍼에 대한 포인터를 포함합니다. 
 
 ```cs
 void OnAudioMediaReceived(
-            object sender,
-            AudioMediaReceivedEventArgs args)
+            object sender,
+            AudioMediaReceivedEventArgs args)
 {
-   var buffer = args.Buffer;
+   var buffer = args.Buffer;
 
    // native heap-allocated memory containing decoded content
-   IntPtr rawData = buffer.Data;            
+   IntPtr rawData = buffer.Data;            
 }
 ```
 
-이벤트 처리기는 신속하게 반환해야 합니다. 응용 프로그램은 `AudioMediaBuffer`을 비동기로 처리되도록 큐에 넣는 것이 좋습니다. `OnAudioMediaReceived` 이벤트는 실시간 미디어 플랫폼으로 직렬화됩니다(즉 다음 이벤트는 현재 이벤트가 반환될 때까지 발생하지 않음). `AudioMediaBuffer`를 사용한 후에는 미디어 플랫폼에서 관리되지 않는 기본 메모리를 재청구할 수 있게 응용 프로그램이 버퍼의 Dispose 메서드를 호출해야 합니다. 
+이벤트 처리기는 신속하게 반환해야 합니다. 응용 프로그램은 `AudioMediaBuffer`을 비동기로 처리되도록 큐에 넣는 것이 좋습니다. `OnAudioMediaReceived` 이벤트는 실시간 미디어 플랫폼으로 직렬화됩니다(즉 다음 이벤트는 현재 이벤트가 반환될 때까지 발생하지 않음). `AudioMediaBuffer`를 사용한 후에는 미디어 플랫폼에서 관리되지 않는 기본 메모리를 재청구할 수 있게 응용 프로그램이 버퍼의 Dispose 메서드를 호출해야 합니다. 
 
 ```cs
-   // release/dispose buffer when done 
-   buffer.Dispose();
+   // release/dispose buffer when done 
+   buffer.Dispose();
 ```
 
 > [!IMPORTANT]
@@ -269,15 +270,15 @@ void OnAudioMediaReceived(
 
 ```cs
 void AudioSocket_OnSendStatusChanged(
-             object sender,
-             AudioSendStatusChangedEventArgs args)
+             object sender,
+             AudioSendStatusChangedEventArgs args)
 {
     switch (args.MediaSendStatus)
     {
     case MediaSendStatus.Active:
-        // notify bot to begin sending audio 
+        // notify bot to begin sending audio 
         break;
-     
+     
     case MediaSendStatus.Inactive:
         // notify bot to stop sending audio
         break;
@@ -294,19 +295,19 @@ void AudioSocket_OnSendStatusChanged(
 
 ```cs
 void VideoSocket_OnSendStatusChanged(
-            object sender,
-            VideoSendStatusChangedEventArgs args)
+            object sender,
+            VideoSendStatusChangedEventArgs args)
 {
     VideoFormat preferredVideoFormat;
 
     switch (args.MediaSendStatus)
     {
     case MediaSendStatus.Active:
-        // notify bot to begin sending audio 
+        // notify bot to begin sending audio 
         // bot is recommended to use this format for sourcing video content.
         preferredVideoFormat = args.PreferredVideoSourceFormat;
         break;
-     
+     
     case MediaSendStatus.Inactive:
         // notify bot to stop sending audio
         break;

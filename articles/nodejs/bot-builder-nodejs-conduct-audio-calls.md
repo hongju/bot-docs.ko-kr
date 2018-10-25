@@ -5,15 +5,16 @@ author: v-ducvo
 ms.author: v-ducvo
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 12/13/17
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 35af3a339a20fe0e7e70d001db035aec2647aa35
-ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
+ms.openlocfilehash: 9251307cb77cfb240e88c7ae44b13fe7e7fa2cdb
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42905322"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49998640"
 ---
 # <a name="support-audio-calls-with-skype"></a>Skype를 사용하여 음성 통화 지원
 

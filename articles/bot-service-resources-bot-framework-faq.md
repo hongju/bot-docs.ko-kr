@@ -5,14 +5,14 @@ author: DeniseMak
 ms.author: v-demak
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
 ms.date: 08/28/2018
-ms.openlocfilehash: f6a15d0c478bffce6fbae1a322ba9b108f760755
-ms.sourcegitcommit: 3cb288cf2f09eaede317e1bc8d6255becf1aec61
+ms.openlocfilehash: 2a78ec6f8c453bfcfa3b6aba0d73257f35db76b8
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47389822"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49997220"
 ---
 # <a name="bot-framework-frequently-asked-questions"></a>Bot Framework 질문과 대답
 

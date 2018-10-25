@@ -5,15 +5,16 @@ author: DeniseMak
 ms.author: v-demak
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 4203e9d7a9c5c8e6ab068def879747a4c6158367
-ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
+ms.openlocfilehash: 41e1e9e6fe59f00b8b8c873c2dd5fd2d698dabcb
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42904047"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49998190"
 ---
 # <a name="send-and-receive-attachments"></a>첨부 파일 보내기 및 받기
 
@@ -21,8 +22,8 @@ ms.locfileid: "42904047"
 
 > [!div class="op_single_selector"]
 > - [.NET](../dotnet/bot-builder-dotnet-add-media-attachments.md)
-> - [Node.js](../nodejs/bot-builder-nodejs-send-receive-attachments.md)
-> - [REST](../rest-api/bot-framework-rest-connector-add-media-attachments.md)
+> - [Node.JS](../nodejs/bot-builder-nodejs-send-receive-attachments.md)
+> - [REST (영문)](../rest-api/bot-framework-rest-connector-add-media-attachments.md)
 
 사용자와 봇 간의 메시지 교환에는 이미지, 비디오, 오디오 및 파일과 같은 미디어 첨부 파일이 포함될 수 있습니다. 전송될 수 있는 첨부 파일의 형식은 채널에 따라 다르지만 기본 형식은 다음과 같습니다.
 

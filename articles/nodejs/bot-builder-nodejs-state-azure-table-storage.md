@@ -5,15 +5,16 @@ author: DucVo
 ms.author: v-ducvo
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 84fdbecfe59db49e2e88567a6c942c300ea226a2
-ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
+ms.openlocfilehash: 5bf308c440e08cb3c9d4730212fbba3053de459d
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42904363"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49998342"
 ---
 # <a name="manage-custom-state-data-with-azure-table-storage-for-nodejs"></a>Node.js용 Azure Table Storage를 사용하여 사용자 지정 상태 데이터 관리
 

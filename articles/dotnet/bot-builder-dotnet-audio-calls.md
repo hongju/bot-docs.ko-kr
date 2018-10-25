@@ -5,15 +5,16 @@ author: RobStand
 ms.author: kamrani
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: dd40123ef641d3cef80525d466fd85ecab80654a
-ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
+ms.openlocfilehash: 0d0489c23cd24a7323ba0160d5e8e5e914be3011
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42904941"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49998857"
 ---
 # <a name="conduct-audio-calls-with-skype"></a>Skype를 사용하여 음성 통화 수행
 

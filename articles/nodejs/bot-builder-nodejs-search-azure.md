@@ -5,15 +5,16 @@ author: matthewshim-ms
 ms.author: v-shimma
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: e9f07cdd4616a2649dca31f096eca3377cd46b7d
-ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
+ms.openlocfilehash: 204fb5d8f4838c78d771bfad5c0ed6511b27932b
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42904237"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "50000000"
 ---
 # <a name="create-data-driven-experiences-with-azure-search"></a>Azure Search를 사용하여 데이터 기반 환경 만들기 
 
@@ -21,7 +22,7 @@ ms.locfileid: "42904237"
 
 > [!div class="op_single_selector"]
 > - [.NET](../dotnet/bot-builder-dotnet-search-azure.md)
-> - [Node.js](../nodejs/bot-builder-nodejs-search-azure.md)
+> - [Node.JS](../nodejs/bot-builder-nodejs-search-azure.md)
 
 봇에 [Azure Search][search]를 추가하여 사용자가 많은 양의 콘텐츠를 탐색하도록 도와주고, 봇의 사용자를 위한 데이터 기반 탐색 환경을 만들 수 있습니다.
 

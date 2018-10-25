@@ -5,14 +5,15 @@ author: RobStand
 ms.author: kamrani
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 12/13/2017
-ms.openlocfilehash: 36645ce3811c77a3ca7ed697eeae63027fa1644a
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: da81182d80ebac0d5aaba5a2660899d87c7e2b40
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39302507"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "50000220"
 ---
 # <a name="start-a-conversation"></a>대화 시작
 

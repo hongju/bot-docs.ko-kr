@@ -6,14 +6,15 @@ author: matvelloso
 ms.author: mateusv
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 12/13/2017
-ms.openlocfilehash: 223a822a1a309b8d89f0554eed241a4ae376ea23
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: f2a97b35f7e83a825e533be528951e8c04c521a1
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39301850"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49998087"
 ---
 # <a name="design-bot-navigation"></a>봇 탐색 디자인
 

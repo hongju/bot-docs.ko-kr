@@ -5,15 +5,16 @@ author: DucVo
 ms.author: v-ducvo
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 27e2840680b2c9551915057c1b431afa97236acc
-ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
+ms.openlocfilehash: 78f1660aaa91888655515d3402c8ad7702a5b6f6
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42906257"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49997130"
 ---
 # <a name="dialogs-in-the-bot-builder-sdk-for-nodejs"></a>Node.js용 Bot Builder SDK의 다이얼로그
 
@@ -21,7 +22,7 @@ ms.locfileid: "42906257"
 
 > [!div class="op_single_selector"]
 > - [.NET](../dotnet/bot-builder-dotnet-dialogs.md)
-> - [Node.js](../nodejs/bot-builder-nodejs-dialog-overview.md)
+> - [Node.JS](../nodejs/bot-builder-nodejs-dialog-overview.md)
 
 Node.js용 Bot Builder SDK의 다이얼로그를 사용하여 대화를 모델링하고 대화 흐름을 관리할 수 있습니다. 봇은 대화를 통해 사용자와 소통합니다. 대화는 다이얼로그로 구성됩니다. 다이얼로그는 폭포형 단계 및 프롬프트를 포함할 수 있습니다. 사용자가 봇과 상호 작용할 때 봇은 사용자 메시지에 대한 응답으로 다양한 다이얼로그를 시작 및 중지하고 다이얼로그 간을 전환합니다. 다이얼로그의 작동 방식을 이해하는 것이 뛰어난 봇을 성공적으로 디자인하고 만드는 데 핵심적입니다. 
 

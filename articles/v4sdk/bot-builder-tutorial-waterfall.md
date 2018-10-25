@@ -6,15 +6,16 @@ author: v-ducvo
 ms.author: v-ducvo
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 5/10/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 7546b46a0bbca86665538b47e8f7b05d5812a920
-ms.sourcegitcommit: 44f100a588ffda19c275b118f4f97029f12d1449
+ms.openlocfilehash: 84c86e9cc295cd2a1dce0857fa7ab629c219dab1
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2018
-ms.locfileid: "42928321"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49997480"
 ---
 # <a name="ask-the-user-questions"></a>사용자에게 질문하기
 

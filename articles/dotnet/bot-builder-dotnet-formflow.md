@@ -5,15 +5,16 @@ author: RobStand
 ms.author: kamrani
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: cf3d69f7941d8c3177788bd00e4b58416a71cf5e
-ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
+ms.openlocfilehash: f5b36e1f916539b78f9bdcdd0970317db723f408
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42904627"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "50000380"
 ---
 # <a name="basic-features-of-formflow"></a>FormFlow의 기본 기능
 

@@ -6,15 +6,16 @@ author: jonathanfingold
 ms.author: jonathanfingold
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 08/30/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 6b63fe2780c51e57ee16c5e3dba5a83f46566157
-ms.sourcegitcommit: 3bf3dbb1a440b3d83e58499c6a2ac116fe04b2f6
+ms.openlocfilehash: 4536bef820bc1e6e21ba2905fb643fe5608b3788
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/23/2018
-ms.locfileid: "46707285"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49999020"
 ---
 # <a name="create-a-bot-with-the-bot-builder-sdk-for-python"></a>Python용 Bot Builder SDK를 사용하여 봇 만들기
 
@@ -138,7 +139,7 @@ python main.py
 
 ## <a name="interact-with-your-bot"></a>봇과의 상호 작용
 
-봇에 메시지를 보내면 봇이 메시지를 통해 다시 응답하게 됩니다.
+봇에 메시지를 보내면 봇이 메시지를 통해 응답합니다.
 ![에뮬레이터 실행](../media/emulator-v4/emulator-running.png)
 
 

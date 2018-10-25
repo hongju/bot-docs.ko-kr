@@ -5,15 +5,16 @@ author: ssulzer
 ms.author: ssulzer
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: eed4ac20664d15fbc40969551a1f23fc91b4f120
-ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
+ms.openlocfilehash: cf11a68c7ccc404506fdfe01dcf12c7c421f4e2b
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42906227"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49998347"
 ---
 # <a name="real-time-media-calling-with-skype"></a>Skype를 사용한 실시간 미디어 호출
 

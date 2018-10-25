@@ -6,15 +6,16 @@ author: v-ducvo
 ms.author: v-ducvo
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 7/20/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 3014e6cd8b18ab44ff343373a034c392e44bca1d
-ms.sourcegitcommit: 3bf3dbb1a440b3d83e58499c6a2ac116fe04b2f6
+ms.openlocfilehash: 0b563197c111a37cf2f0f14fef183d52f38cca66
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/23/2018
-ms.locfileid: "46707369"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49999167"
 ---
 # <a name="prompt-users-for-input-using-your-own-prompts"></a>사용자 고유의 프롬프트를 사용하여 사용자 입력 요청
 

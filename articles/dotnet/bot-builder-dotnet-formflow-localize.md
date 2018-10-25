@@ -5,15 +5,16 @@ author: RobStand
 ms.author: kamrani
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 587e21049ed8c9c3259f04f929784153d06db40c
-ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
+ms.openlocfilehash: dbf2fd06d76b3e79fbcdd30891807ea71329bffd
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42904227"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49999060"
 ---
 # <a name="localize-form-content"></a>폼 콘텐츠 지역화
 
