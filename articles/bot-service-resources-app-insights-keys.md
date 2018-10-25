@@ -5,14 +5,15 @@ author: v-ducvo
 ms.author: v-ducvo
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: abs
 ms.date: 12/13/2017
-ms.openlocfilehash: 1ce24216cfd59259ff4869d4898fb3ad3bbf41c2
-ms.sourcegitcommit: abde9e0468b722892f94caf2029fae165f96092f
+ms.openlocfilehash: 87cdd27a3a413ae200273090d4a79b5edbc55dc1
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48875690"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49996910"
 ---
 # <a name="application-insights-keys"></a>Application Insights 키
 

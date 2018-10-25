@@ -6,15 +6,16 @@ author: ivorb
 ms.author: v-ivorb
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 09/10/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 87862e8fcbfa357c27a1c8fac0e8dd71d9bc2998
-ms.sourcegitcommit: bd4f9669c0d26ac2a4be1ab8e508f163a1f465f3
+ms.openlocfilehash: 35ec8968493eb024b2724d0729a8a2cd6e14ba82
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47430332"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "50000373"
 ---
 # <a name="add-media-to-messages"></a>메시지에 미디어 추가
 
@@ -142,7 +143,7 @@ await turnContext.sendActivity(reply);
 
 올바르게 작동하려면 카드의 클릭 가능한 각 항목에 작업 유형을 할당합니다. 이 표에서는 카드 작업 개체의 유형 속성에 대한 유효한 값을 나열하고 각 유형에 대한 값 속성의 예상 콘텐츠를 설명합니다.
 
-| 유형 | 값 |
+| type | 값 |
 | :---- | :---- |
 | openUrl | 기본 제공 브라우저에서 열리는 URL입니다. URL을 열어 탭 또는 클릭에 응답합니다. |
 | imBack | 단추를 클릭하거나 카드를 탭한 사용자에서 봇으로 전송할 메시지의 텍스트. 이 메시지(사용자에서 봇으로)는 대화를 호스트하고 있는 클라이언트 응용 프로그램을 통해 모든 대화 참가자에게 표시됩니다. |

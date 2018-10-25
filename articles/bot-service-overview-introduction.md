@@ -6,14 +6,14 @@ author: Kaiqb
 ms.author: kamrani
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
 ms.date: 10/08/2018
-ms.openlocfilehash: 750f348437f4e729ecc24317f1849b96c47d743a
-ms.sourcegitcommit: a3833dd173a30f3f0c1baa807e690a5778862d64
+ms.openlocfilehash: 3ca80439a44ac7e715d19f8e47683ac9b5a5721a
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48864028"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49998880"
 ---
 ::: moniker range="azure-bot-service-3.0"
 

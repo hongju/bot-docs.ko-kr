@@ -6,14 +6,15 @@ author: ivorb
 ms.author: v-ivorb
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 09/22/2018
-ms.openlocfilehash: 8c7f10f5f7ce507c367f12b01b4b28ff1cc01c0f
-ms.sourcegitcommit: d4afc924b0e1907c4d6f7a6fc5ac1fe521aeef7e
+ms.openlocfilehash: f5ca01b592266d005c8f000e2351ddcf812acb6d
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "47418825"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49997387"
 ---
 # <a name="connect-a-bot-to-channels"></a>채널에 봇 연결
 

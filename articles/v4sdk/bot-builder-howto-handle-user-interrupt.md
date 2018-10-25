@@ -6,16 +6,17 @@ author: ivorb
 ms.author: v-ivorb
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 09/20/2018
 ms.reviewer: ''
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 15c3ed60dacf1751e82c2bb0804cdd938f286f40
-ms.sourcegitcommit: 6c2426c43cd2212bdea1ecbbf8ed245145b3c30d
+ms.openlocfilehash: 74d4bb07274643d61da332d6ee1cdfb1a14372dc
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48852328"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49998430"
 ---
 # <a name="handle-user-interruptions"></a>사용자 중단 처리
 

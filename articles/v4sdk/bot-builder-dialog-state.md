@@ -6,15 +6,16 @@ author: johnataylor
 ms.author: johtaylo
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 9/21/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 0fb42643b195f55c8fae73f41b622377f8da2a5c
-ms.sourcegitcommit: d4afc924b0e1907c4d6f7a6fc5ac1fe521aeef7e
+ms.openlocfilehash: 4da715650eb1c3e7b284aaa47aa5ce4ac7280f4c
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47447328"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49998760"
 ---
 # <a name="dialog-state"></a>Dialog 상태
 

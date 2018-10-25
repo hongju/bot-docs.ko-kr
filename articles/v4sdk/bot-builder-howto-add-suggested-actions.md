@@ -6,15 +6,16 @@ author: Kaiqb
 ms.author: kamrani
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 03/13/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 1a42a127606ee72e16bd54eb507ecb4884996996
-ms.sourcegitcommit: bd4f9669c0d26ac2a4be1ab8e508f163a1f465f3
+ms.openlocfilehash: 88186d3c6c925220fba099a5983c86b305f2dcae
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47430322"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49997103"
 ---
 # <a name="add-suggested-actions-to-messages"></a>메시지에 제안된 동작 추가
 

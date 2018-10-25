@@ -6,15 +6,16 @@ author: ivorb
 ms.author: v-ivorb
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: tools
 ms.date: 09/18/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: c9bb7db964b891216ac5a169a57e0897ac98a6b2
-ms.sourcegitcommit: f0b22c6286e44578c11c9f15d22b542c199f0024
+ms.openlocfilehash: ef57cdf6a202679f9fc3a83e3e44640b43adb67f
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47404039"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49998364"
 ---
 # <a name="bot-builder-tools"></a>Bot Builder 도구
 
