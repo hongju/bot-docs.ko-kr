@@ -7,12 +7,12 @@ manager: kamrani
 ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/2017
-ms.openlocfilehash: dd8869c26a87718177462db2508e41aa82810e21
-ms.sourcegitcommit: f0b22c6286e44578c11c9f15d22b542c199f0024
+ms.openlocfilehash: ab7e6a8e6bbb2cf12fca0371f2de561f4fb47fd8
+ms.sourcegitcommit: b8bd66fa955217cc00b6650f5d591b2b73c3254b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47404079"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49326530"
 ---
 # <a name="design-knowledge-bots"></a>지식 봇 설계
 
@@ -129,7 +129,7 @@ Search, QnA Maker 및 LUIS는 그 자체로도 강력한 도구이지만, 결합
 2. 먼저 LUIS를 호출하고, 특정 임계값을 충족하는 의도가 없으면, 다시 말해서 "None" 의도가 트리거되면 QnA Maker를 호출합니다. 또는 QnA Maker에 대한 LUIS 의도를 만들고, LUIS 모델에 "QnAIntent"로 매핑되는 예제 QnA 질문을 제공합니다. 
 3. 먼저 QnA Maker를 호출하고, 특정 임계값을 충족하는 답변이 없으면 LUIS를 호출합니다. 
 
-Bot Builder SDK는 LUIS 및 QnA Maker를 기본적으로 지원합니다. 따라서 각 도구에 대한 사용자 지정 호출을 구현할 필요 없이 LUIS 및/또는 QnA Maker를 사용하여 대화 상자를 트리거하거나 자동으로 질문에 대답할 수 있습니다. 자세한 내용은 [봇 서비스 템플릿](bot-service-concept-templates.md)을 참조하세요.
+Bot Builder SDK는 LUIS 및 QnA Maker를 기본적으로 지원합니다. 따라서 각 도구에 대한 사용자 지정 호출을 구현할 필요 없이 LUIS 및/또는 QnA Maker를 사용하여 대화 상자를 트리거하거나 자동으로 질문에 대답할 수 있습니다. 자세한 내용은 [Bot Builder Dispatch 도구 자습서](https://docs.microsoft.com/en-us/azure/bot-service/bot-builder-tutorial-dispatch?view=azure-bot-service-4.0)를 참조하세요.
 
 > [!TIP]
 > LUIS, QnA Maker 및/또는 Azure Search 조합을 구현할 때 각 모델의 임계값 점수를 확인하는 도구를 사용하여 입력을 테스트하세요. LUIS, QnA Maker 및 Azure Search는 서로 다른 채점 기준을 사용하여 점수를 생성하므로 이러한 도구를 통해 생성된 점수를 직접 비교할 수 없습니다. 또한 LUIS와 QnA Maker는 점수를 정규화합니다. 특정 점수가 어떤 LUIS 모델에서는 '좋음'으로 간주되고 다른 모델에서는 그렇지 않을 수 있습니다. 

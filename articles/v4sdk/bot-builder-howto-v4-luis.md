@@ -7,182 +7,310 @@ ms.author: v-ivorb
 manager: kamrani
 ms.topic: article
 ms.prod: bot-framework
-ms.date: 09/19/18
+ms.date: 10/12/18
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: c4a7cfba6f588c95dbebf4886ffd7e432d99c3ae
-ms.sourcegitcommit: 3cb288cf2f09eaede317e1bc8d6255becf1aec61
+ms.openlocfilehash: 78654c78282c0a8e73dd17a093d27800f9fc8cb1
+ms.sourcegitcommit: b8bd66fa955217cc00b6650f5d591b2b73c3254b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47389804"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49326510"
 ---
 # <a name="using-luis-for-language-understanding"></a>Language Understanding에 LUIS 사용
 
 [!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
 
-사용자가 대화 및 컨텍스트를 통해 의미하는 바를 이해하는 기능을 구현하기가 어려울 수 있지만, 봇에 보다 자연스러운 대화 느낌을 제공할 수 있습니다. LUIS라고도 하는 Language Understanding을 사용하면 이와 같은 기능을 구현하여 봇이 사용자 메시지의 의도를 인식하고, 사용자가 보다 자연스러운 언어를 사용하고, 대화 흐름을 보다 원활하게 안내할 수 있습니다. LUIS가 봇과 통합되는 방식에 대한 자세한 배경 정보는 [봇용 Language Understanding](./bot-builder-concept-LUIS.md)을 참조하세요. 
+사용자가 대화 및 컨텍스트를 통해 의미하는 바를 이해하는 기능을 구현하기가 어려울 수 있지만, 봇에 보다 자연스러운 대화 느낌을 제공할 수 있습니다. LUIS라고도 하는 Language Understanding을 사용하면 이와 같은 기능을 구현하여 봇이 사용자 메시지의 의도를 인식하고, 사용자가 보다 자연스러운 언어를 사용하고, 대화 흐름을 보다 원활하게 안내할 수 있습니다. LUIS가 봇과 통합되는 방식에 대한 자세한 배경 정보는 [봇용 Language Understanding](./bot-builder-concept-LUIS.md)을 참조하세요.
 
-이 토픽에서는 LUIS를 사용하여 몇 가지 의도를 인식하는 간단한 봇을 설정하는 방법을 안내합니다.
+## <a name="prerequisites"></a>필수 조건
+이 토픽에서는 LUIS를 사용하여 몇 가지 의도를 인식하는 간단한 봇을 설정하는 방법을 안내합니다. 이 문서의 코드는 LUIS를 사용하는 NLP 샘플에 기반을 두고 [C#](https://aka.ms/cs-luis-sample) 및 [JavaScript](https://aka.ms/js-luis-sample)로 작성되었습니다.
 
-## <a name="installing-packages"></a>패키지 설치
+## <a name="create-a-luis-app-in-the-luis-portal"></a>LUIS 포털에서 LUIS 앱 만들기
 
-먼저 LUIS에 필요한 패키지가 있는지 확인합니다.
+먼저 [여기](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-how-to-start-new-app)에 나와 있는 지침에 따라 [luis.ai](https://www.luis.ai)에서 계정에 등록하고 LUIS 포털에서 LUIS 앱을 만듭니다. 이 문서에서 사용된 샘플 LUIS 앱을 직접 만들려면 LUIS 포털 내에서 이 `LUIS.Reminders.json` 파일([C#](https://github.com/Microsoft/BotBuilder-Samples/blob/v4/samples/csharp_dotnetcore/12.nlp-with-luis/CognitiveModels/LUIS-Reminders.json) | [JS](https://github.com/Microsoft/BotBuilder-Samples/blob/master/samples/javascript_nodejs/12.nlp-with-luis/cognitiveModels/reminders.json))을 [가져와](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/create-new-app#import-new-app) LUIS 앱을 빌드한 다음, [교육](https://docs.microsoft.com/en-us/azure/cognitive-services/LUIS/luis-how-to-train)시키고 [게시](https://docs.microsoft.com/en-us/azure/cognitive-services/LUIS/publishapp)합니다.
+
+### <a name="obtain-values-to-connect-to-your-luis-app"></a>LUIS 앱에 연결할 값 가져오기
+
+LUIS 앱이 게시되면 봇에서 액세스할 수 있습니다. 봇 내에서 LUIS 앱에 액세스하려면 여러 값을 기록해야 합니다. LUIS 포털 또는 CLI 도구를 사용하여 해당 정보를 검색할 수 있습니다.
+
+#### <a name="using-luis-portal"></a>LUIS 포털 사용
+- [luis.ai](https://www.luis.ai)에서 게시된 LUIS 앱을 선택합니다.
+- 게시된 LUIS 앱이 열리면 **관리** 탭을 선택합니다.
+- 왼쪽에서 **응용 프로그램 정보** 탭을 선택하고 _응용 프로그램 ID_에 <YOUR_APP_ID>로 표시되는 값을 기록합니다.
+- 왼쪽에서 **키 및 엔드포인트** 탭을 선택하고 _제작 키_에 <YOUR_AUTHORING_KEY>로 표시되는 값을 기록합니다. <YOUR_SUBSCRIPTION_KEY>가 <YOUR_AUTHORING_KEY>와 동일한지 확인합니다. 페이지 맨 아래로 스크롤하고 _지역_에 <YOUR_REGION>으로 표시되는 값을 기록하고, _엔드포인트_에 <YOUR_ENDPOINT>로 표시되는 값을 기록합니다.
+
+#### <a name="using-cli-tools"></a>CLI 도구 사용
+
+[luis](https://aka.ms/botbuilder-tools-luis) 및 [msbot](https://aka.ms/botbuilder-tools-msbot-readme) BotBuilder CLI 도구를 사용하여 LUIS 앱에 대한 메타데이터를 가져와서 **.bot** 파일에 추가할 수 있습니다.
+
+1. 터미널 또는 명령 프롬프트를 열고 봇 프로젝트의 루트 디렉터리로 이동합니다.
+2. `luis` 및 `msbot` 도구가 설치되었는지 확인합니다.
+
+    ```shell
+    npm install luis msbot
+    ```
+
+3. `luis init`를 실행하여 LUIS 리소스 파일(**.luisrc**)을 만듭니다. 메시지가 표시되면 LUIS 제작 키 및 지역을 제공합니다. 지금은 앱 ID를 입력할 필요가 없습니다.
+4. 다음 명령을 실행하여 메타데이터를 다운로드하고 봇의 구성 파일에 추가합니다.
+    구성 파일을 암호화한 경우 비밀 키를 제공하여 파일을 업데이트해야 합니다.
+
+    ```shell
+    luis get application --appId <your-app-id> --msbot | msbot connect luis --stdin [--secret <YOUR-SECRET>]
+    ```
+
+## <a name="configure-your-bot-to-use-your-luis-app"></a>LUIS 앱을 사용하도록 봇 구성
+
+봇을 초기화하면 LUIS 앱에 대한 참조가 먼저 추가됩니다. 그러면 봇 논리 내에서 호출할 수 있습니다.
+
+### <a name="prerequisite"></a>필수 요소
+
+코딩을 시작하기 전에 LUIS 앱에 필요한 패키지가 있는지 확인합니다.
 
 # <a name="ctabcs"></a>[C#](#tab/cs)
 
-다음과 같은 NuGet 패키지의 버전 v4에 [참조를 추가](https://docs.microsoft.com/en-us/nuget/tools/package-manager-ui)합니다.
+다음 [NuGet 패키지](https://docs.microsoft.com/en-us/nuget/tools/package-manager-ui)를 봇에 추가합니다.
 
-
-* `Microsoft.Bot.Builder.AI.LUIS`
+* `Microsoft.Bot.Builder.AI.Luis`
 
 # <a name="javascripttabjs"></a>[JavaScript](#tab/js)
 
-npm을 사용하여 프로젝트에 botbuilder 및 botbuilder-ai 패키지를 설치합니다.
+LUIS 기능은 `botbuilder-ai` 패키지에 있습니다. npm을 통해 프로젝트에 이 패키지를 추가할 수 있습니다.
 
-* `npm install --save botbuilder`
-* `npm install --save botbuilder-ai`
+```shell
+npm install --save botbuilder-ai
+```
 
 ---
 
-## <a name="set-up-your-luis-app"></a>LUIS 앱 설정
-
-먼저 [luis.ai](https://www.luis.ai)에서 만든 서비스인 _LUIS 앱_을 설정합니다. LUIS 앱이 특정 의도를 인식할 수 있도록 교육할 수 있습니다. LUIS 앱을 만드는 방법에 대한 자세한 내용은 LUIS 사이트를 참조하세요.
-
-이 예에서는 도움, 취소 및 날씨 의도를 인식할 수 있는 데모 LUIS 앱을 사용할 것이며, 앱 ID는 이미 샘플 코드에 있습니다. Cognitive Services 키가 필요합니다. 이 키는 [luis.ai](https://www.luis.ai)에 로그인하고 **사용자 설정** > **작성 키**에서 키를 복사하여 얻을 수 있습니다.
-
-> [!NOTE]
-> 이 예제에 사용되는 공용 LUIS 앱의 고유한 복사본을 만들려면 [JSON](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/simple-bot-example/FirstSimpleBotExample.json) LUIS 파일을 복사합니다. 그런 다음, LUIS 앱을 [가져오고](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/create-new-app#import-new-app), [교육](https://docs.microsoft.com/en-us/azure/cognitive-services/LUIS/luis-how-to-train)하고, [게시](https://docs.microsoft.com/en-us/azure/cognitive-services/LUIS/publishapp)합니다. 샘플 코드의 공용 앱 ID를 새 LUIS 앱의 앱 ID로 바꿉니다.
-
-
-### <a name="configure-your-bot-to-call-your-luis-app"></a>LUIS 앱을 호출하려면 봇을 구성합니다.
-
 # <a name="ctabcs"></a>[C#](#tab/cs)
 
-모든 전환에서 LUIS 앱을 만들고 호출할 수도 있지만 싱글톤으로 LUIS 서비스를 등록한 다음, 봇의 생성자에게 매개 변수로 전달하는 것이 더 나은 코딩 방법입니다. 해당 방법이 약간 더 복잡하므로 여기서 살펴보도록 하겠습니다.
+여기에 있는 [NLP LUIS 샘플 코드](https://aka.ms/cs-luis-sample)를 다운로드하여 엽니다. 필요에 따라 이 코드를 수정합니다. 
 
-Echo 봇 템플릿으로 시작하여 **Startup.cs**를 엽니다. 
-
-`Microsoft.Bot.Builder.AI.LUIS`에 대한 `using` 문을 추가합니다.
+먼저 응용 프로그램 ID, 제작 키, 구독 키, 엔드포인트 및 지역 등 LUIS 앱에 액세스하는 데 필요한 정보를 `BotConfiguration.bot` 파일에 추가합니다. 이는 이전에 게시된 LUIS 앱에서 저장한 값입니다.
 
 ```csharp
-// add this
-using Microsoft.Bot.Builder.AI.LUIS;
-```
-
-상태 초기화 뒤 `ConfigureServices`의 끝에 다음 코드를 추가합니다. 이렇게 하면 `appsettings.json` 파일에서 정보를 가져오지만 이러한 문자열은 이 문서의 끝에 연결되거나 테스트를 위해 하드 코딩된 샘플처럼 `.bot` 파일에서 가져올 수 있습니다.
-
-싱글톤은 생성자에게 새 `LuisRecognizer`를 반환합니다.
-
-```csharp
-    // Create and register a LUIS recognizer.
-    services.AddSingleton(sp =>
-    {
-        // Get LUIS information from appsettings.json.
-        var section = this.Configuration.GetSection("Luis");
-        var luisApp = new LuisApplication(
-            applicationId: section["AppId"],
-            endpointKey: section["SubscriptionKey"],
-            azureRegion: section["Region"]);
-
-        // Specify LUIS options. These may vary for your bot.
-        var luisPredictionOptions = new LuisPredictionOptions
-        {
-            IncludeAllIntents = true,
-        };
-
-        return new LuisRecognizer(
-            application: luisApp,
-            predictionOptions: luisPredictionOptions,
-            includeApiResults: true);
-    });
-```
-
-`<subscriptionKey>` 대신에 [luis.ai](https://www.luis.ai)의 사용자 구독 키를 붙여넣습니다. 이렇게 하면 오른쪽 위에서 계정 이름을 클릭하고 **작성 키**라고 하는 **설정**으로 이동하는 경우 즉시 알 수 있습니다.
-
-> [!NOTE]
-> 공용 LUIS 앱 대신 고유의 LUIS 앱을 사용하는 경우 [luis.ai](https://www.luis.ai)에서 ID, 구독 키 및 LUIS 앱의 URL을 가져올 수 있습니다. 이들은 사용자 앱 페이지의 **게시** 및 **설정** 탭 아래에 있을 수 있습니다.
->
->[luis.ai](https://www.luis.ai)에 로그인하고, **게시** 탭으로 이동하고, **리소스 및 키** 아래에서 **엔드포인트** 열을 살펴보면 `LuisModel`에 사용할 기본 URL을 찾을 수 있습니다. 기본 URL은 구독 ID 및 기타 매개 변수 앞에 있는 **엔드포인트 URL** 부분입니다.
-
-다음으로, 이 LUIS 인스턴스를 봇에 제공해야 합니다. **EchoBot.cs**을 열고, 파일의 맨 위에 다음 코드를 추가합니다. 참조용으로 클래스 제목 및 상태 항목도 포함되지만 여기서 설명하지는 않겠습니다.
-
-```csharp
-public class EchoBot : IBot
 {
-    /// <summary>
-    /// Gets the Echo Bot state.
-    /// </summary>
-    private IStatePropertyAccessor<EchoState> EchoStateAccessor { get; }
-
-    /// <summary>
-    /// Gets the LUIS recognizer.
-    /// </summary>
-    private LuisRecognizer Recognizer { get; } = null;
-
-    public EchoBot(ConversationState state, LuisRecognizer luis)
+  "name": "LuisBot",
+  "services": [
     {
-        EchoStateAccessor = state.CreateProperty<EchoState>("EchoBot.EchoState");
-
-        // The incoming luis variable is the LUIS Recognizer we added above.
-        this.Recognizer = luis ?? throw new ArgumentNullException(nameof(luis));
+      "type": "endpoint",
+      "name": "development",
+      "endpoint": "http://localhost:3978/api/messages",
+      "appId": "",
+      "appPassword": "",
+      "id": "1"
+    },
+    {
+      "type": "luis",
+      "name": "LuisBot",
+      "AppId": "<YOUR_APP_ID>",
+      "SubscriptionKey": "<YOUR_SUBSCRIPTION_KEY>",
+      "AuthoringKey": "<YOUR_AUTHORING_KEY>",
+      "GetEndpoint": "<YOUR_ENDPOINT>",
+      "Region": "<YOUR_REGION>"
     }
+  ],
+  "padlock": "",
+  "version": "2.0"
+}
+```
 
+다음으로, `.bot` 파일에서 위의 정보를 가져오는 BotService 클래스 `BotServices.cs`의 새 인스턴스를 초기화합니다. `BotServices.cs` 파일에 다음 코드를 추가합니다.
+
+```csharp
+public class BotServices
+{
+    /// Initializes a new instance of the BotServices class
+    public BotServices(BotConfiguration botConfiguration)
+    {
+        foreach (var service in botConfiguration.Services)
+        {
+            switch (service.Type)
+            {
+                case ServiceTypes.Luis:
+                {
+                    var luis = (LuisService)service;
+                    if (luis == null)
+                    {
+                        throw new InvalidOperationException("The LUIS service is not configured correctly in your '.bot' file.");
+                    }
+
+                    var app = new LuisApplication(luis.AppId, luis.AuthoringKey, luis.GetEndpoint());
+                    var recognizer = new LuisRecognizer(app);
+                    this.LuisServices.Add(luis.Name, recognizer);
+                    break;
+                    }
+                }
+            }
+        }
+
+    /// Gets the set of LUIS Services used.
+    /// LuisServices is represented as a dictionary.  
+    public Dictionary<string, LuisRecognizer> LuisServices { get; } = new Dictionary<string, LuisRecognizer>();
+}
+```
+
+그런 다음, `ConfigureServices` 내에 다음 코드를 추가하여 LUIS 앱을 `Startup.cs` 파일에 싱글톤으로 등록합니다.
+
+```csharp
+public void ConfigureServices(IServiceCollection services)
+{
+    var secretKey = Configuration.GetSection("botFileSecret")?.Value;
+    var botFilePath = Configuration.GetSection("botFilePath")?.Value;
+
+    // Loads .bot configuration file and adds a singleton that your Bot can access through dependency injection.
+    var botConfig = BotConfiguration.Load(botFilePath ?? @".\BotConfiguration.bot", secretKey);
+    services.AddSingleton(sp => botConfig ?? throw new InvalidOperationException($"The .bot config file could not be loaded. ({botConfig})"));
+
+    // Initialize Bot Connected Services clients.
+    var connectedServices = new BotServices(botConfig);
+    services.AddSingleton(sp => connectedServices);
+    services.AddSingleton(sp => botConfig);
+
+    services.AddBot<LuisBot>(options =>
+    {
+        // Retrieve current endpoint.
+        var environment = _isProduction ? "production" : "development";
+        var service = botConfig.Services.Where(s => s.Type == "endpoint" && s.Name == environment).FirstOrDefault();
+        if (!(service is EndpointService endpointService))
+        {
+            throw new InvalidOperationException($"The .bot file does not contain an endpoint with name '{environment}'.");
+        }
+
+        options.CredentialProvider = new SimpleCredentialProvider(endpointService.AppId, endpointService.AppPassword);
+
+        // Creates a logger for the application to use.
+        ILogger logger = _loggerFactory.CreateLogger<LuisBot>();
+
+        // Catches any errors that occur during a conversation turn and logs them.
+        options.OnTurnError = async (context, exception) =>
+        {
+            logger.LogError($"Exception caught : {exception}");
+            await context.SendActivityAsync("Sorry, it looks like something went wrong.");
+        };
+        /// ...
+    });
+}
+```
+
+다음으로, 이 LUIS 인스턴스를 봇에 제공해야 합니다. `LuisBot.cs`를 열고 파일 맨 위에 다음 코드를 추가합니다.
+
+```csharp
+public class LuisBot : IBot
+{
+    public static readonly string LuisKey = "LuisBot";
+    private const string WelcomeText = "This bot will introduce you to natural language processing with LUIS. Type an utterance to get started";
+
+    /// Services configured from the ".bot" file.
+    private readonly BotServices _services;
+
+    /// Initializes a new instance of the LuisBot class.
+    public LuisBot(BotServices services)
+    {
+        _services = services ?? throw new System.ArgumentNullException(nameof(services));
+        if (!_services.LuisServices.ContainsKey(LuisKey))
+        {
+            throw new System.ArgumentException($"Invalid configuration. Please check your '.bot' file for a LUIS service named '{LuisKey}'.");
+        }
+    }
     /// ...
+}
 ```
 
 # <a name="javascripttabjs"></a>[JavaScript](#tab/js)
 
-먼저, JavaScript [빠른 시작](../javascript/bot-builder-javascript-quickstart.md)의 단계를 따라 봇을 만듭니다. 여기서 LUIS 정보를 봇에 하드 코딩하지만 이 문서의 끝에 연결된 샘플에서 수행된 것처럼 `.bot` 파일에서 LUIS 정보를 끌어올 수 있습니다.
+이 샘플에서 시작 코드는 **index.js** 파일에 있으며, 봇 논리의 코드는 **bot.js** 파일에 있고, 추가 구성 정보는 **nlp-with-luis.bot** 파일에 있습니다.
 
-새 봇에서 **app.js**를 편집하여 `LuisRecognizer` 클래스를 요구하고 LUIS 모델에 사용할 인스턴스를 만듭니다.
+LUIS 앱을 만들고 **.bot** 파일을 업데이트하는 방법에 대한 지침에 따라 **nlp-with-luis.bot** 파일에 LUIS 앱의 서비스 항목도 포함되어야 합니다.
+
+```json
+{
+    "name": "YOUR_LUIS_APP_NAME",
+    "description": "",
+    "services": [
+        {
+            "type": "endpoint",
+            "name": "development",
+            "endpoint": "http://localhost:3978/api/messages",
+            "appId": "",
+            "appPassword": "",
+            "id": "35"
+        },
+        {
+            "type": "luis",
+            "name": "YOUR_LUIS_APP_NAME",
+            "appId": "<YOUR_APP_ID>",
+            "version": "0.1",
+            "authoringKey": "<YOUR_AUTHORING_KEY>",
+            "subscriptionKey": "<YOUR_SUBSCRIPTION_KEY>>",
+            "region": "<YOUR_REGION>",
+            "id": "83"
+        }
+    ],
+    "padlock": "",
+    "version": "2.0"
+}
+```
+
+**index.js** 파일에서 구성 정보를 읽어들여 LUIS 서비스를 생성하고 봇을 초기화합니다.
+`LUIS_CONFIGURATION` 값을 구성 파일에 표시되는 LUIS 앱의 이름으로 업데이트합니다.
 
 ```javascript
-const { ActivityTypes } = require('botbuilder');
-const { LuisRecognizer } = require('botbuilder-ai');
+// Language Understanding (LUIS) service name as defined in the .bot file.YOUR_LUIS_APP_NAME is "LuisBot" in the C# code.
+const LUIS_CONFIGURATION = '<YOUR_LUIS_APP_NAME>';
 
+// Get endpoint and LUIS configurations by service name.
+const endpointConfig = botConfig.findServiceByNameOrId(BOT_CONFIGURATION);
+const luisConfig = botConfig.findServiceByNameOrId(LUIS_CONFIGURATION);
+
+// Map the contents to the required format for `LuisRecognizer`.
 const luisApplication = {
-    // This appID is for a public app that's made available for demo purposes
-    // You can use it or use your own LUIS "Application ID" at https://www.luis.ai under "App Settings".
-     applicationId: 'eb0bf5e0-b468-421b-9375-fdfb644c512e',
-    // Replace endpointKey with your "Subscription Key"
-    // your key is at https://www.luis.ai under Publish > Resources and Keys, look in the Endpoint column
-    // The "subscription-key" is embeded in the Endpoint link. 
-    endpointKey: '<your subscription key>',
-    // You can find your app's region info embeded in the Endpoint link as well.
-    // Some examples of regions are `westus`, `westcentralus`, `eastus2`, and `southeastasia`.
-    azureRegion: 'westus'
-}
+    applicationId: luisConfig.appId,
+    endpointKey: luisConfig.subscriptionKey || luisConfig.authoringKey,
+    azureRegion: luisConfig.region
+};
 
 // Create configuration for LuisRecognizer's runtime behavior.
 const luisPredictionOptions = {
     includeAllIntents: true,
     log: true,
     staging: false
-}
+};
 
-// Create the bot that handles incoming Activities.
-const luisBot = new LuisBot(luisApplication, luisPredictionOptions);
+// Create adapter...
+
+// Create the LuisBot.
+let bot;
+try {
+    bot = new LuisBot(luisApplication, luisPredictionOptions);
+} catch (err) {
+    console.error(`[botInitializationError]: ${ err }`);
+    process.exit();
+}
 ```
 
-그런 다음, `LuisBot` 봇의 생성자에서 응용 프로그램을 가져와 LuisRecognizer 인스턴스를 만듭니다.
+그런 다음, HTTP 서버를 만들고 수신 요청을 대시하면 봇 논리에 대한 호출이 생성됩니다.
 
 ```javascript
-    /**
-     * The LuisBot constructor requires one argument (`application`) which is used to create an instance of `LuisRecognizer`.
-     * @param {object} luisApplication The basic configuration needed to call LUIS. In this sample the configuration is retrieved from the .bot file.
-     * @param {object} luisPredictionOptions (Optional) Contains additional settings for configuring calls to LUIS.
-     */
-    constructor(application, luisPredictionOptions) {
-        this.luisRecognizer = new LuisRecognizer(application, luisPredictionOptions, true);
-    }
-```
+// Create HTTP server.
+let server = restify.createServer();
+server.listen(process.env.port || process.env.PORT || 3978, function() {
+    console.log(`\n${ server.name } listening to ${ server.url }.`);
+    console.log(`\nGet Bot Framework Emulator: https://aka.ms/botframework-emulator.`);
+    console.log(`\nTo talk to your bot, open nlp-with-luis.bot file in the emulator.`);
+});
 
-> [!NOTE] 
-> 공용 LUIS 앱 대신 고유의 LUIS 앱을 사용하는 경우 [https://www.luis.ai](https://www.luis.ai)에서 ID, 구독 키 및 LUIS 앱의 지역을 가져올 수 있습니다. 이들은 사용자 앱 페이지의 게시 및 설정 탭 아래에 있을 수 있습니다.
+// Listen for incoming requests.
+server.post('/api/messages', (req, res) => {
+    adapter.processActivity(req, res, async(turnContext) => {
+        await bot.onTurn(turnContext);
+    });
+});
+```
 
 ---
 
-LUIS Language Understanding이 이제 봇에 구성되었습니다. 다음으로, LUIS에서 의도를 가져오는 방법을 살펴보겠습니다.
+이제 봇에 LUIS가 구성되었습니다. 다음으로, LUIS에서 의도를 가져오는 방법을 살펴보겠습니다.
 
 ## <a name="get-the-intent-by-calling-luis"></a>LUIS 호출하여 의도 가져오기
 
@@ -193,120 +321,106 @@ LUIS Language Understanding이 이제 봇에 구성되었습니다. 다음으로
 봇이 LUIS 앱에서 검색한 의도에 따라 응답을 보내게 하려면 `LuisRecognizer`를 호출하여 `RecognizerResult`를 가져옵니다. 이 작업은 LUIS 의도를 가져와야 할 때마다 코드 내에서 수행될 수 있습니다.
 
 ```cs
-using System.Threading.Tasks;
-using Microsoft.Bot;
-using Microsoft.Bot.Builder;
-using Microsoft.Bot.Builder.Core.Extensions;
-using Microsoft.Bot.Schema;
-// add this reference
-using Microsoft.Bot.Builder.AI.LUIS;
+public async Task OnTurnAsync(ITurnContext turnContext, CancellationToken cancellationToken = default(CancellationToken))
 
-namespace EchoBot
 {
-    public class EchoBot : IBot
+    if (turnContext.Activity.Type == ActivityTypes.Message)
     {
-        /// <summary>
-        /// Echo bot turn handler 
-        /// </summary>
-        /// <param name="context">Turn scoped context containing all the data needed
-        /// for processing this conversation turn. </param>        
-        public async Task OnTurnAsync(ITurnContext context, System.Threading.CancellationToken token)
-        {            
-            // This bot is only handling Messages
-            if (context.Activity.Type == ActivityTypes.Message)
-            {
-                // Call LUIS recognizer
-                var result = this.Recognizer.RecognizeAsync(context, System.Threading.CancellationToken.None);
-                
-                var topIntent = result?.GetTopScoringIntent();
-
-                switch ((topIntent != null) ? topIntent.Value.intent : null)
-                {
-                    case null:
-                        await context.SendActivity("Failed to get results from LUIS.");
-                        break;
-                    case "None":
-                        await context.SendActivity("Sorry, I don't understand.");
-                        break;
-                    case "Help":
-                        await context.SendActivity("<here's some help>");
-                        break;
-                    case "Cancel":
-                        // Cancel the process.
-                        await context.SendActivity("<cancelling the process>");
-                        break;
-                    case "Weather":
-                        // Report the weather.
-                        await context.SendActivity("The weather today is sunny.");
-                        break;
-                    default:
-                        // Received an intent we didn't expect, so send its name and score.
-                        await context.SendActivity($"Intent: {topIntent.Value.intent} ({topIntent.Value.score}).");
-                        break;
-                }
-            }
+        // Check LUIS model
+        var recognizerResult = await _services.LuisServices[LuisKey].RecognizeAsync(turnContext, cancellationToken);
+        var topIntent = recognizerResult?.GetTopScoringIntent();
+        if (topIntent != null && topIntent.HasValue && topIntent.Value.intent != "None")
+        {
+            await turnContext.SendActivityAsync($"==>LUIS Top Scoring Intent: {topIntent.Value.intent}, Score: {topIntent.Value.score}\n");
         }
-    }    
+        else
+        {
+            var msg = @"No LUIS intents were found.
+                        This sample is about identifying two user intents:
+                        'Calendar.Add'
+                        'Calendar.Find'
+                        Try typing 'Add Event' or 'Show me tomorrow'.";
+            await turnContext.SendActivityAsync(msg);
+        }
+        }
+        else if (turnContext.Activity.Type == ActivityTypes.ConversationUpdate)
+        {
+            // Send a welcome message to the user and tell them what actions they may perform to use this bot
+            await SendWelcomeMessageAsync(turnContext, cancellationToken);
+        }
+        else
+        {
+            await turnContext.SendActivityAsync($"{turnContext.Activity.Type} event detected", cancellationToken: cancellationToken);
+        }
 }
-
 ```
 
-발언에서 인식된 의도는 의도 이름 맵으로 점수에 반환되며 `result.Intents`에서 액세스할 수 있습니다. 정적 `LuisRecognizer.topIntent()` 메서드는 결과 집합에 대한 최고점 의도를 간단하게 찾을 수 있도록 도와주기 위해 제공됩니다.
+발언에서 인식된 의도는 의도 이름 맵으로 점수에 반환되며 `recognizerResult.Intents`에서 액세스할 수 있습니다. 정적 `recognizerResult?.GetTopScoringIntent()` 메서드는 결과 집합에 대한 최고점 의도를 간단하게 찾을 수 있도록 도와주기 위해 제공됩니다.
 
-인식된 엔터티는 엔터티 이름의 맵으로 값에 반환되며 `results.entities`를 사용하여 액세스할 수 있습니다. LuisRecognizer를 만들 때 `verbose=true` 설정을 전달하여 추가 엔터티 메타데이터를 반환할 수 있습니다. 추가된 메타데이터는 `results.entities.$instance`를 사용하여 액세스할 수 있습니다.
+인식된 엔터티는 엔터티 이름의 맵으로 값에 반환되며 `recognizerResults.entities`를 사용하여 액세스할 수 있습니다. LuisRecognizer를 만들 때 `verbose=true` 설정을 전달하여 추가 엔터티 메타데이터를 반환할 수 있습니다. 추가된 메타데이터는 `recognizerResults.entities.$instance`를 사용하여 액세스할 수 있습니다.
 
 # <a name="javascripttabjs"></a>[JavaScript](#tab/js)
 
-들어오는 활동을 수신 대기하는 코드를 편집함으로써 `LuisRecognizer`를 호출하여 `RecognizerResult`를 가져올 수 있습니다.
+**bot.js** 파일에서 LUIS 인식기의 `recognize` 메서드에 사용자 입력을 전달하여 LUIS 앱에서 응답을 가져옵니다.
 
 ```javascript
 const { ActivityTypes } = require('botbuilder');
 const { LuisRecognizer } = require('botbuilder-ai');
 
-// Listen for incoming requests 
-server.post('/api/messages', (req, res) => {
-    // Route received request to adapter for processing
-    adapter.processActivity(req, res, async (context) => {
-        if (context.activity.type === 'message') {
+/**
+ * A simple bot that responds to utterances with answers from the Language Understanding (LUIS) service.
+ * If an answer is not found for an utterance, the bot responds with help.
+ */
+class LuisBot {
+    /**
+     * The LuisBot constructor requires one argument (`application`) which is used to create an instance of `LuisRecognizer`.
+     * @param {LuisApplication} luisApplication The basic configuration needed to call LUIS. In this sample the configuration is retrieved from the .bot file.
+     * @param {LuisPredictionOptions} luisPredictionOptions (Optional) Contains additional settings for configuring calls to LUIS.
+     */
+    constructor(application, luisPredictionOptions, includeApiResults) {
+        this.luisRecognizer = new LuisRecognizer(application, luisPredictionOptions, true);
+    }
+
+    /**
+     * Every conversation turn calls this method.
+     * @param {TurnContext} turnContext Contains all the data needed for processing the conversation turn.
+     */
+    async onTurn(turnContext) {
+        // By checking the incoming Activity type, the bot only calls LUIS in appropriate cases.
+        if (turnContext.activity.type === ActivityTypes.Message) {
             // Perform a call to LUIS to retrieve results for the user's message.
             const results = await this.luisRecognizer.recognize(turnContext);
 
             // Since the LuisRecognizer was configured to include the raw results, get the `topScoringIntent` as specified by LUIS.
             const topIntent = results.luisResult.topScoringIntent;
-            
-            switch (topIntent) {
-                case 'None':
-                    await context.sendActivity("Sorry, I don't understand.")
-                    break;
-                case 'Cancel':
-                    await context.sendActivity("<cancelling the process>")
-                    break;
-                case 'Help':
-                    await context.sendActivity("<here's some help>");
-                    break;
-                case 'Weather':
-                    await context.sendActivity("The weather today is sunny.");
-                    break;                        
-                case 'null':
-                    await context.sendActivity("Failed to get results from LUIS.")
-                    break;
-                default:
-                    // Received an intent we didn't expect, so send its name and score.
-                    await context.sendActivity(`The top intent was ${topIntent}`);
+
+            if (topIntent.intent !== 'None') {
+                await turnContext.sendActivity(`LUIS Top Scoring Intent: ${ topIntent.intent }, Score: ${ topIntent.score }`);
+            } else {
+                // If the top scoring intent was "None" tell the user no valid intents were found and provide help.
+                await turnContext.sendActivity(`No LUIS intents were found.
+                                                \nThis sample is about identifying two user intents:
+                                                \n - 'Calendar.Add'
+                                                \n - 'Calendar.Find'
+                                                \nTry typing 'Add Event' or 'Show me tomorrow'.`);
             }
+        } else if (turnContext.activity.type === ActivityTypes.ConversationUpdate &&
+            turnContext.activity.recipient.id !== turnContext.activity.membersAdded[0].id) {
+            // If the Activity is a ConversationUpdate, send a greeting message to the user.
+            await turnContext.sendActivity('Welcome to the NLP with LUIS sample! Send me a message and I will try to predict your intent.');
+        } else if (turnContext.activity.type !== ActivityTypes.ConversationUpdate) {
+            // Respond to all other Activity types.
+            await turnContext.sendActivity(`[${ turnContext.activity.type }]-type activity detected.`);
         }
-    });
-});
+    }
+}
+
+module.exports.LuisBot = LuisBot;
 ```
 
-발언에서 인식된 의도는 의도 이름 맵으로 점수에 반환되며 `results.intents`에서 액세스할 수 있습니다. 정적 `LuisRecognizer.topIntent()` 메서드는 결과 집합에 대한 최고점 의도를 간단하게 찾을 수 있도록 도와주기 위해 제공됩니다.
-
+LUIS 인식기는 발언이 사용 가능한 의도와 일치하는 정도에 대한 정보를 반환합니다. 결과 개체의 `luisResult.intents` 속성에는 채점된 의도의 배열이 포함됩니다. 결과 개체의 `luisResult.topScoringIntent` 속성에는 최고 점수의 의도와 점수가 포함됩니다.
 
 ---
-
-Bot Framework 에뮬레이터에서 봇을 실행하여 "날씨", "도움말", "취소" 등을 봇에 말합니다.
-
-![봇 실행](./media/how-to-luis/run-luis-bot.png)
 
 ## <a name="extract-entities"></a>엔터티 추출
 
@@ -314,9 +428,10 @@ Bot Framework 에뮬레이터에서 봇을 실행하여 "날씨", "도움말", "
 
 대화를 구성하는 일반적인 방법은 사용자의 메시지에서 엔터티를 식별하고, 찾지 못한 필수 엔터티에 대한 프롬프트를 표시하는 것입니다. 그런 다음, 후속 단계에서 해당 프롬프트에 대한 응답을 처리합니다.
 
-# <a name="ctabcs"></a>[C#](#tab/cs)
+<!--Snip
+# [C#](#tab/cs)
 
-사용자의 메시지가 "시애틀 날씨가 어때?"라고 가정해 봅시다. `LuisRecognizer`는 이 구조로 된 `Entities` 속성을 사용하여 `RecognizerResult`를 제공합니다.
+Let's say the message from the user was "What's the weather in Seattle"? The [LuisRecognizer](https://docs.microsoft.com/en-us/dotnet/api/microsoft.bot.builder.ai.luis.luisrecognizer) gives you a [RecognizerResult](https://docs.microsoft.com/en-us/dotnet/api/microsoft.bot.builder.core.extensions.recognizerresult) with an [`Entities` property](https://docs.microsoft.com/en-us/dotnet/api/microsoft.bot.builder.core.extensions.recognizerresult#properties-) that has this structure:
 
 ```json
 {
@@ -336,7 +451,7 @@ Bot Framework 에뮬레이터에서 봇을 실행하여 "날씨", "도움말", "
 }
 ```
 
-다음 도우미 함수를 봇에 추가하여 LUIS의 `RecognizerResult`에서 엔터티를 가져올 수 있습니다. **using** 문에 추가해야 할 `Newtonsoft.Json.Linq` 라이브러리를 사용해야 합니다.
+The following helper function can be added to your bot to get entities out of the `RecognizerResult` from LUIS. It will require the use of the `Newtonsoft.Json.Linq` library, which you'll have to add to your **using** statements.
 
 ```cs
 // Get entities from LUIS result
@@ -351,11 +466,11 @@ private T GetEntity<T>(RecognizerResult luisResult, string entityKey)
 }
 ```
 
-대화의 여러 단계에서 엔터티 같은 정보를 수집할 때 필요한 정보를 상태에 저장하면 도움이 될 수 있습니다. 엔터티를 발견한 경우 적절한 상태 필드에 추가할 수 있습니다. 대화에서 현재 단계가 이미 연결된 필드를 완료한 경우 해당 정보에 대한 프롬프트를 표시하는 단계는 건너뛸 수 있습니다.
+When gathering information like entities from multiple steps in a conversation, it can be helpful to save the information you need in your state. If an entity is found, it can be added to the appropriate state field. In your conversation if the current step already has the associated field completed, the step to prompt for that information can be skipped.
 
-# <a name="javascripttabjs"></a>[JavaScript](#tab/js)
+# [JavaScript](#tab/js)
 
-사용자의 메시지가 "시애틀 날씨가 어때?"라고 가정해 봅시다. `LuisRecognizer`는 이 구조로 된 `entities` 속성을 사용하여 `RecognizerResult`를 제공합니다.
+Let's say the message from the user was "What's the weather in Seattle"? The [LuisRecognizer](https://docs.microsoft.com/en-us/javascript/api/botbuilder-ai/luisrecognizer) gives you a [RecognizerResult](https://docs.microsoft.com/en-us/javascript/api/botbuilder-core-extensions/recognizerresult) with an `entities` property that has this structure:
 
 ```json
 {
@@ -375,8 +490,7 @@ private T GetEntity<T>(RecognizerResult luisResult, string entityKey)
 }
 ```
 
-이 `findEntities` 함수는 들어오는 `entityName`과 일치하는 LUIS 앱에서 인식한 모든 엔터티를 찾습니다.
-
+This `findEntities` function looks for any entities recognized by the LUIS app that match the incoming `entityName`.
 
 ```javascript
 // Helper function for finding a specified entity
@@ -391,6 +505,7 @@ function findEntities(entityName, entityResults) {
     return entities.length > 0 ? entities : undefined;
 }
 ```
+/Snip-->
 
 대화의 여러 단계에서 엔터티 같은 정보를 수집할 때 필요한 정보를 상태에 저장하면 도움이 될 수 있습니다. 엔터티를 발견한 경우 적절한 상태 필드에 추가할 수 있습니다. 대화에서 현재 단계가 이미 연결된 필드를 완료한 경우 해당 정보에 대한 프롬프트를 표시하는 단계는 건너뛸 수 있습니다.
 

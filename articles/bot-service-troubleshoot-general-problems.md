@@ -7,12 +7,12 @@ manager: kamrani
 ms.topic: article
 ms.prod: bot-framework
 ms.date: 09/26/2018
-ms.openlocfilehash: 410f50f02dcea2bb64ccf0389e20f5cb76e2fd6b
-ms.sourcegitcommit: 3cb288cf2f09eaede317e1bc8d6255becf1aec61
+ms.openlocfilehash: 42273044cd1e32a3c78fa7fb1b83beac061ce0b8
+ms.sourcegitcommit: aef7d80ceb9c3ec1cfb40131709a714c42960965
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47389842"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49383178"
 ---
 # <a name="troubleshooting-general-problems"></a>일반 문제 해결
 이 질문과 대답은 일반 봇 개발 또는 운영 문제를 해결할 수 있습니다.
@@ -39,10 +39,7 @@ Visual Studio 2017에서 **디버그** > **Windows** > **예외 설정**으로 �
 Visual Studio에서 [내 코드만](https://msdn.microsoft.com/en-us/library/dn457346.aspx) 디버그할지 여부를 선택할 수 있습니다. 전체 호출 스택을 검사하면 문제에 대한 추가 정보를 제공할 수 있습니다.
 
 **모든 대화 메서드가 다음 메시지 처리를 위한 계획으로 종료되는지 확인합니다.**  
-모든 `IDialog` 메서드는 `IDialogStack.Call`, `IDialogStack.Wait` 또는 `IDialogStack.Done`으로 완료되어야 합니다. 이러한 `IDialogStack` 메서드는 모든 `IDialog` 메서드에 전달되는 `IDialogContext`를 통해 공개됩니다. `IDialogStack.Forward` 호출 및 `PromptDialog` 정적 메서드를 통한 시스템 프롬프트 사용은 구현에서 이러한 메서드 중 하나를 호출합니다.
-
-**모든 대화를 직렬화할 수 있는지 확인합니다.**  
-이것은 `IDialog` 구현에서는 `[Serializable]` 특성을 사용하는 것처럼 간단할 수 있습니다. 그러나 변수를 캡처하기 위해 외부 환경을 참조할 경우 무명 메서드 종료를 직렬화할 수 없습니다. Bot Framework는 직렬화 가능으로 표시된 직렬화 유형을 지원하기 위해 리플렉션 기반 직렬화 서로게이트를 지원합니다.
+모든 대화 상자 단계는 폭포의 다음 단계로 제공되거나 현재 대화 상자를 종료하고 스택에 팝업 메시지로 표시되어야 합니다. 단계가 올바르게 처리되지 않으면 대화가 예상대로 진행되지 않습니다. 대화 상자에 대한 자세한 내용을 보려면 [대화 상자](v4sdk/bot-builder-concept-dialog.md)에 대한 개념 문서를 살펴보세요.
 
 ## <a name="why-doesnt-the-typing-activity-do-anything"></a>입력 작업이 아무 것도 수행하지 않는 이유는 무엇인가요?
 일부 채널은 클라이언트에서 일시적 입력 업데이트를 지원하지 않습니다.
@@ -54,7 +51,14 @@ Connector 라이브러리는 REST API의 표시입니다. Builder 라이브러�
 ## <a name="what-causes-an-error-with-http-status-code-429-too-many-requests"></a>HTTP 상태 코드 429 "요청이 너무 많음"이 발생하는 이유는 무엇인가요?
 
 HTTP 상태 코드 429가 있는 오류 응답은 일정 시간 동안 실행된 요청이 너무 많음을 의미합니다. 응답 본문에 문제에 대한 설명이 포함되며 요청 사이의 최소 필요 간격도 지정할 수 있습니다. 이 오류의 가능한 원인 중 하나는 [ngrok](https://ngrok.com/)입니다. 무료 요금제를 사용 중이며 ngrok를 한도까지 실행한 경우 해당 웹 사이트의 가격 책정 및 한도 페이지로 이동하여 자세한 [옵션](https://ngrok.com/product#pricing)을 참조하세요. 
- 
+
+## <a name="why-arent-my-bot-messages-getting-received-by-the-user"></a>사용자가 내 봇 메시지를 수신하지 못하는 이유는 무엇인가요?
+
+응답에서 생성된 메시지 활동의 주소는 올바르게 지정되어야 하며, 그렇지 않으면 원하는 대상에 도착하지 않습니다. 대부분의 경우 이를 명시적으로 처리할 필요가 없습니다. SDK는 메시지 활동의 주소 지정 작업을 자동으로 처리합니다. 
+
+활동의 주소를 올바르게 지정하려면 적절한 *대화 참조* 세부 정보와 발신자 및 수신자에 대한 세부 정보를 포함해야 합니다. 대부분의 경우 메시지 활동은 도착한 활동에 대한 응답으로 전송됩니다. 따라서 인바운드 활동에서 주소 지정 정보를 가져올 수 있습니다. 
+
+추적 또는 감사 로그를 살펴보면 메시지의 주소가 올바르게 지정되었는지 확인할 수 있습니다. 올바르게 지정되지 않은 경우 봇에 중단점을 설정하고, 메시지에 ID가 설정되는지 확인하세요.
 
 ## <a name="how-can-i-run-background-tasks-in-aspnet"></a>ASP.NET에서 백그라운드 작업은 어떻게 실행하나요? 
 
@@ -77,7 +81,7 @@ Bot Framework는 가능한 메시지를 순서대로 유지합니다. 예를 들
 
 ## <a name="how-can-i-intercept-all-messages-between-the-user-and-my-bot"></a>사용자와 내 봇 간의 모든 메시지를 어떻게 가로챌 수 있나요?
 
-.NET용 Bot Builder SDK를 사용하여 `IPostToBot` 및 `IBotToUser` 인터페이스의 구현을 `Autofac` 종속성 주입 컨테이너에 제공할 수 있습니다. Node.js용 Bot Builder SDK를 사용하여 거의 같은 용도로 미들웨어를 사용할 수 있습니다. [BotBuilder-Azure](https://github.com/Microsoft/BotBuilder-Azure) 리포지토리에는 이 데이터를 Azure 테이블에 기록하는 C# 및 Node.js 라이브러리가 포함되어 있습니다.
+.NET용 Bot Builder SDK를 사용하여 `IPostToBot` 및 `IBotToUser` 인터페이스의 구현을 `Autofac` 종속성 주입 컨테이너에 제공할 수 있습니다. 임의 언어용 Bot Builder SDK를 사용하여 거의 같은 용도로 미들웨어를 사용할 수 있습니다. [BotBuilder-Azure](https://github.com/Microsoft/BotBuilder-Azure) 리포지토리에는 이 데이터를 Azure 테이블에 기록하는 C# 및 Node.js 라이브러리가 포함되어 있습니다.
 
 ## <a name="why-are-parts-of-my-message-text-being-dropped"></a>메시지 텍스트의 일부가 삭제되는 이유는 무엇인가요?
 
@@ -127,6 +131,8 @@ Skype, Facebook, Slack 같은 다른 채널은 봇이 미리 사용자 ID를 예
 ## <a name="what-causes-the-direct-line-30-service-to-respond-with-http-status-code-502-bad-gateway"></a>Direct Line 3.0 서비스가 HTTP 상태 코드 502 "잘못된 게이트웨이"라 답하는 이유는 무엇인가요?
 Direct Line 3.0은 봇 연결을 시도했으나 요청이 성공적으로 완료되지 않으면 HTTP 상태 코드 502를 반환합니다. 이 오류는 봇이 오류를 반환했거나 요청된 시간이 초과되었음을 표시합니다. 봇이 생성하는 오류에 대한 자세한 내용은 <a href="https://dev.botframework.com" target="_blank">Bot Framework 포털</a> 안에서 봇의 대시보드로 이동하고 영향을 받는 채널에 대한 "문제" 링크를 클릭합니다. 봇에 대해 Application Insights를 구성한 경우 거기서도 상세 오류 정보를 제공합니다. 
 
+::: moniker range="azure-bot-service-3.0"
+
 ## <a name="what-is-the-idialogstackforward-method-in-the-bot-builder-sdk-for-net"></a>.NET용 Bot Builder SDK에서 IDialogStack.Forward 메서드가 무엇인가요?
 
 `IDialogStack.Forward`의 주 목적은 자식 대화(`IDialog.StartAsync`)가 일부 `ResumeAfter` 처리기가 있는 `T` 개체를 대기하는 "사후"인 경우가 많은 기존 자식 대화를 재사용하는 것입니다. 특히 `IMessageActivity` `T`를 대기하는 자식 대화가 있는 경우 `IDialogStack.Forward` 메서드를 사용하여 들어오는 `IMessageActivity`(이미 일부 부모 대화에서 받음)를 전달할 수 있습니다. 예를 들어 들어오는 `IMessageActivity`를 `LuisDialog`에 전달하려면 `IDialogStack.Forward`를 호출하여 대화 스택에 `LuisDialog`를 푸시하고 다음 메시지 대기를 예약할 때까지 `LuisDialog.StartAsync`에서 코드를 실행한 다음, 즉시 전달된 `IMessageActivity`를 통해 해당 대기를 만족합니다.
@@ -134,6 +140,8 @@ Direct Line 3.0은 봇 연결을 시도했으나 요청이 성공적으로 완�
 `IDialog.StartAsync`이 보통 이러한 작업 유형을 대기하도록 생성되기 때문에 `T`는 일반적으로 `IMessageActivity`를 사용합니다. `IDialogStack.Forward`를 `LuisDialog`에 메커니즘으로 사용하여 메시지를 기존 `LuisDialog`에 전달하기 전에 일부 처리를 위해 사용자로부터 메시지를 가로챌 수 있습니다.  이 목적으로 `DispatchDialog`와 `ContinueToNextGroup`을 사용할 수도 있습니다.
 
 `StartAsync`에서 예약한 첫 번째 `ResumeAfter` 처리기(예: `LuisDialog.MessageReceived`)에서 전달된 항목을 찾게 됩니다.
+
+::: moniker-end
 
 ## <a name="what-is-the-difference-between-proactive-and-reactive"></a>"사전"과 "사후"는 어떻게 다른가요?
 

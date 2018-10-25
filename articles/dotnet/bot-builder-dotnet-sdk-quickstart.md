@@ -9,12 +9,12 @@ ms.topic: get-started-article
 ms.prod: bot-framework
 ms.date: 09/23/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 5f3a02783242697fccf267bef2d56ed453880c67
-ms.sourcegitcommit: 3bf3dbb1a440b3d83e58499c6a2ac116fe04b2f6
+ms.openlocfilehash: d299e4bdfd503475bf1ec560da2aff1d3a199e47
+ms.sourcegitcommit: b8bd66fa955217cc00b6650f5d591b2b73c3254b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/23/2018
-ms.locfileid: "46707979"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49326390"
 ---
 # <a name="create-a-bot-with-the-bot-builder-sdk-for-net"></a>.NET용 Bot Builder SDK를 사용하여 봇 만들기
 [!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
@@ -35,7 +35,7 @@ Visual Studio에서 새 프로젝트를 만듭니다.
 ![Visual Studio 프로젝트](../media/azure-bot-quickstarts/bot-builder-dotnet-project.png)
 
 > [!TIP] 
-> 필요한 경우 [NuGet 패키지](https://docs.microsoft.com/en-us/nuget/quickstart/install-and-use-a-package-in-visual-studio)를 업데이트합니다.
+> 필요한 경우 프로젝트 빌드 유형을 ``.Net Core 2.1``로 변경합니다. 필요한 경우 [NuGet 패키지](https://docs.microsoft.com/en-us/nuget/quickstart/install-and-use-a-package-in-visual-studio)를 업데이트합니다.
 
 템플릿 덕분에 프로젝트에는 이 빠른 시작에서 봇을 만드는 데 필요한 모든 코드가 포함되어 있습니다. 실제로 추가 코드를 작성할 필요가 없습니다.
 
@@ -48,12 +48,16 @@ Visual Studio에서 새 프로젝트를 만듭니다.
 에뮬레이터를 시작한 다음, 에뮬레이터에서 봇에 연결합니다.
 
 1. 에뮬레이터 "시작" 탭에서 **봇 열기** 링크를 클릭합니다. 
-2. Visual Studio 솔루션을 만든 디렉터리에 있는 .bot 파일을 선택합니다.
+2. Visual Studio 솔루션을 만든 디렉터리에서 .bot 파일을 선택합니다.
 
 ## <a name="interact-with-your-bot"></a>봇과의 상호 작용
 
-봇에 메시지를 보내면 봇이 메시지를 통해 다시 응답하게 됩니다.
+봇에 메시지를 보내면 봇이 메시지를 통해 응답합니다.
+
 ![에뮬레이터 실행](../media/emulator-v4/emulator-running.png)
+
+> [!NOTE]
+> 해당 메시지를 전송할 수 없는 경우 ngrok가 아직 시스템에 대한 필요한 권한을 얻지 못했기 때문에 컴퓨터를 다시 시작해야 할 수 있습니다(한 번만 수행해야 함).
 
 ## <a name="next-steps"></a>다음 단계
 

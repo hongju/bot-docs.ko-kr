@@ -8,12 +8,12 @@ manager: kamrani
 ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/2017
-ms.openlocfilehash: 8210f08ce3a14b9abb2638ef8be4b8b418dd69f7
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: f67c7ba658923873470e9653b38cd63fd1068491
+ms.sourcegitcommit: 54ed5000c67a5b59e23b667547565dd96c7302f9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39303827"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49315119"
 ---
 # <a name="connect-a-bot-to-skype-for-business"></a>비즈니스용 Skype에 봇 연결
 
@@ -29,7 +29,7 @@ ms.locfileid: "39303827"
 비즈니스용 Skype Online과 봇을 연결하는 작업은 비즈니스용 Skype 테넌트의 **테넌트 관리자**에 의해 수행됩니다.
 
 ## <a name="next-steps"></a>다음 단계
-* [비즈니스용 Skype와 봇 연결](https://msdn.microsoft.com/en-us/skype/Skype-For-Business-Bot-Framework/docs/overview)
+* [비즈니스용 Skype Bot Framework](https://msdn.microsoft.com/en-us/skype/Skype-For-Business-Bot-Framework/docs/overview)
 
 
 

@@ -7,25 +7,31 @@ ms.author: RobStand
 manager: kamrani
 ms.topic: article
 ms.prod: bot-framework
-ms.date: 2/1/2018
-ms.openlocfilehash: 5dc4063125855113f813b8873b01df84c90e197e
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.date: 10/11/2018
+ms.openlocfilehash: 6fec83e7e37ba4759e8e305be8c98382f0bedeff
+ms.sourcegitcommit: 54ed5000c67a5b59e23b667547565dd96c7302f9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39301858"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49315079"
 ---
 # <a name="connect-a-bot-to-skype"></a>Skype에 봇 연결
 
 Skype는 인스턴트 메시징, 휴대폰 및 영상 통화를 통해 사용자와 연결된 상태를 유지합니다. Skype 인터페이스를 통해 사용자가 검색하고 상호 작용할 수 있는 봇을 구축하여 이 기능을 확장할 수 있습니다.
 
-Skype 채널을 추가하려면 [Azure Portal](https://portal.azure.com/)에서 봇을 열고, **채널** 블레이드를 클릭한 다음, **Skype**를 클릭합니다. 이렇게 하면 **Skype 구성** 설정 페이지로 이동됩니다. 봇에 대해 필요한 모든 정보를 채운 다음, **저장**을 클릭하여 Skype 채널을 연결합니다. **서비스 약관**에 동의하면 Skype 채널이 봇에 추가됩니다.
+Skype 채널을 추가하려면 [Azure Portal](https://portal.azure.com/)에서 봇을 열고, **채널** 블레이드를 클릭한 다음, **Skype**를 클릭합니다.
 
 ![Skype 채널 추가](~/media/channels/skype-addchannel.png)
 
+이렇게 하면 **Skype 구성** 설정 페이지로 이동됩니다.
+
+![Skype 채널 구성](~/media/channels/skype_configure.png)
+
+**웹 컨트롤**, **메시징**, **호출**, **그룹** 및 **게시**에서 설정을 구성해야 합니다. 하나씩 살펴보겠습니다.
+
 ## <a name="web-control"></a>웹 컨트롤
 
-봇을 웹 사이트에 포함하려면 **웹 컨트롤** 섹션에서 **포함 코드 가져오기** 단추를 클릭하여 코드를 가져올 수 있습니다.
+봇을 웹 사이트에 포함하려면 **웹 컨트롤** 섹션에서 **포함 코드 가져오기** 단추를 클릭합니다. 그러면 개발자용 Skype 페이지로 이동됩니다. 이 페이지의 지침을 따라 포함 코드를 가져옵니다.
 
 ## <a name="messaging"></a>메시징
 
@@ -44,6 +50,8 @@ Skype 채널을 추가하려면 [Azure Portal](https://portal.azure.com/)에서 
 이 섹션에서는 봇의 게시 설정을 구성합니다. *로 레이블이 지정된 모든 필드는 필수 필드입니다.
 
 **미리 보기**의 봇은 100개 연락처로 제한됩니다. 연락처가 100개 이상 필요한 경우 봇을 검토용으로 제출합니다. **검토를 위해 제출**을 클릭하면 Skype에서 봇이 자동으로 검색 가능해집니다(허용되는 경우). 요청을 승인할 수 없는 경우 승인을 위해 먼저 변경해야 하는 항목에 대한 알림이 제공됩니다.
+
+구성을 완료한 후 **저장**을 클릭하고 **서비스 약관**에 동의합니다. 이제 봇에 Skype 채널이 추가됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

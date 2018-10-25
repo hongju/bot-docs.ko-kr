@@ -10,12 +10,12 @@ ms.prod: bot-framework
 ms.date: 09/19/2018
 ms.reviewer: ''
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: af79bb40e3d24557fd898fa0a0ca2ef7b0286af4
-ms.sourcegitcommit: 3bf3dbb1a440b3d83e58499c6a2ac116fe04b2f6
+ms.openlocfilehash: bef0d5f3220cd818767f4eead5c5f4a09d047c26
+ms.sourcegitcommit: aef7d80ceb9c3ec1cfb40131709a714c42960965
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/23/2018
-ms.locfileid: "46707549"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49383158"
 ---
 # <a name="language-understanding"></a>언어 이해
 
@@ -56,11 +56,11 @@ ms.locfileid: "46707549"
 
 ## <a name="how-your-bot-gets-messages-from-luis"></a>봇이 LUIS에서 메시지를 가져오는 방법
 
-LUIS를 설정하고 연결하면 봇은 의도 및 엔터티를 포함하는 JSON 응답을 반환하는 메시지를 LUIS 앱으로 보낼 수 있습니다. 그런 다음, 봇의 _턴 처리기_에서 [턴 컨텍스트](bot-builder-concept-activity-processing.md#turn-context)를 사용하여 의도에 따라 LUIS 응답에서 대화 흐름을 라우팅할 수 있습니다. 
+LUIS를 설정하고 연결하면 봇은 의도 및 엔터티를 포함하는 JSON 응답을 반환하는 메시지를 LUIS 앱으로 보낼 수 있습니다. 그런 다음, 봇의 _턴 처리기_에서 [턴 컨텍스트](~/v4sdk/bot-builder-basics.md#defining-a-turn)를 사용하여 의도에 따라 LUIS 응답에서 대화 흐름을 라우팅할 수 있습니다. 
 
 ![의도 및 엔터티를 봇에 전달하는 방법](./media/cognitive-services-add-bot-language/cognitive-services-luis-message-flow-bot-code.png)
 
-봇에서 LUIS 앱 사용을 시작하려면 [Language Understanding에 LUIS 사용][luis-v4-how-to]를 참조하세요.
+봇에서 LUIS 앱 사용을 시작하려면 [Language Understanding에 LUIS 사용](https://docs.microsoft.com/en-us/azure/bot-service/bot-builder-howto-v4-luis?view=azure-bot-service-4.0)을 확인하세요.
 
 ## <a name="best-practices-for-language-understanding"></a>Language Understanding의 모범 사례
 
@@ -99,7 +99,7 @@ Dispatch 도구를 사용하면 적절한 LUIS 및 QnAMaker 서비스에 메시�
 
 ## <a name="use-luis-to-improve-speech-recognition"></a>LUIS를 사용하여 음성 인식을 개선
 
-사용자가 대화하는 봇의 경우 LUIS와 통합하면 봇이 음성을 텍스트로 변환할 때 오해의 소지가 있는 단어를 식별할 수 있습니다.  예를 들어 체스 시나리오에서 사용자는 “기사를 A7로 이동(Move knight to A7)”하라고 말할 수 있습니다. 사용자의 의도에 대한 컨텍스트가 없으면 이 발언은 "밤 287 이동(Move night 287)"으로 잘못 인식될 수 있습니다. 체스의 말 및 좌표를 나타내는 엔터티를 만들고 발언의 엔터티에 레이블을 지정하여 엔터티를 식별하려면 음성 인식에 대한 컨텍스트를 제공합니다. Web Chat, Bot Framework Emulator, Cortana 등의 Bing Speech와 통합된 Bot Framework 채널을 사용하여 [음성 인식 초기화를 사용하도록 설정][speechrecognitionpriming]할 수 있습니다.  
+사용자가 대화하는 봇의 경우 LUIS와 통합하면 봇이 음성을 텍스트로 변환할 때 오해의 소지가 있는 단어를 식별할 수 있습니다.  예를 들어 체스 시나리오에서 사용자는 “기사를 A7로 이동(Move knight to A7)”하라고 말할 수 있습니다. 사용자의 의도에 대한 컨텍스트가 없으면 이 발언은 "밤 287 이동(Move night 287)"으로 잘못 인식될 수 있습니다. 체스의 말 및 좌표를 나타내는 엔터티를 만들고 발언의 엔터티에 레이블을 지정하여 엔터티를 식별하려면 음성 인식에 대한 컨텍스트를 제공합니다. Web Chat, Bot Framework Emulator, Cortana 등의 Bing Speech와 통합된 Bot Framework 채널을 사용하여 [음성 인식 초기화를 사용하도록 설정](https://docs.microsoft.com/en-us/azure/bot-service/bot-service-manage-speech-priming?view=azure-bot-service-4.0)할 수 있습니다.  
 
 ## <a name="additional-resources"></a>추가 리소스
 자세한 내용은 [Cognitive Services](https://docs.microsoft.com/en-us/azure/cognitive-services/) 설명서를 참조하세요.

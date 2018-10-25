@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 4e0bde9d05ed49f6674b2d721e07235b26c5cea4
-ms.sourcegitcommit: 67445b42796d90661afc643c6bb6533e9a662cbc
+ms.openlocfilehash: feefa25d0c85c3aa62705b075253372f12e9146e
+ms.sourcegitcommit: b8bd66fa955217cc00b6650f5d591b2b73c3254b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39574759"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49326380"
 ---
 # <a name="enterprise-productivity-bot-scenario"></a>엔터프라이즈 생산성 봇 시나리오
 
@@ -47,7 +47,7 @@ ms.locfileid: "39574759"
 -   Application Insights
 
 ### <a name="azure-active-directory-azure-ad"></a>Azure AD(Azure Active Directory)
-Azure Active Directory(Azure AD)는 Microsoft의 다중 테넌트 클라우드 기반 디렉터리 및 ID 관리 서비스입니다. 봇 개발자인 Azure AD를 통해 전 세계 수백 만 개 조직에서 사용하는 세계 최고의 ID 관리 솔루션과 빠르고 쉽게 통합함으로써, 봇을 구축하는 데 집중할 수 있습니다. Azure AD 앱을 정의하면 자체의 복잡한 인증 및 권한 부여 시스템을 구현하지 않고도, 봇에 액세스할 수 있는 사용자와 노출되는 데이터를 제어할 수 있습니다.
+Azure Active Directory(Azure AD)는 Microsoft의 다중 테넌트 클라우드 기반 디렉터리 및 ID 관리 서비스입니다. Azure AD를 사용하면 전 세계 수백만 개의 조직에서 사용하는 세계 정상급 ID 관리 솔루션과 쉽고 빠르고 통합할 수 있기 때문 봇 개발자가 봇을 구축하는 데 집중할 수 있습니다. Azure AD 앱을 정의하면 자체의 복잡한 인증 및 권한 부여 시스템을 구현하지 않고도, 봇에 액세스할 수 있는 사용자와 노출되는 데이터를 제어할 수 있습니다.
 
 ### <a name="graph-api-to-office-365"></a>Office 365에 대한 Graph API
 Microsoft Graph는 https://graph.microsoft.com의 단일 엔드포인트를 통해 Office 365의 여러 API 및 기타 Microsoft Cloud Services를 제공합니다. Microsoft Graph를 사용하면 사용자와 봇이 쿼리를 더 쉽게 실행할 수 있습니다. API는 Office 365에 포함된 Exchange Online, Azure Active Directory, SharePoint를 비롯한 여러 Microsoft Cloud Services의 데이터를 제공합니다. API를 사용하여 엔터티와 관계를 탐색할 수 있습니다. SDK 또는 REST 엔드포인트를 사용하는 봇뿐만 아니라 Android, iOS, Ruby, UWP, Xamarin 등이 기본 지원되는 다른 앱에서도 API를 사용할 수 있습니다.

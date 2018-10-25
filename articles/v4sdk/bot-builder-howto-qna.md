@@ -7,47 +7,36 @@ ms.author: v-ivorb
 manager: kamrani
 ms.topic: article
 ms.prod: bot-framework
-ms.date: 03/13/2018
+ms.date: 10/08/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 7dd973e2b5a151e754925e6f19c6e4f82507f745
-ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
+ms.openlocfilehash: e3d7c0a541a4b7f8c2065c5db724e5d79ced54b8
+ms.sourcegitcommit: 54ed5000c67a5b59e23b667547565dd96c7302f9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42906177"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49315179"
 ---
 # <a name="use-qna-maker-to-answer-questions"></a>QnA Maker를 사용하여 질문에 답변
 
+[!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
 
-봇을 지원하는 간단한 질문 및 답변을 추가하려면 [QnA Maker](https://docs.microsoft.com/en-us/azure/cognitive-services/qnamaker/home) 서비스를 사용할 수 있습니다.
+QnA Maker 서비스를 사용하여 봇에 질문 및 답변 지원 기능을 추가할 수 있습니다. 사용자 고유의 QnA Maker 서비스를 만들 때 기본적인 요구 사항 중 하나는 질문 및 답변을 통해 보내는 것입니다. 대부분의 경우 질문 및 답변은 이미 FAQ 또는 기타 설명서와 같은 콘텐츠에 있습니다. 다른 경우 더 자연스러운 대화식으로 질문에 대한 답변을 사용자 지정하려고 합니다.
 
+## <a name="prerequisites"></a>필수 조건
+- [QnA Maker](https://www.qnamaker.ai/) 계정 만들기
+- QnA Maker 샘플 다운로드[[C#](https://aka.ms/cs-qna) | [JavaScript](https://aka.ms/js-qna-sample)]
 
-사용자 고유의 QnA Maker 서비스를 작성하는 기본적인 요구 사항 중 하나는 질문 및 답변을 통해 보내는 것입니다. 대부분의 경우 질문 및 답변은 이미 FAQ 또는 기타 설명서와 같은 콘텐츠에 있습니다. 다른 경우 더 자연스러운 대화식으로 질문에 대한 답변을 사용자 지정하려고 합니다. 
+## <a name="create-a-qna-maker-service-and-publish-a-knowledge-base"></a>QnA Maker 서비스를 만들고 기술 자료 게시
 
-## <a name="create-a-qna-maker-service"></a>QnA Maker 서비스 만들기
-먼저 계정을 만들고 [QnA Maker](https://qnamaker.ai/)에 로그인합니다. 그런 다음, **기술 자료 만들기**로 이동합니다. **QnA 서비스 만들기**를 클릭하고 Azure QnA 서비스를 만들기 위한 지침을 따릅니다.
+QnA Maker 계정을 만든 후 [QnA Maker 서비스](https://docs.microsoft.com/en-us/azure/cognitive-services/qnamaker/how-to/set-up-qnamaker-service-azure) 생성 방법에 대한 지침과 [기술 자료](https://docs.microsoft.com/en-us/azure/cognitive-services/qnamaker/quickstarts/create-publish-knowledge-base)를 따르세요. 
 
-![QnA 이미지 1](media/QnA_1.png)
-
-[QnA Maker 만들기](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker)로 리디렉션됩니다. 양식을 완료하고 **만들기**를 클릭합니다.
-
-![QnA 이미지 2](media/QnA_2.png)
- 
-Azure Portal에서 QnA 서비스를 만든 후 무시할 수도 있는 리소스 관리 제목 아래에 키가 제공됩니다. Azure QnA 서비스를 연결하려면 2단계로 진행합니다. 방금 만든 Azure 서비스를 선택하려면 페이지를 새로 고치고 기술 자료의 이름을 입력합니다.
-
-![QnA 이미지 3](media/QnA_3.png)
-
-**KB 만들기**를 클릭합니다. 사용자 고유의 질문 및 답변을 입력하거나 다음 예제를 복사합니다. 
-
-![QnA 이미지 4](media/QnA_4.png)
-
-또는 **KB 채우기**를 선택하고 파일 또는 URL을 제공할 수 있습니다. 간단한 QnA Maker 서비스를 생성하기 위한 샘플 원본 파일은 [여기](https://aka.ms/qna-tsv)에 있습니다.
-
-새 QnA 쌍을 추가하거나 KB를 채운 뒤 **저장 후 학습**을 클릭합니다. 완료되면 **게시** 탭에서 **게시**를 클릭합니다.
-
-QnA 서비스를 봇에 연결하려면 기술 자료 ID 및 QnA Maker 구독 키가 들어 있는 HTTP 요청 문자열이 필요합니다. 게시 결과에서 HTTP 요청 예제를 복사합니다. 
-
-![QnA 이미지 5](media/QnA_5.png)
+기술 자료를 게시한 후에는 다음 값을 기록하여 기술 자료에 프로그래밍 방식으로 봇을 연결해야 합니다.
+- [QnA Maker](https://www.qnamaker.ai/) 사이트에서 기술 자료를 선택합니다.
+- 기술 자료를 연 후 **설정**을 선택합니다. _서비스 이름_에 표시되는 <your_kb_name>이라는 값을 기록합니다.
+- 아래로 스크롤하여 **배포 세부 정보**를 찾아 다음 값을 기록합니다.
+   - POST /knowledgebases/<your_knowledge_base_id>/generateAnswer
+   - 호스트: https://<you_hostname>.azurewebsites.net/qnamaker
+   - 권한 부여: EndpointKey <your_endpoint_key>
 
 ## <a name="installing-packages"></a>패키지 설치
 
@@ -55,236 +44,310 @@ QnA 서비스를 봇에 연결하려면 기술 자료 ID 및 QnA Maker 구독 �
 
 # <a name="ctabcs"></a>[C#](#tab/cs)
 
-다음과 같은 NuGet 패키지의 시험판 버전 v4에 [참조를 추가](https://docs.microsoft.com/en-us/nuget/tools/package-manager-ui)합니다.
+다음 [NuGet 패키지](https://docs.microsoft.com/en-us/nuget/tools/package-manager-ui)를 봇에 추가합니다.
 
-* `Microsoft.Bot.Builder.Ai.QnA`
+* `Microsoft.Bot.Builder.AI.QnA`
 
 # <a name="javascripttabjs"></a>[JavaScript](#tab/js)
 
-이러한 서비스 중 하나를 botbuilder-ai 패키지를 사용하여 봇에 추가할 수 있습니다. npm을 통해 프로젝트에 이 패키지를 추가할 수 있습니다.
+QnA Maker 기능은 `botbuilder-ai` 패키지에 있습니다. npm을 통해 프로젝트에 이 패키지를 추가할 수 있습니다.
 
-* `npm install --save botbuilder@preview`
-* `npm install --save botbuilder-ai@preview`
+```shell
+npm install --save botbuilder-ai
+```
 
 ---
 
+## <a name="using-cli-tools-to-update-your-bot-configuration"></a>CLI 도구를 사용하여 .bot 구성 업데이트
+
+기술 자료 액세스 값을 가져오는 다른 방법은 [qnamaker](https://aka.ms/botbuilder-tools-qnaMaker) 및 [msbot](https://aka.ms/botbuilder-tools-msbot-readme) BotBuilder CLI 도구를 사용하여 기술 자료에 대한 메타데이터를 가져와서 .bot 파일에 추가하는 것입니다.
+
+1. 터미널 또는 명령 프롬프트를 열고 봇 프로젝트의 루트 디렉터리로 이동합니다.
+2. `qnamaker init`를 실행하여 QnA Maker 리소스 파일(**.qnamakerrc**)을 만듭니다. 그러면 QnA Maker 구독 키를 묻는 메시지가 표시됩니다.
+3. 다음 명령을 실행하여 메타데이터를 다운로드하고 봇의 구성 파일에 추가합니다.
+
+    ```shell
+    qnamaker get kb --kbId <your-kb-id> --msbot | msbot connect qna --stdin [--secret <your-secret>]
+    ```
+구성 파일을 암호화한 경우 비밀 키를 제공하여 파일을 업데이트해야 합니다.
 
 ## <a name="using-qna-maker"></a>QnA Maker 사용
-
-QnA Maker는 먼저 미들웨어로 추가됩니다. 그런 다음, 봇 논리 내에서 결과를 사용할 수 있습니다.
+봇을 초기화하면 QnA Maker에 대한 참조가 먼저 추가됩니다. 그러면 봇 논리 내에서 호출할 수 있습니다.
 
 # <a name="ctabcs"></a>[C#](#tab/cs)
+이전에 다운로드한 QnA Maker 샘플을 엽니다. 필요에 따라 이 코드를 수정합니다.
+먼저, 호스트 이름, 엔드포인트 키 및 기술 자료 ID(KbId) 등 기술 자료에 액세스하는 데 필요한 정보를 `BotConfiguration.bot`에 추가합니다. 이는 QnA Maker의 기술 자료 **설정**에서 저장한 값입니다.
 
-`Startup.cs` 파일에서 `ConfigureServices` 메서드를 업데이트하여 `QnAMakerMiddleware` 개체를 추가합니다. 간단히 봇의 미들웨어 스택에 추가하여 사용자에게서 받은 모든 메시지에 대한 기술 자료를 확인하기 위해 봇을 구성할 수 있습니다.
-
-
-```csharp
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Bot.Builder.Ai.Qna;
-using Microsoft.Bot.Builder.BotFramework;
-using Microsoft.Bot.Builder.Core.Extensions;
-using Microsoft.Bot.Builder.Integration.AspNet.Core;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using System;
-
-public void ConfigureServices(IServiceCollection services)
+```json
 {
-    services.AddSingleton(_ => Configuration);
-    services.AddBot<AiBot>(options =>
+  "name": "QnABotSample",
+  "services": [
     {
-        options.CredentialProvider = new ConfigurationCredentialProvider(Configuration);
-
-        var endpoint = new QnAMakerEndpoint
-        {
-           KnowledgeBaseId = "YOUR-KB-ID",
-           // Get the Host from the HTTP request example at https://www.qnamaker.ai
-           // For GA services: https://<Service-Name>.azurewebsites.net/qnamaker
-           // For Preview services: https://westus.api.cognitive.microsoft.com/qnamaker/v2.0           
-           Host = "YOUR-HTTP-REQUEST-HOST",
-           EndpointKey = "YOUR-QNA-MAKER-SUBSCRIPTION-KEY"
-        };
-        options.Middleware.Add(new QnAMakerMiddleware(endpoint));
-    });
+      "type": "endpoint",
+      "name": "development",
+      "endpoint": "http://localhost:3978/api/messages",
+      "appId": "",
+      "id": "1",
+      "appPassword": ""
+    },
+    {
+      "type": "qna",
+      "name": "QnABot",
+      "KbId": "<YOUR_KNOWLEDGE_BASE_ID>",
+      "Hostname": "https://<YOUR_HOSTNAME>.azurewebsites.net/qnamaker",
+      "EndpointKey": "<YOUR_ENDPOINT_KEY>"
+    }
+  ],
+  "version": "2.0",
+  "padlock": ""
 }
 ```
 
-
-
-QnA Maker 미들웨어가 사용자의 질문에 응답을 보내지 않은 경우 `OnTurn`이 대체(fallback) 메시지를 보내도록 EchoBot.cs 파일에서 코드를 편집합니다.
+다음으로, `Startup.cs`에 QnA Maker 인스턴스를 만듭니다. 이는 `BotConfiguration.bot` 파일에서 위에 언급된 정보를 가져옵니다. 이러한 문자열을 테스트용으로 하드 코딩할 수도 있습니다.
 
 ```csharp
-using System.Threading.Tasks;
-using Microsoft.Bot;
-using Microsoft.Bot.Builder;
-using Microsoft.Bot.Schema;
-
-namespace Bot_Builder_Echo_Bot_QnA
+private static BotServices InitBotServices(BotConfiguration config)
 {
-    public class EchoBot : IBot
-    {    
-        public async Task OnTurn(ITurnContext context)
+    var qnaServices = new Dictionary<string, QnAMaker>();
+    foreach (var service in config.Services)
+    {
+        switch (service.Type)
         {
-            // This bot is only handling Messages
-            if (context.Activity.Type == ActivityTypes.Message)
-            {             
-                if (!context.Responded)
+            case ServiceTypes.QnA:
+            {
+                // Create a QnA Maker that is initialized and suitable for passing
+                // into the IBot-derived class (QnABot).
+                var qna = (QnAMakerService)service;
+                if (qna == null)
                 {
-                    // QnA didn't send the user an answer
-                    await context.SendActivity("Sorry, I couldn't find a good match in the KB.");
-
+                    throw new InvalidOperationException("The QnA service is not configured correctly in your '.bot' file.");
                 }
+
+                if (string.IsNullOrWhiteSpace(qna.KbId))
+                {
+                    throw new InvalidOperationException("The QnA KnowledgeBaseId ('kbId') is required to run this sample. Please update your '.bot' file.");
+                }
+
+                if (string.IsNullOrWhiteSpace(qna.EndpointKey))
+                {
+                    throw new InvalidOperationException("The QnA EndpointKey ('endpointKey') is required to run this sample. Please update your '.bot' file.");
+                }
+
+                if (string.IsNullOrWhiteSpace(qna.Hostname))
+                {
+                    throw new InvalidOperationException("The QnA Host ('hostname') is required to run this sample. Please update your '.bot' file.");
+                }
+
+                var qnaEndpoint = new QnAMakerEndpoint()
+                {
+                    KnowledgeBaseId = qna.KbId,
+                    EndpointKey = qna.EndpointKey,
+                    Host = qna.Hostname,
+                };
+
+                var qnaMaker = new QnAMaker(qnaEndpoint);
+                qnaServices.Add(qna.Name, qnaMaker);
+                break;
             }
         }
     }
+    var connectedServices = new BotServices(qnaServices);
+    return connectedServices;
 }
 ```
 
+다음으로, 이 QnAMaker 인스턴스를 봇에 제공해야 합니다. `QnABot.cs`를 열고 파일 맨 위에 다음 코드를 추가합니다. 자체 기술 자료에 액세스하는 경우 아래에 표시된 _welcome_ 메시지를 변경하여 사용자에게 유용한 초기 지침을 제공하세요.
 
-샘플 봇은 [QnA Maker 샘플](https://aka.ms/qna-cs-bot-sample)을 참조합니다.
+```csharp
+public class QnABot : IBot
+{
+    public static readonly string QnAMakerKey = "QnABot";
+    private const string WelcomeText = @"This bot will introduce you to QnA Maker.
+                                         Ask a quesiton to get started.";
+    private readonly BotServices _services;
+    public QnABot(BotServices services)
+    {
+        _services = services ?? throw new System.ArgumentNullException(nameof(services));
+        Console.WriteLine($"{_services}");
+        if (!_services.QnAServices.ContainsKey(QnAMakerKey))
+        {
+            throw new System.ArgumentException($"Invalid configuration. Please check your '.bot' file for a QnA service named '{QnAMakerKey}'.");
+        }
+    }
+}
+```
+
+# <a name="javascripttabjs"></a>[JavaScript](#tab/js)
+이전에 다운로드한 QnA Maker 샘플을 엽니다. 필요에 따라 이 코드를 수정합니다.
+이 샘플에서 시작 코드는 **index.js** 파일에 있으며, 봇 논리의 코드는 **bot.js** 파일에 있고, 추가 구성 정보는 **qnamaker.bot** 파일에 있습니다.
+
+기술 자료를 만들고 **.bot** 파일을 업데이트하는 방법에 대한 지침에 따라 **qnamaker.bot** 파일에 QnA Maker 기술 자료의 서비스 항목도 포함되어야 합니다.
+
+```json
+{
+    "name": "qnamaker",
+    "description": "",
+    "services": [
+        {
+            "type": "endpoint",
+            "name": "development",
+            "id": "1",
+            "appId": "",
+            "appPassword": "",
+            "endpoint": "http://localhost:3978/api/messages"
+        },
+        {
+            "type": "qna",
+            "name": "<YOUR_KB_NAME>",
+            "kbId": "<YOUR_KNOWLEDGE_BASE_ID>",
+            "endpointKey": "<YOUR_ENDPOINT_KEY>",
+            "hostname": "https://<YOUR_HOSTNAME>.azurewebsites.net/qnamaker",
+            "id": "221"
+        }
+    ],
+    "padlock": "",
+    "version": "2.0"
+}
+```
+
+**index.js** 파일에서 구성 정보를 읽어들여 QnA Maker 서비스를 생성하고 봇을 초기화합니다.
+
+`QNA_CONFIGURATION` 값을 구성 파일에 표시되는 기술 자료의 이름으로 업데이트합니다.
+
+```js
+// QnA Maker knowledge base name as specified in .bot file.
+const QNA_CONFIGURATION = '<YOUR_KB_NAME>';
+
+// Get endpoint and QnA Maker configurations by service name.
+const endpointConfig = botConfig.findServiceByNameOrId(BOT_CONFIGURATION);
+const qnaConfig = botConfig.findServiceByNameOrId(QNA_CONFIGURATION);
+
+// Map the contents to the required format for `QnAMaker`.
+const qnaEndpointSettings = {
+    knowledgeBaseId: qnaConfig.kbId,
+    endpointKey: qnaConfig.endpointKey,
+    host: qnaConfig.hostname
+};
+
+// Create adapter...
+
+// Create the QnAMakerBot.
+let bot;
+try {
+    bot = new QnAMakerBot(qnaEndpointSettings, {});
+} catch (err) {
+    console.error(`[botInitializationError]: ${ err }`);
+    process.exit();
+}
+```
+
+그런 다음, HTTP 서버를 만들고 수신 요청을 대시하면 봇 논리에 대한 호출이 생성됩니다.
+
+```js
+// Create HTTP server.
+let server = restify.createServer();
+server.listen(process.env.port || process.env.PORT || 3978, function() {
+    console.log(`\n${ server.name } listening to ${ server.url }.`);
+    console.log(`\nGet Bot Framework Emulator: https://aka.ms/botframework-emulator.`);
+    console.log(`\nTo talk to your bot, open qnamaker.bot file in the emulator.`);
+});
+
+// Listen for incoming requests.
+server.post('/api/messages', (req, res) => {
+    adapter.processActivity(req, res, async (turnContext) => {
+        await bot.onTurn(turnContext);
+    });
+});
+```
+
+---
+
+## <a name="calling-qna-maker-from-your-bot"></a>봇에서 QnA Maker 호출
+
+# <a name="ctabcs"></a>[C#](#tab/cs)
+
+봇에서 QnAMaker의 응답을 요구하는 경우 봇 코드에서 `GetAnswersAsync()`를 호출하여 현재 컨텍스트에 맞는 응답을 가져옵니다. 자체 기술 자료에 액세스하는 경우 아래의 _no answers_ 메시지를 변경하여 사용자에게 유용한 지침을 제공하세요.
+
+```csharp
+// Check QnA Maker model
+var response = await _services.QnAServices[QnAMakerKey].GetAnswersAsync(turnContext);
+if (response != null && response.Length > 0)
+{
+    await turnContext.SendActivityAsync(response[0].Answer, cancellationToken: cancellationToken);
+}
+else
+{
+    var msg = @"No QnA Maker answers were found. This example uses a QnA Maker Knowledge Base that focuses on smart light bulbs.
+                To see QnA Maker in action, ask the bot questions like 'Why won't it turn on?' or 'I need help'.";
+    await turnContext.SendActivityAsync(msg, cancellationToken: cancellationToken);
+}
+
+    /// ...
+```
 
 # <a name="javascripttabjs"></a>[JavaScript](#tab/js)
 
-먼저 [QnAMaker](https://github.com/Microsoft/botbuilder-js/tree/master/doc/botbuilder-ai/classes/botbuilder_ai.qnamaker.md) 클래스에서 필요합니다/가져옵니다.
+**bot.js** 파일에서 QnA Maker 서비스의 `generateAnswer` 메서드에 사용자 입력을 전달하여 기술 자료에서 응답을 가져옵니다. 자체 기술 자료에 액세스하는 경우 아래의 _no answers_ 및 _welcome_ 메시지를 변경하여 사용자에게 유용한 지침을 제공하세요.
 
-```js
-const { QnAMaker } = require('botbuilder-ai');
-```
+```javascript
+const { ActivityTypes, TurnContext } = require('botbuilder');
+const { QnAMaker, QnAMakerEndpoint, QnAMakerOptions } = require('botbuilder-ai');
 
-QnA 서비스에 대한 HTTP 요청에 따른 문자열을 사용하여 초기화함으로써 `QnAMaker`를 만듭니다. 설정 > 배포 세부 정보 아래의 [QnA Maker 포털](https://qnamaker.ai)에서 서비스에 대한 예제 요청을 복사할 수 있습니다.
-
-
-문자열의 형식은 QnA Maker 서비스가 GA 또는 QnA Maker의 미리 보기 버전을 사용하는지 여부에 따라 다릅니다. HTTP 요청 예제를 복사하고 `QnAMaker`를 초기화할 때 사용할 기술 자료 ID, 구독 키 및 호스트를 가져옵니다.
-
-<!--
-**Preview**
-```js
-const qnaEndpointString = 
-    // Replace xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx with your knowledge base ID
-    "POST /knowledgebases/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/generateAnswer\r\n" + 
-    "Host: https://westus.api.cognitive.microsoft.com/qnamaker/v2.0\r\n" +
-    // Replace xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx with your QnAMaker subscription key
-    "Ocp-Apim-Subscription-Key: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\r\n"
-const qna = new QnAMaker(qnaEndpointString);
-```
-
-**GA**
-```js
-const qnaEndpointString = 
-    // Replace xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx with your knowledge base ID
-    "POST /knowledgebases/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/generateAnswer\r\n" + 
-    // Replace <Service-Name> to match the Azure URL where your service is hosted
-    "Host: https://<Service-Name>.azurewebsites.net/qnamaker\r\n" +
-    // Replace xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx with your QnAMaker subscription key
-    "Authorization: EndpointKey xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\r\n"
-const qna = new QnAMaker(qnaEndpointString);
-```
--->
-**미리 보기**
-```js
-const qna = new QnAMaker(
-    {
-        knowledgeBaseId: '<KNOWLEDGE-BASE-ID>',
-        endpointKey: '<QNA-SUBSCRIPTION-KEY>',
-        host: 'https://westus.api.cognitive.microsoft.com/qnamaker/v2.0'
-    },
-    {
-        // set this to true to send answers from QnA Maker
-        answerBeforeNext: true
+/**
+ * A simple bot that responds to utterances with answers from QnA Maker.
+ * If an answer is not found for an utterance, the bot responds with help.
+ */
+class QnAMakerBot {
+    /**
+     * The QnAMakerBot constructor requires one argument (`endpoint`) which is used to create an instance of `QnAMaker`.
+     * @param {QnAMakerEndpoint} endpoint The basic configuration needed to call QnA Maker. In this sample the configuration is retrieved from the .bot file.
+     * @param {QnAMakerOptions} config An optional parameter that contains additional settings for configuring a `QnAMaker` when calling the service.
+     */
+    constructor(endpoint, qnaOptions) {
+        this.qnaMaker = new QnAMaker(endpoint, qnaOptions);
     }
-);
-```
-**GA**
-```js
-const qna = new QnAMaker(
-    {
-        knowledgeBaseId: '<KNOWLEDGE-BASE-ID>',
-        endpointKey: '<QNA-SUBSCRIPTION-KEY>',
-        host: 'https://<Service-Name>.azurewebsites.net/qnamaker'
-    },
-    {
-        answerBeforeNext: true
+
+    /**
+     * Every conversation turn for our QnAMakerBot will call this method.
+     * @param {TurnContext} turnContext Contains all the data needed for processing the conversation turn.
+     */
+    async onTurn(turnContext) {
+        // By checking the incoming Activity type, the bot only calls QnA Maker in appropriate cases.
+        if (turnContext.activity.type === ActivityTypes.Message) {
+            // Perform a call to the QnA Maker service to retrieve matching Question and Answer pairs.
+            const qnaResults = await this.qnaMaker.generateAnswer(turnContext.activity.text);
+
+            // If an answer was received from QnA Maker, send the answer back to the user.
+            if (qnaResults[0]) {
+                await turnContext.sendActivity(qnaResults[0].answer);
+
+            // If no answers were returned from QnA Maker, reply with help.
+            } else {
+                await turnContext.sendActivity('No QnA Maker answers were found. This example uses a QnA Maker Knowledge Base that focuses on smart light bulbs. To see QnA Maker in action, ask the bot questions like "Why won\'t it turn on?" or "I need help."');
+            }
+
+        // If the Activity is a ConversationUpdate, send a greeting message to the user.
+        } else if (turnContext.activity.type === ActivityTypes.ConversationUpdate &&
+                   turnContext.activity.recipient.id !== turnContext.activity.membersAdded[0].id) {
+            await turnContext.sendActivity('Welcome to the QnA Maker sample! Ask me a question and I will try to answer it.');
+
+        // Respond to all other Activity types.
+        } else if (turnContext.activity.type !== ActivityTypes.ConversationUpdate) {
+            await turnContext.sendActivity(`[${ turnContext.activity.type }]-type activity detected.`);
+        }
     }
-);
-```
-간단히 봇의 미들웨어 스택에 추가하여 QNA Maker를 자동으로 호출하도록 봇을 구성할 수 있습니다.
+}
 
-```js
-// Add QnA Maker as middleware
-adapter.use(qna);
-
-// Listen for incoming requests 
-server.post('/api/messages', (req, res) => {
-    // Route received request to adapter for processing
-    adapter.processActivity(req, res, async (context) => {
-        // If `!context.responded`, that means an answer wasn't found for the user's utterance.
-        // In this case, we send the user a fallback message.
-        if (context.activity.type === 'message' && !context.responded) {
-            await context.sendActivity('No QnA Maker answers were found.');
-        } else if (context.activity.type !== 'message') {
-            await context.sendActivity(`[${context.activity.type} event detected]`);
-        }
-    });
-});
+module.exports.QnAMakerBot = QnAMakerBot;
 ```
 
-`QnAMaker`를 초기화할 경우 `answerBeforeNext`를 `true`로 초기화하는 것은 QnA Maker 미들웨어가 `processActivity`에서 봇의 기본 논리에 도달하기 전에 답변을 찾을 경우 자동으로 응답한다는 의미입니다. 대신 `answerBeforeNext`를 `false`로 설정하는 경우 `processActivity`에서 모든 봇의 기본 논리가 실행된 후 봇이 사용자에게 응답하지 않은 경우에만 봇은 QnA Maker를 호출하게 됩니다. 
-
-## <a name="calling-qna-maker-without-using-middleware"></a>미들웨어를 사용하지 않고 QnA Maker 호출
-
-이전 예제의 `adapter.use(qna);` 문은 QnA가 미들웨어로 실행되므로 봇이 수신하는 모든 메시지에 응답한다는 의미입니다. QnA Maker를 호출하는 방법 및 시기를 더 많이 제어하려면 미들웨어의 일부로 설치하는 대신 봇의 논리 내에서 `qna.answer()`를 직접 호출할 수 있습니다.
-
-`adapter.use(qna);` 문을 제거하고 다음 코드를 사용하여 QnA Maker를 직접 호출합니다.
-
-```js
-// Listen for incoming activity 
-server.post('/api/messages', (req, res) => {
-    // Route received activity to adapter for processing
-    adapter.processActivity(req, res, async (context) => {
-        if (context.activity.type === 'message') {
-            var handled = await qna.answer(context)
-                if (!handled) {
-                    await context.sendActivity(`I'm sorry. I didn't understand.`);
-                }
-        }
-    });
-});
-```
-
-QnA Maker를 사용자 지정하는 다른 방법은 `qna.generateAnswer()`를 사용하는 것입니다. 이 메서드를 사용하면 QnA Maker에서 대답에 대한 자세한 내용을 가져올 수 있습니다.
-
-
-```js
-// Listen for incoming activity 
-server.post('/api/messages', (req, res) => {
-    // Route received activity to adapter for processing
-    adapter.processActivity(req, res, async (context) => {
-        if (context.activity.type === 'message') {
-            // Get all the answers QnA Maker finds
-            var results = await qna.generateAnswer(context.activity.text);
-                if (results && results.length > 0) {
-                    await context.sendActivity(results[0].answer);
-                } else {
-                    await context.sendActivity(`I don't know.`);
-                }
-    
-        }
-    });
-});
-```
 ---
 
-QnA Maker 서비스에서 응답을 확인하려면 봇에게 질문합니다.
-
-![QnA 이미지 6](media/QnA_6.png)
-
-
+QnA Maker 서비스에서 응답을 확인하려면 봇에게 질문합니다. QnA 서비스를 테스트하고 게시하는 방법에 대한 자세한 내용은 [기술 자료를 테스트하는 방법](https://docs.microsoft.com/en-us/azure/cognitive-services/qnamaker/how-to/test-knowledge-base)에 대한 QnA Maker 문서를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
 QnA Maker는 기타 Cognitive Services와 결합하여 봇을 훨씬 더 강력하게 만들 할 수 있습니다. 디스패치 도구는 봇에서 LUIS(Language Understanding)와 QnA를 결합하는 방법을 제공합니다.
 
 > [!div class="nextstepaction"]
-> [디스패치 도구를 사용하여 LUIS 앱 및 QnA 서비스 결합](./bot-builder-tutorial-dispatch.md)
+> [디스패치 도구를 사용하여 LUIS 및 QnA 서비스 결합](./bot-builder-tutorial-dispatch.md)

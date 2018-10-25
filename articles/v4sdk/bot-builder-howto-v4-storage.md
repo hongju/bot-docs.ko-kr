@@ -9,12 +9,12 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 09/14/18
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 0bbb507484840ab1fb0dc7c209b5d7ca8e9c9cfb
-ms.sourcegitcommit: 3bf3dbb1a440b3d83e58499c6a2ac116fe04b2f6
+ms.openlocfilehash: 3c28ad1fd14fab90c558ece4736423be2cabd78b
+ms.sourcegitcommit: b8bd66fa955217cc00b6650f5d591b2b73c3254b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/23/2018
-ms.locfileid: "46708149"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49326550"
 ---
 # <a name="write-directly-to-storage"></a>저장소에 직접 작성
 
@@ -210,7 +210,7 @@ async function logMessageText(storage, context) {
 #### <a name="create-your-database-account"></a>데이터베이스 계정 만들기
 1. 새 브라우저 창에서 [Azure Portal](http://portal.azure.com)에 로그인합니다.
 2. **리소스 만들기 > 데이터베이스 > Azure Cosmos DB**를 클릭합니다.
-3. **새 계정 페이지**의 **ID** 필드에 고유 이름을 제공합니다. **API**의 경우 **SQL**을 선택하고, **구독**, **위치** 및 **리소스 그룹** 정보를 제공합니다.
+3. **새 계정 페이지**의 **ID** 필드에 고유 이름을 제공합니다. **API**의 경우 **SQL**을 선택하고 **구독**, **위치** 및 **리소스 그룹** 정보를 제공합니다.
 4. 그런 다음, **만들기**를 클릭합니다.
 
 계정 생성에는 몇 분 정도가 소요됩니다. 포털에서 축하합니다! Azure Cosmos DB 계정이 만들어졌습니다. 페이지가 표시될 때까지 기다립니다.
@@ -502,10 +502,11 @@ Azure Blob 저장소는 클라우드를 위한 Microsoft의 개체 저장소 솔
 ```csharp
 using Microsoft.Bot.Builder.Azure;
 ```
-
 기존 Blob Storage 계정에 대한 "_myStorage_"를 가리키는 코드 줄을 업데이트합니다.
 
 ```csharp
+
+
 private static readonly AzureBlobStorage _myStorage = new AzureBlobStorage("<your-blob-storage-account-string>", "<your-blob-storage-container-name>");
 ```
 
@@ -544,36 +545,71 @@ Azure Blob 기록 저장소는 기록된 기록의 형태로 사용자 대화를
 Azure Blob 기록 저장소는 위의 섹션 "_Blob 저장소 계정 만들기_" 및 "_구성 정보 추가_"에 설명된 단계를 따라 만들어진 동일한 Blob 저장소 계정을 사용할 수 있습니다. 이 문서에서는 새 Blob 컨테이너, "_mybottranscripts_"를 추가했습니다. 
 
 ### <a name="implementation"></a>구현 
-다음 코드는 기록 저장소 포인터 "_myTranscripts_"를 새 Azure Blob 기록 저장소 계정에 연결합니다. 기록 저장소 포인터 "_myTranscripts_"를 연결하는 한 줄
+다음 코드는 기록 저장소 포인터 "_transcriptStore_"를 새 Azure Blob 기록 저장소 계정에 연결합니다. 여기에 표시된 사용자 대화를 저장하는 소스 코드는 [대화 기록](https://aka.ms/bot-history-sample-code) 샘플에 기반을 두고 있습니다. 
 
 ```csharp
+// In Startup.cs
 using Microsoft.Bot.Builder.Azure;
-private readonly AzureBlobTranscriptStore _myTranscripts = new AzureBlobTranscriptStore("<your-blob-storage-account-string>", "<your-blob-storage-account-name>");
+
+// Enable the conversation transcript middleware.
+blobStore = new AzureBlobTranscriptStore(blobStorageConfig.ConnectionString, storageContainer);
+var transcriptMiddleware = new TranscriptLoggerMiddleware(blobStore);
+options.Middleware.Add(transcriptMiddleware);
+
+// In ConversationHistoryBot.cs
+using Microsoft.Bot.Builder;
+using Microsoft.Bot.Builder.Azure;
+using Microsoft.Bot.Connector;
+using Microsoft.Bot.Schema;
+
+private readonly AzureBlobTranscriptStore _transcriptStore;
+
+/// <param name="transcriptStore">Injected via ASP.NET dependency injection.</param>
+public ConversationHistoryBot(AzureBlobTranscriptStore transcriptStore)
+{
+    _transcriptStore = transcriptStore ?? throw new ArgumentNullException(nameof(transcriptStore));
+}
+
 ```
 
 ### <a name="store-user-conversations-in-azure-blob-transcripts"></a>Azure Blob 기록에 사용자 대화 저장
-Blob 컨테이너를 기록을 저장하는 데 사용할 수 있으면 봇과 사용자의 대화를 저장하도록 시작할 수 있습니다. 이러한 대화는 사용자가 봇과 상호 작용하는 방법을 확인하기 위해 나중에 디버깅 도구로 사용될 수 있습니다. 다음 코드는 나중에 검토를 위한 사용자 대화 입력을 저장합니다.
+Blob 컨테이너를 기록을 저장하는 데 사용할 수 있으면 봇과 사용자의 대화를 저장하도록 시작할 수 있습니다. 이러한 대화는 사용자가 봇과 상호 작용하는 방법을 확인하기 위해 나중에 디버깅 도구로 사용될 수 있습니다. 다음 코드는 activity.text가 입력 메시지 _!history_를 검색할 때 사용자 대화 입력을 보존합니다.
 
 
 ```csharp
 /// <summary>
 /// Every Conversation turn for our EchoBot will call this method. 
 /// </summary>
-/// <param name="context">Turn scoped context containing all the data needed
+/// <param name="turnContext">A <see cref="ITurnContext"/> containing all the data needed
 /// for processing this conversation turn. </param>        
-public async Task OnTurnAsync(ITurnContext context, CancellationToken cancellationToken = default(CancellationToken))
+public async Task OnTurnAsync(ITurnContext turnContext, CancellationToken cancellationToken = default(CancellationToken))
 {
-    var activityType = context.Activity.Type;
-
-    await context.SendActivityAsync($"Activity type: {context.Activity.Type}.");
-
-    // This bot is processing Messages
-    if (activityType == ActivityTypes.Message)
+    var activity = turnContext.Activity;
+    if (activity.Type == ActivityTypes.Message)
     {
-        // save user input into bot transcript storage for later debugging and review.
-        await _myTranscripts.LogActivityAsync(context.Activity);
-```
+        if (activity.Text == "!history")
+        {
+           // Download the activities from the Transcript (blob store) when a request to upload history arrives.
+           var connectorClient = turnContext.TurnState.Get<ConnectorClient>(typeof(IConnectorClient).FullName);
+           // Get all the message type activities from the Transcript.
+           string continuationToken = null;
+           var count = 0;
+           do
+           {
+               var pagedTranscript = await _transcriptStore.GetTranscriptActivitiesAsync(activity.ChannelId, activity.Conversation.Id);
+               var activities = pagedTranscript.Items
+                  .Where(a => a.Type == ActivityTypes.Message)
+                  .Select(ia => (Activity)ia)
+                  .ToList();
+               
+               var transcript = new Transcript(activities);
 
+               await connectorClient.Conversations.SendConversationHistoryAsync(activity.Conversation.Id, transcript, cancellationToken: cancellationToken);
+
+               continuationToken = pagedTranscript.ContinuationToken;
+           }
+           while (continuationToken != null);
+```
 
 ### <a name="find-all-stored-transcripts-for-your-channel"></a>채널에 대해 저장된 모든 기록 찾기
 저장한 데이터를 보려면 다음 코드를 사용하여 프로그래밍 방식으로 저장한 모든 기록에 대한 "_ConversationIDs_"를 찾을 수 있습니다. 봇 에뮬레이터를 사용하여 코드를 테스트할 때 "_Start Over_"를 선택하면 새"_ConversationID_"로 새 기록이 시작됩니다.
@@ -584,7 +620,7 @@ PagedResult<Transcript> pagedResult = null;
 var pageSize = 0;
 do
 {
-    pagedResult = await _myTranscripts.ListTranscriptsAsync("emulator", pagedResult?.ContinuationToken);
+    pagedResult = await _transcriptStore.ListTranscriptsAsync("emulator", pagedResult?.ContinuationToken);
     
     // transcript item contains ChannelId, Created, Id.
     // save the converasationIds (Id) found by "ListTranscriptsAsync" to a local list.
@@ -596,7 +632,6 @@ do
     }
 } while (pagedResult.ContinuationToken != null);
 ```
-
 
 ### <a name="retrieve-user-conversations-from-azure-blob-transcript-storage"></a>Azure Blob 기록 저장소에서 사용자 대화 검색
 봇 상호 작용 기록이 Azure Blob 기록 저장소에 저장되면 AzureBlobTranscriptStorage 메서드, "_GetTranscriptActivities_"를 사용하여 테스트 또는 디버깅을 위해 프로그래밍 방식으로 검색할 수 있습니다. 다음 코드 조각은 저장된 각 기록에서 이전 24시간 내에 수신되고 저장된 모든 사용자 입력 기록을 검색합니다.
@@ -635,7 +670,7 @@ for (int i = 0; i < numTranscripts; i++)
    if (i > 0)
    {
        string thisConversationId = storedTranscripts[i];    
-       await _myTranscripts.DeleteTranscriptAsync("emulator", thisConversationId);
+       await _transcriptStore.DeleteTranscriptAsync("emulator", thisConversationId);
     }
 }
 ```

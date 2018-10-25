@@ -7,32 +7,33 @@ ms.author: kamrani
 manager: kamrani
 ms.topic: article
 ms.prod: bot-framework
-ms.date: 12/13/2017
-ms.openlocfilehash: b5a9d20c058fe425d727bf2e39597e7dd29ec077
-ms.sourcegitcommit: 3cb288cf2f09eaede317e1bc8d6255becf1aec61
+ms.date: 10/10/2018
+ms.openlocfilehash: 6e81b51243afc15714653aed7b9ca6513314071c
+ms.sourcegitcommit: 54ed5000c67a5b59e23b667547565dd96c7302f9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47389632"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49315159"
 ---
 # <a name="connect-a-bot-to-web-chat"></a>웹 채팅에 봇 연결
+
+[!INCLUDE pre-release-label]
+
 Bot Service를 사용하여 [봇을 만들 경우](bot-service-quickstart.md) 웹 채팅 채널이 자동으로 구성됩니다. 웹 채팅 채널에는 웹 페이지에서 직접 봇으로 상호 작용할 수 있는 기능을 제공하는 웹 채팅 컨트롤이 포함되어 있습니다.
 
-![웹 채팅 샘플](~/media/bot-service-channel-webchat/webchat-sample.png)
+![웹 채팅 샘플](./media/bot-service-channel-webchat/create-a-bot.png)
 
 Bot Framework 포털의 웹 채팅 채널에는 웹 페이지에 웹 채팅 컨트롤을 포함하는 데 필요한 모든 항목이 들어 있습니다. 웹 채팅 컨트롤을 사용하기 위해서는 봇의 비밀 키를 가져오고 웹 페이지에 컨트롤을 포함하기만 하면 됩니다.
-
-[!INCLUDE [Channel Inspector intro](~/includes/snippet-channel-inspector.md)]
 
 ## <a id="step-1"></a> 봇 비밀 키 가져오기
 
 1. [Azure Portal](http://portal.azure.com)에서 봇을 열고 **채널** 블레이드를 클릭합니다.
 
 2. **웹 채팅** 채널에 대해 **편집**을 클릭합니다.  
-![웹 채팅 채널](~/media/bot-service-channel-webchat/bot-service-channel-list.png)
+![웹 채팅 채널](./media/bot-service-channel-webchat/bot-service-channel-list.png)
 
 3. **비밀 키** 아래에서 첫 번째 키에 대해 **표시**를 클릭합니다.  
-![비밀 키](~/media/bot-service-channel-webchat/secret-key.png)
+![비밀 키](./media/bot-service-channel-webchat/secret-key.png)
 
 4. **비밀 키** 및 **Embed 태그**를 복사합니다.
 
@@ -127,8 +128,8 @@ Bot Framework 포털의 웹 채팅 채널에는 웹 페이지에 웹 채팅 컨�
 <iframe style="height:480px; width:402px" src="... SEE ABOVE ..."></iframe>
 ```
 
-![채팅 컨트롤 클라이언트](~/media/chatwidget-client.png)
+![채팅 컨트롤 클라이언트](./media/chatwidget-client.png)
 
 ## <a name="additional-resources"></a>추가 리소스
 
-GitHub에서 웹 채팅 컨트롤에 대한 [소스 코드를 다운로드](https://github.com/Microsoft/BotFramework-WebChat)할 수 있습니다.
+GitHub에서 웹 채팅 컨트롤에 대한 [소스 코드를 다운로드](https://aka.ms/BotFramework-WebChat-V4)할 수 있습니다.

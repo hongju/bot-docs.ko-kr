@@ -2,84 +2,118 @@
 title: 봇 소스 코드 다운로드 및 재배포 | Microsoft Docs
 description: Bot Service를 다운로드하고 게시하는 방법을 알아봅니다.
 keywords: 원본 코드 다운로드, 재배포, 배포, zip 파일, 게시
-author: v-ducvo
-ms.author: v-ducvo
+author: ivorb
+ms.author: v-ivorb
 manager: kamrani
 ms.topic: article
 ms.prod: bot-framework
-ms.date: 03/08/2018
-ms.openlocfilehash: b77e096d28f51f605db9c49d36e796553f9293ef
-ms.sourcegitcommit: 1abc32353c20acd103e0383121db21b705e5eec3
+ms.date: 09/26/2018
+ms.openlocfilehash: ee7a7a9f1b4c06f8ad762f750099383e218d98f2
+ms.sourcegitcommit: b8bd66fa955217cc00b6650f5d591b2b73c3254b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42756713"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49326430"
 ---
-# <a name="download-and-redeploy-bot-source-code"></a>봇 소스 코드 다운로드 및 재배포
+# <a name="download-and-redeploy-bot-code"></a>봇 코드 다운로드 및 재배포
+Azure Bot Service를 사용하면 봇의 전체 원본 프로젝트를 다운로드할 수 있으므로 원하는 IDE를 사용하여 로컬에서 작업할 수 있습니다. 코드 업데이트를 수행한 후 Azure Portal에 다시 변경 사항을 게시할 수 있습니다. Azure Portal 및 `az` cli를 사용하여 코드를 다운로드하는 방법을 보여드리겠습니다. 또한 Visual Studio 및 `az` cli 도구를 사용하여 업데이트된 봇 코드를 다시 배포하는 방법을 알아보겠습니다. 본인에게 가장 적합한 메서드를 선택할 수 있습니다.
 
-Bot Service를 사용하면 봇에 대한 전체 원본 프로젝트를 다운로드할 수 있습니다. 이를 통해 선택한 IDE를 사용하여 로컬에서 봇 관련 작업을 할 수 있습니다. 변경을 완료하면 변경 내용을 다시 Azure에 게시할 수 있습니다. 
+## <a name="prerequisites"></a>필수 조건
+- [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/?view=azure-cli-latest)
+- `az extension add -n botservice` 명령을 사용하여 az botservice 확장 설치
 
-이 항목에서는 봇의 원본 코드를 다운로드하고 변경 내용을 다시 Azure에 게시하는 방법을 보여 줍니다. 
+### <a name="download-code-using-the-azure-portal"></a>Azure Portal을 사용하여 코드 다운로드
+[Azure Portal](https://portal.azure.com)에서 코드를 다운로드하려면 다음을 수행합니다.
+1. 봇에 대한 블레이드를 엽니다.
+1. **봇 관리** 섹션에서 **빌드**를 클릭합니다.
+1. **소스 코드 다운로드**에서 **zip 파일 다운로드**를 클릭합니다.
+1. Azure가 다운로드 URI를 준비할 때까지 기다린 후 알림에서 **zip 파일 다운로드**를 클릭합니다.
+1. 로컬 디렉터리에 .zip 파일을 저장하고 압축을 풉니다.
 
-## <a name="download-bot-source-code"></a>봇 원본 코드 다운로드
+C# 봇이 있는 경우 아래 표시된 것처럼 .bot 파일 정보를 포함하도록 `appsettings.json` 파일을 업데이트합니다.
 
-봇을 로컬에서 개발하려면 다음을 수행합니다.
+```
+{
+  "botFilePath": "yourbasicBot.bot",
+  "botFileSecret": "ukxxxxxxxxxxxs="
+}
+```
+`botFilePath`는 봇의 이름을 참조하고 "yourbasicBot.bot"을 자체 봇 이름으로 바꿉니다. `botFileSecret` 키를 가져오려면 봇의 키를 생성하는 방법에 대한 [봇 파일 암호화](https://aka.ms/bot-file-encryption) 문서를 참조하세요.
 
-1. Azure Portal에서 봇에 대한 블레이드를 엽니다.
-2. **봇 관리** 섹션에서 **빌드**를 클릭합니다.
-3. **Zip 파일 다운로드**를 클릭합니다. 
 
-   ![원본 코드 다운로드](~/media/azure-bot-build/download-zip-file.png)
-
-4. .zip 파일을 로컬 디렉터리에 추출합니다.
-5. 추출된 폴더로 이동하고 선호하는 IDE에서 원본 파일을 엽니다.
-6. 원본 내용을 변경합니다. 기본 원본 파일을 편집하거나 새 원본 파일을 프로젝트에 추가합니다.
-
-준비가 완료되면 원본을 다시 Azure에 게시할 수 있습니다.
-
-## <a name="publish-node-bot-source-code-to-azure"></a>Azure에 Node 봇 원본 코드 게시
-
-이러한 패키지를 설치하려면 명령 프롬프트에서 프로젝트 디렉터리로 이동하고 다음 NPM 명령을 실행합니다.
-
-**참고:** 이러한 패키지는 한 번만 추가해야 합니다.
-
-```console
-npm install --save fs
-npm install --save path
-npm install --save request
-npm install --save zip-folder
+node.js 봇이 있는 경우 다음과 같은 항목이 포함된 `.env` 파일을 추가합니다.
+```
+botFilePath=yourbasicBot.bot
+botFileSecret=ukxxxxxxxxxxxxs=
 ```
 
-이제 프로젝트를 Microsoft Azure에 게시할 준비가 완료되었습니다. 프로젝트를 Microsoft Azure에 게시하려면 cmd 프롬프트에서 다음 NPM 명령을 실행합니다.
+다음으로, 기존 원본 파일을 편집하거나 프로젝트에 새 원본 파일을 추가하여 원본을 변경합니다. 에뮬레이터를 사용하여 코드를 테스트합니다. 수정된 코드를 Azure Portal에 다시 배포할 준비가 된 경우 아래 지침을 따르세요.
 
-```console
-npm run azure-publish
+### <a name="publish-code-using-visual-studio"></a>Visual Studio를 사용하여 코드 게시
+1. Visual Studio에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시...** 를 클릭합니다. **게시** 창이 열립니다.
+
+![Azure 게시](~/media/azure-bot-build/azure-csharp-publish.png)
+
+2. 프로젝트의 프로필을 선택합니다.
+3. 프로젝트에서 _publish.cmd_ 파일에 나열된 암호를 복사합니다.
+4. **게시**를 클릭합니다.
+5. 메시지가 표시되면 3단계에서 복사한 암호를 입력합니다.   
+
+프로젝트가 구성된 후 프로젝트 변경 내용이 Azure에 게시됩니다. 
+
+다음으로, `az` cli를 사용하여 코드를 다운로드하고 다시 배포하는 방법을 살펴보겠습니다.
+
+### <a name="download-code-using-azure-cli"></a>Azure CLI를 사용하여 코드 다운로드
+
+먼저 az cli 도구를 사용하여 Azure Portal에 로그인합니다.
+
+```azcli
+az login
 ```
 
-> [!NOTE]
-> 이 NPM 명령 후에 오류가 발생하면 `"scripts": {"azure-publish": "node publish.js"}`를 `package.json` 파일에 추가하고 다시 실행해야 할 수 있습니다.
+고유한 임시 인증 코드를 묻는 메시지가 나타납니다. 로그인하려면 웹 브라우저를 사용하여 Microsoft [장치 로그인](https://microsoft.com/devicelogin)을 방문하고 계속하려면 CLI에서 제공하는 코드를 붙여넣습니다.
 
-## <a name="publish-c-bot-source-code-to-azure"></a>Azure에 C# 봇 원본 코드 게시
+`az` cli를 사용하여 코드를 다운로드하려면 다음 명령을 사용합니다.
+```azcli
+az bot download --name "my-bot-name" --resource-group "my-resource-group"`
+```
+코드가 다운로드되면 다음을 수행합니다.
+- C# 봇의 경우 아래 표시된 것처럼 .bot 파일 정보를 포함하도록 appsettings.json 파일을 업데이트합니다.
 
-Visual Studio를 사용하여 C# 코드를 Azure에 게시하는 작업은 2단계 프로세스입니다. 먼저 게시 설정을 구성해야 합니다. 그런 다음, 변경 내용을 게시할 수 있습니다.
+```
+{
+  "botFilePath": "yourbasicBot.bot",
+  "botFileSecret": "ukxxxxxxxxxxxs="
+}
+```
 
-Visual Studio에서 게시를 구성하려면 다음을 수행합니다.
+- node.js 봇의 경우 다음과 같은 항목이 포함된 .env 파일을 추가합니다.
 
-1. Visual Studio에서 **솔루션 탐색기**를 클릭합니다.
-2. 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시...** 를 클릭합니다. **게시** 창이 열립니다.
-3. **새 프로필 만들기**를 클릭하고, **프로필 가져오기**를 클릭하고, **확인**을 클릭합니다.
-4. 프로젝트 폴더로 이동한 다음, **PostDeployScripts** 폴더로 이동하고, **.PublishSettings**로 끝나는 파일을 선택합니다. **열기**를 클릭합니다.
+```
+botFilePath=yourbasicBot.bot
+botFileSecret=ukxxxxxxxxxxxxs=
+```
 
-이제 프로젝트는 변경 내용을 Azure에 게시하도록 구성되어 있습니다.
+다음으로, 기존 원본 파일을 편집하거나 프로젝트에 새 원본 파일을 추가하여 원본을 변경합니다. 에뮬레이터를 사용하여 코드를 테스트합니다. 수정된 코드를 Azure Portal에 다시 배포할 준비가 된 경우 아래 지침을 따르세요.
 
-프로젝트가 구성된 후 다음을 수행하여 봇 원본 코드를 다시 Azure에 게시할 수 있습니다.
+### <a name="login-to-azure-cli-by-running-the-following-command"></a>다음 명령을 실행하여 Azure CLI에 로그인합니다.
+이미 로그인한 경우 이 단계를 건너뛸 수 있습니다.
 
-1. Visual Studio에서 **솔루션 탐색기**를 클릭합니다.
-2. 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시...** 를 클릭합니다.
-3. **게시** 단추를 클릭하여 변경 내용은 Azure에 게시합니다.
+```azcli
+az login
+```
+고유한 임시 인증 코드를 묻는 메시지가 나타납니다. 로그인하려면 웹 브라우저를 사용하여 Microsoft [장치 로그인](https://microsoft.com/devicelogin)을 방문하고 계속하려면 CLI에서 제공하는 코드를 붙여넣습니다.
+
+### <a name="publish-code-using-azure-cli"></a>Azure CLI를 사용하여 코드 게시
+`az` cli를 사용하여 Azure에 다시 코드를 게시하려면 다음 명령을 사용합니다.
+```azcli
+az bot publish --name "my-bot-name" --resource-group "my-resource-group" --code-dir <path to directory> 
+```
+
+`code-dir` 옵션을 사용하여 사용할 디렉터리를 지정할 수 있습니다. 이 디릭터리가 지정되지 않은 경우 `az bot publish` 명령에서 게시할 로컬 디렉터리를 사용합니다.
 
 ## <a name="next-steps"></a>다음 단계
-이제 로컬에서 봇을 빌드하는 방법을 알았으므로 봇에 대한 지속적인 배포를 설정할 수 있습니다.
+이제 Azure에 변경 내용을 다시 업로드하는 방법을 알았으므로 봇에 대한 지속적인 배포를 설정할 수 있습니다.
 
 > [!div class="nextstepaction"]
 > [지속적인 배포 설정](bot-service-build-continuous-deployment.md)

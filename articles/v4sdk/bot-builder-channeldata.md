@@ -9,12 +9,12 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 7df9e4ec543afb3581278bc28a4d6324ad0cce5c
-ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
+ms.openlocfilehash: 1c8a62ed9b170210974a3702e1559e1e88ef4f6c
+ms.sourcegitcommit: b8bd66fa955217cc00b6650f5d591b2b73c3254b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42904993"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49326340"
 ---
 [!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
 

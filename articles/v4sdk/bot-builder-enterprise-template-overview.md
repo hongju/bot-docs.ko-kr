@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 09/18/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 9636b1c88bd99b94f3bf266a3a321d8f6e2747d4
-ms.sourcegitcommit: 87b5b0ca9b0d5e028ece9f7cc4948c5507062c2b
+ms.openlocfilehash: 5f00dd3666a0ebe300ec7c1e98baae020f603175
+ms.sourcegitcommit: b8bd66fa955217cc00b6650f5d591b2b73c3254b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47029791"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49326440"
 ---
 # <a name="enterprise-bot-template"></a>엔터프라이즈 봇 템플릿 
 

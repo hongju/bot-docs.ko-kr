@@ -8,12 +8,12 @@ manager: kamrani
 ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/2017
-ms.openlocfilehash: 56fe0af4d34e6e0aa4bc420112c541a410aa1301
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: e2176d3eb5584a1d9a234d4ab94c69451f0db6ef
+ms.sourcegitcommit: 54ed5000c67a5b59e23b667547565dd96c7302f9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39301891"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49315229"
 ---
 # <a name="connect-a-bot-to-slack"></a>Slack에 봇 연결
 
@@ -21,7 +21,7 @@ Slack 메시징 앱을 사용하여 사용자와 통신하도록 봇을 구성�
 
 ## <a name="create-a-slack-application-for-your-bot"></a>봇에 대한 Slack 응용 프로그램 만들기
 
-Slack에 로그인하고 [Slack 응용 프로그램을 만듭니다](https://api.slack.com/applications/new).
+[Slack](https://slack.com/signin)에 로그인한 다음, [Slack 응용 프로그램 만들기](https://api.slack.com/apps) 채널로 이동합니다.
 
 ![봇 설정](~/media/channels/slack-NewApp.png)
 
@@ -63,23 +63,23 @@ Slack에 로그인하고 [Slack 응용 프로그램을 만듭니다](https://api
 6가지 특정 봇 이벤트를 구독하려면 다음 단계를 따릅니다. 봇 이벤트를 구독하면 앱은 지정된 URL의 사용자 활동에 대한 알림을 받게 됩니다.
 
 > [!TIP]
-> 봇 핸들은 봇의 속성입니다. 봇의 핸들을 찾으려면 [https://dev.botframework.com/bots](https://dev.botframework.com/bots)를 방문하고, 봇을 선택한 후 **설정**을 클릭합니다.
+> 봇 핸들은 봇의 이름입니다. 봇의 핸들을 찾으려면 [https://dev.botframework.com/bots](https://dev.botframework.com/bots)를 방문하고 봇을 선택한 후 봇의 이름을 기록합니다.
 
 1. **이벤트 구독** 탭을 선택합니다.
 2. **이벤트 사용**을 **켜기**로 설정합니다.
-3. **요청 URL**에서 이 URL을 입력하되 `{YourBotHandle}`을 봇 핸들로 바꿉니다.
+3. **요청 URL**에서 이 URL을 입력하되 `{YourBotHandle}`을 봇 핸들로 바꿉니다. 이 자습서에서 사용된 봇 핸들은 testChannels입니다.
         `https://slack.botframework.com/api/Events/{YourBotHandle}`
-4. **봇 이벤트 구독**에서 **봇 사용자 이벤트 추가**를 클릭합니다.
-5. 이벤트 목록에서 **봇 사용자 이벤트**를 클릭하고 다음의 6가지 이벤트 유형을 선택합니다.
+4. **Workspace 이벤트 구독**에서 **Workspace 이벤트 추가**를 클릭합니다.
+5. 이벤트 목록에서 이러한 6개 이벤트 유형을 선택합니다.
     * `member_joined_channel`
     * `member_left_channel`
     * `message.channels`
     * `message.groups`
     * `message.im`
     * `message.mpim`
-6. **변경 내용 저장**을 클릭합니다.
 
-![이벤트 구독](~/media/channels/slack-EnableEvents.png)
+![이벤트 구독](~/media/channels/slack-SubscribeEvents.png)
+6. **변경 내용 저장**을 클릭합니다.
 
 ## <a name="add-and-configure-interactive-messages-optional"></a>대화형 메시지 추가 및 구성(선택 사항)
 
@@ -87,7 +87,7 @@ Slack에 로그인하고 [Slack 응용 프로그램을 만듭니다](https://api
 
 1. **대화형 구성 요소** 탭을 선택하고 **대화형 구성 요소 사용**을 클릭합니다.
 2. **요청 URL**로 `https://slack.botframework.com/api/Actions`를 입력합니다.
-3. **대화형 메시지 사용** 단추를 클릭하고 **변경 내용 저장** 단추를 클릭합니다.
+3. **변경 내용 저장** 단추를 클릭합니다.
 
 ![메시지 사용](~/media/channels/slack-MessageURL.png)
 
@@ -103,7 +103,7 @@ Slack 봇 구성에 필요한 클라이언트 ID, 클라이언트 암호 및 확
 별도의 브라우저 창에서 `https://dev.botframework.com/`의 Bot Framework 사이트로 돌아갑니다.
 
 1. **내 봇**을 선택하고 Slack에 연결하려는 봇을 선택합니다.
-2. **채널 추가** 섹션에서 Slack 아이콘을 클릭합니다.
+2. **채널** 섹션에서 Slack 아이콘을 클릭합니다.
 3. **Slack 자격 증명 입력** 섹션에서 Slack 웹 사이트의 앱 자격 증명을 해당 필드에 붙여넣습니다.
 4. **방문 페이지 URL**은 선택 사항입니다. 생략하거나 변경할 수 있습니다.
 5. **저장**을 클릭합니다.

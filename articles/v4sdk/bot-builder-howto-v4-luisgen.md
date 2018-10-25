@@ -9,12 +9,12 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 5/16/17
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 87ab8d3ceb872cdb0342458b24a9756ccb710fb6
-ms.sourcegitcommit: 3bf3dbb1a440b3d83e58499c6a2ac116fe04b2f6
+ms.openlocfilehash: f0e428ca0aa1b0208538e2de7fc0a293763062a1
+ms.sourcegitcommit: 54ed5000c67a5b59e23b667547565dd96c7302f9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/23/2018
-ms.locfileid: "46706989"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49315209"
 ---
 # <a name="extract-intents-and-entities-using-luisgen"></a>LUISGen을 사용하여 의도 및 엔터티 추출
 
@@ -23,7 +23,7 @@ ms.locfileid: "46706989"
 의도를 인식하는 것 외에, LUIS 앱은 사용자 요청 이행에 중요한 단어에 해당하는 엔터티도 추출할 수 있습니다. 예를 들어, 레스토랑 예약 예제에서 LUIS 앱은 사용자의 메시지에서 파티 규모, 예약 날짜 또는 식당 위치를 추출할 수 있습니다. 
 
 
-[LUISGen 도구](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/LUISGen)를 사용하여 봇의 코드에서 LUIS로부터 엔터티를 보다 쉽게 추출하도록 하는 클래스를 생성합니다.
+[LUISGen 도구](https://aka.ms/botbuilder-tools-luisgen)를 사용하여 봇의 코드에서 LUIS로부터 엔터티를 보다 쉽게 추출하도록 하는 클래스를 생성합니다.
 
 Node.js 명령줄에서 전역 경로에 `luisgen`을 설치합니다.
 ```
@@ -60,7 +60,7 @@ public class _Entities
     public string[] partySize;
 
     // Built-in entities
-    public Microsoft.Bot.Builder.Ai.LUIS.DateTimeSpec[] datetime;
+    public Microsoft.Bot.Builder.Ai.Luis.DateTimeSpec[] datetime;
     public double[] number;
 
     // Lists
@@ -69,10 +69,10 @@ public class _Entities
     // Instance
     public class _Instance
     {
-        public Microsoft.Bot.Builder.Ai.LUIS.InstanceData[] partySize;
-        public Microsoft.Bot.Builder.Ai.LUIS.InstanceData[] datetime;
-        public Microsoft.Bot.Builder.Ai.LUIS.InstanceData[] number;
-        public Microsoft.Bot.Builder.Ai.LUIS.InstanceData[] cafeLocation;
+        public Microsoft.Bot.Builder.Ai.Luis.InstanceData[] partySize;
+        public Microsoft.Bot.Builder.Ai.Luis.InstanceData[] datetime;
+        public Microsoft.Bot.Builder.Ai.Luis.InstanceData[] number;
+        public Microsoft.Bot.Builder.Ai.Luis.InstanceData[] cafeLocation;
     }
     [JsonProperty("$instance")]
     public _Instance _instance;
