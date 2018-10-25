@@ -6,14 +6,15 @@ author: RobStand
 ms.author: RobStand
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 10/12/2018
-ms.openlocfilehash: 1424a1929afa7ab9bec48e038fc93a2f8262241a
-ms.sourcegitcommit: 54ed5000c67a5b59e23b667547565dd96c7302f9
+ms.openlocfilehash: 0932372c5b2bcf574d244cd60d46ef579acbd106
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49315199"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "50000160"
 ---
 # <a name="connect-a-bot-to-facebook"></a>Facebook에 봇 연결
 

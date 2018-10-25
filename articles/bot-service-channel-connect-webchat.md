@@ -6,14 +6,15 @@ author: RobStand
 ms.author: kamrani
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 10/10/2018
-ms.openlocfilehash: 6e81b51243afc15714653aed7b9ca6513314071c
-ms.sourcegitcommit: 54ed5000c67a5b59e23b667547565dd96c7302f9
+ms.openlocfilehash: 1658a5cd8ba3fc4e9c34849e1550f64461ced292
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49315159"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "50000150"
 ---
 # <a name="connect-a-bot-to-web-chat"></a>웹 채팅에 봇 연결
 

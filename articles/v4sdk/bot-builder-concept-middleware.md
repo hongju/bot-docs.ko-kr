@@ -6,15 +6,16 @@ author: ivorb
 ms.author: v-ivorb
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 05/24/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 20f5387e7c1ea40e6b9848a1071e542dcd1cacaa
-ms.sourcegitcommit: aef7d80ceb9c3ec1cfb40131709a714c42960965
+ms.openlocfilehash: 38d876e11d00a5471f2dcbfca44eb23290b7476c
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49383168"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49997980"
 ---
 # <a name="middleware"></a>미들웨어
 

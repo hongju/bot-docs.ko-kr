@@ -5,14 +5,15 @@ author: matvelloso
 ms.author: mateusv
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: cognitive-services
 ms.date: 12/13/2017
-ms.openlocfilehash: ab7e6a8e6bbb2cf12fca0371f2de561f4fb47fd8
-ms.sourcegitcommit: b8bd66fa955217cc00b6650f5d591b2b73c3254b
+ms.openlocfilehash: e228209b4d239a05f9c76203e9fd2fb342c14d36
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49326530"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49999290"
 ---
 # <a name="design-knowledge-bots"></a>지식 봇 설계
 

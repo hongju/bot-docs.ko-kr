@@ -6,16 +6,17 @@ author: ivorb
 ms.author: v-ivorb
 manager: rstand
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: cognitive-services
 ms.date: 09/19/2018
 ms.reviewer: ''
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: bef0d5f3220cd818767f4eead5c5f4a09d047c26
-ms.sourcegitcommit: aef7d80ceb9c3ec1cfb40131709a714c42960965
+ms.openlocfilehash: bb280f3c43348a1293345bc698e83608694946b1
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49383158"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "50000320"
 ---
 # <a name="language-understanding"></a>언어 이해
 

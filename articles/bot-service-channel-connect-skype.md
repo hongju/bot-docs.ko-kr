@@ -6,14 +6,15 @@ author: v-ducvo
 ms.author: RobStand
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 10/11/2018
-ms.openlocfilehash: 6fec83e7e37ba4759e8e305be8c98382f0bedeff
-ms.sourcegitcommit: 54ed5000c67a5b59e23b667547565dd96c7302f9
+ms.openlocfilehash: 58c8145d359d292dd33972a3dd59af997e7b8393
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49315079"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49999510"
 ---
 # <a name="connect-a-bot-to-skype"></a>Skype에 봇 연결
 

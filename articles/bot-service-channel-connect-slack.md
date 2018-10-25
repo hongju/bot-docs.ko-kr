@@ -6,14 +6,15 @@ author: RobStand
 ms.author: kamrani
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 12/13/2017
-ms.openlocfilehash: e2176d3eb5584a1d9a234d4ab94c69451f0db6ef
-ms.sourcegitcommit: 54ed5000c67a5b59e23b667547565dd96c7302f9
+ms.openlocfilehash: f69cfa4c67a1f628d835f0d96903065b8b033d32
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49315229"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "50000130"
 ---
 # <a name="connect-a-bot-to-slack"></a>Slack에 봇 연결
 

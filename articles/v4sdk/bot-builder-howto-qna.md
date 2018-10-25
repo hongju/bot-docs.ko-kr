@@ -6,15 +6,16 @@ author: ivorb
 ms.author: v-ivorb
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: cognitive-services
 ms.date: 10/08/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: e3d7c0a541a4b7f8c2065c5db724e5d79ced54b8
-ms.sourcegitcommit: 54ed5000c67a5b59e23b667547565dd96c7302f9
+ms.openlocfilehash: 3d488cc2bb61ef460ed45707596cb7db9e6c23e8
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49315179"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49999088"
 ---
 # <a name="use-qna-maker-to-answer-questions"></a>QnA Maker를 사용하여 질문에 답변
 

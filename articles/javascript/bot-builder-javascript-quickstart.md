@@ -6,15 +6,16 @@ author: jonathanfingold
 ms.author: jonathanfingold
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
-ms.date: 09/23/2018
+ms.service: bot-service
+ms.subservice: sdk
+ms.date: 10/15/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 3e721c9142ffb1511ef926f5b1caca782e0919ed
-ms.sourcegitcommit: 54ed5000c67a5b59e23b667547565dd96c7302f9
+ms.openlocfilehash: aa13889cea2a26bf094a919f5d05905d65f7661f
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49315089"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49998862"
 ---
 # <a name="create-a-bot-with-the-bot-builder-sdk-for-javascript"></a>JavaScript용 Bot Builder SDK를 사용하여 봇 만들기
 
@@ -27,6 +28,7 @@ ms.locfileid: "49315089"
 - [Visual Studio Code](https://www.visualstudio.com/downloads)
 - [Node.JS](https://nodejs.org/)
 - [Yeoman](http://yeoman.io/), 생성기를 사용하여 사용자를 위한 봇을 만들 수 있음
+- [git](https://git-scm.com/)
 - [Bot Framework Emulator](https://github.com/Microsoft/BotFramework-Emulator)
 - [Restify](http://restify.com/) 및 JavaScript의 비동기 프로그래밍에 대한 정보
 

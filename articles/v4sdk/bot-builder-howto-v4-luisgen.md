@@ -6,15 +6,16 @@ author: DeniseMak
 ms.author: v-demak
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: tools
 ms.date: 5/16/17
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: f0e428ca0aa1b0208538e2de7fc0a293763062a1
-ms.sourcegitcommit: 54ed5000c67a5b59e23b667547565dd96c7302f9
+ms.openlocfilehash: e1817179d8459ace444f669791d8a302fb6fb5c9
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49315209"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49999780"
 ---
 # <a name="extract-intents-and-entities-using-luisgen"></a>LUISGen을 사용하여 의도 및 엔터티 추출
 

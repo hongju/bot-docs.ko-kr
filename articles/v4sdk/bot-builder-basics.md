@@ -6,15 +6,16 @@ author: johnataylor
 ms.author: johtaylo
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 9/26/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: b929020908990a97e039be6467eef033c50228db
-ms.sourcegitcommit: aef7d80ceb9c3ec1cfb40131709a714c42960965
+ms.openlocfilehash: fde88929c688c25d473ce8242ebfd5d44dc3a22f
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49383139"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49998130"
 ---
 # <a name="understanding-how-bots-work"></a>봇 작동 방식 이해
 

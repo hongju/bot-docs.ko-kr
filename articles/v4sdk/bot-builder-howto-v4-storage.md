@@ -6,15 +6,16 @@ author: DeniseMak
 ms.author: v-demak
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 09/14/18
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 3c28ad1fd14fab90c558ece4736423be2cabd78b
-ms.sourcegitcommit: b8bd66fa955217cc00b6650f5d591b2b73c3254b
+ms.openlocfilehash: 9e63390d157c75e1079654549831cf4936c62710
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49326550"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49997990"
 ---
 # <a name="write-directly-to-storage"></a>저장소에 직접 작성
 

@@ -6,14 +6,15 @@ author: RobStand
 ms.author: kamrani
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 10/9/2018
-ms.openlocfilehash: 1c85c59591313f675e53af7cffc4751a05ce4bc4
-ms.sourcegitcommit: 54ed5000c67a5b59e23b667547565dd96c7302f9
+ms.openlocfilehash: 7d7416940ccad4e62c98f4a386dac43189301b56
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49315169"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49998314"
 ---
 # <a name="connect-a-bot-to-twilio"></a>Twilio에 봇 연결
 

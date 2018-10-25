@@ -6,15 +6,16 @@ author: v-ducvo
 ms.author: v-ducvo
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 10/08/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 3c6209c5f9eac1cd58ed5c9584875b2aff2a1f0c
-ms.sourcegitcommit: a9270702536eb34dedf5128bf57889c1ffcd7f4c
+ms.openlocfilehash: 0fdb80e45b343faa0eac50db045637e1ee61186e
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49088905"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49999795"
 ---
 # <a name="create-an-integrated-set-of-dialogs"></a>대화 상자의 통합된 집합 만들기
 

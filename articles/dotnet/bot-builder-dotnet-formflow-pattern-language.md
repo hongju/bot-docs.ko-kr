@@ -5,15 +5,16 @@ author: RobStand
 ms.author: kamrani
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 8c1fe15436a00487483755af06897c4af1c70be2
-ms.sourcegitcommit: b8bd66fa955217cc00b6650f5d591b2b73c3254b
+ms.openlocfilehash: bc0a2819f3adea63b53e464808f3bbaf5b93814a
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49326500"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49998050"
 ---
 # <a name="customize-user-experience-with-pattern-language"></a>패턴 언어를 사용하여 사용자 환경 사용자 지정
 

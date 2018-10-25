@@ -6,15 +6,16 @@ author: ivorb
 ms.author: v-ivorb
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: cognitive-services
 ms.date: 10/12/18
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 78654c78282c0a8e73dd17a093d27800f9fc8cb1
-ms.sourcegitcommit: b8bd66fa955217cc00b6650f5d591b2b73c3254b
+ms.openlocfilehash: 395db5e1913b840340e5887cf09e6c59f90742a4
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49326510"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49997670"
 ---
 # <a name="using-luis-for-language-understanding"></a>Language Understanding에 LUIS 사용
 

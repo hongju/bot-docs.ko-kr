@@ -6,14 +6,15 @@ author: ivorb
 ms.author: v-ivorb
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 09/26/2018
-ms.openlocfilehash: ee7a7a9f1b4c06f8ad762f750099383e218d98f2
-ms.sourcegitcommit: b8bd66fa955217cc00b6650f5d591b2b73c3254b
+ms.openlocfilehash: afb1c4a0e766df7ac2d122b3c7ca4e7959871dbb
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49326430"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49997280"
 ---
 # <a name="download-and-redeploy-bot-code"></a>봇 코드 다운로드 및 재배포
 Azure Bot Service를 사용하면 봇의 전체 원본 프로젝트를 다운로드할 수 있으므로 원하는 IDE를 사용하여 로컬에서 작업할 수 있습니다. 코드 업데이트를 수행한 후 Azure Portal에 다시 변경 사항을 게시할 수 있습니다. Azure Portal 및 `az` cli를 사용하여 코드를 다운로드하는 방법을 보여드리겠습니다. 또한 Visual Studio 및 `az` cli 도구를 사용하여 업데이트된 봇 코드를 다시 배포하는 방법을 알아보겠습니다. 본인에게 가장 적합한 메서드를 선택할 수 있습니다.

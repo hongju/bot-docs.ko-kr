@@ -6,15 +6,16 @@ author: jonathanfingold
 ms.author: jonathanfingold
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 09/01/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 55145b4728d325bd258cc2cd95f3a265aaa50b0a
-ms.sourcegitcommit: b8bd66fa955217cc00b6650f5d591b2b73c3254b
+ms.openlocfilehash: 19f0b67454a8c0a4bf171579f8e481e630db83ac
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49326460"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49998920"
 ---
 # <a name="conversation-flow"></a>대화 흐름
 [!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
