@@ -6,15 +6,15 @@ author: ivorb
 ms.author: v-ivorb
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
 ms.date: 04/09/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 4195ae016513c809e4677879e0abe1b2bf8d799e
-ms.sourcegitcommit: 3cb288cf2f09eaede317e1bc8d6255becf1aec61
+ms.openlocfilehash: 27516a73f625eea9c6d2cf8a09234f4068d380e3
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47389782"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49997460"
 ---
 # <a name="testing-and-debugging-guidelines"></a>테스트 및 디버깅 지침
 
@@ -50,7 +50,8 @@ ms.locfileid: "47389782"
 
 ### <a name="level-2-use-a-direct-line-client"></a>수준 2: 직접 회선 클라이언트 사용
 
-봇이 원하는 대로 작동하는지 확인한 후 다음 단계에서 봇을 채널에 연결합니다. 이렇게 하려면 봇을 준비 서버에 배포하고 봇을 연결할 고유한 <!--IBTODO [Direct Line client](bot-builder-howto-direct-line.md)--> 직접 회선 클라이언트를 만듭니다.
+봇이 원하는 대로 작동하는지 확인한 후 다음 단계에서 봇을 채널에 연결합니다. 이렇게 하려면 봇을 준비 서버에 배포하고 봇을 연결할 고유한 직접 회선 클라이언트를 만들면 됩니다.
+<!--IBTODO [Direct Line client](bot-builder-howto-direct-line.md)-->
 
 고유한 클라이언트를 만들면 채널의 내부 작업을 정의할 뿐만 아니라 특히 봇이 특정 활동 교환에 어떻게 응답하는지 테스트할 수 있습니다. 클라이언트에 연결된 후 테스트를 실행하여 봇 상태를 설정하고 기능을 확인합니다. 봇이 음성 같은 기능을 사용하는 경우, 이러한 채널을 사용하면 해당 기능을 확인할 수 있습니다.
 

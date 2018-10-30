@@ -1,16 +1,16 @@
 ---
 redirect_url: /bot-framework/bot-builder-howto-v4-state
-ms.openlocfilehash: e5da105e32ae748383d376f90afd9aebbf4c7aa5
-ms.sourcegitcommit: 3bf3dbb1a440b3d83e58499c6a2ac116fe04b2f6
+ms.openlocfilehash: cdbe139f6b901cf812356358deecc61394eae2a5
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/23/2018
-ms.locfileid: "46708119"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49998900"
 ---
 <a name="--"></a><!--
 ---
 제목: 상태 및 저장소 | Microsoft Docs 설명: 어떤 상태 관리자, 대화 상태 및 사용자 상태가 Bot Builder SDK 내에 있는지 설명합니다.
-키워드: LUIS, 대화 상태, 사용자 상태, 저장소, 상태 관리 작성자: DeniseMak ms.작성자: v demak 관리자: kamrani ms.제목: article ms.prod: bot framework ms.날짜: 2018/02/15 monikerRange: 'azure-bot-service-4.0'
+키워드: LUIS, 대화 상태, 사용자 상태, 저장소, 관리 상태 작성자: DeniseMak ms.author: v-demak manager: kamrani ms.topic: article ms.service: bot-service ms.subservice: sdk ms.date: 02/15/2018 monikerRange: 'azure-bot-service-4.0'
 ---
 
 # <a name="state-and-storage"></a>상태 및 저장소

@@ -5,18 +5,22 @@ author: RobStand
 ms.author: kamrani
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 12/13/2017
-ms.openlocfilehash: ac984609acfdd8f85088bd47ccded1f45e953b2c
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: f0985f28fd1744bcfb6bf5cea1c2230254670e01
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39302826"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "50000210"
 ---
 # <a name="end-a-conversation"></a>대화 종료
 
 클라이언트나 봇이 **endOfConversation** [활동](bot-framework-rest-connector-activities.md)을 보내 Direct Line 대화의 종료를 표시할 수 있습니다.  
+
+> [!NOTE] 
+> endOfConversation 이벤트는 Cortana 채널에서만 지원됩니다. 다른 채널은 이 기능을 구현하지 않습니다. 각 채널은 endOfConversation 작업에 대응하는 방법을 결정합니다. DirectLine 클라이언트를 설계할 때 봇이 이미 종료된 대화에 작업을 전송하는 경우에 오류를 생성하는 등 적절하게 동작하도록 클라이언트를 업데이트합니다.
 
 ## <a name="send-an-endofconversation-activity"></a>endOfConversation 활동 보내기
 

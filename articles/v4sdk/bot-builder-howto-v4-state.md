@@ -6,15 +6,16 @@ author: ivorb
 ms.author: v-ivorb
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 09/18/18
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 21f864ba6f5beba5205e860f4a56697997048dfb
-ms.sourcegitcommit: 6c2426c43cd2212bdea1ecbbf8ed245145b3c30d
+ms.openlocfilehash: 972df2a12ffa7901ed4e4ecf14ce99233293c5a2
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48852298"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49997710"
 ---
 # <a name="manage-conversation-and-user-state"></a>대화 및 사용자 상태 관리
 
@@ -58,7 +59,7 @@ public class UserProfile
 `TopicState` 클래스에는 대화의 현재 위치를 추적하는 플래그가 있으며 대화 상태를 사용하여 이 플래그를 저장합니다. 프롬프트를 "askName"으로 초기화하여 대화를 시작합니다. 봇이 사용자로부터 응답을 수신하면 프롬프트를 "askNumber"로 재정의하여 다음 대화를 시작하게 됩니다. `UserProfile` 클래스는 사용자 이름 및 전화 번호를 추적하여 사용자 상태에 저장합니다.
 
 ### <a name="property-accessors"></a>속성 접근자
-예제에서 `EchoBotAccessors` 클래스는 싱글톤으로 생성되고 종속성 주입을 통해 `class EchoWithCounterBot : IBot` 생성자로 전달됩니다. `EchoBotAccessors` 클래스 생성자는 `EchoBotAccessors` 클래스의 새 인스턴스를 초기화합니다. 또한 `ConversationState`, `UserState` 및 연결된 `IStatePropertyAccessor`을 포함합니다. `conversationState` 개체는 사용자 프로필 정보를 저장하는 `userState` 개체 및 토픽 상태를 저장합니다. `ConversationState` 및 `UserState` 개체는 Startup.cs 파일에서 만들어집니다. 대화 및 사용자 상태 개체는 대화 및 사용자 범위에서 모든 항목을 유지하는 위치입니다. 
+예제에서 `EchoBotAccessors` 클래스는 싱글톤으로 생성되고 종속성 주입을 통해 `class EchoWithCounterBot : IBot` 생성자로 전달됩니다. `EchoBotAccessors` 클래스에는 `ConversationState`, `UserState` 및 연결된 `IStatePropertyAccessor`가 포함됩니다. `conversationState` 개체는 사용자 프로필 정보를 저장하는 `userState` 개체 및 토픽 상태를 저장합니다. `ConversationState` 및 `UserState` 개체는 나중에 Startup.cs 파일에서 만들어집니다. 대화 및 사용자 상태 개체는 대화 및 사용자 범위에서 모든 항목을 유지하는 위치입니다. 
 
 아래에 표시된 것처럼 `UserState`를 포함하도록 생성자를 업데이트했습니다.
 ```csharp
@@ -121,17 +122,17 @@ services.AddSingleton<EchoBotAccessors>(sp =>
 services.AddSingleton<EchoBotAccessors>(sp =>
 {
    ...
-    var accessors = new BotAccessors(conversationState, userState)
+    var accessors = new EchoBotAccessors(conversationState, userState)
     {
-        TopicState = conversationState.CreateProperty<TopicState>("TopicState"),
-        UserProfile = userState.CreateProperty<UserProfile>("UserProfile"),
+        TopicState = conversationState.CreateProperty<TopicState>(EchoBotAccessors.TopicStateName),
+        UserProfile = userState.CreateProperty<UserProfile>(EchoBotAccessors.UserProfileName),
      };
 
      return accessors;
  });
 ```
 
-대화 및 사용자 상태는 `services.AddSingleton` 코드 블록을 통해 싱글톤에 연결되고 `var accessors = new BotAccessor(conversationState, userState)`로 시작하는 코드에서 상태 저장소 접근자를 통해 저장됩니다.
+대화 및 사용자 상태는 `services.AddSingleton` 코드 블록을 통해 싱글톤에 연결되고 `var accessors = new EchoBotAccessor(conversationState, userState)`로 시작하는 코드에서 상태 저장소 접근자를 통해 저장됩니다.
 
 ### <a name="use-conversation-and-user-state-properties"></a>대화 및 사용자 상태 속성 사용 
 `EchoWithCounterBot : IBot` 클래스의 `OnTurnAsync` 처리기에서 코드를 수정하여 사용자 이름에 이어 전화 번호에 대한 메시지를 표시합니다. 현재 대화의 위치를 추적하려면 TopicState에서 정의된 프롬프트 속성을 사용합니다. 이 속성은 "askName"으로 초기화되었습니다. 사용자 이름을 가져온 후, "askNumber"로 설정하고 UserName을 사용자가 입력한 이름으로 설정합니다. 전화 번호를 받은 후 대화의 끝에 있으므로 확인 메시지를 보내고 프롬프트를 '확인'으로 설정합니다.

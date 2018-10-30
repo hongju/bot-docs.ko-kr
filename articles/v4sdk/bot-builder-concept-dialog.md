@@ -6,15 +6,16 @@ author: johnataylor
 ms.author: johtaylo
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 9/22/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 2cf5da32b563c310ee201090c938da9ff410a70c
-ms.sourcegitcommit: 3bf3dbb1a440b3d83e58499c6a2ac116fe04b2f6
+ms.openlocfilehash: 45bca42ddce527826d2723bc9a20a3c3e6c5aebe
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/23/2018
-ms.locfileid: "46708862"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49998610"
 ---
 # <a name="dialogs-library"></a>대화 상자 라이브러리
 
@@ -29,7 +30,7 @@ ms.locfileid: "46708862"
 - ContinueDialog
 - ResumeDialog
 
-런타임에서 Dialogs 및 DialogContext 클래스는 함께 작동하여 활동을 처리할 적절한 대화 상자를 선택합니다. DialogContext 클래스는 지속된 대화 상자 스택, 인바운드 활동 및 DialogSet 클래스를 연결합니다. DialogSet은 봇이 호출할 수 있는 대화 상자를 포함합니다.
+런타임에서 Dialogs 및 DialogContext 클래스는 함께 작동하여 작업을 처리할 적절한 대화 상자를 선택합니다. DialogContext 클래스는 지속된 대화 상자 스택, 인바운드 활동 및 DialogSet 클래스를 연결합니다. DialogSet은 봇이 호출할 수 있는 대화 상자를 포함합니다.
 
 DialogContext의 인터페이스는 대화 상자 시작 및 연속의 기본 개념을 반영합니다. 응용 프로그램에 대한 일반적인 패턴은 항상 ContinueDialog를 먼저 호출하는 것입니다. 스택이 없어서 ActiveDialog가 없는 경우 응용 프로그램은 DialogContext에서 BeginDialog를 호출하여 선택한 대화 상자를 시작해야 합니다. 그러면 DialogSet의 해당하는 대화 상자 항목(기술적으로 스택에 추가되는 대화 상자의 ID임)이 스택으로 푸시된 다음, 특정 대화 상자 개체의 BeginDialog로 호출을 위임합니다. ActiveDialog가 있었다면 해당 대화 상자에 관련된 지속 속성을 제공하는 과정에서 해당 대화 상자의 ContinueDialog로 간단히 호출을 위임했을 것입니다.
 

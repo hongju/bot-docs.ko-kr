@@ -6,15 +6,16 @@ author: ivorb
 ms.author: v-ivorb
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 08/23/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 5b7faaae63bdc084dac570cb33ebbc755ccbcc19
-ms.sourcegitcommit: aef7d80ceb9c3ec1cfb40131709a714c42960965
+ms.openlocfilehash: 2e2c5f54d4ca077ad2b916787613f782779707ac
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49383118"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49996790"
 ---
 # <a name="send-text-and-spoken-messages"></a>텍스트 및 음성 메시지 보내기
 
@@ -30,10 +31,10 @@ ms.locfileid: "49383118"
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
-봇의 **OnTurn** 메서드에서 전환 컨텍스트 개체의 **SendActivity** 메서드를 사용하여 단문 응답을 보냅니다. 개체의 **SendActivities** 메서드를 사용하여 한 번에 여러 응답을 보낼 수도 있습니다.
+봇의 **OnTurn** 메서드에서 전환 컨텍스트 개체의 **SendActivityAsync** 메서드를 사용하여 단문 응답을 보냅니다. 개체의 **SendActivitiesAsync** 메서드를 사용하여 한 번에 여러 응답을 보낼 수도 있습니다.
 
 ```cs
-await context.SendActivity("Greetings from sample message.");
+await context.SendActivityAsync("Greetings from sample message.");
 ```
 
 # <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
@@ -58,7 +59,7 @@ await context.sendActivity("Greetings from sample message.");
 선택적 **speak** 매개 변수를 사용하여 응답의 일부로 이야기할 텍스트를 제공합니다.
 
 ```cs
-await context.SendActivity(
+await context.SendActivityAsync(
     "This is the text to be displayed.",
     "This is the text to be spoken.");
 ```

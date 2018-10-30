@@ -6,15 +6,16 @@ author: dashel
 ms.author: dashel
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 09/23/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 2d32e618325e9ddc4abb5c3b42114c86c7644001
-ms.sourcegitcommit: 54ed5000c67a5b59e23b667547565dd96c7302f9
+ms.openlocfilehash: 09ace7b625fe0c66b3ba853249ef5bfc9c32084b
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49315139"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49998530"
 ---
 # <a name="send-welcome-message-to-users"></a>사용자에게 환영 메시지 보내기
 
@@ -24,7 +25,7 @@ ms.locfileid: "49315139"
 
 ## <a name="same-welcome-for-different-channels"></a>다른 채널에서의 동일한 환영
 
-다음 예제에서는 새 _대화 업데이트_ 활동을 보고, 대화에 참여하는 사용자를 기준으로 환영 메시지를 하나만 보낸 후, 사용자의 초기 대화 입력을 무시하는 프롬프트 상태 플래그를 설정합니다. 아래 코드는 [GitHub](https://github.com/Microsoft/BotBuilder-Samples/) 리포지토리의 사용자 환영 샘플을 사용합니다.
+다음 예제에서는 새 _대화 업데이트_ 활동을 보고, 대화에 참여하는 사용자를 기준으로 환영 메시지를 하나만 보낸 후, 사용자의 초기 대화 입력을 무시하는 프롬프트 상태 플래그를 설정합니다. 아래 예제 코드는 [C#](https://aka.ms/bot-welcome-sample-cs) 및 [JS](https://aka.ms/bot-welcome-sample-js) 코드에 대한 GitHub 리포지토리에서 사용자 환영 샘플을 사용합니다.
 
 ## <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
@@ -176,6 +177,16 @@ class MainDialog {
                 // Set the flag indicating the bot handled the user's first message.
                 await this.welcomedUserPropery.set(turnContext, true);
             }
+            . . .
+            
+            // Save state changes
+            await this.userState.saveChanges(turnContext);
+        } else if (turnContext.activity.type === ActivityTypes.ConversationUpdate) {
+            // Send greeting when users are added to the conversation.
+            await this.sendWelcomeMessage(turnContext);
+        } else {
+            // Generic message for all other activities
+            await turnContext.sendActivity(`[${ turnContext.activity.type } event detected]`);
         }
     }
     

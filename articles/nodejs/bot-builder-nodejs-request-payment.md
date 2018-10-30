@@ -5,15 +5,16 @@ author: v-ducvo
 ms.author: v-ducvo
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 783d9e1fb3b90f6ba977440b3eefae5c16a1b8ca
-ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
+ms.openlocfilehash: 5bdb699e242784883f7c1a5dda895a31ff80efb1
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42905838"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49999168"
 ---
 # <a name="request-payment"></a>결제 요청
 
@@ -21,7 +22,7 @@ ms.locfileid: "42905838"
 
 > [!div class="op_single_selector"]
 > - [.NET](../dotnet/bot-builder-dotnet-request-payment.md)
-> - [Node.js](../nodejs/bot-builder-nodejs-request-payment.md)
+> - [Node.JS](../nodejs/bot-builder-nodejs-request-payment.md)
 
 봇을 통해 사용자가 항목을 구매할 수 있는 경우 [서식 있는 카드](bot-builder-nodejs-send-rich-cards.md) 내 특수한 단추 유형을 포함시키면 결제를 요청할 수 있습니다. 이 문서에서는 Node.js용 Bot Builder SDK를 사용하여 결제 요청을 보내는 방법을 설명합니다.
 
@@ -101,7 +102,8 @@ HTTP 콜백은 봇이 특정 작업을 수행해야 함을 나타내기 위해 �
 ### <a name="shipping-address-update-and-shipping-option-update-callbacks"></a>배송지 주소 업데이트 및 배송 옵션 업데이트 콜백
 
 배송지 주소 업데이트 또는 배송 옵션 업데이트 콜백을 받으면 봇이 이벤트의 `value` 속성에서 클라이언트의 결제 세부 정보의 현재 상태와 함께 제공됩니다.
-가맹점은 이러한 콜백을 정적으로 처리해야 합니다. 입력 결제 세부 정보가 제공되면 일부 출력 결제 세부 정보를 계산하고 클라이언트에서 제공된 입력 상태가 어떤 이유로 잘못된 경우에는 실패합니다. 봇이 제공된 정보가 있는 그대로 유효하다고 결정하면 단순히 수정되지 않은 결제 정보와 함께 HTTP 상태 코드 `200 OK`를 보냅니다. 또는 봇이 주문을 처리하기 전에 적용해야 하는 업데이트된 결제 세부 정보와 함께 HTTP 상태 코드 `200 OK`를 보낼 수 있습니다. 일부 경우에 봇이 업데이트된 정보가 잘못되었고 주문을 있는 그대로 처리할 수 없다고 결정할 수도 있습니다. 예를 들어, 사용자의 배송지 주소에 제품 공급자가 배송하지 않는 국가가 지정될 수 있습니다. 이 경우 봇은 HTTP 상태 코드 `200 OK` 및 결제 세부 정보 개체의 오류 속성을 채우는 메시지를 보낼 수 있습니다. `400` 또는 `500` 범위의 HTTP 상태 코드를 보내면 고객에게 일반 오류가 표시됩니다.
+가맹점은 이러한 콜백을 정적으로 처리해야 합니다. 입력 결제 세부 정보가 제공되면 일부 출력 결제 세부 정보를 계산하고, 클라이언트에서 제공된 입력 상태가 어떤 이유로든 잘못된 경우에는 실패합니다. 
+봇이 제공된 정보가 있는 그대로 유효하다고 결정하면 단순히 수정되지 않은 결제 정보와 함께 HTTP 상태 코드 `200 OK`를 보냅니다. 또는 봇이 주문을 처리하기 전에 적용해야 하는 업데이트된 결제 세부 정보와 함께 HTTP 상태 코드 `200 OK`를 보낼 수 있습니다. 일부 경우에 봇이 업데이트된 정보가 잘못되었고 주문을 있는 그대로 처리할 수 없다고 결정할 수도 있습니다. 예를 들어, 사용자의 배송지 주소에 제품 공급자가 배송하지 않는 국가가 지정될 수 있습니다. 이 경우 봇은 HTTP 상태 코드 `200 OK` 및 결제 세부 정보 개체의 오류 속성을 채우는 메시지를 보낼 수 있습니다. `400` 또는 `500` 범위의 HTTP 상태 코드를 보내면 고객에게 일반 오류가 표시됩니다.
 
 ### <a name="payment-complete-callbacks"></a>결제 완료 콜백
 
