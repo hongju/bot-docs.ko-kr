@@ -28,7 +28,6 @@
 ### [사물 인터넷 봇](bot-service-scenario-internet-things.md)
 # 사용 방법
 ## [디자인](design/TOC.md)
-## [관리](manage/TOC.md)
 ## 개발
 ### [사용자에게 환영 메시지 보내기](v4sdk/bot-builder-send-welcome-message.md)
 ### [텍스트 및 음성 메시지 보내기](v4sdk/bot-builder-howto-send-messages.md)
@@ -48,13 +47,15 @@
 ### [Language Understanding에 대해 LUIS 사용](v4sdk/bot-builder-howto-v4-luis.md)
 ### [QnA Maker를 사용하여 질문에 답변](v4sdk/bot-builder-howto-qna.md)
 ### [봇에 인증 추가](v4sdk/bot-builder-authentication.md)
-### [봇 코드 다운로드 및 재배포](bot-service-build-download-source-code.md)
-### [지속적인 배포 설정](bot-service-build-continuous-deployment.md)
-### [Azure에 로컬 봇 배포](bot-builder-howto-deploy-azure.md)
 ### [채널 관련 기능 구현](v4sdk/bot-builder-channeldata.md)
 ### [.NET](dotnet/TOC.md)
 ### [Node.JS](nodejs/TOC.md)
 ## [디버그](debug/TOC.md)
+## 배포
+### [봇 코드 다운로드 및 재배포](bot-service-build-download-source-code.md)
+### [지속적인 배포 설정](bot-service-build-continuous-deployment.md)
+### [Azure에 로컬 봇 배포](bot-builder-howto-deploy-azure.md)
+## [관리](manage/TOC.md)
 # 참고 자료
 ## [Bot Builder 도구](bot-builder-tools.md)
 ## [.NET SDK v4](https://aka.ms/dotnetsdk4)
