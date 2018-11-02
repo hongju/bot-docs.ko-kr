@@ -47,6 +47,7 @@
 ### [Language Understanding에 대해 LUIS 사용](v4sdk/bot-builder-howto-v4-luis.md)
 ### [QnA Maker를 사용하여 질문에 답변](v4sdk/bot-builder-howto-qna.md)
 ### [봇에 인증 추가](v4sdk/bot-builder-authentication.md)
+### [봇에 사용자 지정 저장소 구현](v4sdk/bot-builder-custom-storage.md)
 ### [채널 관련 기능 구현](v4sdk/bot-builder-channeldata.md)
 ### [.NET](dotnet/TOC.md)
 ### [Node.JS](nodejs/TOC.md)
