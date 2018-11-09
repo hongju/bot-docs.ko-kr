@@ -1,19 +1,19 @@
 ---
 title: API 참조 | Microsoft Docs
 description: Bot Connector 서비스 및 Bot State 서비스의 헤더, 작업, 개체 및 오류에 대해 알아봅니다.
-author: RobStand
-ms.author: kamrani
+author: ivorb
+ms.author: v-ivorb
 manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
-ms.date: 12/13/2017
-ms.openlocfilehash: cd4a0dd73feb18aa6f82699a51ab086c55c5d2cf
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.date: 10/24/2018
+ms.openlocfilehash: 18f353ce6535dd56ca7a581776fdfab822555f2d
+ms.sourcegitcommit: 49a76dd34d4c93c683cce6c2b8b156ce3f53280e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49998315"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50134743"
 ---
 # <a name="api-reference"></a>API 참조
 
@@ -130,6 +130,7 @@ Authorization: Bearer ACCESS_TOKEN
 | [대화에 보내기](#send-to-conversation) | 지정한 대화의 끝에 활동(메시지)을 보냅니다. | 
 | [활동에 회신](#reply-to-activity) | 지정한 대화에 활동(메시지)을 지정한 활동에 대한 회신으로 보냅니다. | 
 | [대화 멤버 가져오기](#get-conversation-members) | 지정한 대화의 멤버를 가져옵니다. |
+| [대화 페이징 멤버 가져오기](#get-conversation-paged-members) | 지정된 대화 멤버를 한 번에 한 페이지씩 가져옵니다. |
 | [활동 멤버 가져오기](#get-activity-members) | 지정한 대화 내에서 지정한 활동의 멤버를 가져옵니다. | 
 | [활동 업데이트](#update-activity) | 기존 활동을 업데이트합니다. | 
 | [활동 삭제](#delete-activity) | 기존 활동을 삭제합니다. | 
@@ -178,6 +179,17 @@ GET /v3/conversations/{conversationId}/members
 |----|----|
 | **요청 본문** | 해당 없음 |
 | **반환** | [ChannelAccount](#channelaccount-object) 개체의 배열 | 
+
+### <a name="get-conversation-paged-members"></a>대화 페이징 멤버 가져오기
+지정된 대화 멤버를 한 번에 한 페이지씩 가져옵니다.
+```http
+GET /v3/conversations/{conversationId}/pagedmembers
+```
+
+| | |
+|----|----|
+| **요청 본문** | 해당 없음 |
+| **반환** | 더 많은 값을 가져오는 데 사용할 수 있는 [ChannelAccount](#channelaccount-object) 개체와 연속 토큰의 배열|
 
 ### <a name="get-activity-members"></a>활동 멤버 가져오기
 지정한 대화 내에서 지정한 활동의 멤버를 가져옵니다.
@@ -386,7 +398,7 @@ DELETE /v3/botstate/{channelId}/users/{userId}
 | [ThumbnailCard 개체](#thumbnailcard-object) | 썸네일 이미지, 제목, 텍스트 및 작업 단추가 있는 카드를 정의합니다. |
 | [ThumbnailUrl 개체](#thumbnailurl-object) | 이미지 원본에 대한 URL을 정의합니다. |
 | [VideoCard 개체](#videocard-object) | 비디오를 재생할 수 있는 카드를 정의합니다. |
-
+| [SemanticAction 개체](#semanticaction-object) | 프로그래밍 방식 작업에 대한 참조를 정의합니다. |
 
 ### <a name="activity-object"></a>Activity 개체
 봇과 사용자 간에 교환되는 메시지를 정의합니다.<br/><br/> 
@@ -423,6 +435,7 @@ DELETE /v3/botstate/{channelId}/users/{userId}
 | **topicName** | string | 활동이 속한 대화의 주제입니다. |
 | **type** | string | 활동의 유형입니다. **contactRelationUpdate**, **conversationUpdate**, **deleteUserData**, **message**, **typing**, **endOfConversation** 값 중 하나입니다. 활동 유형에 대한 자세한 내용은 [활동 개요](bot-framework-rest-connector-activities.md)를 참조하세요. |
 | **값** | object | 무한 값입니다. |
+| **semanticAction** |[SemanticAction](#semanticaction-object) | 프로그래밍 방식 작업의 참조를 나타내는 **SemanticAction** 개체입니다. |
 
 <a href="#objects">스키마 표로 이동</a>
 
@@ -852,5 +865,15 @@ World Geodetic System(WSG84) 좌표를 사용하여 지리적 위치를 정의�
 | **text** | string | 카드의 제목 또는 자막 아래에 표시할 설명 또는 프롬프트입니다. |
 | **title** | string | 카드의 제목입니다. |
 | **값** | object | 이 카드에 대한 보조 매개 변수입니다.|
+
+<a href="#objects">스키마 표로 이동</a>
+
+### <a name="semanticaction-object"></a>SemanticAction 개체
+프로그래밍 방식 작업에 대한 참조를 정의합니다.<br/><br/>
+
+| 자산 | type | 설명 |
+|----|----|----|
+| **id** | string | 이 작업 ID |
+| **entities** | [엔터티](#entity-object) | 이 작업과 연결된 엔터티 |
 
 <a href="#objects">스키마 표로 이동</a>

@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
 ms.date: 12/13/2017
-ms.openlocfilehash: 6ee7120536d42257dde2ed1411df32d807268e33
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: 3e99828e7c26b10c39bef4c8db79f92ff5f2b30c
+ms.sourcegitcommit: 49a76dd34d4c93c683cce6c2b8b156ce3f53280e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "50000022"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50134713"
 ---
 # <a name="upgrade-your-bot-to-bot-framework-api-v3"></a>봇을 Bot Framework API v3로 업그레이드
 
@@ -23,53 +23,73 @@ Build 2016 Microsoft은 Microsoft Bot Framework와 Bot Connector API의 초기 �
 
 ## <a name="step-1-get-your-app-id-and-password-from-the-bot-framework-portal"></a>1단계: Bot Framework 포털에서 앱 ID 및 암호 가져오기
 
-[Bot Framework 포털](https://dev.botframework.com/)에 로그인하고 **내 봇**을 클릭한 후 봇을 선택하여 해당 대시보드를 엽니다. 다음으로, 페이지의 오른쪽 위 모서리 가까이에 있는 **설정** 링크를 클릭합니다. 
+[Bot Framework 포털](https://dev.botframework.com/)에 로그인하고 **내 봇**을 클릭한 후 봇을 선택하여 해당 대시보드를 엽니다. 다음으로, **봇 관리** 아래에서 페이지 왼쪽에 있는 **설정** 링크를 클릭합니다. 
 
-설정 페이지의 **구성** 섹션 내에서 **앱 ID** 필드의 내용을 검토하고, **앱 ID** 필드가 이미 채워져 있는지 여부에 따라 다음 단계를 계속 진행합니다.
+[설정] 페이지의 **구성** 섹션 내에서 **Microsoft 앱 ID** 필드의 내용을 검사하고 다음 단계를 계속 진행합니다.
 
-### <a name="case-1-app-id-field-is-already-populated"></a>사례 1: 앱 ID 필드가 이미 채워져 있습니다.
+<!-- TODO: Remove this 
+### Case 1: App ID field is already populated
 
-**앱 ID** 필드가 이미 채워진 경우 다음 단계를 완료합니다.
+If the **App ID** field is already populated, complete these steps:
+-->
 
 1. **Microsoft 앱 ID 및 암호 관리**를 클릭합니다.  
-![구성](~/media/upgrade/manage-app-id.png)
+![구성](./media/upgrade/manage-app-id.png)
 
 2. **새 암호 생성**을 클릭합니다.  
-![새 암호 생성](~/media/upgrade/generate-new-password.png)
+![새 암호 생성](./media/upgrade/generate-new-password.png)
 
 3. MSA 앱 ID와 함께 새 암호를 복사하고 저장합니다. 나중에 이러한 값이 필요합니다.  
-![새 암호](~/media/upgrade/new-password-generated.png)
+![새 암호](./media/upgrade/new-password-generated.png)
 
-### <a name="case-2-app-id-field-is-empty"></a>사례 2: 앱 ID 필드가 비어 있습니다.
+**Microsoft 앱 ID 및 암호**를 검색하는 또 다른 방법은 다음 [지침](https://blog.botframework.com/2018/07/03/find-your-azure-bots-appid-and-appsecret/)에 따라 수행할 수 있습니다.
 
-**앱 ID** 필드가 비어 있으면 다음 단계를 완료합니다.
+<!-- TODO: These steps are no longer valid. AppID will always be generated, confirmed with Support Engineers
+### Case 2: App ID field is empty
 
-1. **Microsoft 앱 ID 및 암호 만들기**를 클릭합니다.  
-   ![앱 ID 및 암호 만들기](~/media/upgrade/generate-appid-and-password.png)
+If the **App ID** field is empty, complete these steps:
+
+1. Click **Create Microsoft App ID and password**.  
+   ![Create App ID and password](~/media/upgrade/generate-appid-and-password.png)
    > [!IMPORTANT]
-   > **버전 3.0** 라디오 단추는 아직 선택하지 마세요. 이 단추는 나중에 [봇 코드를 업데이트](#update-code)한 후에 선택합니다.</div>
+   > Do not select the **Version 3.0** radio button yet. You will do this later, after you have [updated your bot code](#update-code).</div>
 
-2. **계속하려면 암호 생성**을 클릭합니다.  
-   ![앱 암호 생성](~/media/upgrade/generate-a-password-to-continue.png)
+2. Click **Generate a password to continue**.  
+   ![Generate app password](~/media/upgrade/generate-a-password-to-continue.png)
 
-3. MSA 앱 ID와 함께 새 암호를 복사하고 저장합니다. 나중에 이러한 값이 필요합니다.  
-   ![새 암호](~/media/upgrade/new-password-generated.png)
+3. Copy and save the new password along with the MSA App Id; you will need these values in the future.  
+   ![New password](~/media/upgrade/new-password-generated.png)
 
-4. **완료하고 Bot Framework로 돌아가기**를 클릭합니다.  
-   ![완료하고 포털로 돌아가기](~/media/upgrade/finish-and-go-back-to-bot-framework.png)
+4. Click **Finish and go back to Bot Framework**.  
+   ![Finish and go back to Portal](~/media/upgrade/finish-and-go-back-to-bot-framework.png)
 
-5. Bot Framework 포털의 봇 설정 페이지로 다시 돌아와서 페이지 아래쪽으로 스크롤한 후 **변경 내용 저장**을 클릭합니다.  
-   ![변경 내용 저장](~/media/upgrade/save-changes.png)
+5. Back on the bot settings page in the Bot Framework Portal, scroll to the bottom of the page and click **Save changes**.  
+   ![Save changes](~/media/upgrade/save-changes.png)
+-->
 
-## <a id="update-code"></a> 2단계: 봇 코드를 버전 3.0으로 업데이트
+## <a id="update-code"></a> 2단계: 봇 코드를 버전 4.0으로 업데이트
 
-봇 코드를 버전 3.0으로 업데이트하려면 다음 단계를 완료합니다.
+V1 봇은 더 이상 호환되지 않습니다. 봇을 업데이트하려면 V3에서 새 봇을 만들어야 합니다. 이전 코드를 유지하려면 코드를 수동으로 마이그레이션해야 합니다.
 
-1. 봇 언어에 대한 최신 버전의 [Bot Builder SDK](https://github.com/Microsoft/BotBuilder)로 업데이트합니다.
-2. 아래 지침에 따라 코드를 업데이트하여 필요한 변경 내용을 적용합니다.
-3. [Bot Framework Emulator](~/bot-service-debug-emulator.md)를 사용하여 봇을 로컬로 테스트한 후 클라우드에서 테스트합니다.
+가장 쉬운 방법은 새 [SDK](https://docs.microsoft.com/en-us/azure/bot-service/?view=azure-bot-service-4.0)를 사용하여 봇을 다시 만들어 배포하는 것입니다. 
 
-다음 섹션에서는 API v1과 API v3 간의 주요 차이점을 설명합니다. API v3으로 코드를 업데이트한 후에 Bot Framework 포털에서 [봇 설정을 업데이트](#step-3)하여 업그레이드 프로세스를 완료할 수 있습니다.
+이전 코드를 유지하려면 아래 단계를 따릅니다.
+
+1. 새 봇 응용 프로그램을 만듭니다.
+2. 이전 코드를 새 봇 응용 프로그램에 복사합니다.
+3. Nuget 패키지 관리자를 통해 SDK를 최신 버전으로 업그레이드합니다.
+4. 발생하는 오류를 모두 수정하고, 새 [SDK](https://docs.microsoft.com/en-us/azure/bot-service/?view=azure-bot-service-4.0)를 참조합니다.
+5. 다음 [지침](https://docs.microsoft.com/en-us/azure/bot-service/bot-builder-howto-deploy-azure?view=azure-bot-service-4.0)에 따라 Azure에 봇을 배포합니다.
+
+<!-- TODO: Remove outdated code 
+To update your bot code to version 3.0, complete these steps:
+
+1. Update to the latest version of the [Bot Builder SDK](https://github.com/Microsoft/BotBuilder) for your bot's language.
+2. Update your code to apply the necessary changes, according the guidance below.
+3. Use the [Bot Framework Emulator](~/bot-service-debug-emulator.md) to test your bot locally and then in the cloud.
+
+The following sections describe the key differences between API v1 and API v3. After you have updated your code to API v3, you can finish the upgrade process by [updating your bot settings](#step-3) in the Bot Framework Portal.
+-->
 
 ### <a name="botbuilder-and-connector-are-now-one-sdk"></a>BotBuilder 및 커넥터는 이제 하나의 SDK임
 
@@ -143,21 +163,23 @@ Bot Framework API v3에서는 이러한 키와 함께 인증 속성을 **Web.Con
 - `MicrosoftAppID`
 - `MicrosoftAppPassword`
 
-## <a id="step-3"></a> 3단계: Bot Framework 포털에서 봇 설정 업데이트
+## <a id="step-3"></a> 3단계: Azure에 업데이트 봇을 배포합니다.
 
-봇 코드를 API v3로 업그레이드하고 클라우드로 배포한 후에는 다음 단계를 완료하여 업그레이드 프로세스를 완료 합니다. 
+봇 코드를 API v3로 업그레이드한 후에는 다음 [지침](https://docs.microsoft.com/en-us/azure/bot-service/bot-builder-howto-deploy-azure?view=azure-bot-service-4.0)에 따라 Azure에 봇을 배포합니다. V1이 더 이상 지원되지 않으므로 모든 봇은 Azure 서비스에 배포되면 자동으로 V3 API를 사용합니다.
 
-1. [Bot Framework 포털](https://dev.botframework.com/)에 로그인합니다.
+<!-- TODO: Documentation set for removal 
+1. Sign in to the [Bot Framework Portal](https://dev.botframework.com/).
 
-2. **내 봇**을 클릭하고 봇을 선택하여 해당 대시보드를 엽니다. 
+2. Click **My bots** and select your bot to open its dashboard. 
 
-3. 페이지의 오른쪽 위 모서리 가까이에 있는 **설정** 링크를 클릭합니다. 
+3. Click the **SETTINGS** link that is located near the top-right corner of the page. 
 
-4. **구성** 섹션 내의 **버전 3.0**에서 봇의 끝점을 **메시징 끝점** 필드에 붙여넣습니다.  
-![버전 3 구성](~/media/upgrade/paste-new-v3-enpoint-url.png)
+4. Under **Version 3.0** within the **Configuration** section, paste your bot's endpoint into the **Messaging endpoint** field.  
+![Version 3 configuration](~/media/upgrade/paste-new-v3-enpoint-url.png)
 
-5. **버전 3.0** 라디오 단추를 선택합니다.  
-![버전 3.0 선택](~/media/upgrade/switch-to-v3-endpoint.png)
+5. Select the **Version 3.0** radio button.  
+![Select version 3.0](~/media/upgrade/switch-to-v3-endpoint.png)
 
-6. 페이지의 아래쪽으로 스크롤하고 **변경 내용 저장**을 클릭합니다.  
-![변경 내용 저장](~/media/upgrade/save-changes.png)
+6. Scroll to the bottom of the page and click **Save changes**.  
+![Save changes](~/media/upgrade/save-changes.png)
+-->

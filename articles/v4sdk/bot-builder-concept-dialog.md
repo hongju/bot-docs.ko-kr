@@ -10,18 +10,18 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 9/22/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 45bca42ddce527826d2723bc9a20a3c3e6c5aebe
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: 97f280d1698e8670be81572a2891c18bc7bf47ab
+ms.sourcegitcommit: a496714fb72550a743d738702f4f79e254c69d06
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49998610"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50736671"
 ---
 # <a name="dialogs-library"></a>대화 상자 라이브러리
 
 [!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
 
-대화를 관리하기 위한 SDK의 중심 개념은 대화 상자 개념입니다. 대화 상자 개체는 인바운드 활동을 처리하고 아웃바운드 응답을 생성합니다. 봇의 비즈니스 논리는 직접 또는 간접적으로 대화 상자 클래스 내에서 실행됩니다.
+대화 상자라는 개념을 통해 대화를 관리하는 것이 SDK의 핵심입니다. 대화 상자 개체는 인바운드 활동을 처리하고 아웃바운드 응답을 생성합니다. 봇의 비즈니스 논리는 직접 또는 간접적으로 대화 상자 클래스 내에서 실행됩니다.
 
 런타임에서 대화 상자 인스턴스는 스택에 정렬됩니다. 스택의 맨 위에 있는 대화 상자를 ActiveDialog라고 합니다. 현재 활성 대화 상자는 인바운드 활동을 처리합니다. 대화(시간 제한이 없으며 아마도 며칠에 걸친)의 각 턴 간에 스택은 지속됩니다. 
 

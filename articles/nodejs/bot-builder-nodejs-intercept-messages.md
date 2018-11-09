@@ -7,14 +7,14 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
-ms.date: 12/13/2017
+ms.date: 11/02/2018
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: c6f59e72eab4c3a442ba1e024b8fd3441cac6750
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: 31380961f117a2b4a3ffaae3c82d682a63001c0c
+ms.sourcegitcommit: 984705927561cc8d6a84f811ff24c8c71b71c76b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49996721"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50965681"
 ---
 # <a name="intercept-messages"></a>메시지 가로채기
 
@@ -65,4 +65,4 @@ module.exports = {
 
 ## <a name="sample-code"></a>샘플 코드
 
-Node.js용 Bot Builder SDK를 사용하여 메시지를 가로채는 방법을 보여 주는 전체 샘플은 GitHub의 <a href="https://github.com/Microsoft/BotBuilder-Samples/tree/master/Node/capability-middlewareLogging" target="_blank">미들웨어 및 로깅 샘플</a>을 참조하세요.
+Node.js용 Bot Builder SDK를 사용하여 메시지를 가로채는 방법을 보여 주는 전체 샘플은 GitHub의 <a href="https://aka.ms/v3-js-capability-middlewareLogging" target="_blank">미들웨어 및 로깅 샘플</a>을 참조하세요.

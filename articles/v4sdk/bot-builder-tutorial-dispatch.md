@@ -1,5 +1,5 @@
 ---
-title: 디스패치 도구를 사용하여 여러 LUIS 및 QnA 서비스 통합 | Microsoft Docs
+title: 디스패치 도구와 함께 LUIS 앱 및 QnA 서비스 사용 | Microsoft Docs
 description: 봇에서 LUIS 및 QnA Maker를 사용하는 방법에 대해 알아봅니다.
 keywords: Luis, QnA, 디스패치 도구, 여러 서비스
 author: DeniseMak
@@ -8,16 +8,16 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
-ms.date: 10/09/2018
+ms.date: 10/31/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: e59a7fd86e3802ea23d59a439165a194314639f8
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: 4d029dc7361ac8a7fadb61141faf60d8a62eab3c
+ms.sourcegitcommit: a496714fb72550a743d738702f4f79e254c69d06
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49997400"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50736681"
 ---
-# <a name="integrate-multiple-luis-and-qna-services-with-the-dispatch-tool"></a>디스패치 도구를 사용하여 여러 LUIS 및 QnA 서비스 통합
+# <a name="use-luis-and-qna-services-with-the-dispatch-tool"></a>디스패치 도구와 함께 LUIS 앱 및 QnA 서비스 사용
 
 [!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
 
@@ -31,7 +31,9 @@ ms.locfileid: "49997400"
 | LUIS 앱 | Weather | 위치 데이터를 사용하여 Weather.GetForecast 및 Weather.GetCondition 의도를 인식합니다.|
 | QnAMaker 서비스 | FAQ  | 봇에 대한 몇 가지 간단한 질문에 답변을 제공합니다. |
 
-이 문서의 코드는**Dispatch를 사용하는 NLP** 샘플[[C#](https://aka.ms/dispatch-sample-cs)<!-- | [JS](https://aka.ms/dispatch-sample-js)-->]에서 가져온 것입니다.
+이 문서의 코드는**Dispatch를 사용하는 NLP** 샘플[[C#](https://aka.ms/dispatch-sample-cs)]에서 가져온 것입니다.
+
+<!-- | [JS](https://aka.ms/dispatch-sample-js)-->
 
 언어 서비스에 대한 개요는 [언어 이해](bot-builder-concept-luis.md)를 참조하세요. 이를 봇에 구현하는 방법은 [LUIS](bot-builder-howto-v4-luis.md) 및 [QnA Maker](bot-builder-howto-qna.md)에 대한 방법 문서를 참조하세요.
 

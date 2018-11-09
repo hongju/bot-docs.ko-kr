@@ -10,12 +10,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 09/18/18
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 972df2a12ffa7901ed4e4ecf14ce99233293c5a2
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: 2a3709111b048730805b5578306c669591122dda
+ms.sourcegitcommit: 633008f8db06f1bb5be7bacdb7dd8de6f8165328
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49997710"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50753611"
 ---
 # <a name="manage-conversation-and-user-state"></a>대화 및 사용자 상태 관리
 
@@ -63,8 +63,6 @@ public class UserProfile
 
 아래에 표시된 것처럼 `UserState`를 포함하도록 생성자를 업데이트했습니다.
 ```csharp
-using EchoBotWithCounter;
-
 public EchoBotAccessors(ConversationState conversationState, UserState userState)
 {
     ConversationState = conversationState ?? throw new ArgumentNullException(nameof(conversationState));
@@ -138,8 +136,6 @@ services.AddSingleton<EchoBotAccessors>(sp =>
 `EchoWithCounterBot : IBot` 클래스의 `OnTurnAsync` 처리기에서 코드를 수정하여 사용자 이름에 이어 전화 번호에 대한 메시지를 표시합니다. 현재 대화의 위치를 추적하려면 TopicState에서 정의된 프롬프트 속성을 사용합니다. 이 속성은 "askName"으로 초기화되었습니다. 사용자 이름을 가져온 후, "askNumber"로 설정하고 UserName을 사용자가 입력한 이름으로 설정합니다. 전화 번호를 받은 후 대화의 끝에 있으므로 확인 메시지를 보내고 프롬프트를 '확인'으로 설정합니다.
 
 ```csharp
-using EchoBotWithCounter;
-
 if (turnContext.Activity.Type == ActivityTypes.Message)
 {
     // Get the conversation state from the turn context.
@@ -305,7 +301,7 @@ if (turnContext.activity.type === 'message') {
     
 }
 else {
-    await turnContext.sendActivity(`[${context.activity.type} event detected]`);
+    await turnContext.sendActivity(`[${turnContext.activity.type} event detected]`);
 }
 ```
 
@@ -322,8 +318,9 @@ else {
 
 ### <a name="interact-with-your-bot"></a>봇과의 상호 작용
 
-봇에 메시지를 보내면 봇이 메시지를 통해 응답합니다.
-![에뮬레이터 실행](../media/emulator-v4/emulator-running.png)
+봇에 "Hi" 메시지를 보내면 봇이 사용자 이름 및 전화 번호를 묻습니다. 해당 정보를 제공하면 봇이 확인 메시지를 보냅니다. 그 후 대화를 계속 진행하면 봇이 동일한 주기를 반복합니다.
+
+![에뮬레이터 실행](../media/emulator-v4/emulator-running-manage-state.png)
 
 상태를 직접 관리하려는 경우 [고유한 프롬프트를 사용하여 대화 흐름 관리](bot-builder-primitive-prompts.md)를 참조하세요. 대안은 폭포 대화 상자를 사용하는 것입니다. 이 대화 상자는 자동으로 대화 상태를 추적하므로 상태를 추적하는 플래그를 만들 필요가 없습니다. 자세한 내용은 [대화 상자로 간단한 대화 관리](bot-builder-dialog-manage-conversation-flow.md)를 참조하세요.
 

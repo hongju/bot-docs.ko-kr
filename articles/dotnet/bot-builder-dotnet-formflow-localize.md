@@ -7,20 +7,22 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
-ms.date: 12/13/2017
+ms.date: 11/02/2018
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: dbf2fd06d76b3e79fbcdd30891807ea71329bffd
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: 914c33033be3fe35db7cae6d54b5835cb032a5fd
+ms.sourcegitcommit: 984705927561cc8d6a84f811ff24c8c71b71c76b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49999060"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50965691"
 ---
 # <a name="localize-form-content"></a>폼 콘텐츠 지역화
 
 [!INCLUDE [pre-release-label](../includes/pre-release-label-v3.md)]
 
-폼의 지역화 언어는 현재 스레드의 [CurrentUICulture](https://msdn.microsoft.com/en-us/library/system.threading.thread.currentuiculture(v=vs.110).aspx) 및 [CurrentCulture](https://msdn.microsoft.com/en-us/library/system.threading.thread.currentculture(v=vs.110).aspx)에 따라 결정됩니다. 기본적으로 문화권은 현재 메시지의 **로캘** 필드에서 파생되지만, 해당 기본 동작을 재정의할 수 있습니다. 봇이 생성되는 방식에 따라, 지역화된 정보를 다음과 같은 최대 3개의 원본에서 가져올 수 있습니다.
+폼의 지역화 언어는 현재 스레드의 [CurrentUICulture](https://msdn.microsoft.com/library/system.threading.thread.currentuiculture(v=vs.110).aspx) 및 [CurrentCulture](https://msdn.microsoft.com/library/system.threading.thread.currentculture(v=vs.110).aspx)에 따라 결정됩니다.
+기본적으로 문화권은 현재 메시지의 **로캘** 필드에서 파생되지만, 해당 기본 동작을 재정의할 수 있습니다.
+봇이 생성되는 방식에 따라, 지역화된 정보를 다음과 같은 최대 3개의 원본에서 가져올 수 있습니다.
 
 - **PromptDialog** 및 **FormFlow**에 대한 기본 제공 지역화
 - 폼에서 정적 문자열을 생성하는 리소스 파일
@@ -28,7 +30,10 @@ ms.locfileid: "49999060"
 
 ## <a name="generate-a-resource-file-for-the-static-strings-in-your-form"></a>폼에서 정적 문자열에 대한 리소스 파일 생성
 
-폼의 정적 문자열에는 폼이 C# 클래스의 정보에서 생성하는 문자열과 사용자가 프롬프트, 템플릿, 메시지 또는 확인으로 지정하는 문자열이 포함됩니다. 기본 제공 템플릿에서 생성되는 문자열은 이미 지역화되어 있으므로 정적 문자열로 간주되지 않습니다. 폼의 다양한 문자열은 자동으로 생성되므로 일반 C# 리소스 문자열을 직접 사용하는 것은 가능하지 않습니다. 대신, `IFormBuilder.SaveResources`를 호출하거나 .NET용 BotBuilder SDK에 포함된 **RView** 도구를 사용하여 폼의 정적 문자열에 대한 리소스 파일을 생성할 수 있습니다.
+폼의 정적 문자열에는 폼이 C# 클래스의 정보에서 생성하는 문자열과 사용자가 프롬프트, 템플릿, 메시지 또는 확인으로 지정하는 문자열이 포함됩니다.
+기본 제공 템플릿에서 생성되는 문자열은 이미 지역화되어 있으므로 정적 문자열로 간주되지 않습니다.
+폼의 다양한 문자열은 자동으로 생성되므로 일반 C# 리소스 문자열을 직접 사용하는 것은 가능하지 않습니다.
+대신, `IFormBuilder.SaveResources`를 호출하거나 .NET용 BotBuilder SDK에 포함된 **RView** 도구를 사용하여 폼의 정적 문자열에 대한 리소스 파일을 생성할 수 있습니다.
 
 ### <a name="use-iformbuildersaveresources"></a>IFormBuilder.SaveResources 사용
 
@@ -36,7 +41,9 @@ ms.locfileid: "49999060"
 
 ### <a name="use-rview"></a>RView 사용
 
-또는 NET용 BotBuilder SDK에 포함된 <a href="https://github.com/Microsoft/BotBuilder/tree/master/CSharp/Tools/RView" target="_blank">RView</a> 도구를 사용하여 .dll 또는 .exe 기준의 리소스 파일을 생성할 수 있습니다. .resx 파일을 생성하려면 **rview**를 실행하고 정적 폼 빌드 메서드 및 해당 메서드의 경로를 포함하는 어셈블리를 지정합니다. 이 코드 조각은 **RView**를 사용하여 `Microsoft.Bot.Sample.AnnotatedSandwichBot.SandwichOrder.resx` 리소스 파일을 생성하는 방법을 보여 줍니다. 
+또는 NET용 BotBuilder SDK에 포함된 <a href="https://aka.ms/v3-cs-RView-library" target="_blank">RView</a> 도구를 사용하여 .dll 또는 .exe 기준의 리소스 파일을 생성할 수 있습니다.
+.resx 파일을 생성하려면 **rview**를 실행하고 정적 폼 빌드 메서드 및 해당 메서드의 경로를 포함하는 어셈블리를 지정합니다.
+이 코드 조각은 **RView**를 사용하여 `Microsoft.Bot.Sample.AnnotatedSandwichBot.SandwichOrder.resx` 리소스 파일을 생성하는 방법을 보여 줍니다.
 
 ```csharp
 rview -g Microsoft.Bot.Sample.AnnotatedSandwichBot.dll Microsoft.Bot.Sample.AnnotatedSandwichBot.SandwichOrder.BuildForm
@@ -83,7 +90,7 @@ rview -g Microsoft.Bot.Sample.AnnotatedSandwichBot.dll Microsoft.Bot.Sample.Anno
 
 ### <a name="localize-resource-files"></a>리소스 파일 지역화 
 
-프로젝트에 리소스 파일을 추가한 후 <a href="https://developer.microsoft.com/en-us/windows/develop/multilingual-app-toolkit" target="_blank">MAT(다국어 앱 도구 키트)</a>를 사용하여 지역화할 수 있습니다. **MAT**를 설치한 후 다음 단계를 완료하여 프로젝트에서 사용할 수 있도록 설정합니다.
+프로젝트에 리소스 파일을 추가한 후 <a href="https://developer.microsoft.com/windows/develop/multilingual-app-toolkit" target="_blank">MAT(다국어 앱 도구 키트)</a>를 사용하여 지역화할 수 있습니다. **MAT**를 설치한 후 다음 단계를 완료하여 프로젝트에서 사용할 수 있도록 설정합니다.
 
 1. Visual Studio 솔루션 탐색기에서 프로젝트를 선택합니다.
 2. **도구**, **다국어 앱 도구 키트** 및 **사용**을 차례로 클릭합니다.

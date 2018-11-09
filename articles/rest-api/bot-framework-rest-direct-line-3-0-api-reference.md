@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
 ms.date: 12/13/2017
-ms.openlocfilehash: d69f1f658520790ff429ecd25a190319e321164d
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: 36a95ec60af117a9a13843dc078bd9bd5cfde635
+ms.sourcegitcommit: 6ed90a4c90add925a0a865be1127041b7775fd3d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49998110"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50234476"
 ---
 # <a name="api-reference---direct-line-api-30"></a>API 참조 - 직접 회선 API 3.0
 
@@ -223,5 +223,6 @@ POST /v3/directline/conversations/{conversationId}/upload?userId={userId}
 - `from` 속성은 클라이언트에서 선택한 사용자 ID로 채워져야 합니다.
 - 첨부 파일에는 기존 리소스의 URL 또는 직접 회선 첨부 파일 끝점을 통해 업로드된 URL이 포함될 수 있습니다.
 - `channelData` 속성은 수정 없이 그대로 보존됩니다.
+- JSON으로 직렬화할 때 작업의 총 크기가 300,000자를 초과하면 안 됩니다.
 
 클라이언트는 요청당 하나의 활동을 [전송](bot-framework-rest-direct-line-3-0-send-activity.md)할 수 있습니다. 

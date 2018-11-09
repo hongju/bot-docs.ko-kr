@@ -7,13 +7,13 @@ ms.author: kamrani
 manager: kamrani
 ms.topic: article
 ms.service: bot-service
-ms.date: 10/08/2018
-ms.openlocfilehash: 3ca80439a44ac7e715d19f8e47683ac9b5a5721a
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.date: 10/31/2018
+ms.openlocfilehash: 616c3bfd5fcb36c06f4e2acf032ba3cf5fc125d3
+ms.sourcegitcommit: a496714fb72550a743d738702f4f79e254c69d06
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49998880"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50736701"
 ---
 ::: moniker range="azure-bot-service-3.0"
 
@@ -89,14 +89,15 @@ Azure Bot Service는 지능형 봇을 모두 한 번에 빌드, 테스트, 배�
 봇은 파일을 읽고 쓰며, 데이터베이스 및 API를 사용하고, 정규 계산 작업을 수행하는 등 다른 형식의 소프트웨어가 수행하는 동일한 작업을 수행할 수 있습니다. 봇이 고유한 이유는 일반적으로 사용자 간 통신에 유보된 메커니즘을 사용한다는 점입니다. 
 
 봇은 보통 다음 구성 요소로 구성됩니다.
-* 대부분의 경우 공용 인터넷에서 사용할 수 있는 웹 서버
-* 봇을 개발하는 인터페이스를 제공하는 Bot Builder SDK 및 Bot Builder 도구
-* Azure Cognitive Service 
-* Azure Storage
+
+- 대부분의 경우 공용 인터넷에서 사용할 수 있는 웹 서버
+- 봇을 개발하는 인터페이스를 제공하는 Bot Builder SDK 및 Bot Builder 도구
+- Azure Cognitive Services
+- Azure Storage
 
 ## <a name="building-a-bot"></a>봇 빌드 
 
-Azure Bot Service는 프로세스를 용이하게 하는 일련의 통합된 도구 및 서비스를 제공합니다. C#, JavaScript 또는 Typescript로 봇을 만들 때 즐겨 찾는 개발 환경이나 명령줄 도구를 선택합니다. (Java 및 Python도 곧 출시 예정입니다.) 시작하기 위해 봇을 빌드하는 데 사용할 수 있는 봇 개발의 다양한 단계에 대한 도구를 제공합니다.
+Azure Bot Service는 프로세스를 용이하게 하는 일련의 통합된 도구 및 서비스를 제공합니다. 봇을 만들 때 선호하는 개발 환경 또는 명령줄 도구를 선택합니다. SDK는 C#, JavaScript 및 Typescript를 위해 존재합니다. (Java 및 Python용 SDK는 현재 개발 중입니다.) 봇을 쉽게 디자인하고 빌드할 수 있도록 다양한 봇 개발 단계를 위한 도구를 제공해 드리고 있습니다.
 
 ![봇 개요](media/bot-service-overview.png) 
 

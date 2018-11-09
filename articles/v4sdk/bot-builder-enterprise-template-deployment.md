@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: bot-service
 ms.date: 09/18/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 32be8e2a4047c3c25dcdf2598eea3a7bbd12fbcc
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: 06e91d4b7d320078e83c3523e1326b82ee3fe759
+ms.sourcegitcommit: 49a76dd34d4c93c683cce6c2b8b156ce3f53280e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49999030"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50134703"
 ---
 # <a name="enterprise-bot-template---deploying-your-bot"></a>엔터프라이즈 봇 템플릿 - 봇 배포
 
@@ -21,6 +21,8 @@ ms.locfileid: "49999030"
 > 이 항목은 SDK v4 버전에 적용됩니다. 
 
 ## <a name="prerequisites"></a>필수 조건
+
+- [.NET Core](https://www.microsoft.com/net/download)를 최신 버전으로 업데이트합니다.
 
 - [노드 패키지 관리자](https://nodejs.org/en/)가 설치되어 있는지 확인합니다.
 
@@ -40,7 +42,7 @@ az extension add -n botservice
 ## <a name="configuration"></a>구성
 
 - LUIS 제작 키 검색
-   - [이 설명서](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-reference-regions) 페이지에서 배포하려는 지역에 대한 올바른 LUIS 포털을 검토합니다. 
+   - [이 설명서](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-reference-regions) 페이지에서 배포하려는 지역에 대한 올바른 LUIS 포털을 검토합니다. www.luis.ai는 미국 지역을 참조하며 이 포털에서 검색된 작성 키는 유럽 배포에서 작동하지 않습니다.
    - 로그인한 후에 오른쪽 위 모서리에서 이름을 클릭합니다.
    - 설정을 선택하고, 다음 단계를 위해 제작 키를 적어 둡니다.
 
@@ -68,13 +70,13 @@ az account set --subscription "YOUR_SUBSCRIPTION_NAME"
 
 > 배포된 후에는 만든 서비스에 대한 가격 책정 계층을 검토하고 시나리오에 맞게 조정합니다.
 
-만든 프로젝트 내의 README.md에는 만든 봇 이름으로 업데이트된 msbot 복제 서비스 명령줄 예제가 포함되어 있으며, 일반 버전이 아래에 나와 있습니다. 이전 단계에서 제작 키를 업데이트하고 사용하려는 Azure 데이터 센터 위치(예: westus 또는 westeurope)를 선택해야 합니다.
-
-> 이전 단계에서 검색한 LUIS 제작 키가 아래에서 지정한 지역에 해당하는지 확인합니다.
+만든 프로젝트 내의 README.md에는 만든 봇 이름으로 업데이트된 msbot 복제 서비스 명령줄 예제가 포함되어 있으며, 일반 버전이 아래에 나와 있습니다. 이전 단계에서 제작 키를 업데이트하고 사용하려는 Azure 데이터 센터 위치(예: westus 또는 westeurope)를 선택해야 합니다. 이전 단계에서 검색한 LUIS 작성 키가 아래에서 지정한 지역에 해당하는지 확인합니다(예: luis.ai를 가리키는 westus 또는 eu.luis.ai를 가리키는 westeurope).
 
 ```shell
-msbot clone services --name "YOUR_BOT_NAME" --luisAuthoringKey "YOUR_AUTHORING_KEY" --folder "DeploymentScripts\msbotClone" --location "westus"
+msbot clone services --name "YOUR_BOT_NAME" --luisAuthoringKey "YOUR_AUTHORING_KEY" --folder "DeploymentScripts\msbotClone" --location "YOUR_REGION"
 ```
+
+> 배포를 실행할 때 일부 사용자에게 `ERROR: Unable to provision MSA id automatically. Please pass them in as parameters and try again` 오류가 발생할 수 있습니다. 이 경우 https://apps.dev.microsoft.com을 방문하여 수동으로 새 응용 프로그램을 만들고 ApplicationID 및 암호/비밀을 검색합니다. 위의 msbot 복제 서비스 명령을 실행하되, 새 인수 `appId` 및 `appSecret`을 입력하고 방금 검색한 값을 전달합니다.
 
 msbot 도구는 위치와 SKU를 포함한 배포 계획을 간략하게 설명합니다. 검토한 후에 계속 진행하세요.
 

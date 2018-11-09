@@ -7,14 +7,14 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: tools
-ms.date: 08/31/2018
+ms.date: 10/31/2018
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: b614b11852516ec8dd426d210aacc85a0f39c813
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: 8a59c0a8b7ee664cdb38ab9d0cb186114938d73f
+ms.sourcegitcommit: 782b3a2e788c25effd7d150a070bd2819ea92dad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49999420"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50743667"
 ---
 # <a name="create-bots-with-azure-cli"></a>Azure CLI를 사용하여 봇 만들기
 
@@ -74,9 +74,11 @@ az bot [command]
 CLI에서 새 봇을 만들려면 기존 [리소스 그룹](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)을 선택하거나 새로 만들어야 합니다. 
 
 ```azurecli
-az bot create --resource-group "my-resource-group" --name "my-bot-name" --kind "my-resource-type" --version v3 --description "description-of-my-bot"
+az bot create --resource-group "my-resource-group" --name "my-bot-name" --kind "my-resource-type" --version v3 --description "description-of-my-bot" --lang "programming-language"
 ```
-`--kind`에 허용되는 값은 `function, registration, webapp`이고, `--version`에는 `v3, v4`입니다.  요청이 성공한 후 확인 메시지가 표시됩니다.
+`--kind`에 허용되는 값은 `function, registration, webapp`이고, `--version`에는 `v3, v4`입니다.  `--lang` 인수를 지정하지 않으면 .NET 봇이 만들어집니다. 노드 봇을 만들려면 `Node`를 사용합니다.
+
+요청이 성공한 후 확인 메시지가 표시됩니다.
 ```
 Obtained msa app id and password. Provisioning bot now.
 ```
@@ -91,11 +93,6 @@ Obtained msa app id and password. Provisioning bot now.
 > az account list
 > ```
 
-기본적으로 새 .NET 봇이 만들어집니다. **-- lang** 인수를 사용하여 언어를 지정함으로써 플랫폼 SDK를 지정할 수 있습니다. 현재 봇 확장 패키지는 C# 및 Node.js 봇 SDK를 지원합니다. 예를 들어 **Node.js 봇을 만들**려면
-
-```azurecli
-az bot create --resource-group "my-resource-group" --name "my-bot-name" --kind "my-resource-type" --description "description-of-my-bot" --lang Node 
-```
 새 echo 봇이 Azure에서 리소스 그룹에 프로비전됩니다. 이를 테스트하려면 Web App 봇 보기의 봇 관리 헤더 아래에서 **Webchat 테스트**를 선택하면 됩니다. 
 
 ![Azure Echo 봇](media/bot-builder-tools/az-echo-bot.png) 
