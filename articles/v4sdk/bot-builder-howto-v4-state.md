@@ -10,12 +10,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 09/18/18
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 2a3709111b048730805b5578306c669591122dda
-ms.sourcegitcommit: 633008f8db06f1bb5be7bacdb7dd8de6f8165328
+ms.openlocfilehash: 30ce9c9ff5c458758a4cc9612b8f9947fa12734c
+ms.sourcegitcommit: 782b3a2e788c25effd7d150a070bd2819ea92dad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/01/2018
-ms.locfileid: "50753611"
+ms.locfileid: "50743657"
 ---
 # <a name="manage-conversation-and-user-state"></a>대화 및 사용자 상태 관리
 
@@ -319,8 +319,7 @@ else {
 ### <a name="interact-with-your-bot"></a>봇과의 상호 작용
 
 봇에 "Hi" 메시지를 보내면 봇이 사용자 이름 및 전화 번호를 묻습니다. 해당 정보를 제공하면 봇이 확인 메시지를 보냅니다. 그 후 대화를 계속 진행하면 봇이 동일한 주기를 반복합니다.
-
-![에뮬레이터 실행](../media/emulator-v4/emulator-running-manage-state.png)
+![에뮬레이터 실행](../media/emulator-v4/emulator-running.png)
 
 상태를 직접 관리하려는 경우 [고유한 프롬프트를 사용하여 대화 흐름 관리](bot-builder-primitive-prompts.md)를 참조하세요. 대안은 폭포 대화 상자를 사용하는 것입니다. 이 대화 상자는 자동으로 대화 상태를 추적하므로 상태를 추적하는 플래그를 만들 필요가 없습니다. 자세한 내용은 [대화 상자로 간단한 대화 관리](bot-builder-dialog-manage-conversation-flow.md)를 참조하세요.
 
