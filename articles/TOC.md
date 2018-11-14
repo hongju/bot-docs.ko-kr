@@ -13,6 +13,7 @@
 ## [GitHub의 샘플 리포지토리](https://github.com/Microsoft/BotBuilder-Samples/blob/master/readme.md)
 # 개념
 ## [봇 작동 방식](v4sdk/bot-builder-basics.md)
+## [봇 파일을 사용하여 봇 리소스 관리](v4sdk/bot-file-basics.md)
 ## [미들웨어](v4sdk/bot-builder-concept-middleware.md)
 ## [정보 대화 상자 라이브러리](v4sdk/bot-builder-concept-dialog.md)
 ## [대화 상자 상태 이해](v4sdk/bot-builder-dialog-state.md)
