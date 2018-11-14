@@ -7,13 +7,13 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
-ms.date: 12/13/2017
-ms.openlocfilehash: 2a2cc13020c87616799ee768fbab6e72ab81cc8b
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.date: 10/25/2018
+ms.openlocfilehash: eb08ca3b560f5058526387c71eca4b790d033a1e
+ms.sourcegitcommit: 15f7fa40b7e0a05507cdc66adf75bcfc9533e781
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49997640"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50916810"
 ---
 # <a name="add-media-attachments-to-messages"></a>메시지에 미디어 첨부 파일 추가
 > [!div class="op_single_selector"]
@@ -24,7 +24,7 @@ ms.locfileid: "49997640"
 일반적으로 봇 및 채널은 텍스트 문자열을 교환하지만, 일부 채널은 첨부 파일 교환도 지원하므로 이를 통해 봇에서 사용자에게 더 다양한 메시지를 보낼 수 있습니다. 예를 들어, 봇은 미디어 첨부 파일(예: 이미지, 비디오, 오디오, 파일) 및 [서식 있는 카드](bot-framework-rest-connector-add-rich-cards.md)를 보낼 수 있습니다. 이 문서에서는 Bot Connector 서비스를 사용하여 미디어 첨부 파일을 메시지에 추가하는 방법을 설명합니다.
 
 > [!TIP]
-> 채널이 지원하는 첨부 파일의 형식 및 수를 확인하고 채널이 첨부 파일을 렌더링하는 방법을 알아보려면 [채널 검사기][ChannelInspector]를 참조하세요.
+> 채널에서 지원하는 첨부 파일의 형식과 수 및 채널에서 첨부 파일을 렌더링하는 방법을 확인하려면 [Channel Inspector][ChannelInspector]를 참조하세요.
 
 ## <a name="add-a-media-attachment"></a>미디어 첨부 파일 추가  
 
@@ -126,6 +126,7 @@ Content-Type: application/json
         "title": "Allegro in C Major",
         "subtitle": "Allegro Duet",
         "text": "No Image, No Buttons, Autoloop, Autostart, Sharable",
+        "duration": "PT2M55S",
         "media": [
           {
             "url": "https://contoso.com/media/AllegrofromDuetinCMajor.mp3"
@@ -175,9 +176,7 @@ Content-Type: application/json
 - [메시지 만들기](bot-framework-rest-connector-create-messages.md)
 - [메시지 보내기 및 받기](bot-framework-rest-connector-send-and-receive-messages.md)
 - [메시지에 서식 있는 카드 추가](bot-framework-rest-connector-add-rich-cards.md)
-- [채널 검사기][ChannelInspector]
-
-[ChannelInspector]: ../bot-service-channel-inspector.md
+- [Bot Framework 카드 스키마](https://aka.ms/botSpecs-cardSchema)
 
 [Activity]: bot-framework-rest-connector-api-reference.md#activity-object
 [Attachment]: bot-framework-rest-connector-api-reference.md#attachment-object

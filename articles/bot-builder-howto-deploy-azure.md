@@ -1,5 +1,5 @@
 ---
-title: Azure에 봇 배포 | Microsoft Docs
+title: Azure에 C# 봇 배포 | Microsoft Docs
 description: Azure 클라우드에 봇을 배포합니다.
 keywords: 봇 배포, Azure 배포, 봇 채널 등록, visual studio 게시
 author: ivorb
@@ -8,22 +8,24 @@ manager: kamrani
 ms.topic: get-started-article
 ms.service: bot-service
 ms.subservice: abs
-ms.date: 09/19/2018
-ms.openlocfilehash: 5f3fc43bed16d50c347d4e07a9154dfd307f0dc0
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.date: 11/05/2018
+ms.openlocfilehash: f30a038c6bc5e435ade421e24b05d0b31a143538
+ms.sourcegitcommit: 9acac75f85d36c81b8bf4edec916dd0b52a4a5c7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49999370"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51028740"
 ---
-# <a name="deploy-your-bot-to-azure"></a>Azure에 봇 배포
+# <a name="deploy-your-c-bot-to-azure"></a>Azure에 C# 봇 배포
 
 [!INCLUDE [pre-release-label](./includes/pre-release-label.md)]
 
-봇을 생성하고 로컬에서 확인한 후에는 어디서나 액세스할 수 있도록 Azure로 푸시할 수 있습니다. C# 봇의 경우 Visual Studio 또는 Azure CLI를 사용하여 봇을 Azure에 게시할 수 있습니다. 
+봇을 만들고 로컬로 테스트한 후에는 어디서나 액세스할 수 있도록 Azure에 게시할 수 있습니다.
 
 ## <a name="publish-from-visual-studio"></a>Visual Studio에서 게시
 먼저 App Service의 Visual Studio에서 Azure에 봇을 배포합니다. 그런 다음, 봇 채널 등록을 사용하여 Azure Bot Service로 봇을 구성합니다.
+
+**참고: Visual Studio 프로젝트 이름에 공백이 있으면 아래에 설명된 배포 단계가 작동하지 않습니다.**
 
 [솔루션 탐색기] 창에서 프로젝트 노드를 마우스 오른쪽 단추로 클릭하고 [게시]를 선택합니다.
 

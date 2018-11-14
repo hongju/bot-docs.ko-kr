@@ -7,13 +7,13 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
-ms.date: 10/24/2018
-ms.openlocfilehash: 18f353ce6535dd56ca7a581776fdfab822555f2d
-ms.sourcegitcommit: 49a76dd34d4c93c683cce6c2b8b156ce3f53280e
+ms.date: 10/25/2018
+ms.openlocfilehash: 81192c9b5806d467c2a1fd292ee3d5db539e9ead
+ms.sourcegitcommit: 15f7fa40b7e0a05507cdc66adf75bcfc9533e781
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50134743"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50916870"
 ---
 # <a name="api-reference"></a>API 참조
 
@@ -447,6 +447,7 @@ DELETE /v3/botstate/{channelId}/users/{userId}
 | **autoloop** | 부울 | 마지막 애니메이션 GIF가 끝날 때 해당 애니메이션 GIF 목록을 재생할지 여부를 나타내는 플래그입니다. 애니메이션을 자동으로 다시 재생하려면 이 속성을 **true**로 설정하고, 그렇지 않으면 **false**로 설정합니다. 기본값은 **true**입니다. |
 | **autostart** | 부울 | 카드가 표시될 때 애니메이션을 자동으로 재생할지 여부를 나타내는 플래그입니다. 애니메이션을 자동으로 재생하려면 이 속성을 **true**로 설정하고, 그렇지 않으면 **false**로 설정합니다. 기본값은 **true**입니다. |
 | **buttons** | [CardAction](#cardaction-object)[] | 사용자가 하나 이상의 작업을 수행할 수 있도록 하는 **CardAction** 개체의 배열입니다. 채널에서 지정할 수 있는 단추의 수를 결정합니다. |
+| **duration** | string | [ISO 8601 기간 형식](https://www.iso.org/iso-8601-date-and-time-format.html)의 미디어 콘텐츠 길이입니다. |
 | **image** | [ThumbnailUrl](#thumbnailurl-object) | 카드에 표시할 이미지를 지정하는 **ThumbnailUrl** 개체입니다. |
 | **media** | [MediaUrl](#mediaurl-object)[] | 재생할 애니메이션 GIF의 목록을 지정하는 **MediaUrl** 개체의 배열입니다. |
 | **shareable** | 부울 | 애니메이션을 다른 사용자와 공유할 수 있는지 여부를 나타내는 플래그입니다. 애니메이션을 공유할 수 있으면 이 속성을 **true**로 설정하고, 그렇지 않으면 **false**로 설정합니다. 기본값은 **true**입니다. |
@@ -523,6 +524,7 @@ DELETE /v3/botstate/{channelId}/users/{userId}
 | **autoloop** | 부울 | 마지막 오디오 파일이 끝날 때 해당 오디오 파일 목록을 재생할지 여부를 나타내는 플래그입니다. 오디오 파일을 자동으로 재생하려면 이 속성을 **true**로 설정하고, 그렇지 않으면 **false**로 설정합니다. 기본값은 **true**입니다. |
 | **autostart** | 부울 | 카드가 표시될 때 오디오를 자동으로 재생할지 여부를 나타내는 플래그입니다. 오디오를 자동으로 재생하려면 이 속성을 **true**로 설정하고, 그렇지 않으면 **false**로 설정합니다. 기본값은 **true**입니다. |
 | **buttons** | [CardAction](#cardaction-object)[] | 사용자가 하나 이상의 작업을 수행할 수 있도록 하는 **CardAction** 개체의 배열입니다. 채널에서 지정할 수 있는 단추의 수를 결정합니다. |
+| **duration** | string | [ISO 8601 기간 형식](https://www.iso.org/iso-8601-date-and-time-format.html)의 미디어 콘텐츠 길이입니다. |
 | **image** | [ThumbnailUrl](#thumbnailurl-object) | 카드에 표시할 이미지를 지정하는 **ThumbnailUrl** 개체입니다. |
 | **media** | [MediaUrl](#mediaurl-object)[] | 재생할 오디오 파일의 목록을 지정하는 **MediaUrl** 개체의 배열입니다. |
 | **shareable** | 부울 | 오디오 파일을 다른 사용자와 공유할 수 있는지 여부를 나타내는 플래그입니다. 오디오를 공유할 수 있으면 이 속성을 **true**로 설정하고, 그렇지 않으면 **false**로 설정합니다. 기본값은 **true**입니다. |
@@ -858,6 +860,7 @@ World Geodetic System(WSG84) 좌표를 사용하여 지리적 위치를 정의�
 | **autoloop** | 부울 | 마지막 비디오 파일이 끝날 때 해당 비디오 파일 목록을 재생할지 여부를 나타내는 플래그입니다. 비디오를 자동으로 다시 재생하려면 이 속성을 **true**로 설정하고, 그렇지 않으면 **false**로 설정합니다. 기본값은 **true**입니다. |
 | **autostart** | 부울 | 카드가 표시될 때 비디오를 자동으로 재생할지 여부를 나타내는 플래그입니다. 비디오를 자동으로 재생하려면 이 속성을 **true**로 설정하고, 그렇지 않으면 **false**로 설정합니다. 기본값은 **true**입니다. |
 | **buttons** | [CardAction](#cardaction-object)[] | 사용자가 하나 이상의 작업을 수행할 수 있도록 하는 **CardAction** 개체의 배열입니다. 채널에서 지정할 수 있는 단추의 수를 결정합니다. |
+| **duration** | string | [ISO 8601 기간 형식](https://www.iso.org/iso-8601-date-and-time-format.html)의 미디어 콘텐츠 길이입니다. |
 | **image** | [ThumbnailUrl](#thumbnailurl-object) | 카드에 표시할 이미지를 지정하는 **ThumbnailUrl** 개체입니다. |
 | **media** | [MediaUrl](#mediaurl-object)[] | 재생할 비디오의 목록을 지정하는 **MediaUrl** 개체의 배열입니다. |
 | **shareable** | 부울 | 비디오를 다른 사용자와 공유할 수 있는지 여부를 나타내는 플래그입니다. 비디오를 공유할 수 있으면 이 속성을 **true**로 설정하고, 그렇지 않으면 **false**로 설정합니다. 기본값은 **true**입니다. |

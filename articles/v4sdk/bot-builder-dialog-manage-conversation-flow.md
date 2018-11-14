@@ -10,12 +10,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 9/25/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 07035c8f0dfc7473192d8c51667ed1f5cefbc555
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: 0225b6d81b8eb9899a5dda8dc032dcbfb573afc1
+ms.sourcegitcommit: 984705927561cc8d6a84f811ff24c8c71b71c76b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49999400"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50965711"
 ---
 # <a name="manage-simple-conversation-flow-with-dialogs"></a>대화 상자를 사용하여 간단한 대화 흐름 관리
 
@@ -39,7 +39,10 @@ ms.locfileid: "49999400"
 
 # <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
-일반적인 방법으로 대화 상자를 사용하려면 `botbuilder-dialogs` 라이브러리가 필요하며 NPM에서 다운로드할 수 있습니다.
+일반적으로 대화를 사용하려면 `botbuilder-dialogs` 라이브러리가 필요합니다. 라이브러리를 설치하려면 다음 npm 명령을 실행합니다.
+```cmd
+npm install --save botbuilder-dialogs
+```
 
 ---
 

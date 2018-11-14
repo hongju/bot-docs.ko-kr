@@ -1,22 +1,18 @@
 ---
-title: 사용자 입력을 수집하도록 고유한 메시지 만들기 | Microsoft Docs
-description: 봇 작성기 SDK에서 기본 프롬프트를 사용하여 대화 흐름을 관리하는 방법을 알아봅니다.
-keywords: 대화 흐름, 프롬프트
-author: v-ducvo
-ms.author: v-ducvo
-manager: kamrani
-ms.topic: article
-ms.service: bot-service
-ms.subservice: sdk
-ms.date: 10/20/2018
-monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 019902cbb42d8a583e9912804684d1d9a6539a59
-ms.sourcegitcommit: a496714fb72550a743d738702f4f79e254c69d06
+redirect_url: /bot-framework/bot-builder-howto-v4-state
+ms.openlocfilehash: 081c7c1f3e354d4352baea029840c8175152116e
+ms.sourcegitcommit: a54a70106b9fdf278fd7270b25dd51c9bd454ab1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50736641"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51273120"
 ---
+<a name="--"></a><!--
+---
+제목: 사용자 입력을 수집하도록 고유한 메시지 만들기 | Microsoft Docs 설명: Bot Builder SDK의 원시 프롬프트를 사용하여 대화 흐름을 관리하는 방법을 알아봅니다.
+키워드: 대화 흐름, 프롬프트 작성자: v-ducvo manager: kamrani ms.topic: article ms.service: bot-service ms.subservice: sdk ms.date: 10/31/2018 monikerRange: 'azure-bot-service-4.0'
+---
+
 # <a name="create-your-own-prompts-to-gather-user-input"></a>사용자 입력을 수집하도록 고유한 메시지 만들기
 
 [!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
@@ -72,32 +68,38 @@ public class UserProfile
 
 # <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
-**app.js**
+**index.js**에서 `UserState`를 포함하도록 require 문을 업데이트합니다.
 
 ```javascript
-const storage = new MemoryStorage(); // Volatile memory
-const conversationState = new ConversationState(storage);
-const userState = new UserState(storage);
-const dialogState = conversationState.createProperty('dialogState');
-const userProfile = userState.createProperty('userProfile');
+const { BotFrameworkAdapter, MemoryStorage, ConversationState, UserState } = require('botbuilder');
 ```
 
-이 코드는 기본 봇 논리 내에 배치합니다.
+그런 다음, 사용자 상태 관리 개체를 만들고, 봇을 만들 때 이를 전달합니다.
 
 ```javascript
-// Pull the state of the dialog out of the conversation state manager.
-const convo = await dialogState.get(context, {
-    prompt: undefined,
-    topic: 'profile'
-});
+// Create conversation and user state with in-memory storage provider.
+const conversationState = new ConversationState(memoryStorage);
+const userState = new UserState(memoryStorage);
 
-// Pull the user profile out of the user state manager.
-const userProfile = await userProfile.get(context, {  // Define the user's profile object
-        "userName": undefined,
-        "age": undefined,
-        "workPlace": undefined
-    }
-);
+// Create the bot.
+const myBot = new MyBot(conversationState, userState);
+```
+
+**bot.js**에서 봇의 [상태](bot-builder-howto-v4-state.md)를 관리하는 데 사용할 상태 속성 접근자에 대한 식별자를 정의합니다. 또한 사용자로부터 수집하려는 정보에 사용할 프롬프트를 정의합니다.
+
+이 코드를 `MyBot` 클래스 외부에 추가합니다.
+
+```javascript
+// Define identifiers for our state property accessors.
+const TOPIC_STATE_PROPERTY = 'topicStateProperty';
+const USER_PROFILE_PROPERTY = 'userProfileProperty';
+
+// Define the prompts to use to ask for user profile information.
+const fields = {
+    userName: "What is your name?",
+    age: "How old are you?",
+    workPlace: "Where do you work?"
+}
 ```
 
 ---
@@ -351,91 +353,91 @@ public class PrimitivePromptsBot : IBot
 
 # <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
-**app.js**
+**bot.js**에서 `MyBot` 클래스 정의를 업데이트합니다.
+
+봇의 생성자에서 상태 속성 접근자(`topicStateAccessor` 및 `userProfileAccessor`)를 설정했습니다. 항목 상태는 대화 항목을 추적하고, 사용자 프로필은 사용자에 대해 수집한 정보를 추적합니다.
 
 ```javascript
+constructor(conversationState, userState) {
+    // Create state property accessors.
+    this.topicStateAccessor = conversationState.createProperty(TOPIC_STATE_PROPERTY);
+    this.userProfileAccessor = userState.createProperty(USER_PROFILE_PROPERTY);
 
-server.post('/api/messages', (req, res) => {
-    adapter.processActivity(req, res, async (context) => {
-        const isMessage = (context.activity.type === ActivityTypes.Message);
+    // Track the conversation and user state management objects.
+    this.conversationState = conversationState;
+    this.userState = userState;
+}
+```
 
-        // Set up a list of fields that we need to collect from the user.
-        const fields = {
-            userName: "What is your name?",
-            age: "How old are you?",
-            workPlace: "Where do you work?"
-        }
+그런 다음, 봇 상태를 사용하여 대화 흐름을 제어하고 수집 된 사용자 정보를 저장하도록 턴 처리기를 업데이트합니다.
 
-        // Pull the state of the dialog out of the conversation state manager.
-        const convo = await dialogState.get(context, {
-            topic: 'profile',
-            prompt: undefined
+```javascript
+async onTurn(turnContext) {
+    // Handle only message activities from the user.
+    if (turnContext.activity.type === ActivityTypes.Message) {
+        // Get state properties using their accessors, providing default values.
+        const topicState = await this.topicStateAccessor.get(turnContext, {
+            prompt: undefined,
+            topic: 'profile'
+        });
+        const userProfile = await this.userProfileAccessor.get(turnContext, {
+            "userName": undefined,
+            "age": undefined,
+            "workPlace": undefined
         });
 
-        // Pull the user profile out of the user state manager.
-        const userProfile = await userProfile.get(context, {  // Define the user's profile object
-                "userName": undefined,
-                "age": undefined,
-                "workPlace": undefined
+        if (topicState.topic === 'profile') {
+            // If a prompt flag is set in the conversation state, use it to capture the incoming value
+            // into the appropriate field of the user profile.
+            if (topicState.prompt) {
+                userProfile[topicState.prompt] = turnContext.activity.text;
             }
-        );
 
-        if (isMessage) {
+            // Determine which fields are not yet set.
+            const empty_fields = [];
+            Object.keys(fields).forEach(function (key) {
+                if (!userProfile[key]) {
+                    empty_fields.push({
+                        key: key,
+                        prompt: fields[key]
+                    });
+                }
+            });
 
-            if (convo.topic === 'profile') {
-                // If a prompt flag is set in the conversation state, use it to capture the incoming value
-                // into the appropriate field of the user profile.
-                if (convo.prompt) {
-                    userProfile[convo.prompt] = context.activity.text;
+            if (empty_fields.length) {
+
+                // If all the fields are empty, send a welcome message.
+                if (empty_fields.length == Object.keys(fields).length) {
+                    await turnContext.sendActivity('Welcome new user, please fill out your profile information.');
                 }
 
-                 // Determine which fields are not yet set.
-                 const empty_fields = [];
-                 Object.keys(fields).forEach(function(key) {
-                    if (!userProfile[key]) {
-                        empty_fields.push({
-                           key: key,
-                           prompt: fields[key]
-                        });
-                     }
-                 });
+                // We have at least one empty field. Prompt for the next empty field.
+                await turnContext.sendActivity(empty_fields[0].prompt);
 
-                 if (empty_fields.length) {
+                // update the flag to indicate which prompt we just sent
+                // so that the response can be captured at the beginning of the next turn.
+                topicState.prompt = empty_fields[0].key;
 
-                    // If all the fields are empty, send a welcome message.
-                    if (empty_fields.length == Object.keys(fields).length) {
-                        await context.sendActivity('Welcome new user, please fill out your profile information.');
-                    }
-
-                    // We have at least one empty field. Prompt for the next empty field.
-                    await context.sendActivity(empty_fields[0].prompt);
-
-                    // update the flag to indicate which prompt we just sent
-                    // so that the response can be captured at the beginning of the next turn.
-                    convo.prompt = empty_fields[0].key;
-
-                 } else {
-                    // Our user profile is complete!
-                    await context.sendActivity('Thank you. Your profile is complete.');
-                    convo.prompt = null;
-                    convo.topic = null;
-
-                 }
-            } else if (context.activity.text && context.activity.text.match(/hi/ig)) {
-                // Check to see if the user said "hi" and respond with a greeting
-                await context.sendActivity(`Hi ${ userProfile.userName }.`);
             } else {
-                // Default message
-                await context.sendActivity("Hi. I'm the Contoso bot.");
+                // Our user profile is complete!
+                await turnContext.sendActivity('Thank you. Your profile is complete.');
+                topicState.prompt = null;
+                topicState.topic = null;
+
             }
+        } else if (turnContext.activity.text && turnContext.activity.text.match(/hi/ig)) {
+            // Check to see if the user said "hi" and respond with a greeting
+            await turnContext.sendActivity(`Hi ${userProfile.userName}.`);
+        } else {
+            // Default message
+            await turnContext.sendActivity("Hi. I'm the Contoso bot.");
         }
 
-        // End the turn by writing state changes back to storage
-        await conversationState.saveChanges(context);
-        await userState.saveChanges(context);
-    });
-});
-
+        // Save state changes
+        await this.conversationState.saveChanges(turnContext);
+        await this.userState.saveChanges(turnContext);
+    }
+}
 ```
 
 ---
@@ -460,7 +462,7 @@ server.post('/api/messages', (req, res) => {
 
 **다이얼로그** 라이브러리는 사용자 입력의 유효성을 검사하는 기본 제공 방법을 제공하지만, 고유한 프롬프트를 사용하여 유효성 검사를 수행할 수도 있습니다. 예를 들어 사용자의 연령을 요청하는 경우 응답으로 "Bob"과 같은 문자열이 아닌 숫자를 얻으려고 합니다.
 
-숫자 또는 날짜/시간에 대한 구문 분석은 이 주제의 범위를 벗어나는 복잡한 작업입니다. 다행히도 활용할 수 있는 라이브러리가 있습니다. 이 정보를 구문 분석하기 위해 [Microsoft의 텍스트 인식기](https://github.com/Microsoft/Recognizers-Text) 라이브러리를 사용합니다. 이 패키지는 NuGet을 통해 사용하거나 리포지토리에서 다운로드할 수 있습니다. (**다이얼로그** 라이브러리에도 포함되어 있습니다. 여기서는 사용하지 않지만 주목할 만한 가치가 있습니다.)
+숫자 또는 날짜/시간에 대한 구문 분석은 이 주제의 범위를 벗어나는 복잡한 작업입니다. 다행히도 활용할 수 있는 라이브러리가 있습니다. 이 정보를 구문 분석하기 위해 [Microsoft의 텍스트 인식기](https://github.com/Microsoft/Recognizers-Text) 라이브러리를 사용합니다. 이 패키지는 NuGet과 npm을 통해 사용할 수 있습니다. 또한 리포지토리에서 직접 다운로드할 수도 있습니다. (**다이얼로그** 라이브러리에도 포함되어 있습니다. 여기서는 사용하지 않지만 주목할 만한 가치가 있습니다.)
 
 이 라이브러리는 날짜, 시간 또는 전화 번호와 같은 복잡한 입력을 구문 분석하는 데 특히 유용합니다. 이 샘플에서는 저녁 식사 예약 파티 크기에 대한 숫자의 유효성을 검사하지만 더 복잡한 유효성 검사 작업을 위해 동일한 개념을 확장할 수 있습니다.
 
@@ -468,129 +470,219 @@ server.post('/api/messages', (req, res) => {
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
-**Microsoft.Recognizers.Text.Number** 라이브러리를 사용하려면 NuGet 패키지를 포함하고 using 문을 사용하여 추가합니다.
+**Microsoft.Recognizers.Text.Number** 라이브러리를 사용하려면 NuGet 패키지를 포함하고 다음 using 문을 봇 파일에 추가합니다.
 
 ```csharp
-using Microsoft.Recognizers.Text.Number;
-using Microsoft.Recognizers.Text;
 using System.Linq;
+using Microsoft.Recognizers.Text;
+using Microsoft.Recognizers.Text.Number;
 ```
 
-그런 다음, 유효성 검사를 실제로 수행하는 함수를 정의합니다.
+유효성 검사는 여러 가지 방법으로 처리할 수 있습니다. 여기서는 유효성 검사를 포함하도록 도우미 클래스를 업데이트합니다.
+
+봇의 내부 `UserFieldInfo` 클래스에 다음 멤버를 추가합니다.
 
 ```csharp
-private async Task<bool> ValidatePartySize(ITurnContext context, string value)
+/// <summary>Delegate for validating input.</summary>
+/// <param name="turnContext">The current turn context. turnContext.Activity.Text contains the input to validate.</param>
+/// <returns><code>true</code> if the input is valid; otherwise, <code>false</code>.</returns>
+public delegate Task<bool> ValidatorDelegate(
+    ITurnContext turnContext,
+    CancellationToken cancellationToken = default(CancellationToken));
+
+/// <summary>By default, evaluate all input as valid.</summary>
+private static readonly ValidatorDelegate NoValidator =
+    async (ITurnContext turnContext, CancellationToken cancellationToken) => true;
+
+/// <summary>Gets or sets the validation function to use.</summary>
+public ValidatorDelegate ValidateInput { get; set; } = NoValidator;
+```
+
+그런 다음, 사용할 유효성 검사를 정의하도록 봇의 `UserFields`에 있는 _age_ 항목을 업데이트합니다.
+age 값을 설정하기 전에 입력의 유효성을 검사하므로 `SetValue` 함수를 간소화하고 텍스트 인식기 라이브러리를 활용할 수 있습니다.
+
+```csharp
+private static List<UserFieldInfo> UserFields { get; } = new List<UserFieldInfo>
 {
-    try
-    {
-        // Recognize the input as a number. This works for responses such as
-        // "twelve" as well as "12"
-        var result = NumberRecognizer.RecognizeNumber(value, Culture.English);
-
-        // Attempt to convert the Recognizer result to an integer
-        int.TryParse(result.First().Text, out int partySize);
-
-        if (partySize < 6)
+    // ...
+    new UserFieldInfo {
+        Key = nameof(UserProfile.Age),
+        Prompt = "How old are you?",
+        GetValue = (profile) => profile.Age.HasValue? profile.Age.Value.ToString() : null,
+        SetValue = (profile, value) =>
         {
-            throw new Exception("Party size too small.");
-        }
-        else if (partySize > 20)
+            // As long as the input validates, this should work.
+            List<ModelResult> result = NumberRecognizer.RecognizeNumber(value, Culture.English);
+            profile.Age = int.Parse(result.First().Text);
+        },
+        ValidateInput = async (turnContext, cancellationToken) =>
         {
-            throw new Exception("Party size too big.");
-        }
+            try
+            {
+                // Recognize the input as a number. This works for responses such as
+                // "twelve" as well as "12".
+                List<ModelResult> result = NumberRecognizer.RecognizeNumber(
+                    turnContext.Activity.Text, Culture.English);
 
-        // If we got through this, the number is valid
-        return true;
-    }
-    catch (Exception)
+                // Attempt to convert the Recognizer result to an integer
+                int.TryParse(result.First().Text, out int age);
+
+                if (age < 18)
+                {
+                    await turnContext.SendActivityAsync(
+                        "You must be 18 or older.",
+                        cancellationToken: cancellationToken);
+                    return false;
+                }
+                else if (age > 120)
+                {
+                    await turnContext.SendActivityAsync(
+                        "You must be 120 or younger.",
+                        cancellationToken: cancellationToken);
+                    return false;
+                }
+            }
+            catch
+            {
+                await turnContext.SendActivityAsync(
+                    "I couldn't understand your input. Please enter your age in years.",
+                    cancellationToken: cancellationToken);
+                return false;
+            }
+
+            // If we got through this, the number is valid.
+            return true;
+        },
+    },
+    // ...
+};
+```
+
+마지막으로, 속성에 값을 저장하기 전에 모든 입력의 유효성을 검사하도록 턴 처리기를 업데이트합니다.
+유효성 검사는 기본적으로 모든 입력을 허용하는 NoValidator 함수를 사용합니다. 따라서 age 프롬프트에 대한 동작만 변경해야 합니다. 입력 유효성 검사에 실패하면 필드를 설정하지 않고 봇은 다음 턴에서 이 필드에 대한 입력을 다시 요청합니다.
+
+여기서는 업데이트해야 할 턴 처리기 부분만 살펴봅니다.
+
+```csharp
+public async Task OnTurnAsync(ITurnContext turnContext, CancellationToken cancellationToken = default(CancellationToken))
+{
+    if (turnContext.Activity.Type is ActivityTypes.Message)
     {
-        await context.SendActivityAsync("Error with your party size. < br /> Please specify a number between 6 - 20.");
-        return false;
+        // ...
+        // Check whether we need more information.
+        if (topicState.Topic is ProfileTopic)
+        {
+            // If we're expecting input, record it in the user's profile.
+            if (topicState.Prompt != null)
+            {
+                UserFieldInfo field = UserFields.First(f => f.Key.Equals(topicState.Prompt));
+                if (await field.ValidateInput(turnContext, cancellationToken))
+                {
+                    field.SetValue(userProfile, turnContext.Activity.Text.Trim());
+                }
+            }
+
+            // ...
+        }
+        //...
     }
 }
 ```
 
 # <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
-**인식기** 라이브러리를 사용하려면 **app.js**에 해당 라이브러리가 필요합니다.
+**Recognizers** 라이브러리를 사용하려면 패키지를 추가하고 **bot.js**의 봇 코드에서 이 패키지를 요청합니다.
 
-```javascript
-// Required packages for this bot
-var Recognizers = require('@microsoft/recognizers-text-suite');
+```bash
+npm i @microsoft/recognizers-text-suite --save
 ```
 
-그런 다음, 유효성 검사를 실제로 수행하는 함수를 정의합니다.
+```javascript
+// Required packages for this bot.
+const Recognizers = require('@microsoft/recognizers-text-suite');
+```
+
+그런 다음, 텍스트 인식 및 유효성 검사 코드를 포함하도록 `fields` 메타데이터를 업데이트합니다.
 
 ```javascript
-// Support party size between 6 and 20 only
-async function validatePartySize(context, input){
-    try {
-        // Recognize the input as a number. This works for responses such as
-        // "twelve" as well as "12"
-        var result = Recognizers.recognizeNumber(input, Recognizers.Culture.English);
-        var value = parseInt(results[0].resolution.value);
-
-        if (value < 6) {
-            throw new Error(`Party size too small.`);
-        } else if(value > 20){
-            throw new Error(`Party size too big.`);
+// Define the prompts to use to ask for user profile information.
+const fields = {
+    userName: { prompt: "What is your name?" },
+    age: {
+        prompt: "How old are you?",
+        recognize: (turnContext) => {
+            var result = Recognizers.recognizeNumber(
+                turnContext.activity.text, Recognizers.Culture.English);
+            return parseInt(result[0].resolution.value);
+        },
+        validate: async (turnContext) => {
+            try {
+                // Recognize the input as a number. This works for responses such as
+                // "twelve" as well as "12".
+                var result = Recognizers.recognizeNumber(
+                    turnContext.activity.text, Recognizers.Culture.English);
+                var age = parseInt(result[0].resolution.value);
+                if (age < 18) {
+                    await turnContext.sendActivity("You must be 18 or older.");
+                    return false;
+                }
+                if (age > 120 ) {
+                    await turnContext.sendActivity("You must be 120 or younger.");
+                    return false;
+                }
+            } catch (_) {
+                await turnContext.sendActivity(
+                    "I couldn't understand your input. Please enter your age in years.");
+                return false;
+            }
+            return true;
         }
-        return true; // Return the valid value
-    } catch (err){
-        await context.sendActivity(`${err.message} <br/>Please specify a number between 6 - 20.`);
-        return false;
-    }
+    },
+    workPlace: { prompt: "Where do you work?" }
 }
 ```
 
----
-
-프롬프트에 대한 사용자의 응답을 처리하는 동안 다음 프롬프트로 이동하기 전에 유효성 검사 함수를 호출합니다. 유효성 검사가 실패하면 질문을 다시 요청합니다.
-
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
-
-```csharp
-if (topicState.Prompt == "partySize")
-{
-    if (await ValidatePartySize(turnContext, turnContext.Activity.Text))
-    {
-        // Save user's response in our state, ReservationInfo, which
-        // is a new class we've added to our state
-        // UserFieldInfo partySize;
-        partySize.SetValue(userProfile, turnContext.Activity.Text);
-
-        // Ask next question.
-        topicState.Prompt = "reserveName";
-        await turnContext.SendActivityAsync("Who's name will this be under?");
-    }
-    else
-    {
-        // Ask again.
-        await turnContext.SendActivityAsync("How many people are in your party?");
-    }
-}
-```
-
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
-
-**app.js**
+봇의 턴 처리기에서 다음 블록을 업데이트합니다. 여기서는 사용자 입력을 기록하고 사용자에게 메시지를 표시합니다. 필드 메타데이터의 변경을 고려하여 이러한 섹션을 업데이트해야 합니다.
 
 ```javascript
-// ...
-if (convo.prompt == "partySize") {
-    if (await validatePartySize(context, context.activity.text)) {
-        // Save user's response
-        reservationInfo.partySize = context.activity.text;
+async onTurn(turnContext) {
+    // Handle only message activities from the user.
+    if (turnContext.activity.type === ActivityTypes.Message) {
+        // ...
 
-        // Ask next question
-        convo.prompt = "reserveName";
-        await context.sendActivity("Who's name will this be under?");
-    } else {
-        // Ask again
-        await context.sendActivity("How many people are in your party?");
+        if (topicState.topic === 'profile') {
+            // If a prompt flag is set in the conversation state, use it to capture the incoming value
+            // into the appropriate field of the user profile.
+            if (topicState.prompt) {
+                const field = fields[topicState.prompt];
+                // If the prompt has validation, check whether the input validates.
+                if (!field.validate || await field.validate(turnContext)) {
+                    // Set the field, using a recognizer if one is defined.
+                    userProfile[topicState.prompt] = (field.recognize)
+                        ? field.recognize(turnContext)
+                        : turnContext.activity.text;
+                }
+            }
+
+            // ...
+
+            if (empty_fields.length) {
+
+                // ...
+
+                // We have at least one empty field. Prompt for the next empty field.
+                await turnContext.sendActivity(empty_fields[0].prompt.prompt);
+
+                // ...
+
+            } // ...
+        } // ...
+
+        // Save state changes
+        await this.conversationState.saveChanges(turnContext);
+        await this.userState.saveChanges(turnContext);
     }
 }
-// ...
 ```
 
 ---
@@ -601,3 +693,5 @@ if (convo.prompt == "partySize") {
 
 > [!div class="nextstepaction"]
 > [다이얼로그를 사용하여 사용자 입력 요청](bot-builder-prompts.md)
+
+-->

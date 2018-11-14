@@ -1,7 +1,7 @@
 ---
-title: 사용자 환영 개발 | Microsoft Docs
+title: 사용자에게 환영 메시지 보내기 | Microsoft Docs
 description: 봇이 환영하는 사용자 환경을 제공하도록 개발하는 방법을 알아봅니다.
-keywords: 개요, 개발, 사용자 경험, 환영, 맞춤형 환경, C#, JS
+keywords: 개요, 개발, 사용자 환경, 환영, 개인 설정 환경, C#, JS, 환영 메시지, 봇, 인사, 인사말
 author: dashel
 ms.author: dashel
 manager: kamrani
@@ -10,12 +10,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 10/31/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: f5549385106cab890269e9a5fafacc00dc331520
-ms.sourcegitcommit: a496714fb72550a743d738702f4f79e254c69d06
+ms.openlocfilehash: b3582d962911b6024062942a6d9f6ff1efab4022
+ms.sourcegitcommit: a54a70106b9fdf278fd7270b25dd51c9bd454ab1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50736611"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51273090"
 ---
 # <a name="send-welcome-message-to-users"></a>사용자에게 환영 메시지 보내기
 
@@ -418,4 +418,4 @@ switch (text)
 
 ## <a name="next-steps"></a>다음 단계
 > [!div class="nextstepaction"]
-> [대화 상자 라이브러리를 사용하여 사용자에게 입력 요청](bot-builder-prompts.md)
+> [사용자 입력 수집](bot-builder-prompts.md)
