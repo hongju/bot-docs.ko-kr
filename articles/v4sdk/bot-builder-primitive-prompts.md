@@ -1,18 +1,22 @@
 ---
-redirect_url: /bot-framework/bot-builder-howto-v4-state
-ms.openlocfilehash: 081c7c1f3e354d4352baea029840c8175152116e
-ms.sourcegitcommit: a54a70106b9fdf278fd7270b25dd51c9bd454ab1
+title: 사용자 입력을 수집하도록 고유한 메시지 만들기 | Microsoft Docs
+description: 봇 작성기 SDK에서 기본 프롬프트를 사용하여 대화 흐름을 관리하는 방법을 알아봅니다.
+keywords: 대화 흐름, 프롬프트
+author: v-ducvo
+ms.author: v-ducvo
+manager: kamrani
+ms.topic: article
+ms.service: bot-service
+ms.subservice: sdk
+ms.date: 11/12/2018
+monikerRange: azure-bot-service-4.0
+ms.openlocfilehash: bc223008778f0396b9bc7ff0c2ef48eb3773a105
+ms.sourcegitcommit: 0702305523f8c816b2eb95dce2ea9effb9e5ee5a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51273120"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51562096"
 ---
-<a name="--"></a><!--
----
-제목: 사용자 입력을 수집하도록 고유한 메시지 만들기 | Microsoft Docs 설명: Bot Builder SDK의 원시 프롬프트를 사용하여 대화 흐름을 관리하는 방법을 알아봅니다.
-키워드: 대화 흐름, 프롬프트 작성자: v-ducvo manager: kamrani ms.topic: article ms.service: bot-service ms.subservice: sdk ms.date: 10/31/2018 monikerRange: 'azure-bot-service-4.0'
----
-
 # <a name="create-your-own-prompts-to-gather-user-input"></a>사용자 입력을 수집하도록 고유한 메시지 만들기
 
 [!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
@@ -694,4 +698,3 @@ async onTurn(turnContext) {
 > [!div class="nextstepaction"]
 > [다이얼로그를 사용하여 사용자 입력 요청](bot-builder-prompts.md)
 
--->

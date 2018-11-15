@@ -41,8 +41,8 @@
 ### [봇에 자연어 해석 추가](v4sdk/bot-builder-howto-v4-luis.md)
 ### [QnA Maker를 사용하여 사용자 질문에 답변](v4sdk/bot-builder-howto-qna.md)
 ### 대화 상자 라이브러리를 사용하여 대화 관리 
-#### [사용자 입력 수집](v4sdk/bot-builder-prompts.md)
 #### [순차적 대화 흐름 구현](v4sdk/bot-builder-dialog-manage-conversation-flow.md)
+#### [대화 상자 프롬프트를 사용하여 사용자 입력 수집](v4sdk/bot-builder-prompts.md)
 #### [분기 및 루프를 사용하여 고급 대화 흐름 만들기](v4sdk/bot-builder-dialog-manage-complex-conversation-flow.md)
 #### [사용자 작업 중단 처리](v4sdk/bot-builder-howto-handle-user-interrupt.md)
 #### [사용자 데이터 유지](v4sdk/bot-builder-tutorial-persist-user-inputs.md)

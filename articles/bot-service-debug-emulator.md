@@ -7,20 +7,20 @@ ms.author: v-demak
 manager: kamrani
 ms.topic: article
 ms.service: bot-service
-ms.date: 09/20/2018
-ms.openlocfilehash: b1a20875eb25cbf4a07d8a96d79eed665b26157b
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.date: 11/13/2018
+ms.openlocfilehash: f3a6a57a5fd01061493e5c216875f0c4210483f6
+ms.sourcegitcommit: 8b7bdbcbb01054f6aeb80d4a65b29177b30e1c20
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49996800"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51645613"
 ---
 # <a name="debug-with-the-emulator"></a>에뮬레이터를 사용하여 디버그
 
 Bot Framework Emulator는 봇 개발자가 로컬 또는 원격으로 봇을 테스트 및 디버그할 수 있는 데스크톱 응용 프로그램입니다. 에뮬레이터를 사용하면 봇과 채팅하고 봇이 보내고 받는 메시지를 검사할 수 있습니다. 에뮬레이터는 봇과 메시지를 교환할 때 메시지가 웹 채팅 UI에 표시되는 대로 메시지를 표시하며 JSON 요청과 응답을 기록합니다. 봇을 클라우드에 배포하기 전에 에뮬레이터를 사용하여 로컬로 실행하고 테스트합니다. 아직 Azure Bot Service를 사용하여 봇을 [만들지](./bot-service-quickstart.md) 않았거나 채널에서 실행되도록 구성하지 않은 경우에도 에뮬레이터를 사용하여 봇을 테스트할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
-- [에뮬레이터](https://github.com/Microsoft/BotFramework-Emulator/releases) 설치
+- [에뮬레이터](https://aka.ms/Emulator-wiki-getting-started) 설치
 - [ngrok][ngrokDownload] 터널링 소프트웨어 설치
 
 ## <a name="connect-to-a-bot-running-on-localhost"></a>로컬 호스트에서 실행되는 봇에 연결
