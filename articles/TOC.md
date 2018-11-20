@@ -34,10 +34,10 @@
 ### [메시지에 미디어 추가](v4sdk/bot-builder-howto-add-media-attachments.md)
 ### [사용자 작업을 안내하는 단추 추가](v4sdk/bot-builder-howto-add-suggested-actions.md)
 ### [사용자 및 대화 데이터 저장](v4sdk/bot-builder-howto-v4-state.md) 
-### [사용자에게 입력 프롬프트](v4sdk/bot-builder-primitive-prompts.md) 
+### [사용자에게 입력할 프롬프트 창 표시](v4sdk/bot-builder-primitive-prompts.md) 
 ### [사용자에게 환영 메시지 보내기](v4sdk/bot-builder-send-welcome-message.md)
 <!-- ## [Add input hints to messages](v4sdk/bot-builder-howto-add-input-hints.md) -->
-### [봇의 알림 가져오기](v4sdk/bot-builder-howto-proactive-message.md)
+### [봇에서 알림 받기](v4sdk/bot-builder-howto-proactive-message.md)
 ### [봇에 자연어 해석 추가](v4sdk/bot-builder-howto-v4-luis.md)
 ### [QnA Maker를 사용하여 사용자 질문에 답변](v4sdk/bot-builder-howto-qna.md)
 ### 대화 상자 라이브러리를 사용하여 대화 관리 
