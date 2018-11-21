@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: bot-service
 ms.subservice: abs
 ms.date: 09/18/2018
-ms.openlocfilehash: 43dacff8f3ce1e4c1fbae663ee607a1965c7f782
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: b5b02773ab71801132f2a73f81123588e7ddfcdb
+ms.sourcegitcommit: 8b7bdbcbb01054f6aeb80d4a65b29177b30e1c20
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "50000190"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51645693"
 ---
 ::: moniker range="azure-bot-service-3.0"
 
@@ -83,7 +83,7 @@ Bot Service는 봇 개발을 위한 Bot Builder SDK 및 채널에 봇을 연결�
 # <a name="create-a-bot-with-azure-bot-service"></a>Azure Bot Service로 봇 만들기
 [!INCLUDE [pre-release-label](includes/pre-release-label.md)]
 
-Azure Bot Service는 봇 개발을 위한 Bot Builder SDK 및 채널에 봇을 연결하기 위한 Bot Service를 포함하여 봇 만들기의 핵심 구성 요소를 제공합니다. 이 항목에서 .NET 또는 Node.js 템플릿을 선택하여 Bot Builder SDK v4의 미리 보기 버전을 사용하는 봇을 만들 수 있습니다.
+Azure Bot Service는 봇 개발을 위한 Bot Builder SDK 및 채널에 봇을 연결하기 위한 Bot Service를 포함하여 봇 만들기의 핵심 구성 요소를 제공합니다. 이 토픽에서 .NET 또는 Node.js 템플릿을 선택하여 Bot Builder SDK v4를 사용하는 봇을 만들 수 있습니다.
 
 ## <a name="log-in-to-azure"></a>Azure에 로그인
 [Azure Portal](http://portal.azure.com)에 로그인합니다.

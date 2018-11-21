@@ -8,24 +8,38 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
-ms.date: 10/31/2018
+ms.date: 11/08/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: b3582d962911b6024062942a6d9f6ff1efab4022
-ms.sourcegitcommit: a54a70106b9fdf278fd7270b25dd51c9bd454ab1
+ms.openlocfilehash: 25745d380e53173c4dc67d280c120ced5845078b
+ms.sourcegitcommit: cb0b70d7cf1081b08eaf1fddb69f7db3b95b1b09
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51273090"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51332917"
 ---
 # <a name="send-welcome-message-to-users"></a>사용자에게 환영 메시지 보내기
 
 [!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
 
-이전 디자인 문서 [사용자 환영](./bot-builder-welcome-user.md)에서는 사용자가 봇과 초기에 좋은 상호 작용을 경험하도록 하기 위해 구현할 수 있는 다양한 모범 사례에 대해 논의했습니다. 이 문서에서는 그러한 토픽을 확장하여 봇을 사용하는 사용자를 환영하는 데 유용한 짧은 코드 예제를 제공합니다.
+봇을 만들 때 가장 중요한 목표는 사용자를 의미 있는 대화에 참여시키는 것입니다. 이 목표를 달성하는 가장 좋은 방법 중 하나는 사용자가 처음 연결하는 순간부터 봇의 주요 목적과 기능, 즉 봇이 만들어진 이유를 이해하는 것입니다. 이 문서에서는 봇의 사용자를 환영하는 데 유용한 코드 예제를 제공합니다.
 
 ## <a name="same-welcome-for-different-channels"></a>다른 채널에서의 동일한 환영
+사용자가 봇과 처음으로 상호 작용할 때마다 환영 메시지가 생성되어야 합니다. 이를 위해 봇의 작업 형식을 모니터링하고 새 연결을 감시할 수 있습니다. 새 연결마다 채널에 따라 최대 두 개의 대화 업데이트 작업을 생성할 수 있습니다.
 
-다음 예제에서는 새 _대화 업데이트_ 활동을 보고, 대화에 참여하는 사용자를 기준으로 환영 메시지를 하나만 보낸 후, 사용자의 초기 대화 입력을 무시하는 프롬프트 상태 플래그를 설정합니다. 아래 예제 코드는 [C#](https://aka.ms/bot-welcome-sample-cs) 및 [JS](https://aka.ms/bot-welcome-sample-js) 코드에 대한 GitHub 리포지토리에서 사용자 환영 샘플을 사용합니다.
+- 하나는 사용자의 봇이 대화에 연결된 경우이며,
+- 또 하나는 사용자가 대화에 조인한 경우입니다.
+
+새 대화 업데이트가 감지될 때마다 환영 메시지를 생성하기 쉽지만, 다양한 채널에서 봇에 액세스할 때 예기치 않은 결과가 발생할 수 있습니다.
+
+일부 채널에서는 사용자가 해당 채널에 처음 연결할 때 하나의 대화 업데이트를 만들고, 사용자로부터 초기 입력 메시지를 받은 후에만 별도의 대화 업데이트를 만듭니다. 다른 채널에서는 사용자가 채널에 처음 연결할 때 이러한 활동을 모두 생성합니다. 대화 업데이트 이벤트를 보고 단순히 두 개의 대화 업데이트 활동이 있는 채널에 환영 메시지를 표시하기만 하면 사용자가 다음과 같은 메시지를 받을 수 있습니다.
+
+![중복 환영 메시지](./media/double_welcome_message.png)
+
+이 중복 메시지는 두 번째 대화 업데이트 이벤트에 대해서만 초기 환영 메시지를 생성함으로써 방지할 수 있습니다. 두 번째 이벤트는 다음과 같은 경우에 모두 감지될 수 있습니다.
+- 대화 업데이트 이벤트가 발생했습니다.
+- 새 멤버(사용자)가 대화에 추가되었습니다.
+
+다음 예제에서는 새 *대화 업데이트 작업*을 보고, 대화에 참여하는 사용자를 기준으로 환영 메시지를 하나만 보내고, 사용자의 초기 대화 입력을 무시하는 프롬프트 상태 플래그를 설정합니다. GitHub의 [[C#](https://aka.ms/bot-welcome-sample-cs) 또는 [JS](https://aka.ms/bot-welcome-sample-js)]에서 전체 소스 코드를 다운로드할 수 있습니다.
 
 [!INCLUDE [alert-await-send-activity](../includes/alert-await-send-activity.md)]
 
@@ -231,8 +245,7 @@ module.exports = MainDialog;
 ---
 
 ## <a name="discard-initial-user-input"></a>초기 사용자 입력 취소
-
-가능한 모든 채널에서 사용자에게 좋은 경험을 제공하기 위해 초기 프롬프트를 제공하고 사용자의 응답에서 검색할 키워드를 설정하여 잘못된 응답 데이터 처리를 방지합니다.
+사용자 입력에 실제로 유용한 정보가 포함될 수 있는 시점을 고려하는 것도 중요하며, 이 또한 채널별로 다를 수 있습니다. 가능한 모든 채널에서 사용자에게 좋은 경험을 제공하기 위해 초기 프롬프트를 제공하고 사용자의 응답에서 검색할 키워드를 설정하여 잘못된 응답 데이터 처리를 방지합니다.
 
 ## <a name="ctabcsharpmulti"></a>[C#](#tab/csharpmulti)
 
@@ -363,12 +376,12 @@ private static async Task SendIntroCardAsync(ITurnContext turnContext, Cancellat
 }
 ```
 
-다음으로, 다음 await 명령을 사용하여 카드를 보낼 수 있습니다. 봇 _switch (text)_ _case “help”에 이를 배치해보겠습니다.
+다음으로, 다음 await 명령을 사용하여 카드를 보낼 수 있습니다. 봇 _switch (text) case "help"_ 에 배치해보겠습니다.
 
 ```csharp
 switch (text)
 {
-    case "hello":
+    case "hello":"
     case "hi":
         await turnContext.SendActivityAsync($"You said {text}.", cancellationToken: cancellationToken);
         break;

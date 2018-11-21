@@ -1,5 +1,5 @@
 ---
-title: 대화 및 사용자 상태 관리 | Microsoft Docs
+title: 사용자 및 대화 데이터 저장 | Microsoft Docs
 description: .NET용 Bot Builder SDK를 사용하여 상태 데이터를 저장 및 검색하는 방법을 알아봅니다.
 keywords: 대화 상태, 사용자 상태, 대화 흐름
 author: ivorb
@@ -8,16 +8,16 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
-ms.date: 09/18/18
+ms.date: 11/14/18
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 2a3709111b048730805b5578306c669591122dda
-ms.sourcegitcommit: 633008f8db06f1bb5be7bacdb7dd8de6f8165328
+ms.openlocfilehash: 5698c50b167e7162ef6910b7c428dab5ceb51d0e
+ms.sourcegitcommit: 8b7bdbcbb01054f6aeb80d4a65b29177b30e1c20
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50753611"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51645643"
 ---
-# <a name="manage-conversation-and-user-state"></a>대화 및 사용자 상태 관리
+# <a name="save-user-and-conversation-data"></a>사용자 및 대화 데이터 저장
 
 [!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
 
@@ -308,7 +308,9 @@ else {
 ---
 
 ## <a name="start-your-bot"></a>봇 시작
-봇을 로컬로 실행합니다.
+- JavaScript 봇의 경우: 터미널 또는 명령 프롬프트에서 디렉터리를 봇에 대해 만든 디렉터리로 변경하고 `npm start`를 사용하여 시작합니다. 이때 봇은 로컬에서 실행됩니다.
+
+- C# 봇의 경우: Visual Studio를 사용하여 봇을 로컬로 실행합니다. 실행 단추를 클릭하면 Visual Studio는 애플리케이션을 빌드하고, localhost로 배포하고, 웹 브라우저를 시작하여 애플리케이션의 ``default.htm`` 페이지를 표시합니다. 이때 봇은 로컬에서 실행됩니다.
 
 ### <a name="start-the-emulator-and-connect-your-bot"></a>에뮬레이터 시작 및 봇 연결
 에뮬레이터를 시작한 다음, 에뮬레이터에서 봇에 연결합니다.

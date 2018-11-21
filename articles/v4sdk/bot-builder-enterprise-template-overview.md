@@ -8,17 +8,17 @@ ms.topic: article
 ms.service: bot-service
 ms.date: 09/18/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: f81bba9077f4935a29f47eddf078932731cdec20
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: f5aacc693fb2e8987d6b59db67d0272423a4cf44
+ms.sourcegitcommit: 8b7bdbcbb01054f6aeb80d4a65b29177b30e1c20
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49997290"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51645556"
 ---
 # <a name="enterprise-bot-template"></a>엔터프라이즈 봇 템플릿 
 
 > [!NOTE]
-> 이 항목은 SDK v4 버전에 적용됩니다. 
+> 이 토픽은 SDK v4 버전에 적용됩니다. 
 
 고품질 대화형 환경을 만드는 데에는 기본적인 기능 집합이 필요합니다. 뛰어난 대화형 환경을 성공적으로 구축할 수 있도록 하기 위해 엔터프라이즈 봇 템플릿을 만들었습니다. 이 템플릿은 대화형 환경 구축을 통해 식별한 모범 사례와 지원 구성 요소를 모두 제공합니다. 
 

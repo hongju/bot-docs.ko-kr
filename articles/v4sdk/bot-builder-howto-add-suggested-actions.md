@@ -1,5 +1,5 @@
 ---
-title: 메시지에 제안된 동작 추가 | Microsoft Docs
+title: 입력에 단추 사용 | Microsoft Docs
 description: JavaScript용 Bot Builder SDK를 사용하여 메시지 내에서 제안된 동작을 전송하는 방법을 알아봅니다.
 keywords: 제안된 동작, 단추, 추가 입력
 author: Kaiqb
@@ -8,24 +8,24 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
-ms.date: 03/13/2018
+ms.date: 11/08/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 88186d3c6c925220fba099a5983c86b305f2dcae
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: 5e97bc4a991a9c9b27e9c14eb44f5fd1e230985f
+ms.sourcegitcommit: cb0b70d7cf1081b08eaf1fddb69f7db3b95b1b09
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49997103"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51332793"
 ---
-# <a name="add-suggested-actions-to-messages"></a>메시지에 제안된 동작 추가
+# <a name="use-button-for-input"></a>입력에 단추 사용
 
 [!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
 
-[!include[Introduction to suggested actions](../includes/snippet-suggested-actions-intro.md)] 
+사용자가 입력하기 위해 탭할 수 있는 단추를 봇이 표시하도록 할 수 있습니다. 단추는 사용자가 키보드를 사용하여 응답을 입력하는 대신 질문에 대답하거나 간단히 단추를 탭하여 선택할 수 있도록 하여 사용자 환경을 개선합니다. 제안된 동작 창 내에 표시되는 단추는 서식 있는 카드 내에 표시되는 단추와 달리(탭한 후에도 사용자에게 표시되고 액세스 가능함) 사용자가 선택한 후에 사라집니다. 따라서 사용자가 대화 내에서 유효하지 않은 단추를 탭하지 않게 되며, 봇 개발이 간소화됩니다(해당 시나리오를 고려할 필요가 없으므로). 
 
-## <a name="send-suggested-actions"></a>제안된 동작 보내기
+## <a name="suggest-action-using-button"></a>단추를 사용하는 작업 제안
 
-단일-턴(single-turn) 대화에서 사용자에게 표시될 제안된 동작(다른 이름: “빠른 회신”) 목록을 만들 수 있습니다. 
+*제안된 작업*을 사용하면 봇이 단추를 표시할 수 있습니다. 단일-턴(single-turn) 대화에서 사용자에게 표시될 제안된 동작(다른 이름: “빠른 회신”) 목록을 만들 수 있습니다. 
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 

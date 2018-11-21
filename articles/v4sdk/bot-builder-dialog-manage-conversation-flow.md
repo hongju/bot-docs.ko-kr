@@ -1,37 +1,31 @@
 ---
-title: 대화 상자를 사용하여 간단한 대화 흐름 관리 | Microsoft Docs
+title: 순차적 대화 흐름 구현 | Microsoft Docs
 description: Node.js용 Bot Builder SDK에서 대화 상자를 사용하여 간단한 대화 흐름을 관리하는 방법을 알아봅니다.
-keywords: 간단한 대화 흐름, 대화 상자, 프롬프트, 폭포, 대화 상자 집합
-author: v-ducvo
-ms.author: v-ducvo
+keywords: 간단한 대화 흐름, 순차적 대화 흐름, 대화 상자, 프롬프트, 폭포, 대화 상자 집합
+author: JonathanFingold
+ms.author: v-jofing
 manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
-ms.date: 9/25/2018
+ms.date: 11/13/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 0225b6d81b8eb9899a5dda8dc032dcbfb573afc1
-ms.sourcegitcommit: 984705927561cc8d6a84f811ff24c8c71b71c76b
+ms.openlocfilehash: 06eb7d80ca8baa91c619b31dc61c7f78856a3b7c
+ms.sourcegitcommit: 873361802bd1802f745544ba903aecf658cce639
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50965711"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51611050"
 ---
-# <a name="manage-simple-conversation-flow-with-dialogs"></a>대화 상자를 사용하여 간단한 대화 흐름 관리
+# <a name="implement-sequential-conversation-flow"></a>순차적 대화 흐름 구현
 
 [!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
 
-대화 상자 라이브러리를 사용하여 단순 및 복합 대화 흐름을 관리할 수 있습니다. 단순 대화 흐름의 경우 사용자가 *폭포*의 첫 번째 단계에서 시작하여 마지막 단계까지 계속 진행함으로써 대화를 완료합니다. [복합 대화 흐름](~/v4sdk/bot-builder-dialog-manage-complex-conversation-flow.md)에는 분기 및 루프가 포함됩니다.
+대화 상자 라이브러리를 사용하여 단순 및 복합 대화 흐름을 관리할 수 있습니다.
 
-<!-- TODO: This paragraph belongs in a conceptual topic. -->
-
-대화 상자는 봇의 구조체로써 봇 프로그램의 함수처럼 작동합니다. 대화 상자는 봇에서 보내는 메시지를 빌드하고, 필요한 계산 작업을 수행합니다. 대화 상자는 특정 작업을 특정 순서대로 수행하도록 설계되었습니다. 사용자에 대한 응답에서 호출하거나, 외부 자극에 대한 응답에서 호출하거나, 다른 대화 상자에서 호출하는 등 다양한 방법으로 호출할 수 있습니다.
-
-대화 상자를 사용하면 봇 개발자가 대화 흐름을 안내할 수 있습니다. 여러 대화 상자를 만들고 서로 연결하면 봇으로 처리할 대화 흐름을 만들 수 있습니다. Bot Builder SDK의 **대화 상자** 라이브러리에는 대화 흐름을 관리하는 데 도움이 되는 _프롬프트_, _폭포 대화 상자_ 및 _구성 요소 대화 상자_와 같은 기본 제공 기능이 포함됩니다. 프롬프트를 사용하여 사용자에게 다른 유형의 정보를 요청할 수 있습니다. 폭포를 사용하여 여러 단계를 하나의 시퀀스로 결합할 수 있습니다. 그리고 구성 요소 대화 상자를 사용하여 여러 하위 대화 상자가 포함된 모듈식 대화 시스템을 만들 수 있습니다.
-
-이 문서에서는 _대화 상자 집합_을 사용하여 프롬프트 및 폭포가 모두 포함된 대화 흐름을 만듭니다. **다중 순서 프롬프트** [[C#](https://aka.ms/cs-multi-prompts-sample)|[JS](https://aka.ms/js-multi-prompts-sample)] 샘플의 코드로 그릴 것입니다.
-
-대화 상자에 대한 개요는 [대화 상자 라이브러리](bot-builder-concept-dialog.md) 및 [대화 상자 상태](bot-builder-dialog-state.md)를 참조하세요.
+간단한 상호 작용에서 봇은 고정된 일련의 단계를 통해 실행되고 대화가 완료됩니다.
+이 문서에서는 _폭포 대화 상자_, 몇 가지 _프롬프트_ 및 _대화 상자 집합_을 사용하여 사용자에게 일련의 질문을 묻는 간단한 상호 작용을 만듭니다.
+**다중 순서 프롬프트** [[C#](https://aka.ms/cs-multi-prompts-sample) | [JS](https://aka.ms/js-multi-prompts-sample)] 샘플의 코드로 그립니다.
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
@@ -39,57 +33,249 @@ ms.locfileid: "50965711"
 
 # <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
-일반적으로 대화를 사용하려면 `botbuilder-dialogs` 라이브러리가 필요합니다. 라이브러리를 설치하려면 다음 npm 명령을 실행합니다.
-```cmd
-npm install --save botbuilder-dialogs
+일반적인 방법으로 대화 상자를 사용하려면 `botbuilder-dialogs` 라이브러리가 필요하며 npm에서 다운로드할 수 있습니다.
+
+이 패키지를 설치하고 종속성으로 저장하려면 프로젝트의 디렉터리로 이동하고 이 명령을 사용합니다.
+
+```shell
+npm install botbuilder-dialogs --save
+```
+
+---
+다음 섹션에서는 대부분의 봇에서 간단한 대화 상자를 구현하기 위해 수행할 단계를 반영합니다.
+
+## <a name="configure-your-bot"></a>봇 구성
+
+봇이 [대화 상자 상태](bot-builder-dialog-state.md)를 관리하는 데 사용할 수 있는 대화 상자 집합에 할당된 상태 속성 접근자가 필요합니다.
+
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+
+**Startup.cs** 파일의 구성 코드에서 봇의 대화 상자 상태에 대한 상태 속성 접근자를 초기화합니다.
+
+봇에 대한 상태 관리 개체 및 상태 속성 접근자가 포함되도록 `MultiTurnPromptsBotAccessors` 클래스를 정의합니다.
+여기에서 코드의 일부만 호출합니다.
+
+```csharp
+public class MultiTurnPromptsBotAccessors
+{
+    // Initializes a new instance of the class.
+    public MultiTurnPromptsBotAccessors(ConversationState conversationState, UserState userState)
+    {
+        ConversationState = conversationState ?? throw new ArgumentNullException(nameof(conversationState));
+        UserState = userState ?? throw new ArgumentNullException(nameof(userState));
+    }
+
+    public IStatePropertyAccessor<DialogState> ConversationDialogState { get; set; }
+    public IStatePropertyAccessor<UserProfile> UserProfile { get; set; }
+
+    public ConversationState ConversationState { get; }
+    public UserState UserState { get; }
+}
+```
+
+`Statup` 클래스의 `ConfigureServices` 메서드에서 접근자 클래스를 등록합니다.
+다시 코드의 일부만 호출합니다.
+
+```csharp
+public void ConfigureServices(IServiceCollection services)
+{
+    // ...
+
+    // Create and register state accessors.
+    // Accessors created here are passed into the IBot-derived class on every turn.
+    services.AddSingleton<MultiTurnPromptsBotAccessors>(sp =>
+    {
+        // We need to grab the conversationState we added on the options in the previous step
+        var options = sp.GetRequiredService<IOptions<BotFrameworkOptions>>().Value;
+        var conversationState = options.State.OfType<ConversationState>().FirstOrDefault();
+        var userState = options.State.OfType<UserState>().FirstOrDefault();
+
+        // Create the custom state accessor.
+        // State accessors enable other components to read and write individual properties of state.
+        var accessors = new MultiTurnPromptsBotAccessors(conversationState, userState)
+        {
+            ConversationDialogState = conversationState.CreateProperty<DialogState>("DialogState"),
+            UserProfile = userState.CreateProperty<UserProfile>("UserProfile"),
+        };
+
+        return accessors;
+    });
+}
+```
+
+종속성 주입을 통해 접근자는 봇의 생성자 코드에 지원됩니다.
+
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+**index.js** 파일에서 상태 관리 개체를 정의합니다.
+여기에서 코드의 일부만 호출합니다.
+
+```javascript
+// Import required bot services. See https://aka.ms/bot-services to learn more about the different part of a bot.
+const { BotFrameworkAdapter, ConversationState, MemoryStorage, UserState } = require('botbuilder');
+
+// Define the state store for your bot. See https://aka.ms/about-bot-state to learn more about using MemoryStorage.
+// A bot requires a state storage system to persist the dialog and user state between messages.
+const memoryStorage = new MemoryStorage();
+
+// Create conversation state with in-memory storage provider.
+const conversationState = new ConversationState(memoryStorage);
+const userState = new UserState(memoryStorage);
+
+// Create the main dialog, which serves as the bot's main handler.
+const bot = new MultiTurnBot(conversationState, userState);
+```
+
+봇의 생성자는 봇의 상태 속성 접근자(`this.dialogState` 및 `this.userProfile`)를 만듭니다.
+
+---
+
+## <a name="update-the-bot-turn-handler-to-call-the-dialog"></a>대화 상자를 호출하도록 봇의 순서 처리기 업데이트
+
+대화 상자를 실행하기 위해 봇의 순서 처리기는 봇에 대한 대화 상자를 포함하는 대화 상자 집합의 대화 컨텍스트를 만들어야 합니다. (봇은 여러 대화 상자 집합을 정의할 수 있지만 일반적 규칙에 따라 봇당 하나만 정의해야 합니다. [대화 상자 라이브러리](bot-builder-concept-dialog.md)는 대화 상자의 주요 측면을 설명합니다.)
+
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+
+대화 상자는 봇의 순서 처리기에서 실행됩니다. 처리기는 먼저 `DialogContext`를 만들고 활성 대화 상자를 계속하거나 적절하게 새 대화 상자를 시작합니다. 그런 다음, 처리기는 순서의 끝에서 대화 및 사용자 상태를 저장합니다.
+
+`MultiTurnPromptsBot` 클래스에서 대화 상자 집합을 포함하는 `_dialogs` 속성을 정의했습니다. 여기서 대화 컨텍스트를 생성합니다. 다시 여기에서는 순서 처리기 코드의 일부만 보여줍니다.
+
+```csharp
+public async Task OnTurnAsync(ITurnContext turnContext, CancellationToken cancellationToken = default(CancellationToken))
+{
+    // ...
+    if (turnContext.Activity.Type == ActivityTypes.Message)
+    {
+        // Run the DialogSet - let the framework identify the current state of the dialog from
+        // the dialog stack and figure out what (if any) is the active dialog.
+        var dialogContext = await _dialogs.CreateContextAsync(turnContext, cancellationToken);
+        var results = await dialogContext.ContinueDialogAsync(cancellationToken);
+
+        // If the DialogTurnStatus is Empty we should start a new dialog.
+        if (results.Status == DialogTurnStatus.Empty)
+        {
+            await dialogContext.BeginDialogAsync("details", null, cancellationToken);
+        }
+    }
+
+    // ...
+    // Save the dialog state into the conversation state.
+    await _accessors.ConversationState.SaveChangesAsync(turnContext, false, cancellationToken);
+
+    // Save the user profile updates into the user state.
+    await _accessors.UserState.SaveChangesAsync(turnContext, false, cancellationToken);
+}
+```
+
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+봇 코드는 대화 상자 라이브러리에서 몇 가지 클래스를 사용합니다.
+
+```javascript
+const { ChoicePrompt, DialogSet, NumberPrompt, TextPrompt, WaterfallDialog } = require('botbuilder-dialogs');
+```
+
+대화 상자는 봇의 순서 처리기에서 실행됩니다. 처리기는 먼저 `DialogContext`(`dc`)를 만들고 활성 대화 상자를 계속하거나 적절하게 새 대화 상자를 시작합니다. 그런 다음, 처리기는 순서의 끝에서 대화 및 사용자 상태를 저장합니다.
+
+`MultiTurnBot` 클래스는 **bot.js** 파일에서 정의됩니다. 이 클래스의 생성자는 대화 상자 집합의 `dialogs` 속성을 추가합니다. 여기에서 대화 컨텍스트를 생성합니다. 이 봇은 `WHO_ARE_YOU` 대화 상자를 사용하여 사용자 데이터를 한 번 수집합니다. 사용자 프로필이 채워지면 봇은 `HELLO_USER` 대화 상자를 사용하여 응답합니다. 다시 여기에서는 순서 처리기 코드의 일부만 보여줍니다.
+
+```javascript
+async onTurn(turnContext) {
+    if (turnContext.activity.type === ActivityTypes.Message) {
+        // Create a dialog context object.
+        const dc = await this.dialogs.createContext(turnContext);
+
+        const utterance = (turnContext.activity.text || '').trim().toLowerCase();
+
+        // ...
+        // If the bot has not yet responded, continue processing the current dialog.
+        await dc.continueDialog();
+
+        // Start the sample dialog in response to any other input.
+        if (!turnContext.responded) {
+            const user = await this.userProfile.get(dc.context, {});
+            if (user.name) {
+                await dc.beginDialog(HELLO_USER);
+            } else {
+                await dc.beginDialog(WHO_ARE_YOU);
+            }
+        }
+    }
+
+    // ...
+    // Save changes to the user state.
+    await this.userState.saveChanges(turnContext);
+
+    // End this turn by saving changes to the conversation state.
+    await this.conversationState.saveChanges(turnContext);
+}
 ```
 
 ---
 
-## <a name="using-dialogs-to-guide-the-user-through-steps"></a>다이얼로그를 사용하여 사용자에게 단계 안내
+봇의 순서 처리기에서 대화 상자 집합의 대화 상자 컨텍스트를 만듭니다. 대화 컨텍스트는 효과적으로 대화의 마지막 순서가 다루지 않은 위치를 기억하여 봇의 상태 캐시에 액세스합니다.
 
-이 예제에서는 대화 상자 집합을 활용하여 사용자에게 정보를 요청하는 다단계 대화 상자를 만듭니다.
+활성 대화 상자가 있으면 대화 상자 컨텍스트의 _continue dialog_ 메서드가 이 순서를 트리거한 사용자의 입력을 사용하여 해당 대화 상자를 진행합니다. 그렇지 않으면, 봇이 대화 상자 컨텍스트의 _begin dialog_ 메서드를 호출하여 대화 상자를 시작합니다.
 
-### <a name="create-a-dialog-with-waterfall-steps"></a>폭포형 단계를 사용하여 다이얼로그 만들기
+마지막으로, 상태 관리 개체에서 _save changes_ 메서드를 호출하여 이 순서에 발생한 변경 내용을 유지합니다.
 
-**WaterfallDialog**는 사용자로부터 정보를 수집하거나 사용자에게 일련의 작업을 안내하는 데 일반적으로 사용되는 대화 상자의 구현입니다. 대화의 각 단계는 함수로 구현됩니다. 각 단계에 대해 봇은 [사용자에게 입력을 프롬프트하고](bot-builder-prompts.md), 응답을 기다린 후 결과를 다음 단계로 전달합니다. 첫 번째 함수의 결과는 그 다음 함수에 인수로 전달됩니다.
+### <a name="about-dialog-and-bot-state"></a>대화 상자 및 봇 상태 정보
 
-예를 들어 다음 코드 샘플은 **폭포**의 단계를 나타내는 대리자 배열을 정의합니다. 각 프롬프트 후, 봇은 사용자의 입력을 인식합니다. 대화 상자에서 수집하는 입력을 여러 가지 방법으로 유지할 수 있습니다. 옵션에 대한 설명은 [사용자 데이터 유지](bot-builder-tutorial-persist-user-inputs.md)를 참조하세요.
+이 봇에서 두 개의 상태 속성 접근자를 정의했습니다.
 
-이 샘플은 대화 상자에서 수집되는 사용자 프로필에 직접 정보를 씁니다.
+* 대화 상자 상태 속성에 대해 대화 상태 내에서 만든 접근자입니다. 대화 상자 상태는 대화 상자 집합의 대화 상자 내에서 사용자를 추적합니다. 또한 시작 대화 상자를 호출하거나 대화 상자 메서드를 계속하는 경우 대화 상자 컨텍스트로 업데이트합니다.
+* 사용자 프로필 속성에 대한 사용자 상태 내에서 만든 접근자입니다. 봇은 이 접근자를 사용하여 사용자에 대해 아는 정보를 추적합니다. 본사는 봇 코드에서 명시적으로 이 상태를 관리합니다.
+
+상태 속성 접근자의 _get_ 및 _set_ 메서드는 상태 관리 개체의 캐시에서 속성의 값을 가져오고 설정합니다. 처음으로 상태 속성의 값이 순서대로 요청되는 경우 캐시가 채워지지만 명시적으로 유지되어야 합니다. 이러한 상태 속성의 변경 내용을 모두 유지하기 위해 해당하는 상태 관리 개체의 _save changes_ 메서드를 호출합니다.
+
+자세한 내용은 [대화 상자 상태](bot-builder-dialog-state.md)를 참조하세요.
+
+## <a name="initialize-your-bot-and-define-your-dialog"></a>봇 초기화 및 대화 상자 정의
+
+간단한 대화는 사용자에게 제기된 일련의 질문으로 모델링됩니다. C# 및 JavaScript 버전의 단계는 약간 다릅니다.
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
-이 샘플에서는 폭포 대화 상자가 봇 파일 내에 정의됩니다.
+1. 해당하는 이름을 묻습니다.
+1. 연령을 입력하려는지 묻습니다.
+1. 그렇다면 연령을 묻습니다. 그렇지 않으면, 이 단계를 건너뜁니다.
+1. 수집된 정보가 올바른지 묻습니다.
+1. 상태 메시지를 보내고 종료합니다.
 
-이 파일에 사용된 네임스페이스를 참조합니다.
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
-```csharp
-using System;
-using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.Bot.Builder;
-using Microsoft.Bot.Builder.Dialogs;
-using Microsoft.Bot.Schema;
-```
+`who_are_you` 대화 상자의 경우:
+
+1. 해당하는 이름을 묻습니다.
+1. 연령을 입력하려는지 묻습니다.
+1. 그렇다면 연령을 묻습니다. 그렇지 않으면, 이 단계를 건너뜁니다.
+1. 상태 메시지를 보내고 종료합니다.
+
+`hello_user` 대화 상자의 경우:
+
+1. 봇이 수집한 사용자 정보를 표시합니다.
+
+---
+
+고유한 폭포 단계를 정의할 때 기억해야 할 몇 가지 내용은 다음과 같습니다.
+
+* 각 봇 순서는 사용자의 입력을 반영하고 봇의 응답으로 이어집니다. 따라서 폭포 단계의 끝에서 사용자에게 입력하도록 요청하고, 다음 폭포 단계에서 해당 응답을 수신하게 됩니다.
+* 각 프롬프트는 사실상 "유효한" 입력을 받을 때까지 해당 프롬프트를 표시하고 반복하는 2단계 대화 상자입니다. (프롬프트의 각 형식에 대한 기본 제공 유효성 검사를 사용할 수 있습니다. 또는 프롬프트에 고유한 사용자 지정 유효성 검사를 추가할 수 있습니다. 자세한 내용은 [사용자 입력 가져오기](bot-builder-prompts.md)를 참조하세요.)
+
+이 샘플에서 대화 상자는 봇 파일 내에서 정의되고 봇의 생성자에서 초기화됩니다.
+
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 대화 상자 집합의 인스턴스 속성을 정의합니다.
 
 ```csharp
-/// <summary>
-/// The <see cref="DialogSet"/> that contains all the Dialogs that can be used at runtime.
-/// </summary>
+// The DialogSet that contains all the Dialogs that can be used at runtime.
 private DialogSet _dialogs;
 ```
 
 봇의 생성자 내에 대화 상자 집합을 만들고, 이 집합에 프롬프트 및 폭포 대화 상자를 추가합니다.
 
 ```csharp
-/// <summary>
-/// Initializes a new instance of the <see cref="MultiTurnPromptsBot"/> class.
-/// </summary>
-/// <param name="accessors">A class containing <see cref="IStatePropertyAccessor{T}"/> used to manage state.</param>
 public MultiTurnPromptsBot(MultiTurnPromptsBotAccessors accessors)
 {
     _accessors = accessors ?? throw new ArgumentNullException(nameof(accessors));
@@ -115,15 +301,9 @@ public MultiTurnPromptsBot(MultiTurnPromptsBotAccessors accessors)
 }
 ```
 
-그리고 각 단계를 별도의 메서드로 정의합니다. 람다 식을 사용하여 인라인 단계를 정의할 수도 있습니다.
+이 샘플에서 각 단계를 별도의 메서드로 정의합니다. 람다 식을 사용하여 생성자에서 인라인 단계를 정의할 수도 있습니다.
 
 ```csharp
-/// <summary>
-/// One of the functions that make up the <see cref="WaterfallDialog"/>.
-/// </summary>
-/// <param name="stepContext">The <see cref="WaterfallStepContext"/> gives access to the executing dialog runtime.</param>
-/// <param name="cancellationToken">A <see cref="CancellationToken"/>.</param>
-/// <returns>A <see cref="DialogTurnResult"/> to communicate some flow control back to the containing WaterfallDialog.</returns>
 private static async Task<DialogTurnResult> NameStepAsync(WaterfallStepContext stepContext, CancellationToken cancellationToken)
 {
     // WaterfallStep always finishes with the end of the Waterfall or with another dialog; here it is a Prompt Dialog.
@@ -131,12 +311,6 @@ private static async Task<DialogTurnResult> NameStepAsync(WaterfallStepContext s
     return await stepContext.PromptAsync("name", new PromptOptions { Prompt = MessageFactory.Text("Please enter your name.") }, cancellationToken);
 }
 
-/// <summary>
-/// One of the functions that make up the <see cref="WaterfallDialog"/>.
-/// </summary>
-/// <param name="stepContext">The <see cref="WaterfallStepContext"/> gives access to the executing dialog runtime.</param>
-/// <param name="cancellationToken">A <see cref="CancellationToken"/>.</param>
-/// <returns>A <see cref="DialogTurnResult"/> to communicate some flow control back to the containing WaterfallDialog.</returns>
 private async Task<DialogTurnResult> NameConfirmStepAsync(WaterfallStepContext stepContext, CancellationToken cancellationToken)
 {
     // Get the current profile object from user state.
@@ -152,12 +326,6 @@ private async Task<DialogTurnResult> NameConfirmStepAsync(WaterfallStepContext s
     return await stepContext.PromptAsync("confirm", new PromptOptions { Prompt = MessageFactory.Text("Would you like to give your age?") }, cancellationToken);
 }
 
-/// <summary>
-/// One of the functions that make up the <see cref="WaterfallDialog"/>.
-/// </summary>
-/// <param name="stepContext">The <see cref="WaterfallStepContext"/> gives access to the executing dialog runtime.</param>
-/// <param name="cancellationToken">A <see cref="CancellationToken"/>.</param>
-/// <returns>A <see cref="DialogTurnResult"/> to communicate some flow control back to the containing WaterfallDialog.</returns>
 private async Task<DialogTurnResult> AgeStepAsync(WaterfallStepContext stepContext, CancellationToken cancellationToken)
 {
     if ((bool)stepContext.Result)
@@ -177,12 +345,7 @@ private async Task<DialogTurnResult> AgeStepAsync(WaterfallStepContext stepConte
     }
 }
 
-/// <summary>
-/// One of the functions that make up the <see cref="WaterfallDialog"/>.
-/// </summary>
-/// <param name="stepContext">The <see cref="WaterfallStepContext"/> gives access to the executing dialog runtime.</param>
-/// <param name="cancellationToken">A <see cref="CancellationToken"/>.</param>
-/// <returns>A <see cref="DialogTurnResult"/> to communicate some flow control back to the containing WaterfallDialog.</returns>
+
 private async Task<DialogTurnResult> ConfirmStepAsync(WaterfallStepContext stepContext, CancellationToken cancellationToken)
 {
     // Get the current profile object from user state.
@@ -206,12 +369,6 @@ private async Task<DialogTurnResult> ConfirmStepAsync(WaterfallStepContext stepC
     return await stepContext.PromptAsync("confirm", new PromptOptions { Prompt = MessageFactory.Text("Is this ok?") }, cancellationToken);
 }
 
-/// <summary>
-/// One of the functions that make up the <see cref="WaterfallDialog"/>.
-/// </summary>
-/// <param name="stepContext">The <see cref="WaterfallStepContext"/> gives access to the executing dialog runtime.</param>
-/// <param name="cancellationToken">A <see cref="CancellationToken"/>.</param>
-/// <returns>A <see cref="DialogTurnResult"/> to communicate some flow control back to the containing WaterfallDialog.</returns>
 private async Task<DialogTurnResult> SummaryStepAsync(WaterfallStepContext stepContext, CancellationToken cancellationToken)
 {
     if ((bool)stepContext.Result)
@@ -240,48 +397,28 @@ private async Task<DialogTurnResult> SummaryStepAsync(WaterfallStepContext stepC
 }
 ```
 
-대화 상자는 봇의 순서 처리기에서 실행되며, 이 처리기는 먼저 대화 상자 컨텍스트를 만들고 대화 상자를 적절하게 계속 진행하거나 시작한 다음, 순서의 마지막에 대화 및 사용자 상태를 저장합니다.
-
-```csharp
-// Run the DialogSet - let the framework identify the current state of the dialog from
-// the dialog stack and figure out what (if any) is the active dialog.
-var dialogContext = await _dialogs.CreateContextAsync(turnContext, cancellationToken);
-var results = await dialogContext.ContinueDialogAsync(cancellationToken);
-
-// If the DialogTurnStatus is Empty we should start a new dialog.
-if (results.Status == DialogTurnStatus.Empty)
-{
-    await dialogContext.BeginDialogAsync("details", null, cancellationToken);
-}
-```
-
-```csharp
-// Save the dialog state into the conversation state.
-await _accessors.ConversationState.SaveChangesAsync(turnContext, false, cancellationToken);
-
-// Save the user profile updates into the user state.
-await _accessors.UserState.SaveChangesAsync(turnContext, false, cancellationToken);
-```
-
 # <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 이 샘플에서는 폭포 대화 상자가 **bot.js** 파일 내에 정의됩니다.
 
-코드에 필요한 개체를 가져옵니다.
+상태 속성 접근자, 프롬프트를 및 대화 상자에 사용할 식별자를 정의합니다.
 
 ```javascript
-const { ActivityTypes } = require('botbuilder');
-const { ChoicePrompt, DialogSet, NumberPrompt, TextPrompt, WaterfallDialog } = require('botbuilder-dialogs');
+const DIALOG_STATE_PROPERTY = 'dialogState';
+const USER_PROFILE_PROPERTY = 'user';
+
+const WHO_ARE_YOU = 'who_are_you';
+const HELLO_USER = 'hello_user';
+
+const NAME_PROMPT = 'name_prompt';
+const CONFIRM_PROMPT = 'confirm_prompt';
+const AGE_PROMPT = 'age_prompt';
 ```
 
-봇의 생성자에 대화 상자 집합을 정의 및 생성하고, 이 집합에 프롬프트 및 폭포 대화 상자를 추가합니다.
+봇의 생성자에 대화 상자 집합을 정의하고 생성하여 이 집합에 프롬프트 및 폭포 대화 상자를 추가합니다.
+`NumberPrompt`에는 사용자가 0보다 큰 연령을 입력하도록 하는 사용자 지정 유효성 검사가 포함됩니다.
 
 ```javascript
-/**
-*
-* @param {ConversationState} conversationState A ConversationState object used to store the dialog state.
-* @param {UserState} userState A UserState object used to store values specific to the user.
-*/
 constructor(conversationState, userState) {
     // Create a new state accessor property. See https://aka.ms/about-bot-state-accessors to learn more about bot state and state accessors.
     this.conversationState = conversationState;
@@ -305,7 +442,6 @@ constructor(conversationState, userState) {
                 return true;
             }
         }
-
         return false;
     }));
 
@@ -324,7 +460,9 @@ constructor(conversationState, userState) {
 }
 ```
 
-그리고 각 단계를 별도의 메서드로 정의합니다. 람다 식을 사용하여 인라인 단계를 정의할 수도 있습니다.
+대화 상자 단계 메서드가 인스턴스 속성을 참조하므로 `this` 개체가 각 단계 메서드 내에서 올바르게 확인되도록 `bind` 메서드를 사용해야 합니다.
+
+이 샘플에서 각 단계를 별도의 메서드로 정의합니다. 람다 식을 사용하여 생성자에서 인라인 단계를 정의할 수도 있습니다.
 
 ```javascript
 // This step in the dialog prompts the user for their name.
@@ -379,68 +517,42 @@ async displayProfile(step) {
 }
 ```
 
-대화 상자는 봇의 순서 처리기에서 실행되며, 이 처리기는 먼저 대화 상자 컨텍스트를 만들고 대화 상자를 적절하게 계속 진행하거나 시작한 다음, 순서의 마지막에 대화 및 사용자 상태를 저장합니다.
+---
 
-```javascript
-// Create a dialog context object.
-const dc = await this.dialogs.createContext(turnContext);
-```
+이 샘플은 대화 상자 내에서 사용자 프로필 상태를 업데이트합니다. 이 방법은 간단한 봇에 사용할 수 있지만 봇을 통해 대화 상자를 다시 사용하려는 경우 작동하지 않습니다.
 
-```javascript
-// If the bot has not yet responded, continue processing the current dialog.
-await dc.continueDialog();
-```
+대화 상자 단계와 봇 상태를 분리하는 다양한 옵션이 있습니다. 예를 들어, 대화 상자가 완전한 정보를 수집하면 다음을 수행할 수 있습니다.
 
-```javascript
-// Start the sample dialog in response to any other input.
-if (!turnContext.responded) {
-    const user = await this.userProfile.get(dc.context, {});
-    if (user.name) {
-        await dc.beginDialog(HELLO_USER);
-    } else {
-        await dc.beginDialog(WHO_ARE_YOU);
-    }
-}
-```
+* _end dialog_ 메서드를 사용하여 수집된 데이터를 부모 컨텍스트에 다시 반환 값으로 제공합니다. 이것은 봇의 순서 처리기 또는 대화 상자 스택의 초기 활성 대화 상자일 수 있습니다. 프롬프트 클래스를 디자인하는 방법입니다.
+* 적절한 서비스에 요청을 생성합니다. 봇이 대규모 서비스에 대한 프론트 엔드의 역할을 하는 경우 제대로 작동할 수 있습니다.
 
-```javascript
-// Save changes to the user state.
-await this.userState.saveChanges(turnContext);
+## <a name="test-your-dialog"></a>대화 상자 테스트
 
-// End this turn by saving changes to the conversation state.
-await this.conversationState.saveChanges(turnContext);
-```
+봇을 로컬로 빌드하고 실행한 다음, [에뮬레이터](../bot-service-debug-emulator.md)를 사용하여 봇과 상호 작용합니다.
+
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+
+1. 봇은 사용자가 대화에 추가된 대화 업데이트 작업에 대한 응답에서 초기 인사말 메시지를 보냅니다.
+1. `hi` 또는 기타 입력을 입력합니다. 이 순서에 활성 대화 상자가 없으므로 봇은 `details` 대화 상자를 시작합니다.
+   * 봇은 대화의 첫 번째 프롬프트를 보내고 자세한 입력을 기다립니다.
+1. 봇이 요청하면 질문에 응답하고 대화 상자를 통해 진행합니다.
+1. 대화 상자의 마지막 단계는 입력에 따라 `Thanks` 메시지를 보냅니다.
+   * 대화가 종료되면 대화 스택에서 제거되고 봇에는 더 이상 활성 대화 상자가 없게 됩니다.
+1. `hi` 또는 다른 입력을 입력하여 대화 상자를 다시 시작합니다.
+
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+1. 봇은 사용자가 대화에 추가된 대화 업데이트 작업에 대한 응답에서 초기 인사말 메시지를 보냅니다.
+1. `hi` 또는 기타 입력을 입력합니다. 이 순서에 활성 대화 상자가 없고 사용자 프로필이 없으므로 봇은 `who_are_you` 대화 상자를 시작합니다.
+   * 봇은 대화의 첫 번째 프롬프트를 보내고 자세한 입력을 기다립니다.
+1. 봇이 요청하면 질문에 응답하고 대화 상자를 통해 진행합니다.
+1. 대화 상자의 마지막 단계는 간단한 확인 메시지를 보냅니다.
+1. `hi` 또는 기타 입력을 입력합니다.
+   * 봇은 1단계 `hello_user` 대화 상자를 시작합니다. 여기에서 수집된 데이터의 정보를 표시하고 즉시 종료합니다.
 
 ---
 
-## <a name="dialog-context-and-waterfall-step-context-objects"></a>대화 상자 컨텍스트 및 폭포 단계 컨텍스트 개체
-
-대화 상자 컨텍스트 개체를 사용하여 봇의 순서 처리기 내에서 대화 상자 설정과 상호 작용합니다.
-폭포 단계 컨텍스트 개체를 사용하여 폭포 단계 내에 설정된 대화 상자와 상호 작용합니다.
-
-## <a name="to-start-a-dialog"></a>대화 상자를 시작하려면
-
-대화 상자를 시작하려면 시작하려는 *dialogId*를 대화 상자 컨텍스트의 _beginDialog_, _prompt_ 또는 _replaceDialog_ 메서드로 전달합니다. _beginDialog_ 메서드는 대화 상자를 스택으로 푸시하고, _replaceDialog_ 메서드는 현재 대화 상자를 스택에서 삭제하고 대체 대화 상자를 스택에 푸시합니다.
-
-대화 상자 컨텍스트의 _prompt_ 메서드는 인수를 사용하고, 프롬프트에 적절한 옵션을 생성한 다음, 프롬프트 대화 상자를 시작하는 도우미 메서드입니다. 프롬프트에 대한 자세한 내용은 [사용자에게 입력 요청](bot-builder-prompts.md)을 참조하세요.
-
-## <a name="to-end-a-dialog"></a>대화 상자를 종료하려면
-
-_end dialog_ 메서드는 스택에서 대화 상자를 삭제하여 대화 상자를 종료하고, 선택적 결과를 부모 대화 상자에 반환합니다.
-
-대화 상자 끝부분에서 명시적으로 _endDialog_ 메서드를 호출하는 것이 가장 좋은 모범 사례입니다.
-
-## <a name="to-clear-the-dialog-stack"></a>대화 상자 스택을 지우려면
-
-모든 대화 상자를 스택에서 삭제하려면 대화 상자 컨텍스트의 _cancel all dialogs_ 메서드를 호출하여 대화 상자 스택을 지울 수 있습니다.
-
-## <a name="to-repeat-a-dialog"></a>대화 상자를 반복하려면
-
-대화 상자를 반복하려면 현재 대화 상자를 스택에서 삭제하고 대체 대화 상자를 스택의 맨 위로 푸시하여 해당 대화 상자를 시작하는 _replace dialog_ 메서드를 사용합니다. 이는 [복잡한 대화 흐름](~/v4sdk/bot-builder-dialog-manage-complex-conversation-flow.md)을 처리하는 좋은 방법이며 메뉴를 관리하는 데 유용한 기술입니다.
-
 ## <a name="next-steps"></a>다음 단계
 
-단순 대화 흐름을 관리하는 방법을 알아보았으니, 이번에는 _replace_ 메서드를 활용하여 복합 대화 흐름을 처리하는 방법을 살펴보겠습니다.
-
 > [!div class="nextstepaction"]
-> [복잡한 대화 흐름 관리](bot-builder-dialog-manage-complex-conversation-flow.md)
+> [분기 및 루프를 사용하여 고급 대화 흐름 만들기](bot-builder-dialog-manage-complex-conversation-flow.md)

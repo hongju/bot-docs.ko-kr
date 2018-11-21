@@ -8,17 +8,17 @@ ms.topic: article
 ms.service: bot-service
 ms.date: 09/18/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 06e91d4b7d320078e83c3523e1326b82ee3fe759
-ms.sourcegitcommit: 49a76dd34d4c93c683cce6c2b8b156ce3f53280e
+ms.openlocfilehash: a286d9d77869899854cebde38483026475c5e622
+ms.sourcegitcommit: 8b7bdbcbb01054f6aeb80d4a65b29177b30e1c20
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50134703"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51645593"
 ---
 # <a name="enterprise-bot-template---deploying-your-bot"></a>엔터프라이즈 봇 템플릿 - 봇 배포
 
 > [!NOTE]
-> 이 항목은 SDK v4 버전에 적용됩니다. 
+> 이 토픽은 SDK v4 버전에 적용됩니다. 
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -76,7 +76,7 @@ az account set --subscription "YOUR_SUBSCRIPTION_NAME"
 msbot clone services --name "YOUR_BOT_NAME" --luisAuthoringKey "YOUR_AUTHORING_KEY" --folder "DeploymentScripts\msbotClone" --location "YOUR_REGION"
 ```
 
-> 배포를 실행할 때 일부 사용자에게 `ERROR: Unable to provision MSA id automatically. Please pass them in as parameters and try again` 오류가 발생할 수 있습니다. 이 경우 https://apps.dev.microsoft.com을 방문하여 수동으로 새 응용 프로그램을 만들고 ApplicationID 및 암호/비밀을 검색합니다. 위의 msbot 복제 서비스 명령을 실행하되, 새 인수 `appId` 및 `appSecret`을 입력하고 방금 검색한 값을 전달합니다.
+> 배포를 실행할 때 일부 사용자에게 `ERROR: Unable to provision MSA id automatically. Please pass them in as parameters and try again` 오류가 발생할 수 있습니다. 이 경우 https://apps.dev.microsoft.com을 방문하여 수동으로 새 응용 프로그램을 만들고 ApplicationID 및 암호/비밀을 검색합니다. 위의 msbot 복제 서비스 명령을 실행하되, 새 인수 `appId` 및 `appSecret`을 입력하고 방금 검색한 값을 전달합니다. 따옴표로 비밀을 래핑하여 문제를 구문 분석하지 않도록 방지해야 합니다(예: `-appSecret "YOUR_SECRET"`)
 
 msbot 도구는 위치와 SKU를 포함한 배포 계획을 간략하게 설명합니다. 검토한 후에 계속 진행하세요.
 
@@ -87,7 +87,7 @@ msbot 도구는 위치와 SKU를 포함한 배포 계획을 간략하게 설명�
 - `appsettings.json` 파일을 새로 만든 .bot 파일 이름과 .bot 파일 비밀로 업데이트합니다.
 - 다음 명령을 실행하고, Application Insights 인스턴스에 대한 InstrumentationKey를 검색하고, `appsettings.json` 파일의 InstrumentationKey를 업데이트합니다.
 
-`msbot list --bot YOURBOTFILE.bot --secret YOUR_BOT_SECRET`
+`msbot list --bot YOURBOTFILE.bot --secret "YOUR_BOT_SECRET"`
 
         {
           "botFilePath": ".\\YOURBOTFILE.bot",

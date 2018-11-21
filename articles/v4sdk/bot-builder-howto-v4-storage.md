@@ -8,14 +8,14 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
-ms.date: 09/14/18
+ms.date: 11/13/18
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 9e63390d157c75e1079654549831cf4936c62710
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: 803574e5d224b0556162fd677145d29cafa2cab1
+ms.sourcegitcommit: 8b7bdbcbb01054f6aeb80d4a65b29177b30e1c20
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49997990"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51645683"
 ---
 # <a name="write-directly-to-storage"></a>저장소에 직접 작성
 
@@ -25,7 +25,7 @@ ms.locfileid: "49997990"
 
 ## <a name="prerequisites"></a>필수 조건
 - Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/en-us/free/) 계정을 만듭니다.
-- Bot Framework [Emulator](https://github.com/Microsoft/BotFramework-Emulator/releases) 설치
+- Bot Framework [에뮬레이터](https://aka.ms/Emulator-wiki-getting-started) 설치
 
 ## <a name="memory-storage"></a>메모리 저장소
 

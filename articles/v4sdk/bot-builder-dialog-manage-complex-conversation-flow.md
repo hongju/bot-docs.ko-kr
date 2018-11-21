@@ -1,5 +1,5 @@
 ---
-title: 다이얼로그를 사용하여 복잡한 대화 흐름 관리 | Microsoft Docs
+title: 분기 및 루프를 사용하여 고급 대화 흐름 만들기 | Microsoft Docs
 description: Node.js용 봇 작성기 SDK에서 다이얼로그를 사용하여 복잡한 대화 흐름을 관리하는 방법을 알아봅니다.
 keywords: 복잡한 대화 흐름, 반복, 루프, 메뉴, 다이얼로그, 프롬프트, 폭포, 다이얼로그 집합
 author: v-ducvo
@@ -8,24 +8,24 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
-ms.date: 10/03/2018
+ms.date: 11/03/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: bbb038554801f4585cbc1e3186d139232405b47d
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: 9605a2f078be753023e6d178247a211ace107873
+ms.sourcegitcommit: cb0b70d7cf1081b08eaf1fddb69f7db3b95b1b09
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49999830"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51333027"
 ---
-# <a name="manage-complex-conversation-flows-with-dialogs"></a>다이얼로그를 사용하여 복잡한 대화 흐름 관리
+# <a name="create-advance-conversation-flow-using-branches-and-loops"></a>분기 및 루프를 사용하여 고급 대화 흐름 만들기
 
 [!INCLUDE [pre-release-label](~/includes/pre-release-label.md)]
 
-마지막 문서에서는 대화 상자 라이브러리를 사용하여 간단한 대화를 관리하는 방법을 보여줍니다. [간단한 대화 흐름](bot-builder-dialog-manage-conversation-flow.md)의 경우 사용자가 *폭포*의 첫 번째 단계에서 시작하여 마지막 단계까지 계속 진행함으로써 대화형 교환을 완료합니다. 이 문서에서는 다이얼로그를 사용하여 분기하고 반복할 수 있는 부분이 있는 더 복잡한 대화를 관리합니다. 이를 위해 대화 컨텍스트 및 폭포 단계 컨텍스트에 정의된 다양한 메서드를 사용하고 대화의 여러 부분 간에 인수를 전달합니다.
+마지막 문서에서는 대화 상자 라이브러리를 사용하여 간단한 대화를 관리하는 방법을 보여줍니다. [순차 대화 흐름](bot-builder-dialog-manage-conversation-flow.md)의 경우 사용자가 *폭포*의 첫 번째 단계에서 시작하여 마지막 단계까지 계속 진행함으로써 대화형 교환을 완료합니다. 이 문서에서는 다이얼로그를 사용하여 분기하고 반복할 수 있는 부분이 있는 더 복잡한 대화를 관리합니다. 이를 위해 대화 컨텍스트 및 폭포 단계 컨텍스트에 정의된 다양한 메서드를 사용하고 대화의 여러 부분 간에 인수를 전달합니다.
 
 대화 상자에 대한 자세한 배경 정보는 [대화 상자 라이브러리](bot-builder-concept-dialog.md)를 참조하세요.
 
-*다이얼로그 스택*을 자세히 제어하기 위해 **다이얼로그** 라이브러리에서 _replace dialog_ 메서드를 제공합니다. 이 방법을 사용하면 대화의 상태 및 흐름을 유지하면서 현재 활성 대화 상자를 다른 대화 상자로 교환할 수 있습니다. _begin dialog_ 및 _replace dialog_ 메서드를 사용하면 필요에 따라 분기하고 반복하여 더 복잡한 상호 작용을 만들 수 있습니다. 대화의 복잡성이 증가하여 폭포 대화 상자를 관리하기 어려워지면 [구성 요소 대화 상자](bot-builder-compositcontrol.md)를 사용하거나 기본 `Dialog` 클래스에 기반을 둔 사용자 지정 대화 상자 관리 클래스를 빌드하여 조사하세요.
+*다이얼로그 스택*을 자세히 제어하기 위해 **다이얼로그** 라이브러리에서 _replace dialog_ 메서드를 제공합니다. 이 방법을 사용하면 대화의 상태 및 흐름을 유지하면서 현재 활성 대화 상자를 다른 대화 상자로 교환할 수 있습니다. _begin dialog_ 및 _replace dialog_ 메서드를 사용하면 필요에 따라 분기하고 반복하여 더 복잡한 상호 작용을 만들 수 있습니다. 대화의 복잡성이 증가하여 폭포 대화 상자를 관리하기 어려워지면 [대화 상자 재사용](bot-builder-compositcontrol.md)을 조사하거나 기본 `Dialog` 클래스에 따라 사용자 지정 대화 상자 관리 클래스를 빌드합니다.
 
 이 문서에서는 게스트가 호텔 레스토랑 테이블 예약, 룸 서비스로 식사 주문 등 일반적인 서비스를 이용할 때 사용할 수 있는 호텔 컨시어지 봇을 위한 샘플 대화 상자를 만듭니다.  이러한 각 기능은 기능을 서로 연결하는 메뉴와 함께 대화 상자 집합의 대화 상자로 생성됩니다.
 

@@ -1,22 +1,18 @@
 ---
-title: 사용자 환영 | Microsoft Docs
-description: 반갑게 맞이하는 사용자 환경을 제공하도록 봇을 설계하는 방법에 대해 알아봅니다.
-keywords: 개요, 디자인, 사용자 환경, 환영, 개인 설정 환경
-author: dashel
-ms.author: dashel
-manager: kamrani
-ms.topic: article
-ms.service: bot-service
-ms.subservice: sdk
-ms.date: 8/30/2018
-monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: f9c58762e0733fbb379b43375710e651424095fc
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+redirect_url: /bot-framework/bot-builder-send-welcome-message
+ms.openlocfilehash: ef281fd1b6539484c06f68caffbd4e87ec8acc2b
+ms.sourcegitcommit: cb0b70d7cf1081b08eaf1fddb69f7db3b95b1b09
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49998750"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51332907"
 ---
+<a name="--"></a><!--
+---
+title: 사용자 환영 | Microsoft Docs description: 사용자 환영 환경을 제공하기 위해 봇을 디자인하는 방법을 알아봅니다.
+keywords: 개요, 디자인, 사용자 환경, 환영, 개인 설정 환경 author: dashel ms.author: dashel manager: kamrani ms.topic: article ms.service: bot-service ms.subservice: sdk ms.date: 8/30/2018 monikerRange: 'azure-bot-service-4.0'
+---
+
 # <a name="welcoming-the-user"></a>사용자 환영
 
 봇을 만들 때 가장 중요한 목표는 사용자를 의미 있는 대화에 참여시키는 것입니다. 이 목표를 달성하는 가장 좋은 방법 중 하나는 사용자가 처음 연결하는 순간부터 봇의 주요 목적과 기능, 즉 봇이 만들어진 이유를 이해하는 것입니다.
@@ -74,3 +70,5 @@ ms.locfileid: "49998750"
 ## <a name="next-steps"></a>다음 단계
 > [!div class="nextstepaction"]
 > [사용자에게 환영 메시지 보내기](bot-builder-send-welcome-message.md)
+
+-->

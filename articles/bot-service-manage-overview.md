@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: bot-service
 ms.subservice: abs
 ms.date: 12/13/2017
-ms.openlocfilehash: c1d8adef58c688b3678af7a80964021292d0b1d0
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: e68db6c1fe9d3d136a8643652df034fb6df2858f
+ms.sourcegitcommit: 8b7bdbcbb01054f6aeb80d4a65b29177b30e1c20
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49997610"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51645603"
 ---
 # <a name="manage-a-bot"></a>봇 관리
 
@@ -50,7 +50,7 @@ ms.locfileid: "49997610"
 
 ### <a name="microsoftappid-and-microsoftapppassword"></a>MicrosoftAppID 및 MicrosoftAppPassword
 
-**응용 프로그램 설정** 블레이드에서 봇의 **MicrosoftAppID** 및 **MicrosoftAppPassword**를 찾을 수 있습니다.
+**설정** 블레이드에서 봇의 **MicrosoftAppID**를 찾을 수 있습니다. 봇의 **MicrosoftAppPassword**는 먼저 봇을 만들 때에만 표시됩니다.
 
 ![Microsoft AppID 및 암호](~/media/azure-manage-a-bot/app-settings.png)
 

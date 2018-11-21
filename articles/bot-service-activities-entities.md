@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
 ms.date: 03/01/2018
-ms.openlocfilehash: d2f4692580843f530641827707d250fa726830e3
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: d329fcbe5b4a34cb3e9c1fbf0160c5248020a508
+ms.sourcegitcommit: cb0b70d7cf1081b08eaf1fddb69f7db3b95b1b09
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "50000400"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51332967"
 ---
 # <a name="entities-and-activity-types"></a>엔터티 및 작업 형식
 
@@ -177,13 +177,19 @@ if(context.activity.type === 'message'){
 ## <a name="message"></a>Message
 
 <!-- Only the last link is different. -->
+
 ::: moniker range="azure-bot-service-3.0"
+
 봇은 사용자에게 정보를 전달하기 위해 메시지 작업을 보내고 사용자에게서 메시지 작업을 받습니다.
-일부 메시지는 단순히 일반 텍스트로 구성될 수 있지만 기타 메시지에는 [음성화된 텍스트](v4sdk/bot-builder-howto-send-messages.md#send-a-spoken-message), [제안된 작업](v4sdk/bot-builder-howto-add-suggested-actions.md), [미디어 첨부 파일](v4sdk/bot-builder-howto-add-media-attachments.md), [다양한 카드](v4sdk/bot-builder-howto-add-media-attachments.md#send-a-hero-card) 및 [채널 관련 데이터](~/dotnet/bot-builder-dotnet-channeldata.md)와 같은 다양한 콘텐츠가 포함될 수 있습니다.
+일부 메시지는 단순히 일반 텍스트로 구성되는 반면, 다른 메시지에는 음성 텍스트, [제안된 작업](v4sdk/bot-builder-howto-add-suggested-actions.md), [미디어 첨부 파일](v4sdk/bot-builder-howto-add-media-attachments.md), [리치(rich) 카드](v4sdk/bot-builder-howto-add-media-attachments.md#send-a-hero-card) 및 [채널 관련 데이터](~/dotnet/bot-builder-dotnet-channeldata.md)와 같은 다양한 콘텐츠가 포함될 수 있습니다.
+
 ::: moniker-end
+
 ::: moniker range="azure-bot-service-4.0"
+
 봇은 사용자에게 정보를 전달하기 위해 메시지 작업을 보내고 사용자에게서 메시지 작업을 받습니다.
-일부 메시지는 단순히 일반 텍스트로 구성될 수 있지만 기타 메시지에는 [음성화된 텍스트](v4sdk/bot-builder-howto-send-messages.md#send-a-spoken-message), [제안된 작업](v4sdk/bot-builder-howto-add-suggested-actions.md), [미디어 첨부 파일](v4sdk/bot-builder-howto-add-media-attachments.md), [다양한 카드](v4sdk/bot-builder-howto-add-media-attachments.md#send-a-hero-card) 및 [채널 관련 데이터](~/v4sdk/bot-builder-channeldata.md)와 같은 다양한 콘텐츠가 포함될 수 있습니다.
+일부 메시지는 단순히 일반 텍스트로 구성되는 반면, 다른 메시지에는 음성 텍스트, [제안된 작업](v4sdk/bot-builder-howto-add-suggested-actions.md), [미디어 첨부 파일](v4sdk/bot-builder-howto-add-media-attachments.md), [리치(rich) 카드](v4sdk/bot-builder-howto-add-media-attachments.md#send-a-hero-card) 및 [채널 관련 데이터](~/v4sdk/bot-builder-channeldata.md)와 같은 다양한 콘텐츠가 포함될 수 있습니다.
+
 ::: moniker-end
 
 ## <a name="contactrelationupdate"></a>contactRelationUpdate
@@ -237,6 +243,7 @@ if(context.activity.type === 'message'){
 봇은 요청을 수행하거나 응답을 컴파일하기 위해 작동하고 있음을 사용자에게 표시하는 입력 작업을 보낼 수 있습니다.
 
 ::: moniker range="azure-bot-service-3.0"
+
 ## <a name="additional-resources"></a>추가 리소스
 
 - <a href="https://docs.botframework.com/en-us/csharp/builder/sdkreference/dc/d2f/class_microsoft_1_1_bot_1_1_connector_1_1_activity.html" target="_blank">활동 클래스</a>

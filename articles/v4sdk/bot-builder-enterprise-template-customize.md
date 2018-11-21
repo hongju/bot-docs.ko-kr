@@ -8,17 +8,17 @@ ms.topic: article
 ms.service: bot-service
 ms.date: 09/18/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: b9c8a0bc04cfcf96f6c81b624464e9698eab1699
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: ea507bbdf916ff1955aea0db17b765791432f430
+ms.sourcegitcommit: 8b7bdbcbb01054f6aeb80d4a65b29177b30e1c20
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49998966"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51645583"
 ---
 # <a name="enterprise-bot-template---customize-your-bot"></a>엔터프라이즈 봇 - 봇 사용자 지정
 
 > [!NOTE]
-> 이 항목은 SDK v4 버전에 적용됩니다. 
+> 이 토픽은 SDK v4 버전에 적용됩니다. 
 
 ## <a name="net"></a>.NET
 엔터프라이즈 봇 템플릿이 [여기](bot-builder-enterprise-template-deployment.md)의 지침에서 나열한 대로 종단 간에 작동하도록 배포 및 테스트한 후에는 시나리오 및 필요에 따라 봇을 쉽게 사용자 지정할 수 있습니다. 템플릿의 목표는 대화형 환경을 구축할 수 있는 견고한 기반을 제공하는 것입니다.
@@ -108,7 +108,28 @@ ms.locfileid: "49998966"
     dispatch refresh -bot "YOURBOT.bot" -secret YOURSECRET
 ```
 
-## <a name="adding-a-new-dialog"></a>새 대화 추가 
+### <a name="adding-an-additional-qnamaker-knowledgebase"></a>추가 QnAMaker 기술 자료 추가
+
+봇에 추가 QnAMaker 기술 자료를 추가하려는 일부 시나리오에서는 다음 단계를 수행하면 됩니다.
+
+1. 도우미 디렉터리에서 실행된 다음 명령을 사용하여 JSON 파일에서 새 QnAMaker 기술 자료를 만듭니다.
+```shell
+qnamaker create kb --in <KB.json> --msbot | msbot connect qna --stdin --bot "YOURBOT.bot" --secret YOURSECRET
+```
+2. 다음 명령을 실행하여 변경 내용을 반영하도록 디스패치 모델을 업데이트합니다.
+```shell
+dispatch refresh --bot "YOURBOT.bot" --secret YOURSECRET
+```
+3. 새 QnA 원본을 반영하는 강력한 형식의 디스패치 클래스를 업데이트합니다.
+```shell
+msbot get dispatch --bot "YOURBOT.bot" | luis export version --stdin > dispatch.json
+luisgen dispatch.json -cs Dispatch -o Dialogs\Shared
+```
+4.  제공된 예제에 따라 새 QnA 원본에 대해 해당하는 디스패치 의도를 포함하도록 `Dialogs\Main\MainDialog.cs` 파일을 업데이트합니다.
+
+이제 여러 QnA 원본을 봇의 일부로 활용할 수 있어야 합니다.
+
+## <a name="adding-a-new-dialog"></a>새 대화 추가
 
 봇에 새 대화를 추가하려면 먼저 Dialogs 아래에 새 폴더를 만들고 이 클래스가 `EnterpriseDialog`에서 파생되는지 확인해야 합니다. 그런 다음, 대화 인프라를 연결해야 합니다. [온보딩] 대화 상자에는 참조할 수 있는 간단한 예제가 나와 있으며, 아래에 단계의 개요와 함께 발췌 부분이 표시됩니다.
 

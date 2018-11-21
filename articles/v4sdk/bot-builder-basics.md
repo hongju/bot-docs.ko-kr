@@ -1,5 +1,5 @@
 ---
-title: Bot Builder SDK 내 봇 활동 | Microsoft Docs
+title: 봇 작동 방식 | Microsoft Docs
 description: Bot Builder SDK 내에서 활동 및 http가 어떻게 작동하는지 설명합니다.
 keywords: 대화 흐름, 순서, 봇 대화, 대화 상자, 프롬프트, 폭포, 대화 상자 집합
 author: johnataylor
@@ -8,16 +8,16 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
-ms.date: 10/31/2018
+ms.date: 11/08/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: f86c666b7a8ff754681a7eca7005fc42676705fc
-ms.sourcegitcommit: a496714fb72550a743d738702f4f79e254c69d06
+ms.openlocfilehash: 852740695f4d5719ba4dc4cc3d49c6820d95b3ef
+ms.sourcegitcommit: cb0b70d7cf1081b08eaf1fddb69f7db3b95b1b09
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50736711"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51333007"
 ---
-# <a name="understanding-how-bots-work"></a>봇 작동 방식 이해
+# <a name="how-bots-work"></a>봇 작동 방식
 
 [!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
 
@@ -55,38 +55,13 @@ ms.locfileid: "50736711"
 
 위의 예제에서 봇은 동일한 텍스트 메시지를 포함하는 다른 메시지 활동을 사용하여 메시지 활동에 응답했습니다. HTTP POST 요청부터 처리되며, 활동 정보는 JSON 페이로드로 전달되고, 웹 서버에 도착합니다. C#에서 이는 일반적으로 ASP.NET 프로젝트가 되며, JavaScript Node.js 프로젝트에서 이는 Express 또는 Restify처럼 인기 있는 프레임워크 중 하나일 가능성이 높습니다.
 
-SDK의 통합 구성 요소인 *어댑터*는 프레임워크의 생성자 역할을 합니다. 이 서비스는 활동 정보를 사용하여 활동 개체를 만든 다음, 어댑터의 *프로세스 활동* 메서드를 호출하는 한편, 활동 개체 및 인증 정보를 전달합니다(이러한 호출은 C#용 라이브러리 내부애 래핑되지만 JavaScript로 표시됨). 어댑터는 활동을 수신하자 마자 순서 컨텍스트 개체를 만들고 [미들웨어](#middleware)를 호출합니다. 미들웨어 다음에 봇 논리가 처리되고, 파이프라인이 완료되고, 어댑터가 순서 컨텍스트 개체를 삭제합니다.
-
-응용 프로그램 논리의 대부분을 차지하는 봇의 *순서 처리기*는 순서 컨텍스트를 인수로 사용합니다. 순서 처리기는 일반적으로 인바운드 활동의 콘텐츠를 처리하고, 하나 이상의 활동을 응답으로 생성하며, 순서 컨텍스트의 *send activity* 메서드를 사용하여 이를 전송합니다. send activity 메서드를 호출하면 처리가 중단되지 않은 경우에 한해 활동이 사용자의 채널로 전송됩니다. 이 활동은 등록된 [이벤트 처리기](#response-event-handlers)를 통과한 후 채널로 전송됩니다.
-
-## <a name="middleware"></a>미들웨어
-
-미들웨어는 각각 순서대로 추가되고 실행되는 선형 구성 요소 집합으로, 봇의 순서 처리기 전후로 활동에서 작동할 가능성이 있으며, 해당 활동의 순서 컨텍스트에 액세스할 수 있습니다. 미들웨어가 [단락](~/v4sdk/bot-builder-concept-middleware.md#short-circuiting)되지 않는 한, 미들웨어 파이프라인의 최종 단계는 스택을 반환하기 전에 봇의 순서 처리기를 호출하는 콜백입니다. 미들웨어에 대한 자세한 내용은 [미들웨어 항목](~/v4sdk/bot-builder-concept-middleware.md)을 참조하세요.
-
-## <a name="generating-responses"></a>응답 생성
-
-순서 컨텍스트는 코드가 작업에 응답하도록 허용하는 작업 응답 메서드를 제공합니다.
-
-* _send activity_ 및 _send activities_ 메서드는 하나 이상의 작업을 대화에 보냅니다.
-* 채널에서 지원되는 경우 _update activity_ 메서드는 대화 내에서 작업을 업데이트합니다.
-* 채널에서 지원되는 경우 _delete activity_ 메서드는 대화에서 작업을 제거합니다.
-
-각 응답 메서드는 비동기 프로세스에서 실행됩니다. 작업 응답 메서드는 호출되면 처리기를 호출하기 전까지 연결된 [이벤트 처리기](#response-event-handlers) 목록을 복제합니다. 즉, 이 시점까지 추가된 모든 처리기를 포함하지만, 프로세스가 시작된 후에 추가된 항목을 전혀 포함하지 않습니다.
-
-이는 독립적인 활동 호출의 응답 순서가 보장되지 않는다는 뜻이며, 한 작업이 다른 작업보다 복잡한 경우에 더욱 그렇습니다. 봇이 들어오는 작업에 대한 여러 응답을 생성할 수 있는 경우 사용자가 받는 순서대로 의미가 통해야 합니다. 이와 관련한 유일한 예외는 정렬된 활동 집합을 전송하는 데 사용되는 *send activities* 메서드입니다.
+SDK의 통합 구성 요소인 *어댑터*는 SDK 런타임의 핵심입니다. 작업은 HTTP POST 본문에서 JSON으로 전달됩니다. 이 JSON을 역직렬화하여 작업 개체를 만듭니다. 그런 다음, *처리 작업* 메서드에 대한 호출을 사용하여 어댑터에 전달됩니다. 어댑터가 작업을 수신하면 *순서 컨텍스트*를 만들고 미들웨어를 호출합니다. 이름 *순서 컨텍스트*는 "순서"라는 단어를 사용하여 작업의 도착과 연결된 모든 처리를 설명합니다. 순서 컨텍스는 SDK에서 중요한 추상화 중 하나입니다. 모든 미들웨어 구성 요소 및 애플리케이션 논리에 인바운드 작업을 전달할 뿐만 아니라 미들웨어 구성 요소 및 애플리케이션 논리가 아웃바운드 작업을 전송하는 메커니즘도 제공합니다. 순서 컨텍스트는 코드가 작업에 응답하는 _send, update, and delete activity_ 응답 메서드를 제공합니다. 각 응답 메서드는 비동기 프로세스에서 실행됩니다. 
 
 [!INCLUDE [alert-await-send-activity](../includes/alert-await-send-activity.md)]
 
-## <a name="response-event-handlers"></a>응답 이벤트 처리기
 
-응용 프로그램 및 미들웨어 논리 외에도, 컨텍스트 개체에 응답 처리기(이벤트 처리기 또는 작업 이벤트 처리기라고도 함)를 추가할 수 있습니다. 이러한 처리기는 현재 컨텍스트 개체에서 관련 [응답](#generating-responses)이 발생하면 실제 응답을 실행하기 전에 호출됩니다. 이러한 처리기는 실제 이벤트 전에 또는 후에 현재 응답의 나머지 부분에서 해당 형식의 모든 작업에 대해 무엇을 할 것인지 알고 있는 경우에 유용 합니다.
-
-> [!WARNING]
-> 각 응답 이벤트 처리기 내부에서 작업 응답 메서드를 호출하지 않도록 주의해야 합니다. 예를 들어 _on send activity_ 처리기 내에서 send activity 메서드를 호출하면 안 됩니다. 호출하면 무한 루프가 생성될 수 있습니다.
-
-새 작업마다 실행할 새 스레드가 생깁니다. 작업을 처리하는 스레드가 생성되면 해당 작업에 대한 처리기 목록이 해당하는 새 스레드에 복사됩니다. 해당 시점 이후 추가된 처리기는 해당 활동 이벤트에 대해 실행되지 않습니다.
-
-컨텍스트 개체에 등록된 처리기는 어댑터에서 [미들웨어 파이프라인](~/v4sdk/bot-builder-concept-middleware.md#the-bot-middleware-pipeline)을 관리하는 방법과 매우 비슷하게 처리됩니다. 즉, 처리기는 추가된 순서대로 호출되며, _다음_ 대리자를 호출하면 등록된 그 다음 이벤트 처리기에 컨트롤이 전달됩니다. 처리기가 다음 대리자를 호출하지 않으면 후속 이벤트 처리기는 호출되지 않으며([단락](~/v4sdk/bot-builder-concept-middleware.md#short-circuiting) 이벤트), 어댑터는 채널에 응답을 보내지 않습니다.
+## <a name="middleware"></a>미들웨어
+미들웨어는 다른 메시징 미들웨어와 유사하게 순서대로 각각 실행되는 선형 구성 요소 집합을 구성하고 각 작업에서 작동할 수 있는 기회를 제공합니다. 미들웨어 파이프라인의 최종 단계는 애플리케이션이 어댑터에 등록한 봇 클래스의 순서 처리기 함수(C#의 `OnTurnAsync` 및 JS의 `onTurn`)를 호출하는 콜백입니다. 순서 처리기는 순서 컨텍스트를 해당 인수로 설정하고, 순서 처리기 함수 내에서 실행 중인 애플리케이션 논리는 일반적으로 인바운드 작업의 콘텐츠를 처리하고, 응답에서 하나 이상의 작업을 생성하여 순서 컨텍스트에서 *send activity* 함수를 사용하여 이러한 항목을 보냅니다. 순서 컨텍스트에서 *send activity*를 호출하면 미들웨어 구성 요소를 아웃바운드 작업에서 호출하게 됩니다. 미들웨어 구성 요소는 봇의 순서 처리기 함수 전후에서 실행됩니다. 실행은 본질적으로 중첩되며 러시아 인형과 같다고도 합니다. 미들웨어에 대한 자세한 내용은 [미들웨어 항목](~/v4sdk/bot-builder-concept-middleware.md)을 참조하세요.
 
 ## <a name="bot-structure"></a>봇 구조체
 
@@ -96,7 +71,7 @@ SDK의 통합 구성 요소인 *어댑터*는 프레임워크의 생성자 역�
 
 # <a name="ctabcs"></a>[C#](#tab/cs)
 
-봇은 [ASP.NET Core 웹](https://docs.microsoft.com/aspnet/core/?view=aspnetcore-2.1) 응용 프로그램의 한 유형입니다. [ASP.NET 기본 사항](https://docs.microsoft.com/aspnet/core/fundamentals/index?view=aspnetcore-2.1&tabs=aspnetcore2x)을 보면 Program.cs 및 Startup.cs와 같은 파일에서 유사한 코드를 확인할 수 있습니다. 이러한 파일은 모든 웹앱에 필요하며 봇 전용이 아닙니다. 이러한 파일 중 일부 파일의 코드는 여기에 복사되지 않지만 카운터를 사용하는 에코 봇 샘플을 참조할 수 있습니다.
+봇은 [ASP.NET Core 웹](https://docs.microsoft.com/aspnet/core/?view=aspnetcore-2.1) 응용 프로그램의 한 유형입니다. [ASP.NET](https://docs.microsoft.com/aspnet/core/fundamentals/index?view=aspnetcore-2.1&tabs=aspnetcore2x) 기본 사항을 보면 **Program.cs** 및 **Startup.cs**와 같은 파일에서 유사한 코드를 확인할 수 있습니다. 이러한 파일은 모든 웹앱에 필요하며 봇 전용이 아닙니다. 이러한 파일 중 일부 파일의 코드는 여기에 복사되지 않지만 [C# echobot-with-counter](https://aka.ms/EchoBot-With-Counter) 샘플을 참조할 수 있습니다.
 
 ### <a name="echowithcounterbotcs"></a>EchoWithCounterBot.cs
 
@@ -245,7 +220,7 @@ public class EchoBotAccessors
 
 # <a name="javascripttabjs"></a>[JavaScript](#tab/js)
 
-시스템 섹션에는 주로 **package.json**, **.env** , **index.js** 및 **README.md** 파일이 포함됩니다. 일부 파일의 코드는 여기에 복사되지 않지만, 봇을 실행할 때 표시됩니다.
+Yeoman 생성기는 [restify](http://restify.com/) 웹 애플리케이션 형식을 만듭니다. 해당 문서에서 Restify 빠른 시작을 보면 생성된 **index.js** 파일과 유사한 앱이 표시됩니다. 이 섹션에서는 주로 **package.json**, **.env** , **index.js**, **bot.js** 및 **echobot-with-counter.bot** 파일을 설명합니다. 일부 파일의 코드는 여기에서 복사되지 않지만 봇를 실행할 때 표시되고 [Node.js echobot-with-counter](https://aka.ms/js-echobot-with-counter) 샘플을 참조할 수 있습니다.
 
 ### <a name="packagejson"></a>package.json
 

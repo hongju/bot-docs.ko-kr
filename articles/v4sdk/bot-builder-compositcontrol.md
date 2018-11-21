@@ -1,5 +1,5 @@
 ---
-title: 대화 상자의 통합된 집합 만들기 | Microsoft Docs
+title: 다이얼로그 다시 사용 | Microsoft Docs
 description: Node.js 및 C#용 Bot Builder SDK에서 dialog 컨테이너를 사용하여 봇 논리를 모듈화하는 방법을 알아봅니다.
 keywords: 복합 컨트롤, 모듈식 봇 논리
 author: v-ducvo
@@ -8,16 +8,16 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
-ms.date: 10/08/2018
+ms.date: 11/08/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 0fdb80e45b343faa0eac50db045637e1ee61186e
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: 5e1ddbef6181e265213ffa1fdcb65909e524be51
+ms.sourcegitcommit: cb0b70d7cf1081b08eaf1fddb69f7db3b95b1b09
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49999795"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51332997"
 ---
-# <a name="create-an-integrated-set-of-dialogs"></a>대화 상자의 통합된 집합 만들기
+# <a name="reuse-dialogs"></a>대화 상자 재사용
 
 [!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
 

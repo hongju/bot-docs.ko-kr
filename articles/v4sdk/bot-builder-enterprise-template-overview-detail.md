@@ -8,17 +8,17 @@ ms.topic: article
 ms.service: bot-service
 ms.date: 09/18/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 2ee47d472518e54cf07b86648e270e40f8f015c0
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: 3b4c16478e9d6f4f1c1a33315fb8c6c772c37b71
+ms.sourcegitcommit: 8b7bdbcbb01054f6aeb80d4a65b29177b30e1c20
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49997230"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51645623"
 ---
 # <a name="enterprise-template---detailed-overview"></a>엔터프라이즈 템플릿 - 자세한 개요
 
 > [!NOTE]
-> 이 항목은 SDK v4 버전에 적용됩니다. 
+> 이 토픽은 SDK v4 버전에 적용됩니다. 
 
 엔터프라이즈 봇 템플릿은 대화형 환경 구축을 통해 확인한 여러 우수 사례를 결합하고, Azure Bot Service 개발자에게 매우 유용한 것으로 밝혀진 구성 요소의 통합을 자동화합니다. 이 섹션에서는 템플릿이 작동하는 방식에 대한 이유를 설명하는 데 도움이 되는 주요 의사 결정에 대한 일부 배경에 대해 설명합니다.
 

@@ -8,14 +8,14 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: tools
-ms.date: 11/07/2018
+ms.date: 11/13/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 357f9fdc3da4c703dbcd5c1fa347176002006567
-ms.sourcegitcommit: a54a70106b9fdf278fd7270b25dd51c9bd454ab1
+ms.openlocfilehash: 5ffaf9a946e1a540b82819b7f745200f47384819
+ms.sourcegitcommit: 8b7bdbcbb01054f6aeb80d4a65b29177b30e1c20
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51273110"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51645663"
 ---
 # <a name="manage-bots-using-cli-tools"></a>CLI 도구를 사용하여 봇 관리
 
@@ -228,7 +228,7 @@ dispatch create -b <YOUR-BOT-FILE> | msbot connect dispatch --stdin
 
 ## <a name="test"></a>테스트
 
-[Bot Framework Emulator](https://github.com/Microsoft/BotFramework-Emulator/releases)는 봇 개발자가 localhost를 사용하거나 터널을 통해 원격으로 실행하여 봇을 테스트 및 디버그할 수 있는 데스크톱 응용 프로그램입니다.
+Bot Framework [에뮬레이터](bot-service-debug-emulator.md)는 봇 개발자가 localhost를 사용하거나 터널을 통해 원격으로 실행하여 봇을 테스트하고 디버그할 수 있는 데스크톱 애플리케이션입니다.
 
 ## <a name="publish"></a>게시
 

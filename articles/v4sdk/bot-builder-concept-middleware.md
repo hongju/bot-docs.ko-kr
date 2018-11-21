@@ -8,20 +8,20 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
-ms.date: 05/24/2018
+ms.date: 11/8/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 38d876e11d00a5471f2dcbfca44eb23290b7476c
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: 713a53947a8ea6681f1793f9796a86c6d8014e29
+ms.sourcegitcommit: cb0b70d7cf1081b08eaf1fddb69f7db3b95b1b09
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49997980"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51332927"
 ---
 # <a name="middleware"></a>미들웨어
 
 [!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
 
-미들웨어는 간단하게 말해서 어댑터와 봇 논리 사이에 위치하는 클래스로, 초기화하는 동안 어댑터의 미들웨어 컬렉션에 추가됩니다. SDK를 사용하면 사용자 고유의 미들웨어를 작성하거나 다른 사람이 만든 재사용 가능한 미들웨어 구성 요소를 추가할 수 있습니다. 봇으로 들어오거나 봇에서 나가는 모든 작업은 미들웨어를 통과합니다.
+미들웨어는 간단하게 말해서 어댑터와 봇 논리 사이에 위치하는 클래스로, 초기화하는 동안 어댑터의 미들웨어 컬렉션에 추가됩니다. SDK를 사용하면 사용자 고유의 미들웨어를 작성하거나 다른 사람이 만든 미들웨어를 추가할 수 있습니다. 봇으로 들어오거나 봇에서 나가는 모든 작업은 미들웨어를 통과합니다.
 
 어댑터는 봇 미들웨어 파이프라인을 통해 들어오는 작업을 처리하고 봇의 논리로 안내한 후 다시 밖으로 내보냅니다. 각 작업이 봇으로 들어가고 나올 때 미들웨어의 각 부분은 봇 논리가 실행되기 전과 후에 작업을 검사하거나 작업에 따라 작동합니다.
 
@@ -66,7 +66,7 @@ SDK는 들어오고 나가는 작업을 기록할 수 있는 로깅 미들웨어
 미들웨어 파이프라인의 마지막은 봇 관련 미들웨어로, 봇으로 전송된 모든 메시지에 대한 처리 작업을 수행하도록 구현하는 미들웨어입니다. 미들웨어가 상태 정보 또는 봇 컨텍스트에 설정된 기타 정보를 사용하는 경우 상태 또는 컨텍스트를 수정하는 미들웨어 뒤에 있는 미들웨어 파이프라인에 해당 미들웨어를 추가합니다.
 
 ## <a name="short-circuiting"></a>단락
-미들웨어(및 [응답 처리기](bot-builder-basics.md#response-event-handlers))와 관련된 중요한 개념 중 하나는 _단락_입니다. 이어지는 레이어를 통해 예외가 계속되는 경우 미들웨어(또는 응답 처리기)는 _다음_ 대리자를 호출하여 실행을 전달해야 합니다.  해당 미들웨어(또는 응답 처리기) 내에서 다음 대리자를 호출하지 않으면 연결된 파이프라인이 단락되고 후속 레이어가 실행되지 않습니다. 즉, 모든 봇 논리와 파이프라인에서 그 뒤에 있는 미들웨어를 건너뜁니다. 미들웨어와 응답 처리기의 순서 단락 간에는 미묘한 차이가 있습니다.
+미들웨어 및 응답 처리기와 관련된 중요한 개념 중 하나는 _단락_입니다. 이어지는 레이어를 통해 예외가 계속되는 경우 미들웨어(또는 응답 처리기)는 _다음_ 대리자를 호출하여 실행을 전달해야 합니다.  해당 미들웨어(또는 응답 처리기) 내에서 다음 대리자를 호출하지 않으면 연결된 파이프라인이 단락되고 후속 레이어가 실행되지 않습니다. 즉, 모든 봇 논리와 파이프라인에서 그 뒤에 있는 미들웨어를 건너뜁니다. 미들웨어와 응답 처리기의 순서 단락 간에는 미묘한 차이가 있습니다.
 
 미들웨어가 순서를 단락시키는 경우 봇 순서 처리기는 호출되지 않지만, 파이프라인에서 이 시점 전에 실행된 모든 미들웨어 코드는 완료될 때까지 계속 실행됩니다. 
 
@@ -75,5 +75,14 @@ SDK는 들어오고 나가는 작업을 기록할 수 있는 로깅 미들웨어
 > [!TIP]
 > `SendActivities`처럼 응답 이벤트를 단락시키는 경우 본인이 의도한 동작이어야 합니다. 그렇지 않으면 버그를 수정하기가 어려울 수 있습니다.
 
+## <a name="response-event-handlers"></a>응답 이벤트 처리기
+응용 프로그램 및 미들웨어 논리 외에도, 컨텍스트 개체에 응답 처리기(이벤트 처리기 또는 작업 이벤트 처리기라고도 함)를 추가할 수 있습니다. 이러한 처리기는 현재 컨텍스트 개체에서 관련 응답이 발생하면 실제 응답을 실행하기 전에 호출됩니다. 이러한 처리기는 실제 이벤트 전에 또는 후에 현재 응답의 나머지 부분에서 해당 형식의 모든 작업에 대해 무엇을 할 것인지 알고 있는 경우에 유용 합니다.
+
+> [!WARNING] 
+> 각 응답 이벤트 처리기 내부에서 작업 응답 메서드를 호출하지 않도록 주의해야 합니다. 예를 들어 on send activity 처리기 내에서 send activity 메서드를 호출하면 안 됩니다. 호출하면 무한 루프가 생성될 수 있습니다.
+
+새 작업마다 실행할 새 스레드가 생깁니다. 작업을 처리하는 스레드가 생성되면 해당 작업에 대한 처리기 목록이 해당하는 새 스레드에 복사됩니다. 해당 시점 이후 추가된 처리기는 해당 활동 이벤트에 대해 실행되지 않습니다.
+컨텍스트 개체에 등록된 처리기는 어댑터에서 미들웨어 파이프라인을 관리하는 방법과 매우 비슷하게 처리됩니다. 즉, 처리기는 추가된 순서대로 호출되며, 다음 대리자를 호출하면 등록된 그 다음 이벤트 처리기에 컨트롤이 전달됩니다. 처리기가 다음 대리자를 호출하지 않으면 후속 이벤트 처리기는 호출되지 않으며 단락 이벤트 및 어댑터는 채널에 응답을 보내지 않습니다.
+
 ## <a name="additional-resources"></a>추가 리소스
-Bot Builder SDK [[C#](https://github.com/Microsoft/botbuilder-dotnet/blob/master/libraries/Microsoft.Bot.Builder/TranscriptLoggerMiddleware.cs)|[JS](https://github.com/Microsoft/botbuilder-js/blob/master/libraries/botbuilder-core/src/transcriptLogger.ts)]에 구현된 대본 로거 미들웨어를 살펴볼 수 있습니다.
+Bot Builder SDK [[C#](https://github.com/Microsoft/botbuilder-dotnet/blob/master/libraries/Microsoft.Bot.Builder/TranscriptLoggerMiddleware.cs) | [JS](https://github.com/Microsoft/botbuilder-js/blob/master/libraries/botbuilder-core/src/transcriptLogger.ts)]에 구현된 대본 로거 미들웨어를 살펴볼 수 있습니다.

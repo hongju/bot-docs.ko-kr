@@ -8,17 +8,17 @@ ms.topic: article
 ms.service: bot-service
 ms.date: 09/18/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: fc7b168cc8c509b81539682a3717b54ed5c2109c
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: 4b85b0e2d3c1ae8c30ea9d5d9fa62783c2968744
+ms.sourcegitcommit: 8b7bdbcbb01054f6aeb80d4a65b29177b30e1c20
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49997120"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51645490"
 ---
 # <a name="enterprise-bot-template---creating-a-new-project"></a>엔터프라이즈 봇 템플릿 - 새 프로젝트 만들기
 
 > [!NOTE]
-> 이 항목은 SDK v4 버전에 적용됩니다. 
+> 이 토픽은 SDK v4 버전에 적용됩니다. 
 
 엔터프라이즈 봇 템플릿은 대화형 환경 구축을 통해 식별한 모범 사례와 지원 구성 요소를 모두 제공합니다. 템플릿을 사용할 수 있는 Bot Builder SDK 플랫폼은 다음과 같습니다.
 

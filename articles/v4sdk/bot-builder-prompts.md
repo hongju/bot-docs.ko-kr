@@ -1,7 +1,7 @@
 ---
-title: 대화 상자 라이브러리를 사용하여 사용자 입력 수집 | Microsoft Docs
+title: 대화 상자 프롬프트를 사용하여 사용자 입력 수집 | Microsoft Docs
 description: Bot Builder SDK의 대화 상자 라이브러리를 사용하여 사용자에게 입력을 요청하는 방법에 대해 알아봅니다.
-keywords: prompts, dialogs, AttachmentPrompt, ChoicePrompt, ConfirmPrompt, DatetimePrompt, NumberPrompt, TextPrompt, reprompt, validation
+keywords: prompts, prompt, user input, dialogs, AttachmentPrompt, ChoicePrompt, ConfirmPrompt, DatetimePrompt, NumberPrompt, TextPrompt, reprompt, validation
 author: JonathanFingold
 ms.author: v-jofing
 manager: kamrani
@@ -10,22 +10,18 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 11/02/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 150d5f0a68d897ac278026a7cf36609aca05bb80
-ms.sourcegitcommit: 984705927561cc8d6a84f811ff24c8c71b71c76b
+ms.openlocfilehash: ec0cc5e942ed66c8683f8b0cc92ba7df2e36db42
+ms.sourcegitcommit: 8b7bdbcbb01054f6aeb80d4a65b29177b30e1c20
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50965721"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51645673"
 ---
-# <a name="use-dialog-library-to-gather-user-input"></a>대화 상자 라이브러리를 사용하여 사용자 입력 수집
+# <a name="gather-user-input-using-a-dialog-prompt"></a>대화 상자 프롬프트를 사용하여 사용자 입력 수집
 
 [!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
 
 질문을 게시하여 정보를 수집하는 것은 봇이 사용자와 상호 작용하는 주요 방법 중 하나입니다. [순서 컨텍스트](~/v4sdk/bot-builder-basics.md#defining-a-turn) 개체의 _보내기 작업_ 메서드를 사용하여 직접 이렇게 한 후 그 다음으로 들어오는 메시지를 응답으로 처리할 수 있습니다. 그러나 Bot Builder SDK는 쉽게 질문하고, 응답이 특정 데이터 형식과 일치하는지 또는 사용자 지정 유효성 검사 규칙을 충족하는지 확인할 수 있도록 설계된 메서드를 제공하는 [대화 라이브러리](bot-builder-concept-dialog.md)를 제공합니다. 이 항목에서는 프롬프트 개체를 사용하여 사용자에게 입력을 요청하는 방법을 설명합니다.
-
-이 문서에서는 프롬프트를 만들고 대화 내에서 이를 호출하는 방법에 대해 설명합니다.
-대화를 사용하지 않고 입력 프롬프트를 표시하는 방법은 [사용자 고유의 프롬프트를 사용하여 사용자에게 입력 프롬프트 표시](bot-builder-primitive-prompts.md)를 참조하세요.
-일반적으로 대화를 사용하는 방법은 [대화를 사용하여 간단한 대화 흐름 관리](bot-builder-dialog-manage-conversation-flow.md)를 참조하세요.
 
 ## <a name="prompt-types"></a>프롬프트 형식
 
@@ -53,7 +49,7 @@ ms.locfileid: "50965721"
 1. 대화 상태에 대한 상태 속성 접근자를 정의합니다.
 1. 대화 집합을 만듭니다.
 1. 프롬프트를 만들고 대화 집합에 추가합니다.
-1. 프롬프트를 사용할 대화를 만들고 대화 집합에 추가합니다.
+1. 프롬프트를 사용할 대화 상자를 만들고 대화 상자 집합에 추가합니다.
 1. 대화 내에서 호출을 프롬프트에 추가하고 프롬프트 결과를 검색합니다.
 
 이 문서에서는 프롬프트를 만드는 방법과 폭포 대화에서 이를 호출하는 방법에 대해 설명합니다.
@@ -431,13 +427,6 @@ constructor(conversationState) {
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ```csharp
-/// <summary>Validates whether the party size is appropriate to make a reservation.</summary>
-/// <param name="promptContext">The validation context.</param>
-/// <param name="cancellationToken">A cancellation token that can be used by other objects
-/// or threads to receive notice of cancellation.</param>
-/// <returns>A task that represents the work queued to execute.</returns>
-/// <remarks>Reservations can be made for groups of 6 to 20 people.
-/// If the task is successful, the result indicates whether the input was valid.</remarks>
 private async Task<bool> PartySizeValidatorAsync(
     PromptValidatorContext<int> promptContext,
     CancellationToken cancellationToken)
@@ -469,7 +458,7 @@ private async Task<bool> PartySizeValidatorAsync(
 
 ```javascript
 async partySizeValidator(promptContext) {
-    // Check whether the input could be recognized as an integer.
+    // Check whether the input could be recognized as date.
     if (!promptContext.recognized.succeeded) {
         await promptContext.context.sendActivity(
             "I'm sorry, I do not understand. Please enter the number of people in your party.");
@@ -503,13 +492,8 @@ async partySizeValidator(promptContext) {
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ```csharp
-/// <summary>Validates whether the reservation date is appropriate.</summary>
-/// <param name="promptContext">The validation context.</param>
-/// <param name="cancellationToken">A cancellation token that can be used by other objects
-/// or threads to receive notice of cancellation.</param>
-/// <returns>A task that represents the work queued to execute.</returns>
-/// <remarks>Reservations must be made at least an hour in advance.
-/// If the task is successful, the result indicates whether the input was valid.</remarks>
+// Validates whether the reservation date is appropriate.
+// Reservations must be made at least an hour in advance.
 private async Task<bool> DateValidatorAsync(
     PromptValidatorContext<IList<DateTimeResolution>> promptContext,
     CancellationToken cancellationToken = default(CancellationToken))
@@ -584,12 +568,7 @@ return false;
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ```csharp
-/// <summary>First step of the main dialog: prompt for party size.</summary>
-/// <param name="stepContext">The context for the waterfall step.</param>
-/// <param name="cancellationToken">A cancellation token that can be used by other objects
-/// or threads to receive notice of cancellation.</param>
-/// <returns>A task that represents the work queued to execute.</returns>
-/// <remarks>If the task is successful, the result contains information from this step.</remarks>
+// First step of the main dialog: prompt for party size.
 private async Task<DialogTurnResult> PromptForPartySizeAsync(
     WaterfallStepContext stepContext,
     CancellationToken cancellationToken = default(CancellationToken))
@@ -605,13 +584,8 @@ private async Task<DialogTurnResult> PromptForPartySizeAsync(
         cancellationToken);
 }
 
-/// <summary>Second step of the main dialog: record the party size and prompt for the
-/// reservation date.</summary>
-/// <param name="stepContext">The context for the waterfall step.</param>
-/// <param name="cancellationToken">A cancellation token that can be used by other objects
-/// or threads to receive notice of cancellation.</param>
-/// <returns>A task that represents the work queued to execute.</returns>
-/// <remarks>If the task is successful, the result contains information from this step.</remarks>
+// Second step of the main dialog: record the party size and prompt for the
+// reservation date.
 private async Task<DialogTurnResult> PromptForReservationDateAsync(
     WaterfallStepContext stepContext,
     CancellationToken cancellationToken = default(CancellationToken))
@@ -631,12 +605,7 @@ private async Task<DialogTurnResult> PromptForReservationDateAsync(
         cancellationToken);
 }
 
-/// <summary>Third step of the main dialog: return the collected party size and reservation date.</summary>
-/// <param name="stepContext">The context for the waterfall step.</param>
-/// <param name="cancellationToken">A cancellation token that can be used by other objects
-/// or threads to receive notice of cancellation.</param>
-/// <returns>A task that represents the work queued to execute.</returns>
-/// <remarks>If the task is successful, the result contains information from this step.</remarks>
+// Third step of the main dialog: return the collected party size and reservation date.
 private async Task<DialogTurnResult> AcknowledgeReservationAsync(
     WaterfallStepContext stepContext,
     CancellationToken cancellationToken = default(CancellationToken))
@@ -822,8 +791,6 @@ async onTurn(turnContext) {
 
 ---
 
-추가 예제는 [리포지토리 샘플](https://aka.ms/bot-samples-readme)에서 찾을 수 있습니다.
-
 비슷한 기법을 사용하여 프롬프트 형식 중 하나에 대한 프롬프트 응답의 유효성을 검사할 수 있습니다.
 
 ## <a name="handling-prompt-results"></a>프롬프트 결과 처리
@@ -834,19 +801,10 @@ async onTurn(turnContext) {
 * 폭포 단계 컨텍스트의 _values_ 속성에 값을 설정하는 것과 같은 대화의 상태 정보를 캐시한 다음, 대화가 종료되면 수집된 정보를 반환합니다.
 * 정보를 봇 상태에 저장합니다. 이렇게 하려면 봇의 상태 속성 접근자에 액세스할 수 있도록 대화를 설계해야 합니다.
 
-이러한 시나리오를 다루는 항목 및 샘플에 대한 추가 리소스를 참조하세요.
-
 ## <a name="additional-resources"></a>추가 리소스
-
-* [간단한 대화 흐름 관리](bot-builder-dialog-manage-conversation-flow.md)
-* [복잡한 대화 흐름 관리](bot-builder-dialog-manage-complex-conversation-flow.md)
-* [대화 상자의 통합된 집합 만들기](bot-builder-compositcontrol.md)
-* [대화 상자에 데이터 유지](bot-builder-tutorial-persist-user-inputs.md)
-* **다중 턴 프롬프트** 샘플([C#](https://aka.ms/cs-multi-prompts-sample) | [JS](https://aka.ms/js-multi-prompts-sample))
+여러 프롬프트에 대해 자세히 알아보려면 [[C#](https://aka.ms/cs-multi-prompts-sample) 또는 [JS](https://aka.ms/js-multi-prompts-sample)]에서 샘플을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-사용자에게 입력을 확인하는 방법에 대해 배웠으므로 대화 상자를 통해 다양한 대화 흐름을 관리하여 봇 코드 및 사용자 환경을 향상시켜보겠습니다.
-
 > [!div class="nextstepaction"]
-> [복잡한 대화 흐름 관리](bot-builder-dialog-manage-complex-conversation-flow.md)
+> [기본 순차적 대화 흐름 구현](bot-builder-dialog-manage-conversation-flow.md)

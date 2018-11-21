@@ -1,23 +1,23 @@
 ---
-title: 사전 대응 메시지를 사용하는 방법 | Microsoft Docs
-description: 봇을 통해 자동 관리 메시지를 보내는 방법을 알아봅니다.
-keywords: 사전 대응 메시지
+title: 봇에서 알림 받기 | Microsoft Docs
+description: 알림 메시지를 보내는 방법 이해
+keywords: 자동 관리 메시지, 알림 메시지, 봇 알림
 author: jonathanfingold
 ms.author: jonathanfingold
 manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
-ms.date: 09/27/2018
+ms.date: 11/08/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 032d7027db3ce83c54bbacf913c2021a22c3f356
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: fac1e026ac92fcbe1b5c5bb9363c29e1d9e9b02a
+ms.sourcegitcommit: b6327fa0b4547556d2d45d8910796e0c02948e43
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49997590"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51681590"
 ---
-# <a name="how-to-use-proactive-messaging"></a>사전 대응 메시지를 사용하는 방법
+# <a name="get-notification-from-a-bot"></a>봇에서 알림 받기
 
 [!INCLUDE [pre-release-label](~/includes/pre-release-label.md)]
 
@@ -38,111 +38,67 @@ ms.locfileid: "49997590"
 
 알림을 더 원활하게 처리하려면 대화 상태에 플래그를 설정하거나 알림을 큐에 추가하는 것처럼 알림을 대화 흐름에 통합하는 다른 방법을 사용하는 것이 좋습니다.
 
-## <a name="prerequisites"></a>필수 조건
+### <a name="prerequisites"></a>필수 조건
+- [ C# ](https://aka.ms/proactive-sample-cs) 또는 [JS](https://aka.ms/proactive-sample-js)의 **자동 관리 메시지 샘플**의 복사본
+- JS의 경우 Node.js용 [Bot Builder](https://www.npmjs.com/package/botbuilder) 설치
 
-자동 관리 메시지를 보내려면 봇에 유효한 앱 ID와 암호가 있어야 합니다. 그러나 Emulator의 로컬 테스트에서는 자리 표시자 앱 ID를 사용할 수 있습니다.
 
-봇에 사용할 앱 ID와 암호를 가져오려면 [Azure Portal](https://portal.azure.com)에 로그인하고 **봇 채널 등록** 리소스를 만들 수 있습니다. 그런 다음, 테스트를 위해 Azure에 배포할 필요 없이 봇의 앱 ID와 암호를 로컬로 사용할 수 있습니다.
+### <a name="about-the-sample-code"></a>샘플 코드 정보
 
-> [!TIP]
-> 아직 구독이 없는 경우 <a href="https://azure.microsoft.com/en-us/free/" target="_blank">체험 계정</a>으로 등록할 수 있습니다.
+자동 관리 메시지 샘플은 명확하지 않은 시간이 걸릴 수 있는 사용자 작업을 모델링합니다. 봇은 작업에 대한 정보를 저장하고, 작업이 완료되면 다시 돌아간다고 사용자에게 알리고, 대화를 진행합니다. 작업이 완료되면 봇은 원래 대화에서 확인 메시지를 미리 보냅니다.
 
-### <a name="required-libraries"></a>필수 라이브러리
+#### <a name="define-job-data-and-state"></a>작업 데이터 및 상태 정의
 
-BotBuilder 템플릿 중 하나에서 시작하면 필요한 라이브러리가 설치됩니다. 자동 관리 메시지에 필요한 특정 BotBuilder 라이브러리는 다음과 같습니다.
-
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
-
-**Microsoft.Bot.Builder.Integration.AspNet.Core** NuGet 패키지 (이 패키지를 설치하면 **Microsoft.Bot.Builder** 패키지도 설치됩니다.)
-
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
-
-**Microsoft.Bot.Builder** npm 패키지
-
----
-
-## <a name="notes-on-the-sample-code"></a>샘플 코드에 대한 참고 사항
-
-이 문서의 코드는 [[C#](https://aka.ms/proactive-sample-cs) | [JS](https://aka.ms/proactive-sample-js)] 자동 관리 메시지 샘플에서 가져온 것입니다.
-
-이 샘플은 명확하지 않은 시간이 걸릴 수 있는 사용자 작업을 모델링합니다. 봇은 작업에 대한 정보를 저장하고, 작업이 완료되면 다시 돌아간다고 사용자에게 알리고, 대화를 진행합니다. 작업이 완료되면 봇은 원래 대화에서 확인 메시지를 미리 보냅니다.
-
-## <a name="define-job-data-and-state"></a>작업 데이터 및 상태 정의
-
-이 시나리오에서는 다양한 사용자가 여러 대화에서 만들 수 있는 임의의 작업을 추적합니다. 대화 참조와 작업 식별자를 포함하여 각 작업에 대한 정보를 저장해야 합니다.
-
-- 적절한 대화에 자동 관리 메시지를 보낼 수 있도록 대화 참조가 필요합니다.
-- 작업을 확인하는 방법이 필요합니다. 다음 예제에서는 간단한 타임스탬프를 사용합니다.
-- 대화 또는 사용자 상태와 관계없이 작업 상태를 저장해야 합니다.
+이 시나리오에서는 다양한 사용자가 여러 대화에서 만들 수 있는 임의의 작업을 추적합니다. 대화 참조와 작업 식별자를 포함하여 각 작업에 대한 정보를 저장해야 합니다. 다음이 필요합니다.
+- 적절한 대화에 자동 관리 메시지를 보낼 수 있도록 대화 참조
+- 작업을 확인하는 방법 다음 예제에서는 간단한 타임스탬프를 사용합니다.
+- 대화 또는 사용자 상태와 관계없이 작업 상태를 저장하려고 합니다.
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 작업 데이터와 작업 상태에 대한 클래스를 정의해야 합니다. 또한 봇을 등록하고, 작업 로그에 대한 상태 속성 접근자를 설정해야 합니다.
 
-### <a name="define-a-class-for-job-data"></a>작업 데이터에 대한 클래스 정의
+#### <a name="define-a-class-for-job-data"></a>작업 데이터에 대한 클래스 정의
 
-**JobLog** 클래스는 작업 번호(타임스탬프)로 인덱싱된 작업 데이터를 추적합니다. 작업 데이터는 사전의 내부 클래스로 정의됩니다.
+`JobLog` 클래스는 작업 번호(타임스탬프)로 인덱싱된 작업 데이터를 추적합니다. `JobLog` 클래스는 처리 중인 모든 작업을 추적합니다.  고유 키로 각 작업을 식별합니다. `Job data`는 작업의 상태를 설명하고 사전의 내부 클래스로 정의됩니다.
 
 ```csharp
-/// <summary>Contains a dictionary of job data, indexed by job number.</summary>
-/// <remarks>The JobLog class tracks all the outstanding jobs.  Each job is
-/// identified by a unique key.</remarks>
 public class JobLog : Dictionary<long, JobLog.JobData>
 {
-    /// <summary>Describes the state of a job.</summary>
     public class JobData
     {
-        /// <summary>Gets or sets the time-stamp for the job.</summary>
-        /// <value>
-        /// The time-stamp for the job when the job needs to fire.
-        /// </value>
+        // Gets or sets the time-stamp for the job.
         public long TimeStamp { get; set; } = 0;
 
-        /// <summary>Gets or sets a value indicating whether indicates whether the job has completed.</summary>
-        /// <value>
-        /// A value indicating whether indicates whether the job has completed.
-        /// </value>
+        // Gets or sets a value indicating whether indicates whether the job has completed.
         public bool Completed { get; set; } = false;
 
-        /// <summary>
-        /// Gets or sets the conversation reference to which to send status updates.
-        /// </summary>
-        /// <value>
-        /// The conversation reference to which to send status updates.
-        /// </value>
+        // Gets or sets the conversation reference to which to send status updates.
         public ConversationReference Conversation { get; set; }
     }
 }
 ```
 
-### <a name="define-a-state-middleware-class"></a>상태 미들웨어 클래스 정의
+#### <a name="define-a-state-middleware-class"></a>상태 미들웨어 클래스 정의
 
 **JobState** 클래스는 대화 또는 사용자 상태와 관계없이 작업 상태를 관리합니다.
 
 ```csharp
 using Microsoft.Bot.Builder;
 
-/// <summary>A <see cref="BotState"/> for managing bot state for "bot jobs".</summary>
-/// <remarks>Independent from both <see cref="UserState"/> and <see cref="ConversationState"/> because
-/// the process of running the jobs and notifying the user interacts with the
-/// bot as a distinct user on a separate conversation.</remarks>
+/// A BotState for managing bot state for "bot jobs".
 public class JobState : BotState
 {
-    /// <summary>The key used to cache the state information in the turn context.</summary>
+    // The key used to cache the state information in the turn context.
     private const string StorageKey = "ProactiveBot.JobState";
 
-    /// <summary>
-    /// Initializes a new instance of the <see cref="JobState"/> class.</summary>
-    /// <param name="storage">The storage provider to use.</param>
+    // Initializes a new instance of the JobState class.
     public JobState(IStorage storage)
         : base(storage, StorageKey)
     {
     }
 
-    /// <summary>Gets the storage key for caching state information.</summary>
-    /// <param name="turnContext">A <see cref="ITurnContext"/> containing all the data needed
-    /// for processing this conversation turn.</param>
-    /// <returns>The storage key.</returns>
+    // Gets the storage key for caching state information.
     protected override string GetStorageKey(ITurnContext turnContext) => StorageKey;
 }
 ```
@@ -150,24 +106,6 @@ public class JobState : BotState
 ### <a name="register-the-bot-and-required-services"></a>봇 및 필요한 서비스 등록
 
 **Startup.cs** 파일은 봇 및 관련 서비스를 등록합니다.
-
-1. using 문 집합은 다음 네임스페이스를 참조하도록 확장됩니다.
-
-    ```csharp
-    using System;
-    using System.Linq;
-    using Microsoft.AspNetCore.Builder;
-    using Microsoft.AspNetCore.Hosting;
-    using Microsoft.Bot.Builder;
-    using Microsoft.Bot.Builder.Integration;
-    using Microsoft.Bot.Builder.Integration.AspNet.Core;
-    using Microsoft.Bot.Configuration;
-    using Microsoft.Bot.Connector.Authentication;
-    using Microsoft.Extensions.Configuration;
-    using Microsoft.Extensions.DependencyInjection;
-    using Microsoft.Extensions.Logging;
-    using Microsoft.Extensions.Options;
-    ```
 
 1. `ConfigureServices` 메서드는 오류 처리 및 상태 관리를 포함하여 봇을 등록합니다. 또한 봇의 엔드포인트 서비스 및 작업 상태 접근자를 등록합니다.
 
@@ -233,20 +171,12 @@ public class JobState : BotState
 
 # <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
-### <a name="set-up-the-server-code"></a>서버 코드 설정
-
-**index.js** 파일은 다음을 수행합니다.
-
-- 필요한 패키지 및 서비스 포함
+**index.js** 파일의 코드는 다음을 수행합니다.
 - 봇 클래스 및 **.bot** 파일 참조
-- HTTP 서버 만들기
-- 봇 어댑터 및 저장소 개체 만들기
+- HTTP 서버, 봇 어댑터 및 스토리지 개체 만들기
 - 봇 만들기, 서버 시작 및 봇에 활동 전달
 
 ```javascript
-// Copyright (c) Microsoft Corporation. All rights reserved.
-// Licensed under the MIT License.
-
 const restify = require('restify');
 const path = require('path');
 
@@ -329,24 +259,15 @@ adapter.onTurnError = async (context, error) => {
 
 ---
 
-<!--TODO: (Post-Ignite) -- link to a second topic on how to write a job completion DirectLine client that will generate appropriate job completed event activities.-->
+### <a name="define-the-bot"></a>봇 정의
 
-## <a name="define-the-bot"></a>봇 정의
-
-사용자는 작업을 만들고 실행하도록 봇에 요청할 수 있습니다. 작업이 완료되면 별도의 작업 서비스에서 봇에 알릴 수 있습니다.
-
-봇은 다음과 같이 설계되었습니다.
+사용자는 작업을 만들고 실행하도록 봇에 요청할 수 있습니다. 작업이 완료되면 별도의 작업 서비스에서 봇에 알릴 수 있습니다. 봇은 다음과 같이 설계되었습니다.
 
 - 사용자의 `run` 또는 `run job` 메시지에 대한 응답으로 작업을 만듭니다.
 - 사용자의 `show` 또는 `show jobs` 메시지에 대한 응답으로 등록된 모든 작업을 표시합니다.
 - 완료된 작업을 식별하는 _작업 완료됨_ 이벤트에 대한 응답으로 작업을 완료합니다.
 - `done <jobIdentifier>` 메시지에 대한 응답으로 작업 완료됨 이벤트를 시뮬레이션합니다.
 - 작업이 완료되면 원래 대화를 사용하여 사용자에게 자동 관리 메시지를 보냅니다.
-
-봇에 이벤트 활동을 보낼 수 있는 시스템을 구현하는 방법을 보여 주지 않습니다.
-<!--TODO: DirectLine--Add back in once the DirectLine topic is added back to the TOC.
-See [how to create a Direct Line bot and client](bot-builder-howto-direct-line.md) for information on how to do so.
--->
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
@@ -356,29 +277,19 @@ See [how to create a Direct Line bot and client](bot-builder-howto-direct-line.m
 - 순서 처리기
 - 작업 만들기 및 완료 메서드
 
-### <a name="declare-the-class"></a>클래스 선언
+#### <a name="declare-the-class"></a>클래스 선언
 
 ```csharp
-using System;
-using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.Bot.Builder;
-using Microsoft.Bot.Configuration;
-using Microsoft.Bot.Schema;
-
 namespace Microsoft.BotBuilderSamples
 {
-    /// <summary>
-    /// For each interaction from the user, an instance of this class is called.
-    /// This is a Transient lifetime service.  Transient lifetime services are created
-    /// each time they're requested. For each Activity received, a new instance of this
-    /// class is created. Objects that are expensive to construct, or have a lifetime
-    /// beyond the single Turn, should be carefully managed.
-    /// </summary>
+    // For each interaction from the user, an instance of this class is called.
+    // This is a Transient lifetime service.  Transient lifetime services are created
+    // each time they're requested. For each Activity received, a new instance of this
+    // class is created. Objects that are expensive to construct, or have a lifetime
+    // beyond the single Turn, should be carefully managed.
     public class ProactiveBot : IBot
     {
-        /// <summary>The name of events that signal that a job has completed.</summary>
+        // The name of events that signal that a job has completed.
         public const string JobCompleteEventName = "jobComplete";
 
         public const string WelcomeText = "Type 'run' or 'run job' to start a new job.\r\n" +
@@ -388,7 +299,7 @@ namespace Microsoft.BotBuilderSamples
 }
 ```
 
-### <a name="add-initialization-code"></a>초기화 코드 추가
+#### <a name="add-initialization-code"></a>초기화 코드 추가
 
 ```csharp
 private readonly JobState _jobState;
@@ -407,14 +318,13 @@ public ProactiveBot(JobState jobState, EndpointService endpointService)
 private string AppId { get; }
 ```
 
-### <a name="add-a-turn-handler"></a>순서 처리기 추가
+#### <a name="add-a-turn-handler"></a>순서 처리기 추가
 
 모든 봇에서 순서 처리기를 구현해야 합니다. 어댑터는 이 메서드에 활동을 전달합니다.
 
 ```csharp
 public async Task OnTurnAsync(ITurnContext turnContext, CancellationToken cancellationToken = default(CancellationToken))
 {
-    // See https://aka.ms/about-bot-activity-message to learn more about the message and other activity types.
     if (turnContext.Activity.Type != ActivityTypes.Message)
     {
         // Handle non-message activities.
@@ -537,7 +447,7 @@ private async Task OnSystemActivityAsync(ITurnContext turnContext)
 }
 ```
 
-### <a name="add-job-creation-and-completion-methods"></a>작업 만들기 및 완료 메서드 추가
+#### <a name="add-job-creation-and-completion-methods"></a>작업 만들기 및 완료 메서드 추가
 
 작업을 시작하기 위해 봇에서 작업을 만들고, 이 작업에 대한 정보와 현재 대화를 작업 로그에 기록합니다. 봇은 모든 대화에서 작업 완료됨 이벤트를 받으면 작업 ID의 유효성을 검사한 후에 코드를 호출하여 작업을 완료합니다.
 
@@ -602,7 +512,7 @@ private BotCallbackHandler CreateCallback(JobLog.JobData jobInfo)
 - 순서 처리기
 - 작업 만들기 및 완료 메서드
 
-### <a name="declare-the-class-and-add-initialization-code"></a>클래스 선언 및 초기화 코드 추가
+#### <a name="declare-the-class-and-add-initialization-code"></a>클래스 선언 및 초기화 코드 추가
 
 ```javascript
 const { ActivityTypes, TurnContext } = require('botbuilder');
@@ -633,7 +543,7 @@ function isEmpty(obj) {
 module.exports.ProactiveBot = ProactiveBot;
 ```
 
-### <a name="the-turn-handler"></a>순서 처리기
+#### <a name="the-turn-handler"></a>순서 처리기
 
 `onTurn` 및 `showJobs` 메서드는 `ProactiveBot` 클래스 내에 정의됩니다. `onTurn`은 사용자의 입력을 처리합니다. 또한 가상 작업 처리 시스템에서 이벤트 활동도 받습니다. `showJobs`는 작업 로그를 형식 지정하고 보냅니다.
 
@@ -695,7 +605,7 @@ async showJobs(turnContext) {
 }
 ```
 
-### <a name="logic-to-start-a-job"></a>작업 시작 논리
+#### <a name="logic-to-start-a-job"></a>작업 시작 논리
 
 `createJob` 메서드는 `ProactiveBot` 클래스 내에 정의됩니다. 사용자에 대한 새 작업을 만들고 기록합니다. 이론적으로 이 정보는 작업 처리 시스템에도 전달합니다.
 
@@ -738,7 +648,7 @@ async createJob(turnContext) {
 }
 ```
 
-### <a name="logic-to-complete-a-job"></a>작업 완료 논리
+#### <a name="logic-to-complete-a-job"></a>작업 완료 논리
 
 `completeJob` 메서드는 `ProactiveBot` 클래스 내에 정의됩니다. 일부 기록을 수행하고, 원래 대화 중이었던 사용자에게 해당 작업이 완료되었다는 자동 관리 메시지를 보냅니다.
 
@@ -783,7 +693,7 @@ async completeJob(turnContext, jobIdNumber) {
 
 ---
 
-## <a name="test-your-bot"></a>봇 테스트
+### <a name="test-your-bot"></a>봇 테스트
 
 봇을 로컬로 실행하고, 두 개의 Emulator 창을 엽니다.
 
