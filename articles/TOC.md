@@ -14,9 +14,9 @@
 # 개념
 ## [봇 작동 방식](v4sdk/bot-builder-basics.md)
 ## [봇 파일을 사용하여 봇 리소스 관리](v4sdk/bot-file-basics.md)
+## [상태 관리](v4sdk/bot-builder-concept-state.md)
 ## [미들웨어](v4sdk/bot-builder-concept-middleware.md)
-## [정보 대화 상자 라이브러리](v4sdk/bot-builder-concept-dialog.md)
-## [대화 상자 상태 이해](v4sdk/bot-builder-dialog-state.md)
+## [다이얼로그 라이브러리](v4sdk/bot-builder-concept-dialog.md)
 <!-- [Language understanding](v4sdk/bot-builder-concept-luis.md) -->
 ## [Bot Service 템플릿](bot-service-concept-templates.md)
 ## [Cognitive Services](bot-service-concept-intelligence.md)
