@@ -13,10 +13,10 @@
 ## [GitHub의 샘플 리포지토리](https://github.com/Microsoft/BotBuilder-Samples/blob/master/readme.md)
 # 개념
 ## [봇 작동 방식](v4sdk/bot-builder-basics.md)
-## [봇 파일을 사용하여 봇 리소스 관리](v4sdk/bot-file-basics.md)
 ## [상태 관리](v4sdk/bot-builder-concept-state.md)
-## [미들웨어](v4sdk/bot-builder-concept-middleware.md)
 ## [다이얼로그 라이브러리](v4sdk/bot-builder-concept-dialog.md)
+## [미들웨어](v4sdk/bot-builder-concept-middleware.md)
+## [.bot 파일을 사용하여 리소스 관리](v4sdk/bot-file-basics.md)
 <!-- [Language understanding](v4sdk/bot-builder-concept-luis.md) -->
 ## [Bot Service 템플릿](bot-service-concept-templates.md)
 ## [Cognitive Services](bot-service-concept-intelligence.md)
