@@ -7,7 +7,7 @@
 ### [.NET](dotnet/bot-builder-dotnet-sdk-quickstart.md)
 ### [JavaScript](javascript/bot-builder-javascript-quickstart.md)
 # 자습서
-## [디스패치 도구와 함께 LUIS 앱 및 QnA 서비스 사용](v4sdk/bot-builder-tutorial-dispatch.md)
+## [다중 LUIS 및 QnA 모델 사용](v4sdk/bot-builder-tutorial-dispatch.md)
 ## [봇에 인증 추가](bot-builder-tutorial-authentication.md)
 # 샘플
 ## [GitHub의 샘플 리포지토리](https://github.com/Microsoft/BotBuilder-Samples/blob/master/readme.md)
