@@ -10,12 +10,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 11/8/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 713a53947a8ea6681f1793f9796a86c6d8014e29
-ms.sourcegitcommit: cb0b70d7cf1081b08eaf1fddb69f7db3b95b1b09
+ms.openlocfilehash: bd431da58d13f3024617900bbeabd8007a2e3bb8
+ms.sourcegitcommit: 6cb37f43947273a58b2b7624579852b72b0e13ea
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51332927"
+ms.lasthandoff: 11/22/2018
+ms.locfileid: "52288803"
 ---
 # <a name="middleware"></a>미들웨어
 
@@ -83,6 +83,16 @@ SDK는 들어오고 나가는 작업을 기록할 수 있는 로깅 미들웨어
 
 새 작업마다 실행할 새 스레드가 생깁니다. 작업을 처리하는 스레드가 생성되면 해당 작업에 대한 처리기 목록이 해당하는 새 스레드에 복사됩니다. 해당 시점 이후 추가된 처리기는 해당 활동 이벤트에 대해 실행되지 않습니다.
 컨텍스트 개체에 등록된 처리기는 어댑터에서 미들웨어 파이프라인을 관리하는 방법과 매우 비슷하게 처리됩니다. 즉, 처리기는 추가된 순서대로 호출되며, 다음 대리자를 호출하면 등록된 그 다음 이벤트 처리기에 컨트롤이 전달됩니다. 처리기가 다음 대리자를 호출하지 않으면 후속 이벤트 처리기는 호출되지 않으며 단락 이벤트 및 어댑터는 채널에 응답을 보내지 않습니다.
+
+## <a name="handling-state-in-middleware"></a>미들웨어의 상태 처리
+
+상태를 저장하는 일반적인 방법은 턴 처리기의 끝에서 변경 내용 저장 메서드를 호출하는 것입니다. 호출에 초점을 맞춘 다이어그램은 다음과 같습니다.
+
+![상태 미들웨어 문제](media/bot-builder-dialog-state-problem.png)
+
+이 방법의 문제는 봇의 턴 처리기가 반환되면 발생하는 일부 사용자 지정 미들웨어에서 수행된 모든 상태 업데이트가 지속형 스토리지에 저장되지 않는다는 것입니다. 해결 방법은 AutoSaveChangesMiddleware를 미들웨어 스택의 시작 부분 또는 적어도 상태를 업데이트할 수 있는 미들웨어 앞에 추가하여 호출을 변경 내용 저장 메서드로 이동하는 것입니다. 실행은 아래와 같습니다.
+
+![상태 미들웨어 해결 방법](media/bot-builder-dialog-state-solution.png)
 
 ## <a name="additional-resources"></a>추가 리소스
 Bot Builder SDK [[C#](https://github.com/Microsoft/botbuilder-dotnet/blob/master/libraries/Microsoft.Bot.Builder/TranscriptLoggerMiddleware.cs) | [JS](https://github.com/Microsoft/botbuilder-js/blob/master/libraries/botbuilder-core/src/transcriptLogger.ts)]에 구현된 대본 로거 미들웨어를 살펴볼 수 있습니다.

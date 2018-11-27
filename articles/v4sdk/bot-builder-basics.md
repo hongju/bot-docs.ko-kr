@@ -8,14 +8,14 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
-ms.date: 11/08/2018
+ms.date: 11/15/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 852740695f4d5719ba4dc4cc3d49c6820d95b3ef
-ms.sourcegitcommit: cb0b70d7cf1081b08eaf1fddb69f7db3b95b1b09
+ms.openlocfilehash: 15cd6c998abf37b1c7b9a9e2659b7390370f7f10
+ms.sourcegitcommit: d92fd6233295856052305e0d9e3cba29c9ef496e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51333007"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51715127"
 ---
 # <a name="how-bots-work"></a>봇 작동 방식
 
@@ -64,16 +64,16 @@ SDK의 통합 구성 요소인 *어댑터*는 SDK 런타임의 핵심입니다. 
 미들웨어는 다른 메시징 미들웨어와 유사하게 순서대로 각각 실행되는 선형 구성 요소 집합을 구성하고 각 작업에서 작동할 수 있는 기회를 제공합니다. 미들웨어 파이프라인의 최종 단계는 애플리케이션이 어댑터에 등록한 봇 클래스의 순서 처리기 함수(C#의 `OnTurnAsync` 및 JS의 `onTurn`)를 호출하는 콜백입니다. 순서 처리기는 순서 컨텍스트를 해당 인수로 설정하고, 순서 처리기 함수 내에서 실행 중인 애플리케이션 논리는 일반적으로 인바운드 작업의 콘텐츠를 처리하고, 응답에서 하나 이상의 작업을 생성하여 순서 컨텍스트에서 *send activity* 함수를 사용하여 이러한 항목을 보냅니다. 순서 컨텍스트에서 *send activity*를 호출하면 미들웨어 구성 요소를 아웃바운드 작업에서 호출하게 됩니다. 미들웨어 구성 요소는 봇의 순서 처리기 함수 전후에서 실행됩니다. 실행은 본질적으로 중첩되며 러시아 인형과 같다고도 합니다. 미들웨어에 대한 자세한 내용은 [미들웨어 항목](~/v4sdk/bot-builder-concept-middleware.md)을 참조하세요.
 
 ## <a name="bot-structure"></a>봇 구조체
+다음 섹션에서는 봇의 주요 부분을 살펴봅니다.
 
-카운터를 사용하는 에코 봇[[C#](https://aka.ms/EchoBotWithStateCSharp) | [JS](https://aka.ms/EchoBotWithStateJS)] 샘플을 살펴보고, 봇의 주요 요소를 살펴보겠습니다.
-
-[!INCLUDE [alert-await-send-activity](../includes/alert-await-send-activity.md)]
+### <a name="prerequisites"></a>필수 조건
+- [C#](https://aka.ms/EchoBotWithStateCSharp) 또는 [JS](https://aka.ms/EchoBotWithStateJS)의 **EchoBotWithCounter** 샘플 복사본입니다. 여기서는 관련 코드만 표시되지만, 완전한 소스 코드는 샘플에서 참조할 수 있습니다.
 
 # <a name="ctabcs"></a>[C#](#tab/cs)
 
-봇은 [ASP.NET Core 웹](https://docs.microsoft.com/aspnet/core/?view=aspnetcore-2.1) 응용 프로그램의 한 유형입니다. [ASP.NET](https://docs.microsoft.com/aspnet/core/fundamentals/index?view=aspnetcore-2.1&tabs=aspnetcore2x) 기본 사항을 보면 **Program.cs** 및 **Startup.cs**와 같은 파일에서 유사한 코드를 확인할 수 있습니다. 이러한 파일은 모든 웹앱에 필요하며 봇 전용이 아닙니다. 이러한 파일 중 일부 파일의 코드는 여기에 복사되지 않지만 [C# echobot-with-counter](https://aka.ms/EchoBot-With-Counter) 샘플을 참조할 수 있습니다.
+봇은 [ASP.NET Core 웹](https://docs.microsoft.com/aspnet/core/?view=aspnetcore-2.1) 응용 프로그램의 한 유형입니다. [ASP.NET](https://docs.microsoft.com/aspnet/core/fundamentals/index?view=aspnetcore-2.1&tabs=aspnetcore2x) 기본 사항을 보면 **Program.cs** 및 **Startup.cs**와 같은 파일에서 유사한 코드를 확인할 수 있습니다. 이러한 파일은 모든 웹앱에 필요하며 봇 전용이 아닙니다. 
 
-### <a name="echowithcounterbotcs"></a>EchoWithCounterBot.cs
+### <a name="bot-logic"></a>봇 논리
 
 기본 봇 논리는 `IBot` 인터페이스에서 파생되는 `EchoWithCounterBot` 클래스에 정의됩니다. `IBot`은 단일 메서드 `OnTurnAsync`를 정의합니다. 응용 프로그램은 이 메서드를 구현해야 합니다. `OnTurnAsync`에는 수신 활동에 대한 정보를 제공하는 turnContext가 있습니다. 수신 활동은 인바운드 HTTP 요청에 해당합니다. 수신 활동은 형식이 다양할 수 있으므로 먼저 봇이 메시지를 받았는지 확인합니다. 메시지라면 순서 컨텍스트에서 대화 상태를 가져오고, 순서 카운터를 구현한 다음, 대화 상태에 새로운 순서 카운터 값을 보존합니다. 그런 다음, SendActivityAsync 호출을 사용하여 사용자에게 메시지를 다시 전송합니다. 송신 활동은 아웃바운드 HTTP 요청에 해당합니다.
 
@@ -105,9 +105,9 @@ public async Task OnTurnAsync(ITurnContext turnContext, CancellationToken cancel
 }
 ```
 
-### <a name="startupcs"></a>Startup.cs
+### <a name="set-up-services"></a>서비스 설정
 
-`ConfigureServices` 메소드는 [.bot](bot-builder-basics.md#the-bot-file) 파일에서 연결된 서비스를 로드하고, 대화 순서 중에 발생하는 오류를 포착하여 기록하고, 자격 증명 공급자를 설정하고, 대화 상태 개체를 만들어 메모리에 대화 데이터를 저장합니다.
+startup.cs 파일의 `ConfigureServices` 메서드는 [.bot](bot-builder-basics.md#the-bot-file) 파일에서 연결된 서비스를 로드하고, 대화 턴 중에 발생하는 오류를 포착하여 기록하고, 자격 증명 공급 기업을 설정하고, 대화 상태 개체를 만들어 대화 데이터를 메모리에 저장합니다.
 
 ```csharp
 services.AddBot<EchoWithCounterBot>(options =>
@@ -162,10 +162,9 @@ services.AddBot<EchoWithCounterBot>(options =>
 });
 ```
 
-또한 `EchoBotAccessors`를 만들고 등록하는데, 이는 **EchoBotStateAccessors.cs** 파일에 정의되고, ASP.NET Core의 종속성 주입 프레임워크를 사용하여 공용 `EchoWithCounterBot` 생성자로 전달됩니다.
+또한 `ConfigureServices` 메서드는 **EchoBotStateAccessors.cs** 파일에 정의되고 ASP.NET Core의 종속성 주입 프레임워크를 사용하여 공용 `EchoWithCounterBot` 생성자로 전달되는 `EchoBotAccessors`를 만들고 등록합니다.
 
 ```csharp
-// Create and register state accessors.
 // Accessors created here are passed into the IBot-derived class on every turn.
 services.AddSingleton<EchoBotAccessors>(sp =>
 {
@@ -187,7 +186,7 @@ services.AddSingleton<EchoBotAccessors>(sp =>
 
 `Configure` 메서드는 Bot Framework 및 몇 가지 다른 파일을 사용하도록 지정하여 앱의 구성을 완료합니다. Bot Framework를 사용하는 모든 봇은 해당 구성 호출이 필요합니다. `ConfigureServices` 및 `Configure`는 앱이 시작될 때 런타임에서 호출합니다.
 
-### <a name="counterstatecs"></a>CounterState.cs
+### <a name="manage-state"></a>상태 관리
 
 이 파일에는 봇이 현재 상태를 유지하기 위해 사용하는 간단한 클래스가 포함됩니다. 카운터를 증분시키기 위해 사용하는 `int`만 포함됩니다.
 
@@ -198,7 +197,7 @@ public class CounterState
 }
 ```
 
-### <a name="echobotaccessorscs"></a>EchoBotAccessors.cs
+### <a name="accessor-class"></a>접근자 클래스
 
 `EchoBotAccessors` 클래스는 `Startup` 클래스에 싱글톤으로 생성되어 IBot 파생 클래스로 전달됩니다. 이 예제의 경우 `public class EchoWithCounterBot : IBot`입니다. 이 봇은 접근자를 사용하여 대화 데이터를 보존합니다. `EchoBotAccessors`의 생성자는 Startup.cs 파일에 생성되는 대화 개체에 전달됩니다.
 
@@ -401,7 +400,7 @@ exports.EchoBot = EchoBot;
 
 ---
 
-### <a name="the-bot-file"></a>봇 파일
+## <a name="the-bot-file"></a>봇 파일
 
 **.bot** 파일에는 엔드포인트, 앱 ID, 암호 및 봇에서 사용하는 서비스에 대한 참조를 비롯한 정보가 포함됩니다. 이 파일은 템플릿에서 봇을 빌드할 때 생성되지만 에뮬레이터 또는 다른 도구를 통해 직접 만들 수 있습니다. [에뮬레이터](../bot-service-debug-emulator.md)로 봇을 테스트할 때 사용할 .bot 파일을 지정할 수 있습니다.
 
@@ -425,7 +424,7 @@ exports.EchoBot = EchoBot;
 
 ## <a name="additional-resources"></a>추가 리소스
 
-상태 관리에 대한 자세한 내용은 [대화 및 사용자 상태를 관리하는 방법](bot-builder-howto-v4-state.md)을 참조하세요.
+리소스 관리에서 봇 파일이 수행하는 역할을 이해하려면 [봇 파일](bot-file-basics.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -8,45 +8,30 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
-ms.date: 11/13/2018
+ms.date: 11/18/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 06eb7d80ca8baa91c619b31dc61c7f78856a3b7c
-ms.sourcegitcommit: 873361802bd1802f745544ba903aecf658cce639
+ms.openlocfilehash: e774d6360968e5059588dbdb476cfd1f35fb464e
+ms.sourcegitcommit: 6cb37f43947273a58b2b7624579852b72b0e13ea
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51611050"
+ms.lasthandoff: 11/22/2018
+ms.locfileid: "52288832"
 ---
 # <a name="implement-sequential-conversation-flow"></a>순차적 대화 흐름 구현
 
 [!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
 
-대화 상자 라이브러리를 사용하여 단순 및 복합 대화 흐름을 관리할 수 있습니다.
+대화 상자 라이브러리를 사용하여 단순 및 복합 대화 흐름을 관리할 수 있습니다. 간단한 상호 작용에서 봇은 고정된 일련의 단계를 통해 실행되고 대화가 완료됩니다. 이 문서에서는 _폭포 대화 상자_, 몇 가지 _프롬프트_ 및 _대화 상자 집합_을 사용하여 사용자에게 일련의 질문을 묻는 간단한 상호 작용을 만듭니다.
 
-간단한 상호 작용에서 봇은 고정된 일련의 단계를 통해 실행되고 대화가 완료됩니다.
-이 문서에서는 _폭포 대화 상자_, 몇 가지 _프롬프트_ 및 _대화 상자 집합_을 사용하여 사용자에게 일련의 질문을 묻는 간단한 상호 작용을 만듭니다.
-**다중 순서 프롬프트** [[C#](https://aka.ms/cs-multi-prompts-sample) | [JS](https://aka.ms/js-multi-prompts-sample)] 샘플의 코드로 그립니다.
+## <a name="prerequisites"></a>필수 조건
+- [Bot Framework Emulator](https://github.com/Microsoft/BotFramework-Emulator/blob/master/README.md#download)
+- 이 문서의 코드는 **multi-turn-prompt**(다중 턴 프롬프트) 샘플을 기반으로 합니다. [C#](https://aka.ms/cs-multi-prompts-sample) 또는 [JS](https://aka.ms/js-multi-prompts-sample)로 작성된 샘플의 복사본이 필요합니다.
+- [봇 기본 사항](bot-builder-basics.md), [대화 라이브러리](bot-builder-concept-dialog.md), [대화 상태](bot-builder-dialog-state.md) 및 [.bot](bot-file-basics.md) 파일에 대한 지식이 필요합니다.
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
-일반적인 방법으로 대화 상자를 사용하려면 프로젝트 또는 솔루션용 `Microsoft.Bot.Builder.Dialogs` NuGet 패키지가 필요합니다.
-
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
-
-일반적인 방법으로 대화 상자를 사용하려면 `botbuilder-dialogs` 라이브러리가 필요하며 npm에서 다운로드할 수 있습니다.
-
-이 패키지를 설치하고 종속성으로 저장하려면 프로젝트의 디렉터리로 이동하고 이 명령을 사용합니다.
-
-```shell
-npm install botbuilder-dialogs --save
-```
-
----
 다음 섹션에서는 대부분의 봇에서 간단한 대화 상자를 구현하기 위해 수행할 단계를 반영합니다.
 
 ## <a name="configure-your-bot"></a>봇 구성
-
-봇이 [대화 상자 상태](bot-builder-dialog-state.md)를 관리하는 데 사용할 수 있는 대화 상자 집합에 할당된 상태 속성 접근자가 필요합니다.
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
@@ -132,7 +117,7 @@ const bot = new MultiTurnBot(conversationState, userState);
 
 ## <a name="update-the-bot-turn-handler-to-call-the-dialog"></a>대화 상자를 호출하도록 봇의 순서 처리기 업데이트
 
-대화 상자를 실행하기 위해 봇의 순서 처리기는 봇에 대한 대화 상자를 포함하는 대화 상자 집합의 대화 컨텍스트를 만들어야 합니다. (봇은 여러 대화 상자 집합을 정의할 수 있지만 일반적 규칙에 따라 봇당 하나만 정의해야 합니다. [대화 상자 라이브러리](bot-builder-concept-dialog.md)는 대화 상자의 주요 측면을 설명합니다.)
+대화 상자를 실행하기 위해 봇의 순서 처리기는 봇에 대한 대화 상자를 포함하는 대화 상자 집합의 대화 컨텍스트를 만들어야 합니다. 봇은 여러 개의 대화 세트를 정의할 수 있지만, 일반적으로 봇당 하나의 대화 세트만 정의해야 합니다. 
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
@@ -228,8 +213,6 @@ async onTurn(turnContext) {
 
 상태 속성 접근자의 _get_ 및 _set_ 메서드는 상태 관리 개체의 캐시에서 속성의 값을 가져오고 설정합니다. 처음으로 상태 속성의 값이 순서대로 요청되는 경우 캐시가 채워지지만 명시적으로 유지되어야 합니다. 이러한 상태 속성의 변경 내용을 모두 유지하기 위해 해당하는 상태 관리 개체의 _save changes_ 메서드를 호출합니다.
 
-자세한 내용은 [대화 상자 상태](bot-builder-dialog-state.md)를 참조하세요.
-
 ## <a name="initialize-your-bot-and-define-your-dialog"></a>봇 초기화 및 대화 상자 정의
 
 간단한 대화는 사용자에게 제기된 일련의 질문으로 모델링됩니다. C# 및 JavaScript 버전의 단계는 약간 다릅니다.
@@ -260,7 +243,7 @@ async onTurn(turnContext) {
 고유한 폭포 단계를 정의할 때 기억해야 할 몇 가지 내용은 다음과 같습니다.
 
 * 각 봇 순서는 사용자의 입력을 반영하고 봇의 응답으로 이어집니다. 따라서 폭포 단계의 끝에서 사용자에게 입력하도록 요청하고, 다음 폭포 단계에서 해당 응답을 수신하게 됩니다.
-* 각 프롬프트는 사실상 "유효한" 입력을 받을 때까지 해당 프롬프트를 표시하고 반복하는 2단계 대화 상자입니다. (프롬프트의 각 형식에 대한 기본 제공 유효성 검사를 사용할 수 있습니다. 또는 프롬프트에 고유한 사용자 지정 유효성 검사를 추가할 수 있습니다. 자세한 내용은 [사용자 입력 가져오기](bot-builder-prompts.md)를 참조하세요.)
+* 각 프롬프트는 사실상 "유효한" 입력을 받을 때까지 해당 프롬프트를 표시하고 반복하는 2단계 대화 상자입니다. 
 
 이 샘플에서 대화 상자는 봇 파일 내에서 정의되고 봇의 생성자에서 초기화됩니다.
 
@@ -528,7 +511,7 @@ async displayProfile(step) {
 
 ## <a name="test-your-dialog"></a>대화 상자 테스트
 
-봇을 로컬로 빌드하고 실행한 다음, [에뮬레이터](../bot-service-debug-emulator.md)를 사용하여 봇과 상호 작용합니다.
+봇을 로컬로 빌드하고 실행한 다음, 에뮬레이터를 사용하여 봇과 상호 작용합니다.
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
@@ -551,6 +534,9 @@ async displayProfile(step) {
    * 봇은 1단계 `hello_user` 대화 상자를 시작합니다. 여기에서 수집된 데이터의 정보를 표시하고 즉시 종료합니다.
 
 ---
+
+## <a name="additional-resources"></a>추가 리소스
+여기서 설명한 대로 프롬프트의 각 유형에 대한 기본 제공 유효성 검사를 사용할 수 있거나, 사용자 고유의 사용자 지정 유효성 검사를 프롬프트에 추가할 수 있습니다. 자세한 내용은 [대화 프롬프트를 사용하여 사용자 입력 수집](bot-builder-prompts.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

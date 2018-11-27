@@ -8,26 +8,29 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
-ms.date: 11/02/2018
+ms.date: 11/21/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: ec0cc5e942ed66c8683f8b0cc92ba7df2e36db42
-ms.sourcegitcommit: 8b7bdbcbb01054f6aeb80d4a65b29177b30e1c20
+ms.openlocfilehash: 1c69b438c739ac9c47d40e53f1300a4773fc1a1d
+ms.sourcegitcommit: 6cb37f43947273a58b2b7624579852b72b0e13ea
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51645673"
+ms.lasthandoff: 11/22/2018
+ms.locfileid: "52288792"
 ---
 # <a name="gather-user-input-using-a-dialog-prompt"></a>대화 상자 프롬프트를 사용하여 사용자 입력 수집
 
 [!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
 
-질문을 게시하여 정보를 수집하는 것은 봇이 사용자와 상호 작용하는 주요 방법 중 하나입니다. [순서 컨텍스트](~/v4sdk/bot-builder-basics.md#defining-a-turn) 개체의 _보내기 작업_ 메서드를 사용하여 직접 이렇게 한 후 그 다음으로 들어오는 메시지를 응답으로 처리할 수 있습니다. 그러나 Bot Builder SDK는 쉽게 질문하고, 응답이 특정 데이터 형식과 일치하는지 또는 사용자 지정 유효성 검사 규칙을 충족하는지 확인할 수 있도록 설계된 메서드를 제공하는 [대화 라이브러리](bot-builder-concept-dialog.md)를 제공합니다. 이 항목에서는 프롬프트 개체를 사용하여 사용자에게 입력을 요청하는 방법을 설명합니다.
+질문을 제시하여 정보를 수집하는 것은 봇에서 사용자와 상호 작용하는 주요 방법 중 하나입니다. *대화* 라이브러리를 사용하면 질문을 쉽게 할 수 있을 뿐만 아니라 특정 데이터 형식과 일치하거나 사용자 지정 유효성 검사 규칙을 충족하는지 확인하기 위해 응답의 유효성도 검사할 수 있습니다. 이 항목에서는 폭포 대화에서 프롬프트를 만들고 호출하는 방법에 대해 자세히 설명합니다.
 
-## <a name="prompt-types"></a>프롬프트 형식
+## <a name="prerequisites"></a>필수 조건
+- 이 문서의 코드는 대화 프롬프트 샘플을 기반으로 합니다. [C#](https://aka.ms/dialog-prompt-cs) 또는 [JS](https://aka.ms/dialog-prompt-js)로 작성된 샘플의 복사본이 필요합니다.
+- [대화 라이브러리](bot-builder-concept-dialog.md)와 [대화를 관리하는 방법](bot-builder-dialog-manage-conversation-flow.md)에 대한 기본적인 이해가 필요합니다. 
+- 테스트를 위해 [Bot Framework Emulator](https://github.com/Microsoft/BotFramework-Emulator)가 필요합니다.
 
-프롬프트는 내부적으로 두 가지 단계로 수행되는 대화입니다. 먼저 프롬프트에서 입력을 요청하며, 다음으로 유효한 값을 반환하거나 다시 프롬프트를 사용하여 처음부터 다시 시작합니다.
+## <a name="about-prompt-types"></a>프롬프트 유형 정보
 
-대화 라이브러리에서 제공하는 다양한 기본 프롬프트는 다음과 같으며, 각 프롬프트는 다양한 유형의 응답을 수집하는 데 사용됩니다.
+프롬프트는 내부적으로 두 가지 단계로 수행되는 대화입니다. 먼저 프롬프트에서 입력을 요청하며, 다음으로 유효한 값을 반환하거나 다시 프롬프트를 사용하여 처음부터 다시 시작합니다. 대화 라이브러리에서 제공하는 다양한 기본 프롬프트는 다음과 같으며, 각 프롬프트는 다양한 유형의 응답을 수집하는 데 사용됩니다. 기본 프롬프트는 "열" 또는 "열둘"과 같은 자연어 입력을 숫자로 해석하거나 "내일" 또는 "금요일 10시"를 날짜-시간으로 해석할 수 있습니다.
 
 | prompt | 설명 | 반환 |
 |:----|:----|:----|
@@ -38,158 +41,258 @@ ms.locfileid: "51645673"
 | _숫자 프롬프트_ | 숫자를 요청합니다. | 숫자 값 |
 | _텍스트 프롬프트_ | 일반 텍스트 입력을 요청합니다. | 문자열입니다. |
 
-또한 라이브러리에는 사용자를 대신하여 다른 애플리케이션에 액세스할 수 있는 _OAuth 토큰_을 가져오는 _OAuth 프롬프트_가 포함되어 있습니다. 인증에 대한 자세한 내용은 [봇에 인증을 추가하는 방법](bot-builder-authentication.md)을 참조하세요.
+사용자에게 입력을 요청하려면 _텍스트 프롬프트_와 같은 기본 제공 클래스 중 하나를 사용하여 프롬프트를 정의하고 대화 집합에 이를 추가합니다. 프롬프트에는 대화 세트 내에서 고유해야 하는 고정 ID가 있습니다. 각 프롬프트에 대해 사용자 지정 유효성 검사기를 사용할 수 있으며, 일부 프롬프트의 경우 _기본 로캘_을 지정할 수 있습니다. 
 
-기본 프롬프트는 "열" 또는 "열둘"과 같은 자연어 입력을 숫자로 해석하거나 "내일" 또는 "금요일 10시"를 날짜-시간으로 해석할 수 있습니다.
+### <a name="prompt-locale"></a>프롬프트 로캘
+
+로캘은 **선택 항목**, **확인**, **날짜-시간** 및 **숫자** 프롬프트의 언어별 동작을 결정하는 데 사용됩니다. 임의의 지정된 사용자 입력에 대해 채널이 사용자의 메시지에서 _로캘_ 속성을 제공한 경우 해당 로캘이 사용됩니다. 그렇지 않으면 프롬프트의 생성자를 호출하거나 나중에 설정하여 프롬프트의 _기본 로캘_이 설정되면 해당 로캘이 사용됩니다. 둘 다 제공되지 않으면 영어("en-us")가 로캘로 사용됩니다. 참고: 로캘은 언어 또는 언어 제품군을 나타내는 2, 3 또는 4개 문자의 ISO 639 코드입니다.
 
 ## <a name="using-prompts"></a>프롬프트 사용
 
-대화와 프롬프트가 모두 동일한 대화 집합에 있는 경우에만 대화에서 프롬프트를 사용할 수 있습니다.
+대화와 프롬프트가 모두 동일한 대화 집합에 있는 경우에만 대화에서 프롬프트를 사용할 수 있습니다. 대화 내의 여러 단계 및 동일한 대화 집합의 여러 대화에서 동일한 프롬프트를 사용할 수 있습니다. 그러나 사용자 지정 유효성 검사는 초기화할 때 프롬프트와 연결합니다. 따라서 동일한 유형의 프롬프트에 대해 서로 다른 유효성 검사를 사용하려면, 각각 고유한 유효성 검사 코드가 있는 프롬프트 유형의 여러 인스턴스가 필요합니다.
 
-1. 대화 상태에 대한 상태 속성 접근자를 정의합니다.
-1. 대화 집합을 만듭니다.
-1. 프롬프트를 만들고 대화 집합에 추가합니다.
-1. 프롬프트를 사용할 대화 상자를 만들고 대화 상자 집합에 추가합니다.
-1. 대화 내에서 호출을 프롬프트에 추가하고 프롬프트 결과를 검색합니다.
-
-이 문서에서는 프롬프트를 만드는 방법과 폭포 대화에서 이를 호출하는 방법에 대해 설명합니다.
-일반적으로 대화에 대한 자세한 내용은 [대화 라이브러리](bot-builder-concept-dialog.md) 문서를 참조하세요.
-대화 및 프롬프트를 사용하는 완전한 봇에 대한 자세한 내용은 [대화를 사용하여 간단한 대화 흐름을 관리하는 방법](bot-builder-dialog-manage-conversation-flow.md)을 참조하세요.
-
-대화 내의 여러 단계 및 동일한 대화 집합의 여러 대화에서 동일한 프롬프트를 사용할 수 있습니다.
-그러나 사용자 지정 유효성 검사는 초기화할 때 프롬프트와 연결합니다.
-따라서 동일한 유형의 프롬프트에 대해 서로 다른 유효성 검사가 필요한 경우 각각 고유한 유효성 검사 코드가 있는 프롬프트 유형의 여러 인스턴스가 필요합니다.
-
-### <a name="create-a-prompt"></a>프롬프트 만들기
-
-사용자에게 입력을 요청하려면 _텍스트 프롬프트_와 같은 기본 제공 클래스 중 하나를 사용하여 프롬프트를 정의하고 대화 집합에 이를 추가합니다.
-
-* 프롬프트에는 고정 ID가 있습니다. 식별자는 대화 집합 내에서 고유해야 합니다.
-* 프롬프트에는 사용자 지정 유효성 검사기가 있을 수 있습니다. [사용자 지정 유효성 검사](#custom-validation)를 참조하세요.
-* 일부 프롬프트의 경우 _기본 로캘_을 지정할 수 있습니다.
-
-일반적으로 봇을 초기화할 때 대화 집합에 프롬프트와 대화를 만들고 추가합니다. 그러면 봇에서 사용자로부터 입력을 받을 때 대화 집합에서 프롬프트의 ID를 확인할 수 있습니다.
-
-예를 들어 다음 코드는 두 개의 텍스트 프롬프트를 만들고 기존 대화 집합에 이를 추가합니다. 두 번째 텍스트 프롬프트는 여기에 표시되지 않은 유효성 검사 메서드를 참조합니다.
+### <a name="define-a-state-property-accessor-for-the-dialog-state"></a>대화 상태에 대한 상태 속성 접근자 정의
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
-여기서 `_dialogs`에는 기존 대화 집합이 포함되어 있으며 `NameValidator`는 유효성 검사 메서드입니다.
+이 문서에서 사용된 대화 프롬프트 샘플은 사용자에게 예약 정보를 묻는 메시지를 표시합니다. 파티의 크기와 날짜를 관리하기 위해 DialogPromptBot.cs 파일에서 예약 정보에 대한 내부 클래스를 정의합니다.
 
 ```csharp
-_dialogs.Add(new TextPrompt("nickNamePrompt"));
-_dialogs.Add(new TextPrompt("namePrompt", NameValidator));
+public class Reservation
+{
+    public int Size { get; set; }
+
+    public string Date { get; set; }
+}
+```
+
+다음으로, 예약 데이터에 대한 상태 속성 접근자를 추가합니다.
+
+```csharp
+public class DialogPromptBotAccessors
+{
+    public DialogPromptBotAccessors(ConversationState conversationState)
+    {
+        ConversationState = conversationState ?? throw new ArgumentNullException(nameof(conversationState));
+    }
+
+    public static string DialogStateAccessorKey { get; } = "DialogPromptBotAccessors.DialogState";
+    public static string ReservationAccessorKey { get; } = "DialogPromptBotAccessors.Reservation";
+
+    public IStatePropertyAccessor<DialogState> DialogStateAccessor { get; set; }
+    public IStatePropertyAccessor<DialogPromptBot.Reservation> ReservationAccessor { get; set; }
+
+    public ConversationState ConversationState { get; }
+}
+```
+
+Startup.cs에서 접근자를 설정하도록 `ConfigureServices` 메서드를 업데이트합니다.
+
+```csharp
+public void ConfigureServices(IServiceCollection services)
+{
+    // ...
+
+    // Create and register state accesssors.
+    // Acessors created here are passed into the IBot-derived class on every turn.
+    services.AddSingleton<BotAccessors>(sp =>
+    {
+        // ...
+
+        // Create the custom state accessor.
+        // State accessors enable other components to read and write individual properties of state.
+        var accessors = new BotAccessors(conversationState)
+        {
+            DialogStateAccessor = conversationState.CreateProperty<DialogState>(DialogPromptBotAccessors.DialogStateAccessorKey),
+            ReservationAccessor = conversationState.CreateProperty<DialogPromptBot.Reservation>(DialogPromptBotAccessors.ReservationAccessorKey),
+        };
+
+        return accessors;
+    });
+}
 ```
 
 # <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
-여기서 `this.dialogs`에는 기존 대화 집합이 포함되어 있으며 `NameValidator`는 유효성 검사 함수입니다.
+JavaScript에 필요한 HTTP 서비스 코드는 변경하지 않으므로 index.js 파일을 있는 그대로 둘 수 있습니다.
+
+bot.js에는 대화 프롬프트 봇에 필요한 `require` 문이 포함되어 있습니다. 
+```javascript
+const { ActivityTypes } = require('botbuilder');
+const { DialogSet, WaterfallDialog, NumberPrompt, DateTimePrompt, ChoicePrompt, DialogTurnStatus } = require('botbuilder-dialogs');
+```
+
+상태 속성 접근자, 대화 및 프롬프트의 식별자를 추가합니다.
 
 ```javascript
-this.dialogs.add(new TextPrompt('nickNamePrompt'));
-this.dialogs.add(new TextPrompt('namePrompt', NameValidator));
+// Define identifiers for state property accessors.
+const DIALOG_STATE_ACCESSOR = 'dialogStateAccessor';
+const RESERVATION_ACCESSOR = 'reservationAccessor';
+
+// Define identifiers for dialogs and prompts.
+const RESERVATION_DIALOG = 'reservationDialog';
+const PARTY_SIZE_PROMPT = 'partySizePrompt';
+const LOCATION_PROMPT = 'locationPrompt';
+const RESERVATION_DATE_PROMPT = 'reservationDatePrompt';
 ```
 
 ---
 
-#### <a name="locales"></a>Locales
+### <a name="create-a-dialog-set-and-prompts"></a>대화 세트 및 프롬프트 만들기
 
-로캘은 **선택 항목**, **확인**, **날짜-시간** 및 **숫자** 프롬프트의 언어별 동작을 결정하는 데 사용됩니다. 사용자가 제공한 입력은 다음과 같습니다.
-
-* 채널이 사용자의 메시지에서 _로캘_ 속성을 제공한 경우 해당 로캘이 사용됩니다.
-* 그렇지 않으면 프롬프트의 생성자를 호출하거나 나중에 설정하여 프롬프트의 _기본 로캘_이 설정되면 해당 로캘이 사용됩니다.
-* 그렇지 않으면 로캘로 영어("en-us")가 사용됩니다.
-
-> [!NOTE]
-> 로캘은 언어 또는 언어 제품군을 나타내는 2, 3 또는 4개 문자의 ISO 639 코드입니다.
-
-### <a name="call-a-prompt-from-a-waterfall-dialog"></a>폭포 대화에서 프롬프트 호출
-
-프롬프트가 추가되면 폭포 대화의 한 단계에서 이를 호출하고, 다음 대화 단계에서 프롬프트 결과를 얻습니다.
-폭포 단계 내에서 프롬프트를 호출하려면 _폭포 단계 컨텍스트_ 개체의 _prompt_ 메서드를 호출합니다. 첫 번째 매개 변수는 사용할 프롬프트의 ID이고, 두 번째 매개 변수는 사용자에게 입력을 요청하는 데 사용되는 텍스트와 같은 프롬프트에 대한 옵션을 포함합니다.
-
-사용자가 봇과 상호 작용하고, 봇에 활성 폭포 대화가 있고, 대화의 다음 단계에서 프롬프트를 사용한다고 가정합니다.
-
-1. 사용자가 봇에 메시지를 보내는 경우 다음 작업이 수행됩니다.
-   1. 봇의 턴 처리기에서 대화 컨텍스트를 만들고, 해당 _continue_ 메서드를 호출합니다.
-   1. 컨트롤이 활성 대화(이 경우 폭포 대화)의 다음 단계로 전달됩니다.
-   1. 단계에서 사용자에게 입력을 요청하는 폭포 단계 컨텍스트의 _prompt_ 메서드를 호출합니다.
-   1. 폭포 단계 컨텍스트는 프롬프트를 스택으로 푸시하고 시작합니다.
-   1. 프롬프트에서 사용자에게 입력을 요청하는 활동을 보냅니다.
-1. 사용자가 봇에 다음 메시지를 보내는 경우 다음 작업이 수행됩니다.
-   1. 봇의 턴 처리기에서 대화 컨텍스트를 만들고, 해당 _continue_ 메서드를 호출합니다.
-   1. 컨트롤이 프롬프트의 두 번째 턴인 활성 대화의 다음 단계로 전달됩니다.
-   1. 프롬프트에서 사용자 입력의 유효성을 검사합니다.
-      * 입력이 유효하지 않으면 입력에 대한 프롬프트가 다시 표시되고 이 단계 집합이 다음 턴에서 반복됩니다.
-      * 그렇지 않으면 프롬프트가 종료되고 _대화 턴 결과_ 개체가 부모 대화에 반환됩니다. 컨트롤이 폭포 대화의 다음 단계로 전달되며, 폭포 단계 컨텍스트의 _result_ 속성에 사용할 수 있는 프롬프트 결과가 표시됩니다.
-
-<!--
-> [!NOTE]
-> A waterfall step delegate takes a _waterfall step context_ parameter and returns a _dialog turn result_.
-> A prompt's result is contained within the prompt's return value (a dialog turn result object) when it ends.
-> The waterfall dialog provides the return value in the waterfall step context parameter when it calls the next waterfall step.
--->
-
-프롬프트가 반환되면 폭포 단계 컨텍스트의 _result_ 속성이 프롬프트의 반환 값으로 설정됩니다.
-
-다음 예제에서는 두 개의 연속된 폭포 단계 중 일부를 보여 줍니다. 첫 번째는 프롬프트를 사용하여 사용자에게 이름을 요청합니다. 두 번째는 프롬프트의 반환 값을 가져옵니다.
+일반적으로 봇을 초기화할 때 대화 세트에 프롬프트와 대화를 만들고 추가합니다. 그러면 봇에서 사용자로부터 입력을 받을 때 대화 집합에서 프롬프트의 ID를 확인할 수 있습니다.
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
-여기서 `name`은 텍스트 프롬프트의 ID이고, `NameStepAsync` 및 `GreetingStepAsync`은 폭포 대화의 연속된 두 단계 대리자입니다.
+`DialogPromptBot` 클래스에서 대화, 프롬프트 및 대화 세트에 대한 식별자를 정의합니다.
+```csharp
+private const string ReservationDialog = "reservationDialog";
+private const string PartySizePrompt = "partyPrompt";
+private const string LocationPrompt = "locationPrompt";
+private const string ReservationDatePrompt = "reservationDatePrompt";
+
+private readonly DialogSet _dialogSet;
+```
+
+봇의 생성자에서 대화 세트를 만들고, 프롬프트를 추가하고, 예약 대화를 추가합니다. 프롬프트를 만들 때 사용자 지정 유효성 검사를 포함시킵니다. 나중에 유효성 검사 함수를 구현합니다.
 
 ```csharp
-private static async Task<DialogTurnResult> NameStepAsync(WaterfallStepContext stepContext, CancellationToken cancellationToken)
-{
-    // ...
+// The following code creates prompts and adds them to an existing dialog set. The DialogSet contains all the dialogs that can 
+// be used at runtime. The prompts also references a validation method is not shown here.
 
-    // Prompt for the user's name.
+public DialogPromptBot(DialogPromptBotAccessors accessors, ILoggerFactory loggerFactory)
+{
+   // ...
+
+    // Create the dialog set and add the prompts, including custom validation.
+    _dialogSet = new DialogSet(_accessors.DialogStateAccessor);
+    _dialogSet.Add(new NumberPrompt<int>(PartySizePrompt, PartySizeValidatorAsync));
+    _dialogSet.Add(new ChoicePrompt(LocationPrompt));
+    _dialogSet.Add(new DateTimePrompt(ReservationDatePrompt, DateValidatorAsync));
+
+    // Define the steps of the waterfall dialog and add it to the set.
+    WaterfallStep[] steps = new WaterfallStep[]
+    {
+        PromptForPartySizeAsync,
+        PromptForLocationAsync,
+        PromptForReservationDateAsync,
+        AcknowledgeReservationAsync,
+    };
+    _dialogSet.Add(new WaterfallDialog(ReservationDialog, steps));
+
+
+}
+```
+
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+생성자에서 상태 접근자 속성을 만듭니다. 
+
+```javascript
+constructor(conversationState) {
+    // Creates our state accessor properties.
+    this.dialogStateAccessor = conversationState.createProperty(DIALOG_STATE_ACCESSOR);
+    this.reservationAccessor = conversationState.createProperty(RESERVATION_ACCESSOR);
+    this.conversationState = conversationState;
+    // ...
+    }
+```
+
+다음으로, 대화 세트를 만들고, 사용자 지정 유효성 검사를 포함한 프롬프트를 추가합니다.
+
+```javascript
+    // ...
+    this.dialogSet = new DialogSet(this.dialogStateAccessor);
+    this.dialogSet.add(new NumberPrompt(PARTY_SIZE_PROMPT, this.partySizeValidator));
+    this.dialogSet.add(new ChoicePrompt (LOCATION_PROMPT));
+    this.dialogSet.add(new DateTimePrompt(RESERVATION_DATE_PROMPT, this.dateValidator));
+    // ...
+```
+
+그런 다음, 폭포 대화의 단계를 정의하고, 세트에 추가합니다.
+```javascript
+    // ...
+    this.dialogSet.add(new WaterfallDialog(RESERVATION_DIALOG, [
+    this.promptForPartySize.bind(this),
+    this.promptForLocation.bind(this),
+    this.promptForReservationDate.bind(this),
+    this.acknowledgeReservation.bind(this),
+ ]));
+}
+```
+
+---
+
+### <a name="implement-dialog-steps"></a>대화 단계 구현
+
+기본 봇 파일에서 폭포 대화의 각 단계를 실행합니다. 프롬프트가 추가되면 폭포 대화의 한 단계에서 이를 호출하고, 다음 대화 단계에서 프롬프트 결과를 얻습니다. 폭포 단계 내에서 프롬프트를 호출하려면 _폭포 단계 컨텍스트_ 개체의 _prompt_ 메서드를 호출합니다. 첫 번째 매개 변수는 사용할 프롬프트의 ID이고, 두 번째 매개 변수는 사용자에게 입력을 요청하는 데 사용되는 텍스트와 같은 프롬프트에 대한 옵션을 포함합니다.     
+
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+
+DialogPromptBot.cs 파일에서 폭포 대화의 `PromptForPartySizeAsync`, `PromptForLocationAsync`, `PromptForReservationDateAsync` 및 `AcknowledgeReservationAsync` 단계를 통합했습니다.
+
+여기서는 폭포 대화의 연속적인 두 단계 대리자인 `PromptForPartySizeAsync` 및 `PromptForLocationAsync`만 보여 줍니다.
+
+```csharp
+private async Task<DialogTurnResult> PromptForPartySizeAsync(WaterfallStepContext stepContext)
+{
+    // Prompt for the party size. The result of the prompt is returned to the next step of the waterfall.
+    // If the input is not valid, the prompt is restarted, causing it to reprompt for input
+    // and this set of steps is repeated next turn. Otherwise, the prompt ends and returns a _dialog turn result_ object 
+    // to the parent dialog. Control passes to the next step of your waterfall dialog, with the result of the prompt 
+    // available in the waterfall step context's _result_ property.
     return await stepContext.PromptAsync(
-        "name",
-         new PromptOptions { Prompt = MessageFactory.Text("Please enter your name.") },
-         cancellationToken);
+        PartySizePrompt,
+        new PromptOptions
+        {
+            Prompt = MessageFactory.Text("How many people is the reservation for?"),
+            RetryPrompt = MessageFactory.Text("How large is your party?"),
+        },
+        cancellationToken);
 }
 
-private static async Task<DialogTurnResult> GreetingStepAsync(WaterfallStepContext stepContext, CancellationToken cancellationToken)
+private async Task<DialogTurnResult> PromptForLocationAsync(WaterfallStepContext stepContext, CancellationToken cancellationToken)
 {
-    // Get the user's name from the prompt result.
-    string name = (string)stepContext.Result;
-    await stepContext.Context.SendActivityAsync(
-        MessageFactory.Text($"Pleased to meet you, {name}."),
-         cancellationToken);
+    // Record the party size information in the current dialog state.
+    int size = (int)stepContext.Result;
+    stepContext.Values["size"] = size;
 
-    // ...
+    return await stepContext.PromptAsync(
+        "locationPrompt",
+        new PromptOptions
+        {
+            Prompt = MessageFactory.Text("Please choose a location."),
+            RetryPrompt = MessageFactory.Text("Sorry, please choose a location from the list."),
+            Choices = ChoiceFactory.ToChoices(new List<string> { "Redmond", "Bellevue", "Seattle" }),
+        },
+        cancellationToken);
 }
 ```
+위의 예제에서는 선택 항목 프롬프트를 사용하여 세 가지 속성을 모두 제공하는 방법을 보여 줍니다. `PromptForLocationAsync` 메서드는 폭포 대화의 한 단계로 사용되며, 대화 세트에는 폭포 대화 및 ID가 `locationPrompt`인 선택 항목 프롬프트가 모두 포함됩니다.
 
 # <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
-여기서 `name`은 텍스트 프롬프트의 ID이고, `nameStep` 및 `greetingStep`은 폭포 대화의 연속된 두 단계 함수입니다.
+여기서 `PARTY_SIZE_PROMPT` 및 `LOCATION_PROMPT`는 프롬프트의 ID이고, `promptForPartySize` 및 `promptForLocation`은 폭포 대화의 연속적인 두 단계 함수입니다.
 
 ```javascript
-async nameStep(step) {
-    // ...
-
-    return await step.prompt('name', 'Please enter your name.');
+async promptForPartySize(stepContext) {
+    // Prompt for the party size. The result of the prompt is returned to the next step of the waterfall.
+    return await stepContext.prompt(
+        PARTY_SIZE_PROMPT, {
+            prompt: 'How many people is the reservation for?',
+            retryPrompt: 'How large is your party?'
+        });
 }
 
-async greetingStep(step) {
-    // Get the user's name from the prompt result.
-    const name = step.result;
-    await step.context.sendActivity(`Pleased to meet you, ${name}.`);
-
-    // ...
+async promptForLocation(stepContext) {
+    // Prompt for location
+    return await stepContext.prompt(
+        LOCATION_PROMPT, 'Select a location.', ['Redmond', 'Bellevue', 'Seattle']
+    );
 }
 ```
 
 ---
-
-### <a name="call-a-prompt-from-the-bots-turn-handler"></a>봇의 턴 처리기에서 프롬프트 호출
-
-대화 컨텍스트의 _prompt_ 메서드를 사용하여 턴 처리기에서 프롬프트를 직접 호출할 수 있습니다.
-다음 턴에서 대화 컨텍스트의 _대화 계속_ 메서드를 호출하고 반환 값, 즉 _대화 턴 결과_ 개체를 검토해야 합니다. 이렇게 수행하는 방법에 대한 예제는 프롬프트 유효성 검사 샘플([C#](https://aka.ms/cs-prompt-validation-sample) | [JS](https://aka.ms/js-prompt-validation-sample))을 참조하거나 [사용자 고유의 프롬프트를 사용하여 사용자에게 입력 프롬프트를 표시하는 방법](bot-builder-primitive-prompts.md)을 참조하세요.
-
-## <a name="prompt-options"></a>프롬프트 옵션
 
 _prompt_ 메서드의 두 번째 매개 변수는 다음과 같은 속성이 있는 _프롬프트 옵션_ 개체를 사용합니다.
 
@@ -207,43 +310,7 @@ _prompt_ 메서드의 두 번째 매개 변수는 다음과 같은 속성이 있
 
 선택 항목 프롬프트의 경우 항상 사용 가능한 선택 항목 목록을 제공해야 합니다.
 
-다음 예제에서는 선택 항목 프롬프트를 사용하여 세 가지 속성을 모두 제공하는 방법을 보여 줍니다. _좋아하는 색_ 메서드는 폭포 대화의 한 단계로 사용되며, 대화 집합에는 폭포 대화와 `colorChoice`의 ID가 있는 선택 항목 프롬프트가 모두 포함됩니다.
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
-
-```csharp
-private static async Task<DialogTurnResult> FavoriteColorAsync(WaterfallStepContext stepContext, CancellationToken cancellationToken)
-{
-    // ...
-
-    return await stepContext.PromptAsync(
-        "colorChoice",
-        new PromptOptions {
-            Prompt = MessageFactory.Text("Please choose a color."),
-            RetryPrompt = MessageFactory.Text("Sorry, please choose a color from the list."),
-            Choices = ChoiceFactory.ToChoices(new List<string> { "blue", "green", "red" }),
-        },
-        cancellationToken);
-}
-```
-
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
-
-JavaScript SDK에서는 `prompt` 및 `retryPrompt` 속성 모두에 대한 문자열을 제공할 수 있습니다. 프롬프트에서 이러한 문자열을 메시지 활동으로 변환합니다.
-
-```javascript
-async favoriteColor(step) {
-    // ...
-
-    return await step.prompt('colorChoice', {
-        prompt: 'Please choose a color:',
-        retryPrompt: 'Sorry, please choose a color from the list.',
-        choices: [ 'red', 'green', 'blue' ]
-    });
-}
-```
-
----
 
 ## <a name="custom-validation"></a>사용자 지정 유효성 검사
 
@@ -263,166 +330,11 @@ async favoriteColor(step) {
 | _성공함_ | 인식기에서 입력을 구문 분석할 수 있는지 여부를 나타냅니다. |
 | _값_ | 인식기에서 반환하는 값입니다. 필요한 경우 유효성 검사 코드에서 이 값을 수정할 수 있습니다. |
 
-### <a name="setup"></a>설정
-
-유효성 검사 코드를 추가하기 전에 약간의 설정을 지정해야 합니다.
-
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
-
-봇의 **.cs** 파일에서 예약 정보에 대한 내부 클래스를 정의합니다.
-
-```csharp
-public class Reservation
-{
-    public int Size { get; set; }
-
-    public string Date { get; set; }
-}
-```
-
-**BotAccessors.cs**에서 예약 데이터에 대한 상태 속성 접근자를 추가합니다.
-
-```csharp
-public class BotAccessors
-{
-    public BotAccessors(ConversationState conversationState)
-    {
-        ConversationState = conversationState ?? throw new ArgumentNullException(nameof(conversationState));
-    }
-
-    public static string DialogStateAccessorKey { get; } = "BotAccessors.DialogState";
-    public static string ReservationAccessorKey { get; } = "BotAccessors.Reservation";
-
-    public IStatePropertyAccessor<DialogState> DialogStateAccessor { get; set; }
-    public IStatePropertyAccessor<ReservationBot.Reservation> ReservationAccessor { get; set; }
-
-    public ConversationState ConversationState { get; }
-}
-```
-
-**Startup.cs**에서 접근자를 설정하도록 `ConfigureServices`를 업데이트합니다.
-
-```csharp
-public void ConfigureServices(IServiceCollection services)
-{
-    // ...
-
-    // Create and register state accesssors.
-    // Acessors created here are passed into the IBot-derived class on every turn.
-    services.AddSingleton<BotAccessors>(sp =>
-    {
-        // ...
-
-        // Create the custom state accessor.
-        // State accessors enable other components to read and write individual properties of state.
-        var accessors = new BotAccessors(conversationState)
-        {
-            DialogStateAccessor = conversationState.CreateProperty<DialogState>(BotAccessors.DialogStateAccessorKey),
-            ReservationAccessor = conversationState.CreateProperty<ReservationBot.Reservation>(BotAccessors.ReservationAccessorKey),
-        };
-
-        return accessors;
-    });
-}
-```
-
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
-
-JavaScript에 필요한 HTTP 서비스 코드는 변경하지 않으므로 **index.js** 파일을 그대로 둘 수 있습니다.
-
-**bot.js**에서 require 문을 업데이트하고 상태 속성 접근자에 대한 식별자를 추가합니다.
-
-```javascript
-const { ActivityTypes } = require('botbuilder');
-const { DialogSet, WaterfallDialog, NumberPrompt, DateTimePrompt, DialogTurnStatus } = require('botbuilder-dialogs');
-
-// Define identifiers for our state property accessors.
-const DIALOG_STATE_ACCESSOR = 'dialogStateAccessor';
-const RESERVATION_ACCESSOR = 'reservationAccessor';
-```
-
----
-
-봇 파일에서 대화와 프롬프트에 대한 식별자를 추가합니다.
-
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
-
-```csharp
-// Define identifiers for our dialogs and prompts.
-private const string ReservationDialog = "reservationDialog";
-private const string PartySizePrompt = "partyPrompt";
-private const string ReservationDatePrompt = "reservationDatePrompt";
-```
-
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
-
-```javascript
-// Define identifiers for our dialogs and prompts.
-const RESERVATION_DIALOG = 'reservationDialog';
-const PARTY_SIZE_PROMPT = 'partySizePrompt';
-const RESERVATION_DATE_PROMPT = 'reservationDatePrompt';
-```
-
----
-
-### <a name="define-the-prompts-and-dialogs"></a>프롬프트 및 대화 정의
-
-봇의 생성자 코드에서 대화 집합을 만들고, 프롬프트를 추가하고, 예약 대화를 추가합니다.
-프롬프트를 만들 때 사용자 지정 유효성 검사를 포함시킵니다. 다음으로, 유효성 검사 함수를 구현합니다.
-
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
-
-```csharp
-public ReservationBot(BotAccessors accessors, ILoggerFactory loggerFactory)
-{
-    // ...
-    _accessors = accessors ?? throw new System.ArgumentNullException(nameof(accessors));
-
-    // Create the dialog set and add the prompts, including custom validation.
-    _dialogSet = new DialogSet(_accessors.DialogStateAccessor);
-    _dialogSet.Add(new NumberPrompt<int>(PartySizePrompt, PartySizeValidatorAsync));
-    _dialogSet.Add(new DateTimePrompt(ReservationDatePrompt, DateValidatorAsync));
-
-    // Define the steps of the waterfall dialog and add it to the set.
-    WaterfallStep[] steps = new WaterfallStep[]
-    {
-        PromptForPartySizeAsync,
-        PromptForReservationDateAsync,
-        AcknowledgeReservationAsync,
-    };
-    _dialogSet.Add(new WaterfallDialog(ReservationDialog, steps));
-}
-```
-
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
-
-```javascript
-constructor(conversationState) {
-    // Creates our state accessor properties.
-    // See https://aka.ms/about-bot-state-accessors to learn more about the bot state and state accessors.
-    this.dialogStateAccessor = conversationState.createProperty(DIALOG_STATE_ACCESSOR);
-    this.reservationAccessor = conversationState.createProperty(RESERVATION_ACCESSOR);
-    this.conversationState = conversationState;
-
-    // Create the dialog set and add the prompts, including custom validation.
-    this.dialogSet = new DialogSet(this.dialogStateAccessor);
-    this.dialogSet.add(new NumberPrompt(PARTY_SIZE_PROMPT, partySizeValidator));
-    this.dialogSet.add(new DateTimePrompt(RESERVATION_DATE_PROMPT, dateValidator));
-
-    // Define the steps of the waterfall dialog and add it to the set.
-    this.dialogSet.add(new WaterfallDialog(RESERVATION_DIALOG, [
-        this.promptForPartySize.bind(this),
-        this.promptForReservationDate.bind(this),
-        this.acknowledgeReservation.bind(this),
-    ]));
-}
-```
-
----
-
 ### <a name="implement-validation-code"></a>유효성 검사 코드 구현
 
-파티 크기 유효성 검사기를 구현합니다. 예약은 6-20명의 사용자로 제한합니다.
+**파티 크기 유효성 검사기**
+
+예약을 6~20명의 파티로 제한합니다.
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
@@ -458,7 +370,7 @@ private async Task<bool> PartySizeValidatorAsync(
 
 ```javascript
 async partySizeValidator(promptContext) {
-    // Check whether the input could be recognized as date.
+    // Check whether the input could be recognized as an integer.
     if (!promptContext.recognized.succeeded) {
         await promptContext.context.sendActivity(
             "I'm sorry, I do not understand. Please enter the number of people in your party.");
@@ -483,11 +395,9 @@ async partySizeValidator(promptContext) {
 
 ---
 
-날짜-시간 프롬프트에서 사용자 입력과 일치하는 가능한 _날짜-시간 확인_의 목록 또는 배열을 반환합니다. 예를 들어 9:00는 오전 9시 또는 오후 9시를 의미할 수 있으며, 일요일도 모호합니다. 또한 날짜-시간 확인은 날짜, 시간, 날짜-시간 또는 범위를 나타낼 수 있습니다. 날짜-시간 프롬프트에서 [Microsoft/Recognizers-Text](https://github.com/Microsoft/Recognizers-Text)를 사용하여 사용자 입력을 구문 분석합니다.
+**날짜 시간 유효성 검사**
 
-예약 날짜 유효성 검사기를 구현합니다. 예약은 현재 시간에서 한 시간 이상으로 제한합니다. 이 조건과 일치하는 첫 번째 확인은 유지하고, 나머지는 지웁니다.
-
-이 유효성 검사 코드는 완전하지 않습니다. 이는 날짜와 시간을 구문 분석하는 입력에 가장 적합합니다. 날짜-시간 프롬프트의 유효성 검사에 대한 옵션 중 일부를 보여 주며, 구현은 사용자로부터 수집하려는 정보에 따라 달라집니다.
+예약 날짜 유효성 검사기에서 예약을 현재 시간보다 1시간 이상으로 제한합니다. 이 조건과 일치하는 첫 번째 확인은 유지하고, 나머지는 지웁니다. 아래의 유효성 검사 코드는 완전하지 않으며, 날짜 및 시간으로 구문 분석하는 입력에 가장 적합합니다. 날짜-시간 프롬프트의 유효성 검사를 위한 옵션 중 일부를 보여 주며, 구현은 사용자로부터 수집하려는 정보에 따라 달라집니다.
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
@@ -530,148 +440,62 @@ private async Task<bool> DateValidatorAsync(
 
 ```javascript
 async dateValidator(promptContext) {
-// Check whether the input could be recognized as an integer.
-if (!promptContext.recognized.succeeded) {
+    // Check whether the input could be recognized as an integer.
+    if (!promptContext.recognized.succeeded) {
+        await promptContext.context.sendActivity(
+            "I'm sorry, I do not understand. Please enter the date or time for your reservation.");
+        return false;
+    }
+
+    // Check whether any of the recognized date-times are appropriate,
+    // and if so, return the first appropriate date-time.
+    const earliest = Date.now() + (60 * 60 * 1000);
+    let value = null;
+    promptContext.recognized.value.forEach(candidate => {
+        // TODO: update validation to account for time vs date vs date-time vs range.
+        const time = new Date(candidate.value || candidate.start);
+        if (earliest < time.getTime()) {
+            value = candidate;
+        }
+    });
+    if (value) {
+        promptContext.recognized.value = [value];
+        return true;
+    }
+
     await promptContext.context.sendActivity(
-        "I'm sorry, I do not understand. Please enter the date or time for your reservation.");
+        "I'm sorry, we can't take reservations earlier than an hour from now.");
     return false;
 }
-
-// Check whether any of the recognized date-times are appropriate,
-// and if so, return the first appropriate date-time.
-const earliest = Date.now() + (60 * 60 * 1000);
-let value = null;
-promptContext.recognized.value.forEach(candidate => {
-    // TODO: update validation to account for time vs date vs date-time vs range.
-    const time = new Date(candidate.value || candidate.start);
-    if (earliest < time.getTime()) {
-        value = candidate;
-    }
-});
-if (value) {
-    promptContext.recognized.value = [value];
-    return true;
-}
-
-await promptContext.context.sendActivity(
-    "I'm sorry, we can't take reservations earlier than an hour from now.");
-return false;
-}
 ```
 
 ---
 
-### <a name="implement-the-dialog-steps"></a>대화 단계 구현
-
-대화 집합에 추가한 프롬프트를 사용합니다. 봇의 생성자에서 프롬프트를 만들 때 해당 프롬프트에 대한 유효성 검사를 추가했습니다. 프롬프트에서 처음으로 사용자 입력을 요청하면 제공된 옵션에서 _prompt_ 활동을 보냅니다. 유효성 검사에 실패하면 _다시 시도 프롬프트_ 활동을 보내 사용자에게 다른 입력을 요청합니다.
-
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
-
-```csharp
-// First step of the main dialog: prompt for party size.
-private async Task<DialogTurnResult> PromptForPartySizeAsync(
-    WaterfallStepContext stepContext,
-    CancellationToken cancellationToken = default(CancellationToken))
-{
-    // Prompt for the party size. The result of the prompt is returned to the next step of the waterfall.
-    return await stepContext.PromptAsync(
-        PartySizePrompt,
-        new PromptOptions
-        {
-            Prompt = MessageFactory.Text("How many people is the reservation for?"),
-            RetryPrompt = MessageFactory.Text("How large is your party?"),
-        },
-        cancellationToken);
-}
-
-// Second step of the main dialog: record the party size and prompt for the
-// reservation date.
-private async Task<DialogTurnResult> PromptForReservationDateAsync(
-    WaterfallStepContext stepContext,
-    CancellationToken cancellationToken = default(CancellationToken))
-{
-    // Record the party size information in the current dialog state.
-    int size = (int)stepContext.Result;
-    stepContext.Values["size"] = size;
-
-    // Prompt for the reservation date. The result of the prompt is returned to the next step of the waterfall.
-    return await stepContext.PromptAsync(
-        ReservationDatePrompt,
-        new PromptOptions
-        {
-            Prompt = MessageFactory.Text("Great. When will the reservation be for?"),
-            RetryPrompt = MessageFactory.Text("What time should we make your reservation for?"),
-        },
-        cancellationToken);
-}
-
-// Third step of the main dialog: return the collected party size and reservation date.
-private async Task<DialogTurnResult> AcknowledgeReservationAsync(
-    WaterfallStepContext stepContext,
-    CancellationToken cancellationToken = default(CancellationToken))
-{
-    // Retrieve the reservation date.
-    DateTimeResolution resolution = (stepContext.Result as IList<DateTimeResolution>).First();
-    string time = resolution.Value ?? resolution.Start;
-
-    // Send an acknowledgement to the user.
-    await stepContext.Context.SendActivityAsync(
-        "Thank you. We will confirm your reservation shortly.",
-        cancellationToken: cancellationToken);
-
-    // Return the collected information to the parent context.
-    Reservation reservation = new Reservation
-    {
-        Date = time,
-        Size = (int)stepContext.Values["size"],
-    };
-    return await stepContext.EndDialogAsync(reservation, cancellationToken);
-}
-```
-
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
-
-```javascript
-async promptForPartySize(stepContext) {
-    // Prompt for the party size. The result of the prompt is returned to the next step of the waterfall.
-    return await stepContext.prompt(
-        PARTY_SIZE_PROMPT, {
-            prompt: 'How many people is the reservation for?',
-            retryPrompt: 'How large is your party?'
-        });
-}
-
-async promptForReservationDate(stepContext) {
-    // Record the party size information in the current dialog state.
-    stepContext.values.size = stepContext.result;
-
-    // Prompt for the reservation date. The result of the prompt is returned to the next step of the waterfall.
-    return await stepContext.prompt(
-        RESERVATION_DATE_PROMPT, {
-            prompt: 'Great. When will the reservation be for?',
-            retryPrompt: 'What time should we make your reservation for?'
-        });
-}
-
-async acknowledgeReservation(stepContext) {
-    // Retrieve the reservation date.
-    const resolution = stepContext.result[0];
-    const time = resolution.value || resolution.start;
-
-    // Send an acknowledgement to the user.
-    await stepContext.context.sendActivity(
-        'Thank you. We will confirm your reservation shortly.');
-
-    // Return the collected information to the parent context.
-    return await stepContext.endDialog({ date: time, size: stepContext.values.size });
-}
-```
-
----
+날짜-시간 프롬프트에서 사용자 입력과 일치하는 가능한 _날짜-시간 확인_의 목록 또는 배열을 반환합니다. 예를 들어 9:00는 오전 9시 또는 오후 9시를 의미할 수 있으며, 일요일도 모호합니다. 또한 날짜-시간 확인은 날짜, 시간, 날짜-시간 또는 범위를 나타낼 수 있습니다. 날짜-시간 프롬프트에서 [Microsoft/Recognizers-Text](https://github.com/Microsoft/Recognizers-Text)를 사용하여 사용자 입력을 구문 분석합니다.
 
 ### <a name="update-the-turn-handler"></a>순서 처리기 업데이트
 
-대화를 시작하고 대화가 완료되면 대화의 반환 값을 수락하도록 봇의 턴 처리기를 업데이트합니다.
+대화를 시작하고 대화가 완료되면 대화의 반환 값을 수락하도록 봇의 턴 처리기를 업데이트합니다. 여기서는 사용자가 봇과 상호 작용하고, 봇에 활성 폭포 대화가 있고, 대화의 다음 단계에서 프롬프트를 사용한다고 가정합니다.
+
+1. 사용자가 봇에 메시지를 보내는 경우 다음 작업이 수행됩니다.
+   1. 봇의 턴 처리기에서 대화 컨텍스트를 만들고, 해당 _continue_ 메서드를 호출합니다.
+   1. 컨트롤이 활성 대화(이 경우 폭포 대화)의 다음 단계로 전달됩니다.
+   1. 단계에서 사용자에게 입력을 요청하는 폭포 단계 컨텍스트의 _prompt_ 메서드를 호출합니다.
+   1. 폭포 단계 컨텍스트는 프롬프트를 스택으로 푸시하고 시작합니다.
+   1. 프롬프트에서 사용자에게 입력을 요청하는 활동을 보냅니다.
+1. 사용자가 봇에 다음 메시지를 보내는 경우 다음 작업이 수행됩니다.
+   1. 봇의 턴 처리기에서 대화 컨텍스트를 만들고, 해당 _continue_ 메서드를 호출합니다.
+   1. 컨트롤이 프롬프트의 두 번째 턴인 활성 대화의 다음 단계로 전달됩니다.
+   1. 프롬프트에서 사용자 입력의 유효성을 검사합니다.
+
+      
+**프롬프트 결과 처리**
+
+프롬프트 결과를 사용하여 수행하는 작업은 사용자에게 정보를 요청한 이유에 따라 달라집니다. 옵션은 다음과 같습니다.
+
+* 정보를 사용하여 사용자가 확인 또는 선택 항목 프롬프트에 응답할 때와 같이 대화의 흐름을 제어합니다.
+* 폭포 단계 컨텍스트의 _values_ 속성에 값을 설정하는 것과 같은 대화의 상태 정보를 캐시한 다음, 대화가 종료되면 수집된 정보를 반환합니다.
+* 정보를 봇 상태에 저장합니다. 이렇게 하려면 봇의 상태 속성 접근자에 액세스할 수 있도록 대화를 설계해야 합니다. 
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
@@ -783,6 +607,9 @@ async onTurn(turnContext) {
             // Save the updated dialog state into the conversation state.
             await this.conversationState.saveChanges(turnContext, false);
             break;
+        case ActivityTypes.EndOfConversation:
+        case ActivityTypes.DeleteUserData:
+            break;
         default:
             break;
     }
@@ -791,20 +618,22 @@ async onTurn(turnContext) {
 
 ---
 
+
+
 비슷한 기법을 사용하여 프롬프트 형식 중 하나에 대한 프롬프트 응답의 유효성을 검사할 수 있습니다.
 
-## <a name="handling-prompt-results"></a>프롬프트 결과 처리
+## <a name="test-your-bot"></a>봇 테스트
+1. 샘플을 머신에서 로컬로 실행합니다. 지침이 필요한 경우 [C#](https://aka.ms/dialog-prompt-cs) 또는 [JS](https://aka.ms/dialog-prompt-js) 샘플에 대한 README 파일을 참조하세요.
+2. 에뮬레이터를 시작하고, 아래 그림과 같이 메시지를 보내 봇을 테스트합니다.
 
-프롬프트 결과를 사용하여 수행하는 작업은 사용자에게 정보를 요청한 이유에 따라 달라집니다. 옵션은 다음과 같습니다.
-
-* 정보를 사용하여 사용자가 확인 또는 선택 항목 프롬프트에 응답할 때와 같이 대화의 흐름을 제어합니다.
-* 폭포 단계 컨텍스트의 _values_ 속성에 값을 설정하는 것과 같은 대화의 상태 정보를 캐시한 다음, 대화가 종료되면 수집된 정보를 반환합니다.
-* 정보를 봇 상태에 저장합니다. 이렇게 하려면 봇의 상태 속성 접근자에 액세스할 수 있도록 대화를 설계해야 합니다.
+![대화 프롬프트 테스트 샘플](~/media/emulator-v4/test-dialog-prompt.png)
 
 ## <a name="additional-resources"></a>추가 리소스
-여러 프롬프트에 대해 자세히 알아보려면 [[C#](https://aka.ms/cs-multi-prompts-sample) 또는 [JS](https://aka.ms/js-multi-prompts-sample)]에서 샘플을 참조하세요.
+턴 처리기에서 메시지를 직접 호출하려면 [C#](https://aka.ms/cs-prompt-validation-sample) 또는 [JS](https://aka.ms/js-prompt-validation-sample)로 작성된 _prompt-validations_(프롬프트 유효성 검사) 샘플을 참조하세요.
+
+또한 대화 라이브러리에는 사용자를 대신하여 다른 애플리케이션에 액세스할 수 있는 _OAuth 토큰_을 가져오기 위한 _OAuth 프롬프트_도 포함되어 있습니다. 인증에 대한 자세한 내용은 [봇에 인증을 추가하는 방법](bot-builder-authentication.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [기본 순차적 대화 흐름 구현](bot-builder-dialog-manage-conversation-flow.md)
+> [분기 및 루프를 사용하여 고급 대화 흐름 만들기](bot-builder-dialog-manage-complex-conversation-flow.md)

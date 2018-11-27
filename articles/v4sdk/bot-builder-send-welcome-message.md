@@ -8,20 +8,24 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
-ms.date: 11/08/2018
+ms.date: 11/15/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 25745d380e53173c4dc67d280c120ced5845078b
-ms.sourcegitcommit: cb0b70d7cf1081b08eaf1fddb69f7db3b95b1b09
+ms.openlocfilehash: eb62df9bd1f74ab6de9b67fe352b1af4620a6bc6
+ms.sourcegitcommit: d92fd6233295856052305e0d9e3cba29c9ef496e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51332917"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51715107"
 ---
 # <a name="send-welcome-message-to-users"></a>사용자에게 환영 메시지 보내기
 
 [!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
 
 봇을 만들 때 가장 중요한 목표는 사용자를 의미 있는 대화에 참여시키는 것입니다. 이 목표를 달성하는 가장 좋은 방법 중 하나는 사용자가 처음 연결하는 순간부터 봇의 주요 목적과 기능, 즉 봇이 만들어진 이유를 이해하는 것입니다. 이 문서에서는 봇의 사용자를 환영하는 데 유용한 코드 예제를 제공합니다.
+
+## <a name="prerequisites"></a>필수 조건
+- [봇 기본 사항](bot-builder-basics.md)을 이해합니다. 
+- [C#](https://aka.ms/proactive-sample-cs) 또는 [JS](https://aka.ms/proactive-sample-js)의 **환영 사용자 샘플** 복사본입니다. 샘플의 코드는 환영 메시지를 보내는 방법을 설명하는 데 사용됩니다.
 
 ## <a name="same-welcome-for-different-channels"></a>다른 채널에서의 동일한 환영
 사용자가 봇과 처음으로 상호 작용할 때마다 환영 메시지가 생성되어야 합니다. 이를 위해 봇의 작업 형식을 모니터링하고 새 연결을 감시할 수 있습니다. 새 연결마다 채널에 따라 최대 두 개의 대화 업데이트 작업을 생성할 수 있습니다.
@@ -39,25 +43,13 @@ ms.locfileid: "51332917"
 - 대화 업데이트 이벤트가 발생했습니다.
 - 새 멤버(사용자)가 대화에 추가되었습니다.
 
-다음 예제에서는 새 *대화 업데이트 작업*을 보고, 대화에 참여하는 사용자를 기준으로 환영 메시지를 하나만 보내고, 사용자의 초기 대화 입력을 무시하는 프롬프트 상태 플래그를 설정합니다. GitHub의 [[C#](https://aka.ms/bot-welcome-sample-cs) 또는 [JS](https://aka.ms/bot-welcome-sample-js)]에서 전체 소스 코드를 다운로드할 수 있습니다.
+다음 예제에서는 새 *대화 업데이트 작업*을 보고, 대화에 참여하는 사용자를 기준으로 환영 메시지를 하나만 보내고, 사용자의 초기 대화 입력을 무시하는 프롬프트 상태 플래그를 설정합니다. 
 
 [!INCLUDE [alert-await-send-activity](../includes/alert-await-send-activity.md)]
 
 ## <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
-라이브러리의 이 집합은 다음 C# 코드 예제를 모두 지원하는 데 사용됩니다.
-
-```csharp
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.Bot.Builder;
-using Microsoft.Bot.Builder.Dialogs;
-using Microsoft.Bot.Schema;
-```
-
-이제 대화의 주어진 사용자 및 해당 접근자에 대한 상태 개체를 생성해야 합니다.
+대화에 지정된 사용자 및 해당 접근자에 대한 상태 개체를 만들어야 합니다.
 
 ```csharp
 /// The state object is used to keep track of various state related to a user in a conversation.
@@ -428,6 +420,8 @@ switch (text)
 }
 ```
 ---
+## <a name="test-the-bot"></a>봇 테스트
+봇 실행 및 테스트에 대한 지침은 [README](https://github.com/Microsoft/BotBuilder-Samples/blob/master/samples/csharp_dotnetcore/03.welcome-user/readme.md) 파일을 참조하세요. 
 
 ## <a name="next-steps"></a>다음 단계
 > [!div class="nextstepaction"]

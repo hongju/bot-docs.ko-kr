@@ -8,13 +8,13 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: abs
-ms.date: 09/18/2018
-ms.openlocfilehash: b5b02773ab71801132f2a73f81123588e7ddfcdb
-ms.sourcegitcommit: 8b7bdbcbb01054f6aeb80d4a65b29177b30e1c20
+ms.date: 11/15/2018
+ms.openlocfilehash: 3c5b12bb804477ae41cf70d2ce955066801f5916
+ms.sourcegitcommit: d92fd6233295856052305e0d9e3cba29c9ef496e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51645693"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51715137"
 ---
 ::: moniker range="azure-bot-service-3.0"
 
@@ -85,17 +85,17 @@ Bot Service는 봇 개발을 위한 Bot Builder SDK 및 채널에 봇을 연결�
 
 Azure Bot Service는 봇 개발을 위한 Bot Builder SDK 및 채널에 봇을 연결하기 위한 Bot Service를 포함하여 봇 만들기의 핵심 구성 요소를 제공합니다. 이 토픽에서 .NET 또는 Node.js 템플릿을 선택하여 Bot Builder SDK v4를 사용하는 봇을 만들 수 있습니다.
 
-## <a name="log-in-to-azure"></a>Azure에 로그인
-[Azure Portal](http://portal.azure.com)에 로그인합니다.
+## <a name="prerequisites"></a>필수 조건
+- [Azure](http://portal.azure.com) 계정
 
-> [!TIP]
-> 아직 구독이 없는 경우 <a href="https://azure.microsoft.com/en-us/free/" target="_blank">체험 계정</a>으로 등록할 수 있습니다.
+### <a name="create-a-new-bot-service"></a>새 봇 서비스 만들기
 
-## <a name="create-a-new-bot-service"></a>새 봇 서비스 만들기
+1. [Azure Portal](http://portal.azure.com/)에 로그인합니다.
+1. Azure Portal의 왼쪽 위 모서리에 있는 **새 리소스 만들기** 링크를 클릭하고 **AI + 기계 학습** > **웹앱 봇**을 차례로 선택합니다. 
 
-1. Azure Portal의 왼쪽 위 모서리에 있는 **새 리소스 만들기** 링크를 클릭하고 **AI + Machine Learning > 웹앱 봇**을 선택합니다. 
+![봇 만들기](~/media/azure-bot-quickstarts/abs-create-blade.png)
 
-2. **웹앱 봇**에 대한 정보가 포함된 새 블레이드가 열립니다.  
+2. **웹앱 봇**에 대한 정보가 포함된 *새 블레이드*가 열립니다.  
 
 3. **Bot Service** 블레이드에서 이미지 아래 표에 지정된 대로 요청된 봇 정보를 제공합니다.  <br/>
  ![웹앱 봇 만들기 블레이드](~/media/azure-bot-quickstarts/sdk-create-bot-service-blade.png)
@@ -132,6 +132,6 @@ Azure Bot Service는 봇 개발을 위한 Bot Builder SDK 및 채널에 봇을 �
 이 항목에서는 Azure Bot Service를 사용하여 **Echo** 웹앱 봇을 만드는 방법을 알아보고 기본 제공 웹 채팅 컨트롤을 사용하여 봇의 기능을 확인했습니다. 이제 봇을 관리하는 방법을 알아보고 원본 코드 작업을 시작합니다.
 
 > [!div class="nextstepaction"]
-> [봇 관리](bot-service-manage-overview.md)
+> [봇 작동 방식](~/v4sdk/bot-builder-basics.md)
 
 ::: moniker-end

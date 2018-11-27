@@ -1,22 +1,18 @@
 ---
-title: 사용자 관련 질문하기 | Microsoft Docs
-description: 폭포 모델을 사용하여 Bot Builder SDK에서 여러 입력을 사용자에게 요청하는 방법을 알아봅니다.
-keywords: 폭포, 대화 상자, 질문하기, 프롬프트
-author: v-ducvo
-ms.author: v-ducvo
-manager: kamrani
-ms.topic: article
-ms.service: bot-service
-ms.subservice: sdk
-ms.date: 5/10/2018
-monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 84c86e9cc295cd2a1dce0857fa7ab629c219dab1
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+redirect_url: /bot-framework/bot-builder-prompts
+ms.openlocfilehash: e7cfbad19290b3ef61d40dc90493db8f530a9a4e
+ms.sourcegitcommit: 4661b9bb31d74731dbbb16e625be088b44ba5899
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49997480"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51826940"
 ---
+<a name="--"></a><!--
+---
+제목: 사용자에게 질문하기 | Microsoft Docs 설명: 폭포 모델을 사용하여 Bot Builder SDK에서 사용자에게 여러 입력을 요청하는 방법을 알아봅니다.
+키워드: 폭포, 대화, 질문하기, 프롬프트 작성자: v-ducvo ms.author: v-ducvo manager: kamrani ms.topic: article ms.service: bot-service ms.subservice: sdk ms.date: 5/10/2018 monikerRange: 'azure-bot-service-4.0'
+---
+
 # <a name="ask-the-user-questions"></a>사용자에게 질문하기
 
 [!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
@@ -500,3 +496,5 @@ server.post('/api/messages', (req, res) => {
 
 > [!div class="nextstepaction"]
 > [사용자 데이터 유지](bot-builder-tutorial-persist-user-inputs.md)
+
+-->
