@@ -10,12 +10,12 @@ ms.service: bot-service
 ms.subservice: cognitive-services
 ms.date: 11/19/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 984032373ce2b156c71dc39631838ed67b128a10
-ms.sourcegitcommit: 392c581aa2f59cd1798ee2136b6cfee56aa3ee6d
+ms.openlocfilehash: 2c25ce4ed815e33a7bdc10c1cc2c1c59dad7fda3
+ms.sourcegitcommit: 6c719b51c9e4e84f5642100a33fe346b21360e8a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52156692"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52451965"
 ---
 # <a name="use-qna-maker-to-answer-questions"></a>QnA Maker를 사용하여 질문에 답변
 
@@ -134,7 +134,7 @@ public class QnABot : IBot
 {
     public static readonly string QnAMakerKey = "QnABot";
     private const string WelcomeText = @"This bot will introduce you to QnA Maker.
-                                         Ask a quesiton to get started.";
+                                         Ask a question to get started.";
     private readonly BotServices _services;
     public QnABot(BotServices services)
     {

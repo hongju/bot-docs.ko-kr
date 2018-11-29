@@ -10,12 +10,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 11/08/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 5e97bc4a991a9c9b27e9c14eb44f5fd1e230985f
-ms.sourcegitcommit: cb0b70d7cf1081b08eaf1fddb69f7db3b95b1b09
+ms.openlocfilehash: 10b9fa9664e8c18cdc5dcd2fcf3ae400296a4abb
+ms.sourcegitcommit: 6c719b51c9e4e84f5642100a33fe346b21360e8a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51332793"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52451985"
 ---
 # <a name="use-button-for-input"></a>입력에 단추 사용
 
@@ -36,7 +36,6 @@ using Microsoft.Bot.Builder;
 using Microsoft.Bot.Builder.Core.Extensions;
 using Microsoft.Bot.Schema;
 
-```csharp
 var reply = turnContext.Activity.CreateReply("What is your favorite color?");
 
 reply.SuggestedActions = new SuggestedActions()
