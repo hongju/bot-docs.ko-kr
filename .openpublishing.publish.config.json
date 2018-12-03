@@ -56,7 +56,7 @@
     "botframeworkcontentteam@service.microsoft.com"
   ],
   "branches_to_filter": [
-    "live-sxs",
+    "live",
     "master-sxs"
   ],
   "git_repository_url_open_to_public_contributors": "https://github.com/Microsoft/bot-framework-docs",
