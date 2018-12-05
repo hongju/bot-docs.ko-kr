@@ -10,12 +10,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 11/18/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: e774d6360968e5059588dbdb476cfd1f35fb464e
-ms.sourcegitcommit: 6cb37f43947273a58b2b7624579852b72b0e13ea
+ms.openlocfilehash: 2264b6927ccb863f153f2feb829cc0fb99c711f7
+ms.sourcegitcommit: 6c719b51c9e4e84f5642100a33fe346b21360e8a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52288832"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52452085"
 ---
 # <a name="implement-sequential-conversation-flow"></a>순차적 대화 흐름 구현
 
@@ -240,7 +240,7 @@ async onTurn(turnContext) {
 
 ---
 
-고유한 폭포 단계를 정의할 때 기억해야 할 몇 가지 내용은 다음과 같습니다.
+고유한 폭포 단계를 정의할 때 고려해야 할 몇 가지 사항은 다음과 같습니다.
 
 * 각 봇 순서는 사용자의 입력을 반영하고 봇의 응답으로 이어집니다. 따라서 폭포 단계의 끝에서 사용자에게 입력하도록 요청하고, 다음 폭포 단계에서 해당 응답을 수신하게 됩니다.
 * 각 프롬프트는 사실상 "유효한" 입력을 받을 때까지 해당 프롬프트를 표시하고 반복하는 2단계 대화 상자입니다. 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: bot-service
 ms.date: 09/18/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 4b85b0e2d3c1ae8c30ea9d5d9fa62783c2968744
-ms.sourcegitcommit: 8b7bdbcbb01054f6aeb80d4a65b29177b30e1c20
+ms.openlocfilehash: bb2f8abccc75fcc1c63589bc41289443cf1fc211
+ms.sourcegitcommit: 6c719b51c9e4e84f5642100a33fe346b21360e8a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51645490"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52452005"
 ---
 # <a name="enterprise-bot-template---creating-a-new-project"></a>엔터프라이즈 봇 템플릿 - 새 프로젝트 만들기
 
@@ -49,7 +49,8 @@ ms.locfileid: "51645490"
 
 이제 프로젝트가 만들어졌으므로 다음 단계에서는 봇을 즉시 사용할 수 있도록 지원되는 Azure 인프라를 만들고 구성/배포를 수행합니다. [봇 배포](bot-builder-enterprise-template-deployment.md)로 계속 진행하세요.
 
-> 이 단계는 반드시 실행해야 합니다. 그렇지 않으면 봇 초기화(AppInsights) 및 LUIS 종속성을 사용할 수 없게 됩니다.
+> 이 단계를 실행해야 합니다. 그렇지 않으면 봇의 종속성(Azure Bot Service, Application Insights, LUIS 등)을 사용할 수 없습니다.
+
 ## <a name="customize-your-bot"></a>봇 사용자 지정
 
 즉시 사용할 수 있는 봇을 성공적으로 배포했는지 확인한 후 시나리오 및 필요에 맞게 봇을 사용자 지정할 수 있습니다. [봇 사용자 지정](bot-builder-enterprise-template-customize.md)으로 계속 진행하세요.

@@ -10,12 +10,12 @@ ms.service: bot-service
 ms.subservices: sdk
 ms.date: 10/18/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: a7a8b7088e65d015f22438ee2050f97823b72e49
-ms.sourcegitcommit: 49a76dd34d4c93c683cce6c2b8b156ce3f53280e
+ms.openlocfilehash: 2c493a27d7829e7c7be21b6ce70cb6f046dad616
+ms.sourcegitcommit: 6c719b51c9e4e84f5642100a33fe346b21360e8a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50134798"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52452095"
 ---
 # <a name="debug-your-bot-using-transcript-files"></a>기록 파일을 사용하여 봇 디버그
 [!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
@@ -50,8 +50,8 @@ Bot Framework Emulator를 사용하여 봇 기록 파일을 검색하려면 아�
 ![저장된 기록 검색](./media/emulator_transcript_retrieve.png)
 
 ## <a name="debug-using-transcript-file"></a>기록 파일을 사용하여 디버그
-기록 파일이 로드되었으니, 사용자와 봇 간에 캡처한 상호 작용을 디버그할 준비가 완료되었습니다. 상호 작용을 디버그하려면 에뮬레이터의 오른쪽 아래 영역에 보이는 것처럼 _로그_ 섹션에 기록된 이벤트 또는 작업을 클릭합니다. 아래 예제에서는 사용자가 "Hello" 메시지를 보낼 때의 첫 번째 상호 작용을 선택했습니다. 이렇게 할 때 이 상호 작용을 포함하는 기록 파일의 모든 정보가 에뮬레이터의 _검사기_ 창에 JSON 형식으로 표시됩니다. 아래에서 위쪽 방향으로 이러한 값 중 일부를 살펴보면, 다음과 같은 정보가 보입니다.
-* 상호 작용 유형은 _메시지_였습니다.
+기록 파일이 로드되었으니, 사용자와 봇 간에 캡처한 상호 작용을 디버그할 준비가 완료되었습니다. 상호 작용을 디버그하려면 에뮬레이터의 오른쪽 아래 영역에 보이는 것처럼 _로그_ 섹션에 기록된 이벤트 또는 작업을 클릭합니다. 아래 예에서는 사용자가 "Hello" 메시지를 보낼 때의 첫 번째 상호 작용을 선택했습니다. 이렇게 할 때 이 상호 작용을 포함하는 기록 파일의 모든 정보가 에뮬레이터의 _검사기_ 창에 JSON 형식으로 표시됩니다. 아래에서 위쪽 방향으로 이러한 값 중 일부를 살펴보면, 다음과 같은 정보가 보입니다.
+* 상호 작용 유형은 _message_였습니다.
 * 메시지가 전송된 시간.
 * 일반 텍스트로 전송되었으며 "Hello"가 포함되었습니다.
 * 메시지가 봇으로 전송되었습니다.

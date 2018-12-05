@@ -10,12 +10,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 11/8/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: bd431da58d13f3024617900bbeabd8007a2e3bb8
-ms.sourcegitcommit: 6cb37f43947273a58b2b7624579852b72b0e13ea
+ms.openlocfilehash: dacf952e6554eb76e0a41418791fb954e82d4f38
+ms.sourcegitcommit: 6c719b51c9e4e84f5642100a33fe346b21360e8a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52288803"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52452065"
 ---
 # <a name="middleware"></a>미들웨어
 
@@ -36,7 +36,7 @@ ms.locfileid: "52288803"
 ### <a name="modifying-or-enhancing-the-turn-context"></a>턴 컨텍스트 수정 또는 개선
 작업에 제공되는 정보보다 더 많은 정보를 봇이 갖고 있으면 특정 대화가 훨씬 유익할 수 있습니다. 이 경우 미들웨어는 지금까지의 대화 상태 정보를 살펴보고, 외부 데이터 원본을 쿼리하고, [턴 컨텍스트](~/v4sdk/bot-builder-basics.md#defining-a-turn) 개체에 추가한 후 봇 논리에 대한 실행을 전달할 수 있습니다. 
 
-SDK는 들어오고 나가는 작업을 기록할 수 있는 로깅 미들웨어를 정의하지만, 사용자가 고유의 미들웨어를 정의할 수도 있습니다.
+SDK는 들어오고 나가는 활동을 기록할 수 있는 로깅 미들웨어를 정의하지만, 사용자 고유의 미들웨어를 정의할 수도 있습니다.
 
 ## <a name="the-bot-middleware-pipeline"></a>봇 미들웨어 파이프라인
 각 작업에 대해 어댑터는 미들웨어를 추가된 순서대로 호출합니다. 어댑터는 턴 및 _다음_ 대리자에 대한 컨텍스트 개체를 전달하고, 미들웨어는 파이프라인의 다음 미들웨어에 컨트롤을 전달할 대리자를 호출합니다. 또한 미들웨어는 _다음_ 대리자가 메서드를 반환한 후부터 완료하기 전까지 작업을 수행할 수 있는 기회가 있습니다. 각 미들웨어 개체에는 파이프라인에서 따르는 미들웨어 개체와 관련하여 작동할 수 있는 처음이자 마지막 기회가 있는 것으로 생각하셔도 좋습니다.

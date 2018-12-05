@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: bot-service
 ms.date: 13/12/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: e93f7d24396b4e35fc81960d42148dd8942362d7
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: 3a3074ff9e8de36d7a7cf7b86fef62979bc53fa8
+ms.sourcegitcommit: 958a28bbab7dd29b384bb2e2d58d866e88f53316
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49998970"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52500657"
 ---
 # <a name="virtual-assistant-solution-overview"></a>가상 도우미 솔루션 개요
 
@@ -24,7 +24,7 @@ ms.locfileid: "49998970"
 
 가상 도우미 기능의 범위는 광범위하며, 일반적으로 최종 사용자에게 다양한 기능을 제공합니다. 개발자 생산성을 높이고 재사용 가능한 대화형 환경의 활발한 에코 시스템을 활성화하기 위해, 재사용 가능한 대화형 기술의 초기 예제가 개발자에게 제공됩니다. 이러한 기술을 대화형 응용 프로그램에 추가하여 관심 지점 찾기, 일정, 태스크, 이메일 및 다른 많은 시나리오와의 상호 작용처럼 특정 대화 환경을 조명할 수 있습니다. 기술은 완전히 사용자 지정할 수 있으며 여러 언어, 대화 상자 및 코드를 위해 여러 언어 모델로 구성됩니다.
 
-이번에는 첫 번째 환경을 구현하기 위해 초기 미리 보기를 실행하고 오픈 소스 리포지토리의 초기 고객 및 파트너와 밀접한 협업을 진행하며, 다음 몇 달 동안 더 광범위하게 제공할 예정입니다.
+현재 오픈 소스 리포지토리에 있는 초기 고객 및 파트너와 긴밀하게 협력하여 첫 번째 환경을 구현하고 있습니다.
 
 ![가상 도우미 다이어그램](./media/enterprise-template/customassistantdiagram.jpg)
 
@@ -97,5 +97,5 @@ ToDo 기술 | ToDo 기술 미리 보기는 일반적인 태스크 관련 작업�
 
 ## <a name="getting-started"></a>시작하기
 
-이번에는 첫 번째 환경을 구현하기 위해 초기 미리 보기를 실행하고 오픈 소스 리포지토리의 초기 고객 및 파트너와 밀접한 협업을 진행하며, 다음 몇 달 동안 더 광범위하게 제공할 예정입니다. 관심사를 등록하거나 시작하려면 [이 양식](https://aka.ms/customassistantpreviewform)을 채우세요. 그러면 저희 쪽에서 연락을 드리겠습니다.
+가상 도우미 솔루션은 가상 도우미 팀에서 정기적으로 업데이트하는 [이 GitHub 리포지토리](https://github.com/Microsoft/AI/tree/master/solutions/Virtual-Assistant)에서 사용할 수 있습니다. 동일한 리포지토리에서 더 자세한 설명서를 사용할 수 있으며, GitHub 피드백 메커니즘을 통해 문제/피드백을 직접 제공할 수 있습니다. 논의하려는 주요 시나리오가 있는 경우 [이 양식](https://aka.ms/customassistantpreviewform)을 작성해 주시면 연락드리겠습니다.
 
