@@ -55,9 +55,9 @@
 ### [Node.JS](nodejs/TOC.md)
 ## [디버그](debug/TOC.md)
 ## 배포
-### [봇 코드 다운로드 및 재배포](bot-service-build-download-source-code.md)
+### [Azure에 봇 배포](bot-builder-howto-deploy-azure.md)
+<!-- ### [Download and redeploy bot code](bot-service-build-download-source-code.md) -->
 ### [지속적인 배포 설정](bot-service-build-continuous-deployment.md)
-### [Azure에 C# 봇 배포](bot-builder-howto-deploy-azure.md)
 ## [관리](manage/TOC.md)
 # 참고 자료
 ## [.NET SDK v4](https://aka.ms/dotnetsdk4)
