@@ -55,7 +55,8 @@
 ### [Node.JS](nodejs/TOC.md)
 ## [디버그](debug/TOC.md)
 ## 배포
-### [Azure에 봇 배포](bot-builder-howto-deploy-azure.md)
+### [Azure CLI를 사용하여 봇 배포](bot-builder-deploy-az-cli.md)
+### [Visual Studio를 사용하여 C# 봇 배포](bot-builder-howto-deploy-azure.md)
 <!-- ### [Download and redeploy bot code](bot-service-build-download-source-code.md) -->
 ### [지속적인 배포 설정](bot-service-build-continuous-deployment.md)
 ## [관리](manage/TOC.md)
