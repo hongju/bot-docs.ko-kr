@@ -10,12 +10,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 11/13/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 77e24d58fb377ec2390671517204526bf076f78e
-ms.sourcegitcommit: 8b7bdbcbb01054f6aeb80d4a65b29177b30e1c20
+ms.openlocfilehash: 20a7dad4398874febfbd71024cd68763107f7bd8
+ms.sourcegitcommit: 0b421ff71617f03faf55ea175fb91d1f9e348523
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51645543"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53286629"
 ---
 # <a name="create-a-bot-with-the-bot-builder-sdk-for-net"></a>.NET용 Bot Builder SDK를 사용하여 봇 만들기
 [!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
@@ -24,7 +24,7 @@ ms.locfileid: "51645543"
 
 ## <a name="prerequisites"></a>필수 조건
 - Visual Studio [2017](https://www.visualstudio.com/downloads)
-- [C#](https://botbuilder.myget.org/feed/aitemplates/package/vsix/BotBuilderV4.fbe0fc50-a6f1-4500-82a2-189314b7bea2)용 Bot Builder SDK v4 템플릿
+- [C#](https://aka.ms/bot-vsix)용 Bot Builder SDK v4 템플릿
 - Bot Framework [Emulator](https://aka.ms/Emulator-wiki-getting-started)
 - [ASP.Net Core](https://docs.microsoft.com/aspnet/core/) 및 [C#](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/async/index)의 비동기 프로그래밍에 대한 정보
 
