@@ -49,7 +49,7 @@ az login
 ```
 로그인할 수 있는 브라우저 창이 열립니다. 로그인하면 다음 메시지가 표시됩니다.
 
-![MS 장치 로그인](media/bot-builder-tools/az-browser-login.png)
+![MS 디바이스 로그인](media/bot-builder-tools/az-browser-login.png)
 
 명령줄 창에 다음 정보가 표시됩니다.
 

@@ -42,9 +42,9 @@ ms.locfileid: "49997970"
 종종 정보는 검색을 통해 쉽게 표시될 수 있는 SQL Server와 같은 구조화된 데이터 저장소에 포함되어 있습니다. 간단한 대화형 명령을 사용하여 고객의 주문 상태를 조회한다고 가정합니다. Cognitive Services QnA Maker를 사용하여 고객 조회, 고객의 가장 최근 주문 검토 등과 같은 유효한 검색 옵션의 집합이 표시됩니다. 정의된 QnA 형식을 사용하여 사용자는 SQL Database에 저장된 데이터를 조회할 수 있는 Azure Search에서 지원되는 질문에 쉽게 답할 수 있습니다.
 
 ## <a name="iot-bot-scenario"></a>IoT 봇 시나리오
-이 [IoT(사물 인터넷) 봇](bot-service-scenario-internet-things.md)을 통해 대화형 채팅 명령을 사용하여 Philips Hue 조명과 같은 집 주변의 장치를 쉽게 제어할 수 있습니다.
+이 [IoT(사물 인터넷) 봇](bot-service-scenario-internet-things.md)을 통해 대화형 채팅 명령을 사용하여 Philips Hue 조명과 같은 집 주변의 디바이스를 쉽게 제어할 수 있습니다.
 
-이 간단한 봇을 사용하여 무료 IFTTT(If This Then That) 서비스와 함께 Philips Hue 조명을 제어할 수 있습니다. IoT 장치로 Philips Hue는 노출된 API를 통해 로컬로 제어될 수 있습니다. 그러나 이 API는 로컬 네트워크 외부에서 일반 액세스에 대해 노출되지 않습니다. 그러나 IFTTT는 "[Friend of Hue](http://www2.meethue.com/en-us/friends-of-hue/ifttt/)"이므로 조명을 끄고 켜고, 조명 색 또는 조명 강도를 변경하는 등을 발급할 수 있는 여러 컨트롤 명령을 노출했습니다.
+이 간단한 봇을 사용하여 무료 IFTTT(If This Then That) 서비스와 함께 Philips Hue 조명을 제어할 수 있습니다. IoT 디바이스로 Philips Hue는 노출된 API를 통해 로컬로 제어될 수 있습니다. 그러나 이 API는 로컬 네트워크 외부에서 일반 액세스에 대해 노출되지 않습니다. 그러나 IFTTT는 "[Friend of Hue](http://www2.meethue.com/en-us/friends-of-hue/ifttt/)"이므로 조명을 끄고 켜고, 조명 색 또는 조명 강도를 변경하는 등을 발급할 수 있는 여러 컨트롤 명령을 노출했습니다.
 
 ## <a name="next-steps"></a>다음 단계
 이제 시나리오의 개요가 있으므로 각 시나리오를 자세히 알아봅니다.

@@ -79,7 +79,7 @@ Direct Line 대화에 메시지를 POST하는 데 걸린 총 시간은 다음의
 
 ## <a id="upload-attachments"></a> 업로드를 통해 첨부 파일 보내기
 
-봇에 보낼 이미지나 문서가 클라이언트의 장치에 있지만 파일에 해당하는 URL은 없는 경우도 있을 수 있습니다. 이런 경우 클라이언트는 `POST /v3/directline/conversations/{conversationId}/upload` 요청을 발급하여 업로드를 통해 봇에게 첨부 파일을 보낼 수 있습니다. 요청의 형식과 콘텐츠는 클라이언트가 [단일 첨부 파일을 보내는지](#upload-one-attachment) 또는 [여러 첨부 파일을 보내는지](#upload-multiple-attachments)에 따라 달라집니다.
+봇에 보낼 이미지나 문서가 클라이언트의 디바이스에 있지만 파일에 해당하는 URL은 없는 경우도 있을 수 있습니다. 이런 경우 클라이언트는 `POST /v3/directline/conversations/{conversationId}/upload` 요청을 발급하여 업로드를 통해 봇에게 첨부 파일을 보낼 수 있습니다. 요청의 형식과 콘텐츠는 클라이언트가 [단일 첨부 파일을 보내는지](#upload-one-attachment) 또는 [여러 첨부 파일을 보내는지](#upload-multiple-attachments)에 따라 달라집니다.
 
 ### <a id="upload-one-attachment"></a> 업로드를 통해 단일 첨부 파일 보내기
 

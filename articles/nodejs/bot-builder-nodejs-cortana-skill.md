@@ -31,7 +31,7 @@ Node.js용 Bot Builder SDK를 사용하면 Cortana Skill로 Cortana 채널에 �
 Bot Framework를 사용하여 Cortana Skill을 만드는 경우 Cortana 관련 지식이 거의 필요하지 않으며, 주로 봇 빌드로 이루어집니다. 그 동안 만들어 온 다른 봇과의 주요 차이점 중 하나는 Cortana는 시각적 구성 요소와 오디오 구성 요소가 모두 포함된다는 점입니다. 시각적 구성 요소의 경우, Cortana는 카드 등의 콘텐츠 렌더링을 위한 캔버스 영역을 제공합니다. 오디오 구성 요소의 경우, 봇 메시지에 텍스트 또는 SSML을 제공하면 Cortana가 사용자에게 읽어주므로 봇에 음성을 제공합니다. 
 
 > [!NOTE]
-> Cortana는 다양한 장치에서 사용할 수 있습니다. 일부 장치에는 화면이 있고, 독립 실행형 스피커와 같은 장치에는 화면이 없을 수 있습니다. 봇이 두 시나리오를 모두 처리할 수 있도록 해야 합니다. 장치 정보를 확인하는 방법을 알아보려면 참조 [Cortana 관련 엔터티][CortanaSpecificEntities]를 참조하세요.
+> Cortana는 다양한 디바이스에서 사용할 수 있습니다. 일부 장치에는 화면이 있고, 독립 실행형 스피커와 같은 장치에는 화면이 없을 수 있습니다. 봇이 두 시나리오를 모두 처리할 수 있도록 해야 합니다. 디바이스 정보를 확인하는 방법을 알아보려면 참조 [Cortana 관련 엔터티][CortanaSpecificEntities]를 참조하세요.
 
 ## <a name="adding-speech-to-your-bot"></a>봇에 음성 추가
 
