@@ -10,7 +10,8 @@
 ## [다중 LUIS 및 QnA 모델 사용](v4sdk/bot-builder-tutorial-dispatch.md)
 ## [봇에 인증 추가](bot-builder-tutorial-authentication.md)
 # 샘플
-## [GitHub의 샘플 리포지토리](https://github.com/Microsoft/BotBuilder-Samples/blob/master/README.md)
+## [GitHub의 botbuilder 샘플 리포지토리](https://github.com/Microsoft/BotBuilder-Samples/blob/master/README.md)
+## [botbuilder 샘플 리포지토리에서 봇 배포](bot-builder-deploy-samples.md)
 # 개념
 ## [봇 작동 방식](v4sdk/bot-builder-basics.md)
 ## [상태 관리](v4sdk/bot-builder-concept-state.md)
