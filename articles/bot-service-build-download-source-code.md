@@ -20,7 +20,7 @@ ms.locfileid: "51332767"
 Azure Bot Service를 사용하면 봇의 전체 원본 프로젝트를 다운로드할 수 있으므로 원하는 IDE를 사용하여 로컬에서 작업할 수 있습니다. 코드 업데이트를 수행한 후 Azure Portal에 다시 변경 사항을 게시할 수 있습니다. Azure Portal 및 `az` cli를 사용하여 코드를 다운로드하는 방법을 보여드리겠습니다. 또한 Visual Studio 및 `az` cli 도구를 사용하여 업데이트된 봇 코드를 다시 배포하는 방법을 알아보겠습니다. 본인에게 가장 적합한 메서드를 선택할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
-- [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/?view=azure-cli-latest)
+-  [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/?view=azure-cli-latest)
 - `az extension add -n botservice` 명령을 사용하여 az botservice 확장 설치
 
 ### <a name="download-code-using-the-azure-portal"></a>Azure Portal을 사용하여 코드 다운로드
@@ -72,7 +72,7 @@ botFileSecret=ukxxxxxxxxxxxxs=
 az login
 ```
 
-고유한 임시 인증 코드를 묻는 메시지가 나타납니다. 로그인하려면 웹 브라우저를 사용하여 Microsoft [장치 로그인](https://microsoft.com/devicelogin)을 방문하고 계속하려면 CLI에서 제공하는 코드를 붙여넣습니다.
+고유한 임시 인증 코드를 묻는 메시지가 나타납니다. 로그인하려면 웹 브라우저를 사용하여 Microsoft [디바이스 로그인](https://microsoft.com/devicelogin)을 방문하고 계속하려면 CLI에서 제공하는 코드를 붙여넣습니다.
 
 `az` cli를 사용하여 코드를 다운로드하려면 다음 명령을 사용합니다.
 ```azcli
@@ -103,7 +103,7 @@ botFileSecret=ukxxxxxxxxxxxxs=
 ```azcli
 az login
 ```
-고유한 임시 인증 코드를 묻는 메시지가 나타납니다. 로그인하려면 웹 브라우저를 사용하여 Microsoft [장치 로그인](https://microsoft.com/devicelogin)을 방문하고 계속하려면 CLI에서 제공하는 코드를 붙여넣습니다.
+고유한 임시 인증 코드를 묻는 메시지가 나타납니다. 로그인하려면 웹 브라우저를 사용하여 Microsoft [디바이스 로그인](https://microsoft.com/devicelogin)을 방문하고 계속하려면 CLI에서 제공하는 코드를 붙여넣습니다.
 
 ### <a name="publish-code-using-azure-cli"></a>Azure CLI를 사용하여 코드 게시
 `az` cli를 사용하여 Azure에 다시 코드를 게시하려면 다음 명령을 사용합니다.
