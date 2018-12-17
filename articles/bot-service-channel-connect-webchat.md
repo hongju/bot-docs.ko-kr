@@ -8,17 +8,17 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
-ms.date: 10/10/2018
-ms.openlocfilehash: 1658a5cd8ba3fc4e9c34849e1550f64461ced292
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.date: 12/04/2018
+ms.openlocfilehash: 6c3cc52514988172e5c2cc85168aef401fbc1f22
+ms.sourcegitcommit: 91156d0866316eda8d68454a0c4cd74be5060144
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "50000150"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53010498"
 ---
 # <a name="connect-a-bot-to-web-chat"></a>웹 채팅에 봇 연결
 
-[!INCLUDE pre-release-label]
+[!INCLUDE [pre-release-label](./includes/pre-release-label.md)]
 
 Bot Service를 사용하여 [봇을 만들 경우](bot-service-quickstart.md) 웹 채팅 채널이 자동으로 구성됩니다. 웹 채팅 채널에는 웹 페이지에서 직접 봇으로 상호 작용할 수 있는 기능을 제공하는 웹 채팅 컨트롤이 포함되어 있습니다.
 
@@ -61,7 +61,7 @@ Bot Framework 포털의 웹 채팅 채널에는 웹 페이지에 웹 채팅 컨�
 
 ##### <a name="example-request"></a>요청 예
 
-```requestGET https://webchat.botframework.com/api/tokens Authorization: BotConnector YOUR_SECRET_HERE
+requestGET https://webchat.botframework.com/api/tokens Authorization: BotConnector YOUR_SECRET_HERE
 ```
 
 ##### Example response 

@@ -10,12 +10,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 11/21/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 9d8caf19a98fb595e4b1e27b0635d2a752b88390
-ms.sourcegitcommit: bbfb171f515c50a3c8bba5ca898daf25cf764378
+ms.openlocfilehash: a8a0976e6f553e52e13ae13bbb719dd7bdead8f6
+ms.sourcegitcommit: 91156d0866316eda8d68454a0c4cd74be5060144
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2018
-ms.locfileid: "52293605"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53010545"
 ---
 # <a name="gather-user-input-using-a-dialog-prompt"></a>대화 상자 프롬프트를 사용하여 사용자 입력 수집
 
@@ -168,7 +168,7 @@ public DialogPromptBot(DialogPromptBotAccessors accessors, ILoggerFactory logger
 
 # <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
-생성자에서 상태 접근자 속성을 만듭니다. 
+생성자에서 상태 접근자 속성을 만듭니다.
 
 ```javascript
 constructor(conversationState) {
@@ -192,6 +192,7 @@ constructor(conversationState) {
 ```
 
 그런 다음, 폭포 대화의 단계를 정의하고, 세트에 추가합니다.
+
 ```javascript
     // ...
     this.dialogSet.add(new WaterfallDialog(RESERVATION_DIALOG, [
@@ -207,11 +208,11 @@ constructor(conversationState) {
 
 ### <a name="implement-dialog-steps"></a>대화 단계 구현
 
-기본 봇 파일에서 폭포 대화의 각 단계를 실행합니다. 프롬프트가 추가되면 폭포 대화의 한 단계에서 이를 호출하고, 다음 대화 단계에서 프롬프트 결과를 얻습니다. 폭포 단계 내에서 프롬프트를 호출하려면 _폭포 단계 컨텍스트_ 개체의 _prompt_ 메서드를 호출합니다. 첫 번째 매개 변수는 사용할 프롬프트의 ID이고, 두 번째 매개 변수는 사용자에게 입력을 요청하는 데 사용되는 텍스트와 같은 프롬프트에 대한 옵션을 포함합니다.     
+기본 봇 파일에서 폭포 대화의 각 단계를 실행합니다. 프롬프트가 추가되면 폭포 대화의 한 단계에서 이를 호출하고, 다음 대화 단계에서 프롬프트 결과를 얻습니다. 폭포 단계 내에서 프롬프트를 호출하려면 _폭포 단계 컨텍스트_ 개체의 _prompt_ 메서드를 호출합니다. 첫 번째 매개 변수는 사용할 프롬프트의 ID이고, 두 번째 매개 변수는 사용자에게 입력을 요청하는 데 사용되는 텍스트와 같은 프롬프트에 대한 옵션을 포함합니다.
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
-DialogPromptBot.cs 파일에서 폭포 대화의 `PromptForPartySizeAsync`, `PromptForLocationAsync`, `PromptForReservationDateAsync` 및 `AcknowledgeReservationAsync` 단계를 통합했습니다.
+DialogPromptBot.cs 파일에서 폭포 대화의 `PromptForPartySizeAsync`, `PromptForLocationAsync`, `PromptForReservationDateAsync` 및 `AcknowledgeReservationAsync` 단계를 구현합니다.
 
 여기서는 폭포 대화의 연속적인 두 단계 대리자인 `PromptForPartySizeAsync` 및 `PromptForLocationAsync`만 보여 줍니다.
 
@@ -250,6 +251,7 @@ private async Task<DialogTurnResult> PromptForLocationAsync(WaterfallStepContext
         cancellationToken);
 }
 ```
+
 위의 예제에서는 선택 항목 프롬프트를 사용하여 세 가지 속성을 모두 제공하는 방법을 보여 줍니다. `PromptForLocationAsync` 메서드는 폭포 대화의 한 단계로 사용되며, 대화 세트에는 폭포 대화 및 ID가 `locationPrompt`인 선택 항목 프롬프트가 모두 포함됩니다.
 
 # <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
@@ -291,8 +293,6 @@ _prompt_ 메서드의 두 번째 매개 변수는 다음과 같은 속성이 있
 다시 시도 프롬프트를 지정하는 것은 프롬프트에서 구문 분석할 수 없는 형식(예: 숫자 프롬프트에 대한 "내일")이거나 입력이 유효성 검사 조건에 실패하여 사용자 입력의 유효성을 검사하는 데 실패하는 경우에 유용합니다. 이 경우 다시 시도 프롬프트가 제공되지 않으면 프롬프트에서 초기 프롬프트 활동을 사용하여 사용자에게 다시 입력하도록 요청하는 프롬프트를 표시합니다.
 
 선택 항목 프롬프트의 경우 항상 사용 가능한 선택 항목 목록을 제공해야 합니다.
-
-
 
 ## <a name="custom-validation"></a>사용자 지정 유효성 검사
 
@@ -470,14 +470,13 @@ async dateValidator(promptContext) {
    1. 컨트롤이 프롬프트의 두 번째 턴인 활성 대화의 다음 단계로 전달됩니다.
    1. 프롬프트에서 사용자 입력의 유효성을 검사합니다.
 
-      
 **프롬프트 결과 처리**
 
 프롬프트 결과를 사용하여 수행하는 작업은 사용자에게 정보를 요청한 이유에 따라 달라집니다. 옵션은 다음과 같습니다.
 
-* 정보를 사용하여 사용자가 확인 또는 선택 항목 프롬프트에 응답할 때와 같이 대화의 흐름을 제어합니다.
-* 폭포 단계 컨텍스트의 _values_ 속성에 값을 설정하는 것과 같은 대화의 상태 정보를 캐시한 다음, 대화가 종료되면 수집된 정보를 반환합니다.
-* 정보를 봇 상태에 저장합니다. 이렇게 하려면 봇의 상태 속성 접근자에 액세스할 수 있도록 대화를 설계해야 합니다. 
+- 정보를 사용하여 사용자가 확인 또는 선택 항목 프롬프트에 응답할 때와 같이 대화의 흐름을 제어합니다.
+- 폭포 단계 컨텍스트의 _values_ 속성에 값을 설정하는 것과 같은 대화의 상태 정보를 캐시한 다음, 대화가 종료되면 수집된 정보를 반환합니다.
+- 정보를 봇 상태에 저장합니다. 이렇게 하려면 봇의 상태 속성 접근자에 액세스할 수 있도록 대화를 설계해야 합니다.
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
@@ -600,17 +599,17 @@ async onTurn(turnContext) {
 
 ---
 
-
-
 비슷한 기법을 사용하여 프롬프트 형식 중 하나에 대한 프롬프트 응답의 유효성을 검사할 수 있습니다.
 
 ## <a name="test-your-bot"></a>봇 테스트
+
 1. 샘플을 머신에서 로컬로 실행합니다. 지침이 필요한 경우 [C#](https://aka.ms/dialog-prompt-cs) 또는 [JS](https://aka.ms/dialog-prompt-js) 샘플에 대한 README 파일을 참조하세요.
 2. 에뮬레이터를 시작하고, 아래 그림과 같이 메시지를 보내 봇을 테스트합니다.
 
 ![대화 프롬프트 테스트 샘플](~/media/emulator-v4/test-dialog-prompt.png)
 
 ## <a name="additional-resources"></a>추가 리소스
+
 턴 처리기에서 메시지를 직접 호출하려면 [C#](https://aka.ms/cs-prompt-validation-sample) 또는 [JS](https://aka.ms/js-prompt-validation-sample)로 작성된 _prompt-validations_(프롬프트 유효성 검사) 샘플을 참조하세요.
 
 또한 대화 라이브러리에는 사용자를 대신하여 다른 애플리케이션에 액세스할 수 있는 _OAuth 토큰_을 가져오기 위한 _OAuth 프롬프트_도 포함되어 있습니다. 인증에 대한 자세한 내용은 [봇에 인증을 추가하는 방법](bot-builder-authentication.md)을 참조하세요.

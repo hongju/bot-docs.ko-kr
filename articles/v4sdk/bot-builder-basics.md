@@ -10,12 +10,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 11/15/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 15cd6c998abf37b1c7b9a9e2659b7390370f7f10
-ms.sourcegitcommit: d92fd6233295856052305e0d9e3cba29c9ef496e
+ms.openlocfilehash: c4d4879f7ad127838de9d2563dee8f8d7320d61e
+ms.sourcegitcommit: 91156d0866316eda8d68454a0c4cd74be5060144
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51715127"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53010578"
 ---
 # <a name="how-bots-work"></a>봇 작동 방식
 
@@ -424,9 +424,6 @@ exports.EchoBot = EchoBot;
 
 ## <a name="additional-resources"></a>추가 리소스
 
-리소스 관리에서 봇 파일이 수행하는 역할을 이해하려면 [봇 파일](bot-file-basics.md)을 참조하세요.
-
-## <a name="next-steps"></a>다음 단계
-
-> [!div class="nextstepaction"]
-> [봇 만들기](~/bot-service-quickstart.md)
+- 봇 상태의 역할을 이해하려면 [상태 관리](bot-builder-concept-state.md)를 참조하세요.
+- 리소스를 관리할 때 .bot 파일이 수행하는 역할을 이해하려면 [.bot 파일을 사용하여 리소스 관리](bot-file-basics.md)를 참조하세요.
+- 첫 번째 봇을 만들려면 [Azure Bot Service 사용](../bot-service-quickstart.md), [C# 사용](../dotnet/bot-builder-dotnet-sdk-quickstart.md) 또는 [JavaScript 사용](../javascript/bot-builder-javascript-quickstart.md) 빠른 시작 중 하나를 참조하세요.

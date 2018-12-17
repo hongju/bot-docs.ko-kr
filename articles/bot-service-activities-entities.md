@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
 ms.date: 03/01/2018
-ms.openlocfilehash: d329fcbe5b4a34cb3e9c1fbf0160c5248020a508
-ms.sourcegitcommit: cb0b70d7cf1081b08eaf1fddb69f7db3b95b1b09
+ms.openlocfilehash: 818017a81b497b13ee181dbb6b87c03a0182736d
+ms.sourcegitcommit: 75f32b3325dd0fc4d8128dee6c22ebf91e5785b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51332967"
+ms.lasthandoff: 12/09/2018
+ms.locfileid: "53120680"
 ---
 # <a name="entities-and-activity-types"></a>엔터티 및 작업 형식
 
@@ -173,6 +173,11 @@ if(context.activity.type === 'message'){
 | [호출](#invoke) | IInvokeActivity(C#) <br> 작업(JS) | 특정 작업을 수행하도록 요청하는 봇에 전송된 통신을 나타냅니다. 이 활동 유형은 Microsoft Bot Framework에 의해 내부 용도로 예약됐습니다. |
 | [messageReaction](#messagereaction) | IMessageReactionActivity(C#) <br> 작업(JS) | 사용자가 기존 활동에 대응했음을 나타냅니다. 예를 들어 사용자는 메시지에서 "좋아요" 단추를 클릭합니다. |
 | [입력](#typing) | ITypingActivity(C#) <br> 작업(JS) | 대화의 상대편인 사용자 또는 봇이 응답을 컴파일하는 중임을 나타냅니다. |
+| messageUpdate | IMessageUpdateActivity(C#) <br> 작업(JS) | 대화에서 이전 메시지 활동을 업데이트하라는 요청을 나타냅니다. |
+| messageDelete | IMessageDeleteActivity(C#) <br> 작업(JS) | 대화에서 이전 메시지 활동을 삭제하라는 요청을 나타냅니다. |
+| suggestion | ISuggestionActivity(C#) <br> 작업(JS) | 받는 사람에게 제시한 다른 특정 활동에 대한 개인 제안을 나타냅니다. |
+| 추적 | ITraceActivity(C#) <br> 작업(JS) | 봇에서 내부 정보를 기록된 대화 내용에 기록할 수 있는 활동입니다. |
+| handoff | IHandoffActivity(C#) <br> 작업(JS) | 전송된 대화에 대한 제어이거나, 대화의 제어를 전송하라는 요청입니다. |
 
 ## <a name="message"></a>Message
 

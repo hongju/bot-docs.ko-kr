@@ -10,12 +10,12 @@ ms.service: bot-service
 ms.subservice: cognitive-services
 ms.date: 11/19/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 2c25ce4ed815e33a7bdc10c1cc2c1c59dad7fda3
-ms.sourcegitcommit: 6c719b51c9e4e84f5642100a33fe346b21360e8a
+ms.openlocfilehash: 0708244b9f9e4859ba069ed463cef83a0ecdf20d
+ms.sourcegitcommit: b9482670285295a2af0dfbb8f4b7e543c1c10542
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52451965"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53327159"
 ---
 # <a name="use-qna-maker-to-answer-questions"></a>QnA Maker를 사용하여 질문에 답변
 
@@ -63,8 +63,9 @@ QnA Maker 서비스를 사용하여 봇에 질문 및 답변 지원 기능을 �
       "type": "qna",
       "name": "QnABot",
       "KbId": "<YOUR_KNOWLEDGE_BASE_ID>",
-      "Hostname": "https://<YOUR_HOSTNAME>.azurewebsites.net/qnamaker",
-      "EndpointKey": "<YOUR_ENDPOINT_KEY>"
+      "subscriptionKey": "<Your_Azure_Subscription_Key>", // Used when creating your QnA service.
+      "endpointKey": "<Your_Recorded_Endpoint_Key>",
+      "hostname": "<Your_Recorded_Hostname>",
       "id": "117"
     }
   ],

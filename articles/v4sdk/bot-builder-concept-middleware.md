@@ -10,12 +10,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 11/8/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: dacf952e6554eb76e0a41418791fb954e82d4f38
-ms.sourcegitcommit: 6c719b51c9e4e84f5642100a33fe346b21360e8a
+ms.openlocfilehash: 1bfa180967c55aac6012e02887ac2893947263f9
+ms.sourcegitcommit: 91156d0866316eda8d68454a0c4cd74be5060144
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52452065"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53010588"
 ---
 # <a name="middleware"></a>미들웨어
 
@@ -28,7 +28,7 @@ ms.locfileid: "52452065"
 미들웨어를 살펴보기 전에, 먼저 [봇의 일반론](~/v4sdk/bot-builder-basics.md) 및 [봇이 작업을 처리하는 방식](~/v4sdk/bot-builder-basics.md#the-activity-processing-stack)을 이해해야 합니다.
 
 ## <a name="uses-for-middleware"></a>미들웨어 사용
-"언제 작업을 미들웨어로 구현해야 하고, 언제 일반 봇 논리를 사용해야 하나요?"라는 질문을 자주 듣게 됩니다. 미들웨어는 대화가 처리되는 _순서_의 전과 후에 사용자의 대화 흐름과 상호 작용하는 추가 기회를 제공합니다. 또한 미들웨어는 대화와 관련된 정보를 저장 및 검색하고 필요한 경우 추가 처리 논리를 호출할 수 있습니다. 아래는 미들웨어가 유용할 수 있는 일반적인 시나리오입니다.
+"작업은 일반 봇 논리를 사용하는 대신 미들웨어로 언제 구현해야 하나요?"라는 질문이 자주 제기됩니다. 미들웨어는 대화가 처리되는 _순서_의 전과 후에 사용자의 대화 흐름과 상호 작용하는 추가 기회를 제공합니다. 또한 미들웨어는 대화와 관련된 정보를 저장 및 검색하고 필요한 경우 추가 처리 논리를 호출할 수 있습니다. 아래는 미들웨어가 유용할 수 있는 일반적인 시나리오입니다.
 
 ### <a name="looking-at-or-acting-on-every-activity"></a>모든 작업을 살펴보거나 모든 작업에 따라 작동
 봇이 모든 작업 또는 특정 유형의 모든 작업에 대해 무언가를 해야 하는 여러 상황이 있습니다. 예를 들어 봇이 수신하는 모든 메시지 작업을 기록하거나, 봇이 이 순서에 대한 응답을 생성하지 않으면 대체 응답을 제공하려는 경우가 있습니다. 미들웨어는 나머지 봇 논리가 실행되기 전과 후에 작동하는 기능을 갖고 있기 때문에 이 시나리오를 구현하기에 매우 좋습니다.
@@ -78,7 +78,7 @@ SDK는 들어오고 나가는 활동을 기록할 수 있는 로깅 미들웨어
 ## <a name="response-event-handlers"></a>응답 이벤트 처리기
 응용 프로그램 및 미들웨어 논리 외에도, 컨텍스트 개체에 응답 처리기(이벤트 처리기 또는 작업 이벤트 처리기라고도 함)를 추가할 수 있습니다. 이러한 처리기는 현재 컨텍스트 개체에서 관련 응답이 발생하면 실제 응답을 실행하기 전에 호출됩니다. 이러한 처리기는 실제 이벤트 전에 또는 후에 현재 응답의 나머지 부분에서 해당 형식의 모든 작업에 대해 무엇을 할 것인지 알고 있는 경우에 유용 합니다.
 
-> [!WARNING] 
+> [!WARNING]
 > 각 응답 이벤트 처리기 내부에서 작업 응답 메서드를 호출하지 않도록 주의해야 합니다. 예를 들어 on send activity 처리기 내에서 send activity 메서드를 호출하면 안 됩니다. 호출하면 무한 루프가 생성될 수 있습니다.
 
 새 작업마다 실행할 새 스레드가 생깁니다. 작업을 처리하는 스레드가 생성되면 해당 작업에 대한 처리기 목록이 해당하는 새 스레드에 복사됩니다. 해당 시점 이후 추가된 처리기는 해당 활동 이벤트에 대해 실행되지 않습니다.
@@ -90,9 +90,11 @@ SDK는 들어오고 나가는 활동을 기록할 수 있는 로깅 미들웨어
 
 ![상태 미들웨어 문제](media/bot-builder-dialog-state-problem.png)
 
-이 방법의 문제는 봇의 턴 처리기가 반환되면 발생하는 일부 사용자 지정 미들웨어에서 수행된 모든 상태 업데이트가 지속형 스토리지에 저장되지 않는다는 것입니다. 해결 방법은 AutoSaveChangesMiddleware를 미들웨어 스택의 시작 부분 또는 적어도 상태를 업데이트할 수 있는 미들웨어 앞에 추가하여 호출을 변경 내용 저장 메서드로 이동하는 것입니다. 실행은 아래와 같습니다.
+이 방법의 문제는 봇의 턴 처리기가 반환되면 발생하는 일부 사용자 지정 미들웨어에서 수행된 모든 상태 업데이트가 지속형 스토리지에 저장되지 않는다는 것입니다. 해결 방법은 _변경 내용 자동 저장_ 미들웨어의 인스턴스를 미들웨어 스택의 시작 부분에 추가하거나 적어도 상태를 업데이트할 수 있는 미들웨어 앞에 추가하여 사용자 지정 미들웨어가 완료된 후에 호출을 변경 내용 저장 메서드로 이동하는 것입니다. 실행은 아래와 같습니다.
 
 ![상태 미들웨어 해결 방법](media/bot-builder-dialog-state-solution.png)
+
+업데이트해야 하는 상태 관리 개체를 _봇 상태 세트_ 개체에 추가한 다음, 변경 내용 자동 저장 미들웨어를 만들 때 이 개체를 사용합니다.
 
 ## <a name="additional-resources"></a>추가 리소스
 Bot Builder SDK [[C#](https://github.com/Microsoft/botbuilder-dotnet/blob/master/libraries/Microsoft.Bot.Builder/TranscriptLoggerMiddleware.cs) | [JS](https://github.com/Microsoft/botbuilder-js/blob/master/libraries/botbuilder-core/src/transcriptLogger.ts)]에 구현된 대본 로거 미들웨어를 살펴볼 수 있습니다.

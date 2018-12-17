@@ -1,31 +1,38 @@
 ---
-title: Azure에 C# 봇 배포 | Microsoft Docs
+title: Visual Studio를 사용하여 C# 봇 배포 | Microsoft Docs
 description: Azure 클라우드에 봇을 배포합니다.
-keywords: 봇 배포, Azure 배포, 봇 채널 등록, visual studio 게시
+keywords: 봇 배포, Azure 배포, 봇 게시, az deploy bot, Visual Studio 배포 봇, msbot publish, msbot clone
 author: ivorb
 ms.author: v-ivorb
 manager: kamrani
 ms.topic: get-started-article
 ms.service: bot-service
 ms.subservice: abs
-ms.date: 11/05/2018
-ms.openlocfilehash: f30a038c6bc5e435ade421e24b05d0b31a143538
-ms.sourcegitcommit: 9acac75f85d36c81b8bf4edec916dd0b52a4a5c7
+ms.date: 12/08/2018
+ms.openlocfilehash: ac4e5f2ea385cb8318ad59e04c8ca8787480f5c8
+ms.sourcegitcommit: 77664484e1b0780a15f686ef08bd23716b049b4a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51028740"
+ms.lasthandoff: 12/09/2018
+ms.locfileid: "53121789"
 ---
-# <a name="deploy-your-c-bot-to-azure"></a>Azure에 C# 봇 배포
+# <a name="deploy-your-c-bot-using-visual-studio"></a>Visual Studio를 사용하여 C# 봇 배포
 
 [!INCLUDE [pre-release-label](./includes/pre-release-label.md)]
 
-봇을 만들고 로컬로 테스트한 후에는 어디서나 액세스할 수 있도록 Azure에 게시할 수 있습니다.
+봇을 만들어 로컬로 테스트한 후에는 어디서나 액세스할 수 있도록 Azure에 배포할 수 있습니다. 봇이 Azure에 배포되면 사용하는 서비스에 대한 비용을 지불해야 합니다. [청구 및 비용 관리](https://docs.microsoft.com/en-us/azure/billing/) 문서는 Azure 청구를 이해하고, 사용량과 비용을 모니터링하며, 계정과 구독을 관리하는 데 도움이 됩니다.
 
-## <a name="publish-from-visual-studio"></a>Visual Studio에서 게시
+이 문서에서는 Visual Studio와 Azure Portal을 사용하여 C# 봇을 배포하는 방법을 보여 줍니다. 단계를 수행하기 전에 이 문서를 참조하면 봇 배포와 관련된 내용을 완전히 이해할 수 있습니다.
+
+## <a name="prerequisites"></a>필수 조건
+- [Bot Framework Emulator](https://aka.ms/Emulator-wiki-getting-started)를 설치합니다.
+- [ngrok](https://github.com/Microsoft/BotFramework-Emulator/wiki/Tunneling-%28ngrok%29)를 설치 및 구성합니다.
+- [.bot](v4sdk/bot-file-basics.md) 파일에 대한 지식이 필요합니다.
+
+## <a name="deploy-your-bot-in-app-service"></a>App Service에 봇 배포
 먼저 App Service의 Visual Studio에서 Azure에 봇을 배포합니다. 그런 다음, 봇 채널 등록을 사용하여 Azure Bot Service로 봇을 구성합니다.
 
-**참고: Visual Studio 프로젝트 이름에 공백이 있으면 아래에 설명된 배포 단계가 작동하지 않습니다.**
+**참고: Visual Studio 프로젝트 이름에 공백이 있으면 아래에서 설명하는 배포 단계가 작동하지 않습니다.**
 
 [솔루션 탐색기] 창에서 프로젝트 노드를 마우스 오른쪽 단추로 클릭하고 [게시]를 선택합니다.
 
@@ -138,6 +145,22 @@ Azure Bot Service로 봇을 인증하려면 Azure App Service에서 봇의 응�
 ![웹 채팅에서 테스트](media/azure-bot-quickstarts/getting-started-test-webchat.png)
 
 4. `Hi`와 같은 메시지를 입력하고 Enter 키를 누릅니다. 봇이 `Turn 1: You sent Hi`라고 반향합니다.
+
+---
+
+## <a name="additional-resources"></a>추가 리소스
+
+봇이 배포되면 일반적으로 Azure Portal에 만들어지는 리소스는 다음과 같습니다.
+
+| 리소스      | 설명 |
+|----------------|-------------|
+| Web App 봇 | Azure App Service에 배포되는 Azure Bot Service 봇입니다.|
+| [App Service](https://docs.microsoft.com/en-us/azure/app-service/)| 웹 애플리케이션을 구축하고 호스팅할 수 있습니다.|
+| [App Service 계획](https://docs.microsoft.com/en-us/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview)| 실행할 웹앱에 대한 컴퓨팅 리소스 세트를 정의합니다.|
+| [Application Insights](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-overview)| 원격 분석을 수집하고 분석하는 도구를 제공합니다.|
+| [Storage 계정](https://docs.microsoft.com/en-us/azure/storage/common/storage-introduction)| 고가용성, 보안, 내구성, 확장성 및 중복성이 뛰어난 클라우드 스토리지를 제공합니다.|
+
+Azure 리소스 그룹에 익숙하지 않은 경우 이 [용어](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview#terminology) 항목을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 > [!div class="nextstepaction"]

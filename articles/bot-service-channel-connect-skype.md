@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
 ms.date: 10/11/2018
-ms.openlocfilehash: 58c8145d359d292dd33972a3dd59af997e7b8393
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: f52c8fd668299486eccda3920181df971f475a90
+ms.sourcegitcommit: 75f32b3325dd0fc4d8128dee6c22ebf91e5785b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49999510"
+ms.lasthandoff: 12/09/2018
+ms.locfileid: "53120660"
 ---
 # <a name="connect-a-bot-to-skype"></a>Skype에 봇 연결
 
@@ -51,6 +51,9 @@ Skype 채널을 추가하려면 [Azure Portal](https://portal.azure.com/)에서 
 이 섹션에서는 봇의 게시 설정을 구성합니다. *로 레이블이 지정된 모든 필드는 필수 필드입니다.
 
 **미리 보기**의 봇은 100개 연락처로 제한됩니다. 연락처가 100개 이상 필요한 경우 봇을 검토용으로 제출합니다. **검토를 위해 제출**을 클릭하면 Skype에서 봇이 자동으로 검색 가능해집니다(허용되는 경우). 요청을 승인할 수 없는 경우 승인을 위해 먼저 변경해야 하는 항목에 대한 알림이 제공됩니다.
+
+> [!TIP]
+> 검토를 위해 봇을 제출하려면 먼저 [Skype 인증 검사 목록](https://github.com/Microsoft/skype-dev-bots/blob/master/certification/CHECKLIST.md)이 충족되어야 허용됩니다.
 
 구성을 완료한 후 **저장**을 클릭하고 **서비스 약관**에 동의합니다. 이제 봇에 Skype 채널이 추가됩니다.
 

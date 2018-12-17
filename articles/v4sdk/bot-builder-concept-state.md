@@ -10,12 +10,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 11/15/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 940dba389205ff339b80f741b8a8aec87ff54f1d
-ms.sourcegitcommit: bcde20bd4ab830d749cb835c2edb35659324d926
+ms.openlocfilehash: bf7d6a574cc4e63d22e3f34462a1ec00dbdac75e
+ms.sourcegitcommit: 91156d0866316eda8d68454a0c4cd74be5060144
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52338566"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53010546"
 ---
 # <a name="managing-state"></a>상태 관리
 
@@ -27,7 +27,11 @@ ms.locfileid: "52338566"
 
 상태를 유지 관리하면 사용자 또는 대화에 대한 특정 항목을 기억함으로써 더 의미 있는 대화를 할 수 있습니다. 예를 들어 이전에 사용자와 대화한 적이 있으면 해당 사용자에 대한 이전 정보를 저장할 수 있으므로 다시 요청할 필요가 없습니다. 또한 상태는 데이터를 현재 턴보다 오래 유지하므로 다중 턴 대화를 수행하는 동안 봇에서 정보를 유지할 수 있습니다.
 
-봇과 관련하여 여기서 다루게 될 상태를 사용하는 몇 가지 계층, 즉 스토리지 계층, 상태 관리 및 상태 속성 액세스가 있습니다.
+봇과 관련하여 여기서 다루는 상태의 사용에는 몇 가지 계층, 즉 스토리지 계층, 상태 관리(아래 다이어그램의 봇 상태에 포함) 및 상태 속성 접근자가 있습니다. 이 다이어그램에서는 메서드 호출을 나타내는 실선 화살표 및 반환 값이 있거나 없는 응답을 나타내는 파선 모양 화살표를 사용하여 이러한 계층 간의 상호작용 시퀀스의 일부를 보여 줍니다.
+
+![봇 상태](media/bot-builder-state.png)
+
+이 다이어그램의 흐름과 관련된 각 계층에 대해 다음 섹션에서 자세히 설명하고 있습니다.
 
 ## <a name="storage-layer"></a>스토리지 계층
 

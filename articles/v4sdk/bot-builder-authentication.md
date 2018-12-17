@@ -9,12 +9,12 @@ ms.service: bot-service
 ms.subservice: abs
 ms.date: 10/30/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 14a56749c68cfe89ed4a0da3c046a39a8e0783fe
-ms.sourcegitcommit: 15f7fa40b7e0a05507cdc66adf75bcfc9533e781
+ms.openlocfilehash: 27e0b54b4e790e76c55deb858e50d8c81507443a
+ms.sourcegitcommit: 91156d0866316eda8d68454a0c4cd74be5060144
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50916790"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53010598"
 ---
 # <a name="add-authentication-to-your-bot-via-azure-bot-service"></a>Azure Bot Service를 통해 봇에 인증 추가
 
@@ -41,9 +41,8 @@ These capabilities were bundled in the BotAuth and AuthBot samples that are on G
 
 | 샘플 | BotBuilder 버전 | 설명 |
 |:---|:---:|:---|
-| [C# 인증](http://aka.ms/v4csharpauth) | v4 | v4 C# SDK에서 OAuthCard 지원을 보여줍니다. |
-| [C# 인증 그래프](http://aka.ms/v4csharpauthgraph) | v4 |  AAD 및 Microsoft Graph API를 사용하여 v4 C# SDK의 OAuthCard 지원을 보여줍니다. |
-| [노드 인증](http://aka.ms/v4cnodeauth) | v4 |  v4 Node/JavaScript SDK에서 OAuthCard 지원을 보여줍니다. |
+| **봇 인증**([C#](https://aka.ms/v4cs-bot-auth-sample) / [JS](https://aka.ms/v4js-bot-auth-sample)) | v4 | OAuthCard 지원을 보여 줍니다. |
+| **봇 인증 MSGraph**([C#](https://aka.ms/v4cs-auth-msgraph-sample) / [JS](https://aka.ms/v4js-auth-msgraph-sample)) | v4 |  OAuth 2를 통한 Microsoft Graph API 지원을 보여 줍니다. |
 
 > [!NOTE]
 > 인증 기능은 BotBuilder v3에서도 작동합니다. 그러나 이 문서에서는 샘플 v4 코드만을 설명합니다.
@@ -52,7 +51,7 @@ These capabilities were bundled in the BotAuth and AuthBot samples that are on G
 
 ## <a name="overview"></a>개요
 
-이 자습서에서는 Azure AD v1 또는 v2 토큰을 사용하여 Microsoft Graph에 연결하는 샘플 봇을 만듭니다. 이 프로세스의 일부로, GitHub 리포지토리에서 코드를 사용하고, 이 자습서에서는 봇 응용 프로그램을 포함하여 설정하는 방법을 설명합니다.
+이 자습서에서는 Azure AD v1 또는 v2 토큰을 사용하여 Microsoft Graph에 연결하는 샘플 봇을 만듭니다. 이 프로세스의 일환으로 [Microsoft/BotBuilder-Samples](https://github.com/Microsoft/BotBuilder-Samples) GitHub 리포지토리의 코드를 사용하고, 이 자습서에서는 봇 애플리케이션을 포함하여 설정하는 방법에 대해 설명합니다.
 
 - **봇 및 인증 응용 프로그램 만들기**
 - **봇 샘플 코드 준비**
@@ -208,7 +207,7 @@ v1 및 v2 엔드포인트 간의 차이점에 대한 정보는 [v1-v2 비교](ht
 1. **서비스 공급자 연결 설정** 창의 맨 위에 있는 **연결 테스트**를 클릭합니다.
 1. 처음에 앱에서 요청하는 사용 권한을 나열하는 새 브라우저 탭을 열고 수락하라는 메시지를 표시해야 합니다.
 1. **Accept**를 클릭합니다.
-1. 그런 다음, **`<your-connection-name>' Succeeded에 대한 연결 테스트** 페이지로 리디렉션해야 합니다.
+1. 이렇게 하면 **<your-connection-name>에 대한 연결 테스트가 성공했습니다** 페이지로 리디렉션됩니다.
 
 ## <a name="prepare-the-bot-sample-code"></a>봇 샘플 코드 준비
 
@@ -228,7 +227,7 @@ v1 및 v2 엔드포인트 간의 차이점에 대한 정보는 [v1-v2 비교](ht
     > [!IMPORTANT]
     > 비밀의 문자에 따라 암호를 XML 이스케이프해야 할 수 있습니다. 예를 들어 모든 앰퍼샌드(&)는 `&amp;`로 인코딩되어야 합니다.
 
-    ```xml
+    ```json
     {
         "name": "BotAuthentication",
         "secretKey": "",

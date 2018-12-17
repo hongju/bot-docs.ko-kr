@@ -10,12 +10,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 11/26/18
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 8f979aed3bc1c4bb4c74629bcffb258e139ce77d
-ms.sourcegitcommit: bcde20bd4ab830d749cb835c2edb35659324d926
+ms.openlocfilehash: 8c3aad54a9e80e8a046a6e31a5109a1de8c61a8b
+ms.sourcegitcommit: 91156d0866316eda8d68454a0c4cd74be5060144
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52338556"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53010508"
 ---
 # <a name="save-user-and-conversation-data"></a>사용자 및 대화 데이터 저장
 
@@ -117,8 +117,8 @@ const userState = new UserState(memoryStorage);
 
 먼저 각 유형의 상태에서 관리하려는 모든 정보를 포함하는 클래스를 정의합니다.
 
-- 봇에서 수집할 사용자 정보에 대한 `UserProfile` 클래스
-- 메시지가 도착한 시기와 메시지를 보낸 사람에 대한 정보를 연결하는 `ConversationData` 클래스
+- 봇에서 수집할 사용자 정보에 대한 `UserProfile` 클래스입니다.
+- 메시지가 도착한 시기와 메시지를 보낸 사람에 대한 정보를 추적하는 `ConversationData` 클래스입니다.
 
 ```csharp
 // Defines a state property used to track information about the user.
@@ -384,11 +384,11 @@ async onTurn(turnContext) {
 
 **개인 정보:** 사용자의 개인 데이터를 저장하려면 [GDPR(일반 데이터 보호 규정)](https://blog.botframework.com/2018/04/23/general-data-protection-regulation-gdpr)을 준수해야 합니다.
 
-**상태 관리:** 상태 관리 호출은 모두 기본적으로 비동기적이며 최종 작성자 인정(last-writer-wins)입니다. 실제로 봇의 상태를 최대한 가깝게 가져오고, 설정하고, 저장해야 합니다.
+**상태 관리:** 상태 관리 호출은 모두 비동기적이며, 기본적으로 최종 작성자 인정(last-writer-wins)입니다. 실제로 봇의 상태를 최대한 가깝게 가져오고, 설정하고, 저장해야 합니다.
 
-**중요 비즈니스용 데이터:** 봇 상태는 기본 설정, 사용자 이름 또는 주문한 마지막 항목을 저장하는 데 사용하지만, 중요 비즈니스용 데이터를 저장하는 데는 사용하지 않습니다. 중요한 데이터의 경우 [사용자 고유의 스토리지 구성 요소를 만들거나](bot-builder-custom-storage.md) [스토리지](bot-builder-howto-v4-storage.md)에 직접 씁니다.
+**중요 비즈니스 데이터:** 봇 상태를 사용하여 기본 설정, 사용자 이름 또는 요청한 마지막 항목을 저장하지만, 중요 비즈니스 데이터를 저장하는 데는 사용하지 않습니다. 중요한 데이터의 경우 [사용자 고유의 스토리지 구성 요소를 만들거나](bot-builder-custom-storage.md) [스토리지](bot-builder-howto-v4-storage.md)에 직접 씁니다.
 
-**Recognizer-Text:** 샘플에서는 Microsoft/Recognizer-Text 라이브러리를 사용하여 사용자 입력을 구문 분석하고 유효성을 검사합니다. 자세한 내용은 [개요](https://github.com/Microsoft/Recognizers-Text#microsoft-recognizers-text-overview) 페이지를 참조하세요.
+**Recognizer-Text:** 샘플에서는 Microsoft/Recognizers-Text 라이브러리를 사용하여 사용자 입력을 구문 분석하고 유효성을 검사합니다. 자세한 내용은 [개요](https://github.com/Microsoft/Recognizers-Text#microsoft-recognizers-text-overview) 페이지를 참조하세요.
 
 ## <a name="next-step"></a>다음 단계
 
