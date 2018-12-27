@@ -95,7 +95,7 @@ v1 및 v2 엔드포인트 간의 차이점에 대한 정보는 [v1-v2 비교](ht
 1. **키**를 클릭하여 **키** 패널을 엽니다.
    1. **암호** 아래에서 `BotLogin` 키를 만듭니다.
    1. 해당 **기간**을 **무기한**으로 설정합니다.
-   1. **저장**을 클릭하고 키 값을 기록합니다. 나중에 이를 _응용 프로그램 비밀_로 제공합니다.
+   1. **저장**을 클릭하고 키 값을 기록합니다. 나중에 이를 _애플리케이션 비밀_로 제공합니다.
    1. **키** 패널을 닫습니다.
 1. **필요한 사용 권한**을 클릭하여 **필요한 사용 권한** 패널을 엽니다.
    1. **추가**를 클릭합니다.
@@ -118,7 +118,7 @@ v1 및 v2 엔드포인트 간의 차이점에 대한 정보는 [v1-v2 비교](ht
 
 이제 Azure AD v1 응용 프로그램이 구성되었습니다.
 
-#### <a name="to-create-an-azure-ad-v2-application"></a>Azure AD v2 응용 프로그램을 만들려면
+#### <a name="to-create-an-azure-ad-v2-application"></a>Azure AD v2 애플리케이션을 만들려면
 
 1. [Microsoft 응용 프로그램 등록 포털](https://apps.dev.microsoft.com)로 이동합니다.
 1. **앱 추가**를 클릭합니다.
@@ -171,7 +171,7 @@ v1 및 v2 엔드포인트 간의 차이점에 대한 정보는 [v1-v2 비교](ht
 1. **저장**을 클릭합니다.
 
 > [!NOTE]
-> 이러한 값을 사용하면 응용 프로그램은 Microsoft Graph API를 통해 Office 365 데이터에 액세스할 수 있습니다.
+> 이러한 값을 사용하면 애플리케이션은 Microsoft Graph API를 통해 Office 365 데이터에 액세스할 수 있습니다.
 
 이제 봇 코드에서 이 연결 이름을 사용하여 사용자 토큰을 검색할 수 있습니다.
 
@@ -197,7 +197,7 @@ v1 및 v2 엔드포인트 간의 차이점에 대한 정보는 [v1-v2 비교](ht
 1. **저장**을 클릭합니다.
 
 > [!NOTE]
-> 이러한 값을 사용하면 응용 프로그램은 Microsoft Graph API를 통해 Office 365 데이터에 액세스할 수 있습니다.
+> 이러한 값을 사용하면 애플리케이션은 Microsoft Graph API를 통해 Office 365 데이터에 액세스할 수 있습니다.
 
 이제 봇 코드에서 이 연결 이름을 사용하여 사용자 토큰을 검색할 수 있습니다.
 
@@ -215,8 +215,8 @@ v1 및 v2 엔드포인트 간의 차이점에 대한 정보는 [v1-v2 비교](ht
 1. 솔루션 `BotBuilder\CSharp\Microsoft.Bot.Builder.sln`을 열고 빌드합니다.
 1. 해당 솔루션을 닫고 `BotBuilder\CSharp\Samples\Microsoft.Bot.Builder.Samples.sln`을 엽니다.
 1. 시작 프로젝트를 설정합니다.
-    - v1 Azure AD 응용 프로그램을 사용하는 봇의 경우 `Microsoft.Bot.Sample.AadV1Bot` 프로젝트를 사용합니다.
-    - v2 Azure AD 응용 프로그램을 사용하는 봇의 경우 `Microsoft.Bot.Sample.AadV2Bot` 프로젝트를 사용합니다.
+    - v1 Azure AD 애플리케이션을 사용하는 봇의 경우 `Microsoft.Bot.Sample.AadV1Bot` 프로젝트를 사용합니다.
+    - v2 Azure AD 애플리케이션을 사용하는 봇의 경우 `Microsoft.Bot.Sample.AadV2Bot` 프로젝트를 사용합니다.
 1. `Web.config` 파일을 열고, 다음과 같이 앱 설정을 수정합니다.
     1. `ConnectionName`을 봇의 OAuth 2.0 연결 설정을 구성할 때 사용한 값으로 설정합니다.
     1. `MicrosoftAppId` 값을 봇의 앱 ID로 설정합니다.

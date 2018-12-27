@@ -94,7 +94,7 @@ const adapter = new BotFrameworkAdapter({
 1. localhost에서 봇을 시작합니다.
 2. Bot Framework Emulator를 시작합니다.
 3. 에뮬레이터를 사용하여 봇에 연결합니다.
-    - 에뮬레이터의 주소 표시줄에 `http://localhost:port-number/api/messages`를 입력합니다. 여기서 **port-number**는 응용 프로그램이 실행 중인 브라우저에 표시되는 포트 번호와 일치합니다. 
+    - 에뮬레이터의 주소 표시줄에 `http://localhost:port-number/api/messages`를 입력합니다. 여기서 **port-number**는 애플리케이션이 실행 중인 브라우저에 표시되는 포트 번호와 일치합니다. 
     - **Microsoft 앱 ID** 및 **Microsoft 앱 암호** 필드가 둘 다 비어 있는지 확인합니다.
     - **Connect**를 클릭합니다.
 4. 봇에 대한 연결을 테스트하려면 에뮬레이터에 일부 텍스트를 입력하고 Enter 키를 누릅니다.
@@ -171,7 +171,7 @@ var connector = new builder.ChatConnector({
 1. localhost에서 봇을 시작합니다.
 2. Bot Framework Emulator를 시작합니다.
 3. 에뮬레이터를 사용하여 봇에 연결합니다.
-    - 에뮬레이터의 주소 표시줄에 `http://localhost:port-number/api/messages`를 입력합니다. 여기서 **port-number**는 응용 프로그램이 실행 중인 브라우저에 표시되는 포트 번호와 일치합니다. 
+    - 에뮬레이터의 주소 표시줄에 `http://localhost:port-number/api/messages`를 입력합니다. 여기서 **port-number**는 애플리케이션이 실행 중인 브라우저에 표시되는 포트 번호와 일치합니다. 
     - 봇의 앱 ID를 **Microsoft 앱 ID** 필드에 입력합니다.
     - 봇의 암호를 **Microsoft 앱 암호** 필드에 입력합니다.
     - **Connect**를 클릭합니다.
@@ -197,7 +197,7 @@ Bot Framework에서는 봇이 인터넷에서 액세스 가능해야 하므로, 
 > [!NOTE]
 > 아직 클라우드 호스팅 공급자가 없는 경우, <a href="https://azure.microsoft.com/en-us/free/" target="_blank">체험 계정</a>으로 등록할 수 있습니다. 
 
-Azure에 봇을 배포하면 응용 프로그램에 대한 SSL이 자동으로 구성되므로 Bot Framework에서 요구하는 **HTTPS** 엔드포인트를 사용할 수 있습니다. 다른 클라우드 호스팅 공급자에 배포할 경우에는 봇에 **HTTPS** 엔드포인트가 포함되도록 응용 프로그램에 대한 SSL이 구성되어 있는지 확인해야 합니다.
+Azure에 봇을 배포하면 애플리케이션에 대한 SSL이 자동으로 구성되므로 Bot Framework에서 요구하는 **HTTPS** 엔드포인트를 사용할 수 있습니다. 다른 클라우드 호스팅 공급자에 배포할 경우에는 봇에 **HTTPS** 엔드포인트가 포함되도록 애플리케이션에 대한 SSL이 구성되어 있는지 확인해야 합니다.
 
 ### <a name="test-your-bot"></a>봇 테스트 
 

@@ -109,7 +109,7 @@ Visual Studio에서 봇을 실행하면 추가한 코드가 Azure에서 사용�
 
 ## <a name="connect-your-bot-to-the-emulator"></a>에뮬레이터에 봇 연결
 이때 봇은 로컬에서 실행됩니다. 에뮬레이터를 시작한 다음, 에뮬레이터에서 봇에 연결합니다.
-1. 주소 표시줄에 http://localhost:port-number/api/messages를 입력합니다. 여기서 port-number는 응용 프로그램이 실행 중인 브라우저에 표시되는 포트 번호와 일치합니다. 지금은 <strong>Microsoft App ID</strong> 및 <strong>Microsoft App Password</strong> 필드를 비워 둘 수 있습니다. 나중에 [봇을 등록](~/bot-service-quickstart-registration.md)할 때 이 정보를 가져올 수 있습니다.
+1. 주소 표시줄에 http://localhost:port-number/api/messages를 입력합니다. 여기서 port-number는 애플리케이션이 실행 중인 브라우저에 표시되는 포트 번호와 일치합니다. 지금은 <strong>Microsoft App ID</strong> 및 <strong>Microsoft App Password</strong> 필드를 비워 둘 수 있습니다. 나중에 [봇을 등록](~/bot-service-quickstart-registration.md)할 때 이 정보를 가져올 수 있습니다.
 2. **Connect**를 클릭합니다. 
 3. 에뮬레이터에서 몇몇 메시지를 입력하여 봇을 테스트합니다. 
 

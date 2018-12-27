@@ -73,7 +73,7 @@ HTTP 상태 코드 429가 있는 오류 응답은 일정 시간 동안 실행된
 
 봇은 웹 서비스이며, Azure 등의 일부 호스팅 플랫폼에서는 일정 시간 동안 트래픽이 수신되지 않으면 서비스를 절전 상태로 지정합니다. 봇에 이런 상황이 발생할 경우 다음번에 메시지를 수신했을 때 처음부터 다시 시작해야 하며 이로 인해 이미 실행 중일 때보다 응답이 훨씬 느려집니다.
 
-일부 호스팅 플랫폼을 사용하면 절전 상태가 되지 않게 서비스를 구성할 수 있습니다. Azure에서 이렇게 하려면 [Azure Portal](https://portal.azure.com)에서 봇의 서비스로 이동하고 **응용 프로그램 설정**을 선택한 다음,**항상 실행**을 선택합니다. 이 옵션은 대부분의 서비스 계획에서 사용할 수 있으나 전부는 아닙니다.
+일부 호스팅 플랫폼을 사용하면 절전 상태가 되지 않게 서비스를 구성할 수 있습니다. Azure에서 이렇게 하려면 [Azure Portal](https://portal.azure.com)에서 봇의 서비스로 이동하고 **애플리케이션 설정**을 선택한 다음,**항상 실행**을 선택합니다. 이 옵션은 대부분의 서비스 계획에서 사용할 수 있으나 전부는 아닙니다.
 
 ## <a name="how-can-i-guarantee-message-delivery-order"></a>메시지 배달 순서는 어떻게 보장하나요?
 
@@ -114,7 +114,7 @@ Kik 개발에서는 봇에 50명의 구독자가 허용됩니다. 고유 사용�
 Azure Active Directory 인증은 [V3](https://docs.microsoft.com/en-us/azure/bot-service/bot-builder-tutorial-authentication?view=azure-bot-service-3.0&tabs=csharp) | [V4](https://docs.microsoft.com/en-us/azure/bot-service/bot-builder-tutorial-authentication?view=azure-bot-service-4.0&tabs=csharp) 인증 추가를 참조하세요. 
 
 > [!NOTE] 
-> 봇에 인증 및 보안 기능을 추가할 경우 코드에서 구현한 패턴이 응용 프로그램에 적합한 보안 표준을 준수해야 합니다.
+> 봇에 인증 및 보안 기능을 추가할 경우 코드에서 구현한 패턴이 애플리케이션에 적합한 보안 표준을 준수해야 합니다.
 
 ## <a name="how-can-i-limit-access-to-my-bot-to-a-pre-determined-list-of-users"></a>미리 결정된 사용자 목록에 대한 봇의 액세스는 어떻게 제한하나요?
 

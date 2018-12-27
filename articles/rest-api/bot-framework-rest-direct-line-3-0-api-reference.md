@@ -17,7 +17,7 @@ ms.locfileid: "50234476"
 ---
 # <a name="api-reference---direct-line-api-30"></a>API 참조 - 직접 회선 API 3.0
 
-직업 회선 API 3.0을 사용하여 클라이언트 응용 프로그램이 봇과 통신하도록 할 수 있습니다. 직접 회선 API 3.0은 HTTPS를 통해 업계 표준 REST와 JSON을 사용합니다.
+직업 회선 API 3.0을 사용하여 클라이언트 애플리케이션이 봇과 통신하도록 할 수 있습니다. 직접 회선 API 3.0은 HTTPS를 통해 업계 표준 REST와 JSON을 사용합니다.
 
 ## <a name="base-uri"></a>기본 URI
 

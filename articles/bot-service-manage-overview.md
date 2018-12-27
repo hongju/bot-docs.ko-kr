@@ -1,7 +1,7 @@
 ---
 title: 봇 관리 | Microsoft Docs
 description: 봇 서비스 포털을 통해 봇을 관리하는 방법에 대해 알아봅니다.
-keywords: Azure Portal, 봇 관리, 웹 채팅 테스트, MicrosoftAppID, MicrosoftAppPassword, 응용 프로그램 설정
+keywords: Azure Portal, 봇 관리, 웹 채팅 테스트, MicrosoftAppID, MicrosoftAppPassword, 애플리케이션 설정
 author: v-ducvo
 ms.author: rstand
 manager: kamrani

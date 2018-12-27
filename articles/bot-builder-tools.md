@@ -75,7 +75,7 @@ chatdown sample.chat > sample.transcript
 ## <a name="build"></a>빌드
 ### <a name="create-a-luis-application-with-ludown"></a>LUDown을 사용하여 LUIS 응용 프로그램 만들기
 LUDown 도구를 사용하여 LUIS와 QnA 둘 다에 대한 새 .json 모델을 만들 수 있습니다.  
-LUIS 포털에서와 마찬가지로, LUIS 응용 프로그램에 대한 [의도](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/add-intents) 및 [엔터티](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/add-entities)를 정의할 수 있습니다.
+LUIS 포털에서와 마찬가지로, LUIS 애플리케이션에 대한 [의도](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/add-intents) 및 [엔터티](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/add-entities)를 정의할 수 있습니다.
 
 ‘#\<intent-name\>’은 새 의도 정의 섹션을 설명합니다. 그 뒤의 각 줄에는 해당 의도를 설명하는 [발화](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/add-example-utterances)가 표시됩니다.
 
@@ -187,7 +187,7 @@ luis init
 ```
 도구가 파일을 생성하기 전에 LUIS 작성 키, 지역 및 appID를 입력하라는 메시지가 터미널에 표시됩니다.  
 
-이 파일이 생성되고 나면 응용 프로그램이 CLI에서 다음 명령을 사용하여 LUDown에서 생성된 LUIS .json 파일을 사용할 수 있습니다.
+이 파일이 생성되고 나면 애플리케이션이 CLI에서 다음 명령을 사용하여 LUDown에서 생성된 LUIS .json 파일을 사용할 수 있습니다.
 
 ```shell
 luis import application --in luis-app.json | msbot connect luis --stdin

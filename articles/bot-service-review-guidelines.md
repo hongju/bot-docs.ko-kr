@@ -27,7 +27,7 @@ Microsoft 채널에 대한 봇, 봇렛, 웹앱, 추가 기능 또는 기술을 �
 
 OECD- [개인정보처리방침 생성기](http://www.oecd.org/internet/ieconomy/oecdprivacystatementgenerator.htm)
 
-개인 정보 보호 포럼 – [응용 프로그램 개인 정보 보호 방침 생성기](http://www.applicationprivacy.org/do-tools/privacy-policy-generator/)
+개인 정보 보호 포럼 – [애플리케이션 개인 정보 보호 방침 생성기](http://www.applicationprivacy.org/do-tools/privacy-policy-generator/)
 
 Iubenda – [개인 정보 보호 방침 생성기](http://www.iubenda.com/en)
 

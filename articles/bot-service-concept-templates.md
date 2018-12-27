@@ -35,9 +35,9 @@ C# 언어의 양식 템플릿에서 만든 봇은 [FormFlow](dotnet/bot-builder-
 ## <a name="language-understanding-bot"></a>Language Understanding 봇
 자연어 모델을 사용하여 사용자 의도를 이해하는 봇을 만들려면 **Language understanding** 템플릿을 선택합니다. 이 템플릿은 <a href="https://www.luis.ai" target="_blank">LUIS(Language Understanding)</a>를 사용하여 자연어 이해를 제공합니다.
 
-사용자가 "가상 현실 기업 관련 뉴스를 가져와" 같은 메시지를 보내면 봇은 LUIS를 사용하여 메시지의 의미를 해석합니다. LUIS를 사용하여 사용자의 입력에 담긴 의도와(뉴스 찾기) 존재하는 주요 엔터티(가상 현실 기업)를 해석하는 HTTP 엔드포인트를 신속하게 배포할 수 있습니다. LUIS는 응용 프로그램과 관련이 있는 일련의 의도 및 엔터티를 지정할 수 있고 언어 이해 응용 프로그램 빌드 프로세스를 안내합니다.
+사용자가 "가상 현실 기업 관련 뉴스를 가져와" 같은 메시지를 보내면 봇은 LUIS를 사용하여 메시지의 의미를 해석합니다. LUIS를 사용하여 사용자의 입력에 담긴 의도와(뉴스 찾기) 존재하는 주요 엔터티(가상 현실 기업)를 해석하는 HTTP 엔드포인트를 신속하게 배포할 수 있습니다. LUIS는 애플리케이션과 관련이 있는 일련의 의도 및 엔터티를 지정할 수 있고 언어 이해 애플리케이션 빌드 프로세스를 안내합니다.
 
-Language understanding 템플릿을 사용하여 봇을 만들 때 Bot Service는 빈 해당 LUIS 응용 프로그램을 만듭니다(즉 항상 `None` 반환). 사용자 입력을 해석할 수 있게 LUIS 응용 프로그램 모델을 업데이트하려면 <a href="https://www.luis.ai" target="_blank">LUIS</a>에 로그인하고 **내 응용 프로그램**을 선택한 다음, 나에 대해 만들어진 서비스 응용 프로그램을 선택하고, 의도를 만들고, 엔터티를 지정한 다음, 응용 프로그램을 교육합니다.
+Language understanding 템플릿을 사용하여 봇을 만들 때 Bot Service는 빈 해당 LUIS 애플리케이션을 만듭니다(즉 항상 `None` 반환). 사용자 입력을 해석할 수 있게 LUIS 애플리케이션 모델을 업데이트하려면 <a href="https://www.luis.ai" target="_blank">LUIS</a>에 로그인하고 **내 애플리케이션**을 선택한 다음, 나에 대해 만들어진 서비스 애플리케이션을 선택하고, 의도를 만들고, 엔터티를 지정한 다음, 애플리케이션을 교육합니다.
 
 ## <a name="question-and-answer-bot"></a>질문 및 답변 봇
 질문 및 대답 쌍 같은 반 구조화된 데이터를 유용하고 구분되는 답으로 거르는 봇을 만들려면 **질문 및 답변** 템플릿을 선택합니다. 이 템플릿은 <a href="https://qnamaker.ai">QnA Maker</a> 서비스를 사용하여 질문을 구문 분석하고 답변을 제공합니다. 

@@ -41,7 +41,7 @@ IoT 앱은 [직접 회선 API][directLineAPI]를 사용하여 Bot Framework와 �
 
 ## <a name="creating-a-cross-platform-mobile-app-that-runs-a-bot"></a>봇을 실행하는 플랫폼 간 모바일 앱 만들기
 
-봇을 실행하는 모바일 앱을 만드는 이 예제에서는 플랫폼 간 모바일 응용 프로그램을 빌드하기 위한 인기 있는 도구인 <a href="https://www.xamarin.com/" target="_blank">Xamarin</a>을 사용합니다. 
+봇을 실행하는 모바일 앱을 만드는 이 예제에서는 플랫폼 간 모바일 애플리케이션을 빌드하기 위한 인기 있는 도구인 <a href="https://www.xamarin.com/" target="_blank">Xamarin</a>을 사용합니다. 
 
 먼저 간단한 웹 보기 구성 요소를 만들고 <a href="https://github.com/Microsoft/BotFramework-WebChat" target="_blank">웹 채팅 컨트롤</a>을 호스트하는 데 사용합니다. 그런 다음, Azure Portal을 사용하여 웹 채팅 채널을 추가합니다. 
 
@@ -59,7 +59,7 @@ public class WebPage : ContentPage
 }
 ```
 
-이 프로세스에서는 웹 채팅 컨트롤을 사용하여 포함된 웹 보기를 렌더링하는 플랫폼 간 모바일 응용 프로그램을 만들 수 있습니다.
+이 프로세스에서는 웹 채팅 컨트롤을 사용하여 포함된 웹 보기를 렌더링하는 플랫폼 간 모바일 애플리케이션을 만들 수 있습니다.
 
 ![백채널](~/media/bot-service-design-pattern-embed-app/xamarin-apps.png)
 

@@ -22,7 +22,7 @@ ms.locfileid: "42928301"
 
 채널은 Facebook, Skype, 이메일, Slack 등 사용자가 봇에 연결되어 있는 엔드포인트입니다. [Azure Portal](https://portal.azure.com)을 통해 구성된 Bot Connector Service는 봇을 이러한 채널에 연결하고, 봇과 사용자 간 통신을 용이하게 합니다. 
 
-또한 Bot Connector Service를 통해 제공되는 표준 채널 이외에도 [직접 회선](bot-builder-howto-direct-line.md)을 채널로 사용하여 자체 클라이언트 응용 프로그램에 봇을 연결할 수 있습니다.
+또한 Bot Connector Service를 통해 제공되는 표준 채널 이외에도 [직접 회선](bot-builder-howto-direct-line.md)을 채널로 사용하여 자체 클라이언트 애플리케이션에 봇을 연결할 수 있습니다.
 
 Bot Connector Service를 사용하면 봇이 채널에 전송하는 메시지를 정규화하여 채널 불가지론적 방법으로 봇을 개발할 수 있습니다. 이는 봇 작성기 스키마에서 채널의 스키마로 변환하는 것을 포함합니다. 단, 채널이 봇 작성기 스키마 중 일부를 지원하지 않는 경우 서비스는 메시지를 채널이 지원하는 형식으로 변환하려고 시도합니다. 예를 들어, 봇이 작업 단추가 있는 카드가 포함된 메시지를 SMS 채널에 보내면 커넥터는 카드를 이미지로 전송하고 메시지의 텍스트에 링크로 작업을 포함시킬 수 있습니다.
 

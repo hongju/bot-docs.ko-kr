@@ -83,7 +83,7 @@ Bot Framework에는 다음 세 가지 REST API가 있습니다.
 - [직접 회선 REST API][directLineAPI]를 사용하면 클라이언트 응용 프로그램, 웹 채팅 컨트롤 또는 모바일 앱과 같은 고유한 응용 프로그램을 단일 봇에 직접 연결할 수 있습니다.
 
 ## <a name="bot-framework-emulator"></a>Bot Framework Emulator
-Bot Framework Emulator는 로컬 또는 원격으로 봇을 테스트 및 디버그할 수 있는 데스크톱 응용 프로그램입니다. 에뮬레이터를 사용하면 봇과 채팅하고 봇이 보내고 받는 메시지를 검사할 수 있습니다. [Bot Framework Emulator를 자세히 알아보고](~/bot-service-debug-emulator.md) 사용 중인 플랫폼용 [에뮬레이터를 다운로드](http://emulator.botframework.com)하세요.
+Bot Framework Emulator는 로컬 또는 원격으로 봇을 테스트 및 디버그할 수 있는 데스크톱 애플리케이션입니다. 에뮬레이터를 사용하면 봇과 채팅하고 봇이 보내고 받는 메시지를 검사할 수 있습니다. [Bot Framework Emulator를 자세히 알아보고](~/bot-service-debug-emulator.md) 사용 중인 플랫폼용 [에뮬레이터를 다운로드](http://emulator.botframework.com)하세요.
 
 ## <a name="bot-framework-channel-inspector"></a>Bot Framework 채널 검사기
 Bot Framework [채널 검사기](bot-service-channel-inspector.md)를 사용하여 다양한 채널에서 봇 기능이 나타나는 모양을 빠르게 확인합니다.

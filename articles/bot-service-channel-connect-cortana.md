@@ -57,7 +57,7 @@ Cortana 채널에 봇을 연결할 때 봇에 대한 일부 기본 정보가 등
 
 ### <a name="client-id-for-third-party-services"></a>타사 서비스에 대한 클라이언트 ID
 
-봇의 응용 프로그램 ID입니다. 봇을 등록할 때 이 ID를 수신했을 것입니다.
+봇의 애플리케이션 ID입니다. 봇을 등록할 때 이 ID를 수신했을 것입니다.
 
 ### <a name="space-separated-list-of-scopes"></a>공백으로 구분된 범위 목록
 

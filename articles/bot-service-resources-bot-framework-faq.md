@@ -21,7 +21,7 @@ ms.locfileid: "49997220"
 ## <a name="background-and-availability"></a>배경 및 가용성
 ### <a name="why-did-microsoft-develop-the-bot-framework"></a>Microsoft는 Bot Framework를 왜 개발했나요?
 
-CUI(대화 사용자 인터페이스)는 곧 사용 가능해질 예정이지만 현재 소수의 개발자만 새로운 대화 환경을 만들거나 사용자가 즐길 수 있는 대화 인터페이스로 기존 응용 프로그램 및 서비스를 설정하는 데 필요한 전문 지식과 도구를 보유하고 있는 상황입니다. Microsoft는 Bot Framework를 만들어 개발자가 뛰어난 봇을 쉽게 개발하고 Microsoft의 프리미어 채널에 포함하여 대화가 진행되는 어디에서든지 사용자에게 봇을 연결할 수 있도록 하고 있습니다.
+CUI(대화 사용자 인터페이스)는 곧 사용 가능해질 예정이지만 현재 소수의 개발자만 새로운 대화 환경을 만들거나 사용자가 즐길 수 있는 대화 인터페이스로 기존 애플리케이션 및 서비스를 설정하는 데 필요한 전문 지식과 도구를 보유하고 있는 상황입니다. Microsoft는 Bot Framework를 만들어 개발자가 뛰어난 봇을 쉽게 개발하고 Microsoft의 프리미어 채널에 포함하여 대화가 진행되는 어디에서든지 사용자에게 봇을 연결할 수 있도록 하고 있습니다.
 
 ### <a name="what-is-the-v4-sdk"></a>V4 SDK란?
 Bot Builder v4 SDK는 이전 Bot Builder SDK에서 얻은 의견 및 학습 결과를 토대로 구축되었습니다. 이 키트는 봇 빌딩 블록의 풍부한 구성 요소화를 지원하면서 적절한 수준의 추상화를 제공합니다. 간단한 봇에서 시작하고 확장 가능한 모듈식 프레임워크를 사용하여 봇을 좀 더 정교하게 확장할 수 있습니다. GitHub에서 SDK에 대한 [FAQ](https://github.com/Microsoft/botbuilder-dotnet/wiki/FAQ)를 찾을 수 있습니다.
@@ -68,7 +68,7 @@ I/O 서비스를 제공하기 위해 Bot Framework는 사용자가 사용한 채
 - *.botframework.com(채널)
 
 ### <a name="can-i-block-all-traffic-to-my-bot-except-traffic-from-the-bot-connector-service"></a>제 봇으로 들어오는 트래픽 중에서 Bot Connector Service에서 들어오는 트래픽을 제외한 모든 트래픽을 차단할 수 있나요?
-아니요. 이러한 종류의 IP 주소 또는 DNS 허용 목록은 허용되지 않습니다. Bot Framework Connector Service는 전 세계 Azure 데이터 센터에서 호스팅되고 Azure IP 목록은 지속적으로 변경됩니다. 허용 목록에 추가한 특정 Azure IP 주소가 다음 날 Azure IP 주소가 변경되면서 차단될 수도 있습니다.
+ 아니요. 이러한 종류의 IP 주소 또는 DNS 허용 목록은 허용되지 않습니다. Bot Framework Connector Service는 전 세계 Azure 데이터 센터에서 호스팅되고 Azure IP 목록은 지속적으로 변경됩니다. 허용 목록에 추가한 특정 Azure IP 주소가 다음 날 Azure IP 주소가 변경되면서 차단될 수도 있습니다.
  
 ### <a name="what-keeps-my-bot-secure-from-clients-impersonating-the-bot-framework-connector-service"></a>Bot Framework Connector Service를 가장하는 클라이언트로부터 내 봇을 보호하기 위해 필요한 것은 무엇인가요?
 1. 봇에 대한 모든 요청에 첨부되는 보안 토큰에는 ServiceUrl이 인코딩되어 있으므로, 공격자가 토큰에 액세스하더라도 대화를 새 ServiceUrl로 리디렉션할 수 없습니다. 이는 SDK의 모든 구현에 의해 적용되며 인증 [참조](https://docs.microsoft.com/en-us/azure/bot-service/rest-api/bot-framework-rest-connector-authentication?view=azure-bot-service-3.0#bot-to-connector) 자료에 문서화되어 있습니다.
@@ -120,9 +120,9 @@ Microsoft는 Cortana Intelligence를 사용하여 엔터프라이즈 고객이 �
 직접 회선은 다음에 적합합니다.
 
 * IOS, Android 및 Windows Phone 등의 모바일 앱
-* Windows, OSX 등의 데스크톱 응용 프로그램
+* Windows, OSX 등의 데스크톱 애플리케이션
 * [포함 가능한 웹 채팅 채널][WebChat]이 제공하는 것 이상의 사용자 지정이 필요한 웹 페이지
-* 서비스 간 응용 프로그램
+* 서비스 간 애플리케이션
 
 [DirectLineAPI]: https://docs.microsoft.com/en-us/azure/bot-service/rest-api/bot-framework-rest-direct-line-3-0-concepts
 [Support]: bot-service-resources-links-help.md

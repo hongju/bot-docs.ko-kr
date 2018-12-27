@@ -17,7 +17,7 @@ ms.locfileid: "49999710"
 ---
 # <a name="key-concepts-in-direct-line-api-30"></a>직접 회선 API 3.0의 주요 개념
 
-직접 회선 API를 통해 봇과 고유한 클라이언트 응용 프로그램 간에 통신을 사용할 수 있습니다. 이 문서에서는 직접 회선 API 3.0의 주요 개념을 소개하고 관련 개발자 리소스에 대한 정보를 제공합니다.
+직접 회선 API를 통해 봇과 고유한 클라이언트 애플리케이션 간에 통신을 사용할 수 있습니다. 이 문서에서는 직접 회선 API 3.0의 주요 개념을 소개하고 관련 개발자 리소스에 대한 정보를 제공합니다.
 
 ## <a name="authentication"></a>인증
 
@@ -64,4 +64,4 @@ C# 또는 Node.js 클라이언트 라이브러리를 사용하는 대신, <a hre
 
 ### <a name="web-chat-control"></a>웹 채팅 컨트롤 
 
-Bot Framework는 클라이언트 응용 프로그램에 직접 회선 기반 봇을 포함할 수 있는 컨트롤을 제공합니다. 자세한 내용은 <a href="https://github.com/Microsoft/BotFramework-WebChat" target="_blank">Microsoft Bot Framework 웹 채팅 컨트롤</a>을 참조하세요.
+Bot Framework는 클라이언트 애플리케이션에 직접 회선 기반 봇을 포함할 수 있는 컨트롤을 제공합니다. 자세한 내용은 <a href="https://github.com/Microsoft/BotFramework-WebChat" target="_blank">Microsoft Bot Framework 웹 채팅 컨트롤</a>을 참조하세요.

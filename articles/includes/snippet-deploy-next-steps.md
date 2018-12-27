@@ -11,6 +11,6 @@
 
 1. [Bot Framework에 봇을 등록합니다](~/bot-service-quickstart-registration.md).
 
-2. 등록 과정에서 봇에 대해 생성된 **appID** 및 **암호** 값을 지정하여 배포된 응용 프로그램의 구성 설정에서 Microsoft 앱 ID 및 Microsoft 앱 암호 값을 업데이트합니다. 봇의 **AppID** 및 **AppPassword**를 찾으려면 [MicrosoftAppID 및 MicrosoftAppPassword](~/bot-service-manage-overview.md#microsoftappid-and-microsoftapppassword)를 참조하세요.
+2. 등록 과정에서 봇에 대해 생성된 **appID** 및 **암호** 값을 지정하여 배포된 애플리케이션의 구성 설정에서 Microsoft 앱 ID 및 Microsoft 앱 암호 값을 업데이트합니다. 봇의 **AppID** 및 **AppPassword**를 찾으려면 [MicrosoftAppID 및 MicrosoftAppPassword](~/bot-service-manage-overview.md#microsoftappid-and-microsoftapppassword)를 참조하세요.
 
 3. [하나 이상의 채널에서 실행되도록 봇을 구성합니다](~/bot-service-manage-channels.md).

@@ -26,7 +26,7 @@ GroupMe 그룹 메시징 앱을 사용하여 사용자와 통신하도록 봇을
 
 GroupMe 계정이 없는 경우 [새 계정을 등록](https://web.groupme.com/signup)합니다.
 
-## <a name="create-a-groupme-application"></a>GroupMe 응용 프로그램 만들기
+## <a name="create-a-groupme-application"></a>GroupMe 애플리케이션 만들기
 
 봇에 대한 [GroupMe 응용 프로그램을 만듭니다](https://dev.groupme.com/applications/new).
 

@@ -99,7 +99,7 @@ Restify를 설치했으면 봇을 변경할 준비가 되었습니다.
 > Bot Framework Emulator에서 봇을 실행하기 위해 **Microsoft 앱 ID** 또는 **Microsoft 앱 암호**가 필요하지는 않습니다.
 
 ## <a name="test-your-bot"></a>봇 테스트
-그런 다음, [Bot Framework Emulator](../bot-service-debug-emulator.md)로 봇을 테스트하여 실제로 작동하는 모습을 확인합니다. 에뮬레이터는 localhost에서 또는 터널을 통해 원격으로 실행되는 봇을 테스트하고 디버그하는 데스크톱 응용 프로그램입니다.
+그런 다음, [Bot Framework Emulator](../bot-service-debug-emulator.md)로 봇을 테스트하여 실제로 작동하는 모습을 확인합니다. 에뮬레이터는 localhost에서 또는 터널을 통해 원격으로 실행되는 봇을 테스트하고 디버그하는 데스크톱 애플리케이션입니다.
 
 먼저 에뮬레이터를 [다운로드](https://emulator.botframework.com)하고 설치해야 합니다. 다운로드가 완료된 후 실행 파일을 시작하고 설치 프로세스를 완료합니다.
 
@@ -118,7 +118,7 @@ node app.js
 
 1. 에뮬레이터 창에서 **새 봇 구성 만들기** 링크를 클릭합니다. 
 
-2. 주소 표시줄에 `http://localhost:port-number/api/messages`를 입력합니다. 여기서 *port-number*는 응용 프로그램이 실행 중인 브라우저에 표시되는 포트 번호와 일치합니다.
+2. 주소 표시줄에 `http://localhost:port-number/api/messages`를 입력합니다. 여기서 *port-number*는 애플리케이션이 실행 중인 브라우저에 표시되는 포트 번호와 일치합니다.
 
 3. 저장 및 연결을 클릭합니다. Microsoft 앱 ID 및 Microsoft 앱 암호를 지정하지 않아도 됩니다. 지금은 이러한 필드를 비워 둘 수 있습니다. 나중에 봇을 등록할 때 이 정보를 가져올 수 있습니다.
 

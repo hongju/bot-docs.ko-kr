@@ -29,7 +29,7 @@ ms.locfileid: "39567572"
 <a href="https://github.com/Microsoft/BotBuilder" target="_blank">.NET용 Bot Builder SDK</a>는 Visual Studio 및 Windows를 사용한 봇 개발에 사용되는 편리한 프레임워크입니다. SDK는 C#을 사용하여 .NET 개발자가 강력한 봇을 만들 수 있는 친숙한 방법을 제공합니다.
 
 
-이 자습서는 봇 응용 프로그램 템플릿 및 .NET용 Bot Builder SDK를 사용하여 봇을 빌드한 다음, Bot Framework Emulator로 테스트하는 방법을 안내합니다.
+이 자습서는 봇 애플리케이션 템플릿 및 .NET용 Bot Builder SDK를 사용하여 봇을 빌드한 다음, Bot Framework Emulator로 테스트하는 방법을 안내합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 1. Visual Studio [2017](https://www.visualstudio.com/).
@@ -43,14 +43,14 @@ ms.locfileid: "39567572"
 
 ## <a name="create-your-bot"></a>봇 만들기
 
-Visual Studio를 열고 새 C# 프로젝트를 만듭니다. 새 프로젝트에 **간단한 Echo 봇 응용 프로그램** 템플릿을 선택합니다.
+Visual Studio를 열고 새 C# 프로젝트를 만듭니다. 새 프로젝트에 **간단한 Echo 봇 애플리케이션** 템플릿을 선택합니다.
 
 ![Visual Studio 만들기 프로젝트](../media/connector-getstarted-create-project.png)
 
 > [!NOTE]
 > Visual Studio에서는 [IIS Express](https://www.microsoft.com/en-us/download/details.aspx?id=48264)를 다운로드하여 설치해야 합니다. 
 
-봇 응용 프로그램 템플릿 덕분에 프로젝트에는 이 자습서에서 봇을 만드는 데 필요한 모든 코드가 포함되어 있습니다. 실제로 추가 코드를 작성할 필요가 없습니다. 단, 봇 테스트로 진행하려면 봇 응용 프로그램 템플릿이 제공한 코드 몇 가지를 살펴보아야 합니다.
+봇 애플리케이션 템플릿 덕분에 프로젝트에는 이 자습서에서 봇을 만드는 데 필요한 모든 코드가 포함되어 있습니다. 실제로 추가 코드를 작성할 필요가 없습니다. 단, 봇 테스트로 진행하려면 봇 애플리케이션 템플릿이 제공한 코드 몇 가지를 살펴보아야 합니다.
 
 > [!TIP] 
 > 필요한 경우 [NuGet 패키지](https://docs.microsoft.com/en-us/nuget/quickstart/install-and-use-a-package-in-visual-studio)를 업데이트합니다.
@@ -109,25 +109,25 @@ public class RootDialog : IDialog<object>
 
 ### <a name="start-your-bot"></a>봇 시작
 
-에뮬레이터를 설치한 후, 브라우저를 응용 프로그램 호스트로 사용하여 Visual Studio에서 봇을 시작합니다.
+에뮬레이터를 설치한 후, 브라우저를 애플리케이션 호스트로 사용하여 Visual Studio에서 봇을 시작합니다.
 이 Visual Studio 스크린샷은 실행 단추를 클릭하면 봇이 Microsoft Edge에서 시작됨을 보여 줍니다.
 
 ![Visual Studio 실행 프로젝트](../media/connector-getstarted-start-bot-locally.png)
 
-실행 단추를 클릭하면 Visual Studio는 응용 프로그램을 빌드하고, localhost로 배포하고, 웹 브라우저를 시작하여 응용 프로그램의 **default.htm** 페이지를 표시합니다.
-예를 들어, 다음은 Microsoft Edge에 표시된 응용 프로그램의 **default.htm** 페이지입니다.
+실행 단추를 클릭하면 Visual Studio는 애플리케이션을 빌드하고, localhost로 배포하고, 웹 브라우저를 시작하여 애플리케이션의 **default.htm** 페이지를 표시합니다.
+예를 들어, 다음은 Microsoft Edge에 표시된 애플리케이션의 **default.htm** 페이지입니다.
 
 ![localhost를 실행하는 Visual Studio 봇](../media/connector-getstarted-bot-running-localhost.png)
 
 > [!NOTE]
-> 프로젝트 내에 **default.htm** 파일을 수정하여 봇 응용 프로그램의 이름 및 설명을 지정할 수 있습니다.
+> 프로젝트 내에 **default.htm** 파일을 수정하여 봇 애플리케이션의 이름 및 설명을 지정할 수 있습니다.
 
 ### <a name="start-the-emulator-and-connect-your-bot"></a>에뮬레이터 시작 및 봇 연결
 
 이때 봇은 로컬에서 실행됩니다.
 다음으로, 에뮬레이터를 시작한 다음, 에뮬레이터에서 봇에 연결합니다.
 
-1. 새 봇 구성을 만듭니다. 주소 표시줄에 `http://localhost:port-number/api/messages`를 입력합니다. 여기서 *port-number*는 응용 프로그램이 실행 중인 브라우저에 표시되는 포트 번호와 일치합니다.
+1. 새 봇 구성을 만듭니다. 주소 표시줄에 `http://localhost:port-number/api/messages`를 입력합니다. 여기서 *port-number*는 애플리케이션이 실행 중인 브라우저에 표시되는 포트 번호와 일치합니다.
 
 2. **저장 및 연결**을 클릭합니다. **Microsoft 앱 ID** 및 **Microsoft 앱 암호**를 지정하지 않아도 됩니다. 지금은 이러한 필드를 비워 두어도 됩니다. 나중에 [봇을 등록](~/bot-service-quickstart-registration.md)할 때 이 정보를 가져올 수 있습니다.
 
@@ -140,11 +140,11 @@ public class RootDialog : IDialog<object>
 > [!TIP]
 > 에뮬레이터에서 대화 중 아무 음성 풍선을 클릭합니다. 메시지에 대한 세부 정보는 세부 정보 창에 JSON 형식으로 표시됩니다.
 
-봇 응용 프로그램 템플릿 및 .NET용 Bot Builder SDK를 사용하여 봇을 성공적으로 만들었습니다!
+봇 애플리케이션 템플릿 및 .NET용 Bot Builder SDK를 사용하여 봇을 성공적으로 만들었습니다!
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 봇 응용 프로그램 템플릿 및 .NET용 Bot Builder SDK를 사용하여 간단한 봇을 만들고, Bot Framework Emulator를 사용하여 봇의 기능을 확인했습니다.
+이 빠른 시작에서는 봇 애플리케이션 템플릿 및 .NET용 Bot Builder SDK를 사용하여 간단한 봇을 만들고, Bot Framework Emulator를 사용하여 봇의 기능을 확인했습니다.
 
 다음으로, .NET용 Bot Builder SDK의 주요 개념에 대해 알아봅니다.
 

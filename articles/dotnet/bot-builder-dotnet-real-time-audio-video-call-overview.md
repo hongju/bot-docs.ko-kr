@@ -252,7 +252,7 @@ void OnAudioMediaReceived(
 }
 ```
 
-이벤트 처리기는 신속하게 반환해야 합니다. 응용 프로그램은 `AudioMediaBuffer`을 비동기로 처리되도록 큐에 넣는 것이 좋습니다. `OnAudioMediaReceived` 이벤트는 실시간 미디어 플랫폼으로 직렬화됩니다(즉 다음 이벤트는 현재 이벤트가 반환될 때까지 발생하지 않음). `AudioMediaBuffer`를 사용한 후에는 미디어 플랫폼에서 관리되지 않는 기본 메모리를 재청구할 수 있게 응용 프로그램이 버퍼의 Dispose 메서드를 호출해야 합니다. 
+이벤트 처리기는 신속하게 반환해야 합니다. 애플리케이션은 `AudioMediaBuffer`을 비동기로 처리되도록 큐에 넣는 것이 좋습니다. `OnAudioMediaReceived` 이벤트는 실시간 미디어 플랫폼으로 직렬화됩니다(즉 다음 이벤트는 현재 이벤트가 반환될 때까지 발생하지 않음). `AudioMediaBuffer`를 사용한 후에는 미디어 플랫폼에서 관리되지 않는 기본 메모리를 재청구할 수 있게 응용 프로그램이 버퍼의 Dispose 메서드를 호출해야 합니다. 
 
 ```cs
    // release/dispose buffer when done 

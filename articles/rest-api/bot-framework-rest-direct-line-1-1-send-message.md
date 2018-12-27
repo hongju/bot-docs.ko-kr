@@ -18,7 +18,7 @@ ms.locfileid: "49998020"
 # <a name="send-a-message-to-the-bot"></a>봇에게 메시지 보내기
 
 > [!IMPORTANT]
-> 이 문서에서는 직접 회선 API 1.1을 사용하여 봇에게 메시지를 보내는 방법을 설명합니다. 클라이언트 응용 프로그램과 봇 간에 새 연결을 만들 경우에는 [직접 회선 API 3.0](bot-framework-rest-direct-line-3-0-send-activity.md)을 대신 사용합니다.
+> 이 문서에서는 직접 회선 API 1.1을 사용하여 봇에게 메시지를 보내는 방법을 설명합니다. 클라이언트 애플리케이션과 봇 간에 새 연결을 만들 경우에는 [직접 회선 API 3.0](bot-framework-rest-direct-line-3-0-send-activity.md)을 대신 사용합니다.
 
 직접 회선 1.1 프로토콜을 사용하면 클라이언트가 봇을 사용하여 메시지를 교환할 수 있습니다. 이러한 메시지는 봇이 지원하는(Bot Framework v1 또는 Bot Framework v3) 스키마로 변환됩니다. 클라이언트는 요청당 하나의 메시지를 보낼 수 있습니다. 
 

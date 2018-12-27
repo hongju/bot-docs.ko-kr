@@ -167,7 +167,7 @@ az bot show -n my-bot-name -g my-resource-group --msbot | msbot connect azure --
 
 ### <a name="ludown"></a>LUDown
 
-[LUDown](https://aka.ms/botbuilder-ludown)을 사용하면 **.lu** 파일을 통해 봇의 강력한 언어 구성 요소를 설명하고 만들 수 있습니다. 새 .lu 파일은 LUDown 도구가 대상 서비스와 관련된 .json 파일을 사용하고 출력하는 markdown 형식 유형입니다. 이제 .lu 파일을 사용하여 새로운 [LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-create-app) 응용 프로그램 또는 [QnA](https://qnamaker.ai/Documentation/CreateKb) 기술 자료를 각각 다른 형식으로 만들 수 있습니다. LUDown은 npm 모듈로 제공되며, 머신에 전역으로 설치하여 사용할 수 있습니다.
+[LUDown](https://aka.ms/botbuilder-ludown)을 사용하면 **.lu** 파일을 통해 봇의 강력한 언어 구성 요소를 설명하고 만들 수 있습니다. 새 .lu 파일은 LUDown 도구가 대상 서비스와 관련된 .json 파일을 사용하고 출력하는 markdown 형식 유형입니다. 이제 .lu 파일을 사용하여 새로운 [LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-create-app) 애플리케이션 또는 [QnA](https://qnamaker.ai/Documentation/CreateKb) 기술 자료를 각각 다른 형식으로 만들 수 있습니다. LUDown은 npm 모듈로 제공되며, 머신에 전역으로 설치하여 사용할 수 있습니다.
 
 ```shell
 npm install -g ludown
@@ -177,7 +177,7 @@ LUDown 도구를 사용하여 LUIS와 QnA 둘 다에 대한 새 .json 모델을 
 
 ### <a name="creating-a-luis-application-with-ludown"></a>LUDown를 사용하여 LUIS 응용 프로그램 만들기
 
-LUIS 포털에서와 마찬가지로, LUIS 응용 프로그램에 대한 [의도](https://docs.microsoft.com/azure/cognitive-services/luis/add-intents) 및 [엔터티](https://docs.microsoft.com/azure/cognitive-services/luis/add-entities)를 정의할 수 있습니다.
+LUIS 포털에서와 마찬가지로, LUIS 애플리케이션에 대한 [의도](https://docs.microsoft.com/azure/cognitive-services/luis/add-intents) 및 [엔터티](https://docs.microsoft.com/azure/cognitive-services/luis/add-entities)를 정의할 수 있습니다.
 
 `# \<intent-name\>`은 새 의도 정의 섹션을 설명합니다. 이후 줄에는 의도를 설명하는 [발언](https://docs.microsoft.com/azure/cognitive-services/luis/add-example-utterances)이 포함됩니다.
 

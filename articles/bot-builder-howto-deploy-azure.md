@@ -108,18 +108,18 @@ ms.locfileid: "53121789"
 
 22. 이제 [만들기]를 클릭하여 채널 등록을 설정합니다. 몇 초에서 몇 분 정도 걸릴 수 있습니다.
 
-## <a name="update-your-bots-application-settings"></a>봇의 응용 프로그램 설정 업데이트
-Azure Bot Service로 봇을 인증하려면 Azure App Service에서 봇의 응용 프로그램 설정에 두 가지 설정을 추가해야 합니다. 
+## <a name="update-your-bots-application-settings"></a>봇의 애플리케이션 설정 업데이트
+Azure Bot Service로 봇을 인증하려면 Azure App Service에서 봇의 애플리케이션 설정에 두 가지 설정을 추가해야 합니다. 
 
 1. [App Services]를 클릭합니다. [구독] 텍스트 상자에 봇의 이름을 입력합니다. 다음으로, 목록에서 봇의 이름을 클릭합니다.
 
 ![앱 서비스](media/azure-bot-quickstarts/getting-started-app-service.png)
 
-2. 봇 옵션 내에서 왼쪽에 있는 옵션 목록에서 [설정] 섹션의 [응용 프로그램 설정]을 찾아서 클릭합니다.
+2. 봇 옵션 내에서 왼쪽에 있는 옵션 목록에서 [설정] 섹션의 [애플리케이션 설정]을 찾아서 클릭합니다.
 
 ![봇 ID](media/azure-bot-quickstarts/getting-started-app-settings-1.png)
 
-3. 응용 프로그램 설정 섹션을 찾을 때까지 스크롤합니다.
+3. 애플리케이션 설정 섹션을 찾을 때까지 스크롤합니다.
 
 ![봇 MSA](media/azure-bot-quickstarts/getting-started-app-settings-2.png)
 

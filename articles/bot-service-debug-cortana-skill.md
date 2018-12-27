@@ -39,7 +39,7 @@ Azure에서 Bot Service를 사용하여 [봇을 만든 경우](~/bot-service-qui
 봇의 [설정](~/bot-service-manage-settings.md) 블레이드에 있는 **구성** 섹션에 이 끝점 URL을 입력합니다.
 
 ## <a name="enable-speech-recognition-priming"></a>음성 인식 초기화 사용
-봇이 LUIS(Language Understanding) 앱을 사용하는 경우 LUIS 응용 프로그램 ID를 등록된 Bot Service에 연결해야 합니다. 이렇게 하면 봇이 LUIS 모델에 정의된 음성 발언을 이해하는 데 도움이 됩니다. 자세한 내용은 [음성 초기화](~/bot-service-manage-speech-priming.md)를 참조하세요.
+봇이 LUIS(Language Understanding) 앱을 사용하는 경우 LUIS 애플리케이션 ID를 등록된 Bot Service에 연결해야 합니다. 이렇게 하면 봇이 LUIS 모델에 정의된 음성 발언을 이해하는 데 도움이 됩니다. 자세한 내용은 [음성 초기화](~/bot-service-manage-speech-priming.md)를 참조하세요.
 
 ## <a name="add-the-cortana-channel"></a>Cortana 채널 추가
 Cortana를 채널로 추가하려면 [Cortana에 봇 연결](bot-service-channel-connect-cortana.md)에 나열된 단계를 따르세요.

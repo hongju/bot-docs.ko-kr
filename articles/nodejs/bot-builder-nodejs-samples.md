@@ -72,7 +72,7 @@ GitHub에서 샘플을 살펴보고 Azure에 직접 배포할 수도 있습니�
 
 샘플 | 설명
 ------------ | -------------
-[LUIS](https://github.com/Microsoft/BotBuilder-Samples/tree/master/Node/intelligence-LUIS) | LuisDialog를 사용하여 LUIS.ai 응용 프로그램과 통합하는 샘플 봇.
+[LUIS](https://github.com/Microsoft/BotBuilder-Samples/tree/master/Node/intelligence-LUIS) | LuisDialog를 사용하여 LUIS.ai 애플리케이션과 통합하는 샘플 봇.
 [이미지 캡션](https://github.com/Microsoft/BotBuilder-Samples/tree/master/Node/intelligence-ImageCaption) | Microsoft Cognitive Services Vision API를 사용하여 이미지 캡션을 가져오는 샘플 봇.
 [음성을 텍스트로 변환](https://github.com/Microsoft/BotBuilder-Samples/tree/master/Node/intelligence-SpeechToText)  | Bing Speech API를 사용하여 오디오에서 텍스트를 가져오는 샘플 봇.
 [유사한 제품](https://github.com/Microsoft/BotBuilder-Samples/tree/master/Node/intelligence-SimilarProducts) | Bing Image Search API를 사용하여 시각적으로 유사한 제품을 찾는 샘플 봇. 

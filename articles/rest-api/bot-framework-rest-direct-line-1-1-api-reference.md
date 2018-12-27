@@ -18,9 +18,9 @@ ms.locfileid: "49997963"
 # <a name="api-reference---direct-line-api-11"></a>API 참조 - 직접 회선 API 1.1
 
 > [!IMPORTANT]
-> 이 문서에는 Direct Line API 1.1에 대한 참조 정보가 있습니다. 클라이언트 응용 프로그램과 봇 간에 새 연결을 만들 경우에는 [직접 회선 API 3.0](bot-framework-rest-direct-line-3-0-api-reference.md)을 대신 사용합니다.
+> 이 문서에는 Direct Line API 1.1에 대한 참조 정보가 있습니다. 클라이언트 애플리케이션과 봇 간에 새 연결을 만들 경우에는 [직접 회선 API 3.0](bot-framework-rest-direct-line-3-0-api-reference.md)을 대신 사용합니다.
 
-직업 회선 API 1.1을 사용하여 클라이언트 응용 프로그램이 봇과 통신하도록 할 수 있습니다. 직접 회선 API 1.1은 HTTPS를 통해 업계 표준 REST와 JSON을 사용합니다.
+직업 회선 API 1.1을 사용하여 클라이언트 애플리케이션이 봇과 통신하도록 할 수 있습니다. 직접 회선 API 1.1은 HTTPS를 통해 업계 표준 REST와 JSON을 사용합니다.
 
 ## <a name="base-uri"></a>기본 URI
 

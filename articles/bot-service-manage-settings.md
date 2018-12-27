@@ -33,7 +33,7 @@ ms.locfileid: "49996690"
 | Microsoft 앱 ID | 봇의 고유 식별자입니다. 이 값은 변경할 수 없습니다. **관리** 링크를 클릭하여 새 암호를 생성할 수 있습니다. |
 | Application Insights 계측 키 | 봇 원격 분석을 위한 고유 키입니다. 이 봇에 대한 봇 원격 분석을 수신하려면 Azure Application Insights 키를 이 필드에 복사합니다. 이 값은 선택 사항입니다. Azure Portal에서 만든 봇의 경우 이 키가 생성됩니다. 이 필드에 대한 자세한 내용은 [Application Insights 키](~/bot-service-resources-app-insights-keys.md)를 참조하세요. |
 | Application Insights API 키 | 봇 분석을 위한 고유 키입니다. 대시보드에서 봇에 대한 분석을 보려는 경우 Azure Application Insights API 키를 이 필드에 복사합니다. 이 값은 선택 사항입니다. 이 필드에 대한 자세한 내용은 [Application Insights 키](~/bot-service-resources-app-insights-keys.md)를 참조하세요. |
-| Application Insights 응용 프로그램 ID | 봇 분석을 위한 고유 키입니다. 대시보드에서 봇에 대한 분석을 보려는 경우 Azure Insights 응용 프로그램 ID 키를 이 필드에 복사합니다. 이 값은 선택 사항입니다. Azure Portal에서 만든 봇의 경우 이 키가 생성됩니다. 이 필드에 대한 자세한 내용은 [Application Insights 키](~/bot-service-resources-app-insights-keys.md)를 참조하세요. |
+| Application Insights 애플리케이션 ID | 봇 분석을 위한 고유 키입니다. 대시보드에서 봇에 대한 분석을 보려는 경우 Azure Insights 애플리케이션 ID 키를 이 필드에 복사합니다. 이 값은 선택 사항입니다. Azure Portal에서 만든 봇의 경우 이 키가 생성됩니다. 이 필드에 대한 자세한 내용은 [Application Insights 키](~/bot-service-resources-app-insights-keys.md)를 참조하세요. |
 
 > [!NOTE]
 > 봇에 대한 설정을 변경한 후에 블레이드 맨 위에 있는 **저장** 단추를 클릭하여 새 봇 설정을 저장합니다.
