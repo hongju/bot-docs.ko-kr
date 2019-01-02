@@ -34,15 +34,15 @@ ms.locfileid: "42928291"
 | --- | --- |
 | `Properties > launchSettings.json` <br> `wwwroot > default.htm` <br> `appsettings.json` <br> `BasicEcho.bot` <br> `EchoBot.cs` <br> `EchoState.cs` <br> `Program.cs` <br> `readme.md` <br> `Startup.cs` | `.env` <br> `app.js` <br> `package.json` <br> `README.md` <br> `basicEcho.bot` |
 
-아래에서는 이러한 파일의 몇 가지 주요 기능을 섹션별로 살펴봅니다. 이러한 파일 중 일부는 봇 전용 및 일반 프로그래밍 라이브러리인 자체 포함 집합을 가지고 있습니다. 여기에는 필요한 함수 집합뿐만 아니라 응용 프로그램에 필요할 수도 있는 몇 가지 함수 집합이 포함됩니다. 이에 대한 자세한 내용은 살펴보지 않겠지만, 궁금한 부분이 있다면 Visual Studio를 사용하여 정의를 확인하고, 어떤 네임스페이스에 해당하는지 확인하세요.
+아래에서는 이러한 파일의 몇 가지 주요 기능을 섹션별로 살펴봅니다. 이러한 파일 중 일부는 봇 전용 및 일반 프로그래밍 라이브러리인 자체 포함 집합을 가지고 있습니다. 여기에는 필요한 함수 집합뿐만 아니라 애플리케이션에 필요할 수도 있는 몇 가지 함수 집합이 포함됩니다. 이에 대한 자세한 내용은 살펴보지 않겠지만, 궁금한 부분이 있다면 Visual Studio를 사용하여 정의를 확인하고, 어떤 네임스페이스에 해당하는지 확인하세요.
 
 ## <a name="system-section"></a>시스템 섹션
 
-시스템 섹션에는 봇 함수를 표준 응용 프로그램으로 작동시키는 데 필요한 항목이 있습니다. 여기에는 구성 파일, 어댑터 및 일부 JSON 파일이 포함됩니다. 이러한 항목은 특정 정보가 필요할 수 있는 일부 구성 파일을 제외하고 그대로 둘 수 있습니다(그대로 두는 경우가 많음).
+시스템 섹션에는 봇 함수를 표준 애플리케이션으로 작동시키는 데 필요한 항목이 있습니다. 여기에는 구성 파일, 어댑터 및 일부 JSON 파일이 포함됩니다. 이러한 항목은 특정 정보가 필요할 수 있는 일부 구성 파일을 제외하고 그대로 둘 수 있습니다(그대로 두는 경우가 많음).
 
 # <a name="ctabcs"></a>[C#](#tab/cs)
 
-봇은 [ASP.NET Core 웹](https://docs.microsoft.com/en-us/aspnet/core/?view=aspnetcore-2.1) 응용 프로그램 프레임워크의 한 유형입니다. [ASP.NET 기본 사항](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/index?view=aspnetcore-2.1&tabs=aspnetcore2x)을 보면 아래에 설명된 appsettings.json, Program.cs 및 Startup.cs와 같은 파일에서 유사한 코드를 확인할 수 있습니다. 이러한 파일은 모든 웹앱에 필요하며 봇 전용이 아닙니다. 이러한 파일 중 일부 파일의 코드는 여기에 복사되지 않지만, 봇을 실행할 때 표시됩니다.
+봇은 [ASP.NET Core 웹](https://docs.microsoft.com/en-us/aspnet/core/?view=aspnetcore-2.1) 애플리케이션 프레임워크의 한 유형입니다. [ASP.NET 기본 사항](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/index?view=aspnetcore-2.1&tabs=aspnetcore2x)을 보면 아래에 설명된 appsettings.json, Program.cs 및 Startup.cs와 같은 파일에서 유사한 코드를 확인할 수 있습니다. 이러한 파일은 모든 웹앱에 필요하며 봇 전용이 아닙니다. 이러한 파일 중 일부 파일의 코드는 여기에 복사되지 않지만, 봇을 실행할 때 표시됩니다.
 
 ### <a name="appsettingsjson"></a>appsettings.json
 
@@ -216,7 +216,7 @@ namespace BasicEcho
 
 ### <a name="required-libraries"></a>필수 라이브러리
 
-`app.js` 파일의 맨 위쪽에는 필요한 일련의 모듈 또는 라이브러리가 있습니다. 이러한 모듈은 사용자가 응용 프로그램에 포함하는 함수 집합에 액세스할 수 있습니다. 
+`app.js` 파일의 맨 위쪽에는 필요한 일련의 모듈 또는 라이브러리가 있습니다. 이러한 모듈은 사용자가 애플리케이션에 포함하는 함수 집합에 액세스할 수 있습니다. 
 
 ```javascript
 const { BotFrameworkAdapter, MemoryStorage, ConversationState } = require('botbuilder');

@@ -82,7 +82,7 @@ az account set --subscription "YOUR_SUBSCRIPTION_NAME"
 msbot clone services --name "YOUR_BOT_NAME" --luisAuthoringKey "YOUR_AUTHORING_KEY" --folder "DeploymentScripts\LOCALE_FOLDER" --location "REGION"
 ```
 
-> 배포를 실행할 때 일부 사용자에게 `ERROR: Unable to provision MSA id automatically. Please pass them in as parameters and try again` 오류가 발생할 수 있습니다. 이 경우 https://apps.dev.microsoft.com을 방문하여 수동으로 새 응용 프로그램을 만들고 ApplicationID 및 암호/비밀을 검색합니다. 위의 msbot 복제 서비스 명령을 실행하되, 새 인수 `appId` 및 `appSecret`을 입력하고 방금 검색한 값을 전달합니다. 따옴표로 비밀을 래핑하여 문제를 구문 분석하지 않도록 방지해야 합니다(예: `-appSecret "YOUR_SECRET"`)
+> 배포를 실행할 때 일부 사용자에게 `ERROR: Unable to provision MSA id automatically. Please pass them in as parameters and try again` 오류가 발생할 수 있습니다. 이 경우 https://apps.dev.microsoft.com을 방문하여 수동으로 새 애플리케이션을 만들고 ApplicationID 및 암호/비밀을 검색합니다. 위의 msbot 복제 서비스 명령을 실행하되, 새 인수 `appId` 및 `appSecret`을 입력하고 방금 검색한 값을 전달합니다. 따옴표로 비밀을 래핑하여 문제를 구문 분석하지 않도록 방지해야 합니다(예: `-appSecret "YOUR_SECRET"`)
 
 msbot 도구는 위치와 SKU를 포함한 배포 계획을 간략하게 설명합니다. 검토한 후에 계속 진행하세요.
 

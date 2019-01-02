@@ -24,7 +24,7 @@ Twilio 클라우드 통신 플랫폼을 사용하여 사람들과 통신하도�
 
 Twilio 계정이 없는 경우 <a href="https://www.twilio.com/try-twilio" target="_blank">새 계정을 만듭니다</a>.
 
-## <a name="create-a-twiml-application"></a>TwiML 응용 프로그램 만들기
+## <a name="create-a-twiml-application"></a>TwiML 애플리케이션 만들기
 
 지침을 따라 <a href="https://support.twilio.com/hc/en-us/articles/223180928-How-Do-I-Create-a-TwiML-App-" target="_blank">TwiML 응용 프로그램을 만듭니다</a>.
 
@@ -38,11 +38,11 @@ Twilio 계정이 없는 경우 <a href="https://www.twilio.com/try-twilio" targe
 
 ![전화 번호 설정](~/media/channels/twi-StepPhone.png)
 
-## <a name="specify-application-to-use-for-voice-and-messaging"></a>음성 및 메시징에 사용할 응용 프로그램 지정
+## <a name="specify-application-to-use-for-voice-and-messaging"></a>음성 및 메시징에 사용할 애플리케이션 지정
 
 번호를 클릭하고 **구성**으로 이동합니다. 음성 및 메시징 아래에서 **CONFIGURE WITH**를 TwiML 앱으로 설정하고 **TWIML APP**을 내 TwiML 앱으로 설정합니다. 완료되면 **저장**을 클릭합니다.
 
-![응용 프로그램 지정](~/media/channels/twi-StepPhone2.png)
+![애플리케이션 지정](~/media/channels/twi-StepPhone2.png)
 
 **번호 관리**로 돌아가면 음성 및 메시징의 구성이 TwiML 앱으로 변경됩니다.
 

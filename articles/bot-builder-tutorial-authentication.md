@@ -59,27 +59,27 @@ These capabilities were bundled in the BotAuth and AuthBot samples that are on G
 
 이러한 단계를 완료하려면 Visual Studio 2017, npm, 노드 및 git를 설치해야 합니다. 또한 Azure, OAuth 2.0 및 봇 개발에 대해 알고 있어야 합니다.
 
-완료하면 이메일 확인 및 보내기 또는 사용자 및 관리자 표시와 같은 Azure AD 응용 프로그램에 대한 몇 가지 간단한 작업에 응답할 수 있는 봇을 갖습니다. 이렇게 하기 위해 봇에서 Microsoft.Graph 라이브러리에 대해 Azure AD 응용 프로그램의 토큰을 사용합니다.
+완료하면 이메일 확인 및 보내기 또는 사용자 및 관리자 표시와 같은 Azure AD 애플리케이션에 대한 몇 가지 간단한 작업에 응답할 수 있는 봇을 갖습니다. 이렇게 하기 위해 봇에서 Microsoft.Graph 라이브러리에 대해 Azure AD 애플리케이션의 토큰을 사용합니다.
 
 마지막 섹션에서는 일부 봇 코드를 세분화합니다.
 
 - [토큰 검색 흐름에 대한 참고 사항](#notes-on-the-token-retrieval-flow)
 
-## <a name="create-your-bot-and-an-authentication-application"></a>봇 및 인증 응용 프로그램 만들기
+## <a name="create-your-bot-and-an-authentication-application"></a>봇 및 인증 애플리케이션 만들기
 
-봇 코드를 게시하는 등록 봇을 만들고, 봇에서 Office 365에 액세스하도록 허용하는 Azure AD(v1 또는 v2) 응용 프로그램을 만들어야 합니다.
+봇 코드를 게시하는 등록 봇을 만들고, 봇에서 Office 365에 액세스하도록 허용하는 Azure AD(v1 또는 v2) 애플리케이션을 만들어야 합니다.
 
 > [!NOTE]
 > 이러한 인증 기능은 다른 유형의 봇과 작동합니다. 그러나 이 자습서에는 등록 전용 봇을 사용합니다.
 
-### <a name="register-an-application-in-azure-ad"></a>Azure AD에서 응용 프로그램 등록
+### <a name="register-an-application-in-azure-ad"></a>Azure AD에서 애플리케이션 등록
 
-봇에서 Microsoft Graph API, 사용자 고유의 Azure AD로 보호된 리소스 등에 연결하는 데 사용할 수 있는 Azure AD 응용 프로그램이 필요합니다.
+봇에서 Microsoft Graph API, 사용자 고유의 Azure AD로 보호된 리소스 등에 연결하는 데 사용할 수 있는 Azure AD 애플리케이션이 필요합니다.
 
 이 봇의 경우 Azure AD v1 또는 v2 엔드포인트를 사용할 수 있습니다.
 v1 및 v2 엔드포인트 간의 차이점에 대한 정보는 [v1-v2 비교](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-compare) 및 [Azure AD v2.0 엔드포인트 개요](https://docs.microsoft.com/azure/active-directory/develop/active-directory-appmodel-v2-overview)를 참조하세요.
 
-#### <a name="to-create-an-azure-ad-v1-application"></a>Azure AD v1 응용 프로그램을 만들려면
+#### <a name="to-create-an-azure-ad-v1-application"></a>Azure AD v1 애플리케이션을 만들려면
 
 1. [Azure Portal에서 Azure AD](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview)로 이동합니다.
 1. **앱 등록**을 클릭합니다.
@@ -100,7 +100,7 @@ v1 및 v2 엔드포인트 간의 차이점에 대한 정보는 [v1-v2 비교](ht
 1. **필요한 사용 권한**을 클릭하여 **필요한 사용 권한** 패널을 엽니다.
    1. **추가**를 클릭합니다.
    1. **API 선택**을 클릭한 다음, **Microsoft Graph**를 선택하고 **선택**을 클릭합니다.
-   1. **사용 권한 선택**을 클릭합니다. 응용 프로그램에서 사용할 응용 프로그램 사용 권한을 선택합니다.
+   1. **사용 권한 선택**을 클릭합니다. 애플리케이션에서 사용할 애플리케이션 사용 권한을 선택합니다.
 
       > [!NOTE]
       > **관리자 필요**로 표시된 모든 사용 권한에는 사용자 및 테넌트 관리자가 모두 로그인해야 합니다. 따라서 봇은 이를 사용하지 않는 경향이 있습니다.
@@ -116,7 +116,7 @@ v1 및 v2 엔드포인트 간의 차이점에 대한 정보는 [v1-v2 비교](ht
    1. **선택**을 클릭한 다음, **완료**를 클릭합니다.
    1. **필요한 사용 권한** 패널을 닫습니다.
 
-이제 Azure AD v1 응용 프로그램이 구성되었습니다.
+이제 Azure AD v1 애플리케이션이 구성되었습니다.
 
 #### <a name="to-create-an-azure-ad-v2-application"></a>Azure AD v2 애플리케이션을 만들려면
 
@@ -146,11 +146,11 @@ v1 및 v2 엔드포인트 간의 차이점에 대한 정보는 [v1-v2 비교](ht
 
 [Azure Portal](https://portal.azure.com/)을 사용하여 **봇 채널 등록**을 만듭니다.
 
-### <a name="register-your-azure-ad-application-with-your-bot"></a>봇에 Azure AD 응용 프로그램 등록
+### <a name="register-your-azure-ad-application-with-your-bot"></a>봇에 Azure AD 애플리케이션 등록
 
-다음 단계는 방금 만든 Azure AD 응용 프로그램을 봇에 등록하는 것입니다.
+다음 단계는 방금 만든 Azure AD 애플리케이션을 봇에 등록하는 것입니다.
 
-#### <a name="to-register-an-azure-ad-v1-application"></a>Azure AD v1 응용 프로그램을 등록하려면
+#### <a name="to-register-an-azure-ad-v1-application"></a>Azure AD v1 애플리케이션을 등록하려면
 
 1. [Azure Portal](http://portal.azure.com/)에서 봇의 리소스 페이지로 이동합니다.
 1. **설정**을 클릭합니다.
@@ -175,7 +175,7 @@ v1 및 v2 엔드포인트 간의 차이점에 대한 정보는 [v1-v2 비교](ht
 
 이제 봇 코드에서 이 연결 이름을 사용하여 사용자 토큰을 검색할 수 있습니다.
 
-#### <a name="to-register-an-azure-ad-v2-application"></a>Azure AD v2 응용 프로그램을 등록하려면
+#### <a name="to-register-an-azure-ad-v2-application"></a>Azure AD v2 애플리케이션을 등록하려면
 
 1. [Azure Portal](http://portal.azure.com/)에서 봇의 봇 채널 등록 페이지로 이동합니다.
 1. **설정**을 클릭합니다.
@@ -236,7 +236,7 @@ v1 및 v2 엔드포인트 간의 차이점에 대한 정보는 [v1-v2 비교](ht
     **Microsoft 앱 ID** 및 **Microsoft 앱 암호** 값을 가져오는 방법을 알지 못하는 경우 Azure Portal에서 봇에 대해 프로비전된 Azure 앱 서비스의 **ApplicationSettings**를 확인합니다.
 
     > [!NOTE]
-    > 이제 이 봇 코드를 Azure 구독에 다시 게시할 수 있지만(프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시** 선택) 이 자습서에서는 필요하지 않습니다. Azure Portal에서 봇을 구성할 때 사용한 응용 프로그램 및 호스팅 계획을 사용하는 게시 구성을 설정해야 합니다.
+    > 이제 이 봇 코드를 Azure 구독에 다시 게시할 수 있지만(프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시** 선택) 이 자습서에서는 필요하지 않습니다. Azure Portal에서 봇을 구성할 때 사용한 애플리케이션 및 호스팅 계획을 사용하는 게시 구성을 설정해야 합니다.
 
 ## <a name="use-the-emulator-to-test-your-bot"></a>에뮬레이터를 사용하여 봇 테스트
 

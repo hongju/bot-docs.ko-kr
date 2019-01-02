@@ -113,7 +113,7 @@ const adapter = new BotFrameworkAdapter({
 이 단계에서는 봇이 인증에 사용할 앱 ID 및 암호가 유효한지 확인합니다. (이러한 값을 모르는 경우, 지금 [값을 가져옵니다](#PW).) 
 
 > [!WARNING]
-> 다음 지침은 `login.microsoftonline.com`에 대한 SSL 확인을 사용하지 않도록 설정합니다. 이 절차는 보안 네트워크에서만 수행하고 이후 응용 프로그램의 암호를 변경하는 것이 좋습니다.
+> 다음 지침은 `login.microsoftonline.com`에 대한 SSL 확인을 사용하지 않도록 설정합니다. 이 절차는 보안 네트워크에서만 수행하고 이후 애플리케이션의 암호를 변경하는 것이 좋습니다.
 
 ### <a name="issue-an-http-request-to-the-microsoft-login-service"></a>Microsoft 로그인 서비스에 대한 HTTP 요청 실행
 

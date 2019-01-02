@@ -45,7 +45,7 @@ Cognitive Services는 네 가지 정보 API를 제공합니다. 이를 통해 �
 
 - <a href="https://www.microsoft.com/cognitive-services/en-us/entity-linking-intelligence-service" target="_blank">Entity Linking Intelligence Service</a>는 텍스트에 언급된 관련 엔터티로 체계가 없는 텍스트에 주석을 추가합니다. 컨텍스트에 따라 동일한 단어 또는 구는 다른 내용을 참조할 수 있습니다. 이 서비스는 제공된 텍스트의 컨텍스트를 이해하고 사용자 텍스트에서 각 엔터티를 파악합니다.    
 
-- <a href="https://www.microsoft.com/cognitive-services/en-us/knowledge-exploration-service" target="_blank">Knowledge Exploration Service</a>는 사용자 쿼리의 자연어 해석을 제공하고, 주석이 추가된 해석을 반환하여 다양한 검색 및 사용자가 입력할 내용을 예측하는 자동 완성 환경을 지원합니다. 즉각적인 쿼리 완성 제안 및 예측 쿼리 구체화는 사용자 고유의 데이터와 응용 프로그램별 문법을 기반으로 하여 사용자가 빠른 쿼리를 수행할 수 있도록 합니다.    
+- <a href="https://www.microsoft.com/cognitive-services/en-us/knowledge-exploration-service" target="_blank">Knowledge Exploration Service</a>는 사용자 쿼리의 자연어 해석을 제공하고, 주석이 추가된 해석을 반환하여 다양한 검색 및 사용자가 입력할 내용을 예측하는 자동 완성 환경을 지원합니다. 즉각적인 쿼리 완성 제안 및 예측 쿼리 구체화는 사용자 고유의 데이터와 애플리케이션별 문법을 기반으로 하여 사용자가 빠른 쿼리를 수행할 수 있도록 합니다.    
 
 - <a href="https://www.microsoft.com/cognitive-services/en-us/academic-knowledge-api" target="_blank">Academic Knowledge API</a>는 <a href="https://www.microsoft.com/en-us/research/project/microsoft-academic-graph/" target="_blank">Microsoft Academic Graph</a>로부터 학술 연구 논문, 작성자, 저널, 회의, 토픽 및 대학교를 반환합니다. Knowledge Exploration Service의 도메인별 예제로 구축된 Academic Knowledge API는 수억 개의 연구 관련 엔터티를 통한 검색 기능이 있는 그래픽과 유사한 대화 상자를 사용하여 기술 자료를 제공합니다. 토픽, 교수, 대학 또는 회의를 검색하고, API에서는 관련 출판물 및 관련 엔터티를 제공합니다. 또한 문법은 “Papers by Michael Jordan about machine learning after 2010(Michael Jordan이 저술한 2010년 이후 머신 러닝에 관한 논문)”과 같은 자연스러운 쿼리도 지원합니다.
 
@@ -57,7 +57,7 @@ Microsoft Cognitive Services를 통한 [정보 추출][knowledge]에 대해 자�
 
 화자 인식과 더불어 음성-텍스트 및 텍스트-음성 변환을 위한 업계 최고의 알고리즘을 활용하도록 봇에 고급 음성 기술을 추가하려면 Speech API를 사용합니다. Speech API는 높은 정확도의 다양한 시나리오를 포함하는 기본 제공 언어 및 어쿠스틱 모델을 사용합니다. 
 
-추가로 사용자 지정해야 하는 응용 프로그램은 CRIS(Custom Recognition Intelligent Service)를 사용할 수 있습니다. 이를 통해 응용 프로그램의 어휘나 심지어 사용자의 말하기 스타일에도 맞게 조정하여 음성 인식기의 언어 및 어쿠스틱 모델을 보정할 수 있습니다.
+추가로 사용자 지정해야 하는 애플리케이션은 CRIS(Custom Recognition Intelligent Service)를 사용할 수 있습니다. 이를 통해 애플리케이션의 어휘나 심지어 사용자의 말하기 스타일에도 맞게 조정하여 음성 인식기의 언어 및 어쿠스틱 모델을 보정할 수 있습니다.
 
 Cognitive Services에서 음성을 처리하거나 합성하는 데 사용할 수 있는 세 가지 Speech API는 다음과 같습니다.
 

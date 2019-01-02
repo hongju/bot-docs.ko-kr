@@ -29,7 +29,7 @@ Accessor를 사용하는 코드는 해당 이름의 속성을 참조한다고 �
 
 ![Dialog 상태](media/bot-builder-dialog-state.png)
 
-봇의 OnTurn이 호출되면 봇에서 DialogSet의 CreateContext를 호출하여 Dialog 하위 시스템을 초기화합니다. DialogContext를 만들려면 상태가 필요하므로 DialogSet에서 해당 Accessor를 사용하여 적절한 대화 상태 JSON을 가져옵니다(Get). SDK는 BotState 클래스 모양의 Accessor 구현을 제공합니다. 상태 구현을 활용하려는 응용 프로그램은 BotState의 하위 클래스가 될 수 있으므로 Accessor의 구현을 상속할 수 있습니다. SDK에는 다음 두 개의 BotState 하위 클래스가 포함되어있습니다.
+봇의 OnTurn이 호출되면 봇에서 DialogSet의 CreateContext를 호출하여 Dialog 하위 시스템을 초기화합니다. DialogContext를 만들려면 상태가 필요하므로 DialogSet에서 해당 Accessor를 사용하여 적절한 대화 상태 JSON을 가져옵니다(Get). SDK는 BotState 클래스 모양의 Accessor 구현을 제공합니다. 상태 구현을 활용하려는 애플리케이션은 BotState의 하위 클래스가 될 수 있으므로 Accessor의 구현을 상속할 수 있습니다. SDK에는 다음 두 개의 BotState 하위 클래스가 포함되어있습니다.
 
 - UserState
 - ConversationState
@@ -39,7 +39,7 @@ UserState 및 ConversationState는 기본 저장소에 키를 사용합니다. �
 - UserState는 채널 ID와 원본 ID를 사용하여 키를 만듭니다. 예: _{Activity.ChannelId}/conversations/{Activity.From.Id}#DialogState_
 - ConversationState는 채널 ID 및 대화 ID를 사용하여 키를 만듭니다. 예: _{Activity.ChannelId}/users/{Activity.Conversation.Id}#YourPropertyName_
 
-응용 프로그램은 Accessor를 제공해야 하며, 동적으로 만들어진 적절한 저장소 키와 속성 이름에 대한 바인딩이 모두 백그라운드에서 수행됩니다. BotState의 Accessor 구현에는 다음과 같은 몇 가지 최적화가 포함됩니다. 
+애플리케이션은 Accessor를 제공해야 하며, 동적으로 만들어진 적절한 저장소 키와 속성 이름에 대한 바인딩이 모두 백그라운드에서 수행됩니다. BotState의 Accessor 구현에는 다음과 같은 몇 가지 최적화가 포함됩니다. 
 
 - 첫 번째 최적화는 캐시되고 지연되는 로드입니다. Accessor에 대한 첫 번째 Get이 호출될 때까지 실제 저장소 구현의 Load(로드)가 지연되고, 해당 Load의 결과가 캐시에 보관됩니다. 이 캐시에 대한 참조는 해당 BotState에서 제공하는 키를 사용하여 TurnContext에 추가됩니다. 따라서 UserState에 해당하는 캐시는 "UserState"라는 필드에 보관되고, ConversationState에 해당하는 캐시는 "ConversationState"라는 필드에 보관됩니다. 다양한 Accessor 개체를 호출하면 TurnContext가 전달되므로 적절한 캐시로 이동하여 이 캐시를 가져올 수 있습니다.
 
@@ -49,7 +49,7 @@ UserState 및 ConversationState는 기본 저장소에 키를 사용합니다. �
 
 BotState의 SaveChanges 호출이 IStatePropertyAccessor 인터페이스의 일부가 아닌 것은 중요합니다. 그 이유는 SaveChanges가 모델의 핵심 측면이 아니라 BotState 구현의 특별한 최적화이기 때문입니다. 특히 Dialogs와 같은 코드는 SaveChanges는 커녕 BotState에 대해서도 전혀 인식하지 못합니다. 실제로 Dialogs 코드는 Accessor에만 결합됩니다. 실행이 완료되면 Dialog 시스템 외부에서 SaveChanges 메서드를 호출해야 합니다. 예를 들어 다이어그램에서 볼 수 있듯이 이 메서드는 봇의 OnTurn 메서드 내에서 호출할 수 있습니다.
 
-BotState 구현은 몇 가지 특정 의미 체계를 제공한다는 점에 유의해야 합니다. 특히 마지막 쓰기가 이전에 쓴 상태를 덮어쓰는 "마지막으로 성공한 쓰기" 동작을 지원합니다. 이는 많은 응용 프로그램에서 제대로 작동할 수 있지만, 특히 진행 중인 일정 수준의 동시성이 있을 수 있는 규모 확장 시나리오에서 의미가 있습니다. 이로 인해 문제가 되는 경우 대답은 사용자 고유의 Accessor를 구현하여 Dialog에 전달하는 것입니다. 다양한 대체 방법이 있습니다. 예를 들어 솔루션에서 Azure Storage와 같은 클라우드 저장소 서비스에서 널리 사용되는 eTag 조건을 활용할 수 있습니다. 이 경우 솔루션은 아마도 다른 중요한 부분을 구현하고 있을 것입니다. 예를 들어 아웃바운드 활동을 버퍼링하고, Save 작업이 성공한 후에만 활동을 보낼 수 있습니다. 주목해야 할 중요 사항으로 이 동작은 BotState 구현의 동작이 아니라 응용 프로그램이 제공하고 Accessor 수준에서 플러그 인하는 동작이라는 것입니다.
+BotState 구현은 몇 가지 특정 의미 체계를 제공한다는 점에 유의해야 합니다. 특히 마지막 쓰기가 이전에 쓴 상태를 덮어쓰는 "마지막으로 성공한 쓰기" 동작을 지원합니다. 이는 많은 애플리케이션에서 제대로 작동할 수 있지만, 특히 진행 중인 일정 수준의 동시성이 있을 수 있는 규모 확장 시나리오에서 의미가 있습니다. 이로 인해 문제가 되는 경우 대답은 사용자 고유의 Accessor를 구현하여 Dialog에 전달하는 것입니다. 다양한 대체 방법이 있습니다. 예를 들어 솔루션에서 Azure Storage와 같은 클라우드 저장소 서비스에서 널리 사용되는 eTag 조건을 활용할 수 있습니다. 이 경우 솔루션은 아마도 다른 중요한 부분을 구현하고 있을 것입니다. 예를 들어 아웃바운드 활동을 버퍼링하고, Save 작업이 성공한 후에만 활동을 보낼 수 있습니다. 주목해야 할 중요 사항으로 이 동작은 BotState 구현의 동작이 아니라 애플리케이션이 제공하고 Accessor 수준에서 플러그 인하는 동작이라는 것입니다.
 
 BotState 구현 자체에는 플러그형 저장소 모델이 있습니다. 이는 간단한 Load/Save 패턴을 따르고 SDK는 두 가지 대체 구현을 프로덕션에 제공합니다. 하나는 Azure Storage용이고, 다른 하나는 CosmosDB용이며, 테스트 용도의 메모리 내 구현이 있습니다. 그러나 여기서 주목해야 할 중요 사항으로 "마지막으로 성공한 쓰기"의 의미 체계가 BotState 구현을 통해 결정된다는 것입니다.
 

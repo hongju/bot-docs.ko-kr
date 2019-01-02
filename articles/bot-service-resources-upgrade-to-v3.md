@@ -75,8 +75,8 @@ V1 봇은 더 이상 호환되지 않습니다. 봇을 업데이트하려면 V3�
 
 이전 코드를 유지하려면 아래 단계를 따릅니다.
 
-1. 새 봇 응용 프로그램을 만듭니다.
-2. 이전 코드를 새 봇 응용 프로그램에 복사합니다.
+1. 새 봇 애플리케이션을 만듭니다.
+2. 이전 코드를 새 봇 애플리케이션에 복사합니다.
 3. Nuget 패키지 관리자를 통해 SDK를 최신 버전으로 업그레이드합니다.
 4. 발생하는 오류를 모두 수정하고, 새 [SDK](https://docs.microsoft.com/en-us/azure/bot-service/?view=azure-bot-service-4.0)를 참조합니다.
 5. 다음 [지침](https://docs.microsoft.com/en-us/azure/bot-service/bot-builder-howto-deploy-azure?view=azure-bot-service-4.0)에 따라 Azure에 봇을 배포합니다.

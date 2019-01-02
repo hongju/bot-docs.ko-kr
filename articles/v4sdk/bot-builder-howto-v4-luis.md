@@ -29,7 +29,7 @@ ms.locfileid: "52460012"
 - [봇 기본 ](bot-builder-basics.md), [자연어 처리](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/what-is-luis) 및 [자연어 처리](bot-file-basics.md) 파일에 대한 지식이 필요합니다.
 
 ## <a name="create-a-luis-app-in-the-luis-portal"></a>LUIS 포털에서 LUIS 앱 만들기
-LUIS 포털에 로그인하여 사용자 고유 버전의 LUIS 샘플 앱을 만듭니다. 응용 프로그램은 **내 앱**에서 만들고 관리할 수 있습니다. 
+LUIS 포털에 로그인하여 사용자 고유 버전의 LUIS 샘플 앱을 만듭니다. 애플리케이션은 **내 앱**에서 만들고 관리할 수 있습니다. 
 
 1. **새 앱 가져오기**를 선택합니다. 
 1. **앱 파일 선택(JSON 형식)...** 을 클릭합니다. 

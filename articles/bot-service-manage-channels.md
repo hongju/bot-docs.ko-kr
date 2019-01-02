@@ -18,7 +18,7 @@ ms.locfileid: "49997387"
 ---
 # <a name="connect-a-bot-to-channels"></a>채널에 봇 연결
 
-채널은 봇과 통신 앱 사이의 연결입니다. 봇을 사용할 수 있기를 원하는 채널에 연결하도록 구성합니다. Azure Portal을 통해 구성된 Bot Framework Service는 봇을 이러한 채널에 연결하고, 봇과 사용자 간 통신을 용이하게 합니다. [Cortana](bot-service-channel-connect-cortana.md), [Facebook Messenger](bot-service-channel-connect-facebook.md), [Kik](bot-service-channel-connect-kik.md), [Slack](bot-service-channel-connect-slack.md) 및 기타 여러 서비스와 같은 많은 유명한 서비스에 연결할 수 있습니다. [Skype](https://dev.skype.com/bots) 및 Web Chat은 사용자를 위해 미리 구성됩니다. Bot Connector Service를 통해 제공되는 표준 채널 외에도 직접 회선을 채널로 사용하여 고유한 클라이언트 응용 프로그램에 봇을 연결할 수도 있습니다.
+채널은 봇과 통신 앱 사이의 연결입니다. 봇을 사용할 수 있기를 원하는 채널에 연결하도록 구성합니다. Azure Portal을 통해 구성된 Bot Framework Service는 봇을 이러한 채널에 연결하고, 봇과 사용자 간 통신을 용이하게 합니다. [Cortana](bot-service-channel-connect-cortana.md), [Facebook Messenger](bot-service-channel-connect-facebook.md), [Kik](bot-service-channel-connect-kik.md), [Slack](bot-service-channel-connect-slack.md) 및 기타 여러 서비스와 같은 많은 유명한 서비스에 연결할 수 있습니다. [Skype](https://dev.skype.com/bots) 및 Web Chat은 사용자를 위해 미리 구성됩니다. Bot Connector Service를 통해 제공되는 표준 채널 외에도 Direct Line을 채널로 사용하여 고유한 클라이언트 애플리케이션에 봇을 연결할 수도 있습니다.
 
 Bot Framework Service를 사용하면 봇이 채널에 전송하는 메시지를 정규화하여 채널 독립적인 방법으로 봇을 개발할 수 있습니다. 이는 봇 작성기 스키마에서 채널의 스키마로 변환하는 것을 포함합니다. 단, 채널이 봇 작성기 스키마 중 일부를 지원하지 않는 경우 서비스는 메시지를 채널이 지원하는 형식으로 변환하려고 시도합니다. 예를 들어, 봇이 작업 단추가 있는 카드가 포함된 메시지를 SMS 채널에 보내면 커넥터는 카드를 이미지로 전송하고 메시지의 텍스트에 링크로 작업을 포함시킬 수 있습니다.
 

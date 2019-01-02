@@ -20,7 +20,7 @@ ms.locfileid: "50000130"
 
 Slack 메시징 앱을 사용하여 사용자와 통신하도록 봇을 구성할 수 있습니다.
 
-## <a name="create-a-slack-application-for-your-bot"></a>봇에 대한 Slack 응용 프로그램 만들기
+## <a name="create-a-slack-application-for-your-bot"></a>봇에 대한 Slack 애플리케이션 만들기
 
 [Slack](https://slack.com/signin)에 로그인한 다음, [Slack 응용 프로그램 만들기](https://api.slack.com/apps) 채널로 이동합니다.
 

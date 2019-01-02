@@ -70,7 +70,7 @@ grant_type=client_credentials&client_id=MICROSOFT-APP-ID&client_secret=MICROSOFT
 
 ### <a name="step-2-obtain-the-jwt-token-from-the-msaaad-v2-login-service-response"></a>2단계: MSA/AAD v2 로그인 서비스 응답에서 JWT 토큰 가져오기
 
-MSA/AAD v2 로그인 서비스에서 응용 프로그램이 인증되면 JSON 응답 본문은 액세스 토큰, 형식 및 만료(초)를 지정합니다. 
+MSA/AAD v2 로그인 서비스에서 애플리케이션이 인증되면 JSON 응답 본문은 액세스 토큰, 형식 및 만료(초)를 지정합니다. 
 
 토큰을 요청의 `Authorization` 헤더에 추가할 때는 이 응답에 지정된 정확한 값을 사용해야 합니다(즉 이스케이프하지 않거나 토큰 값을 인코딩하지 않음). 액세스 토큰은 만료 시점까지 유효합니다. 봇의 성능에 영향을 주는 토큰 만료를 방지하기 위해 캐시하도록 선택하고 미리 토큰을 새로 고칠 수 있습니다.
 
@@ -153,7 +153,7 @@ GET https://login.botframework.com/v1/.well-known/openidconfiguration
 ```
 
 > [!TIP]
-> 이것은 응용 프로그램에 하드 코딩할 수 있는 정적 URL입니다. 
+> 이것은 애플리케이션에 하드 코딩할 수 있는 정적 URL입니다. 
 
 다음 예제에서는 `GET` 요청에 대한 응답으로 반환되는 OpenID 메타데이터 문서를 보여 줍니다. `jwks_uri` 속성은 Bot Connector 서비스의 유효한 서명 키가 포함된 문서의 위치를 지정합니다.
 
@@ -323,7 +323,7 @@ payload:
 ## <a name="security-protocol-changes"></a>보안 프로토콜 변경 내용
 
 > [!WARNING]
-> 보안 프로토콜 v3.0 지원이 **2017년 7월 31일** 중단되었습니다. 자체 인증 코드를 작성한 경우(즉 Bot Builder SDK를 사용하여 봇을 만들지 않음) 아래 목록의 v3.1 값을 사용하도록 응용 프로그램을 업데이트하여 보안 프로토콜 v3.1로 업그레이드해야 합니다. 
+> 보안 프로토콜 v3.0 지원이 **2017년 7월 31일** 중단되었습니다. 자체 인증 코드를 작성한 경우(즉 Bot Builder SDK를 사용하여 봇을 만들지 않음) 아래 목록의 v3.1 값을 사용하도록 애플리케이션을 업데이트하여 보안 프로토콜 v3.1로 업그레이드해야 합니다. 
 
 ### <a name="bot-to-connector-authenticationbot-to-connector"></a>[커넥터에 대한 봇 인증](#bot-to-connector)
 

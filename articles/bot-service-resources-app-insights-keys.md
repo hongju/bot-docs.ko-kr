@@ -20,7 +20,7 @@ ms.locfileid: "49996910"
 Azure **Application Insights**는 Microsoft Azure 리소스에 애플리케이션에 대한 데이터를 표시합니다. 봇에 원격 분석을 추가하려면 봇에 대해 생성된 Application Insights 리소스 및 Azure 구독이 필요합니다. 이 리소스에서 봇을 구성할 다음 세 개의 키를 가져올 수 있습니다.
 
 1. 계측 키
-2. 응용 프로그램 UI
+2. 애플리케이션 UI
 3. API 키
 
 이 항목에서는 이러한 Application Insights 키를 만드는 방법을 보여 줍니다.
@@ -44,7 +44,7 @@ Azure **Application Insights**는 Microsoft Azure 리소스에 애플리케이�
 
 5. **계측 키**를 복사하고 봇 설정의 **Application Insights 계측 키** 필드에 붙여넣습니다.
 
-## <a name="application-id"></a>응용 프로그램 UI
+## <a name="application-id"></a>애플리케이션 UI
 
 애플리케이션 ID를 가져오려면 다음을 수행합니다.
 1. Application Insights 리소스에서 **API 액세스**를 클릭합니다.

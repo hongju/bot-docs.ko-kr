@@ -42,7 +42,7 @@ Visual Studio에서 Bot Builder Echo Bot V4 템플릿을 사용하여 새 봇 �
 
 ## <a name="start-your-bot-in-visual-studio"></a>Visual Studio에서 봇 시작
 
-실행 단추를 클릭하면 Visual Studio는 응용 프로그램을 빌드하고, localhost로 배포하고, 웹 브라우저를 시작하여 응용 프로그램의 `default.htm` 페이지를 표시합니다. 이때 봇은 로컬에서 실행됩니다.
+실행 단추를 클릭하면 Visual Studio는 애플리케이션을 빌드하고, localhost로 배포하고, 웹 브라우저를 시작하여 애플리케이션의 `default.htm` 페이지를 표시합니다. 이때 봇은 로컬에서 실행됩니다.
 
 ## <a name="start-the-emulator-and-connect-your-bot"></a>에뮬레이터 시작 및 봇 연결
 

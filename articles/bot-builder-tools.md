@@ -27,7 +27,7 @@ Bot Builder 도구는 계획, 빌드, 테스트, 게시, 연결 및 평가 단�
 
 Chatdown은 .chat 파일을 사용하여 모의 전사를 생성하는 전사 생성기입니다. 생성된 모의 전사 파일은 stdout으로 출력됩니다.
 
-성공적인 응용 프로그램 또는 웹 사이트와 마찬가지로 좋은 봇은 지원되는 시나리오에 대한 명확성으로 시작합니다. 다음과 같은 경우 봇과 사용자 간의 대화 모형을 만드는 것이 유용합니다.
+성공적인 애플리케이션 또는 웹 사이트와 마찬가지로 좋은 봇은 지원되는 시나리오에 대한 명확성으로 시작합니다. 다음과 같은 경우 봇과 사용자 간의 대화 모형을 만드는 것이 유용합니다.
 
 - 봇에서 지원되는 시나리오를 프레이밍합니다.
 - 비즈니스 의사 결정자가 검토하고 피드백을 제공합니다.
@@ -73,7 +73,7 @@ chatdown sample.chat > sample.transcript
 그러면 `sample.chat`을 사용하여 `sample.transcript`를 출력합니다. 자세한 내용은 [Chatdown CLI][chatdown]를 참조하세요.
 
 ## <a name="build"></a>빌드
-### <a name="create-a-luis-application-with-ludown"></a>LUDown을 사용하여 LUIS 응용 프로그램 만들기
+### <a name="create-a-luis-application-with-ludown"></a>LUDown을 사용하여 LUIS 애플리케이션 만들기
 LUDown 도구를 사용하여 LUIS와 QnA 둘 다에 대한 새 .json 모델을 만들 수 있습니다.  
 LUIS 포털에서와 마찬가지로, LUIS 애플리케이션에 대한 [의도](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/add-intents) 및 [엔터티](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/add-entities)를 정의할 수 있습니다.
 
@@ -168,7 +168,7 @@ msbot connect [Service]
 
 지원되는 서비스 목록을 가져오려면 [추가 정보][msbotCli] 파일을 참조하세요.
 
-### <a name="create-and-manage-luis-applications-using-luis-cli"></a>LUIS CLI를 사용하여 LUIS 응용 프로그램 만들기 및 관리
+### <a name="create-and-manage-luis-applications-using-luis-cli"></a>LUIS CLI를 사용하여 LUIS 애플리케이션 만들기 및 관리
 
 새 도구 집합에는 LUIS 리소스를 독립적으로 관리할 수 있는 [LUIS 확장][luisCli]이 포함되어 있습니다. 다운로드할 수 있는 npm 모듈로 제공됩니다.
 
@@ -180,7 +180,7 @@ CLI에서 LUIS 도구에 대한 기본 명령 사용법은 다음과 같습니�
 ```shell
 luis <action> <resource> <args...>
 ```
-봇을 LUIS에 연결하려면 **.luisrc** 파일을 만들어야 합니다. 이는 응용 프로그램이 아웃바운드 호출을 수행할 때 LUIS appID 및 암호를 서비스 엔드포인트에 프로비전하는 구성 파일입니다. 다음과 같이 **luis init**를 실행하면 이 파일을 만들 수 있습니다.
+봇을 LUIS에 연결하려면 **.luisrc** 파일을 만들어야 합니다. 이는 애플리케이션이 아웃바운드 호출을 수행할 때 LUIS appID 및 암호를 서비스 엔드포인트에 프로비전하는 구성 파일입니다. 다음과 같이 **luis init**를 실행하면 이 파일을 만들 수 있습니다.
 
 ```shell
 luis init
@@ -219,7 +219,7 @@ qnamaker create --in qnaKB.json --msbot | msbot connect qna --stdin
 - 단일 LUIS 모델의 의도 분류에 대한 품질을 평가합니다.
 - 텍스트 파일에서 텍스트 분류 모델을 만듭니다.
 
-봇에서 사용하는 [LUIS 응용 프로그램][msbotCli-luis]과 [QnA Maker 기술 자료][msbotCli-qna]를 사용하여 .bot 파일을 어셈블한 후에는 간단히 다음을 사용하여 디스패치 모델을 빌드할 수 있습니다. 
+봇에서 사용하는 [LUIS 애플리케이션][msbotCli-luis]과 [QnA Maker 기술 자료][msbotCli-qna]를 사용하여 .bot 파일을 어셈블한 후에는 간단히 다음을 사용하여 디스패치 모델을 빌드할 수 있습니다. 
 
 ```shell
 dispatch create -b <YOUR-BOT-FILE> | msbot connect dispatch --stdin

@@ -45,7 +45,7 @@ ms.locfileid: "53010578"
 
 *순서 컨텍스트* 개체는 발신자 및 수신자, 채널, 활동을 처리하는 데 필요한 기타 데이터와 같은 활동에 대한 정보를 제공합니다. 또한 봇의 다양한 계층에서 순서가 처리되는 동안 정보를 추가할 수 있게 해줍니다.
 
-순서 컨텍스트는 SDK의 가장 중요한 추상화 중 하나입니다. 모든 미들웨어 구성 요소에 대한 인바운드 활동과 응용 프로그램 논리를 전달할 뿐만 아니라 미들웨어 구성 요소와 응용 프로그램 논리가 아웃바운드 활동을 전송하는 데 사용할 수 있는 메커니즘을 제공합니다.
+순서 컨텍스트는 SDK의 가장 중요한 추상화 중 하나입니다. 모든 미들웨어 구성 요소에 대한 인바운드 활동과 애플리케이션 논리를 전달할 뿐만 아니라 미들웨어 구성 요소와 애플리케이션 논리가 아웃바운드 활동을 전송하는 데 사용할 수 있는 메커니즘을 제공합니다.
 
 ## <a name="the-activity-processing-stack"></a>활동 처리 스택
 
@@ -71,11 +71,11 @@ SDK의 통합 구성 요소인 *어댑터*는 SDK 런타임의 핵심입니다. 
 
 # <a name="ctabcs"></a>[C#](#tab/cs)
 
-봇은 [ASP.NET Core 웹](https://docs.microsoft.com/aspnet/core/?view=aspnetcore-2.1) 응용 프로그램의 한 유형입니다. [ASP.NET](https://docs.microsoft.com/aspnet/core/fundamentals/index?view=aspnetcore-2.1&tabs=aspnetcore2x) 기본 사항을 보면 **Program.cs** 및 **Startup.cs**와 같은 파일에서 유사한 코드를 확인할 수 있습니다. 이러한 파일은 모든 웹앱에 필요하며 봇 전용이 아닙니다. 
+봇은 [ASP.NET Core 웹](https://docs.microsoft.com/aspnet/core/?view=aspnetcore-2.1) 애플리케이션의 한 유형입니다. [ASP.NET](https://docs.microsoft.com/aspnet/core/fundamentals/index?view=aspnetcore-2.1&tabs=aspnetcore2x) 기본 사항을 보면 **Program.cs** 및 **Startup.cs**와 같은 파일에서 유사한 코드를 확인할 수 있습니다. 이러한 파일은 모든 웹앱에 필요하며 봇 전용이 아닙니다. 
 
 ### <a name="bot-logic"></a>봇 논리
 
-기본 봇 논리는 `IBot` 인터페이스에서 파생되는 `EchoWithCounterBot` 클래스에 정의됩니다. `IBot`은 단일 메서드 `OnTurnAsync`를 정의합니다. 응용 프로그램은 이 메서드를 구현해야 합니다. `OnTurnAsync`에는 수신 활동에 대한 정보를 제공하는 turnContext가 있습니다. 수신 활동은 인바운드 HTTP 요청에 해당합니다. 수신 활동은 형식이 다양할 수 있으므로 먼저 봇이 메시지를 받았는지 확인합니다. 메시지라면 순서 컨텍스트에서 대화 상태를 가져오고, 순서 카운터를 구현한 다음, 대화 상태에 새로운 순서 카운터 값을 보존합니다. 그런 다음, SendActivityAsync 호출을 사용하여 사용자에게 메시지를 다시 전송합니다. 송신 활동은 아웃바운드 HTTP 요청에 해당합니다.
+기본 봇 논리는 `IBot` 인터페이스에서 파생되는 `EchoWithCounterBot` 클래스에 정의됩니다. `IBot`은 단일 메서드 `OnTurnAsync`를 정의합니다. 애플리케이션은 이 메서드를 구현해야 합니다. `OnTurnAsync`에는 수신 활동에 대한 정보를 제공하는 turnContext가 있습니다. 수신 활동은 인바운드 HTTP 요청에 해당합니다. 수신 활동은 형식이 다양할 수 있으므로 먼저 봇이 메시지를 받았는지 확인합니다. 메시지라면 순서 컨텍스트에서 대화 상태를 가져오고, 순서 카운터를 구현한 다음, 대화 상태에 새로운 순서 카운터 값을 보존합니다. 그런 다음, SendActivityAsync 호출을 사용하여 사용자에게 메시지를 다시 전송합니다. 송신 활동은 아웃바운드 HTTP 요청에 해당합니다.
 
 ```cs
 public async Task OnTurnAsync(ITurnContext turnContext, CancellationToken cancellationToken = default(CancellationToken))
@@ -239,7 +239,7 @@ Yeoman 생성기는 [restify](http://restify.com/) 웹 애플리케이션 형식
 
 #### <a name="required-libraries"></a>필수 라이브러리
 
-`index.js` 파일의 맨 위쪽에는 필요한 일련의 모듈 또는 라이브러리가 있습니다. 이러한 모듈은 사용자가 응용 프로그램에 포함하는 함수 집합에 액세스할 수 있습니다.
+`index.js` 파일의 맨 위쪽에는 필요한 일련의 모듈 또는 라이브러리가 있습니다. 이러한 모듈은 사용자가 애플리케이션에 포함하는 함수 집합에 액세스할 수 있습니다.
 
 ```javascript
 // Import required packages

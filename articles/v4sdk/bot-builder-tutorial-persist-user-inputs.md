@@ -73,7 +73,7 @@ npm install --save botbuilder-azure
 
 이 자습서에서 만든 봇을 테스트하려면 [BotFramework Emulator](https://github.com/Microsoft/BotFramework-Emulator)를 설치해야 합니다.
 
-## <a name="create-a-cosmosdb-service-and-update-your-application-settings"></a>CosmosDB 서비스를 만들고 응용 프로그램 설정 업데이트
+## <a name="create-a-cosmosdb-service-and-update-your-application-settings"></a>CosmosDB 서비스를 만들고 애플리케이션 설정 업데이트
 
 CosmosDB 서비스 및 데이터베이스를 설정하려면 [CosmosDB 사용](bot-builder-howto-v4-storage.md#using-cosmos-db)의 지침을 따릅니다. 단계는 아래에 요약되어 있습니다.
 
@@ -86,7 +86,7 @@ CosmosDB 서비스 및 데이터베이스를 설정하려면 [CosmosDB 사용](b
 
 컬렉션을 추가하는 데 사용한 데이터베이스 ID 및 컬렉션 ID와 컬렉션 키 설정의 URI 및 기본 키를 기록해 둡니다. 봇을 서비스에 연결하려면 필요합니다.
 
-### <a name="update-your-application-settings"></a>응용 프로그램 설정 업데이트
+### <a name="update-your-application-settings"></a>애플리케이션 설정 업데이트
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
@@ -613,7 +613,7 @@ async onTurn(turnContext) {
 
 ## <a name="start-your-bot-in-visual-studio"></a>Visual Studio에서 봇 시작
 
-응용 프로그램을 빌드하고 실행합니다.
+애플리케이션을 빌드하고 실행합니다.
 
 ## <a name="start-the-emulator-and-connect-your-bot"></a>에뮬레이터 시작 및 봇 연결
 

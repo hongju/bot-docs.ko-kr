@@ -141,7 +141,7 @@ msbot connect service-type
 | ------ | ----------- |
 | azure  |봇을 Azure Bot Service 등록에 연결|
 |endpoint| 봇을 localhost 같은 엔드포인트에 연결|
-|luis     | 봇을 LUIS 응용 프로그램에 연결 |
+|luis     | 봇을 LUIS 애플리케이션에 연결 |
 | qna     |봇을 QnA 기술 자료에 연결|
 |도움말[cmd]  |[cmd]에 대한 도움말을 표시|
 
@@ -175,7 +175,7 @@ npm install -g ludown
 
 LUDown 도구를 사용하여 LUIS와 QnA 둘 다에 대한 새 .json 모델을 만들 수 있습니다.  
 
-### <a name="creating-a-luis-application-with-ludown"></a>LUDown를 사용하여 LUIS 응용 프로그램 만들기
+### <a name="creating-a-luis-application-with-ludown"></a>LUDown를 사용하여 LUIS 애플리케이션 만들기
 
 LUIS 포털에서와 마찬가지로, LUIS 애플리케이션에 대한 [의도](https://docs.microsoft.com/azure/cognitive-services/luis/add-intents) 및 [엔터티](https://docs.microsoft.com/azure/cognitive-services/luis/add-entities)를 정의할 수 있습니다.
 
@@ -288,7 +288,7 @@ CLI에서 LUIS 도구에 대한 기본 명령 사용법은 다음과 같습니�
 ```shell
 luis action-name resource-name arguments-list
 ```
-봇을 LUIS에 연결하려면 **.luisrc** 파일을 만들어야 합니다. 이는 응용 프로그램이 아웃바운드 호출을 수행할 때 LUIS appID 및 암호를 서비스 엔드포인트에 프로비전하는 구성 파일입니다. 다음과 같이 **luis init**를 실행하면 이 파일을 만들 수 있습니다.
+봇을 LUIS에 연결하려면 **.luisrc** 파일을 만들어야 합니다. 이는 애플리케이션이 아웃바운드 호출을 수행할 때 LUIS appID 및 암호를 서비스 엔드포인트에 프로비전하는 구성 파일입니다. 다음과 같이 **luis init**를 실행하면 이 파일을 만들 수 있습니다.
 
 ```shell
 luis init
@@ -298,7 +298,7 @@ luis init
 ![LUIS init](media/bot-builder-tools/luis-init.png) 
 
 
-이 파일이 생성되고 나면 응용 프로그램이 CLI에서 다음 명령을 사용하여 LUDown에서 생성된 LUIS .json 파일을 사용할 수 있습니다. 
+이 파일이 생성되고 나면 애플리케이션이 CLI에서 다음 명령을 사용하여 LUDown에서 생성된 LUIS .json 파일을 사용할 수 있습니다. 
 
 ```shell
 luis import application --in luis-app.json | msbot connect luis --stdin
