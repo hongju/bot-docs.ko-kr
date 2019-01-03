@@ -2,20 +2,20 @@
 title: 사용자에게 환영 메시지 보내기 | Microsoft Docs
 description: 봇이 환영하는 사용자 환경을 제공하도록 개발하는 방법을 알아봅니다.
 keywords: 개요, 개발, 사용자 환경, 환영, 개인 설정 환경, C#, JS, 환영 메시지, 봇, 인사, 인사말
-author: dashel
-ms.author: dashel
+author: DanDev33
+ms.author: v-dashel
 manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
-ms.date: 11/15/2018
+ms.date: 12/20/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 02fb57d5d766ddd72c2dcface673c5c6355cf184
-ms.sourcegitcommit: 6c719b51c9e4e84f5642100a33fe346b21360e8a
+ms.openlocfilehash: 7e6ea963ce018833b362be3f413f15da4d4bf658
+ms.sourcegitcommit: f7a8f05fc05ff4a7212a437d540485bf68831604
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52452035"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53735943"
 ---
 # <a name="send-welcome-message-to-users"></a>사용자에게 환영 메시지 보내기
 
@@ -25,7 +25,7 @@ ms.locfileid: "52452035"
 
 ## <a name="prerequisites"></a>필수 조건
 - [봇 기본 사항](bot-builder-basics.md)을 이해합니다. 
-- [C#](https://aka.ms/proactive-sample-cs) 또는 [JS](https://aka.ms/proactive-sample-js)의 **환영 사용자 샘플** 복사본입니다. 샘플의 코드는 환영 메시지를 보내는 방법을 설명하는 데 사용됩니다.
+- [C#](https://aka.ms/bot-welcome-sample-cs) 또는 [JS](https://aka.ms/bot-welcome-sample-js)의 **환영 사용자 샘플** 복사본입니다. 샘플의 코드는 환영 메시지를 보내는 방법을 설명하는 데 사용됩니다.
 
 ## <a name="same-welcome-for-different-channels"></a>다른 채널에서의 동일한 환영
 사용자가 봇과 처음으로 상호 작용할 때마다 환영 메시지가 생성되어야 합니다. 이를 위해 봇의 작업 형식을 모니터링하고 새 연결을 감시할 수 있습니다. 새 연결마다 채널에 따라 최대 두 개의 대화 업데이트 작업을 생성할 수 있습니다.
@@ -421,7 +421,7 @@ switch (text)
 ```
 ---
 ## <a name="test-the-bot"></a>봇 테스트
-봇 실행 및 테스트에 대한 지침은 [README](https://github.com/Microsoft/BotBuilder-Samples/blob/master/samples/csharp_dotnetcore/03.welcome-user/readme.md) 파일을 참조하세요. 
+봇 실행 및 테스트에 대한 지침은 [README](https://aka.ms/bot-welcome-sample-cs) 파일을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 > [!div class="nextstepaction"]
