@@ -19,4 +19,6 @@
 # [Bot Service 준수](../v4sdk/bot-service-compliance.md)
 # 문제 해결
 ## [일반 문제 해결](../bot-service-troubleshoot-general-problems.md)
+## [봇 구성 문제 해결](../bot-service-troubleshoot-bot-configuration.md)
+## [HTTP 500 오류 해결](../bot-service-troubleshoot-500-errors.md)
 ## [인증 문제 해결](../bot-service-troubleshoot-authentication-problems.md)
