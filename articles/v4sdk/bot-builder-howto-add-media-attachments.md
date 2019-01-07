@@ -8,14 +8,14 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
-ms.date: 10/25/2018
+ms.date: 12/17/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: fcbe28110ec71da7263d125e79ca59d15efa9d5f
-ms.sourcegitcommit: 15f7fa40b7e0a05507cdc66adf75bcfc9533e781
+ms.openlocfilehash: fd908335c69aab7c8b68925b8ecdece79e89ab4b
+ms.sourcegitcommit: f7a8f05fc05ff4a7212a437d540485bf68831604
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50916780"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53735963"
 ---
 # <a name="add-media-to-messages"></a>메시지에 미디어 추가
 
@@ -60,7 +60,9 @@ await turnContext.SendActivityAsync(reply, cancellationToken);
 
 ```javascript
 const { ActionTypes, ActivityTypes, CardFactory } = require('botbuilder');
+
 // Call function to get an attachment.
+const reply = { type: ActivityTypes.Message };
 reply.attachments = [this.getInternetAttachment()];
 reply.text = 'This is an internet attachment.';
 // Send the activity to the user.
@@ -130,30 +132,32 @@ const card = CardFactory.heroCard('', undefined,
 buttons, { text: 'You can upload an image or select one of the following choices.' });
 
 // add card to Activity.
+const reply = { type: ActivityTypes.Message };
 reply.attachments = [card];
 
 // Send hero card to the user.
 await turnContext.sendActivity(reply);
 ```
+
 ---
 
 ## <a name="process-events-within-rich-cards"></a>서식 있는 카드 내에서 이벤트 처리
 
-서식 있는 카드 내에서 이벤트를 처리하려면 _카드 작업_ 개체를 사용하여 사용자가 단추를 클릭하거나 카드의 섹션을 탭할 때 수행되어야 하는 작업을 지정합니다.
+서식 있는 카드 내에서 이벤트를 처리하려면 _카드 작업_ 개체를 사용하여 사용자가 단추를 클릭하거나 카드의 섹션을 탭할 때 수행되어야 하는 작업을 지정합니다. 각 카드 동작에는 _type_ 및 _value_가 있습니다.
 
-올바르게 작동하려면 카드의 클릭 가능한 각 항목에 작업 유형을 할당합니다. 이 표에서는 카드 작업 개체의 유형 속성에 대한 유효한 값을 나열하고 각 유형에 대한 값 속성의 예상 콘텐츠를 설명합니다.
+올바르게 작동하려면 카드의 클릭 가능한 각 항목에 작업 유형을 할당합니다. 이 표에는 사용 가능한 동작 유형 및 관련 값 속성에 필요한 항목과 관련 설명이 나와 있습니다.
 
-| type | 값 |
-| :---- | :---- |
-| openUrl | 기본 제공 브라우저에서 열리는 URL입니다. URL을 열어 탭 또는 클릭에 응답합니다. |
-| imBack | 단추를 클릭하거나 카드를 탭한 사용자에서 봇으로 전송할 메시지의 텍스트. 이 메시지(사용자에서 봇으로)는 대화를 호스트하고 있는 클라이언트 애플리케이션을 통해 모든 대화 참가자에게 표시됩니다. |
-| postBack | 단추를 클릭하거나 카드를 탭한 사용자에서 봇으로 전송할 메시지의 텍스트. 일부 클라이언트 애플리케이션은 이 텍스트를 메시지 피드로 표시할 수 있습니다. 메시지 피드에서는 텍스트가 모든 대화 참가자에게 표시됩니다. |
-| 다음을 호출합니다. | 이 형식의 전화 통화 대상: `tel:123123123123` 통화를 시작하여 탭 또는 클릭에 응답합니다.|
-| playAudio | 재생되는 오디오의 URL입니다. 오디오를 재생하여 탭 또는 클릭에 응답합니다. |
-| playVideo | 재생되는 비디오의 URL입니다. 비디오를 재생하여 탭 또는 클릭에 응답합니다. |
-| showImage | 표시되는 이미지의 URL입니다. 이미지를 표시하여 탭 또는 클릭에 응답합니다. |
-| downloadFile | 다운로드되는 파일의 URL입니다.  파일을 다운로드하여 탭 또는 클릭에 응답합니다. |
-| signin | 시작되는 OAuth 흐름의 URL입니다. 로그인을 시작하여 탭 또는 클릭에 응답합니다. |
+| type | 설명 | 값 |
+| :---- | :---- | :---- |
+| openUrl | 기본 제공 브라우저에서 URL이 열립니다. | 열려는 URL입니다. |
+| imBack | 봇에 메시지를 보내고 채팅에 표시 가능한 응답을 게시합니다. | 보낼 메시지의 텍스트입니다. |
+| postBack | 봇에 메시지를 보내고 채팅에 표시 가능한 응답을 게시하지 않을 수 있습니다. | 보낼 메시지의 텍스트입니다. |
+| 다음을 호출합니다. | 전화 통화를 시작합니다. | 전화 통화 대상입니다(`tel:123123123123` 형식). |
+| playAudio | 오디오를 재생합니다. | 재생할 오디오의 URL입니다. |
+| playVideo | 비디오를 재생합니다. | 재생할 비디오의 URL입니다. |
+| showImage | 이미지를 표시합니다. | 표시할 이미지의 URL입니다. |
+| downloadFile | 파일을 다운로드합니다. | 다운로드할 파일의 URL입니다. |
+| signin | OAuth 로그인 프로세스를 시작합니다. | 시작할 OAuth 흐름의 URL입니다. |
 
 ## <a name="hero-card-using-various-event-types"></a>다양한 이벤트 유형을 사용하는 영웅 카드
 
@@ -360,5 +364,5 @@ await context.sendActivity(messageWithCarouselOfCards);
 
 카드 스키마에 대한 자세한 내용은 [Bot Framework 카드 스키마](https://aka.ms/botSpecs-cardSchema)를 참조하세요.
 
-샘플 코드는 [C#](https://aka.ms/bot-cards-sample-code)/[JS](https://aka.ms/bot-cards-js-sample-code) 카드, [C#](https://aka.ms/bot-adaptive-cards-sample-code)/[JS](https://aka.ms/bot-adaptive-cards-js-sample-code) 적응형 카드, [C#](https://aka.ms/bot-attachments-sample-code)/[JS](https://aka.ms/bot-attachments-sample-code-js) 첨부 파일 및 제안된 [C#](https://aka.ms/SuggestedActionsCSharp)/[JS](https://aka.ms/SuggestedActionsJS) 작업에서 찾을 수 있습니다.
+카드의 샘플 코드는 여기에서 확인할 수 있습니다. [C#](https://aka.ms/bot-cards-sample-code)/[JS](https://aka.ms/bot-cards-js-sample-code), 적응형 카드: [C#](https://aka.ms/bot-adaptive-cards-sample-code)/[JS](https://aka.ms/bot-adaptive-cards-js-sample-code), 첨부 파일: [C#](https://aka.ms/bot-attachments-sample-code)/[JS](https://aka.ms/bot-attachments-sample-code-js) 및 제안된 작업: [C#](https://aka.ms/SuggestedActionsCSharp)/[JS](https://aka.ms/SuggestedActionsJS).
 추가 샘플은 [GitHub](https://aka.ms/bot-samples-readme)의 Bot Builder 샘플 리포지토리를 참조하세요.

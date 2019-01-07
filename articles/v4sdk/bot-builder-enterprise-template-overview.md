@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: bot-service
 ms.date: 09/18/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 43bc3c7606a12084690d71f8b6ea2dc3b2e5984d
-ms.sourcegitcommit: 6c719b51c9e4e84f5642100a33fe346b21360e8a
+ms.openlocfilehash: 3abfb82f555f458bc9cdd5125fafa1cfa70921cb
+ms.sourcegitcommit: 66769e697d94f7bf5e0441dfacf2c0e3768845ea
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52451995"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53654964"
 ---
 # <a name="enterprise-bot-template"></a>엔터프라이즈 봇 템플릿 
 
@@ -34,10 +34,10 @@ ms.locfileid: "52451995"
 부적절한 콘텐츠 또는 PII(개인 식별 정보) 검색  |미들웨어 구성 요소에서 [Content Moderator](https://azure.microsoft.com/en-us/services/cognitive-services/content-moderator/)를 사용하여 들어오는 대화에서 부적절하거나 PII 데이터를 검색합니다.
 스크립트(Transcript)  | Azure Storage에 저장된 모든 대화 내용입니다.
 디스패처 | 지정된 발화가 LUIS + 코드에서 처리되어야 하는지, 아니면 QnA Maker에 전달되어야 하는지를 식별하는 통합 [디스패치](https://docs.microsoft.com/en-us/azure/bot-service/bot-builder-tutorial-dispatch?view=azure-bot-service-4.0&tabs=csaddref%2Ccsbotconfig) 모델입니다.
-QnA Maker 통합  | 기존 데이터 원본(예: PDF 매뉴얼)을 활용할 수 있는 기술 자료에서 일반적인 질문에 답변할 수 있도록 [QnA Maker](https://www.qnamaker.ai)와 통합됩니다.
+QnA Maker 통합  | 기존 데이터 원본(예: PDF 매뉴얼)을 활용할 수 있는 기술 자료에서 일반적인 질문에 답변할 수 있도록 [QnA Maker](https://www.qnamaker.ai)와 통합됩니다. 일반적인 질문에 대한 표준 답변을 제공하기 위해 QnA Maker 잡담 모델도 포함됩니다([자세히 알아보기](https://docs.microsoft.com/en-us/azure/cognitive-services/qnamaker/how-to/chit-chat-knowledge-base)).
 대화형 인사이트  | 모든 대화에 대한 원격 분석과 PowerBI 대시보드 예제를 수집하여 대화형 환경에 대한 인사이트로 시작할 수 있도록 [Application Insights](https://azure.microsoft.com/en-gb/services/application-insights/)와 통합됩니다.
 
-또한 봇에 필요한 모든 Azure 리소스(봇 등록, Azure App Service, LUIS, QnA Maker, Content Moderator, CosmosDB, Azure Storage 및 Application Insights)는 자동으로 배포됩니다. 더욱이 기본 LUIS, QnA Maker 및 디스패치 모델을 생성, 학습 및 게시하여 기본 의도와 라우팅을 즉시 테스트할 수 있습니다.
+또한 봇에 필요한 모든 Azure 리소스가 자동으로 배포됩니다. 봇 등록, Azure App Service, LUIS, QnA Maker, Content Moderator, CosmosDB, Azure Storage 및 Application Insights. 더욱이 기본 LUIS, QnA Maker 및 디스패치 모델을 생성, 학습 및 게시하여 기본 의도와 라우팅을 즉시 테스트할 수 있습니다.
 
 템플릿을 만들고 배포 단계가 실행되면 F5 키를 눌러 종단 간 테스트를 수행할 수 있습니다. 이렇게 하면 대화형 환경을 시작하기 위한 견고한 기반을 제공하여 각 프로젝트에서 수행해야 하는 며칠 간의 노력을 줄이고 대화형 품질 표시 기준을 향상시킵니다.
 

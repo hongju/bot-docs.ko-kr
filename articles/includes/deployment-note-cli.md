@@ -4,10 +4,11 @@ LUIS와 같은 서비스를 사용하는 경우 `luisAuthoringKey`도 전달해�
 
 | 인수    | 설명 |
 |--------------|-------------|
-| `folder`     | `bot.receipe` 파일의 위치입니다. receipe 파일은 기본적으로 `DeploymentsScript/MSBotClone`에 만들어집니다. 이 파일은 수정하지 마세요.|
+| `folder`     | `bot.recipe` 파일의 위치입니다. recipe 파일은 기본적으로 `DeploymentsScript/MSBotClone`에 만들어집니다. 이 파일은 수정하지 마세요.|
 | `location`   | 봇 서비스 리소스를 만드는 데 사용되는 지리적 위치입니다. 예를 들어 eastus, westus, westus2 등과 같습니다.|
 | `proj-file`  | C# 봇의 경우 .csproj 파일입니다. JS 봇의 경우 로컬 봇의 시작 프로젝트 파일 이름(예: index.js)입니다.|
-| `name`       | Azure에서 봇을 배포하는 데 사용되는 고유 이름입니다. 로컬 봇과 동일한 이름일 수도 있습니다. 이름에 공백을 넣지 마세요.|
+| `name`       | Azure에서 봇을 배포하는 데 사용되는 고유 이름입니다. 로컬 봇과 동일한 이름일 수도 있습니다. 이름에 공백 또는 밑줄을 넣지 마세요.|
+| `luisAuthoringKey` | LUIS 리소스의 적절한 LUIS 제작 지역에 대한 제작 키입니다. |
 
 Azure 리소스를 만들기 전에 인증을 완료하라는 메시지가 표시됩니다. 화면에 표시되는 지침에 따라 이 단계를 완료합니다.
 

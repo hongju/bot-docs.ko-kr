@@ -8,14 +8,14 @@ manager: kamrani
 ms.topic: get-started-article
 ms.service: bot-service
 ms.subservice: sdk
-ms.date: 11/13/2018
+ms.date: 11/19/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 20a7dad4398874febfbd71024cd68763107f7bd8
-ms.sourcegitcommit: 0b421ff71617f03faf55ea175fb91d1f9e348523
+ms.openlocfilehash: d40b203ccd044992c026a592d5f86b0881754a41
+ms.sourcegitcommit: f7a8f05fc05ff4a7212a437d540485bf68831604
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53286629"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53735923"
 ---
 # <a name="create-a-bot-with-the-bot-builder-sdk-for-net"></a>.NET용 Bot Builder SDK를 사용하여 봇 만들기
 [!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
@@ -59,6 +59,10 @@ Visual Studio에서 Bot Builder Echo Bot V4 템플릿을 사용하여 새 봇 �
 
 > [!NOTE]
 > 해당 메시지를 전송할 수 없는 경우 ngrok가 아직 시스템에 대한 필요한 권한을 얻지 못했기 때문에 컴퓨터를 다시 시작해야 할 수 있습니다(한 번만 수행해야 함).
+
+## <a name="additional-resources"></a>추가 리소스
+
+원격으로 호스팅되는 봇에 연결하는 방법은 [터널링(ngrok)](https://github.com/Microsoft/BotFramework-Emulator/wiki/Tunneling-(ngrok))을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

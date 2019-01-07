@@ -10,18 +10,18 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 11/26/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 9b0ddf5cf8af61048ba78f10824c9573da82fc08
-ms.sourcegitcommit: a722f960cd0a8513d46062439eb04de3a0275346
+ms.openlocfilehash: 62cf3663a6e1c9b9321d7b74393b95e4a2ed3a69
+ms.sourcegitcommit: fd7781a06303fee5f39a253da5b3a3818d54b2ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52336273"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53806774"
 ---
 # <a name="use-multiple-luis-and-qna-models"></a>다중 LUIS 및 QnA 모델 사용
 
 [!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
 
-이 자습서에서는 봇이 지원하는 여러 시나리오에 대해 여러 LUIS 모델과 QnA Maker 서비스가 있을 때 디스패치 서비스를 사용하여 발화를 라우팅하는 방법을 보여 줍니다. 이 경우 홈 자동화 및 날씨 정보와 관련된 대화를 위한 여러 LUIS 모델로 디스패치를 구성하고, QnA Maker 서비스에서 FAQ 텍스트 파일에 기반하여 입력된 질문에 답변합니다. 이 샘플에서는 다음 서비스를 결합합니다.
+이 자습서에서는 봇이 지원하는 여러 시나리오에 대해 여러 LUIS 모델과 QnA Maker 서비스가 있을 때 디스패치 서비스를 사용하여 발화를 라우팅하는 방법을 보여 줍니다. 이 경우 홈 자동화 및 날씨 정보와 관련된 대화를 위한 여러 LUIS 모델로 Dispatch를 구성하고, QnA Maker 서비스에서 FAQ 텍스트 파일에 기반하여 입력된 질문에 답변합니다. 이 샘플에서는 다음 서비스를 결합합니다.
 
 | 이름 | 설명 |
 |------|------|
@@ -37,7 +37,97 @@ ms.locfileid: "52336273"
 
 ## <a name="create-the-services-and-test-the-bot"></a>서비스를 만들고 봇 테스트
 
-[C#](https://github.com/Microsoft/BotBuilder-Samples/blob/master/samples/csharp_dotnetcore/14.nlp-with-dispatch/README.md) 또는 [JS](https://github.com/Microsoft/BotBuilder-Samples/blob/master/samples/javascript_nodejs/14.nlp-with-dispatch/README.md)에 대한 **README** 지침에 따라 에뮬레이터를 사용하여 샘플을 빌드하고 실행합니다. 
+[C#](https://aka.ms/dispatch-sample-readme-cs) 또는 [JS](https://aka.ms/dispatch-sample-readme-js)에 대한 **README** 지침을 따라 명령줄 인터페이스 호출을 사용하여 이 봇을 만들거나 아래 단계를 따라 Azure, LUIS 및 QnAMaker 사용자 인터페이스를 사용하여 수동으로 봇을 만들 수 있습니다.
+
+ ### <a name="create-your-bot-using-service-ui"></a>서비스 UI를 사용하여 봇 만들기
+ 
+수동으로 봇 만들기를 시작하려면 GitHub [BotFramework-Samples](https://github.com/Microsoft/BotFramework-Samples) 리포지토리에 있는 [home-automation.json](https://aka.ms/dispatch-home-automation-json), [weather.json](https://aka.ms/dispatch-weather-json), [nlp-with-dispatchDispatch.json](https://aka.ms/dispatch-dispatch-json), [QnAMaker.tsv](https://aka.ms/dispatch-qnamaker-tsv)와 같은 4개 파일을 로컬 폴더에 다운로드하세요.
+
+### <a name="manually-create-luis-apps"></a>수동으로 LUIS 앱 만들기
+
+[LUIS 웹 포털](https://www.luis.ai/)에 로그인합니다. _내 앱_ 섹션에서 _새 앱 가져오기_ 탭을 선택합니다. 다음과 같은 대화 상자가 표시됩니다.
+
+![LUIS json 파일 가져오기](./media/tutorial-dispatch/import-new-luis-app.png)
+
+_앱 파일 선택_ 단추를 선택하고 다운로드한 'home-automation.json' 파일을 선택합니다. 이름 필드(옵션)는 비워 두세요. _완료_를 선택합니다.
+
+LUIS에 Home Automation 앱이 열리면 _학습_ 단추를 선택합니다. 그러면 'home-automation.json' 파일을 사용하여 방금 가져온 발화 세트를 앱이 학습합니다.
+
+학습이 완료되면 _게시_ 단추를 선택합니다. 다음과 같은 대화 상자가 표시됩니다.
+
+![LUIS 앱 게시](./media/tutorial-dispatch/publish-luis-app.png)
+
+'프로덕션' 환경을 선택한 후 _게시_ 단추를 선택합니다.
+
+새 LUIS 앱이 게시되면 _관리_ 탭을 선택합니다. '애플리케이션 정보' 페이지에서 `Application ID` 및 `Display name` 값을 기록합니다. '키 및 엔드포인트' 페이지에서 `Authoring Key` 및 `Region` 값을 기록합니다. 이러한 값은 'nlp-with-dispatch.bot' 파일에서 나중에 사용하게 됩니다.
+
+완료되면 로컬에 다운로드한 'weather.json' 및 'nlp-with-dispatchDispatch.json' 파일 모두에 이러한 단계를 반복하여 LUIS 날씨 앱 및 LUIS 디스패치 앱을 모두 _학습_시키고 _게시_합니다.
+
+### <a name="manually-create-qna-maker-app"></a>수동으로 QnA Maker 앱 만들기
+
+QnA Maker 기술 자료를 설정하는 첫 번째 단계는 Azure에서 QnA Maker 서비스를 설정하는 것입니다. 이렇게 하려면 [여기](https://aka.ms/create-qna-maker)에 나와 있는 단계별 지침을 따르세요. 이제 [QnAMaker 웹 포털](https://qnamaker.ai)에 로그인합니다. 아래의 2단계로 이동합니다.
+
+![QnA 2단계 만들기](./media/tutorial-dispatch/create-qna-step-2.png)
+
+다음을 선택합니다.
+1. Azure AD 계정.
+1. Azure 구독 이름.
+1. QnA Maker 서비스에 대해 만든 이름. (처음에 Azure QnA 서비스가 이 풀다운 목록에 표시되지 않을 경우 페이지를 새로 고쳐 보세요.) 
+
+3단계로 이동합니다.
+
+![QnA 3단계 만들기](./media/tutorial-dispatch/create-qna-step-3.png)
+
+QnA Maker 기술 자료의 이름을 지정합니다. 이 예에서는 'sample-qna'라는 이름을 사용합니다.
+
+4단계로 이동합니다.
+
+![QnA 4단계 만들기](./media/tutorial-dispatch/create-qna-step-4.png)
+
+_+ 파일 추가_ 옵션을 선택하고 다운로드된 파일 'QnAMaker.tsv'를 선택합니다.
+
+기술 자료에 _잡담_ 퍼스낼리티를 추가하는 추가 옵션이 있지만 이 예에서는 이 옵션을 다루지 않습니다.
+
+_저장 및 학습_을 선택하고 완료되면 _게시_ 탭을 선택하고 앱을 게시합니다.
+
+QnA Maker 앱이 게시되면 _설정_ 탭을 선택하고 '배포 세부 정보'가 나올 때까지 아래로 스크롤합니다. _Postman_ 샘플 HTTP 요청의 다음 값을 기록합니다.
+
+```
+POST /knowledgebases/<Your_Knowledgebase_Id>/generateAnswer
+Host: <Your_Hostname>
+Authorization: EndpointKey <Your_Endpoint_Key>
+```
+이러한 값은 'nlp-with-dispatch.bot' 파일에서 나중에 사용하게 됩니다.
+
+### <a name="manually-update-your-bot-file"></a>수동으로 .bot 파일 업데이트
+
+모든 서비스 앱이 생성되면 각 앱에 대한 정보를 'nlp-with-dispatch.bot' 파일에 추가해야 합니다. 이전에 다운로드한 C# 또는 JS 샘플 파일 내에서 이 파일을 엽니다. "type": "luis" 또는 "type": "dispatch"의 각 섹션에 다음 값을 추가합니다.
+
+```
+"appId": "<Your_Recorded_App_Id>",
+"authoringKey": "<Your_Recorded_Authoring_Key>",
+"subscriptionKey": "<Your_Recorded_Authoring_Key>",
+"version": "0.1",
+"region": "<Your_Recorded_Region>",
+```
+
+"type": "qna" 섹션에 다음 값을 추가합니다.
+
+```
+"type": "qna",
+"name": "sample-qna",
+"id": "201",
+"kbId": "<Your_Recorded_Knowledgebase_Id>",
+"subscriptionKey": "<Your_Azure_Subscription_Key>", // Used when creating your QnA service.
+"endpointKey": "<Your_Recorded_Endpoint_Key>",
+"hostname": "<Your_Recorded_Hostname>"
+```
+
+모든 변경 사항을 적용했으면 이 파일을 저장하세요.
+
+### <a name="test-your-bot"></a>봇 테스트
+
+이제 에뮬레이터를 사용하여 샘플을 실행합니다. 에뮬레이터가 열리면 'nlp-with-dispatch.bot' 파일을 선택합니다.
 
 참고로, 포함된 서비스에서 다루는 몇 가지 질문과 명령은 다음과 같습니다.
 
@@ -145,13 +235,44 @@ private static BotServices InitBotServices(BotConfiguration config)
 }
 ```
 
-<!--
-# [JavaScript](#tab/javascript)
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+샘플 코드는 미리 정의된 명명 상수를 사용하여 .bot 파일의 다양한 섹션을 확인합니다. _nlp-with-dispatch.bot_ 파일에서 원래 샘플 명명 방식으로 섹션 이름을 수정한 경우 **bot.js**, **homeAutomation.js**, **qna.js** 또는 **weather.js** 파일에서 관련 상수 선언을 찾아 해당 항목을 수정된 이름으로 변경하세요.  
+```javascript
+// In file bot.js
+// this is the LUIS service type entry in the .bot file.
+const DISPATCH_CONFIG = 'nlp-with-dispatchDispatch';
+
+// In file homeAutomation.js
+// this is the LUIS service type entry in the .bot file.
+const LUIS_CONFIGURATION = 'Home Automation';
+
+// In file qna.js
+// Name of the QnA Maker service in the .bot file.
+const QNA_CONFIGURATION = 'sample-qna';
+
+// In file weather.js
+// this is the LUIS service type entry in the .bot file.
+const WEATHER_LUIS_CONFIGURATION = 'Weather';
+```
+
+**bot.js**에서 구성 파일 _nlp-with-dispatch.bot_에 포함된 정보는 디스패치 봇을 다양한 서비스에 연결하는 데 사용됩니다. 각 생성자는 위에 자세히 설명된 섹션 이름에 따라 구성 파일의 적절한 섹션을 찾아 사용합니다.
 
 ```javascript
-```
--->
+class DispatchBot {
+    constructor(conversationState, userState, botConfig) {
+        //...
+        this.homeAutomationDialog = new HomeAutomation(conversationState, userState, botConfig);
+        this.weatherDialog = new Weather(botConfig);
+        this.qnaDialog = new QnA(botConfig);
 
+        this.conversationState = conversationState;
+        this.userState = userState;
+
+        // dispatch recognizer
+        const dispatchConfig = botConfig.findServiceByNameOrId(DISPATCH_CONFIG);
+        //...
+```
 ---
 
 ### <a name="calling-the-services-from-your-bot"></a>봇에서 서비스 호출
@@ -190,13 +311,19 @@ else
 }
 ```
 
-<!--
-# [JavaScript](#tab/javascript)
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+**bot.js** `onTurn` 메서드에서 사용자로부터 수신되는 메시지를 확인합니다. _ActivityType.Message_ 유형이 수신될 경우 이 메시지는 봇의 _dispatchRecognizer_를 통해 전송됩니다.
 
 ```javascript
+if (turnContext.activity.type === ActivityTypes.Message) {
+    // determine which dialog should fulfill this request
+    // call the dispatch LUIS model to get results.
+    const dispatchResults = await this.dispatchRecognizer.recognize(turnContext);
+    const dispatchTopIntent = LuisRecognizer.topIntent(dispatchResults);
+    //...
+ }
 ```
--->
-
 ---
 
 ### <a name="working-with-the-recognition-results"></a>인식 결과 작업
@@ -284,36 +411,92 @@ private async Task DispatchToLuisModelAsync(
 }
 ```
 
-<!--
-# [JavaScript](#tab/javascript)
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+모델에서 생성하는 결과에 발언을 가장 적절하게 처리할 수 있는 서비스가 나타납니다. 이 봇의 코드는 해당 서비스에 요청을 라우팅합니다.
 
 ```javascript
+switch (dispatchTopIntent) {
+   case HOME_AUTOMATION_INTENT:
+      await this.homeAutomationDialog.onTurn(turnContext);
+      break;
+   case WEATHER_INTENT:
+      await this.weatherDialog.onTurn(turnContext);
+      break;
+   case QNA_INTENT:
+      await this.qnaDialog.onTurn(turnContext);
+      break;
+   case NONE_INTENT:
+      default:
+      // Unknown request
+       await turnContext.sendActivity(`I do not understand that.`);
+       await turnContext.sendActivity(`I can help with weather forecast, turning devices on and off and answer general questions like 'hi', 'who are you' etc.`);
+ }
+ 
+ // In homeAutomation.js
+ async onTurn(turnContext) {
+    // make call to LUIS recognizer to get home automation intent + entities
+    const homeAutoResults = await this.luisRecognizer.recognize(turnContext);
+    const topHomeAutoIntent = LuisRecognizer.topIntent(homeAutoResults);
+    // depending on intent, call turn on or turn off or return unknown
+    switch (topHomeAutoIntent) {
+       case HOME_AUTOMATION_INTENT:
+          await this.handleDeviceUpdate(homeAutoResults, turnContext);
+          break;
+       case NONE_INTENT:
+       default:
+         await turnContext.sendActivity(`HomeAutomation dialog cannot fulfill this request.`);
+    }
+}
+    
+// In weather.js
+async onTurn(turnContext) {
+   // Call weather LUIS model.
+   const weatherResults = await this.luisRecognizer.recognize(turnContext);
+   const topWeatherIntent = LuisRecognizer.topIntent(weatherResults);
+   // Get location entity if available.
+   const locationEntity = (LOCATION_ENTITY in weatherResults.entities) ? weatherResults.entities[LOCATION_ENTITY][0] : undefined;
+   const locationPatternAnyEntity = (LOCATION_PATTERNANY_ENTITY in weatherResults.entities) ? weatherResults.entities[LOCATION_PATTERNANY_ENTITY][0] : undefined;
+   // Depending on intent, call "Turn On" or "Turn Off" or return unknown.
+   switch (topWeatherIntent) {
+      case GET_CONDITION_INTENT:
+         await turnContext.sendActivity(`You asked for current weather condition in Location = ` + (locationEntity || locationPatternAnyEntity));
+         break;
+      case GET_FORECAST_INTENT:
+         await turnContext.sendActivity(`You asked for weather forecast in Location = ` + (locationEntity || locationPatternAnyEntity));
+         break;
+      case NONE_INTENT:
+      default:
+         wait turnContext.sendActivity(`Weather dialog cannot fulfill this request.`);
+   }
+}
+    
+// In qna.js
+async onTurn(turnContext) {
+   // Call QnA Maker and get results.
+   const qnaResult = await this.qnaRecognizer.generateAnswer(turnContext.activity.text, QNA_TOP_N, QNA_CONFIDENCE_THRESHOLD);
+   if (!qnaResult || qnaResult.length === 0 || !qnaResult[0].answer) {
+       await turnContext.sendActivity(`No answer found in QnA Maker KB.`);
+       return;
+    }
+    // respond with qna result
+    await turnContext.sendActivity(qnaResult[0].answer);
+}
 ```
--->
-
 ---
 
-## <a name="evaluate-the-dispatchers-performance"></a>디스패처의 성능 평가
+## <a name="edit-intents-to-improve-performance"></a>성능 향상을 위해 의도 편집
 
-경우에 따라 LUIS 앱과 QnA maker 서비스의 예로 제공되는 사용자 메시지가 있고, 디스패치가 생성하는 결합된 LUIS 앱이 해당 입력에 대해 잘 수행하지 않습니다. `eval` 옵션을 사용하여 앱의 성능을 확인할 수 있습니다.
-
-```shell
-dispatch eval
-```
-
-`dispatch eval`을 실행하면 언어 모델의 예상 성능에 대한 통계를 제공하는 **Summary.html** 파일을 생성합니다. 디스패치 도구에서 만든 LUIS 앱 뿐만 아닌 모든 LUIS 앱에서 `dispatch eval`을 수행할 수 있습니다.
-
-### <a name="edit-intents-for-duplicates-and-overlaps"></a>중복 및 겹침에 대해 의도 편집
-
-**Summary.html**에 중복으로 플래그가 지정된 예제 발언을 검토하고, 비슷하거나 겹치는 예제를 제거합니다. 예를 들어 `Home Automation` LUIS 앱에서 QnA maker에 전달될 수 있도록 "TurnOnLights" 의도에 매핑하는 "내 전등 켜기"와 같은 요청이지만 "None" 의도에 매핑하는 "내 전등이 켜지지 않는 이유는?"과 같은 요청을 가정해 봅시다. 디스패치를 사용하여 LUIS 앱 및 QnA Maker 서비스를 결합할 때 다음 중 하나를 수행해야 합니다.
+봇이 실행되면 유사하거나 겹치는 발화를 제거하여 봇의 성능을 개선할 수 있습니다. 예를 들어 `Home Automation` LUIS 앱에서 QnA maker에 전달될 수 있도록 "TurnOnLights" 의도에 매핑하는 "내 전등 켜기"와 같은 요청이지만 "None" 의도에 매핑하는 "내 전등이 켜지지 않는 이유는?"과 같은 요청을 가정해 봅시다. 디스패치를 사용하여 LUIS 앱 및 QnA Maker 서비스를 결합할 때 다음 중 하나를 수행해야 합니다.
 
 * 원래 `Home Automation` LUIS 앱에서 "None" 의도를 제거하고 해당 의도의 발언을 디스패처 앱의 "None" 의도에 추가합니다.
-* 원래 LUIS 앱에서 "None" 의도를 제거하지 않는 경우 해당 의도를 QnA maker 서비스에 일치시키는 해당 메시지를 전달하도록 봇에 논리를 추가해야 합니다.
+* 원래 LUIS 앱에서 "None" 의도를 제거하지 않는 경우 "None" 의도를 QnA maker 서비스에 일치시키는 메시지를 전달하도록 봇에 논리를 추가해야 합니다.
 
+위의 두 동작 중 하나로 봇이 '답변을 찾을 수 없습니다.'라는 메시지로 사용자에게 응답하는 횟수를 줄일 수 있습니다. 
 
 ## <a name="additional-resources"></a>추가 리소스 
 
-**리소스 삭제:** 이 샘플에서는 아래에 나열된 단계를 사용하여 삭제할 수 있는 다양한 애플리케이션과 리소스를 만들지만 *다른 애플리케이션 또는 서비스*에서 사용하는 리소스는 삭제하면 안됩니다. 
+**리소스 삭제:** 이 샘플에서는 아래에 나열된 단계를 사용하여 삭제할 수 있는 다양한 애플리케이션과 리소스를 만들지만 *다른 애플리케이션 또는 서비스*에서 사용하는 리소스는 삭제하면 안 됩니다. 
 
 _LUIS 리소스_
 1. [luis.ai](https://www.luis.ai) 포털에 로그인합니다.

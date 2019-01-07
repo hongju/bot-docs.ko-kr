@@ -11,12 +11,12 @@ ms.subservice: sdk
 ms.date: 09/20/2018
 ms.reviewer: ''
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 74d4bb07274643d61da332d6ee1cdfb1a14372dc
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: af659dd1c2a75af03cfa45df54a815d2dd2306fc
+ms.sourcegitcommit: 561185b9c83f3e082e8b7aba1122b1706e431540
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49998430"
+ms.lasthandoff: 12/26/2018
+ms.locfileid: "53785426"
 ---
 # <a name="handle-user-interruptions"></a>사용자 중단 처리
 
@@ -116,7 +116,7 @@ public class DinnerMenu
 
 기본 EchoBot 템플릿에서 시작하겠습니다. 지침은 [JavaScript용 빠른 시작](~/javascript/bot-builder-javascript-quickstart.md)을 참조하세요.
 
-`botbuilder-dialogs` 라이브러리는 NPM에서 다운로드할 수 있습니다. `botbuilder-dialogs` 라이브러리를 설치하려면 다음 NPM 명령을 실행합니다.
+`botbuilder-dialogs` 라이브러리는 NPM에서 다운로드할 수 있습니다. `botbuilder-dialogs` 라이브러리를 설치하려면 다음 npm 명령을 실행합니다.
 
 ```cmd
 npm install --save botbuilder-dialogs
@@ -471,7 +471,7 @@ async onTurn(turnContext) {
 
 봇 논리 끝에서 컨텍스트 **responded** 플래그를 확인하여 봇이 해당 차례 동안 사용자로 응답을 다시 전송했는지 검토할 수 있습니다. 봇이 사용자 입력을 처리하지만 응답하지 않은 경우, 입력으로 무슨 작업을 해야 할지 잘 모를 확률이 높습니다. 이러한 경우 해당 상황인지 파악하고 사용자에게 기본 메시지를 보낼 수 있습니다.
 
-봇에 대한 기본 동작이 사용자에게 `mainMenu` 대화 상자를 제공하는 것인 경우입니다. 이러한 상황에서 사용자가 봇에서 어떤 경험을 하게 될지는 봇 디자이너가 결정해야 합니다.
+사용자에게 `mainMenu` 대화를 제공하는 것이 봇의 기본값일 경우 이 상황에서 사용자가 경험하게 될 봇 환경을 결정해야 합니다.
 
 # <a name="ctabcsharptab"></a>[C#](#tab/csharptab)
 
