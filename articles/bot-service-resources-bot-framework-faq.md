@@ -7,12 +7,12 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.date: 08/28/2018
-ms.openlocfilehash: 2a78ec6f8c453bfcfa3b6aba0d73257f35db76b8
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: 660c10c400bb68e807f39eb1b7ccc38f500991e6
+ms.sourcegitcommit: 0f65857943d318da48df0a8654cde53e9a699116
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49997220"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53389316"
 ---
 # <a name="bot-framework-frequently-asked-questions"></a>Bot Framework 질문과 대답
 
@@ -26,6 +26,38 @@ CUI(대화 사용자 인터페이스)는 곧 사용 가능해질 예정이지만
 ### <a name="what-is-the-v4-sdk"></a>V4 SDK란?
 Bot Builder v4 SDK는 이전 Bot Builder SDK에서 얻은 의견 및 학습 결과를 토대로 구축되었습니다. 이 키트는 봇 빌딩 블록의 풍부한 구성 요소화를 지원하면서 적절한 수준의 추상화를 제공합니다. 간단한 봇에서 시작하고 확장 가능한 모듈식 프레임워크를 사용하여 봇을 좀 더 정교하게 확장할 수 있습니다. GitHub에서 SDK에 대한 [FAQ](https://github.com/Microsoft/botbuilder-dotnet/wiki/FAQ)를 찾을 수 있습니다.
 
+## <a name="bot-framework-sdk-version-3-lifetime-support"></a>Bot Framework SDK 버전 3 평생 지원 
+SDK V3 봇은 계속 실행되고, Azure Bot Service의 지원을 받습니다.  다른 프레임워크와 마찬가지로, Bot Framework SDK V4 릴리스 이후로 SDK V3를 위한 보안, 우선순위가 높은 버그 수정, 커넥터/프로토콜 레이어 업데이트가 계속 지원됩니다.  v3 지원은 2019년까지 계속 제공될 예정입니다.
+
+### <a name="what-is-microsoft-plan-for-supporting-existing-v3-bots-what-happens-to-my-v3-bots-will-my-v3-bots-stop-working"></a>Microsoft의 기존 V3 봇 지원 계획은 무엇입니까? 내 V3 봇은 어떻게 됩니까? 내 V3 봇은 작동이 중지됩니까?
+SDK V3 봇은 계속 실행되고, Azure Bot Service의 지원을 받습니다.  다른 프레임워크와 마찬가지로, Bot Framework SDK V4 릴리스 이후로 SDK V3를 위한 보안, 우선순위가 높은 버그 수정, 커넥터/프로토콜 레이어 업데이트가 계속 지원됩니다.  v3 지원은 2019년까지 계속 제공될 예정입니다.
+- Azure Bot Service 및 Bot Framework V3는 모두 GA 제품이며 완벽하게 지원됩니다. 기본 Bot Framework 프로토콜 및 커넥터 라이브러리는 변경되지 않았으며 V3와 V4 SDK 간에 공유됩니다.  
+- Bot Framework(BotBuilder) V3 SDK를 사용하여 생성된 봇은 2019년까지 계속 지원됩니다. 
+- 고객은 계속해서 Azure Portal 또는 Azure CLI 도구를 사용하여 V3 봇을 만들 수 있습니다.
+
+### <a name="what-happens-to-my-bot-written-to-rest--bot-framework-protocol-31"></a>REST 및 Bot Framework 프로토콜 3.1에 작성된 내 봇은 어떻게 되나요?
+- Azure Bot Service 및 Bot Framework V3는 모두 GA 제품이며 완벽하게 지원됩니다.
+- Bot Framework 프로토콜은 변경되지 않았고 V3 및 V4 SDK 간에 공유됩니다.  
+
+### <a name="will-there-be-more-updates-additional-development-for-the-v3-sdk-or-just-bugfixes"></a>추가 업데이트, V3 SDK에 대한 추가 개발 작업 또는 버그 수정이 있을 예정입니까?  
+- V3의 커넥터 레이어에서 주로 사소한 개선 사항이 업데이트될 예정이며, V3의 보안 업데이트 및 우선순위가 높은 버그 수정도 지원될 예정입니다.  
+- V3에 대한 업데이트는 버그 수정 또는 필요한 프로토콜 변경사항을 기준으로 필요에 따라 매년 두 번 공개될 예정입니다. 
+- 현재 계획은 V3의 부 버전과 패치 버전을 C# 및 JavaScript SDK용 NuGet과 NPM에 게시하는 것입니다.
+
+### <a name="why-v4-is-not-backwards-compatible-with-v3"></a>V4가 V3에 이전 버전과의 호환성을 지원하지 않는 이유는 무엇입니까?
+- 프로토콜 수준에서 대화 앱(즉, 봇)과 여러 채널 간의 통신에는 Bot Framework Activity 프로토콜이 사용되며, 이는 V3와 V4 간에 동일합니다. 동일한 기본 Azure Bot Service(AZURE BOT SERVICE) 인프라는 V3 및 V4 봇을 모두 지원합니다.
+- Bot Framework SDK V4는 확장 가능한 모듈식 SDK 아키텍처로 대화 중심의 개발 환경을 제공하여 개발자가 강력하고 정교한 챗 애플리케이션을 만들 수 있게 해줍니다. V4의 확장 가능한 디자인은 SDK V3 대화 모델과 기본 형식이 너무 엄격하고 확장성에 제약을 준다는 고객 피드백을 반영한 것입니다.  
+
+### <a name="what-is-the-general-migration-strategy-i-have-a-v3-bot-how-can-i-migrate-it-to-v4-can-i-migrate-my-v3-bot-to-v4"></a>일반적인 마이그레이션 전략은 무엇입니까? V3 봇이 있는데 V4로 마이그레이션하려면 어떻게 하나요?/V3 봇을 V4로 마이그레이션할 수 있나요?
+- 현재 SDK V3로 만든 봇을 SDK V4로 마이그레이션하는 방법에 대한 도움말이 설명서와 샘플의 형태로 제공되고 있습니다. 현재 SDK V4에 V4 봇 내에서 V3 빌드 봇이 작동할 수 있게 해주는 SDK V3 호환성 레이어를 제공할 계획은 없습니다. 
+- 프로덕션 환경에 Bot Framework SDK V3 봇이 이미 있는 경우 당분간 그대로 계속 작동할 것이니 걱정하지 마세요. 
+- Bot Framework SDK V4는 큰 성공을 거둔 V3 SDK의 진화된 형태입니다. V4는 주 버전 릴리스로, V3 봇이 최신 V4 SDK에서 실행하지 못하게 하는, 호환성이 손상되는 변경 사항을 포함하고 있습니다. 
+
+### <a name="should-i-build-new-a-bot-using-v3-or-v4"></a>V3 또는 V4를 사용하는 새 봇을 빌드해야 합니까?
+- 새로운 대화 환경을 위해 Bot Framework SDK V4를 사용하여 새 봇을 시작하는 것이 좋습니다.
+- Bot Framework SDK V3에 이미 익숙한 경우 시간을 내어 새로운 버전과 새로운 [Bot Framework SDK V4](http://aka.ms/botframeowrkoverview)에 제공되는 기능에 대해 알아보는 것이 좋습니다.
+- 프로덕션 환경에 Bot Framework SDK V3 봇이 이미 있는 경우 당분간 그대로 계속 작동할 것이니 걱정하지 마세요.
+- Azure Portal 및 Azure 명령줄을 통해 Bot Framework SDK V4 및 이전 버전의 V3 봇을 만들 수 있습니다. 
 
 ## <a name="channels"></a>채널
 ### <a name="when-will-you-add-more-conversation-experiences-to-the-bot-framework"></a>언제 Bot Framework에 더 많은 대화 환경을 추가할 예정인가요?
@@ -68,7 +100,7 @@ I/O 서비스를 제공하기 위해 Bot Framework는 사용자가 사용한 채
 - *.botframework.com(채널)
 
 ### <a name="can-i-block-all-traffic-to-my-bot-except-traffic-from-the-bot-connector-service"></a>제 봇으로 들어오는 트래픽 중에서 Bot Connector Service에서 들어오는 트래픽을 제외한 모든 트래픽을 차단할 수 있나요?
- 아니요. 이러한 종류의 IP 주소 또는 DNS 허용 목록은 허용되지 않습니다. Bot Framework Connector Service는 전 세계 Azure 데이터 센터에서 호스팅되고 Azure IP 목록은 지속적으로 변경됩니다. 허용 목록에 추가한 특정 Azure IP 주소가 다음 날 Azure IP 주소가 변경되면서 차단될 수도 있습니다.
+아니요. 이러한 종류의 IP 주소 또는 DNS 허용 목록은 허용되지 않습니다. Bot Framework Connector Service는 전 세계 Azure 데이터 센터에서 호스팅되고 Azure IP 목록은 지속적으로 변경됩니다. 허용 목록에 추가한 특정 Azure IP 주소가 다음 날 Azure IP 주소가 변경되면서 차단될 수도 있습니다.
  
 ### <a name="what-keeps-my-bot-secure-from-clients-impersonating-the-bot-framework-connector-service"></a>Bot Framework Connector Service를 가장하는 클라이언트로부터 내 봇을 보호하기 위해 필요한 것은 무엇인가요?
 1. 봇에 대한 모든 요청에 첨부되는 보안 토큰에는 ServiceUrl이 인코딩되어 있으므로, 공격자가 토큰에 액세스하더라도 대화를 새 ServiceUrl로 리디렉션할 수 없습니다. 이는 SDK의 모든 구현에 의해 적용되며 인증 [참조](https://docs.microsoft.com/en-us/azure/bot-service/rest-api/bot-framework-rest-connector-authentication?view=azure-bot-service-3.0#bot-to-connector) 자료에 문서화되어 있습니다.
