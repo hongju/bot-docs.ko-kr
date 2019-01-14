@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: bot-service
 ms.date: 09/18/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: c7977400a53af916217e595dda8e9c9a0ff85496
-ms.sourcegitcommit: 958a28bbab7dd29b384bb2e2d58d866e88f53316
+ms.openlocfilehash: 622d5b4924a4739900659d6be8eebd1888191eab
+ms.sourcegitcommit: ddc8c116887ada67642d49ee5166e7f1ae287263
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52500662"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54114887"
 ---
 # <a name="enterprise-bot-template---deploying-your-bot"></a>엔터프라이즈 봇 템플릿 - 봇 배포
 
@@ -34,10 +34,7 @@ npm install -g ludown luis-apis qnamaker botdispatch msbot chatdown
 
 - [여기](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-windows?view=azure-cli-latest)에서 Azure 명령줄(CLI) 도구를 설치합니다. Azure Bot Service CLI(명령줄) 도구를 이미 설치한 경우 현재 버전을 제거한 다음, 새 버전을 설치하여 최신 버전으로 업데이트하도록 합니다.
 
-- Bot Service용 AZ 확장을 설치합니다.
-```shell
-az extension add -n botservice
-```
+> msbot 4.3.2 이상을 사용하면 유일한 AZ CLI 필수 구성 요소는 AZ CLI 2.0.53 이상 버전을 사용하는 것입니다. botservice 확장도 설치되어 있으면 “az extension remove --name botservice”를 통해 삭제합니다.
 
 - LUISGen 도구를 설치합니다.
 
@@ -72,7 +69,7 @@ az account set --subscription "YOUR_SUBSCRIPTION_NAME"
 - Azure Cognitive Services - QnA Maker(Azure Search, Azure Web App 포함)
 - Azure Cognitive Services - Content Moderator(선택적 수동 단계)
 
-새 봇 프로젝트에는 `msbot clone services` 명령을 사용하여 위의 모든 서비스를 Azure 구독에 자동으로 배포하고, 프로젝트의 .bot 파일이 봇에서 작업을 원활하게 수행할 수 있게 하는 키를 포함하여 모든 서비스로 업데이트되도록 하는 배포 방법이 있습니다. 중국어, 영어, 프랑스어, 독일어, 이탈리아어 및 스페인어와 같은 언어에 대한 여러 가지 구성 옵션도 있습니다.
+새 봇 프로젝트에는 `msbot clone services` 명령을 사용하여 위의 모든 서비스를 Azure 구독에 자동으로 배포하고, 프로젝트의 .bot 파일이 봇에서 작업을 원활하게 수행할 수 있게 하는 키를 포함하여 모든 서비스로 업데이트되도록 하는 배포 방법이 있습니다. 또한 다음 언어에 대한 여러 구성 옵션이 있습니다. 중국어, 영어, 프랑스어, 독일어, 이탈리아어 및 스페인어.
 
 > 배포된 후에는 만든 서비스에 대한 가격 책정 계층을 검토하고 시나리오에 맞게 조정합니다.
 
