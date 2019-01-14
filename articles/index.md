@@ -9,12 +9,12 @@ layout: LandingPage
 ms.service: bot-service
 ms.subservice: sdk
 ms.date: 09/27/2018
-ms.openlocfilehash: ec7a21e790c945b261e7381ec76298460fa079ee
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: 905b8592ebbc3fb4344af60b6bcbb219d0a2ee70
+ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "50000260"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54224318"
 ---
 ::: moniker range="azure-bot-service-3.0"
 
@@ -24,7 +24,7 @@ ms.locfileid: "50000260"
 <div class="content">
     <h1>Azure Bot Service 설명서</h1>
     <div class="intro" style="min-width: 200px">
-        <p>Bot Service는 봇 개발에 특화된 통합 환경을 제공하여 지능형 봇을 한 곳에서 빌드하고, 연결하고, 테스트하고, 배포하고, 관리할 수 있습니다. Azure Bot Service는 .NET 및 Node.js에 대한 지원에서 Bot Builder SDK를 활용합니다. 빠른 시작 및 샘플을 통해 Bot Service를 사용하는 방법을 알아봅니다.</p>
+        <p>Bot Service는 봇 개발에 특화된 통합 환경을 제공하여 지능형 봇을 한 곳에서 빌드하고, 연결하고, 테스트하고, 배포하고, 관리할 수 있습니다. Azure Bot Service는 .NET 및 Node.js에 대한 지원에서 Bot Framework SDK를 활용합니다. 빠른 시작 및 샘플을 통해 Bot Service를 사용하는 방법을 알아봅니다.</p>
     </div>
 <h2 style="margin-top: 18px; margin-bottom: 0px;">5분 빠른 시작</h2>
 <div class="ico48Case">
@@ -73,7 +73,7 @@ ms.locfileid: "50000260"
 <div class="content">
     <h1>Azure Bot Service 설명서</h1>
     <div class="intro" style="min-width: 200px">
-        <p>Azure Bot Service는 봇 개발에 특화된 통합 환경을 제공하여 지능형 봇을 한 곳에서 빌드하고, 연결하고, 테스트하고, 배포하고, 관리할 수 있습니다. Azure Bot Service는 C# 및 JavaScript에 대한 지원에서 Bot Builder SDK를 활용합니다. 빠른 시작, 자습서 및 샘플을 통해 Bot Service를 사용하는 방법을 알아봅니다.
+        <p>Azure Bot Service는 봇 개발에 특화된 통합 환경을 제공하여 지능형 봇을 한 곳에서 빌드하고, 연결하고, 테스트하고, 배포하고, 관리할 수 있습니다. Azure Bot Service는 C# 및 JavaScript에 대한 지원에서 Bot Framework SDK를 활용합니다. 빠른 시작, 자습서 및 샘플을 통해 Bot Service를 사용하는 방법을 알아봅니다.
 </p>
 </div>
 

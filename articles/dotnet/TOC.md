@@ -1,4 +1,4 @@
-# [.NET용 봇 작성기 SDK](bot-builder-dotnet-overview.md)
+# [용 Bot Framework SDK](bot-builder-dotnet-overview.md)
 # [주요 개념](bot-builder-dotnet-concepts.md)
 # 메시지 및 작업
 ## [작업 개요](bot-builder-dotnet-activities.md)

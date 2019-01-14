@@ -8,13 +8,13 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: abs
-ms.date: 11/15/2018
-ms.openlocfilehash: 3c5b12bb804477ae41cf70d2ce955066801f5916
-ms.sourcegitcommit: d92fd6233295856052305e0d9e3cba29c9ef496e
+ms.date: 01/08/2019
+ms.openlocfilehash: fd852a75b911f57743b40d252b24c6ef33b0420d
+ms.sourcegitcommit: ddc8c116887ada67642d49ee5166e7f1ae287263
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51715137"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54114897"
 ---
 ::: moniker range="azure-bot-service-3.0"
 
@@ -81,6 +81,7 @@ Bot Service는 봇 개발을 위한 Bot Builder SDK 및 채널에 봇을 연결�
 ::: moniker range="azure-bot-service-4.0"
 
 # <a name="create-a-bot-with-azure-bot-service"></a>Azure Bot Service로 봇 만들기
+
 [!INCLUDE [pre-release-label](includes/pre-release-label.md)]
 
 Azure Bot Service는 봇 개발을 위한 Bot Builder SDK 및 채널에 봇을 연결하기 위한 Bot Service를 포함하여 봇 만들기의 핵심 구성 요소를 제공합니다. 이 토픽에서 .NET 또는 Node.js 템플릿을 선택하여 Bot Builder SDK v4를 사용하는 봇을 만들 수 있습니다.
@@ -126,6 +127,15 @@ Azure Bot Service는 봇 개발을 위한 Bot Builder SDK 및 채널에 봇을 �
 ![Azure 웹 채팅 테스트](./media/azure-bot-quickstarts/azure-webchat-test.png)
 
 메시지를 입력하면 봇이 응답합니다.
+
+## <a name="download-code"></a>코드 다운로드
+코드를 다운로드하여 로컬로 작업할 수 있습니다. 
+1. **봇 관리** 섹션에서 **빌드**를 클릭합니다. 
+1. 오른쪽 창에서 **Bot 소스 코드 다운로드** 링크를 클릭합니다. 
+1. 표시되는 메시지에 따라 코드를 다운로드한 다음, 폴더의 압축을 풉니다.
+
+다운로드한 코드는 암호화된 [.bot 파일](./v4sdk/bot-file-basics.md)을 사용합니다. appsettings.json 또는.env 파일에서 `botFilePath` 및 `botFileSecret` 항목을 업데이트해야 합니다. 
+이를 수행하기 위해 Azure Portal로 이동합니다. 포털에서 봇을 선택한 다음, **App Service 설정** 섹션에서 **애플리케이션 설정**을 클릭합니다. **애플리케이션 설정** 창에 `botFilePath` 및 `botFileSecret` 값이 표시됩니다. 이러한 값을 복사하고 .env 또는 appsettings.json 파일을 업데이트합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

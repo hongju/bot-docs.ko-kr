@@ -1,6 +1,6 @@
-# [Node.js용 봇 작성기 SDK](bot-builder-nodejs-overview.md)
+# [Node.js용 Bot Framework SDK](bot-builder-nodejs-overview.md)
 # [주요 개념](bot-builder-nodejs-concepts.md)
-# 대화 상자
+# 다이얼로그
 ## [대화 상자 개요](bot-builder-nodejs-dialog-overview.md)
 ## [대화 단계 정의](bot-builder-nodejs-dialog-waterfall.md)
 ## [사용자 입력을 위한 프롬프트](bot-builder-nodejs-dialog-prompt.md)

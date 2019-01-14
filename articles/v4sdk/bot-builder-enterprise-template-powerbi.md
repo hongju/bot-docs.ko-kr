@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: bot-service
 ms.date: 09/18/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 73e19047ea64839f52bb20ea1eceee93803210bc
-ms.sourcegitcommit: 8b7bdbcbb01054f6aeb80d4a65b29177b30e1c20
+ms.openlocfilehash: 88208a2f5b0eb88d3b2964e63a21585484166d73
+ms.sourcegitcommit: 2d84d5d290359ac3cfb8c8f977164f799666f1ab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51645492"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54152176"
 ---
 # <a name="enterprise-bot-template---conversational-analytics-using-powerbi-dashboard-and-application-insights"></a>엔터프라이즈 봇 템플릿 - PowerBI 대시보드 및 Application Insights를 사용하여 대화 분석
 
@@ -24,19 +24,10 @@ ms.locfileid: "51645492"
 
 이 원격 분석은 Azure Portal의 Application Insights 블레이드 내에서 Log Analytics를 사용하여 볼 수 있습니다. 또한 PowerBI에서 동일한 원격 분석을 사용하여 봇 사용에 대한 보다 일반적인 비즈니스 인사이트를 제공할 수 있습니다.
 
-예제 PowerBI 대시보드는 만든 프로젝트의 PowerBI 폴더 내에서 제공됩니다. 이는 예제 목적으로 제공되며 사용자 고유의 인사이트를 만들도록 시작할 수 있는 방법을 보여줍니다. 시간이 지남에 따라 이러한 시각화를 강화할 예정입니다. 
+예제 PowerBI 대시보드가 [대화형 AI 원격 분석](https://aka.ms/botPowerBiTemplate)에 제공됩니다. 
 
-## <a name="getting-started"></a>시작하기
+이는 예제 목적으로 제공되며 사용자 고유의 인사이트를 만들도록 시작할 수 있는 방법을 보여줍니다. 시간이 지남에 따라 이러한 시각화를 강화할 예정입니다. 
 
-- [여기](https://powerbi.microsoft.com/en-us/desktop/)에서 PowerBI Desktop을 다운로드합니다.
- 
-- 봇에서 사용되는 Application Insights 리소스에 대한 ```Application Id```를 검색합니다. Application Insights Azure 블레이드의 구성 섹션에서 API 액세스 페이지로 이동하여 가져올 수 있습니다.
-
-솔루션의 PowerBI 폴더 내에 있는 제공된 PowerBI 템플릿 파일을 두 번 클릭합니다. 이전 단계에서 검색한 ```Application Id```에 대해 메시지가 표시됩니다. Azure 구독 자격 증명을 사용하라는 메시지가 표시되면 인증을 완료하고, 조직 계정 설정을 클릭하여 로그인해야 합니다.
-
-결과 대시보드는 이제 Application Insights 인스턴스에 연결되며 메시지가 전송 및 수신되는 경우 대시보드 내에 초기 인사이트가 표시됩니다.
-
->현재 배포 스크립트는 LUIS 모델을 게시할 때 감정을 활성화하지 않으므로 감정 시각화는 데이터를 표시하지 않습니다. LUIS 모델을 [다시 게시](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-how-to-publish-app)하고 감정을 활성화한 경우 작동합니다.
 
 ## <a name="middleware-processing"></a>미들웨어 처리
 
@@ -55,11 +46,13 @@ QnAMaker 및 LuisRecognizer 클래스에 대한 원격 분석 래퍼는 시나�
     - ActivityId
     - Channel
     - FromId
-    - Conversationid
+    - FromName
+    - ConversationId
     - ConversationName
     - Locale
-    - UserName
     - Text
+    - RecipientId
+    - RecipientName
 ```
   
 ```
@@ -67,10 +60,12 @@ QnAMaker 및 LuisRecognizer 클래스에 대한 원격 분석 래퍼는 시나�
     - ActivityId,
     - Channel
     - RecipientId
-    - Conversationid
+    - ConversationId
     - ConversationName
     - Locale
-    - ReceipientName
+    - RecipientId
+    - RecipientName
+    - ReplyToId
     - Text
 ```
 
@@ -83,6 +78,7 @@ QnAMaker 및 LuisRecognizer 클래스에 대한 원격 분석 래퍼는 시나�
     - SentimentScore
     - ConversationId
     - Question
+    - DialogId
 ```
 
 ```
@@ -90,8 +86,8 @@ QnAMaker 및 LuisRecognizer 클래스에 대한 원격 분석 래퍼는 시나�
     - ActivityId
     - ConversationId
     - OriginalQuestion
-    - UserName
-    - QnAItemFound
+    - FromName
+    - ArticleFound
     - Question
     - Answer
     - Score
