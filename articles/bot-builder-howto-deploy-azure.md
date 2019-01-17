@@ -60,7 +60,7 @@ ms.locfileid: "53121789"
 ## <a name="create-your-bot-channels-registration"></a>봇 채널 등록 만들기
 봇이 Azure에 배포되면 Azure Bot Service에 등록해야 합니다.
 
-1. https://portal.azure.com 에서 Azure Portal에 액세스합니다.
+1.  https://portal.azure.com 에서 Azure Portal에 액세스합니다.
 
 2. 이전에 Visual Studio에서 봇을 게시할 때 사용한 ID와 동일한 ID를 사용하여 로그인합니다.
 
