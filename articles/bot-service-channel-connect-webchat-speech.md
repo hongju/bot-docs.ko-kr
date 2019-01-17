@@ -10,12 +10,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: f98391f05e962bfc8846818d8a236d16846c8c5c
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: cdb512b0efe111870b34c440f978105786b6f36a
+ms.sourcegitcommit: 8161753641368567f239e24a35ad61768acccd8e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49997062"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54202579"
 ---
 # <a name="enable-speech-in-web-chat"></a>웹 채팅에서 음성 사용
 웹 채팅 컨트롤에서 음성 인터페이스를 사용하도록 설정할 수 있습니다. 웹 채팅 컨트롤에서 마이크를 사용하여 음성 인터페이스로 상호 작용합니다.
@@ -66,7 +66,7 @@ ms.locfileid: "49997062"
 사용자 지정을 사용하면 다음 방법 중 하나로 음성 기능을 추가할 수 있습니다.
 
 * **브라우저 제공 음성** - 웹 브라우저에 기본 제공된 음성 기능을 사용합니다. 현재 이 기능은 Chrome 브라우저에서만만 사용할 수 있습니다.
-* **Bing Speech Service 사용** - Bing Speech Service를 사용하여 음성 인식 및 합성을 제공할 수 있습니다. 이러한 음성 기능 액세스 방식은 다양한 브라우저에서 지원됩니다. 이 경우 처리는 브라우저가 아닌 서버에서 수행됩니다.
+<!--* **Use Bing Speech service** - You can use the Bing Speech service to provide speech recognition and synthesis. This way of access speech functionality is supported by a variety of browsers. In this case, the processing is done on a server instead of on the browser.-->
 * **Custom Speech Service 만들기** - 사용자 지정 음성 인식 및 음성 합성 구성 요소를 만들 수 있습니다.
 
 ### <a name="browser-provided-speech"></a>브라우저 제공 음성
@@ -80,23 +80,23 @@ ms.locfileid: "49997062"
 
 [!code-js[Specify speech options to use in-browser speech (JavaScript)](./includes/code/bot-service-channel-connect-webchat-speech.js#BrowserSpeech)]
 
-### <a name="bing-speech-service"></a>Bing Speech Service
+<!--### Bing Speech service
 
-다음 코드는 Bing Speech Service를 사용하는 음성 인식기 및 음성 합성 구성 요소를 인스턴스화합니다. 음성의 인식 및 생성은 서버에서 수행됩니다. 이 메커니즘은 여러 브라우저에서 지원됩니다. 
+The following code instantiates speech recognizer and speech synthesis components that use the Bing Speech service. The recognition and generation of speech is performed on the server. This mechanism is supported in multiple browsers. 
 
 > [!TIP]
-> Bing Speech Service를 사용하는 경우 봇의 음성 인식 정확도를 개선하기 위해 음성 인식 초기화를 사용할 수 있습니다. 자세한 내용은 [Speech Support in Bot Framework](https://blog.botframework.com/2017/06/26/Speech-To-Text)(Bot Framework의 음성 지원) 블로그 게시물을 참조하세요.
+> You can use speech recognition priming to improve your bot's speech recognition accuracy if you use the Bing Speech service. For more information, check out the [Speech Support in Bot Framework](https://blog.botframework.com/2017/06/26/Speech-To-Text) blog post.
 
 [!code-js[Specify speech options to use the Bing Speech API (JavaScript)](./includes/code/bot-service-channel-connect-webchat-speech.js#BingSpeech)]
 
-#### <a name="use-the-bing-speech-service-with-a-token"></a>Bing Speech Service와 토큰 사용
+#### Use the Bing Speech service with a token
 
-토큰을 사용하여 Cognitive Services 음성 인식을 설정하기 위한 옵션도 제공됩니다. 토큰은 API 키를 사용하여 보안 백 엔드에서 생성됩니다.
+You also have the option to enable Cognitive Services speech recognition using a token. The token is generated in a secure back end using your API key.
 
-다음 예제 코드에서는 API 키 노출 방지를 위해 보안 백 엔드에서 토큰 페치가 수행되는 방법을 보여 줍니다.
+The following example code shows how the token fetch is done from a secure back end to avoid exposing the API key.
 
 [!code-js[Fetch a token to use with the Bing Speech API (JavaScript)](./includes/code/bot-service-channel-connect-webchat-speech.js#FetchToken)]
-
+-->
 ### <a name="custom-speech-service"></a>Custom Speech Service
 
 ISpeechRecognizer를 구현하는 사용자 지정 음성 인식이나 ISpeechSynthesis를 구현하는 음성 합성을 제공할 수도 있습니다. 
