@@ -8,13 +8,13 @@ ms.topic: landing-page
 layout: LandingPage
 ms.service: bot-service
 ms.subservice: sdk
-ms.date: 09/27/2018
-ms.openlocfilehash: 905b8592ebbc3fb4344af60b6bcbb219d0a2ee70
-ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
+ms.date: 01/16/2019
+ms.openlocfilehash: 5c7851bdc05180605d20698f3e94e07c9bcace2b
+ms.sourcegitcommit: bdb981c0b11ee99d128e30ae0462705b2dae8572
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54224318"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54360773"
 ---
 ::: moniker range="azure-bot-service-3.0"
 
@@ -101,8 +101,8 @@ ms.locfileid: "54224318"
 </div>
 
 <h2 style="margin-top: 36px">단계별 자습서</h2>
-<p><a href="/bot-framework/bot-builder-tutorial-dispatch">LUIS 앱 및 QnA 서비스를 디스패치 도구와 통합</a></p>
-
+<p><a href="/bot-framework/bot-builder-tutorial-basic-deploy">기본 봇 생성 및 배포</a></p>
+<p><a href="/bot-framework/bot-builder-tutorial-add-qna">QnA Maker를 추가하고 봇 재배포</a></p>
 <h2 style="margin-top: 36px">참고 자료</h2>
 <ul class="panelContent cardsD">
     <li>

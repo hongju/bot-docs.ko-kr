@@ -1,3 +1,11 @@
+---
+ms.openlocfilehash: 73149f8137144ee34c1ab1e8fc6a645d1405b694
+ms.sourcegitcommit: bdb981c0b11ee99d128e30ae0462705b2dae8572
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54360763"
+---
 # [Azure Bot Service 설명서](index.md)
 # 개요
 ## [Azure Bot Service 정보](bot-service-overview-introduction.md)
@@ -7,7 +15,8 @@
 ### [.NET](dotnet/bot-builder-dotnet-sdk-quickstart.md)
 ### [JavaScript](javascript/bot-builder-javascript-quickstart.md)
 # 자습서
-## [다중 LUIS 및 QnA 모델 사용](v4sdk/bot-builder-tutorial-dispatch.md)
+## [기본 봇 생성 및 배포](v4sdk/bot-builder-tutorial-basic-deploy.md)
+## [QnA Maker를 추가하고 봇 재배포](v4sdk/bot-builder-tutorial-add-qna.md)
 ## [봇에 인증 추가](bot-builder-tutorial-authentication.md)
 # 샘플
 ## [GitHub의 botbuilder 샘플 리포지토리](https://github.com/Microsoft/BotBuilder-Samples/blob/master/README.md)
@@ -41,6 +50,7 @@
 ### [봇에서 알림 받기](v4sdk/bot-builder-howto-proactive-message.md)
 ### [봇에 자연어 해석 추가](v4sdk/bot-builder-howto-v4-luis.md)
 ### [QnA Maker를 사용하여 사용자 질문에 답변](v4sdk/bot-builder-howto-qna.md)
+### [다중 LUIS 및 QnA 모델 사용](v4sdk/bot-builder-tutorial-dispatch.md)
 ### 대화 상자 라이브러리를 사용하여 대화 관리 
 #### [순차적 대화 흐름 구현](v4sdk/bot-builder-dialog-manage-conversation-flow.md)
 #### [대화 상자 프롬프트를 사용하여 사용자 입력 수집](v4sdk/bot-builder-prompts.md)
