@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: bot-service
 ms.date: 09/18/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 622d5b4924a4739900659d6be8eebd1888191eab
-ms.sourcegitcommit: ddc8c116887ada67642d49ee5166e7f1ae287263
+ms.openlocfilehash: e557b359da09615d2998c4c729f57ffb9faf0de1
+ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54114887"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54224968"
 ---
 # <a name="enterprise-bot-template---deploying-your-bot"></a>엔터프라이즈 봇 템플릿 - 봇 배포
 
@@ -42,10 +42,16 @@ npm install -g ludown luis-apis qnamaker botdispatch msbot chatdown
 dotnet tool install -g luisgen
 ```
 
+- LUISGen 도구를 설치합니다.
+
+```shell
+dotnet tool install -g luisgen
+```
+
 ## <a name="configuration"></a>구성
 
 - LUIS 제작 키 검색
-   - [이 설명서](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-reference-regions) 페이지에서 배포하려는 지역에 대한 올바른 LUIS 포털을 검토합니다.  www.luis.ai 는 미국 지역을 참조하며 이 포털에서 검색된 작성 키는 유럽 배포에서 작동하지 않습니다.
+   - [이 설명서](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-reference-regions) 페이지에서 배포하려는 지역에 대한 올바른 LUIS 포털을 검토합니다. www.luis.ai 는 미국 지역을 참조하며 이 포털에서 검색된 작성 키는 유럽 배포에서 작동하지 않습니다.
    - 로그인한 후에 오른쪽 위 모서리에서 이름을 클릭합니다.
    - 설정을 선택하고, 다음 단계를 위해 제작 키를 적어 둡니다.
 
