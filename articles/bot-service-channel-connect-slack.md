@@ -40,7 +40,7 @@ Slack 메시징 앱을 사용하여 사용자와 통신하도록 봇을 구성�
 
 1. **OAuth 및 권한** 탭을 선택합니다.
 2. **새 리디렉션 URL 추가**를 클릭합니다.
-3.  https://slack.botframework.com 을 입력합니다.
+3. https://slack.botframework.com 을 입력합니다.
 4. **추가**를 클릭합니다.
 5. **URL 저장**을 클릭합니다.
 
