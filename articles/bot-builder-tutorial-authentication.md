@@ -212,7 +212,7 @@ v1 및 v2 엔드포인트 간의 차이점에 대한 정보는 [v1-v2 비교](ht
 
 ## <a name="prepare-the-bot-sample-code"></a>봇 샘플 코드 준비
 
-1. https://github.com/Microsoft/BotBuilder 에서 github 리포지토리를 복제합니다.
+1.  https://github.com/Microsoft/BotBuilder 에서 github 리포지토리를 복제합니다.
 1. 솔루션 `BotBuilder\CSharp\Microsoft.Bot.Builder.sln`을 열고 빌드합니다.
 1. 해당 솔루션을 닫고 `BotBuilder\CSharp\Samples\Microsoft.Bot.Builder.Samples.sln`을 엽니다.
 1. 시작 프로젝트를 설정합니다.
