@@ -1,25 +1,25 @@
 ---
 title: Cortana 스킬 테스트 | Microsoft Docs
 description: Cortana 스킬을 호출하여 Cortana 봇을 테스트하는 방법을 알아봅니다.
-keywords: Bot Builder SDK, 봇 등록, cortana
+keywords: Bot Framework SDK, 봇 등록, cortana
 author: v-ducvo
 manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.date: 05/01/18
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 15711999271d1bb8e93c1ad72eb0bc4b6acb484a
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: acf4f73ea83646878e08d14e036d0d2d66686756
+ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49999970"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54224958"
 ---
 # <a name="test-a-cortana-skill"></a>Cortana 스킬 테스트
 
 [!INCLUDE [pre-release-label](includes/pre-release-label-v3.md)]
  
-Bot Builder SDK를 사용하여 Cortana 스킬을 빌드한 경우 Cortana에서 호출하여 테스트할 수 있습니다. 다음 지침에서는 Cortana 스킬을 사용해보는 데 필요한 단계를 안내합니다.
+Bot Framework SDK를 사용하여 Cortana 스킬을 빌드한 경우 Cortana에서 호출하여 테스트할 수 있습니다. 다음 지침에서는 Cortana 스킬을 사용해보는 데 필요한 단계를 안내합니다.
 
 ## <a name="register-your-bot"></a>봇 등록
 Azure에서 Bot Service를 사용하여 [봇을 만든 경우](~/bot-service-quickstart.md) 봇을 이미 등록했을 것이므로 이 단계를 건너뛰어도 됩니다.

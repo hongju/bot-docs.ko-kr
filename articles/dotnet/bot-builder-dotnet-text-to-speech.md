@@ -1,6 +1,6 @@
 ---
 title: 메시지에 음성 추가 | Microsoft Docs
-description: .NET용 Bot Builder SDK를 사용하여 메시지에 음성을 추가하는 방법을 알아봅니다.
+description: .NET용 Bot Framework SDK를 사용하여 메시지에 음성을 추가하는 방법을 알아봅니다.
 author: RobStand
 ms.author: kamrani
 manager: kamrani
@@ -9,12 +9,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: dc542c7e85b3a79e1071edebea65d93c99742beb
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: 3eef1ec583764449554a223ec9dc339ff505ace6
+ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "50000362"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54225598"
 ---
 # <a name="add-speech-to-messages"></a>메시지에 음성 추가
 
@@ -29,7 +29,7 @@ Cortana와 같은 음성 지원 채널을 위한 봇을 빌드하는 경우 봇�
 
 ## <a name="specify-text-to-be-spoken-by-your-bot"></a>봇의 음성 텍스트 지정
 
-.NET용 Bot Builder SDK를 사용하면 음성 지원 채널에서 봇의 음성 텍스트를 지정하는 여러 가지 방법이 있습니다. [메시지][IMessageActivity]의 `Speak` 속성을 설정하거나 `IDialogContext.SayAsync()` 메서드를 호출하거나 내장 프롬프트를 사용하여 메시지를 보낼 때 프롬프트 옵션 `speak` 및 `retrySpeak`을 지정할 수 있습니다.
+.NET용 Bot Framework SDK를 사용하면 음성 지원 채널에서 봇의 음성 텍스트를 지정하는 여러 가지 방법이 있습니다. [메시지][IMessageActivity]의 `Speak` 속성을 설정하거나 `IDialogContext.SayAsync()` 메서드를 호출하거나 내장 프롬프트를 사용하여 메시지를 보낼 때 프롬프트 옵션 `speak` 및 `retrySpeak`을 지정할 수 있습니다.
 
 ### <a id="message-speak"></a> IMessageActivity.Speak
 
@@ -59,7 +59,7 @@ Cortana와 같은 음성 지원 채널을 위한 봇을 빌드하는 경우 봇�
 
 ## <a name="sample-code"></a>샘플 코드 
 
-.NET용 Bot Builder SDK를 사용하여 음성 지원 봇을 만드는 방법을 보여주는 전체 샘플은 GitHub의 <a href="https://github.com/Microsoft/BotBuilder-Samples/tree/v3-sdk-samples/CSharp" target="_blank">롤러 스킬 샘플</a>을 참조하세요.
+.NET용 Bot Framework SDK를 사용하여 음성 지원 봇을 만드는 방법을 보여주는 전체 샘플은 GitHub의 <a href="https://github.com/Microsoft/BotBuilder-Samples/tree/v3-sdk-samples/CSharp" target="_blank">롤러 기술 샘플</a>을 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 

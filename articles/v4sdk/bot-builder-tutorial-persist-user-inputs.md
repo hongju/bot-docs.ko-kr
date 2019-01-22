@@ -1,6 +1,6 @@
 ---
 title: 사용자 데이터 유지 | Microsoft Docs
-description: Bot Builder SDK의 저장소에 사용자 상태 데이터를 저장하는 방법을 알아봅니다.
+description: Bot Framework SDK의 스토리지에 사용자 상태 데이터를 저장하는 방법을 알아봅니다.
 keywords: 사용자 데이터 유지, 저장소, 대화 데이터
 author: v-ducvo
 ms.author: v-ducvo
@@ -10,18 +10,18 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 09/19/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 36e8efefb276e5b9fb45ba6243b1b472476d5046
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: 97a89744282ca1e31a99aa0e45345656e43f5cd0
+ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49997950"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54225318"
 ---
 # <a name="persist-user-data"></a>사용자 데이터 유지
 
 [!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
 
-봇에서 사용자에게 입력을 요청하는 경우 일부 형태의 저장소에 일부 정보를 유지하려는 경우가 있습니다. Bot Builder SDK를 사용하면 *메모리 내 저장소* 또는 *CosmosDB* 같은 데이터베이스 저장소를 사용하여 사용자 입력을 저장할 수 있습니다. 로컬 저장소 형식은 봇 테스트 또는 프로토타입 제작에 주로 사용됩니다. 그러나 데이터베이스 저장소 같은 영구 저장소 형식은 프로덕션 봇에 가장 적합합니다.
+봇에서 사용자에게 입력을 요청하는 경우 일부 형태의 저장소에 일부 정보를 유지하려는 경우가 있습니다. Bot Framework SDK를 사용하면 *메모리 내 스토리지* 또는 *CosmosDB* 같은 데이터베이스 스토리지를 사용하여 사용자 입력을 저장할 수 있습니다. 로컬 저장소 형식은 봇 테스트 또는 프로토타입 제작에 주로 사용됩니다. 그러나 데이터베이스 저장소 같은 영구 저장소 형식은 프로덕션 봇에 가장 적합합니다.
 
 이 토픽에서는 저장소 개체를 정의하고, 사용자 입력이 유지될 수 있도록 저장소 개체에 저장하는 방법을 보여줍니다. 아직 사용자 이름이 없는 경우 대화 상자를 사용하여 사용자에게 이름을 요청할 것입니다. 사용하도록 선택한 저장소 유형에 관계없이 데이터 연결 및 유지를 위한 프로세스는 동일합니다. 이 토픽의 코드는 `CosmosDB`를 저장소로 사용하여 데이터를 유지합니다.
 

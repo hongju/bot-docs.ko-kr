@@ -1,6 +1,6 @@
 ---
 title: Skype에 대한 실시간 미디어 봇 빌드 | Microsoft Docs
-description: .NET용 Bot Builder SDK 및 .NET용 Bot Builder-RealTimeMediaCalling SDK를 사용하여 Skype와의 실시간 오디오/비디오 통화를 수행하는 봇을 빌드하는 방법을 살펴봅니다.
+description: .NET용 Bot Framework SDK 및 .NET용 Bot Builder-RealTimeMediaCalling SDK를 사용하여 Skype와의 실시간 오디오/비디오 통화를 수행하는 봇을 빌드하는 방법을 살펴봅니다.
 author: MalarGit
 ms.author: malarch
 manager: kamrani
@@ -9,12 +9,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 12/13/17
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 6ceeca9adc9cad9e60a73c1c7c91bea43b97fdd9
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: a539ca3258e8c9a8020bfa7c939f6eddbdd30feb
+ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49997932"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54225658"
 ---
 # <a name="build-a-real-time-media-bot-for-skype"></a>Skype용 실시간 미디어 봇 빌드
 
@@ -252,7 +252,7 @@ void OnAudioMediaReceived(
 }
 ```
 
-이벤트 처리기는 신속하게 반환해야 합니다. 애플리케이션은 `AudioMediaBuffer`을 비동기로 처리되도록 큐에 넣는 것이 좋습니다. `OnAudioMediaReceived` 이벤트는 실시간 미디어 플랫폼으로 직렬화됩니다(즉 다음 이벤트는 현재 이벤트가 반환될 때까지 발생하지 않음). `AudioMediaBuffer`를 사용한 후에는 미디어 플랫폼에서 관리되지 않는 기본 메모리를 재청구할 수 있게 응용 프로그램이 버퍼의 Dispose 메서드를 호출해야 합니다. 
+이벤트 처리기는 신속하게 반환해야 합니다. 애플리케이션은 `AudioMediaBuffer`을 비동기로 처리되도록 큐에 넣는 것이 좋습니다. `OnAudioMediaReceived` 이벤트는 실시간 미디어 플랫폼으로 직렬화됩니다(즉 다음 이벤트는 현재 이벤트가 반환될 때까지 발생하지 않음). `AudioMediaBuffer`를 사용한 후에는 미디어 플랫폼에서 관리되지 않는 기본 메모리를 재청구할 수 있게 애플리케이션이 버퍼의 Dispose 메서드를 호출해야 합니다. 
 
 ```cs
    // release/dispose buffer when done 

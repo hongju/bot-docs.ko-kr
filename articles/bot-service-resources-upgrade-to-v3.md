@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
 ms.date: 12/13/2017
-ms.openlocfilehash: 3e99828e7c26b10c39bef4c8db79f92ff5f2b30c
-ms.sourcegitcommit: 49a76dd34d4c93c683cce6c2b8b156ce3f53280e
+ms.openlocfilehash: 8d9b2ea2e2133c86428b537427433f9dd15216ee
+ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50134713"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54225948"
 ---
 # <a name="upgrade-your-bot-to-bot-framework-api-v3"></a>봇을 Bot Framework API v3로 업그레이드
 
@@ -84,7 +84,7 @@ V1 봇은 더 이상 호환되지 않습니다. 봇을 업데이트하려면 V3�
 <!-- TODO: Remove outdated code 
 To update your bot code to version 3.0, complete these steps:
 
-1. Update to the latest version of the [Bot Builder SDK](https://github.com/Microsoft/BotBuilder) for your bot's language.
+1. Update to the latest version of the [Bot Framework SDK](https://github.com/Microsoft/BotBuilder) for your bot's language.
 2. Update your code to apply the necessary changes, according the guidance below.
 3. Use the [Bot Framework Emulator](~/bot-service-debug-emulator.md) to test your bot locally and then in the cloud.
 
@@ -93,10 +93,10 @@ The following sections describe the key differences between API v1 and API v3. A
 
 ### <a name="botbuilder-and-connector-are-now-one-sdk"></a>BotBuilder 및 커넥터는 이제 하나의 SDK임
 
-여러 NuGet 패키지(또는 NPM 모듈)을 사용하여 작성기 및 커넥터에 대해 별도 SDK를 설치할 필요 없이, 두 라이브러리를 단일 Bot Builder SDK로 가져올 수 있습니다.
+여러 NuGet 패키지(또는 NPM 모듈)를 사용하여 작성기 및 커넥터에 대해 별도 SDK를 설치할 필요 없이, 두 라이브러리를 단일 Bot Framework SDK로 가져올 수 있습니다.
 
-- .NET용 Bot Builder SDK: `Microsoft.Bot.Builder` NuGet 패키지
-- Node.js용 Bot Builder SDK: `botbuilder` NPM 모듈
+- .NET용 Bot Framework SDK: `Microsoft.Bot.Builder` NuGet 패키지
+- Node.js용 Bot Framework SDK: `botbuilder` NPM 모듈
 
 독립 실행형 `Microsoft.Bot.Connector` SDK는 이제 더 이상 사용되지 않고 유지 관리되지도 않습니다.
 

@@ -9,12 +9,12 @@ ms.service: bot-service
 ms.subservice: tools
 ms.date: 10/31/2018
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 8a59c0a8b7ee664cdb38ab9d0cb186114938d73f
-ms.sourcegitcommit: 782b3a2e788c25effd7d150a070bd2819ea92dad
+ms.openlocfilehash: 4b09ca152f99faa66d2da55ebeb93fb9cce090db
+ms.sourcegitcommit: b94361234816e6b95459f142add936732fc40344
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50743667"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54317693"
 ---
 # <a name="create-bots-with-azure-cli"></a>Azure CLI를 사용하여 봇 만들기
 
@@ -35,7 +35,7 @@ ms.locfileid: "50743667"
 
 ## <a name="1-install-tools"></a>1. 도구 설치
 1. 최신 버전의 Azure CLI을 [설치](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)합니다.
-2. Bot Builder 도구를 [설치](https://aka.ms/botbuilder-tools-readme)합니다.
+2. Bot Framework 도구를 [설치](https://aka.ms/botbuilder-tools-readme)합니다.
 
 이제 다른 Azure 리소스와 마찬가지로 Azure CLI를 사용하여 봇을 관리할 수 있습니다.
 
@@ -64,12 +64,12 @@ az bot [command]
 ```
 |명령|  |
 |----|----|
-| create      |리소스 추가|
-| delete     |리소스 복제하기|
-| 다운로드   | 봇 소스 코드 다운로드|
-| 게시   |기존 봇 서비스에 게시|
-| 표시 |기존 봇 리소스를 표시합니다.|
-| update| 기존 봇 서비스 업데이트|
+| create      |새 봇 만들기|
+| delete     |기존 봇 삭제|
+| 다운로드   |기존 봇 다운로드|
+| 게시   |봇과 연결된 앱 서비스 게시|
+| 표시 |기존 봇 가져오기|
+| update|기존 봇 업데이트|
 
 CLI에서 새 봇을 만들려면 기존 [리소스 그룹](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)을 선택하거나 새로 만들어야 합니다. 
 
@@ -160,10 +160,10 @@ az bot show -n my-bot-name -g my-resource-group --msbot | msbot connect azure --
 
 ## <a name="5-manage-update-or-create-luis-and-qna-services-with--new-botbuilder-tools"></a>5. 새 botbuilder 도구를 사용하여 LUIS 및 QnA 서비스 관리, 업데이트 또는 만들기
 
-[봇 작성기 도구](https://aka.ms/botbuilder-tools)는 명령줄에서 바로 봇 리소스를 관리하고 조작할 수 있게 해주는 새 도구 집합입니다.
+[Bot Framework 도구](https://aka.ms/botbuilder-tools)는 명령줄에서 바로 봇 리소스를 관리하고 조작할 수 있는 새로운 도구 세트입니다.
 
 >[!TIP]
-> 모든 봇 작성기 도구에는 **-h** 또는 **-help**를 입력하여 명령줄에서 액세스할 수 있는 글로벌 도움말 명령이 포함되어 있습니다. 이 명령은 언제든지 모든 작업에서 사용할 수 있으며, 사용 가능한 옵션의 유용한 표시를 설명과 함께 제공합니다.
+> 모든 Bot Framework 도구에는 **-h** 또는 **--help**를 입력하여 명령줄에서 액세스할 수 있는 글로벌 도움말 명령이 포함되어 있습니다. 이 명령은 언제든지 모든 작업에서 사용할 수 있으며, 사용 가능한 옵션의 유용한 표시를 설명과 함께 제공합니다.
 
 ### <a name="ludown"></a>LUDown
 
@@ -333,5 +333,5 @@ az bot publish --name "my-bot-name" --resource-group "my-resource-group"
 ```
 
 ## <a name="references"></a>참조
-- [Bot Builder 도구](https://aka.ms/botbuilder-tools-readme)
+- [Bot Framework 도구](https://aka.ms/botbuilder-tools-readme)
 - [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)

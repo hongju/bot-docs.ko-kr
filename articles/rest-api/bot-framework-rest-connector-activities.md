@@ -8,16 +8,16 @@ ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
 ms.date: 12/13/2017
-ms.openlocfilehash: b246e9e07243e4064f92e72ee3909541f642714e
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: db09888c5f782b065ff6bd108ce93379cd42527a
+ms.sourcegitcommit: b94361234816e6b95459f142add936732fc40344
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49999930"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54317683"
 ---
-# <a name="activities-overview"></a>작업 개요
+# <a name="activities-overview"></a>활동 개요
 
-Bot Connector Service는 [작업][Activity] 개체를 전달함으로써 봇과 채널(사용자) 사이에 정보를 교환합니다. 작업의 가장 일반적인 형식은 **메시지**이지만 봇 또는 채널에 다양한 형식의 정보를 전달하는 데 사용할 수 있는 다른 작업 형식이 있습니다. 
+Bot Connector 서비스는 [Activity][Activity](활동) 개체를 전달하여 봇과 채널(사용자) 사이에 정보를 교환합니다. 가장 일반적인 형식의 활동은 **메시지**이지만 다양한 형식의 정보를 봇이나 채널에 전달하는 데 사용할 수 있는 다른 활동 형식이 있습니다. 
 
 ## <a name="activity-types-in-the-bot-connector-service"></a>Bot Connector Service의 작업 형식
 

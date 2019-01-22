@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
 ms.date: 12/19/2018
-ms.openlocfilehash: 79c37a48f9312d60b61124e15780fe46236aa0c7
-ms.sourcegitcommit: f7a8f05fc05ff4a7212a437d540485bf68831604
+ms.openlocfilehash: ae019f7da32969821db0c59a4710e32b57623b14
+ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53735983"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54224494"
 ---
 ::: moniker range="azure-bot-service-3.0"
 
@@ -36,9 +36,9 @@ ms.locfileid: "53735983"
 
 [!INCLUDE [Dialog flow example](./includes/snippet-dotnet-manage-conversation-flow-intro.md)]
 
-대화 상자 및 Bot Builder SDK를 사용하여 대화 흐름을 관리하는 자세한 연습은 다음을 참조하세요.
+대화 상자 및 Bot Framework SDK를 사용하여 대화 흐름을 관리하는 자세한 연습은 다음을 참조하세요.
 
-- [대화 상자를 사용하여 대화 흐름 관리(.NET)](./dotnet/bot-builder-dotnet-manage-conversation-flow.md)
+- [다이얼로그를 사용하여 대화 흐름 관리(.NET)](./dotnet/bot-builder-dotnet-manage-conversation-flow.md)
 - [대화 상자를 사용하여 대화 흐름 관리(Node.js)](./nodejs/bot-builder-nodejs-manage-conversation-flow.md)
 
 ## <a name="dialog-stack"></a>대화 상자 스택
@@ -99,7 +99,7 @@ ms.locfileid: "53735983"
 
 절차 대화 흐름에서 사용자가 질문 순서를 정의하고 봇이 정의된 순서대로 질문을 합니다. 질문을 논리적 ‘모듈’로 구성하여 코드를 중앙 집중식으로 유지하면서 대화 안내에 계속 초점을 맞출 수 있습니다. 예를 들어, 하나의 모듈에는 사용자가 제품을 찾아보도록 도와주는 논리를 포함하고 별도의 모듈에 사용자가 새 주문을 만들도록 도와주는 논리를 포함하도록 디자인할 수 있습니다.
 
-자유 형식에서 순차에 이르는 범위에서 원하는 방식으로 흐르도록 모듈을 구성할 수 있습니다. Bot Builder SDK는 봇에 필요한 대화 흐름을 생성할 수 있는 여러 가지 라이브러리를 제공합니다. 예를 들어, `prompts` 라이브러리를 사용하면 사용자에게 입력을 요청할 수 있고, `waterfall` 라이브러리를 사용하면 질문/답변 쌍의 시퀀스를 정의할 수 있고, `dialog control` 라이브러리를 사용하면 대화 흐름 논리 등을 모듈화할 수 있습니다. 이러한 라이브러리는 모두 `dialogs` 개체를 통해 함께 연결됩니다. 대화 흐름을 디자인 및 관리하기 위해 모듈을 `dialogs`로 구현하는 방법을 자세히 살펴보고 해당 흐름이 기존 애플리케이션 흐름과 어떻게 비슷한지 확인해 보겠습니다.
+자유 형식에서 순차에 이르는 범위에서 원하는 방식으로 흐르도록 모듈을 구성할 수 있습니다. Bot Framework SDK는 봇에 필요한 대화 흐름을 생성할 수 있는 여러 가지 라이브러리를 제공합니다. 예를 들어, `prompts` 라이브러리를 사용하면 사용자에게 입력을 요청할 수 있고, `waterfall` 라이브러리를 사용하면 질문/답변 쌍의 시퀀스를 정의할 수 있고, `dialog control` 라이브러리를 사용하면 대화 흐름 논리 등을 모듈화할 수 있습니다. 이러한 라이브러리는 모두 `dialogs` 개체를 통해 함께 연결됩니다. 대화 흐름을 디자인 및 관리하기 위해 모듈을 `dialogs`로 구현하는 방법을 자세히 살펴보고 해당 흐름이 기존 애플리케이션 흐름과 어떻게 비슷한지 확인해 보겠습니다.
 
 ![봇](./media/designing-bots/core/dialogs-screens.png)
 

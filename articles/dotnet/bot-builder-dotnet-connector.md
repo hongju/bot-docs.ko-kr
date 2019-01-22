@@ -1,6 +1,6 @@
 ---
 title: 작업 보내기 및 받기 | Microsoft Docs
-description: .NET용 Bot Builder SDK를 통해 커넥터 서비스를 사용하여 다양한 채널에서 사용자와 정보를 교환하는 방법을 대해 알아봅니다.
+description: .NET용 Bot Framework SDK를 통해 커넥터 서비스를 사용하여 다양한 채널에서 사용자와 정보를 교환하는 방법을 대해 알아봅니다.
 author: RobStand
 ms.author: kamrani
 manager: kamrani
@@ -9,12 +9,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 393490fd97ce0d09b4087ad7598ee30b0fdc8c0e
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: 0407ec0d90c58e10aa14616e2aa9205bb8840d55
+ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49997790"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54225228"
 ---
 # <a name="send-and-receive-activities"></a>작업 보내기 및 받기
 
@@ -22,10 +22,10 @@ ms.locfileid: "49997790"
 
 Bot Framework Connector는 봇이 Skype, 이메일, Slack 등과 같은 여러 채널에서 통신할 수 있게 해주는 단일 REST API를 제공합니다. 봇에서 채널로, 그리고 채널에서 봇으로 메시지를 릴레이하면 봇과 사용자 간에 쉽게 통신할 수 있습니다. 
 
-이 문서에서는 .NET용 Bot Builder SDK를 통해 커넥터를 사용하여 채널에서 봇과 사용자 간에 정보를 교환하는 방법을 설명합니다. 
+이 문서에서는 .NET용 Bot Framework SDK를 통해 커넥터를 사용하여 채널에서 봇과 사용자 간에 정보를 교환하는 방법을 설명합니다. 
 
 > [!NOTE]
-> 이 문서에서 설명된 기술만을 사용하여 봇을 구성할 수 있지만, Bot Builder SDK는 대화 흐름과 상태를 관리하는 프로세스를 간소화하고 언어 이해와 같은 인지 서비스를 통합하는 작업을 단순화할 수 있는 [대화 상자](bot-builder-dotnet-dialogs.md) 및 [FormFlow](bot-builder-dotnet-formflow.md)와 같은 추가 기능을 제공합니다.
+> 이 문서에서 설명된 기술만을 사용하여 봇을 구성할 수 있지만, Bot Framework SDK는 대화 흐름과 상태를 관리하는 프로세스를 간소화하고 언어 이해와 같은 인지 서비스를 통합하는 작업을 단순화할 수 있는 [대화 상자](bot-builder-dotnet-dialogs.md) 및 [FormFlow](bot-builder-dotnet-formflow.md)와 같은 추가 기능을 제공합니다.
 
 ## <a name="create-a-connector-client"></a>커넥터 클라이언트 만들기
 
@@ -44,7 +44,7 @@ Bot Framework Connector는 봇이 Skype, 이메일, Slack 등과 같은 여러 �
 
 봇이 커넥터로부터 작업을 수신하면 들어오는 작업의 `Recipient` 속성이 해당 대화에서 봇의 ID를 지정합니다. 일부 채널(예: Slack)이 대화에 추가될 때 봇에게 새 ID를 할당하기 때문에, 봇은 들어오는 작업의 `Recipient` 속성 값을 응답의 `From` 속성 값으로 항상 사용해야 합니다.
 
-나가는 `Activity` 개체를 처음부터 직접 만들고 초기화할 수 있지만 Bot Builder SDK를 사용하면 회신을 더 쉽게 만들 수 있습니다. 들어오는 작업의 `CreateReply` 메서드를 사용할 경우 응답에 대한 메시지 텍스트를 지정하기만 하면 `Recipient`, `From` 및 `Conversation` 속성이 자동으로 채워지는 나가는 작업이 생성됩니다.
+나가는 `Activity` 개체를 처음부터 직접 만들고 초기화할 수 있지만 Bot Framework SDK를 사용하면 회신을 더 쉽게 만들 수 있습니다. 들어오는 작업의 `CreateReply` 메서드를 사용할 경우 응답에 대한 메시지 텍스트를 지정하기만 하면 `Recipient`, `From` 및 `Conversation` 속성이 자동으로 채워지는 나가는 작업이 생성됩니다.
 
 [!code-csharp[Create reply](../includes/code/dotnet-send-and-receive.cs#createReply)]
 
@@ -87,8 +87,8 @@ Bot Framework Connector는 봇이 Skype, 이메일, Slack 등과 같은 여러 �
 
 - [작업 개요](bot-builder-dotnet-activities.md)
 - [메시지 만들기](bot-builder-dotnet-create-messages.md)
-- <a href="/dotnet/api/?view=botbuilder-3.11.0" target="_blank">.NET용 Bot Builder SDK 참조</a>
-- <a href="https://docs.botframework.com/en-us/csharp/builder/sdkreference/dc/d2f/class_microsoft_1_1_bot_1_1_connector_1_1_activity.html" target="_blank">작업 클래스</a>
+- <a href="/dotnet/api/?view=botbuilder-3.11.0" target="_blank">.NET용 Bot Framework SDK 참조</a>
+- <a href="https://docs.botframework.com/en-us/csharp/builder/sdkreference/dc/d2f/class_microsoft_1_1_bot_1_1_connector_1_1_activity.html" target="_blank">활동 클래스</a>
 - <a href="/dotnet/api/microsoft.bot.connector.connectorclient" target="_blank">ConnectorClient 클래스</a>
 
 [ConnectorClient]: /dotnet/api/microsoft.bot.connector.connectorclient

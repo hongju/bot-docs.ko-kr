@@ -1,6 +1,6 @@
 ---
 title: 사용자 작업 처리 | Microsoft Docs
-description: 봇이 Node.js용 Bot Builder SDK를 사용하여 특정 키워드를 포함하는 사용자 입력을 수신 대기하고 처리하도록 활성화하여 사용자 작업을 처리하는 방법에 대해 알아봅니다.
+description: 봇이 Node.js용 Bot Framework SDK를 사용하여 특정 키워드를 포함하는 사용자 입력을 수신 대기하고 처리하도록 활성화하여 사용자 작업을 처리하는 방법에 대해 알아봅니다.
 author: DucVo
 ms.author: v-ducvo
 manager: kamrani
@@ -9,12 +9,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 26f6e9520fe5d2ebb83ceb4e6a497a35e9d2611f
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: 7ca595b1c24769addfbdf7975c48d3a052c4a2de
+ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49999260"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54226008"
 ---
 # <a name="handle-user-actions"></a>사용자 작업 처리
 
@@ -236,7 +236,7 @@ bot.dialog('orderDinner', [
 
 ### <a name="bind-an-endconversationaction"></a>endConversationAction 바인딩
 
-`endConversationAction`을 바인딩하면 대화 상자에 등록됩니다. 트리거되면 이 작업은 사용자와 대화를 종료합니다. 이 작업을 트리거하는 것은 [endConversation](https://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.session.html#endconversation) 메서드를 호출하는 것과 유사합니다. 대화가 종료되면 Node.js용 Bot Builder SDK는 대화 스택 및 유지된 상태 데이터를 지웁니다. 지속된 상태 데이터에 대한 자세한 내용은 [상태 데이터 관리](bot-builder-nodejs-state.md)를 참조하세요.
+`endConversationAction`을 바인딩하면 대화 상자에 등록됩니다. 트리거되면 이 작업은 사용자와 대화를 종료합니다. 이 작업을 트리거하는 것은 [endConversation](https://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.session.html#endconversation) 메서드를 호출하는 것과 유사합니다. 대화가 종료되면 Node.js용 Bot Framework SDK는 대화 스택 및 유지된 상태 데이터를 지웁니다. 지속된 상태 데이터에 대한 자세한 내용은 [상태 데이터 관리](bot-builder-nodejs-state.md)를 참조하세요.
 
 다음 코드 조각은 [endConversationAction][endConversationAction]을 대화 상자에 바인딩하는 방법을 보여 줍니다.
 

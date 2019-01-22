@@ -1,6 +1,6 @@
 ---
 title: 지역화 지원 | Microsoft Docs
-description: 사용자의 위치를 확인하고 .NET용 Bot Builder SDK를 사용하여 지역화 기능을 구현하는 방법을 알아봅니다.
+description: 사용자의 위치를 확인하고 Node.js용 Bot Framework SDK를 사용하여 지역화 기능을 구현하는 방법을 알아봅니다.
 author: DeniseMak
 ms.author: v-demak
 manager: kamrani
@@ -9,12 +9,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 5ac9fabcb0c6626e1b0133b7718b135a88d4c846
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: d592aa8b37e1d73e3cf9003209b985b8ca0f03f8
+ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49998066"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54224398"
 ---
 # <a name="support-localization"></a>지역화 지원
 
@@ -98,7 +98,7 @@ bot.use({
 위의 코드 조각을 봇에 추가한 후 [session.preferredLocale()][preferredLocal]를 호출하면 검색된 언어가 자동으로 반환됩니다. `preferredLocale()`에 대한 검색 순서는 다음과 같습니다.
 1. `session.preferredLocale()`를 호출하여 저장된 로캘입니다. 이 값은 `session.userData['BotBuilder.Data.PreferredLocale']`에 저장됩니다.
 2. `session.message.textLocale`에 할당된 검색된 로캘입니다.
-3. 봇의 구성된 기본 로캘입니다(예: 영어(‘en’)).
+3. 봇에 대해 구성된 기본 로캘입니다(예: 영어(‘en’)).
 
 해당 생성자를 사용하여 봇의 기본 로캘을 구성할 수 있습니다.
 
@@ -111,9 +111,9 @@ var bot = new builder.UniversalBot(connector, {
 ```
 
 ## <a name="localize-prompts"></a>프롬프트 지역화
-Bot Builder SDK의 기본 지역화 시스템은 파일을 기반으로 하고 이 시스템을 사용하면 봇에서 디스크에 저장된 JSON 파일을 사용하여 여러 언어를 지원할 수 있습니다. 기본적으로 지역화 시스템은 **./locale/<IETF TAG>/index.json** 파일에서 봇의 프롬프트를 검색합니다. 여기서 <IETF TAG>는 프롬프트를 찾을 기본 제공 로캘을 나타내는 유효한 [IETF 언어 태그][IEFT]입니다. 
+Bot Framework SDK의 기본 지역화 시스템은 파일을 기반으로 하고 이 시스템을 사용하면 봇에서 디스크에 저장된 JSON 파일을 사용하여 여러 언어를 지원할 수 있습니다. 기본적으로 지역화 시스템은 **./locale/<IETF TAG>/index.json** 파일에서 봇의 프롬프트를 검색합니다. 여기서 <IETF TAG>는 프롬프트를 찾을 기본 제공 로캘을 나타내는 유효한 [IETF 언어 태그][IEFT]입니다. 
 
-다음 스크린샷은 세 가지 언어인 영어, 이탈리아어 및 스페인어를 지원하는 봇의 디렉터리 구조를 보여 줍니다.
+다음 스크린샷은 세 가지 언어 영어, 이탈리아어 및 스페인어를 지원하는 봇의 디렉터리 구조를 보여줍니다.
 
 ![세 가지 로캘에 대한 디렉터리 구조](../media/locale-dir.png)
 

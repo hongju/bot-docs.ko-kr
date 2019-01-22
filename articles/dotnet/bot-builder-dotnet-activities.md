@@ -1,6 +1,6 @@
 ---
 title: 활동 개요 | Microsoft Docs
-description: .NET용 Bot Builder SDK 내에서 사용할 수 있는 다양한 활동 유형에 대해 알아봅니다.
+description: .NET용 Bot Framework SDK 내에서 사용할 수 있는 다양한 활동 유형에 대해 알아봅니다.
 author: RobStand
 ms.author: kamrani
 manager: kamrani
@@ -9,12 +9,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: d5e1fd0b22883dbe4280bd2d375d389cbcabe6e7
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: 076e460f393c5db524cfade81e5c007484fe2cca
+ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49997600"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54225668"
 ---
 # <a name="activities-overview"></a>활동 개요
 
@@ -22,9 +22,9 @@ ms.locfileid: "49997600"
 
 [!INCLUDE [Activity concept overview](../includes/snippet-dotnet-concept-activity.md)]
 
-## <a name="activity-types-in-the-bot-builder-sdk-for-net"></a>.NET용 Bot Builder SDK의 활동 유형
+## <a name="activity-types-in-the-bot-framework-sdk-for-net"></a>.NET용 Bot Framework SDK의 활동 유형
 
-.NET용 Bot Builder SDK에서 다음 활동 유형이 지원됩니다.
+.NET용 Bot Framework SDK에서 다음 활동 유형이 지원됩니다.
 
 | Activity.Type | 인터페이스 | 설명 |
 |------|------|------|

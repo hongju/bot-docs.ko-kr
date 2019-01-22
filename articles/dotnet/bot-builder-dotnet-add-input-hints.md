@@ -1,6 +1,6 @@
 ---
 title: 메시지에 입력 힌트 추가 | Microsoft Docs
-description: .NET용 Bot Builder SDK를 사용하여 메시지에 입력 힌트를 추가하는 방법에 대해 알아봅니다.
+description: .NET용 Bot Framework SDK를 사용하여 메시지에 입력 힌트를 추가하는 방법에 대해 알아봅니다.
 author: RobStand
 ms.author: kamrani
 manager: kamrani
@@ -9,12 +9,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: a88461e8a03ac941671cc78080e38efecc26aa30
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: b9b210ad215e091801456750237978babd029696
+ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49998400"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54224648"
 ---
 # <a name="add-input-hints-to-messages"></a>메시지에 입력 힌트 추가
 
@@ -62,7 +62,7 @@ await connector.Conversations.ReplyToActivityAsync(reply);
 
 ## <a name="default-values-for-input-hint"></a>입력 힌트에 대한 기본값
 
-메시지에 대한 입력 힌트를 설정하지 않은 경우 Bot Builder SDK가 이 논리를 사용하여 자동으로 입력 힌트를 설정해줍니다.
+메시지에 대한 입력 힌트를 설정하지 않은 경우 Bot Framework SDK가 이 논리를 사용하여 자동으로 입력 힌트를 설정해줍니다.
 
 - 봇이 프롬프트를 보내면, 메시지에 대한 입력 힌트가 봇에 **입력이 필요**하다는 것을 지정합니다.</li>
 - 봇이 단일 메시지를 보내는 경우 메시지에 대한 입력 힌트는 봇이 **입력을 허용**하고 있음을 지정합니다.</li>

@@ -1,6 +1,6 @@
 ---
 title: 상태 데이터 관리 | Microsoft Docs
-description: Node.js용 Bot Builder SDK를 사용하여 상태 데이터를 저장 및 검색하는 방법을 알아봅니다.
+description: Node.js용 Bot Framework SDK를 사용하여 상태 데이터를 저장 및 검색하는 방법을 알아봅니다.
 author: DucVo
 ms.author: v-ducvo
 manager: kamrani
@@ -9,12 +9,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 519f188a29db2b9b37061ee0eff5361a63d2acac
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: 6d653e47d2e906c6306134804c7731b374d830ba
+ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49999990"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54225008"
 ---
 # <a name="manage-state-data"></a>상태 데이터 관리
 
@@ -56,7 +56,7 @@ var bot = new builder.UniversalBot(connector, [..waterfall steps..])
 
 ## <a name="storage-containers"></a>저장소 컨테이너 
 
-Node.js용 Bot Builder SDK에서는 `session` 개체가 상태 데이터 저장을 위해 다음 속성을 노출합니다.
+Node.js용 Bot Framework SDK에서는 `session` 개체가 상태 데이터 저장을 위해 다음 속성을 노출합니다.
 
 | 자산 | 범위 | 설명 |
 | ---- | ---- | ---- |
@@ -129,7 +129,7 @@ session.userdata.start = startDate.toISOString();
 
 ### <a name="saving-data"></a>데이터 저장
 
-각 저장소 컨테이너에서 만들어진 데이터는 컨테이너를 저장할 때까지 메모리에 유지됩니다. Node.js용 Bot Builder SDK는 보낼 메시지가 있을 때 저장될 수 있게 `ChatConnector` 서비스에 일괄 처리로 데이터를 보냅니다. 메시지를 보내지 않고 저장소 컨테이너에 있는 데이터를 저장하려면 수동으로 [`save`](https://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.session.html#save) 메서드를 호출할 수 있습니다. `save` 메서드를 호출하지 않을 경우 저장소 컨테이너에 있는 데이터가 일괄 처리의 일부로 유지됩니다.
+각 저장소 컨테이너에서 만들어진 데이터는 컨테이너를 저장할 때까지 메모리에 유지됩니다. Node.js용 Bot Framework SDK는 보낼 메시지가 있을 때 저장될 수 있게 `ChatConnector` 서비스에 일괄 처리로 데이터를 보냅니다. 메시지를 보내지 않고 저장소 컨테이너에 있는 데이터를 저장하려면 수동으로 [`save`](https://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.session.html#save) 메서드를 호출할 수 있습니다. `save` 메서드를 호출하지 않을 경우 저장소 컨테이너에 있는 데이터가 일괄 처리의 일부로 유지됩니다.
 
 ```javascript
 session.userData.favoriteColor = "Red";

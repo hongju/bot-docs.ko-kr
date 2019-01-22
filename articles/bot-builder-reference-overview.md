@@ -9,28 +9,28 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 6b80fb9e38f19af5076cd578fdb8058a2d5cf932
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: 211717ba4ac8a9a2459035d3e2404410cd70ba93
+ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49998390"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54224438"
 ---
 # <a name="bot-framework-reference"></a>Bot Framework 참조
 
 [!INCLUDE [pre-release-label](./includes/pre-release-label-v3.md)]
 
-Bot Framework에는 .NET용 Bot Builder SDK, Node.js용 Bot Builder SDK 및 Bot Framework REST API에 대한 포괄적인 참조 설명서가 포함됩니다.
+Bot Framework에는 .NET용 Bot Framework SDK, Node.js용 Bot Framework SDK 및 Bot Framework REST API에 대한 포괄적인 참조 설명서가 포함됩니다.
 
-## <a name="bot-builder-sdk-for-net"></a>.NET용 Bot Builder SDK
-.NET용 Bot Builder SDK의 구조를 알아보려면 [.NET용 Bot Builder SDK 참조 설명서](/dotnet/api/)를 참조하세요.
+## <a name="bot-framework-sdk-for-net"></a>.NET용 Bot Framework SDK
+.NET용 Bot Framework SDK의 구조를 알아보려면 [.NET용 Bot Framework SDK 참조 설명서](/dotnet/api/)를 참조하세요.
 
-GitHub에서 .NET용 Bot Builder SDK [원본 코드](https://github.com/Microsoft/BotBuilder/tree/master/CSharp)를 살펴볼 수도 있습니다. 
+GitHub에서 .NET용 Bot Framework SDK [원본 코드](https://github.com/Microsoft/BotBuilder/tree/master/CSharp)를 살펴볼 수도 있습니다. 
 
-## <a name="bot-builder-sdk-for-nodejs"></a>Node.js용 Bot Builder SDK
-Node.js용 Bot Builder SDK의 구조를 알아보려면 [Node.js용 Bot Builder SDK 참조 설명서](https://docs.botframework.com/en-us/node/builder/calling-reference/modules/_botbuilder_d_.html)를 참조하세요.
+## <a name="bot-framework-sdk-for-nodejs"></a>Node.js용 Bot Framework SDK
+Node.js용 Bot Framework SDK의 구조를 알아보려면 [Node.js용 Bot Framework SDK 참조 설명서](https://docs.botframework.com/en-us/node/builder/calling-reference/modules/_botbuilder_d_.html)를 참조하세요.
 
-GitHub에서 Node.js용 Bot Builder SDK [원본 코드](https://github.com/Microsoft/BotBuilder/tree/master/Node)를 살펴볼 수도 있습니다.
+GitHub에서 Node.js용 Bot Framework SDK [원본 코드](https://github.com/Microsoft/BotBuilder/tree/master/Node)를 살펴볼 수도 있습니다.
 
 ## <a name="bot-framework-rest-apis"></a>Bot Framework REST API
 Bot Connector 서비스를 알아보려면 [Bot Framework REST API 참조 설명서](~/rest-api/bot-framework-rest-connector-api-reference.md)를 참조하세요. 

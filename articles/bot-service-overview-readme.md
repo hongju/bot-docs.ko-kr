@@ -8,16 +8,16 @@ ms.topic: article
 ms.service: bot-service
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: bdc86e5e64971e503157fe69a8b962e1d9b88542
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: 85ef0fde39980bab1b891518e338fddbd56b275a
+ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49998870"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54224458"
 ---
 # <a name="how-bot-service-works"></a>Bot Service 작동 방법
 
-Bot Service는 봇 개발을 위한 Bot Builder SDK 및 채널에 봇을 연결하기 위한 Bot Framework를 포함하여 봇 만들기의 핵심 구성 요소를 제공합니다. Bot Service는 .NET 및 Node.js를 지원하는 봇을 만들 때 선택할 수 있는 5가지 템플릿을 제공합니다.
+Bot Service는 봇 개발을 위한 Bot Framework SDK 및 채널에 봇을 연결하기 위한 Bot Framework를 포함하여 봇 만들기의 핵심 구성 요소를 제공합니다. Bot Service는 .NET 및 Node.js를 지원하는 봇을 만들 때 선택할 수 있는 5가지 템플릿을 제공합니다.
 
 > [!IMPORTANT]
 > Bot Service를 사용하려면 Microsoft Azure 구독이 있어야 합니다. 아직 구독이 없는 경우 <a href="https://azure.microsoft.com/en-us/free/" target="_blank">체험 계정</a>으로 등록할 수 있습니다.
@@ -32,7 +32,7 @@ App Service 계획을 사용하는 봇은 예측 가능한 비용과 규모로 �
 * 고급 브라우저 내 코드 편집기를 사용하여 온라인에서 봇 소스 코드를 편집할 수 있습니다.
 * Visual Studio를 사용하여 C# 봇을 다운로드, 디버그 및 다시 게시할 수 있습니다.
 * Visual Studio Online 및 Github용 지속적인 배포를 손쉽게 설정할 수 있습니다.
-* Bot Builder SDK용으로 준비된 샘플 코드를 사용할 수 있습니다.
+* Bot Framework SDK용으로 준비된 샘플 코드를 사용할 수 있습니다.
 
 ### <a name="consumption-plan"></a>소비 계획
 소비 계획을 사용하는 봇은 <a href="http://go.microsoft.com/fwlink/?linkID=747839" target="_blank">Azure Functions</a>에서 실행되고 종량 요금제(실행당) Azure Functions 가격 책정을 사용하는 서버리스 봇입니다. 이 호스팅 계획을 사용하는 봇은 거대한 트래픽 급증을 처리하도록 확장할 수 있습니다. 기본 브라우저 내 코드 편집기를 사용하여 온라인에서 봇 소스 코드를 편집할 수 있습니다. 소비 계획 봇의 런타임 환경에 대한 자세한 내용은 <a target='_blank' href='/azure/azure-functions/functions-scale'>Azure Functions 소비 및 App Service 계획</a>을 참조하세요.
@@ -49,7 +49,7 @@ Bot Service에서는 다섯 가지 템플릿 중 하나를 사용하여 C# 또�
 
 Bot Service를 사용하면 도구 체인이 필요 없이 온라인 코드 편집기를 사용하여 브라우저에서 바로 봇을 개발할 수 있습니다. 
 
-Bot Builder SDK 및 Visual Studio 2017과 같은 IDE를 사용하여 로컬에서 봇을 개발하고 디버그할 수 있습니다. Visual Studio 2017 또는 Azure CLI를 사용하여 봇을 Azure에 직접 게시할 수 있습니다. VSTS나 GitHub와 같은 원하는 소스 제어 시스템으로 [지속적인 배포를 설정](bot-service-continuous-deployment.md)할 수도 있습니다. 지속적인 배포를 구성하면 로컬 컴퓨터의 IDE에서 개발하고 디버그할 수 있으며, 코드를 변경하고 소스 제어에 커밋하면 Azure에 자동으로 배포됩니다.  
+Bot Framework SDK 및 Visual Studio 2017과 같은 IDE를 사용하여 로컬에서 봇을 개발하고 디버그할 수 있습니다. Visual Studio 2017 또는 Azure CLI를 사용하여 봇을 Azure에 직접 게시할 수 있습니다. VSTS나 GitHub와 같은 원하는 소스 제어 시스템으로 [지속적인 배포를 설정](bot-service-continuous-deployment.md)할 수도 있습니다. 지속적인 배포를 구성하면 로컬 컴퓨터의 IDE에서 개발하고 디버그할 수 있으며, 코드를 변경하고 소스 제어에 커밋하면 Azure에 자동으로 배포됩니다.  
 
 > [!TIP]
 > 지속적인 배포를 사용하도록 설정한 경우에는 충돌을 피하기 위해 다른 메커니즘이 아닌 지속적인 배포를 통해서만 코드를 수정해야 합니다.

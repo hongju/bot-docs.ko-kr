@@ -1,6 +1,6 @@
 ---
 title: Node.js를 사용하여 Cortana Skill 구축 | Microsoft Docs
-description: Node.js용 Bot Builder SDK에서 Cortana Skill을 빌드하기 위한 핵심 개념을 알아봅니다.
+description: Node.js용 Bot Framework SDK에서 Cortana Skill을 빌드하기 위한 핵심 개념을 알아봅니다.
 keywords: Bot Framework, Cortana Skill, 음성, Node.js, Bot Builder, SDK, 주요 개념, 핵심 개념
 author: DeniseMak
 manager: kamrani
@@ -9,12 +9,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 99254c5f2de8b524212d8f6a268dbc37c128ab5e
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: 909294243abe00ac95e8f5d89d6babc2edc4f994
+ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49996478"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54225688"
 ---
 # <a name="key-concepts-for-building-a-bot-for-cortana-skills-using-nodejs"></a>Node.js를 사용하여 Cortana Skill용 봇을 빌드하기 위한 주요 개념
  
@@ -23,7 +23,7 @@ ms.locfileid: "49996478"
 > [!NOTE]
 > 이 문서는 예비적인 내용이며 업데이트될 예정입니다.
 
-이 문서에서는 Node.js용 Bot Builder SDK에서 Cortana Skill을 빌드하기 위한 주요 개념을 소개합니다. 
+이 문서에서는 Node.js용 Bot Framework SDK에서 Cortana Skill을 빌드하기 위한 주요 개념을 소개합니다. 
 
 ## <a name="what-is-a-cortana-skill"></a>Cortana Skill이란?
 Cortana Skill은 Windows 10에 기본 제공되는 것과 같은 Cortana 클라이언트를 사용하여 호출할 수 있는 봇입니다. 사용자는 봇과 연관된 키워드나 구문을 말하여 봇을 시작합니다. Bot Framework 포털을 사용하여 봇을 시작하는 데 사용할 키워드를 구성합니다. 
@@ -62,13 +62,13 @@ Agent: **Okay**, what's next?
 접지의 정도(약한 정도에서 강한 정도)
 1. 지속적인 주목
 2. 다음 관련 기여
-3. 확인: 최소한의 응답(또는 continuer): "예", "응", "오케이", "좋아"
+3. 확인: 최소한의 응답 또는 컨티뉴어: "예", "응", "오케이", "좋아"
 4. 데모: 발언을 재구성, 완성하여 이해했다는 것을 나타냅니다.
 5. 디스플레이: 발언의 전체 또는 일부를 반복합니다.
 
 #### <a name="acknowledgement-and-next-relevant-contribution"></a>확인 및 다음 관련 기여
 사용자: ... 5월에 여행을 가려고 합니다.
-에이전트: **그러면**, 5월 며칠에 여행을 가시겠습니까?
+에이전트: 그러면, 5월 **며칠**에 여행을 가시겠습니까?
 사용자: 네, 12일에서 15일까지요.
 에이전트: **그러면**, 어느 도시로 가시겠습니까?
 
@@ -83,7 +83,7 @@ Agent: **Okay**, what's next?
 
 동작을 수행하는 봇은 수행이 성공한 증거를 표현해야 합니다.
 실패했거나 이해했다는 것을 나타내는 것도 중요합니다. 
-* 비 음성 Closure: 엘리베이터 버튼을 누르면 버튼의 등이 켜집니다.
+* 비-음성 클로저: 엘리베이터 버튼을 누르면 버튼의 등이 켜집니다.
 두 단계 프로세스:
 * 프레젠테이션 
 * 수락

@@ -7,12 +7,12 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.date: 08/28/2018
-ms.openlocfilehash: 660c10c400bb68e807f39eb1b7ccc38f500991e6
-ms.sourcegitcommit: 0f65857943d318da48df0a8654cde53e9a699116
+ms.openlocfilehash: 9b77f05b77017b17ba63e83fa2a8b58e483f9bf8
+ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53389316"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54225808"
 ---
 # <a name="bot-framework-frequently-asked-questions"></a>Bot Framework 질문과 대답
 
@@ -24,7 +24,7 @@ ms.locfileid: "53389316"
 CUI(대화 사용자 인터페이스)는 곧 사용 가능해질 예정이지만 현재 소수의 개발자만 새로운 대화 환경을 만들거나 사용자가 즐길 수 있는 대화 인터페이스로 기존 애플리케이션 및 서비스를 설정하는 데 필요한 전문 지식과 도구를 보유하고 있는 상황입니다. Microsoft는 Bot Framework를 만들어 개발자가 뛰어난 봇을 쉽게 개발하고 Microsoft의 프리미어 채널에 포함하여 대화가 진행되는 어디에서든지 사용자에게 봇을 연결할 수 있도록 하고 있습니다.
 
 ### <a name="what-is-the-v4-sdk"></a>V4 SDK란?
-Bot Builder v4 SDK는 이전 Bot Builder SDK에서 얻은 의견 및 학습 결과를 토대로 구축되었습니다. 이 키트는 봇 빌딩 블록의 풍부한 구성 요소화를 지원하면서 적절한 수준의 추상화를 제공합니다. 간단한 봇에서 시작하고 확장 가능한 모듈식 프레임워크를 사용하여 봇을 좀 더 정교하게 확장할 수 있습니다. GitHub에서 SDK에 대한 [FAQ](https://github.com/Microsoft/botbuilder-dotnet/wiki/FAQ)를 찾을 수 있습니다.
+Bot Framework v4 SDK는 이전 Bot Framework SDK에서 얻은 의견 및 학습 결과를 토대로 구축되었습니다. 이 키트는 봇 빌딩 블록의 풍부한 구성 요소화를 지원하면서 적절한 수준의 추상화를 제공합니다. 간단한 봇에서 시작하고 확장 가능한 모듈식 프레임워크를 사용하여 봇을 좀 더 정교하게 확장할 수 있습니다. GitHub에서 SDK에 대한 [FAQ](https://github.com/Microsoft/botbuilder-dotnet/wiki/FAQ)를 찾을 수 있습니다.
 
 ## <a name="bot-framework-sdk-version-3-lifetime-support"></a>Bot Framework SDK 버전 3 평생 지원 
 SDK V3 봇은 계속 실행되고, Azure Bot Service의 지원을 받습니다.  다른 프레임워크와 마찬가지로, Bot Framework SDK V4 릴리스 이후로 SDK V3를 위한 보안, 우선순위가 높은 버그 수정, 커넥터/프로토콜 레이어 업데이트가 계속 지원됩니다.  v3 지원은 2019년까지 계속 제공될 예정입니다.
@@ -73,7 +73,7 @@ SDK V3 봇은 계속 실행되고, Azure Bot Service의 지원을 받습니다. 
 
 Bot Framework는 Skype 및 기타 다양한 채널을 위한 응답성과 성능이 뛰어나고 확장이 가능한 고품질 봇을 빌드, 연결 및 배포하도록 디자인되었습니다. 이 SDK를 사용하여 풍부한 오디오 및 비디오 환경과 같은 Skype 관련 봇 상호 작용 뿐만 아니라 텍스트/sms, 이미지, 단추 및 카드 사용 가능 봇(오늘날 대화 환경에서 봇 상호 작용의 대부분을 구성)을 만들 수 있습니다.
 
-유용한 봇이 이미 있고 대상 사용자를 Skype 사용자로 확장하려는 경우 REST API용 Bot Builder를 통해 Skype(또는 기타 지원되는 채널)에 쉽게 연결할 수 있습니다.
+유용한 봇이 이미 있고 대상 사용자를 Skype 사용자로 확장하려는 경우 REST API용 Bot Framework를 통해(인터넷에 액세스할 수 있는 REST 엔드포인트가 있는 경우) 간단하게 Skype(또는 지원되는 기타 채널)에 연결할 수 있습니다.
 
 ## <a name="security-and-privacy"></a>보안 및 개인 정보
 ### <a name="do-the-bots-registered-with-the-bot-framework-collect-personal-information-if-yes-how-can-i-be-sure-the-data-is-safe-and-secure-what-about-privacy"></a>Bot Framework에 등록된 봇이 개인 정보를 수집하나요? 그렇다면 데이터가 안전하고 보안이 유지되는지 어떻게 확신할 수 있나요? 개인 정보 보호의 경우는 어떤가요?

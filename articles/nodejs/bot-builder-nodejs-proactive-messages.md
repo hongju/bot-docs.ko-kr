@@ -1,6 +1,6 @@
 ---
 title: 사전 대응 메시지 보내기 | Microsoft Docs
-description: Node.js용 Bot Builder SDK를 사용하여 사전 대응 메시지를 통해 현재 대화 흐름을 중단하는 방법을 알아봅니다.
+description: Node.js용 Bot Framework SDK를 사용하여 사전 대응 메시지를 통해 현재 대화 흐름을 중단하는 방법을 알아봅니다.
 author: v-ducvo
 ms.author: v-ducvo
 manager: kamrani
@@ -9,12 +9,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 4ca33d59c967bc4eebc2f88fa4ddd67a9a6af6d7
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: 8ca8043c5680a993fa27e2febb9740206691884c
+ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49997160"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54225578"
 ---
 # <a name="send-proactive-messages"></a>사전 대응 메시지 보내기
 [!INCLUDE [pre-release-label](../includes/pre-release-label-v3.md)]
@@ -31,7 +31,7 @@ ms.locfileid: "49997160"
 
 ## <a name="send-an-ad-hoc-proactive-message"></a>임시 사전 대응 메시지 보내기
 
-다음 코드 샘플은 Node.js용 Bot Builder SDK를 사용하여 임시 사전 대응 메시지를 보내는 방법을 보여 줍니다.
+다음 코드 샘플은 Node.js용 Bot Framework SDK를 사용하여 임시 사전 대응 메시지를 보내는 방법을 보여줍니다.
 
 사용자에게 임시 메시지를 보낼 수 있으려면 봇이 먼저 현재 대화에서 사용자에 대한 정보를 수집하고 저장해야 합니다. 메시지의 **address** 속성에는 나중에 봇이 사용자에게 임시 메시지를 보내는 데 필요한 모든 정보가 포함됩니다. 
 
@@ -71,7 +71,7 @@ function sendProactiveMessage(address) {
 
 ## <a name="send-a-dialog-based-proactive-message"></a>대화 상자 기반 사전 대응 메시지 보내기
 
-다음 코드 샘플은 Node.js용 Bot Builder SDK를 사용하여 대화 상자 기반 사전 대응 메시지를 보내는 방법을 보여 줍니다. [Microsoft/BotBuilder-Samples/Node/core-proactiveMessages/startNewDialog](https://github.com/Microsoft/BotBuilder-Samples/tree/master/Node/core-proactiveMessages/startNewDialog) 폴더에서 전체 작업 예제를 찾을 수 있습니다.
+다음 코드 샘플은 Node.js용 Bot Framework SDK를 사용하여 다이얼로그 기반 사전 대응 메시지를 보내는 방법을 보여줍니다. [Microsoft/BotBuilder-Samples/Node/core-proactiveMessages/startNewDialog](https://github.com/Microsoft/BotBuilder-Samples/tree/master/Node/core-proactiveMessages/startNewDialog) 폴더에서 전체 작업 예제를 찾을 수 있습니다.
 
 사용자에게 대화 상자 기반 메시지를 보낼 수 있으려면 봇이 먼저 현재 대화에서 정보를 수집하고 저장해야 합니다. `session.message.address` 개체에는 봇이 사용자에게 대화 상자 기반 사전 대응 메시지를 보내는 데 필요한 모든 정보가 포함됩니다. 
 
@@ -122,7 +122,7 @@ bot.dialog('survey', function (session, args, next) {
 
 ## <a name="sample-code"></a>샘플 코드
 
-Node.js용 Bot Builder SDK를 사용하여 사전 대응 메시지를 보내는 방법을 보여 주는 전체 샘플은 GitHub의 <a href="https://github.com/Microsoft/BotBuilder-Samples/tree/master/Node/core-proactiveMessages" target="_blank">Proactive Messages sample</a>(사전 대응 메시지 샘플)을 참조하세요. 사전 대응 메시지 샘플 내에서 <a href="https://github.com/Microsoft/BotBuilder-Samples/tree/master/Node/core-proactiveMessages/simpleSendMessage" target="_blank">simpleSendMessage</a>는 임시 사전 대응 메시지를 보내는 방법을 보여주고 <a href="https://github.com/Microsoft/BotBuilder-Samples/tree/master/Node/core-proactiveMessages/startNewDialog" target="_blank">startNewDialog</a>는 대화 상자 기반 사전 대응 메시지를 보내는 방법을 보여줍니다.
+Node.js용 Bot Framework SDK를 사용하여 사전 대응 메시지를 보내는 방법을 보여주는 전체 샘플은 GitHub의 <a href="https://github.com/Microsoft/BotBuilder-Samples/tree/master/Node/core-proactiveMessages" target="_blank">Proactive Messages sample</a>(사전 대응 메시지 샘플)을 참조하세요. 사전 대응 메시지 샘플 내에서 <a href="https://github.com/Microsoft/BotBuilder-Samples/tree/master/Node/core-proactiveMessages/simpleSendMessage" target="_blank">simpleSendMessage</a>는 임시 사전 대응 메시지를 보내는 방법을 보여주고 <a href="https://github.com/Microsoft/BotBuilder-Samples/tree/master/Node/core-proactiveMessages/startNewDialog" target="_blank">startNewDialog</a>는 대화 상자 기반 사전 대응 메시지를 보내는 방법을 보여줍니다.
 
 ## <a name="additional-resources"></a>추가 리소스
 

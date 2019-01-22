@@ -1,6 +1,6 @@
 ---
 title: FormFlow의 고급 기능 | Microsoft Docs
-description: FormFlow 및 .NET용 Bot Builder SDK를 사용하여 사용자 환경을 사용자 지정하는 방법을 알아봅니다.
+description: FormFlow 및 .NET용 Bot Framework SDK를 사용하여 사용자 환경을 사용자 지정하는 방법을 알아봅니다.
 author: RobStand
 ms.author: kamrani
 manager: kamrani
@@ -9,12 +9,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: fbdaa845c86150a572772c4aae8239880f42dd9e
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: d04e13babef847a44438e1a748990d7405478fa2
+ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49997780"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54225958"
 ---
 # <a name="advanced-features-of-formflow"></a>FormFlow의 고급 기능
 
@@ -277,7 +277,7 @@ For sandwich I understood Rotisserie Style Chicken. "checkin" is not an option.
 - [양식 콘텐츠 지역화](bot-builder-dotnet-formflow-localize.md)
 - [JSON 스키마를 사용하여 양식 정의](bot-builder-dotnet-formflow-json-schema.md)
 - [패턴 언어를 사용하여 사용자 환경 사용자 지정](bot-builder-dotnet-formflow-pattern-language.md)
-- <a href="/dotnet/api/?view=botbuilder-3.11.0" target="_blank">.NET용 Bot Builder SDK 참조</a>
+- <a href="/dotnet/api/?view=botbuilder-3.11.0" target="_blank">.NET용 Bot Framework SDK 참조</a>
 
 [formDialog]: /dotnet/api/microsoft.bot.builder.formflow.formdialog
 

@@ -1,6 +1,6 @@
 ---
 title: 분기 및 루프를 사용하여 고급 대화 흐름 만들기 | Microsoft Docs
-description: Bot Builder SDK에서 대화를 사용하여 복잡한 대화 흐름을 관리하는 방법을 알아봅니다.
+description: Bot Framework SDK에서 대화를 사용하여 복잡한 대화 흐름을 관리하는 방법을 알아봅니다.
 keywords: 복잡한 대화 흐름, 반복, 루프, 메뉴, 다이얼로그, 프롬프트, 폭포, 다이얼로그 집합
 author: JonathanFingold
 ms.author: v-jofing
@@ -10,12 +10,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 11/28/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: da891fad019fc1725242404905565bb1072f8540
-ms.sourcegitcommit: 4db09039effc5259feba163128f4e9a3ccdd3d0d
+ms.openlocfilehash: 27bcd53e9f3d582a1206c5ed74cc844acab795b4
+ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52585894"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54225888"
 ---
 # <a name="create-advanced-conversation-flow-using-branches-and-loops"></a>분기 및 루프를 사용하여 고급 대화 흐름 만들기
 

@@ -1,7 +1,7 @@
 ---
 title: .NET을 사용하여 Cortana 기술 빌드 | Microsoft Docs
-description: .NET용 Bot Builder SDK에서 Cortana 기술을 빌드하는 경우의 핵심 개념을 알아봅니다.
-keywords: Bot Framework, Cortana 기술, 음성, .NET, Bot Builder, SDK, 주요 개념, 핵심 개념
+description: .NET용 Bot Framework SDK에서 Cortana Skill을 빌드하기 위한 핵심 개념을 알아봅니다.
+keywords: Bot Framework, Cortana 기술, 음성, .NET, SDK, 주요 개념, 핵심 개념
 author: DeniseMak
 manager: kamrani
 ms.topic: article
@@ -9,12 +9,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 030d17fa25a436ee8e8a1d093924e61f12e14e18
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: 98fc10a806a4c8d1a4d6563934d92b0e0cdbb771
+ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49998316"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54224778"
 ---
 # <a name="build-a-speech-enabled-bot-with-cortana-skills"></a>Cortana Skill을 사용하여 음성 지원 봇 빌드
 
@@ -25,11 +25,11 @@ ms.locfileid: "49998316"
 > - [Node.JS](../nodejs/bot-builder-nodejs-cortana-skill.md)
 
 
-.NET용 Bot Builder SDK를 사용하면 Cortana 기술로 Cortana 채널에 연결하여 음성 지원 봇을 빌드할 수 있습니다. 
+.NET용 Bot Framework SDK를 사용하면 Cortana Skill로 Cortana 채널에 연결하여 음성 지원 봇을 빌드할 수 있습니다. 
 
 
 > [!TIP]
-> 기술 정의 및 수행할 수 있는 작업에 대한 자세한 내용은 [Cortana 기술 키트][CortanaGetStarted]를 참조하세요.
+> 기술 정의 및 수행할 수 있는 작업에 대한 자세한 내용은 [Cortana Skill 키트][CortanaGetStarted]를 참조하세요.
 
 Bot Framework를 사용하여 Cortana 기술을 만드는 경우 Cortana 관련 지식이 거의 필요하지 않으며, 주로 봇 빌드로 이루어집니다. 이전에 만든 다른 봇과의 주요 차이점 중 하나는 Cortana에는 시각적 구성 요소와 오디오 구성 요소가 둘 다 포함된다는 것입니다. 시각적 구성 요소의 경우, Cortana는 카드 등의 콘텐츠 렌더링을 위한 캔버스 영역을 제공합니다. 오디오 구성 요소의 경우, 봇 메시지에 텍스트 또는 SSML을 제공하면 Cortana가 사용자에게 읽어주므로 봇에 음성을 제공합니다. 
 
@@ -38,7 +38,7 @@ Bot Framework를 사용하여 Cortana 기술을 만드는 경우 Cortana 관련 
 
 ## <a name="adding-speech-to-your-bot"></a>봇에 음성 추가
 
-봇의 음성 메시지는 SSML(Speech Synthesis Markup Language)로 표현됩니다. Bot Builder SDK를 사용하면 봇 응답에 SSML을 포함하여 봇이 보여 주는 내용뿐 아니라 봇이 말하는 내용도 제어할 수 있습니다.  봇이 사용자 입력을 허용하거나, 필요로 하거나, 무시하는지 지정하여 Cortana 마이크의 상태를 제어할 수도 있습니다.
+봇의 음성 메시지는 SSML(Speech Synthesis Markup Language)로 표현됩니다. Bot Framework SDK를 사용하면 봇 응답에 SSML을 포함하여 봇이 보여주는 내용뿐 아니라 봇이 말하는 내용도 제어할 수 있습니다.  봇이 사용자 입력을 허용하거나, 필요로 하거나, 무시하는지 지정하여 Cortana 마이크의 상태를 제어할 수도 있습니다.
 
 `IMessageActivity` 개체의 `Speak` 속성을 설정하여 Cortana가 말할 메시지를 지정합니다. 일반 텍스트를 지정하는 경우 Cortana가 단어의 발음 방법을 결정합니다. 
 
@@ -335,7 +335,7 @@ Cortana에 해당 [호출 이름][InvocationNameGuidelines]을 말하여 기술�
 * [Cortana 카드 디자인 모범 사례][CardDesign]
 * [Cortana 개발자 센터][CortanaDevCenter]
 * [Cortana 테스트 및 디버그 모범 사례][Cortana-TestBestPractice]
-* <a href="/dotnet/api/?view=botbuilder-3.11.0" target="_blank">.NET용 Bot Builder SDK 참조</a>
+* <a href="/dotnet/api/?view=botbuilder-3.11.0" target="_blank">.NET용 Bot Framework SDK 참조</a>
 
 [CortanaGetStarted]: /cortana/getstarted
 [BFPortal]: https://dev.botframework.com/

@@ -1,6 +1,6 @@
 ---
-title: dialog를 사용하여 대화 흐름 관리 | Microsoft Docs
-description: Node.js용 Bot Builder SDK에서 dialog를 사용하여 봇과 사용자 사이의 대화를 관리하는 방법을 알아봅니다.
+title: 다이얼로그를 사용하여 대화 흐름 관리 | Microsoft Docs
+description: Node.js용 Bot Framework SDK에서 다이얼로그를 사용하여 봇과 사용자 사이의 대화를 관리하는 방법을 알아봅니다.
 author: v-ducvo
 ms.author: v-ducvo
 manager: kamrani
@@ -9,12 +9,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 133f085a857d1bb8bf7622e7adab19374902327d
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: 96c28101c3ea72c70c6ad53b06306f4ea00b2929
+ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49997770"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54225608"
 ---
 # <a name="manage-conversation-flow-with-dialogs"></a>다이얼로그를 사용하여 대화 흐름 관리
 
@@ -24,9 +24,9 @@ ms.locfileid: "49997770"
 > - [.NET](../dotnet/bot-builder-dotnet-manage-conversation-flow.md)
 > - [Node.JS](../nodejs/bot-builder-nodejs-dialog-manage-conversation-flow.md)
 
-대화 흐름 관리는 봇을 빌드하는 데 필수적인 작업입니다. 봇은 핵심적인 작업을 원활하게 수행하고 중단을 정상적으로 처리할 수 있어야 합니다. Node.js용 Bot Builder SDK를 사용하면 dialog를 사용하여 대화 흐름을 관리할 수 있습니다.
+대화 흐름 관리는 봇을 빌드하는 데 필수적인 작업입니다. 봇은 핵심적인 작업을 원활하게 수행하고 중단을 정상적으로 처리할 수 있어야 합니다. Node.js용 Bot Framework SDK를 사용하면 다이얼로그를 사용하여 대화 흐름을 관리할 수 있습니다.
 
-dialog는 프로그램의 함수와 같습니다. 대개 특정 작업을 수행하도록 디자인되며 필요한 만큼 호출할 수 있습니다. 여러 개의 dialog를 함께 연결하여 봇이 처리할 대화 흐름을 처리할 수 있습니다. Node.js용 Bot Builder SDK에는 대화 흐름을 관리하는 데 도움이 되는 [prompt](bot-builder-nodejs-dialog-prompt.md) 및 [waterfall](bot-builder-nodejs-dialog-waterfall.md)과 같은 기본 제공 기능이 포함됩니다.
+다이얼로그는 프로그램의 함수와 같습니다. 대개 특정 작업을 수행하도록 디자인되며 필요한 만큼 호출할 수 있습니다. 여러 개의 다이얼로그를 함께 연결하여 봇이 처리할 대화 흐름을 처리할 수 있습니다. Node.js용 Bot Framework SDK에는 대화 흐름을 관리하는 데 도움이 되는 [prompt](bot-builder-nodejs-dialog-prompt.md) 및 [waterfall](bot-builder-nodejs-dialog-waterfall.md)과 같은 기본 제공 기능이 포함됩니다.
 
 이 문서에서는 간단한 대화 흐름과 복잡한 대화 흐름을 관리하는 방법을 설명하는 일련의 예제를 제공합니다. 여기서 봇은 dialog를 사용하여 중단을 처리하고 정상적으로 흐름을 재개할 수 있습니다. 예제는 다음 시나리오를 기반으로 합니다. 
 
@@ -95,7 +95,7 @@ var bot = new builder.UniversalBot(connector, [..waterfall steps..]).set('storag
 
 이 예제의 각 단계에는 사용자에게 입력을 요구하는 프롬프트가 사용됩니다. 프롬프트는 사용자에게 입력을 요청하고, 응답을 기다리고, 응답을 waterfall의 다음 단계에 반환하는 특별한 형식의 dialog입니다. 봇에서 사용할 수 있는 다양한 형식의 프롬프트에 대한 정보는 [사용자에게 입력 요청](bot-builder-nodejs-dialog-prompt.md)을 참조하세요.
 
-이 예제에서 봇은 `Prompts.text()`를 사용하여 사용자에게 텍스트 형식의 자유형 응답을 요청합니다. 사용자는 원하는 텍스트로 응답할 수 있고 봇은 이 응답을 어떻게 처리할지 결정해야 합니다. `Prompts.time()`은 [Chrono](https://github.com/wanasit/chrono) 라이브러리를 사용하여 문자열에서 날짜와 시간 정보를 구문 분석합니다. 따라서 날짜와 시간을 지정하는 자연어를 봇이 더 잘 이해할 수 있습니다. 예: '2017년 6월 6일 오후 9시', '오늘 오후 7시 30분', '다음 주 월요일 오후 6시' 등
+이 예제에서 봇은 `Prompts.text()`를 사용하여 사용자에게 텍스트 형식의 자유형 응답을 요청합니다. 사용자는 원하는 텍스트로 응답할 수 있고 봇은 이 응답을 어떻게 처리할지 결정해야 합니다. `Prompts.time()`은 [Chrono](https://github.com/wanasit/chrono) 라이브러리를 사용하여 문자열에서 날짜와 시간 정보를 구문 분석합니다. 따라서 날짜와 시간을 지정하는 자연어를 봇이 더 잘 이해할 수 있습니다. 예:  "2017년 6월 6일 오후 9시", "오늘 오후 7시 30분", "다음 주 월요일 오후 6시" 등
 
 > [!TIP] 
 > 사용자가 입력하는 시간은 봇을 호스트하는 서버의 표준 시간대에 따라 UTC 시간으로 변환됩니다. 서버가 사용자와 다른 표준 시간대에 있을 수 있으므로 표준 시간대를 고려해야 합니다. 날짜 및 시간을 사용자의 현지 시간으로 변환하려면 사용자에게 사용자의 표준 시간대를 요청하는 것이 좋습니다.
@@ -174,7 +174,7 @@ bot.dialog('askForReserverName', [
 
 일련의 작업을 통해 사용자를 안내하는 과정에서, 답변을 하기 전에 사용자가 질문을 하거나 추가 정보를 요청하면 어떻게 요청을 처리하시겠습니까? 예를 들어 사용자가 대화에 참여하는 곳에 관계없이 사용자가 "도움말", "지원" 또는 "취소"를 입력하면 봇이 어떻게 응답해야 할까요? 사용자가 단계에 대한 정보를 더 원하는 경우에는 어떻게 해야 할까요? 사용자가 마음을 바꿔서 현재 작업을 포기하고 완전히 다른 작업을 시작하려고 하면 어떻게 되나요?
 
-Node.js용 Bot Builder SDK에서는 봇이 현재 dialog의 범위에서 글로벌 컨텍스트 또는 로컬 컨텍스트 내의 특정 입력을 수신 대기할 수 있습니다. 이러한 입력을 [action](bot-builder-nodejs-dialog-actions.md)(동작)이라고 하며, 봇은 `matches` 절을 기반으로 사용자 입력을 수신 대기할 수 있습니다. 특정 사용자 입력에 대응하는 방식을 결정하는 것은 봇에게 달려 있습니다.
+Node.js용 Bot Framework SDK에서는 봇이 현재 다이얼로그의 범위에서 글로벌 컨텍스트 또는 로컬 컨텍스트 내의 특정 입력을 수신 대기할 수 있습니다. 이러한 입력을 [action](bot-builder-nodejs-dialog-actions.md)(동작)이라고 하며, 봇은 `matches` 절을 기반으로 사용자 입력을 수신 대기할 수 있습니다. 특정 사용자 입력에 대응하는 방식을 결정하는 것은 봇에게 달려 있습니다.
 
 ### <a name="handle-global-action"></a>글로벌 동작 처리
 

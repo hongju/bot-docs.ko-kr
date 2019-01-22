@@ -8,13 +8,14 @@ manager: kamrani
 ms.topic: get-started-article
 ms.service: bot-service
 ms.subservice: abs
-ms.date: 12/17/2018
-ms.openlocfilehash: 831268b1ddc711963c20ca9c99b333f070a6100c
-ms.sourcegitcommit: 8c10aa7372754596a3aa7303a3a893dd4939f7e9
+ms.date: 01/15/2019
+monikerRange: azure-bot-service-4.0
+ms.openlocfilehash: 78e960357d6c4dc1c9751a9921a2338f552738b0
+ms.sourcegitcommit: b94361234816e6b95459f142add936732fc40344
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53654328"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54317619"
 ---
 # <a name="deploy-bots-from-botbuilder-samples-repo"></a>botbuilder 샘플 리포지토리에서 봇 배포
 
@@ -35,14 +36,18 @@ ms.locfileid: "53654328"
 - Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 - [.NET Core SDK](https://dotnet.microsoft.com/download) v2.2 이상을 설치합니다. `dotnet --version`을 사용하여 사용 중인 버전을 확인합니다.
 - 최신 버전의 [Azure CLI 도구](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)를 설치합니다. `az --version`을 사용하여 사용 중인 버전을 확인합니다.
-- `az` 도구에 대한 최신 `botservice` 확장을 설치합니다.
-  - 먼저 `az extension remove -n botservice` 명령을 사용하여 이전 버전을 제거합니다. 다음으로 `az extension add -n botservice` 명령을 사용하여 최신 버전을 설치합니다.
 - 최신 버전의 [MSBot](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/MSBot) 도구를 설치합니다.
   - 복제 작업에 LUIS 또는 디스패치 리소스가 포함되는 경우 [LUIS CLI](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/LUIS#installation)가 필요합니다.
   - 복제 작업에 QnA Maker 리소스가 포함되는 경우 [QnA Maker CLI](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/QnAMaker#as-a-cli)가 필요합니다.
 - [Bot Framework Emulator](https://aka.ms/Emulator-wiki-getting-started)를 설치합니다.
 - [ngrok](https://github.com/Microsoft/BotFramework-Emulator/wiki/Tunneling-%28ngrok%29)를 설치 및 구성합니다.
 - [.bot](v4sdk/bot-file-basics.md) 파일에 대한 지식.
+
+msbot 4.3.2 이상에서는 Azure CLI 버전 2.0.54 이상이 필요합니다. botservice 확장을 설치한 경우 이 명령을 사용하여 제거하세요.
+
+```cmd
+az extension remove --name botservice
+```
 
 ### <a name="c"></a>C\#
 
@@ -152,13 +157,13 @@ Copy this secret and use it to open the <file.bot> the first time.`
 `msbot clone services` 명령은 Azure에서 봇 코드를 업데이트하는 데 사용하지 마세요. 아래와 같이 `az bot publish` 명령을 사용해야 합니다.
 
 ```cmd
-az bot publish --name "<your-azure-bot-name>" --proj-file "<your-proj-file>" --resource-group "<azure-resource-group>" --code-dir "<folder>" --verbose --version v4
+az bot publish --name "<your-azure-bot-name>" --proj-name "<your-proj-name>" --resource-group "<azure-resource-group>" --code-dir "<folder>" --verbose --version v4
 ```
 
 | 인수        | 설명 |
 |----------------  |-------------|
 | `name`      | 봇이 Azure에 처음 배포될 때 사용한 이름입니다.|
-| `proj-file` | C# 봇의 경우 .csproj 파일입니다. JS/TS 봇의 경우 로컬 봇의 시작 프로젝트 파일 이름(예: index.js 또는 index.ts)입니다.|
+| `proj-name` | C#인 경우 게시해야 하는 시작 프로젝트 파일 이름(.csproj 제외)입니다. 예: `EnterpriseBot` Node.js인 경우 봇의 주 진입점을 사용합니다. 예: `index.js` |
 | `resource-group` | `msbot clone services` 명령이 사용한 Azure 리소스 그룹입니다.|
 | `code-dir`  | 로컬 봇 폴더를 가리킵니다.|
 

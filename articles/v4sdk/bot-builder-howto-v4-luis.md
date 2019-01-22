@@ -1,6 +1,6 @@
 ---
 title: 봇에 자연어 해석 추가 | Microsoft Docs
-description: 자연어 이해를 위한 LUIS를 Bot Builder SDK와 함께 사용하는 방법을 알아봅니다.
+description: 자연어 이해를 위한 LUIS를 Bot Framework SDK와 함께 사용하는 방법을 알아봅니다.
 keywords: Language Understanding, LUIS, 의도, 인식기, 엔터티, 미들웨어
 author: ivorb
 ms.author: v-ivorb
@@ -10,12 +10,12 @@ ms.service: bot-service
 ms.subservice: cognitive-services
 ms.date: 11/28/18
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: a512cb92f35374b457c4d4cef05667edbd8d2f1f
-ms.sourcegitcommit: 892bf81d306ba607c293ee8639d5c6b66ab3710a
+ms.openlocfilehash: 77dbf8658030a18596507129c88156601d4272e5
+ms.sourcegitcommit: d385ec5fe61c469ab17e6f21b4a0d50e5110d0fd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52460012"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54298310"
 ---
 # <a name="add-natural-language-understanding-to-your-bot"></a>봇에 자연어 해석 추가
 
@@ -33,7 +33,7 @@ LUIS 포털에 로그인하여 사용자 고유 버전의 LUIS 샘플 앱을 만
 
 1. **새 앱 가져오기**를 선택합니다. 
 1. **앱 파일 선택(JSON 형식)...** 을 클릭합니다. 
-1. 샘플의 `CognitiveModels` 폴더에 있는 `reminders.json` 파일을 선택합니다. **옵션 이름**에서 **LuisBot**을 입력합니다. 이 파일에는 Calendar_Add(일정 추가), Calendar_Find(일정 찾기) 및 None(없음)의 세 가지 의도가 있습니다. 이러한 의도를 사용하여 사용자가 봇에 메시지를 보낼 때 의미하는 바를 이해합니다. 엔터티를 포함시키려면 이 문서의 끝 부분에 나오는 [선택 사항 섹션](#optional---extract-entities)을 참조하세요.
+1. 샘플의 `CognitiveModels` 폴더에 있는 `reminders.json` 파일을 선택합니다. **옵션 이름**에서 **LuisBot**을 입력합니다. 이 파일에는 세 가지 의도 Calendar_Add, Calendar_Find 및 없음이 포함되어 있습니다. 이러한 의도를 사용하여 사용자가 봇에 메시지를 보낼 때 의미하는 바를 이해합니다. 엔터티를 포함시키려면 이 문서의 끝 부분에 나오는 [선택 사항 섹션](#optional---extract-entities)을 참조하세요.
 1. 앱을 [학습](https://docs.microsoft.com/en-us/azure/cognitive-services/LUIS/luis-how-to-train)합니다.
 1. 앱을 *프로덕션* 환경에 [게시](https://docs.microsoft.com/en-us/azure/cognitive-services/LUIS/publishapp)합니다.
 
@@ -45,7 +45,7 @@ LUIS 앱이 게시되면 봇에서 액세스할 수 있습니다. 봇 내에서 
 .bot 파일은 모든 서비스 참조를 한 곳에 모을 수 있는 장소입니다. 검색한 정보는 다음 섹션에서 .bot 파일에 추가됩니다. 
 1. [luis.ai](https://www.luis.ai)에서 게시된 LUIS 앱을 선택합니다.
 1. 게시된 LUIS 앱이 열리면 **관리** 탭을 선택합니다.
-1. 왼쪽에서 **응용 프로그램 정보** 탭을 선택하고 _응용 프로그램 ID_에 <YOUR_APP_ID>로 표시되는 값을 기록합니다.
+1. 왼쪽에서 **애플리케이션 정보** 탭을 선택하고 _애플리케이션 ID_에 &lt;YOUR_APP_ID&gt;로 표시되는 값을 기록합니다.
 1. 왼쪽에서 **키 및 엔드포인트** 탭을 선택하고 _제작 키_에 <YOUR_AUTHORING_KEY>로 표시되는 값을 기록합니다. *구독 키*는 *제작 키*와 동일합니다. 
 1. 페이지 끝까지 아래로 스크롤하여 _지역_에 대해 표시된 값을 <YOUR_REGION>으로 기록합니다.
 1. _엔드포인트_에 표시된 값을 <YOUR_ENDPOINT>로 기록합니다.
@@ -185,7 +185,7 @@ public class LuisBot : IBot
 `LUIS_CONFIGURATION` 값을 구성 파일에 표시되는 LUIS 앱의 이름으로 업데이트합니다.
 
 ```javascript
-// Language Understanding (LUIS) service name as defined in the .bot file.YOUR_LUIS_APP_NAME is "LuisBot" in the C# code.
+// Language Understanding (LUIS) service name as defined in the .bot file.YOUR_LUIS_APP_NAME is "LuisBot" in the JavaScript code.
 const LUIS_CONFIGURATION = '<YOUR_LUIS_APP_NAME>';
 
 // Get endpoint and LUIS configurations by service name.
@@ -375,7 +375,7 @@ LUIS 엔터티를 사용하면 표준 의도와 다른 특정 사물이나 이�
 
 ### <a name="prerequisites"></a>필수 조건
 
-이 샘플에서 엔터티를 사용하려면 엔터티가 포함된 LUIS 앱을 만들어야 합니다. 위의 [LUIS 앱 만들기](#create-a-luis-app-in-the-luis-portal) 섹션에 나오는 단계를 따르지만, `reminders.json` 파일을 사용하는 대신 [reminders-yould-Enterities.json](https://github.com/Microsoft/BotFramework-Samples/tree/master/SDKV4-Samples/dotnet_core/nlp-with-luis) 파일을 사용하여 LUIS 앱을 빌드합니다. 이 파일은 동일한 의도와 Appointment(약속), Meeting(모임) 및 Schedule(일정)의 세 가지 추가 엔터티를 제공합니다. 이러한 엔터티는 LUIS에서 사용자 메시지의 의도를 결정하는 데 도움이 됩니다. 
+이 샘플에서 엔터티를 사용하려면 엔터티가 포함된 LUIS 앱을 만들어야 합니다. 위의 [LUIS 앱 만들기](#create-a-luis-app-in-the-luis-portal) 섹션에 나오는 단계를 따르지만, `reminders.json` 파일을 사용하는 대신 [reminders-yould-Enterities.json](https://github.com/Microsoft/BotFramework-Samples/tree/master/SDKV4-Samples/dotnet_core/nlp-with-luis) 파일을 사용하여 LUIS 앱을 빌드합니다. 이 파일은 동일한 의도와 세 가지 추가 엔터티 Appointment(약속), Meeting(모임) 및 Schedule(일정)을 제공합니다. 이러한 엔터티는 LUIS에서 사용자 메시지의 의도를 결정하는 데 도움이 됩니다. 
 
 ### <a name="extract-and-display-entities"></a>엔터티 추출 및 표시
 다음 선택적 코드는 LUIS에서 엔터티를 사용하여 사용자의 의도를 식별할 때 엔터티 정보를 추출하고 표시하기 위해 이 샘플 앱에 추가할 수 있습니다. 

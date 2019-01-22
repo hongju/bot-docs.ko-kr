@@ -1,6 +1,6 @@
 ---
 title: Skype를 사용한 실시간 미디어 호출 | Microsoft Docs
-description: .NET용 Bot Builder SDK를 사용하여 Skype에서 실시간 음성 및 영상 통화를 수행할 수 있는 봇을 빌드할 때 필요한 핵심 개념을 이해합니다.
+description: .NET용 Bot Framework SDK를 사용하여 Skype에서 실시간 음성 및 영상 통화를 수행할 수 있는 봇을 빌드할 때 필요한 핵심 개념을 이해합니다.
 author: ssulzer
 ms.author: ssulzer
 manager: kamrani
@@ -9,12 +9,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: cf11a68c7ccc404506fdfe01dcf12c7c421f4e2b
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: 893458a484c0e26545c23016ccbf3049adc61960
+ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49998347"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54225258"
 ---
 # <a name="real-time-media-calling-with-skype"></a>Skype를 사용한 실시간 미디어 호출
 
@@ -58,7 +58,7 @@ ms.locfileid: "49998347"
 
 실시간 미디어 봇을 개발하려면 Visual Studio 프로젝트 내에서 다음과 같은 NuGet 패키지를 설치해야 합니다.
 
-- [.NET용 봇 작성기 SDK](bot-builder-dotnet-overview.md)
+- [용 Bot Framework SDK](bot-builder-dotnet-overview.md)
 - [.NET용 Bot Builder 실시간 미디어 호출](https://www.nuget.org/packages?q=Bot.Builder.RealTimeMediaCalling)
 - [Microsoft.Skype.Bots.Media .NET 라이브러리](https://www.nuget.org/packages?q=Microsoft.Skype.Bots.Media)
 

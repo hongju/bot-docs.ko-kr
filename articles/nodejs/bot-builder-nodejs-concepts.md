@@ -1,6 +1,6 @@
 ---
-title: Node.js용 Bot Builder SDK의 주요 개념 | Microsoft Docs
-description: Node.js용 Bot Builder SDK에서 사용할 수 있는 대화 봇의 빌드 및 배포와 관련한 주요 개념과 도구를 살펴봅니다.
+title: Node.js용 Bot Framework SDK의 주요 개념 | Microsoft Docs
+description: Node.js용 Bot Framework SDK에서 사용할 수 있는 대화 봇을 빌드 및 배포하기 위한 주요 개념과 도구를 살펴봅니다.
 author: DeniseMak
 ms.author: v-demak
 manager: kamrani
@@ -9,14 +9,14 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 43b6f669cdbc91b78094d3d0d9e7a54f97f9884f
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: efd47cb1ae48c34d58d673eaea04feeb1869b640
+ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49998030"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54225448"
 ---
-# <a name="key-concepts-in-the-bot-builder-sdk-for-nodejs"></a>Node.js용 Bot Builder SDK의 주요 개념
+# <a name="key-concepts-in-the-bot-framework-sdk-for-nodejs"></a>Node.js용 Bot Framework SDK의 주요 개념
 
 [!INCLUDE [pre-release-label](../includes/pre-release-label-v3.md)]
 
@@ -24,14 +24,14 @@ ms.locfileid: "49998030"
 > - [.NET](../dotnet/bot-builder-dotnet-concepts.md)
 > - [Node.JS](../nodejs/bot-builder-nodejs-concepts.md)
 
-이 문서에서는 Node.js용 Bot Builder SDK의 주요 개념을 소개합니다. Bot Framework에 대한 소개는 [Bot Framework 개요](../overview-introduction-bot-framework.md)를 참조하세요.
+이 문서에서는 Node.js용 Bot Framework SDK의 주요 개념을 소개합니다. Bot Framework에 대한 소개는 [Bot Framework 개요](../overview-introduction-bot-framework.md)를 참조하세요.
 
 ## <a name="connector"></a>커넥터
 
 Bot Framework 커넥터는 Skype, Facebook, Slack 및 SMS와 같은 클라이언트에 해당하는 여러 *채널*에 봇을 연결하는 서비스입니다. 이 커넥터는 봇에서 채널로, 그리고 채널에서 봇으로 메시지를 릴레이하면서 봇과 사용자 간의 통신을 용이하게 합니다. 봇의 논리는 커넥터 서비스를 통해 사용자로부터 메시지를 수신하는 웹 서비스로 호스팅되며, 봇의 회신은 HTTPS POST를 사용하여 커넥터로 전송됩니다. 
 
-Node.js용 Bot Builder SDK는 Bot Framework 커넥터를 통해 메시지를 주고 받도록 봇을 구성하는 데 필요한 [UniversalBot][UniversalBot] 및 [ChatConnector][ChatConnector] 클래스를 제공합니다. `UniversalBot` 클래스는 봇의 두뇌를 구성합니다. 봇이 사용자와 수행하는 모든 대화를 관리해야 합니다. `ChatConnector` 클래스는 봇을 Bot Framework 커넥터 서비스에 연결합니다.
-이러한 클래스의 사용을 보여 주는 예제는 [Node.js용 Bot Builder SDK를 사용하여 봇 만들기](bot-builder-nodejs-quickstart.md)를 참조하세요.
+Node.js용 Bot Framework SDK는 Bot Framework 커넥터를 통해 메시지를 주고 받도록 봇을 구성하는 데 필요한 [UniversalBot][UniversalBot] 및 [ChatConnector][ChatConnector] 클래스를 제공합니다. `UniversalBot` 클래스는 봇의 두뇌를 구성합니다. 봇이 사용자와 수행하는 모든 대화를 관리해야 합니다. `ChatConnector` 클래스는 봇을 Bot Framework 커넥터 서비스에 연결합니다.
+이러한 클래스의 사용법을 보여주는 예제는 [Node.js용 Bot Framework SDK를 사용하여 봇 만들기](bot-builder-nodejs-quickstart.md)를 참조하세요.
 
 또한 이 커넥터는 봇이 채널에 보내는 메시지를 정규화하므로 플랫폼과 상관없는 방식으로 봇을 개발할 수 있습니다. 메시지를 정규화하려면 Bot Framework의 스키마에서 채널의 스키마로 변환해야 합니다. 채널이 프레임워크의 스키마 중 일부를 지원하지 않는 경우 커넥터는 채널이 지원하는 형식으로 메시지를 변환하려고 시도합니다. 예를 들어, 봇이 작업 단추가 있는 카드가 포함된 메시지를 SMS 채널에 보내면 커넥터는 카드를 이미지로 렌더링하고 메시지 텍스트에 링크로 작업을 포함시킬 수 있습니다. [채널 검사기][ChannelInspector]는 커넥터가 다양한 채널에서 메시지를 렌더링하는 방법을 보여 주는 웹 도구입니다.
 
@@ -47,19 +47,19 @@ Node.js용 Bot Builder SDK는 Bot Framework 커넥터를 통해 메시지를 주
 대화 상자는 봇의 대화 논리를 구성하도록 도와주며, [대화 흐름을 설계](../bot-service-design-conversation-flow.md)하는 데 핵심입니다. 대화 상자에 대한 소개는 [대화 상자로 대화 관리](bot-builder-nodejs-dialog-manage-conversation.md)를 참조하세요.
 
 ## <a name="actions"></a>작업
-대화 흐름 중 언제든지 취소나 도움 요청과 같은 중단을 처리할 수 있도록 봇을 설계해야 합니다. Node.js용 Bot Builder SDK는 취소 또는 다른 대화 상자 호출과 같은 작업을 트리거하는 글로벌 메시지 처리기를 제공합니다. [triggerAction][triggerAction] 처리기를 사용하는 방법에 대한 예제는 [사용자 작업 처리](bot-builder-nodejs-dialog-actions.md)를 참조하세요.
+대화 흐름 중 언제든지 취소나 도움 요청과 같은 중단을 처리할 수 있도록 봇을 설계해야 합니다. Node.js용 Bot Framework SDK는 취소 또는 다른 대화 상자 호출과 같은 작업을 트리거하는 글로벌 메시지 처리기를 제공합니다. [triggerAction][triggerAction] 처리기를 사용하는 방법에 대한 예제는 [사용자 작업 처리](bot-builder-nodejs-dialog-actions.md)를 참조하세요.
 <!--[Handling cancel](bot-builder-nodejs-manage-conversation-flow.md#handling-cancel), [Confirming interruptions](bot-builder-nodejs-manage-conversation-flow.md#confirming-interruptions) and-->
 
 
 ## <a name="recognizers"></a>인식기
 사용자가 "도움" 또는 "뉴스 찾기"와 같은 무언가를 봇에 요청하면 봇은 사용자가 요청한 내용을 이해해고 적절한 조치를 취해야 합니다. 사용자의 입력을 기반으로 의도를 인식하고 해당 의도를 작업과 연결하도록 봇을 설계할 수 있습니다. 
 
-Bot Builder SDK가 제공하는 기본 제공 정규식 인식기를 사용하거나, LUIS API와 같은 외부 서비스를 호출하거나, 사용자 지정 인식기를 구현하여 사용자의 의도를 확인할 수 있습니다. 봇에 인식기를 추가하고 이를 사용하여 작업을 트리거하는 방법을 보여 주는 예제는 [사용자 의도 인식](bot-builder-nodejs-recognize-intent-messages.md)을 참조하세요.
+Bot Framework SDK가 제공하는 기본 제공 정규식 인식기를 사용하거나, LUIS API와 같은 외부 서비스를 호출하거나, 사용자 지정 인식기를 구현하여 사용자의 의도를 확인할 수 있습니다. 봇에 인식기를 추가하고 이를 사용하여 작업을 트리거하는 방법을 보여 주는 예제는 [사용자 의도 인식](bot-builder-nodejs-recognize-intent-messages.md)을 참조하세요.
 
 
 ## <a name="saving-state"></a>상태 저장
 
-좋은 봇 설계의 핵심은 대화의 컨텍스트를 추적하여 사용자가 물어본 마지막 질문과 같은 것을 기억하도록 하는 것입니다. Bot Builder SDK를 사용하여 빌드된 봇은 상태 비저장으로 설계되어 여러 계산 노드에서 실행되도록 손쉽게 확장할 수 있습니다. Bot Framework는 봇 데이터를 저장하는 저장소 시스템을 제공하므로 봇 웹 서비스를 확장할 수 있습니다. 따라서 일반적으로 글로벌 변수 또는 함수 closure를 사용하여 상태를 저장하지 않아야 합니다. 이렇게 하면 봇을 확장하려고 할 때 문제가 발생합니다. 대신, 봇의 [세션][Session] 개체의 다음 속성을 사용하여 사용자 또는 대화와 관련된 데이터를 저장합니다.
+좋은 봇 설계의 핵심은 대화의 컨텍스트를 추적하여 사용자가 물어본 마지막 질문과 같은 것을 기억하도록 하는 것입니다. Bot Framework SDK를 사용하여 빌드된 봇은 상태 비저장으로 설계되어 여러 컴퓨팅 노드에서 실행되도록 손쉽게 확장할 수 있습니다. Bot Framework는 봇 데이터를 저장하는 저장소 시스템을 제공하므로 봇 웹 서비스를 확장할 수 있습니다. 따라서 일반적으로 글로벌 변수 또는 함수 closure를 사용하여 상태를 저장하지 않아야 합니다. 이렇게 하면 봇을 확장하려고 할 때 문제가 발생합니다. 대신, 봇의 [세션][Session] 개체의 다음 속성을 사용하여 사용자 또는 대화와 관련된 데이터를 저장합니다.
 
 * **userData**는 모든 대화에서 사용자의 대한 정보를 글로벌하게 저장합니다.
 * **conversationData**는 단일 대화에 대한 정보를 글로벌하게 저장합니다. 이 데이터는 대화 내 모든 사용자에게 표시되므로 이 속성에 데이터를 저장할 때는 신중을 기해야 합니다. 기본적으로 사용하도록 설정되어 있으며, 봇의 [persistConversationData][PersistConversationData] 설정을 사용하여 비활성화할 수 있습니다.

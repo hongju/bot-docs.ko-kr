@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
 ms.date: 12/20/2018
-ms.openlocfilehash: 18350c7ea6fb7390796567b1754cd88be6b9be61
-ms.sourcegitcommit: 561185b9c83f3e082e8b7aba1122b1706e431540
+ms.openlocfilehash: 8a3ff4a30e3041937ba831efc237343c9aa27e62
+ms.sourcegitcommit: 8161753641368567f239e24a35ad61768acccd8e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/26/2018
-ms.locfileid: "53785416"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54202549"
 ---
 # <a name="troubleshoot-bot-configuration-issues"></a>봇 구성 문제 해결
 
@@ -28,7 +28,7 @@ ms.locfileid: "53785416"
 
 ![웹 채팅에서 테스트](./media/test-in-webchat.png)
 
-봇이 올바른 출력으로 응답할 경우 [봇이 웹 채팅에서 작동하지 않음](#bot-does-not-work-in-web-chat)으로 이동하세요. 그렇지 않을 경우 [봇이 웹 채팅에서 작동하지만 다른 채널에서 작동하지 않음](#bot-works-in-web-chat-but-not-in-other-channels)으로 이동하세요.
+봇이 예상 출력으로 응답하지 않는 경우 [봇이 웹 채팅에서 작동하지 않음](#bot-does-not-work-in-web-chat)으로 이동하세요. 그렇지 않을 경우 [봇이 웹 채팅에서 작동하지만 다른 채널에서 작동하지 않음](#bot-works-in-web-chat-but-not-in-other-channels)으로 이동하세요.
 
 ## <a name="bot-does-not-work-in-web-chat"></a>봇이 웹 채팅에서 작동하지 않음
 

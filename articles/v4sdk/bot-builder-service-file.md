@@ -1,7 +1,7 @@
 ---
-title: JavaScript용 Bot Builder SDK를 사용하여 봇 만들기 | Microsoft Docs
-description: JavaScript용 Bot Builder SDK를 사용하여 봇을 빠르게 만듭니다.
-keywords: 빠른 시작, bot builder sdk, 시작하기
+title: JavaScript용 Bot Framework SDK를 사용하여 봇 만들기 | Microsoft Docs
+description: JavaScript용 Bot Framework SDK를 사용하여 봇을 빠르게 만듭니다.
+keywords: 빠른 시작, bot framework sdk, 시작하기
 author: jonathanfingold
 ms.author: jonathanfingold
 manager: kamrani
@@ -10,12 +10,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 09/23/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 62451f8581d7a629f9e7ba628e70cdad7b531845
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: 689c67817487a5cbd8193cb505ac131a55b0d053
+ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49998980"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54224628"
 ---
 ```
 {

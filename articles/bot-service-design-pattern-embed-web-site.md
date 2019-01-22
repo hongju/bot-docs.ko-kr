@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
 ms.date: 12/13/2017
-ms.openlocfilehash: e11b99aeb8475ff27304c57c515e02a5c031e4ea
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: 03c7e1316e463caf84b8dfd503e1502bb66469e6
+ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49998382"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54224848"
 ---
 # <a name="embed-a-bot-in-a-website"></a>웹 사이트에 봇 포함
 
@@ -47,7 +47,7 @@ Skype 웹 컨트롤은 단순히 Skype용 프런트 엔드의 역할을 하므�
 
 ## <a name="sample-code"></a>샘플 코드
 
-<a href="https://aka.ms/BotFramework-WebChat" target="_blank">오픈 소스 웹 채팅 컨트롤</a>은 GitHub를 통해 사용할 수 있습니다. Node.js용 오픈 소스 웹 채팅 컨트롤 및 Bot Builder SDK를 사용하여 백채널 메커니즘을 구현하는 방법에 대한 자세한 내용은 [백채널 메커니즘 사용](~/nodejs/bot-builder-nodejs-backchannel.md)을 참조하세요.
+<a href="https://aka.ms/BotFramework-WebChat" target="_blank">오픈 소스 웹 채팅 컨트롤</a>은 GitHub를 통해 사용할 수 있습니다. Node.js용 오픈 소스 웹 채팅 컨트롤 및 Bot Framework SDK를 사용하여 백채널 메커니즘을 구현하는 방법에 대한 자세한 내용은 [백채널 메커니즘 사용](~/nodejs/bot-builder-nodejs-backchannel.md)을 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 

@@ -1,6 +1,6 @@
 ---
 title: 폭포를 사용하여 대화 단계 정의 | Microsoft Docs
-description: Node.js용 Bot Builder SDK에서 폭포를 사용하여 대화 단계를 정의하는 방법을 알아봅니다.
+description: Node.js용 Bot Framework SDK에서 폭포를 사용하여 대화 단계를 정의하는 방법을 알아봅니다.
 author: v-ducvo
 ms.author: v-ducvo
 manager: kamrani
@@ -9,12 +9,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 2fa857e57d5be4751476874b8c193c7053a1bf39
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: 526091d61f10ac0c241b994aa3ea99c1d2a70074
+ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "50000280"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54225328"
 ---
 # <a name="define-conversation-steps-with-waterfalls"></a>폭포를 사용하여 대화 단계 정의
 
@@ -45,7 +45,7 @@ bot.dialog('greetings', [
 ]);
 ```
 
-이러한 방식이 가능한 이유는 프롬프트 때문입니다. Node.js용 Bot Builder SDK는 다양한 유형의 정보를 사용자에게 묻는 데 사용할 수 있는 여러 가지 유형의 기본 제공 [프롬프트](bot-builder-nodejs-dialog-prompt.md)를 제공합니다.
+이러한 방식이 가능한 이유는 프롬프트 때문입니다. Node.js용 Bot Framework SDK는 다양한 유형의 정보를 사용자에게 묻는 데 사용할 수 있는 여러 가지 유형의 기본 제공 [프롬프트](bot-builder-nodejs-dialog-prompt.md)를 제공합니다.
 
 다음 샘플 코드를 4단계 폭포 전체에서 프롬프트를 사용하여 사용자로부터 다양한 정보를 수집하는 다이얼로그를 보여 줍니다.
 

@@ -1,6 +1,6 @@
 ---
-title: Bot Builder SDK 내의 대화화 | Microsoft Docs
-description: Bot Builder SDK 내의 대화를 설명합니다.
+title: Bot Framework SDK 내의 대화 | Microsoft Docs
+description: Bot Framework SDK 내의 대화를 설명합니다.
 keywords: 대화 흐름, 의도 인식, 단일 순서, 여러 순서, 봇 대화
 author: jonathanfingold
 ms.author: jonathanfingold
@@ -10,19 +10,19 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 09/01/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 19f0b67454a8c0a4bf171579f8e481e630db83ac
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: b94150e168942370a38d39742157e57d0118f0eb
+ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49998920"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54225086"
 ---
 # <a name="conversation-flow"></a>대화 흐름
 [!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
 
 봇의 대화 흐름을 디자인하려면 사용자가 무엇인가를 말할 때 봇이 응답하는 방법을 결정해야 합니다. 봇은 먼저 사용자의 메시지를 기반으로 작업 또는 대화 항목을 인식합니다. 사용자의 메시지와 관련된 작업 또는 항목(*의도*로 알려짐)을 결정하기 위해 봇은 사용자 메시지의 텍스트에서 단어 또는 패턴을 검색하거나 [Language Understanding](bot-builder-concept-luis.md) 및 [QnA Maker](https://docs.microsoft.com/en-us/azure/cognitive-services/qnamaker/overview/overview)와 같은 서비스를 활용할 수 있습니다.
 
-봇이 사용자의 의도를 인식하면 시나리오에 따라 봇은 하나의 턴에서 대화를 완료하여 단일 회신으로 사용자의 요청을 충족할 수 있거나 일련의 턴이 필요할 수 있습니다. 다중 턴 대화 흐름의 경우 Bot Builder SDK는 대화를 추적하기 위한 [상태 관리](./bot-builder-howto-v4-state.md)와 정보 요청을 위한 [프롬프트](bot-builder-prompts.md), 대화 흐름 캡슐화를 위한 [대화 상자](bot-builder-dialog-manage-conversation-flow.md)를 제공합니다.
+봇이 사용자의 의도를 인식하면 시나리오에 따라 봇은 하나의 턴에서 대화를 완료하여 단일 회신으로 사용자의 요청을 충족할 수 있거나 일련의 턴이 필요할 수 있습니다. 다중 턴 대화 흐름의 경우 Bot Framework SDK는 대화를 추적하기 위한 [상태 관리](./bot-builder-howto-v4-state.md)와 정보 요청을 위한 [프롬프트](bot-builder-prompts.md), 대화 흐름 캡슐화를 위한 [대화 상자](bot-builder-dialog-manage-conversation-flow.md)를 제공합니다.
 
 여러 하위 시스템이 있는 복잡한 봇에서 봇의 각 하위 구성 요소에 대해 하나씩 여러 서비스를 사용하여 의도를 인식할 수 있습니다. [디스패치 도구](bot-builder-tutorial-dispatch.md)는 대화형 하위 시스템을 하나의 봇으로 결합할 때 한 곳에서 여러 서비스의 결과를 가져옵니다.
 
@@ -65,7 +65,7 @@ A bot communicates with a user on a channel by receiving activities from, and se
 자세한 내용은 [대화 및 사용자 상태를 관리하는 방법](bot-builder-howto-v4-state.md)을 참조하세요.
 
 > [!NOTE]
-> REST API 클라이언트가 있는 다중 턴 대화는 자신의 상태를 추적해야 합니다(예: 데이터베이스 또는 테이블 저장소에서).
+> REST API 클라이언트가 있는 다중 턴 대화는 자신의 상태를 추적해야 합니다(예: 데이터베이스 또는 Table Storage에서).
 
 ## <a name="conversation-topics"></a>대화 항목
 
@@ -73,7 +73,7 @@ A bot communicates with a user on a channel by receiving activities from, and se
 
 ### <a name="recognize-intent"></a>의도 인식
 
-Bot Builder SDK는 메시지를 처리하여 의도를 확인할 수 있는 _인식기_를 제공하므로 봇은 적절한 대화형 흐름을 시작할 수 있습니다. 인식기의 _인식_ 비동기 메서드를 호출하여 해당 메시지 콘텐츠에서 사용자의 의도를 확인합니다. 그런 다음, 인식기의 상위 예측을 가져오도록 결과에서 _상위 점수 매기기 의도 가져오기_ 메서드를 호출할 수 있습니다.
+Bot Framework SDK는 메시지를 처리하여 의도를 확인할 수 있는 _인식기_를 제공하므로 봇은 적절한 대화형 흐름을 시작할 수 있습니다. 인식기의 _인식_ 비동기 메서드를 호출하여 해당 메시지 콘텐츠에서 사용자의 의도를 확인합니다. 그런 다음, 인식기의 상위 예측을 가져오도록 결과에서 _상위 점수 매기기 의도 가져오기_ 메서드를 호출할 수 있습니다.
 
 인식기는 정규식, 언어 이해 또는 개발하는 다른 논리를 사용할 수 있습니다. 다음은 가능한 인식기의 예제입니다.
 
@@ -111,7 +111,7 @@ Bot Builder SDK는 메시지를 처리하여 의도를 확인할 수 있는 _인
 <!--  Types of conversations -->
 
 봇은 사용자에게 정보의 여러 부분에 대한 메시지를 표시하는 다중 턴 상호 작용을 지원할 수 있습니다. 매우 구체적인 작업에 초점을 맞추거나 여러 유형의 작업을 지원할 수 있습니다.
-Bot Builder SDK에는 봇에 자연 언어 "질문 및 답변" 기능을 추가하기 위한 LUIS(Language Understanding) 및 QnA Maker에 대한 일부 기본 제공 지원이 있습니다.
+Bot Framework SDK에는 봇에 자연 언어 "질문 및 답변" 기능을 추가하기 위한 LUIS(Language Understanding) 및 QnA Maker에 대한 일부 기본 제공 지원이 있습니다.
 
 ## <a name="conversations-channels-and-users"></a>대화, 채널 및 사용자
 

@@ -1,6 +1,6 @@
 ---
 title: 사용자 및 대화 데이터 저장 | Microsoft Docs
-description: Bot Builder SDK를 사용하여 상태 데이터를 저장 및 검색하는 방법을 알아봅니다.
+description: Bot Framework SDK를 사용하여 상태 데이터를 저장 및 검색하는 방법을 알아봅니다.
 keywords: 대화 상태, 사용자 상태, 대화, 상태 저장, 봇 상태 관리
 author: ivorb
 ms.author: v-ivorb
@@ -10,12 +10,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 11/26/18
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 8c3aad54a9e80e8a046a6e31a5109a1de8c61a8b
-ms.sourcegitcommit: 91156d0866316eda8d68454a0c4cd74be5060144
+ms.openlocfilehash: 8c3696d0642e1b1ce9c3d3e23118a7bd9ab0023b
+ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53010508"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54224588"
 ---
 # <a name="save-user-and-conversation-data"></a>사용자 및 대화 데이터 저장
 

@@ -9,12 +9,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 82541c4ac0848c3e995ab3ad1ed874436072fe63
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: 211800211b422bb9c90c00705585be89737c77a9
+ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49998092"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54225558"
 ---
 # <a name="recognize-user-intent-from-message-content"></a>메시지 콘텐츠에서 사용자 의도 인식
 
@@ -57,11 +57,11 @@ ms.locfileid: "49998092"
 
 ## <a name="disambiguate-between-multiple-intents"></a>여러 의도를 명확히 구분
 
-봇은 둘 이상의 인식기를 등록할 수 있습니다. 사용자 지정 인식기 예제에는 각 의도에 숫자 점수를 할당하는 것이 포함됩니다. 이는 봇에 둘 이상의 인식기가 있을 수도 있기 때문에 수행되며, Bot Builder SDK는 여러 인식기에서 반환되는 의도들을 명확히 구분하는 기본 제공 논리를 제공합니다. 의도에 할당된 점수는 일반적으로 0.0과 1.0 사이지만, 의도가 항상 Bot Builder SDK의 명확성 논리에 의해 선택되도록 사용자 지정 인식기가 1.1보다 큰 수를 의도에 할당할 수도 있습니다. 
+봇은 둘 이상의 인식기를 등록할 수 있습니다. 사용자 지정 인식기 예제에는 각 의도에 숫자 점수를 할당하는 것이 포함됩니다. 이는 봇에 둘 이상의 인식기가 있을 수도 있기 때문에 수행되며, Bot Framework SDK는 여러 인식기에서 반환되는 의도들을 명확히 구분하는 기본 제공 논리를 제공합니다. 의도에 할당된 점수는 일반적으로 0.0과 1.0 사이지만, 의도가 항상 Bot Framework SDK의 명확성 논리에 의해 선택되도록 사용자 지정 인식기가 1.1보다 큰 수를 의도에 할당할 수도 있습니다. 
 
 기본적으로 인식기는 병렬로 실행되나, [IIntentRecognizerSetOptions][IntentRecognizerSetOptions]에서 recognizeOrder를 1.0의 점수를 주는 인식기를 발견하는 즉시 프로세스가 종료되도록 설정할 수 있습니다.
 
-Bot Builder SDK에는 [IDisambiguateRouteHandler][IDisambiguateRouteHandler] 구현으로 봇에 사용자 지정 명확성 논리를 제공하는 방법을 설명하는 [샘플][DisambiguationSample]이 포함되어 있습니다.
+Bot Framework SDK에는 [IDisambiguateRouteHandler][IDisambiguateRouteHandler] 구현으로 봇에 사용자 지정 명확성 논리를 제공하는 방법을 설명하는 [샘플][DisambiguationSample]이 포함되어 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 정규식을 사용하고 메시지 콘텐츠를 검사하기 위한 논리는 특히 봇의 대화형 흐름이 개방형일 경우 복잡해질 수 있습니다. 봇이 사용자의 텍스트 및 음성 입력을 더 광범위하게 처리하도록 하려면 [LUIS][LUIS]와 같은 의도 인식 서비스를 사용하여 자연어 인식을 봇에 추가할 수 있습니다.

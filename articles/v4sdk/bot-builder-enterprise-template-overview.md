@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: bot-service
 ms.date: 09/18/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 3abfb82f555f458bc9cdd5125fafa1cfa70921cb
-ms.sourcegitcommit: 66769e697d94f7bf5e0441dfacf2c0e3768845ea
+ms.openlocfilehash: a0b56b77990c095d1cf8bb28235d06444837d164
+ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53654964"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54224600"
 ---
 # <a name="enterprise-bot-template"></a>엔터프라이즈 봇 템플릿 
 
@@ -22,7 +22,7 @@ ms.locfileid: "53654964"
 
 고품질 대화형 환경을 만드는 데에는 기본적인 기능 집합이 필요합니다. 뛰어난 대화형 환경을 성공적으로 구축할 수 있도록 하기 위해 엔터프라이즈 봇 템플릿을 만들었습니다. 이 템플릿은 대화형 환경 구축을 통해 식별한 모범 사례와 지원 구성 요소를 모두 제공합니다. 
 
-이 템플릿은 새 봇 프로젝트를 만드는 과정을 크게 간소화합니다. 템플릿에서 [Bot Builder SDK v4](https://github.com/Microsoft/botbuilder) 및 [Bot Builder 도구](https://github.com/Microsoft/botbuilder-tools)를 활용하여 제공하는 기능은 다음과 같습니다.
+이 템플릿은 새 봇 프로젝트를 만드는 과정을 크게 간소화합니다. 템플릿은 [Bot Framework SDK v4](https://github.com/Microsoft/botbuilder) 및 [Bot Framework 도구](https://github.com/Microsoft/botbuilder-tools)를 활용하여 다음과 같은 기능을 기본적으로 제공합니다.
 
 기능 | 설명 |
 ------------ | -------------

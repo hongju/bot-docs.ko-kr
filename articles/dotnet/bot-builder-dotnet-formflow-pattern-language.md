@@ -1,6 +1,6 @@
 ---
 title: 패턴 언어를 사용하여 사용자 환경 사용자 지정 | Microsoft Docs
-description: .NET용 Bot Builder SDK로 패턴 언어를 사용하여 FormFlow 프롬프트를 사용자 지정하고 FormFlow 템플릿을 재정의하는 방법을 알아봅니다.
+description: .NET용 Bot Framework SDK로 패턴 언어를 사용하여 FormFlow 프롬프트를 사용자 지정하고 FormFlow 템플릿을 재정의하는 방법을 알아봅니다.
 author: RobStand
 ms.author: kamrani
 manager: kamrani
@@ -9,12 +9,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: bc0a2819f3adea63b53e464808f3bbaf5b93814a
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: f3d46431191638cc41026f6c020a5f04de21ff0d
+ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49998050"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54225638"
 ---
 # <a name="customize-user-experience-with-pattern-language"></a>패턴 언어를 사용하여 사용자 환경 사용자 지정
 
@@ -144,7 +144,7 @@ What kind of sandwich would you like?
 - [FormBuilder를 사용하여 양식 사용자 지정](bot-builder-dotnet-formflow-formbuilder.md)
 - [양식 콘텐츠 지역화](bot-builder-dotnet-formflow-localize.md)
 - [JSON 스키마를 사용하여 양식 정의](bot-builder-dotnet-formflow-json-schema.md)
-- <a href="/dotnet/api/?view=botbuilder-3.11.0" target="_blank">.NET용 Bot Builder SDK 참조</a>
+- <a href="/dotnet/api/?view=botbuilder-3.11.0" target="_blank">.NET용 Bot Framework SDK 참조</a>
 
 [promptAttribute]: /dotnet/api/microsoft.bot.builder.formflow.promptattribute
 

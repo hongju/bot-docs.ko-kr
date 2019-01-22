@@ -1,6 +1,6 @@
 ---
 title: 메시지에 미디어 추가 | Microsoft Docs
-description: Bot Builder SDK를 사용하여 메시지에 미디어를 추가하는 방법에 대해 알아봅니다.
+description: Bot Framework SDK를 사용하여 메시지에 미디어를 추가하는 방법에 대해 알아봅니다.
 keywords: 미디어, 메시지, 이미지, 오디오, 비디오, 파일, MessageFactory, 서식 있는 카드, 메시지, 적응형 카드, 영웅 카드, 제안된 작업
 author: ivorb
 ms.author: v-ivorb
@@ -10,18 +10,18 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 12/17/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: fd908335c69aab7c8b68925b8ecdece79e89ab4b
-ms.sourcegitcommit: f7a8f05fc05ff4a7212a437d540485bf68831604
+ms.openlocfilehash: 1ea9daeb35033e49232d64bfe98a223807dabf75
+ms.sourcegitcommit: b94361234816e6b95459f142add936732fc40344
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53735963"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54317603"
 ---
 # <a name="add-media-to-messages"></a>메시지에 미디어 추가
 
 [!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
 
-사용자와 봇 간에 교환되는 메시지에는 이미지, 비디오, 오디오 및 파일과 같은 미디어 첨부 파일이 포함될 수 있습니다. Bot Builder SDK는 사용자에게 다양한 메시지를 보내는 작업을 지원합니다. 채널(Facebook, Skype, Slack 등)에서 지원하는 다양한 메시지의 유형을 결정하려면 채널 설명서에서 제한 사항에 대한 정보를 참조하세요. 사용 가능한 카드 목록은 [사용자 환경 디자인](../bot-service-design-user-experience.md)을 참조하세요. 
+사용자와 봇 간에 교환되는 메시지에는 이미지, 비디오, 오디오 및 파일과 같은 미디어 첨부 파일이 포함될 수 있습니다. Bot Framework SDK는 사용자에게 다양한 메시지를 보내는 작업을 지원합니다. 채널(Facebook, Skype, Slack 등)에서 지원하는 다양한 메시지의 유형을 결정하려면 채널 설명서에서 제한 사항에 대한 정보를 참조하세요. 사용 가능한 카드 목록은 [사용자 환경 디자인](../bot-service-design-user-experience.md)을 참조하세요. 
 
 ## <a name="send-attachments"></a>첨부 파일 보내기
 
@@ -29,7 +29,8 @@ ms.locfileid: "53735963"
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
-`Activity` 개체의 `Attachments` 속성에는 메시지에 첨부된 미디어 첨부 파일과 서식 있는 카드를 나타내는 `Attachment` 개체의 배열이 포함되어 있습니다. 메시지에 미디어 첨부 파일을 추가하려면 `message` 작업에 대한 `Attachment` 개체를 만들고 `ContentType`, `ContentUrl` 및 `Name` 속성을 설정합니다. `Activity` 개체의 `Attachments` 속성에는 메시지에 첨부된 미디어 첨부 파일과 서식 있는 카드를 나타내는 `Attachment` 개체의 배열이 포함되어 있습니다. 미디어 첨부 파일을 메시지에 추가하려면 `Attachment` 메서드를 사용하여 `message` 작업에 대한 `Attachment` 개체를 만들고, `ContentType`, `ContentUrl` 및 `Name` 속성을 설정합니다. 여기서 보여 주는 소스 코드는 [첨부 파일 처리](https://aka.ms/bot-attachments-sample-code) 샘플을 기반으로 합니다. 
+`Activity` 개체의 `Attachments` 속성에는 메시지에 첨부된 미디어 첨부 파일과 서식 있는 카드를 나타내는 `Attachment` 개체의 배열이 포함되어 있습니다. 메시지에 미디어 첨부 파일을 추가하려면 `message` 작업에 대한 `Attachment` 개체를 만들고 `ContentType`, `ContentUrl` 및 `Name` 속성을 설정합니다.
+여기서 보여 주는 소스 코드는 [첨부 파일 처리](https://aka.ms/bot-attachments-sample-code) 샘플을 기반으로 합니다. 
 
 ```csharp
 using Microsoft.Bot.Builder;
@@ -219,7 +220,7 @@ await context.sendActivity(hero);
 ## <a name="send-an-adaptive-card"></a>적응형 카드 보내기
 적응형 카드 및 MessageFactory는 사용자와 통신하기 위해 텍스트, 이미지, 비디오, 오디오 및 파일이 포함된 서식 있는 메시지를 보내는 데 사용됩니다. 하지만 이들 사이에는 약간의 차이점이 있습니다. 
 
-첫째, 일부 채널만 적응형 카드를 지원하며, 이를 지원하는 채널은 부분적으로 적응형 카드를 지원할 수 있습니다. 예를 들어, Facebook에서 적응형 카드를 보내면 텍스트와 이미지가 제대로 작동하는 동안 단추가 작동하지 않습니다. MessageFactory는 Bot Builder SDK 내의 도우미 클래스로, 생성 단계를 자동화할 수 있으며, 대부분의 채널에서 지원됩니다. 
+첫째, 일부 채널만 적응형 카드를 지원하며, 이를 지원하는 채널은 부분적으로 적응형 카드를 지원할 수 있습니다. 예를 들어, Facebook에서 적응형 카드를 보내면 텍스트와 이미지가 제대로 작동하는 동안 단추가 작동하지 않습니다. MessageFactory는 Bot Framework SDK 내의 도우미 클래스로, 생성 단계를 자동화할 수 있으며, 대부분의 채널에서 지원됩니다. 
 
 둘째, 적응형 카드는 카드 양식의 메시지를 전달하며, 채널은 카드의 레이아웃을 결정합니다. MessageFactory가 제공하는 메시지 양식은 채널에 따라 다르며, 적응형 카드가 첨부 파일의 일부가 아니라면 카드 양식이 아니어도 됩니다. 
 

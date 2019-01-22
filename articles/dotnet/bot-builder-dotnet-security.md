@@ -9,12 +9,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 12/13/17
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: deb184483bf7e0963f827b20377291ab971c1516
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: 455ee87f31e70470d8d118f010c77327347c032d
+ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49997341"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54224888"
 ---
 # <a name="secure-your-bot"></a>봇 보안 유지
 
@@ -40,7 +40,7 @@ ms.locfileid: "49997341"
 </appSettings>
 ```
 
-그런 후 .NET용 Bot Builder SDK를 사용하여 봇을 만들 때 `[BotAuthentication]` 특성을 사용하여 인증 자격 증명을 지정합니다. 
+그런 다음, .NET용 Bot Framework SDK를 사용하여 봇을 만들 때 `[BotAuthentication]` 특성을 사용하여 인증 자격 증명을 지정합니다. 
 
 web.config 파일에 저장된 인증 자격 증명을 사용하려면 매개 변수 없이 `[BotAuthentication]`을 지정합니다.
 
@@ -52,6 +52,6 @@ web.config 파일에 저장된 인증 자격 증명을 사용하려면 매개 �
 
 ## <a name="additional-resources"></a>추가 리소스
 
-- [.NET용 봇 작성기 SDK](bot-builder-dotnet-overview.md)
+- [용 Bot Framework SDK](bot-builder-dotnet-overview.md)
 - [.NET용 Bot Builder SDK의 주요 개념](bot-builder-dotnet-concepts.md)
 - [Bot Framework에 봇 등록](~/bot-service-quickstart-registration.md)

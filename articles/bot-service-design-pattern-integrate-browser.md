@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
 ms.date: 12/13/2017
-ms.openlocfilehash: e3833595003edda46a6ffd1d508237262aad94e1
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: 20ca2864b6498b0d80bea13ce97ffffc4cf1f22d
+ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49999230"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54225928"
 ---
 # <a name="integrate-your-bot-with-a-web-browser"></a>웹 브라우저와 봇 통합
 
@@ -73,7 +73,7 @@ ms.locfileid: "49999230"
 
 ### <a id="website-signal-to-bot"></a> 웹 사이트는 봇에 어떻게 '신호'할까요?
 
-봇은 사용자가 웹 사이트 흐름을 시작하기 위해 클릭하는 [하이퍼링크를 생성](#generate-hyperlink)할 때 채널의 대화 ID, 채널 ID 및 사용자 ID와 같은 현재 대화의 컨텍스트에 대한 쿼리 문자열 매개 변수를 통해 대상 URL에 데이터를 포함합니다. 이후에 웹 사이트는 이 정보를 사용하여 Bot Builder SDK 또는 REST API를 통해 해당 사용자 또는 대화에 대한 상태 변수를 읽고 쓸 수 있습니다. 웹 사이트가 웹 사이트 흐름이 완료되었음을 봇에 ‘신호로 알리는’ 방법의 예제를 보려면 위의 [6단계](#signal-to-bot)를 참조하세요.
+봇은 사용자가 웹 사이트 흐름을 시작하기 위해 클릭하는 [하이퍼링크를 생성](#generate-hyperlink)할 때 채널의 대화 ID, 채널 ID 및 사용자 ID와 같은 현재 대화의 컨텍스트에 대한 쿼리 문자열 매개 변수를 통해 대상 URL에 데이터를 포함합니다. 이후에 웹 사이트는 이 정보를 사용하여 Bot Framework SDK 또는 REST API를 통해 해당 사용자 또는 대화에 대한 상태 변수를 읽고 쓸 수 있습니다. 웹 사이트가 웹 사이트 흐름이 완료되었음을 봇에 ‘신호로 알리는’ 방법의 예제를 보려면 위의 [6단계](#signal-to-bot)를 참조하세요.
 
 ## <a name="sample-code"></a>샘플 코드
 

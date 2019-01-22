@@ -1,6 +1,6 @@
 ---
 title: Skype를 사용하여 음성 통화 수행 | Microsoft Docs
-description: .NET용 Bot Builder SDK를 사용하여 Skype 음성 통화를 수행하는 방법을 살펴봅니다.
+description: .NET용 Bot Framework SDK를 사용하여 Skype 음성 통화를 수행하는 방법을 살펴봅니다.
 author: RobStand
 ms.author: kamrani
 manager: kamrani
@@ -9,12 +9,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 0d0489c23cd24a7323ba0160d5e8e5e914be3011
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: 72b2c42acb4743c67c63f158fa37c2bdd0e09ab9
+ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49998857"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54224423"
 ---
 # <a name="conduct-audio-calls-with-skype"></a>Skype를 사용하여 음성 통화 수행
 
@@ -22,7 +22,7 @@ ms.locfileid: "49998857"
 
 [!INCLUDE [Introduction to conducting audio calls](../includes/snippet-audio-call-intro.md)]
 
-음성 통화를 지원하는 봇의 아키텍처는 일반 봇의 아키텍처와 매우 유사합니다. 다음 코드 샘플에서는 .NET용 Bot Builder SDK를 사용하여 Skype 음성 통화 지원을 사용하도록 설정하는 방법을 보여 줍니다. 
+음성 통화를 지원하는 봇의 아키텍처는 일반 봇의 아키텍처와 매우 유사합니다. 다음 코드 샘플에서는 .NET용 Bot Framework SDK를 사용하여 Skype 음성 통화 지원을 사용하도록 설정하는 방법을 보여줍니다. 
 
 ## <a name="enable-support-for-audio-calls"></a>음성 통화 지원을 사용하도록 설정
 
@@ -169,9 +169,9 @@ private async Task OnRecordCompleted(RecordOutcomeEvent recordOutcomeEvent)
 
 ## <a name="sample-code"></a>샘플 코드
 
-.NET용 Bot Builder SDK를 사용하여 Skype 음성 통화를 지원하는 방법을 보여 주는 전체 샘플은 GitHub의 <a href="https://github.com/Microsoft/BotBuilder-Samples/tree/master/CSharp/skype-CallingBot" target="_blank">Skype Calling Bot 샘플</a>을 참조하세요.
+.NET용 Bot Framework SDK를 사용하여 Skype 음성 통화를 지원하는 방법을 보여주는 전체 샘플은 GitHub의 <a href="https://github.com/Microsoft/BotBuilder-Samples/tree/master/CSharp/skype-CallingBot" target="_blank">Skype Calling Bot 샘플</a>을 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 
-- <a href="/dotnet/api/?view=botbuilder-3.11.0" target="_blank">.NET용 Bot Builder SDK 참조</a>
+- <a href="/dotnet/api/?view=botbuilder-3.11.0" target="_blank">.NET용 Bot Framework SDK 참조</a>
 - <a href="https://github.com/Microsoft/BotBuilder-Samples/tree/master/CSharp/skype-CallingBot" target="_blank">Skype Calling Bot 샘플(GitHub)</a>

@@ -7,13 +7,13 @@ ms.author: kamrani
 manager: kamrani
 ms.topic: article
 ms.service: bot-service
-ms.date: 10/31/2018
-ms.openlocfilehash: 616c3bfd5fcb36c06f4e2acf032ba3cf5fc125d3
-ms.sourcegitcommit: a496714fb72550a743d738702f4f79e254c69d06
+ms.date: 1/10/2019
+ms.openlocfilehash: 4e11ecfa2d42b93b85d186a5078b612ef64e7cdd
+ms.sourcegitcommit: b94361234816e6b95459f142add936732fc40344
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50736701"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54317653"
 ---
 ::: moniker range="azure-bot-service-3.0"
 
@@ -88,12 +88,15 @@ Azure Bot Service는 지능형 봇을 모두 한 번에 빌드, 테스트, 배�
 
 봇은 파일을 읽고 쓰며, 데이터베이스 및 API를 사용하고, 정규 계산 작업을 수행하는 등 다른 형식의 소프트웨어가 수행하는 동일한 작업을 수행할 수 있습니다. 봇이 고유한 이유는 일반적으로 사용자 간 통신에 유보된 메커니즘을 사용한다는 점입니다. 
 
-봇은 보통 다음 구성 요소로 구성됩니다.
+Azure Bot Service 제안:
+- 봇 개발용 Bot Framework SDK
+- 엔드투엔드 봇 개발 워크플로를 처리하는 Bot Framework 도구
+- 봇과 채널 간에 메시지 및 이벤트를 주고 받는 BFS(Bot Framework Service)
+- Azure에서 봇 배포 및 채널 구성
 
-- 대부분의 경우 공용 인터넷에서 사용할 수 있는 웹 서버
-- 봇을 개발하는 인터페이스를 제공하는 Bot Builder SDK 및 Bot Builder 도구
-- Azure Cognitive Services
-- Azure Storage
+뿐만 아니라 봇에서 다음과 같은 다른 Azure 서비스를 사용할 수 있습니다.
+- 인텔리전트 애플리케이션을 빌드하는 Azure Cognitive Services 
+- 클라우드 스토리지 솔루션용 Azure Storage
 
 ## <a name="building-a-bot"></a>봇 빌드 
 
@@ -105,7 +108,7 @@ Azure Bot Service는 프로세스를 용이하게 하는 일련의 통합된 도
 봇을 성공적으로 만드는 프로세스에서는 소프트웨어의 형식에 관계 없이 목표, 프로세스 및 사용자 요구 사항을 철저하게 파악하는 것이 중요합니다. 코드를 작성하기 전에 모범 사례에 대한 봇 [디자인 지침](bot-service-design-principles.md) 을 검토하고 봇에 필요한 요구 사항을 확인합니다. 간단한 봇을 만들거나 음성, 자연어 이해 또는 질문 답변과 같은 보다 정교한 기능을 포함할 수 있습니다.
 
 ### <a name="build"></a>빌드
-봇은 대화형 인터페이스를 구현하고 Bot Framework Service와 통신하여 메시지 및 이벤트를 주고 받는 웹 서비스입니다. 다양한 환경 및 언어로 봇을 만들 수 있습니다. [Azure Portal](bot-service-quickstart.md)에서 봇 개발을 시작하거나 로컬 개발을 위한 [[C#](dotnet/bot-builder-dotnet-sdk-quickstart.md) | [JavaScript](javascript/bot-builder-javascript-quickstart.md)] 템플릿을 사용할 수 있습니다.
+봇은 대화형 인터페이스를 구현하고 Bot Framework Service와 통신하여 메시지 및 이벤트를 주고 받는 웹 서비스입니다. Bot Framework Service는 Azure Bot Service의 구성 요소 중 하나입니다. 다양한 환경 및 언어로 봇을 만들 수 있습니다. [Azure Portal](bot-service-quickstart.md)에서 봇 개발을 시작하거나 로컬 개발을 위한 [[C#](dotnet/bot-builder-dotnet-sdk-quickstart.md) | [JavaScript](javascript/bot-builder-javascript-quickstart.md)] 템플릿을 사용할 수 있습니다.
 
 Azure Bot Service의 일부로 봇의 기능을 확장하는 데 사용할 수 있는 추가 구성 요소를 제공합니다.
 

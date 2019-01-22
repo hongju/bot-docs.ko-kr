@@ -1,6 +1,6 @@
 ---
 title: 사용자 및 대화 이벤트 처리 | Microsoft Docs
-description: Node.js용 Bot Builder SDK를 사용하여 사용자의 대화 참여와 같은 이벤트를 처리하는 방법을 알아봅니다.
+description: Node.js용 Bot Framework SDK를 사용하여 사용자의 대화 참여와 같은 이벤트를 처리하는 방법을 알아봅니다.
 author: DucVo
 ms.author: v-ducvo
 manager: kamrani
@@ -9,12 +9,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 2e8cb9661079eafa988af4a7639e3e7dc1580bfa
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: 91fd349173dfe469c7b71bc84b8adf9c19e07277
+ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49998140"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54223608"
 ---
 # <a name="handle-user-and-conversation-events"></a>사용자 및 대화 이벤트 처리
 

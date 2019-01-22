@@ -1,6 +1,6 @@
 ---
 title: 메시지 가로채기 | Microsoft Docs
-description: Node.js용 Bot Builder SDK를 통해 정보 교환을 가로채고 처리하여 로그 및 기타 레코드를 만드는 방법을 알아봅니다.
+description: Node.js용 Bot Framework SDK를 통해 정보 교환을 가로채고 처리하여 로그 및 기타 레코드를 만드는 방법을 알아봅니다.
 author: RobStand
 ms.author: kamrani
 manager: kamrani
@@ -9,12 +9,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 11/02/2018
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 31380961f117a2b4a3ffaae3c82d682a63001c0c
-ms.sourcegitcommit: 984705927561cc8d6a84f811ff24c8c71b71c76b
+ms.openlocfilehash: b262e936cd48bb73d7b5aa3fa4f7b6318ea7c2a0
+ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50965681"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54225628"
 ---
 # <a name="intercept-messages"></a>메시지 가로채기
 
@@ -28,7 +28,7 @@ ms.locfileid: "50965681"
 
 ## <a name="example"></a>예
 
-다음 코드 샘플은 Node.js용 Bot Builder SDK의 **미들웨어** 개념을 사용하여 사용자와 봇 간에 교환되는 메시지를 가로채는 방법을 보여 줍니다. 
+다음 코드 샘플은 Node.js용 Bot Framework SDK의 **미들웨어** 개념을 사용하여 사용자와 봇 간에 교환되는 메시지를 가로채는 방법을 보여줍니다. 
 
 먼저, 들어오는 메시지에 대한 처리기(`botbuilder`)를 구성한 후 나가는 메시지에 대한 처리기(`send`)를 구성합니다.
 
@@ -65,4 +65,4 @@ module.exports = {
 
 ## <a name="sample-code"></a>샘플 코드
 
-Node.js용 Bot Builder SDK를 사용하여 메시지를 가로채는 방법을 보여 주는 전체 샘플은 GitHub의 <a href="https://aka.ms/v3-js-capability-middlewareLogging" target="_blank">미들웨어 및 로깅 샘플</a>을 참조하세요.
+Node.js용 Bot Framework SDK를 사용하여 메시지를 가로채는 방법을 보여주는 전체 샘플은 GitHub의 <a href="https://aka.ms/v3-js-capability-middlewareLogging" target="_blank">미들웨어 및 로깅 샘플</a>을 참조하세요.

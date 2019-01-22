@@ -7,12 +7,12 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.date: 12/13/17
-ms.openlocfilehash: 0fdd196716c0fffb36583c0df894481b032dd83e
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: 2335ac34292e224f44a09820574f3bd9de00eda4
+ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49999412"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54224658"
 ---
 # <a name="troubleshooting-bot-framework-authentication"></a>Bot Framework 인증 문제 해결
 
@@ -43,7 +43,7 @@ ms.locfileid: "49999412"
 
 ::: moniker range="azure-bot-service-3.0"
 
-.NET용 Bot Builder SDK를 사용 중인 경우 Web.config 파일에서 다음 설정을 편집합니다. 
+.NET용 Bot Framework SDK를 사용 중인 경우 Web.config 파일에서 다음 설정을 편집합니다. 
 
 ```xml
 <appSettings>
@@ -52,7 +52,7 @@ ms.locfileid: "49999412"
 </appSettings>
 ```
 
-Node.js용 Bot Builder SDK를 사용 중인 경우 다음 값을 편집하거나 해당 환경 변수를 업데이트합니다.
+Node.js용 Bot Framework SDK를 사용 중인 경우 다음 값을 편집하거나 해당 환경 변수를 업데이트합니다.
 
 ```javascript
 var connector = new builder.ChatConnector({
@@ -65,16 +65,18 @@ var connector = new builder.ChatConnector({
 
 ::: moniker range="azure-bot-service-4.0"
 
-.NET용 Bot Builder SDK를 사용 중인 경우 `appsettings.config` 파일에서 다음 설정을 편집합니다.
+.NET용 Bot Framework SDK를 사용 중인 경우 `.bot` 파일에서 다음 설정을 편집합니다.
 
-```xml
-<appSettings>
-  <add key="MicrosoftAppId" value="" />
-  <add key="MicrosoftAppPassword" value="" />
-</appSettings>
+```json
+"services": [
+  {
+    "appId": "<your app ID>",
+    "appPassword": "<your app password>",
+  }
+]
 ```
 
-Node.js용 Bot Builder SDK를 사용 중인 경우 다음 값을 편집하거나 해당 환경 변수를 업데이트합니다.
+Node.js용 Bot Framework SDK를 사용 중인 경우 다음 값을 편집하거나 해당 환경 변수를 업데이트합니다.
 
 ```javascript
 const adapter = new BotFrameworkAdapter({
@@ -121,11 +123,14 @@ const adapter = new BotFrameworkAdapter({
 
 봇의 앱 ID 및 암호가 유효한지 확인하려면 `APP_ID` 및 `APP_PASSWORD`를 봇의 앱 ID 및 암호로 바꾸고 **cURL**을 사용하여 다음 요청을 실행합니다.
 
+> [!TIP]
+> 암호에 다음 호출을 무효화하는 특수 문자가 포함될 수 있습니다. 이 경우 암호를 URL 인코딩으로 변환합니다.
+
 ```cmd
 curl -k -X POST https://login.microsoftonline.com/botframework.com/oauth2/v2.0/token -d "grant_type=client_credentials&client_id=APP_ID&client_secret=APP_PASSWORD&scope=https%3A%2F%2Fapi.botframework.com%2F.default"
 ```
 
-이 요청은 액세스 토큰에 대한 봇의 앱 ID 및 암호를 교환하려고 합니다. 요청에 성공하면 무엇보다 `access_token` 속성이 포함된 JSON 페이로드를 받게 됩니다. 
+이 요청의 목적은 액세스 토큰에 대한 봇의 앱 ID 및 암호를 교환하는 것입니다. 요청에 성공하면 무엇보다 `access_token` 속성이 포함된 JSON 페이로드를 받게 됩니다. 
 
 ```json
 {"token_type":"Bearer","expires_in":3599,"ext_expires_in":0,"access_token":"eyJ0eXAJKV1Q..."}
@@ -141,9 +146,9 @@ curl -k -X POST https://login.microsoftonline.com/botframework.com/oauth2/v2.0/t
 
 ### <a id="enable-security-localhost"></a> 보안 사용
 
-봇이 localhost에서만 실행되는 경우에도 봇의 보안은 Microsoft 서비스를 사용합니다. 봇에 대한 보안을 사용하려면 해당 구성 설정을 편집하여 [2단계](#step-2)에서 확인한 값으로 앱 ID 및 암호를 채웁니다.
+봇이 localhost에서만 실행되는 경우에도 봇의 보안은 Microsoft 서비스를 사용합니다. 봇에 대한 보안을 사용하려면 해당 구성 설정을 편집하여 [2단계](#step-2)에서 확인한 값으로 앱 ID 및 암호를 채웁니다.  또한 패키지, 특히 `System.IdentityModel.Tokens.Jwt` 및 `Microsoft.IdentityModel.Tokens`를 최신 상태로 유지합니다.
 
-.NET용 Bot Builder SDK를 사용 중인 경우 `.bot` 또는 `appsettings.config` 파일에서 다음 설정을 채웁니다.
+.NET용 Bot Framework SDK를 사용 중인 경우 `appsettings.config` 파일에서 다음 설정을 채우거나 `.bot` 파일에서 해당 값을 채웁니다.
 
 ```xml
 <appSettings>
@@ -152,7 +157,7 @@ curl -k -X POST https://login.microsoftonline.com/botframework.com/oauth2/v2.0/t
 </appSettings>
 ```
 
-Node.js용 Bot Builder SDK를 사용 중인 경우 다음 설정을 채우거나 해당 환경 변수를 업데이트합니다.
+Node.js용 Bot Framework SDK를 사용 중인 경우 다음 설정을 채우거나 해당 환경 변수를 업데이트합니다.
 
 ```javascript
 var connector = new builder.ChatConnector({
@@ -213,14 +218,14 @@ Azure에 봇을 배포하면 애플리케이션에 대한 SSL이 자동으로 �
 채팅 창에 오류가 표시되면 오류 메시지를 사용하여 오류의 원인을 확인합니다. 일반적인 문제는 다음과 같습니다. 
 
 * Bot Framework 포털에서 봇에 대한 **설정** 페이지에 지정된 **메시징 엔드포인트**가 올바르지 않습니다. URL 끝에 적절한 경로를 포함했는지 확인합니다(예: `/api/messages`).
-* Bot Framework 포털에서 봇에 대한 **설정** 페이지에 지정된 **메시징 엔드포인트**가 `https`로 시작되지 않거나 Bot Framework에서 신뢰되지 않습니다. 봇에는 유효한 체인에서 신뢰할 수 있는 인증서가 있어야 합니다.
+* Bot Framework 포털에서 봇에 대한 **설정** 페이지에 지정된 **메시징 엔드포인트**가 `https`로 시작되지 않거나 Bot Framework에서 신뢰하는 엔드포인트가 아닙니다. 봇에는 유효한 체인에서 신뢰할 수 있는 인증서가 있어야 합니다.
 * 앱 ID 또는 암호의 값이 잘못되거나 누락된 상태로 봇이 구성되어 있습니다. 봇 구성 설정이 앱 ID 및 암호의 유효한 값을 지정하는지 [확인](#enable-security-localhost)합니다.
 
 봇이 입력에 적절하게 응답하는 경우 보안을 사용하도록 설정하고 봇이 클라우드에서 액세스 가능하고 작동함을 확인했습니다. 이때 봇은 Skype, Facebook Messenger, Direct Line 등의 [채널에 안전하게 연결](~/bot-service-manage-channels.md)할 준비가 완료되었습니다.
 
 ## <a name="additional-resources"></a>추가 리소스
 
-위의 단계를 완료한 후 여전히 문제가 발생하는 경우, 다음을 수행할 수 있습니다.
+위의 단계를 완료한 후에도 문제가 계속 발생하는 경우, 다음을 수행할 수 있습니다.
 
 * Bot Framework Emulator 및 <a href="https://ngrok.com/" target="_blank">ngrok</a>를 사용하여 [클라우드에서 봇을 디버그](~/bot-service-debug-emulator.md)합니다.
 * [Fiddler](https://www.telerik.com/fiddler) 같은 프록시 도구를 사용하여 봇에서 보내고 받는 HTTPS 트래픽을 검사합니다. *Fiddler는 Microsoft 제품이 아닙니다.*

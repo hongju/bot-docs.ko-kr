@@ -1,6 +1,6 @@
 ---
 title: 순차적 대화 흐름 구현 | Microsoft Docs
-description: Node.js용 Bot Builder SDK에서 대화 상자를 사용하여 간단한 대화 흐름을 관리하는 방법을 알아봅니다.
+description: Node.js용 Bot Framework SDK에서 대화 상자를 사용하여 간단한 대화 흐름을 관리하는 방법을 알아봅니다.
 keywords: 간단한 대화 흐름, 순차적 대화 흐름, 대화 상자, 프롬프트, 폭포, 대화 상자 집합
 author: JonathanFingold
 ms.author: v-jofing
@@ -10,12 +10,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 11/18/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 2264b6927ccb863f153f2feb829cc0fb99c711f7
-ms.sourcegitcommit: 6c719b51c9e4e84f5642100a33fe346b21360e8a
+ms.openlocfilehash: 554d040dd4c9d126fa70c24f1af5a1ac97a39204
+ms.sourcegitcommit: b94361234816e6b95459f142add936732fc40344
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52452085"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54317623"
 ---
 # <a name="implement-sequential-conversation-flow"></a>순차적 대화 흐름 구현
 
@@ -58,7 +58,7 @@ public class MultiTurnPromptsBotAccessors
 }
 ```
 
-`Statup` 클래스의 `ConfigureServices` 메서드에서 접근자 클래스를 등록합니다.
+`Startup` 클래스의 `ConfigureServices` 메서드에서 접근자 클래스를 등록합니다.
 다시 코드의 일부만 호출합니다.
 
 ```csharp

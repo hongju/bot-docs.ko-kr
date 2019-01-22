@@ -1,6 +1,6 @@
 ---
-title: 메시지에 제안된 작업 추가 | Microsoft Docs
-description: .NET용 Bot Builder SDK를 사용하여 메시지에 제안된 작업을 추가하는 방법을 알아봅니다.
+title: 메시지에 제안된 동작 추가 | Microsoft Docs
+description: .NET용 Bot Framework SDK를 사용하여 메시지에 제안된 작업을 추가하는 방법을 알아봅니다.
 author: RobStand
 ms.author: kamrani
 manager: kamrani
@@ -9,12 +9,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 03/13/2018
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: b03003d4822c657f9b606de36087ddf4d5cbee7a
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: ad9b791cf74c4a67515fdf8d60eab29c51f93bc2
+ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49997651"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54224754"
 ---
 # <a name="add-suggested-actions-to-messages"></a>메시지에 제안된 동작 추가
 

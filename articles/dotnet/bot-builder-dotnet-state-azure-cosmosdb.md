@@ -1,6 +1,6 @@
 ---
 title: Azure Cosmos DB를 사용하여 사용자 지정 상태 데이터 관리 | Microsoft Docs
-description: .NET용 Bot Builder SDK와 함께 Azure Cosmos DB를 사용하여 상태 데이터를 저장 및 검색하는 방법을 알아봅니다.
+description: .NET용 Bot Framework SDK와 함께 Azure Cosmos DB를 사용하여 상태 데이터를 저장 및 검색하는 방법을 알아봅니다.
 author: kaiqb
 manager: kamrani
 ms.topic: article
@@ -8,12 +8,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 76eff2bb7b862dad148d6741a2049e4f827fe731
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: 19b44fbb09af69bde803b9b884d58108c248ebe5
+ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49999050"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54224836"
 ---
 # <a name="manage-custom-state-data-with-azure-cosmos-db-for-net"></a>.NET용 Azure Cosmos DB를 사용하여 사용자 지정 상태 데이터 관리
 

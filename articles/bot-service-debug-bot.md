@@ -3,18 +3,18 @@ title: 봇 디버그 | Microsoft Docs
 description: Bot Service를 사용하여 빌드된 봇을 디버그하는 방법에 대해 알아봅니다.
 author: v-ducvo
 ms.author: v-ducvo
-keywords: Bot Builder SDK, 봇 디버그, 봇 테스트, 봇 에뮬레이터, 에뮬레이터
+keywords: Bot Framework SDK, 봇 디버그, 봇 테스트, 봇 에뮬레이터, 에뮬레이터
 manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
 ms.date: 11/13/2018
-ms.openlocfilehash: fcda5c57a96b6f93aad965e868c824577616f630
-ms.sourcegitcommit: 6c719b51c9e4e84f5642100a33fe346b21360e8a
+ms.openlocfilehash: b445ce7796c3f7f3180b15fd6dfac1ef82b808ae
+ms.sourcegitcommit: d385ec5fe61c469ab17e6f21b4a0d50e5110d0fd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52452045"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54298300"
 ---
 # <a name="debug-a-bot"></a>봇 디버그
 
@@ -32,6 +32,7 @@ ms.locfileid: "52452045"
 1. 에뮬레이터를 시작하고 봇의 엔드포인트에 연결합니다(예: **http://localhost:3978/api/messages**). 처음으로 봇을 실행하는 경우라면 **파일 > 새 봇**을 클릭하고 화면에 표시된 지시를 따릅니다. 그렇지 않은 경우 **파일 > 봇 열기**를 클릭하여 기존 봇을 엽니다. 이 봇이 컴퓨터에서 로컬로 실행되므로 **MSA 앱 ID** 및 **MSA 앱 암호** 필드를 빈 공간으로 내버려둘 수 있습니다. 자세한 내용은 [에뮬레이터를 사용하여 디버그](bot-service-debug-emulator.md)를 참조합니다.
 1. 에뮬레이터에서 봇에게 메시지를 보냅니다(예: "Hi" 메시지 보내기). 
 1. 에뮬레이터 창의 오른쪽에 있는 **검사기** 및 **로그** 패널을 사용하여 봇을 디버그합니다. 예를 들어 메시지 풍선 중 하나를 클릭하면(예: 아래 스크린샷의 "Hi" 메시지 풍선) **검사기** 패널에 해당 메시지의 세부 정보가 표시됩니다. 메시지가 에뮬레이터와 봇 간에 교환될 때 말풍선을 사용하여 요청 및 응답을 볼 수 있습니다. 또는 **로그** 패널에서 연결된 텍스트 중 하나를 클릭하여 **검사기** 패널에서 세부 정보를 볼 수 있습니다.
+
 
    ![에뮬레이터의 검사기 패널](~/media/bot-service-debug-bot/emulator_inspector.png)
 

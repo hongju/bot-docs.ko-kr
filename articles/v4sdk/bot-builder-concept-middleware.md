@@ -10,12 +10,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 11/8/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 1bfa180967c55aac6012e02887ac2893947263f9
-ms.sourcegitcommit: 91156d0866316eda8d68454a0c4cd74be5060144
+ms.openlocfilehash: 231ed330faf9ce777a5acc5f4e6272b747a6f7fc
+ms.sourcegitcommit: d385ec5fe61c469ab17e6f21b4a0d50e5110d0fd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53010588"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54298280"
 ---
 # <a name="middleware"></a>미들웨어
 
@@ -96,5 +96,6 @@ SDK는 들어오고 나가는 활동을 기록할 수 있는 로깅 미들웨어
 
 업데이트해야 하는 상태 관리 개체를 _봇 상태 세트_ 개체에 추가한 다음, 변경 내용 자동 저장 미들웨어를 만들 때 이 개체를 사용합니다.
 
+
 ## <a name="additional-resources"></a>추가 리소스
-Bot Builder SDK [[C#](https://github.com/Microsoft/botbuilder-dotnet/blob/master/libraries/Microsoft.Bot.Builder/TranscriptLoggerMiddleware.cs) | [JS](https://github.com/Microsoft/botbuilder-js/blob/master/libraries/botbuilder-core/src/transcriptLogger.ts)]에 구현된 대본 로거 미들웨어를 살펴볼 수 있습니다.
+Bot Framework SDK [[C#](https://github.com/Microsoft/botbuilder-dotnet/blob/master/libraries/Microsoft.Bot.Builder/TranscriptLoggerMiddleware.cs) | [JS](https://github.com/Microsoft/botbuilder-js/blob/master/libraries/botbuilder-core/src/transcriptLogger.ts)]에 구현된 대본 로거 미들웨어를 살펴볼 수 있습니다.

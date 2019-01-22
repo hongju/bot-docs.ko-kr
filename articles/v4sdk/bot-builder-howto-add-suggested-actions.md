@@ -1,6 +1,6 @@
 ---
 title: 입력에 단추 사용 | Microsoft Docs
-description: JavaScript용 Bot Builder SDK를 사용하여 메시지 내에서 제안된 동작을 전송하는 방법을 알아봅니다.
+description: JavaScript용 Bot Framework SDK를 사용하여 메시지 내에서 제안된 동작을 전송하는 방법을 알아봅니다.
 keywords: 제안된 동작, 단추, 추가 입력
 author: Kaiqb
 ms.author: kamrani
@@ -10,12 +10,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 11/08/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 10b9fa9664e8c18cdc5dcd2fcf3ae400296a4abb
-ms.sourcegitcommit: 6c719b51c9e4e84f5642100a33fe346b21360e8a
+ms.openlocfilehash: c462af04f6aaf9b1b4257ca5932c00414f469380
+ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52451985"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54224388"
 ---
 # <a name="use-button-for-input"></a>입력에 단추 사용
 

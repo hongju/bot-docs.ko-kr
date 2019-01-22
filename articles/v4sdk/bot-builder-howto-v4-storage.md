@@ -1,6 +1,6 @@
 ---
 title: 저장소에 직접 작성 | Microsoft Docs
-description: .NET용 Bot Builder SDK를 통해 직접 저장소에 작성하는 방법을 알아봅니다.
+description: .NET용 Bot Framework SDK를 통해 직접 스토리지에 작성하는 방법을 알아봅니다.
 keywords: 저장소, 읽기 및 쓰기, 메모리 저장소, eTag
 author: DeniseMak
 ms.author: v-demak
@@ -10,12 +10,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 11/13/18
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 803574e5d224b0556162fd677145d29cafa2cab1
-ms.sourcegitcommit: 8b7bdbcbb01054f6aeb80d4a65b29177b30e1c20
+ms.openlocfilehash: cd1f8270acf426c84d64efef796b7a007c49c2c1
+ms.sourcegitcommit: bdb981c0b11ee99d128e30ae0462705b2dae8572
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51645683"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54360793"
 ---
 # <a name="write-directly-to-storage"></a>저장소에 직접 작성
 
@@ -217,12 +217,12 @@ async function logMessageText(storage, context) {
 계정 생성에는 몇 분 정도가 소요됩니다. 포털에서 축하합니다! Azure Cosmos DB 계정이 만들어졌습니다. 페이지가 표시될 때까지 기다립니다.
 
 ##### <a name="add-a-collection"></a>컬렉션 추가
-1. **설정 > 새 컬렉션**을 클릭합니다. **컬렉션 추가** 영역이 맨 오른쪽에 표시되면 확인하기 위해 오른쪽으로 스크롤해야 합니다.
+1. **설정 > 새 컬렉션**을 클릭합니다. **컬렉션 추가** 영역이 맨 오른쪽에 표시되면 확인하기 위해 오른쪽으로 스크롤해야 합니다. 최근에 Cosmos DB가 업데이트되어 단일 파티션 키 _/id_를 추가해야 합니다. 이 키는 파티션 간 쿼리 오류를 방지합니다.
 
 ![Cosmos DB 컬렉션 추가](./media/add_database_collection.png)
 
 2. "bot-storage"의 컬렉션 ID가 있는 새 데이터베이스 컬렉션, "bot-cosmos-sql-db" 아래에 나와 있는 코딩 예제에서 이러한 값을 사용합니다.
-
+ -
 ![Cosmos DB](./media/cosmos-db-sql-database.png)
 
 3. 엔드포인트 URI와 키를 데이터베이스 설정의 **키** 탭 내에서 사용할 수 있습니다. 이 문서의 아래쪽에 코드를 더 추가하는 데 이러한 값이 필요합니다. 
@@ -477,17 +477,17 @@ async function updateSampleNote(storage, context) {
 
 동시성을 유지하려면 항상 저장소에서 속성을 읽은 다음, 읽은 속성을 수정하여 `eTag`를 유지 관리합니다. 저장소에서 사용자 데이터를 읽은 경우 응답에 eTag 속성이 포함됩니다. 데이터를 변경하고 업데이트된 데이터를 저장소에 쓴 경우 요청에 앞서 읽은 것과 동일한 값을 지정하는 eTag 속성이 포함됩니다. 그러나 `eTag`가 `*`로 설정된 개체를 쓰면 이 쓰기가 다른 변경 내용을 덮어쓰게 됩니다.
 
-## <a name="using-blob-storage"></a>Blob 저장소 사용 
-Azure Blob 저장소는 클라우드를 위한 Microsoft의 개체 저장소 솔루션입니다. Blob 저장소는 텍스트 또는 이진 데이터와 같이 구조화되지 않은 대량의 데이터를 저장하는 데 최적화되어 있습니다.
+## <a name="using-blob-storage"></a>Blob Storage 사용 
+Azure Blob Storage는 클라우드를 위한 Microsoft의 개체 스토리지 솔루션입니다. Blob Storage는 텍스트 또는 이진 데이터와 같이 구조화되지 않은 대량의 데이터를 저장하는 데 최적화되어 있습니다.
 
-### <a name="create-your-blob-storage-account"></a>Blob 저장소 계정 만들기
-봇에서 Blob 저장소를 사용하려면 코드를 살펴보기 전에 몇 가지 작업을 설정해야 합니다.
+### <a name="create-your-blob-storage-account"></a>Blob Storage 계정 만들기
+봇에서 Blob Storage를 사용하려면 코드를 살펴보기 전에 몇 가지 작업을 설정해야 합니다.
 1. 새 브라우저 창에서 [Azure Portal](http://portal.azure.com)에 로그인합니다.
 2. **리소스 만들기 > Storage > Storage 계정 - Blob, 파일, 테이블, 큐**를 클릭합니다.
-3. **새 계정 페이지**에서 저장소 계정에 대한 **이름**을 입력하고, **계정 유형**에 **Blob 저장소**를 선택하고, **위치**, **리소스 그룹** 및 **구독** 정보를 제공합니다.  
+3. **새 계정 페이지**에서 스토리지 계정에 대한 **이름**을 입력하고, **계정 유형**에 **Blob Storage**를 선택하고, **위치**, **리소스 그룹** 및 **구독** 정보를 제공합니다.  
 4. 그런 다음, **만들기**를 클릭합니다.
 
-![Blob 저장소 만들기](./media/create-blob-storage.png)
+![Blob Storage 만들기](./media/create-blob-storage.png)
 
 #### <a name="add-configuration-information"></a>구성 정보 추가
 
@@ -543,7 +543,7 @@ const mystorage = new BlobStorage({
 Azure Blob 기록 저장소는 기록된 기록의 형태로 사용자 대화를 쉽게 저장하고 검색할 수 있는 특수 저장소 옵션을 제공합니다. Azure Blob 기록 저장소는 봇의 성능을 디버깅할 때 검사할 사용자 입력을 자동으로 캡처하는 데 특히 유용합니다.
 
 ### <a name="set-up"></a>설정
-Azure Blob 기록 저장소는 위의 섹션 "_Blob 저장소 계정 만들기_" 및 "_구성 정보 추가_"에 설명된 단계를 따라 만들어진 동일한 Blob 저장소 계정을 사용할 수 있습니다. 이 문서에서는 새 Blob 컨테이너, "_mybottranscripts_"를 추가했습니다. 
+Azure Blob 기록 스토리지는 위의 섹션 &quot;_Blob Storage 계정 만들기_&quot; 및 &quot;_구성 정보 추가_&quot;에 설명된 단계를 따라 만들어진 동일한 Blob Storage 계정을 사용할 수 있습니다. 이 문서에서는 새 Blob 컨테이너, "_mybottranscripts_"를 추가했습니다. 
 
 ### <a name="implementation"></a>구현 
 다음 코드는 기록 저장소 포인터 "_transcriptStore_"를 새 Azure Blob 기록 저장소 계정에 연결합니다. 여기에 표시된 사용자 대화를 저장하는 소스 코드는 [대화 기록](https://aka.ms/bot-history-sample-code) 샘플에 기반을 두고 있습니다. 
@@ -597,7 +597,7 @@ public async Task OnTurnAsync(ITurnContext turnContext, CancellationToken cancel
            var count = 0;
            do
            {
-               var pagedTranscript = await _transcriptStore.GetTranscriptActivitiesAsync(activity.ChannelId, activity.Conversation.Id);
+               var pagedTranscript = await _transcriptStore.GetTranscriptActivitiesAsync(activity.ChannelId, activity.Conversation.Id, continuationToken);
                var activities = pagedTranscript.Items
                   .Where(a => a.Type == ActivityTypes.Message)
                   .Select(ia => (Activity)ia)

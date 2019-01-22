@@ -1,6 +1,6 @@
 ---
 title: JSON 스키마 및 FormFlow를 사용하여 양식 정의 | Microsoft Docs
-description: .NET용 Bot Builder SDK에서 JSON 스키마 및 FormFlow를 사용하여 양식을 정의하는 방법을 알아봅니다.
+description: .NET용 Bot Framework SDK에서 JSON 스키마 및 FormFlow를 사용하여 양식을 정의하는 방법을 알아봅니다.
 author: RobStand
 ms.author: kamrani
 manager: kamrani
@@ -9,12 +9,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 8bcc957dbe2d69790cdfa7c2d7c377ed28b5fa12
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: d84252281baa57a15b093cfd0ba92fe5fe422027
+ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "50000330"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54225858"
 ---
 # <a name="define-a-form-using-json-schema"></a>JSON 스키마를 사용하여 양식 정의
 
@@ -46,8 +46,8 @@ FormFlow는 표준 <a href="http://json-schema.org/documentation.html" target="_
 | 자산 | 값 |
 |----|----|
 | OnCompletion | 양식을 완료하기 위한 인수 `(IDialogContext context, JObject state)`가 있는 C# 스크립트입니다. |
-| 참조 | 스크립트에 포함할 참조입니다. 예: `[assemblyReference, ...]`. 경로는 절대 경로 또는 현재 디렉터리의 상대 경로여야 합니다. 기본적으로 스크립트에 `Microsoft.Bot.Builder.dll`이 포함됩니다. |
-| 가져오기 | 스크립트에 포함할 가져오기입니다. 예: `[import, ...]`. 기본적으로 스크립트에 `Microsoft.Bot.Builder`, `Microsoft.Bot.Builder.Dialogs`, `Microsoft.Bot.Builder.FormFlow`, `Microsoft.Bot.Builder.FormFlow.Advanced`, `System.Collections.Generic` 및 `System.Linq` 네임스페이스가 포함됩니다. |
+| 참조 | 스크립트에 포함할 참조입니다. 예: `[assemblyReference, ...]` 경로는 절대 경로 또는 현재 디렉터리의 상대 경로여야 합니다. 기본적으로 스크립트에 `Microsoft.Bot.Builder.dll`이 포함됩니다. |
+| 가져오기 | 스크립트에 포함할 가져오기입니다. 예: `[import, ...]` 기본적으로 스크립트에 `Microsoft.Bot.Builder`, `Microsoft.Bot.Builder.Dialogs`, `Microsoft.Bot.Builder.FormFlow`, `Microsoft.Bot.Builder.FormFlow.Advanced`, `System.Collections.Generic` 및 `System.Linq` 네임스페이스가 포함됩니다. |
 
 ### <a name="additional-properties-at-the-root-of-the-schema-or-as-peers-of-the-type-property"></a>스키마 루트의 추가 특성 또는 type 속성의 피어인 추가 속성
 
@@ -317,7 +317,7 @@ JSON 스키마로 FormFlow를 구현하려면 `FormBuilder`와 동일한 흐름 
 - [FormBuilder를 사용하여 양식 사용자 지정](bot-builder-dotnet-formflow-formbuilder.md)
 - [양식 콘텐츠 지역화](bot-builder-dotnet-formflow-localize.md)
 - [패턴 언어를 사용하여 사용자 환경 사용자 지정](bot-builder-dotnet-formflow-pattern-language.md)
-- <a href="/dotnet/api/?view=botbuilder-3.11.0" target="_blank">.NET용 Bot Builder SDK 참조</a>
+- <a href="/dotnet/api/?view=botbuilder-3.11.0" target="_blank">.NET용 Bot Framework SDK 참조</a>
 
 [numericAttribute]: /dotnet/api/microsoft.bot.builder.formflow.numericattribute
 

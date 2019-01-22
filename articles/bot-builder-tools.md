@@ -1,6 +1,6 @@
 ---
 title: CLI 도구를 사용하여 봇 관리
-description: Bot Builder 도구를 사용하면 명령줄에서 봇 리소스를 직접 관리할 수 있습니다.
+description: Bot Framework 도구를 사용하면 명령줄에서 봇 리소스를 직접 관리할 수 있습니다.
 keywords: BotBuilder 템플릿, LUDown, QnA, LUIS, MSBot, 관리, CLI, .bot, 봇
 author: ivorb
 ms.author: v-ivorb
@@ -10,16 +10,16 @@ ms.service: bot-service
 ms.subservice: tools
 ms.date: 11/13/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 5ffaf9a946e1a540b82819b7f745200f47384819
-ms.sourcegitcommit: 8b7bdbcbb01054f6aeb80d4a65b29177b30e1c20
+ms.openlocfilehash: f9eafa708be2ce597ec2679fb6975d7da71951ea
+ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51645663"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54225878"
 ---
 # <a name="manage-bots-using-cli-tools"></a>CLI 도구를 사용하여 봇 관리
 
-Bot Builder 도구는 계획, 빌드, 테스트, 게시, 연결 및 평가 단계를 포함하는 종단 간 봇 개발 워크플로를 다룹니다. 이러한 도구가 개발 주기의 각 단계에서 지원하는 방식을 살펴보겠습니다.
+Bot Framework 도구는 계획, 빌드, 테스트, 게시, 연결 및 평가 단계를 포함하는 엔드투엔드 봇 개발 워크플로를 다룹니다. 이러한 도구가 개발 주기의 각 단계에서 지원하는 방식을 살펴보겠습니다.
 
 ## <a name="plan"></a>계획
 
@@ -60,7 +60,6 @@ user: thanks
 bot:
 Here's a form for you
 [Attachment=card.json adaptivecard]
-
 ```
 
 ### <a name="create-a-transcript-file-from-chat-file"></a>.chat 파일에서 전사 파일 만들기
@@ -98,30 +97,33 @@ LUIS 포털에서와 마찬가지로, LUIS 애플리케이션에 대한 [의도]
 
 .lu 파일 형식은 다음 표기법을 사용하는 QnA 쌍도 지원합니다. 
 
-```LUDown
+~~~LUDown
 > comment
 ### ? question ?
   ```markdown
     answer
   ```
+~~~
 
 LUDown 도구는 질문과 대답을 qnamaker JSON 파일로 자동으로 구분하며, 이 파일을 사용하여 새로운 [QnaMaker.ai](http://qnamaker.ai) 기술 자료를 만들 수 있습니다.
 
-```LUDown
+~~~LUDown
 ### ? How do I change the default message for QnA Maker?
   ```markdown
   You can change the default message if you use the QnAMakerDialog. 
-  See [this link](https://docs.botframework.com/en-us/azure-bot-service/templates/qnamaker/#navtitle) for details. 
+  See [this link](https://docs.botframework.com/en-us/azure-bot-service/templates/qnamaker/#navtitle) for details.
   ```
+~~~
 
 단일 대답에 대해 새 변형된 질문 줄을 추가하여 동일한 대답에 여러 질문을 추가할 수도 있습니다.
 
-```LUDown
+~~~LUDown
 ### ? What is your name?
 - What should I call you?
   ```markdown
     I'm the echoBot! Nice to meet you.
   ```
+~~~
 
 ### <a name="generate-json-models-with-ludown"></a>LUDown을 사용하여 .json 모델 생성
 
@@ -232,21 +234,37 @@ Bot Framework [에뮬레이터](bot-service-debug-emulator.md)는 봇 개발자�
 
 ## <a name="publish"></a>게시
 
-Azure CLI를 사용하여 Azure Bot Service에 봇을 만들고, 다운로드하고, 게시할 수 있습니다. 다음을 통해 봇 확장을 설치합니다. 
+Azure CLI를 사용하여 Azure Bot Service에 봇을 만들고, 다운로드하고, 게시할 수 있습니다.
+
+msbot 4.3.2 이상에서는 Azure CLI 버전 2.0.53 이상이 필요합니다. botservice 확장을 설치한 경우 이 명령을 사용하여 제거하세요.
+
 ```shell
-az extension add -n botservice
+az extension remove --name botservice
 ```
 
 ### <a name="create-azure-bot-service-bot"></a>Azure Bot Service 봇 만들기
 
-참고: 최신 버전의 `az cli`를 사용해야 합니다. MSBot 도구에서 작동할 수 있도록 az cli를 업그레이드하세요. 
+참고: 최신 버전의 `az cli`를 사용해야 합니다. MSBot 도구에서 작동할 수 있도록 az cli를 업그레이드하세요.
 
-다음을 통해 Azure 계정에 로그인합니다. 
+다음을 통해 Azure 계정에 로그인합니다.
+
 ```shell
 az login
 ```
 
-로그인하면 다음을 사용하여 새 Azure Bot Service 봇을 만들 수 있습니다. 
+봇을 게시할 리소스 그룹이 아직 없는 경우 새로 만듭니다.
+
+```shell
+az group create --name <resource-group-name> --location <geographic-location> --verbose
+```
+
+| 옵션 | 설명 |
+|:---|:---|
+| --name | 리소스 그룹의 고유한 이름입니다. 이름에 공백 또는 밑줄을 넣지 마세요. |
+| --location | 리소스 그룹을 만드는 데 사용되는 지리적 위치입니다. 예를 들어 `eastus`, `westus`, `westus2` 등입니다. 위치 목록에는 `az account list-locations`를 사용합니다. |
+
+그런 다음, 봇을 게시할 봇 리소스를 만듭니다.
+
 ```shell
 az bot create [options]
 ```
@@ -303,7 +321,7 @@ Group
 ```
 
 ## <a name="additional-information"></a>추가 정보
-- [GitHub의 Bot Builder 도구][cliTools]
+- [GitHub의 Bot Framework 도구][cliTools]
 
 <!-- Footnote links -->
 

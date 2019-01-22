@@ -1,6 +1,6 @@
 ---
 title: 사용자 입력을 위한 프롬프트 | Microsoft Docs
-description: 프롬프트를 사용하여 Node.js용 Bot Builder SDK를 통해 사용자 입력을 수집하는 방법을 알아봅니다.
+description: 프롬프트를 사용하여 Node.js용 Bot Framework SDK를 통해 사용자 입력을 수집하는 방법을 알아봅니다.
 author: v-ducvo
 ms.author: v-ducvo
 manager: kamrani
@@ -9,18 +9,18 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 0926c15d2c62bfa74ddb465d8c816dee7c8fb576
-ms.sourcegitcommit: 6c719b51c9e4e84f5642100a33fe346b21360e8a
+ms.openlocfilehash: 0ee70c1e775780bf884c4237e47cff4edb8934a9
+ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52451975"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54224788"
 ---
 # <a name="prompt-for-user-input"></a>사용자 입력을 위한 프롬프트
 
 [!INCLUDE [pre-release-label](../includes/pre-release-label-v3.md)]
 
-Node.js용 Bot Builder SDK는 사용자의 입력을 수집하는 과정을 단순화하는 기본 제공 프롬프트 집합을 제공합니다. 
+Node.js용 Bot Framework SDK는 사용자의 입력을 수집하는 과정을 단순화하는 기본 제공 프롬프트 세트를 제공합니다. 
 
 ‘프롬프트’는 봇에 사용자의 입력이 필요할 때마다 사용됩니다. 프롬프트를 사용하면 프롬프트를 폭포로 연결하여 사용자에게 일련의 입력을 요청할 수 있습니다. 프롬프트를 [폭포](bot-builder-nodejs-dialog-waterfall.md)와 함께 사용하면 봇에서 [대화 흐름을 관리](bot-builder-nodejs-manage-conversation-flow.md)할 수 있습니다. 
 
@@ -74,7 +74,7 @@ bot.dialog('askName', [
 ```
 
 ## <a name="prompt-types"></a>프롬프트 형식
-Node.js용 Bot Builder SDK는 다양한 형식의 기본 제공 프롬프트를 포함합니다. 
+Node.js용 Bot Framework SDK는 다양한 형식의 기본 제공 프롬프트를 포함합니다. 
 
 |**프롬프트 형식**     | **설명** |     
 | ------------------ | --------------- |

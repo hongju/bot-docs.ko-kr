@@ -1,6 +1,6 @@
 ---
 title: 결제 요청 | Microsoft Docs
-description: .NET용 Bot Builder SDK를 사용하여 결제 요청을 보내는 방법을 알아봅니다.
+description: .NET용 Bot Framework SDK를 사용하여 결제 요청을 보내는 방법을 알아봅니다.
 author: RobStand
 ms.author: kamrani
 manager: kamrani
@@ -9,12 +9,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 12/13/17
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: b3d1a1cea450d1fe821a90951a7a319ca863dfed
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: f9e693d8bd5aad03930259422939f5572a22ff0a
+ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49997690"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54225458"
 ---
 # <a name="request-payment"></a>결제 요청
 
@@ -24,11 +24,11 @@ ms.locfileid: "49997690"
 > - [.NET](../dotnet/bot-builder-dotnet-request-payment.md)
 > - [Node.JS](../nodejs/bot-builder-nodejs-request-payment.md)
 
-봇을 통해 사용자가 항목을 구매할 수 있는 경우 [서식 있는 카드](bot-builder-dotnet-add-rich-card-attachments.md) 내 특수한 단추 유형을 포함시키면 결제를 요청할 수 있습니다. 이 문서에서는 .NET용 Bot Builder SDK를 사용하여 결제 요청을 보내는 방법을 설명합니다.
+봇을 통해 사용자가 항목을 구매할 수 있는 경우 [서식 있는 카드](bot-builder-dotnet-add-rich-card-attachments.md) 내 특수한 단추 유형을 포함시키면 결제를 요청할 수 있습니다. 이 문서에서는 .NET용 Bot Framework SDK를 사용하여 결제 요청을 보내는 방법을 설명합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-.NET용 Bot Builder SDK를 사용하여 결제 요청을 보내기 전에 이러한 필수 구성 요소 작업을 완료해야 합니다.
+.NET용 Bot Framework SDK를 사용하여 결제 요청을 보내기 전에 이러한 필수 구성 요소 작업을 완료해야 합니다.
 
 ### <a name="update-webconfig"></a>Web.config 업데이트
 
@@ -127,4 +127,4 @@ HTTP 콜백은 봇이 특정 작업을 수행해야 함을 나타내기 위해 �
 - [작업 개요](bot-builder-dotnet-activities.md)
 - [메시지에 서식 있는 카드 추가](bot-builder-dotnet-add-rich-card-attachments.md)
 - <a href="http://www.w3.org/Payments/" target="_blank">W3C에서 웹 결제</a> 
-- <a href="/dotnet/api/?view=botbuilder-3.11.0" target="_blank">.NET용 Bot Builder SDK 참조</a>
+- <a href="/dotnet/api/?view=botbuilder-3.11.0" target="_blank">.NET용 Bot Framework SDK 참조</a>

@@ -1,6 +1,6 @@
 ---
 title: LUIS를 통해 의도 및 엔터티 인식 | Microsoft Docs
-description: .NET용 Bot Builder SDK에서 LUIS 대화를 사용하여 봇이 자연어를 이해하도록 설정하는 방법을 알아봅니다.
+description: .NET용 Bot Framework SDK에서 LUIS 대화를 사용하여 봇이 자연어를 이해하도록 설정하는 방법을 알아봅니다.
 author: DeniseMak
 ms.author: v-demak
 manager: kamrani
@@ -9,12 +9,12 @@ ms.service: bot-service
 ms.subservice: cognitive-services
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: ec3c93bfca1ec8554655934d9165e436d88b9466
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: 26b23c9beda872b71defd779563531328b63a0c8
+ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49997730"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54225378"
 ---
 # <a name="recognize-intents-and-entities-with-luis"></a>LUIS를 통해 의도 및 엔터티 인식 
 
@@ -59,7 +59,7 @@ ms.locfileid: "49997730"
 
 Azure에 로그인하는 데 사용하는 계정과 동일한 계정을 사용하여 [https://www.luis.ai](https://www.luis.ai)에 로그인합니다. **내 앱**을 클릭합니다. 앱 목록에서 봇 서비스를 만들 때 **Bot Service** 블레이드의 **앱 이름**에 지정된 이름으로 시작하는 앱을 찾습니다. 
 
-LUIS 앱은 취소, 인사말, 도움말 및 없음이라는 4가지 의도로 시작합니다. <!-- picture -->
+LUIS 앱은 4개 의도로 시작합니다. 취소: 인사말, 도움말 및 없음입니다. <!-- picture -->
 
 다음 단계에서는 Note.Create, Note.ReadAloud 및 Note.Delete 의도를 추가합니다. 
 
@@ -388,7 +388,7 @@ Azure Portal에서 **Web Chat에서 테스트**를 클릭하여 봇을 테스트
 - [다이얼로그](bot-builder-dotnet-dialogs.md)
 - [Dialogs(대화)를 사용하여 대화 흐름 관리](bot-builder-dotnet-manage-conversation-flow.md)
 - <a href="https://www.luis.ai" target="_blank">LUIS</a>
-- <a href="/dotnet/api/?view=botbuilder-3.11.0" target="_blank">.NET용 Bot Builder SDK 참조</a>
+- <a href="/dotnet/api/?view=botbuilder-3.11.0" target="_blank">.NET용 Bot Framework SDK 참조</a>
 
 [LUIS]: https://www.luis.ai/
 [NotesSample]: https://github.com/Microsoft/BotFramework-Samples/tree/master/docs-samples/CSharp/Simple-LUIS-Notes-Sample

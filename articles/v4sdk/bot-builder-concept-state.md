@@ -1,6 +1,6 @@
 ---
 title: 상태 관리 | Microsoft Docs
-description: Bot Builder SDK 내에서 상태가 작동하는 방법을 설명합니다.
+description: Bot Framework SDK 내에서 상태가 작동하는 방법을 설명합니다.
 keywords: 상태, 봇 상태, 대화 상태, 사용자 상태
 author: ivorb
 ms.author: v-ivorb
@@ -10,12 +10,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 11/15/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: bf7d6a574cc4e63d22e3f34462a1ec00dbdac75e
-ms.sourcegitcommit: 91156d0866316eda8d68454a0c4cd74be5060144
+ms.openlocfilehash: dfbc9f4ed0f08c7349d758147460b8268c49e372
+ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53010546"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54225868"
 ---
 # <a name="managing-state"></a>상태 관리
 

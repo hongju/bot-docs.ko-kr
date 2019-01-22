@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
 ms.date: 12/13/2017
-ms.openlocfilehash: 41cc36b7e4abc12bf57df7bf4272dd35031cf251
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: 1cb9143e5ab2d5eb7e92e263b838cdd9217492ef
+ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49998000"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54225358"
 ---
 # <a name="authentication"></a>인증
 
@@ -22,7 +22,7 @@ ms.locfileid: "49998000"
 > [!IMPORTANT]
 > 자체 인증 코드를 작성할 경우 모든 보안 절차를 정확하게 구현하는 것이 중요합니다. 이 문서의 모든 단계를 구현하면 공격자가 봇에게 전송된 메시지를 읽고 봇을 가장하는 메시지를 보내고 비밀 키를 도용하는 위험을 줄일 수 있습니다. 
 
-[.NET용 Bot Builder SDK](../dotnet/bot-builder-dotnet-overview.md) 또는 [Node.js용 Bot Builder SDK](../nodejs/index.md)를 사용할 경우 SDK가 자동으로 작업을 수행하므로 이 문서의 보안 절차를 실행할 필요가 없습니다. [등록](../bot-service-quickstart-registration.md) 중에 봇에 대해 얻은 앱 ID와 암호로 프로젝트를 구성하기만 하면 SDK가 나머지를 처리합니다.
+[.NET용 Bot Framework SDK](../dotnet/bot-builder-dotnet-overview.md) 또는 [Node.js용 Bot Framework SDK](../nodejs/index.md)를 사용할 경우 SDK가 자동으로 작업을 수행하므로 이 문서의 보안 절차를 실행할 필요가 없습니다. [등록](../bot-service-quickstart-registration.md) 중에 봇에 대해 얻은 앱 ID와 암호로 프로젝트를 구성하기만 하면 SDK가 나머지를 처리합니다.
 
 > [!WARNING]
 > 2016년 12월에 Bot Framework 보안 프레임워크 v3.1이 도입되어 토큰 생성 및 유효성 검사 중에 사용되는 몇 가지 값에 대한 변경이 있었습니다. 2017년 늦가을에 토큰 생성 및 유효성 검사 중에 사용되는 값에 대한 변경 내용을 포함하는 Bot Framework 보안 프로토콜 v3.2가 도입되었습니다.
@@ -144,7 +144,7 @@ Bot Connector 서비스가 봇에 요청을 보낼 때는 요청의 `Authorizati
 
 ![Bot Connector에서 봇에 대한 호출 인증](../media/connector/auth_bot_connector_to_bot.png)
 
-### <a id="openid-metadata-document"></a> 2단계: OpenID 메타 데이터 문서 가져오기
+### <a id="openid-metadata-document"></a> 2단계: OpenID 메타데이터 문서 가져오기
 
 OpenID 메타데이터 문서는 Bot Connector 서비스의 유효한 서명 키를 나열하는 두 번째 문서의 위치를 지정합니다. OpenID 메타데이터 문서를 가져오려면 HTTPS를 통해 이 요청을 실행합니다.
 
@@ -179,7 +179,7 @@ GET https://login.botframework.com/v1/.well-known/openidconfiguration
 GET https://login.botframework.com/v1/.well-known/keys
 ```
 
-응답 본문이 [JWK 형식](https://tools.ietf.org/html/rfc7517)으로 문서를 지정하지만 각 키에 대한 추가 속성 `endorsements`도 포함합니다. 키 목록은 비교적 안정적이며 장시간 캐시될 수 있습니다(기본적으로 Bot Builder SDK 안에서 5일).
+응답 본문이 [JWK 형식](https://tools.ietf.org/html/rfc7517)으로 문서를 지정하지만 각 키에 대한 추가 속성 `endorsements`도 포함합니다. 키 목록은 비교적 안정적이며 장시간 캐시될 수 있습니다(기본적으로 Bot Framework SDK 안에서 5일).
 
 각 키 안의 `endorsements` 속성은 들어오는 요청의 [Activity][Activity] 개체 내 `channelId` 속성에서 지정한 채널 ID가 진짜인지 확인하는 데 사용할 수 있는 하나 이상의 인증 문자열을 포함합니다. 인증이 필요한 채널 ID 목록은 각 봇 안에서 구성할 수 있습니다. 봇 개발자가 선택한 채널 ID 값을 어떤 식으로든 재정의할 수는 있지만 기본적으로 모든 게시된 채널 ID의 목록입니다. 채널 ID에 대한 인증 필요한 경우
 
@@ -244,7 +244,7 @@ payload:
 ![Bot Framework Emulator에서 봇에 대한 호출 인증](../media/connector/auth_bot_framework_emulator_to_bot.png)
 
 ---
-### <a name="step-2-get-the-msa-openid-metadata-document"></a>2단계: MSA OpenID 메타 데이터 문서 가져오기
+### <a name="step-2-get-the-msa-openid-metadata-document"></a>2단계: MSA OpenID 메타데이터 문서 가져오기
 
 OpenID 메타데이터 문서는 유효한 서명 키를 나열하는 두 번째 문서의 위치를 지정합니다. MSA OpenID 메타데이터 문서를 가져오려면 HTTPS를 통해 이 요청을 실행합니다.
 
@@ -323,7 +323,7 @@ payload:
 ## <a name="security-protocol-changes"></a>보안 프로토콜 변경 내용
 
 > [!WARNING]
-> 보안 프로토콜 v3.0 지원이 **2017년 7월 31일** 중단되었습니다. 자체 인증 코드를 작성한 경우(즉 Bot Builder SDK를 사용하여 봇을 만들지 않음) 아래 목록의 v3.1 값을 사용하도록 애플리케이션을 업데이트하여 보안 프로토콜 v3.1로 업그레이드해야 합니다. 
+> 보안 프로토콜 v3.0 지원이 **2017년 7월 31일** 중단되었습니다. 자체 인증 코드를 작성한 경우(즉 Bot Framework SDK를 사용하여 봇을 만들지 않음) 아래 목록의 v3.1 값을 사용하도록 애플리케이션을 업데이트하여 보안 프로토콜 v3.1로 업그레이드해야 합니다. 
 
 ### <a name="bot-to-connector-authenticationbot-to-connector"></a>[커넥터에 대한 봇 인증](#bot-to-connector)
 

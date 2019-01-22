@@ -1,6 +1,6 @@
 ---
 title: 사용자 입력을 수집하도록 고유한 메시지 만들기 | Microsoft Docs
-description: 봇 작성기 SDK에서 기본 프롬프트를 사용하여 대화 흐름을 관리하는 방법을 알아봅니다.
+description: Bot Framework SDK에서 기본 프롬프트를 사용하여 대화 흐름을 관리하는 방법을 알아봅니다.
 keywords: 대화 흐름, 프롬프트, 대화 상태, 사용자 상태, 사용자 지정 프롬프트
 author: JonathanFingold
 ms.author: v-jofing
@@ -10,12 +10,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 11/20/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: e308457e9fb228dd141ec081ac3c5daa5fd54cac
-ms.sourcegitcommit: 6cb37f43947273a58b2b7624579852b72b0e13ea
+ms.openlocfilehash: 2e591f19f7df8fa6281573c0ac7f1330d95f4c53
+ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52288822"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54225438"
 ---
 # <a name="create-your-own-prompts-to-gather-user-input"></a>사용자 입력을 수집하도록 고유한 메시지 만들기
 

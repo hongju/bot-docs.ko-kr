@@ -1,6 +1,6 @@
 ---
 title: Azure Search를 사용하여 데이터 기반 환경 만들기 | Microsoft Docs
-description: Azure Search를 사용하여 데이터 기반 환경을 만들고 .NET 및 Azure Search용 Bot Builder SDK를 사용하여 사용자가 봇에 있는 많은 양의 콘텐츠를 이동하는 데 도움이 되는 방법에 대해 알아봅니다.
+description: Azure Search를 사용하여 데이터 기반 환경을 만들고 .NET 및 Azure Search용 Bot Framework SDK를 사용하여 사용자가 봇에 있는 많은 양의 콘텐츠를 이동하는 데 도움이 되는 방법에 대해 알아봅니다.
 author: matthewshim-ms
 ms.author: v-shimma
 manager: kamrani
@@ -9,12 +9,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 8205f40053b2b3d0e62d9b9ce622f59432e059a4
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: ef2cb33e8d2ab7d8db291e3c6e051630d6af0394
+ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49999011"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54224548"
 ---
 # <a name="create-data-driven-experiences-with-azure-search"></a>Azure Search를 사용하여 데이터 기반 환경 만들기 
 
@@ -173,7 +173,7 @@ public class SearchHitStyler : PromptStyler
 
 ## <a name="samples"></a>샘플
 
-.NET용 Bot Builder SDK를 사용하여 봇을 통해 Azure Search를 지원하는 방법을 보여 주는 두 개의 전체 샘플은 GitHub에서 [부동산 봇 샘플](https://github.com/Microsoft/BotBuilder-Samples/tree/master/CSharp/demo-Search/RealEstateBot) 또는 [작업 나열 봇 샘플](https://github.com/Microsoft/BotBuilder-Samples/tree/master/CSharp/demo-Search/JobListingBot)을 참조하세요. 
+.NET용 Bot Framework SDK를 사용하여 봇을 통해 Azure Search를 지원하는 방법을 보여주는 두 개의 전체 샘플은 GitHub에서 [부동산 봇 샘플](https://github.com/Microsoft/BotBuilder-Samples/tree/master/CSharp/demo-Search/RealEstateBot) 또는 [작업 나열 봇 샘플](https://github.com/Microsoft/BotBuilder-Samples/tree/master/CSharp/demo-Search/JobListingBot)을 참조하세요. 
 
 ## <a name="additional-resources"></a>추가 리소스
 * [Azure Search][search]

@@ -1,6 +1,6 @@
 ---
-title: Bot Builder SDK 내 대화 상자 | Microsoft Docs
-description: 대화 상자란 무엇이며 Bot Builder SDK 내에서의 작동 방식에 대해 설명합니다.
+title: Bot Framework SDK 내 대화 상자 | Microsoft Docs
+description: 대화 상자란 무엇이며 Bot Framework SDK 내에서의 작동 방식에 대해 설명합니다.
 keywords: 대화 흐름, 프롬프트, 대화 상태, 의도 인식, 단일 턴, 다중 턴, 봇 대화, 대화, 프롬프트, 폭포, 대화 세트
 author: johnataylor
 ms.author: johtaylo
@@ -10,12 +10,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 11/28/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: a1187efd3280d9ec2d74af29d1c013e916b79e5b
-ms.sourcegitcommit: 91156d0866316eda8d68454a0c4cd74be5060144
+ms.openlocfilehash: fc44701d7739ecfca662d27cad4f521caa7f4d6d
+ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53010608"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54225488"
 ---
 # <a name="dialogs-library"></a>대화 상자 라이브러리
 

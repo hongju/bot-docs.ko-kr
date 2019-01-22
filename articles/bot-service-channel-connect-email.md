@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
 ms.date: 10/10/2018
-ms.openlocfilehash: 93270dd6211d8aef1ff44fb8e272855df2058b8a
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: bd18edb87cdff502ed66177f92f88a8488135431
+ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49997210"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54225708"
 ---
 # <a name="connect-a-bot-to-office-365-email"></a>Office 365 메일에 봇 연결
 
@@ -76,11 +76,11 @@ AAD를 대체하는 공급업체를 사용하는 페더레이션 인증은 지�
 <!-- Put whole list in monikers, even though it's just the second item that needs to be different. -->
 ::: moniker range="azure-bot-service-3.0"
 * [채널](~/bot-service-manage-channels.md)에 봇 연결
-* .NET용 Bot Builder SDK를 사용하여 [채널 관련 기능 구현](dotnet/bot-builder-dotnet-channeldata.md)
-* [채널 검사기](bot-service-channel-inspector.md)를 사용하여 채널이 봇 응용 프로그램의 특정 기능을 렌더링하는 방법 확인
+* .NET용 Bot Framework SDK를 사용하여 [채널 관련 기능 구현](dotnet/bot-builder-dotnet-channeldata.md)
+* [채널 검사기](bot-service-channel-inspector.md)를 사용하여 채널이 봇 애플리케이션의 특정 기능을 렌더링하는 방법 확인
 ::: moniker-end
 ::: moniker range="azure-bot-service-4.0"
 * [채널](~/bot-service-manage-channels.md)에 봇 연결
-* .NET용 Bot Builder SDK를 사용하여 [채널 관련 기능 구현](~/v4sdk/bot-builder-channeldata.md)
-* [채널 검사기](bot-service-channel-inspector.md)를 사용하여 채널이 봇 응용 프로그램의 특정 기능을 렌더링하는 방법 확인
+* .NET용 Bot Framework SDK를 사용하여 [채널 관련 기능 구현](~/v4sdk/bot-builder-channeldata.md)
+* [채널 검사기](bot-service-channel-inspector.md)를 사용하여 채널이 봇 애플리케이션의 특정 기능을 렌더링하는 방법 확인
 ::: moniker-end

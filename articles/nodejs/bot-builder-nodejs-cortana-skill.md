@@ -1,6 +1,6 @@
 ---
 title: Cortana Skill을 사용하여 음성 지원 봇 빌드 | Microsoft Docs
-description: Cortana Skill을 사용하여 음성 지원 봇을 빌드하는 방법과 Node.js용 Bot Builder SDK에 대해 알아봅니다.
+description: Cortana Skill을 사용하여 음성 지원 봇을 빌드하는 방법과 Node.js용 Bot Framework SDK에 대해 알아봅니다.
 author: DeniseMak
 manager: kamrani
 ms.topic: article
@@ -8,12 +8,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: e728a3999c484d19a78f03bd8eb7b8bd8833c39f
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: e00128ca82ec8b97502d8f2fbf42be10cc91ade6
+ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49998040"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54225305"
 ---
 # <a name="build-a-speech-enabled-bot-with-cortana-skills"></a>Cortana Skill을 사용하여 음성 지원 봇 빌드
 
@@ -23,7 +23,7 @@ ms.locfileid: "49998040"
 > - [.NET](../dotnet/bot-builder-dotnet-cortana-skill.md)
 > - [Node.JS](../nodejs/bot-builder-nodejs-cortana-skill.md)
 
-Node.js용 Bot Builder SDK를 사용하면 Cortana Skill로 Cortana 채널에 연결하여 음성 지원 봇을 빌드할 수 있습니다. Cortana Skill을 사용하면 Cortana를 통해 사용자의 음성 입력에 응답하는 기능을 제공할 수 있습니다.
+Node.js용 Bot Framework SDK를 사용하면 Cortana Skill로 Cortana 채널에 연결하여 음성 지원 봇을 빌드할 수 있습니다. Cortana Skill을 사용하면 Cortana를 통해 사용자의 음성 입력에 응답하는 기능을 제공할 수 있습니다.
 
 > [!TIP]
 > 기술 정의 및 수행할 수 있는 작업에 대한 자세한 내용은 [Cortana Skill 키트][CortanaGetStarted]를 참조하세요.
@@ -35,7 +35,7 @@ Bot Framework를 사용하여 Cortana Skill을 만드는 경우 Cortana 관련 �
 
 ## <a name="adding-speech-to-your-bot"></a>봇에 음성 추가
 
-봇의 음성 메시지는 SSML(Speech Synthesis Markup Language)로 표현됩니다. Bot Builder SDK를 사용하면 봇 응답에 SSML을 포함하여 봇이 보여 주는 내용뿐 아니라 봇이 말하는 내용도 제어할 수 있습니다.
+봇의 음성 메시지는 SSML(Speech Synthesis Markup Language)로 표현됩니다. Bot Framework SDK를 사용하면 봇 응답에 SSML을 포함하여 봇이 보여주는 내용뿐 아니라 봇이 말하는 내용도 제어할 수 있습니다.
 
 ### <a name="sessionsay"></a>session.say
 

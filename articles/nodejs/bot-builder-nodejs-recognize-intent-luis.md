@@ -1,6 +1,6 @@
 ---
 title: LUIS를 통해 의도 및 엔터티 인식 | Microsoft Docs
-description: Node.js용 Bot Builder SDK를 사용하여 대화를 트리거하여 봇과 LUIS를 통합하여 사용자의 의도를 감지하고 적합하게 응대합니다.
+description: Node.js용 Bot Framework SDK를 사용하여 대화를 트리거하여 봇과 LUIS를 통합하여 사용자의 의도를 감지하고 적합하게 응대합니다.
 author: DeniseMak
 ms.author: v-demak
 manager: kamrani
@@ -9,12 +9,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 03/28/2018
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 5df1352241485bf95a46fa981b9b16c3cb7e3925
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: acdc6053f7d666c2f086dca554efafc93c8af769
+ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49998700"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54225288"
 ---
 # <a name="recognize-intents-and-entities-with-luis"></a>LUIS를 통해 의도 및 엔터티 인식 
 
@@ -59,7 +59,7 @@ ms.locfileid: "49998700"
 
 Azure에 로그인하는 데 사용하는 계정과 동일한 계정을 사용하여 [https://www.luis.ai](https://www.luis.ai)에 로그인합니다. **내 앱**을 클릭합니다. 앱 목록에서 봇 서비스를 만들 때 **Bot Service** 블레이드의 **앱 이름**에 지정된 이름으로 시작하는 앱을 찾습니다. 
 
-LUIS 앱은 취소, 인사말, 도움말 및 없음이라는 4가지 의도로 시작합니다. <!-- picture -->
+LUIS 앱은 4개 의도로 시작합니다. 취소: 인사말, 도움말 및 없음입니다. <!-- picture -->
 
 다음 단계에서는 Note.Create, Note.ReadAloud 및 Note.Delete 의도를 추가합니다. 
 

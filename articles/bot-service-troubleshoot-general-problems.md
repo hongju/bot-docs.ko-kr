@@ -7,12 +7,12 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.date: 09/26/2018
-ms.openlocfilehash: 3d9c41d0c0c51d00dc5ce86dfb774228e53ff3a3
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: 34a23910c76a22fe39d1ce5457bb74dd285ca939
+ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49999070"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54225524"
 ---
 # <a name="troubleshooting-general-problems"></a>일반 문제 해결
 이 질문과 대답은 일반 봇 개발 또는 운영 문제를 해결할 수 있습니다.
@@ -21,7 +21,7 @@ ms.locfileid: "49999070"
 
 1. [Visual Studio Code](debug-bots-locally-vscode.md) 또는 [Visual Studio](https://docs.microsoft.com/en-us/visualstudio/debugger/navigating-through-code-with-the-debugger?view=vs-2017)를 사용하여 봇 소스 코드를 디버그합니다.
 2. 클라우드에 배포하기 전에 [에뮬레이터](bot-service-debug-emulator.md)를 사용하여 테스트합니다.
-3. Azure와 같은 플랫폼을 호스팅하는 클라우드에 봇을 배포한 다음, <a href="https://dev.botframework.com" target="_blank">Bot Framework Portal</a>의 봇 대시보드에서 기본 제공 웹 챗 제어를 사용하여 봇 연결을 테스트합니다. Azure에 봇을 배포한 후 문제가 발생하면 이 블로그 게시물 [Azure 문제 해결 및 지원 이해](https://azure.microsoft.com/en-us/blog/understanding-azure-troubleshooting-and-support/)를 사용하는 것이 좋을 수 있습니다.
+3. Azure와 같은 플랫폼을 호스팅하는 클라우드에 봇을 배포한 다음, <a href="https://dev.botframework.com" target="_blank">Bot Framework Portal</a>의 봇 대시보드에서 기본 제공 웹 챗 제어를 사용하여 봇 연결을 테스트합니다. Azure에 봇을 배포한 후 문제가 발생하면 블로그 문서 [Azure 문제 해결 및 지원 이해](https://azure.microsoft.com/en-us/blog/understanding-azure-troubleshooting-and-support/)를 사용하는 것이 좋을 수 있습니다.
 4. [인증][TroubleshootingAuth]은 가능한 문제에서 배제합니다.
 5. Skype에서 봇을 테스트합니다. 이렇게 하면 통합형 사용자 환경의 유효성을 검사하는 데 도움이 됩니다.
 6. Direct Line 또는 Web Chat 같은 추가 인증 요구 사항이 있는 채널에서 봇을 테스트하는 것이 좋습니다.
@@ -30,7 +30,7 @@ ms.locfileid: "49999070"
 
 봇을 사용한 인증 문제 해결에 대한 자세한 내용은 Bot Framework 인증 [문제 해결][TroubleshootingAuth]을 참조하세요.
 
-## <a name="im-using-the-bot-builder-sdk-for-net-how-can-i-troubleshoot-issues-with-my-bot"></a>.NET용 Bot Builder SDK를 사용하고 있습니다. 봇과 관련된 문제는 어떻게 해결할 수 있나요?
+## <a name="im-using-the-bot-framework-sdk-for-net-how-can-i-troubleshoot-issues-with-my-bot"></a>.NET용 Bot Framework SDK를 사용하고 있습니다. 봇과 관련된 문제는 어떻게 해결할 수 있나요?
 
 **예외를 찾습니다.**  
 Visual Studio 2017에서 **디버그** > **Windows** > **예외 설정**으로 이동합니다. **예외 설정** 창에서 **공용 언어 런타임 예외** 옆의 **Break When Thrown**을 선택합니다. Throw되었거나 처리되지 않은 예외가 있으면 출력 창에도 진단 출력이 표시될 수 있습니다.
@@ -81,7 +81,7 @@ Bot Framework는 가능한 메시지를 순서대로 유지합니다. 예를 들
 
 ## <a name="how-can-i-intercept-all-messages-between-the-user-and-my-bot"></a>사용자와 내 봇 간의 모든 메시지를 어떻게 가로챌 수 있나요?
 
-.NET용 Bot Builder SDK를 사용하여 `IPostToBot` 및 `IBotToUser` 인터페이스의 구현을 `Autofac` 종속성 주입 컨테이너에 제공할 수 있습니다. 임의 언어용 Bot Builder SDK를 사용하여 거의 같은 용도로 미들웨어를 사용할 수 있습니다. [BotBuilder-Azure](https://github.com/Microsoft/BotBuilder-Azure) 리포지토리에는 이 데이터를 Azure 테이블에 기록하는 C# 및 Node.js 라이브러리가 포함되어 있습니다.
+.NET용 Bot Framework SDK를 사용하여 `IPostToBot` 및 `IBotToUser` 인터페이스의 구현을 `Autofac` 종속성 주입 컨테이너에 제공할 수 있습니다. 임의 언어용 Bot Framework SDK를 사용하여 거의 같은 용도로 미들웨어를 사용할 수 있습니다. [BotBuilder-Azure](https://github.com/Microsoft/BotBuilder-Azure) 리포지토리에는 이 데이터를 Azure 테이블에 기록하는 C# 및 Node.js 라이브러리가 포함되어 있습니다.
 
 ## <a name="why-are-parts-of-my-message-text-being-dropped"></a>메시지 텍스트의 일부가 삭제되는 이유는 무엇인가요?
 
@@ -126,14 +126,14 @@ Skype, Facebook, Slack 같은 다른 채널은 봇이 미리 사용자 ID를 예
 
 모든 메시지 이후 Direct Line 대화가 시작되는 것처럼 보인다면 `from` 속성이 누락되었거나 Direct Line 클라이언트가 봇에 보낸 메시지가 `null`일 수 있습니다. Direct Line 클라이언트가 누락되었거나 `null`인 `from` 속성의 메시지를 보낼 경우, Direct Line 서비스는 자동으로 ID를 할당하므로 클라이언트가 보내는 모든 메시지가 다른 새 사용자에게서 온 것처럼 보입니다.
 
-이 문제를 해결하려면 Direct Line 클라이언트가 보내는 각 메시지의 `from` 속성을, 메시지를 보내는 사용자를 고유하게 나타내는 안정적인 값으로 설정합니다. 예를 들어 사용자가 이미 웹 페이지나 앱에 로그인한 경우 사용자가 보내는 메시지에서 기존 사용자 ID를 `from` 속성 값으로 사용할 수 있습니다. 또는 페이지 로드 또는 애플리케이션 로드 시 임의의 사용자 ID를 생성하여 쿠키나 디바이스 상태에 저장하고, 이 ID를 사용자가 보내는 메시지에서 `from` 속성 값으로 사용할 수 있습니다.
+이 문제를 해결하려면 Direct Line 클라이언트가 보내는 각 메시지의 `from` 속성을, 메시지를 보내는 사용자를 고유하게 나타내는 안정적인 값으로 설정합니다. 예를 들어 사용자가 이미 웹 페이지나 앱에 로그인한 경우 사용자가 보내는 메시지에서 기존 사용자 ID를 `from` 속성 값으로 사용할 수 있습니다. 또는 페이지 로드 또는 애플리케이션 로드 시 임의의 사용자 ID를 생성하여 쿠키나 장치 상태에 저장하고, 이 ID를 사용자가 보내는 메시지에서 `from` 속성 값으로 사용할 수 있습니다.
 
 ## <a name="what-causes-the-direct-line-30-service-to-respond-with-http-status-code-502-bad-gateway"></a>Direct Line 3.0 서비스가 HTTP 상태 코드 502 "잘못된 게이트웨이"라 답하는 이유는 무엇인가요?
 Direct Line 3.0은 봇 연결을 시도했으나 요청이 성공적으로 완료되지 않으면 HTTP 상태 코드 502를 반환합니다. 이 오류는 봇이 오류를 반환했거나 요청된 시간이 초과되었음을 표시합니다. 봇이 생성하는 오류에 대한 자세한 내용은 <a href="https://dev.botframework.com" target="_blank">Bot Framework 포털</a> 안에서 봇의 대시보드로 이동하고 영향을 받는 채널에 대한 "문제" 링크를 클릭합니다. 봇에 대해 Application Insights를 구성한 경우 거기서도 상세 오류 정보를 제공합니다. 
 
 ::: moniker range="azure-bot-service-3.0"
 
-## <a name="what-is-the-idialogstackforward-method-in-the-bot-builder-sdk-for-net"></a>.NET용 Bot Builder SDK에서 IDialogStack.Forward 메서드가 무엇인가요?
+## <a name="what-is-the-idialogstackforward-method-in-the-bot-framework-sdk-for-net"></a>.NET용 Bot Framework SDK의 IDialogStack.Forward 메서드는 무엇인가요?
 
 `IDialogStack.Forward`의 주 목적은 자식 대화(`IDialog.StartAsync`)가 일부 `ResumeAfter` 처리기가 있는 `T` 개체를 대기하는 "사후"인 경우가 많은 기존 자식 대화를 재사용하는 것입니다. 특히 `IMessageActivity` `T`를 대기하는 자식 대화가 있는 경우 `IDialogStack.Forward` 메서드를 사용하여 들어오는 `IMessageActivity`(이미 일부 부모 대화에서 받음)를 전달할 수 있습니다. 예를 들어 들어오는 `IMessageActivity`를 `LuisDialog`에 전달하려면 `IDialogStack.Forward`를 호출하여 대화 스택에 `LuisDialog`를 푸시하고 다음 메시지 대기를 예약할 때까지 `LuisDialog.StartAsync`에서 코드를 실행한 다음, 즉시 전달된 `IMessageActivity`를 통해 해당 대기를 만족합니다.
 
@@ -166,7 +166,7 @@ Direct Line 3.0은 봇 연결을 시도했으나 요청이 성공적으로 완�
 
 사용자, 대화 및 개인 대화 속성 모음의 데이터는 Connector의 `IBotState` 인터페이스를 통해 저장됩니다. 각 속성 모음은 봇의 ID로 범위가 지정됩니다. 사용자 속성 모음은 사용자 ID로, 대화 속성 모음은 대화 ID로, 개인 대화 속성 모음은 사용자 ID 및 대화 ID로 키가 지정됩니다. 
 
-.NET용 Bot Builder SDK 또는 Node.js용 Bot Builder SDK로 봇을 빌드하는 경우 대화 스택 및 대화 데이터는 모두 개인 대화 속성 모음의 항목으로 자동 저장됩니다. C# 구현에서는 이진 직렬화를, Node.js 구현에서는 JSON 직렬화를 사용합니다.
+.NET용 Bot Framework SDK 또는 Node.js용 Bot Framework SDK로 봇을 빌드하는 경우 대화 스택 및 대화 데이터는 모두 개인 대화 속성 모음의 항목으로 자동 저장됩니다. C# 구현에서는 이진 직렬화를, Node.js 구현에서는 JSON 직렬화를 사용합니다.
 
 `IBotState` REST 인터페이스는 두 서비스로 구현됩니다.
 
@@ -183,7 +183,7 @@ Direct Line 3.0은 봇 연결을 시도했으나 요청이 성공적으로 완�
 
 ::: moniker-end
 
-## <a name="what-is-an-etag--how-does-it-relate-to-bot-data-bag-storage"></a> ETag란?  봇 데이터 저장소와는 어떤 관계가 있나요?
+## <a name="what-is-an-etag--how-does-it-relate-to-bot-data-bag-storage"></a>ETag란?  봇 데이터 저장소와는 어떤 관계가 있나요?
 
 [ETag](https://en.wikipedia.org/wiki/HTTP_ETag)는 [낙관적 동시성 제어](https://en.wikipedia.org/wiki/Optimistic_concurrency_control)를 위한 메커니즘입니다. 이 봇 데이터 모음은 데이터 업데이트 충돌을 방지하기 위해 ETag를 사용합니다. HTTP 상태 코드 412 "전제 조건 실패"가 있는 ETag 오류는 해당 봇 데이터 모음에 대해 여러 "읽기-수정-쓰기" 시퀀스가 동시에 실행되고 있음을 의미합니다.
 
@@ -193,8 +193,8 @@ Direct Line 3.0은 봇 연결을 시도했으나 요청이 성공적으로 완�
 
 커넥터의 `IBotState` 서비스는 봇 데이터 모음(즉, 개인 봇 데이터 모음이 대화 스택 "제어 흐름" 상태를 포함하는 경우 사용자, 대화, 개인 봇 데이터 모음)을 저장하는 데 사용됩니다. `IBotState` 서비스의 동시성 제어는 ETag를 통해 낙관적 동시성으로 관리됩니다. "읽기-수정-쓰기" 시퀀스 중에 (단일 봇 데이터 백에 대한 동시 업데이트로 인해) 업데이트 충돌이 발생할 경우
 
-* Etag가 유지될 경우 `IBotState` 서비스에서 HTTP 상태 코드 412 "전제 조건 실패" 오류가 Throw됩니다. 이것이 .NET용 Bot Builder SDK의 기본 동작입니다.
-* Etag가 유지되지 않는 경우(즉, ETag가 `\*`로 설정됨) "전제 조건 실패" 오류는 방지하지만 데이터 손실의 위험이 있는 "마지막 쓰기 우선" 정책이 적용됩니다. 이것이 Node.js용 Bot Builder SDK의 기본 동작입니다.
+* Etag가 유지될 경우 `IBotState` 서비스에서 HTTP 상태 코드 412 "전제 조건 실패" 오류가 Throw됩니다. 이것이 .NET용 Bot Framework SDK의 기본 동작입니다.
+* Etag가 유지되지 않는 경우(즉, ETag가 `\*`로 설정됨) "전제 조건 실패" 오류는 방지하지만 데이터 손실의 위험이 있는 "마지막 쓰기 우선" 정책이 적용됩니다. 이것이 Node.js용 Bot Framework SDK의 기본 동작입니다.
 
 ## <a name="how-can-i-fix-precondition-failed-412-or-conflict-409-errors"></a>"전제 조건 실패"(412) 또는 "충돌" (409) 오류는 어떻게 해결하나요?
 
@@ -202,7 +202,7 @@ Direct Line 3.0은 봇 연결을 시도했으나 요청이 성공적으로 완�
 
 ::: moniker range="azure-bot-service-3.0"
 
-.NET용 Bot Builder SDK는 메모리 내 세마포를 통해 단일 대화의 처리를 비관적으로 직렬화하는 메커니즘(`IScope`를 구현하는 `LocalMutualExclusion` 클래스)을 제공합니다. 이 구현을 대화 주소를 통해 범위가 지정된 Redis 임대를 사용하도록 확장할 수 있습니다.
+.NET용 Bot Framework SDK는 메모리 내 세마포를 통해 단일 대화의 처리를 비관적으로 직렬화하는 메커니즘(`IScope`를 구현하는 `LocalMutualExclusion` 클래스)을 제공합니다. 이 구현을 대화 주소를 통해 범위가 지정된 Redis 임대를 사용하도록 확장할 수 있습니다.
 
 봇이 외부 서비스에 연결되어 있지 않거나 동일한 대화로부터의 병렬 처리가 용인될 수 있는 경우, 이 코드를 추가하여 Bot State API에서 발생하는 충돌을 무시할 수 있습니다. 이렇게 하면 마지막 회신이 대화 상태를 설정할 수 있습니다.
 
@@ -231,7 +231,7 @@ builder.Update(Conversation.Container);
 상태 서비스를 사용하면 사용자가 나중에 위치를 잃지 않고 대화로 돌아올 수 있게 대화의 대화 상자에서 진행 상황을 유지할 수 있습니다. 이렇게 유지하기 위해, 봇의 코드를 수정할 때 State API를 통해 저장된 봇 데이터 속성 모음이 자동으로 지워지지 않습니다.  수정된 코드가 이전 데이터 버전과 호환 가능한지 여부에 따라 봇 데이터를 지울지 여부를 결정해야 합니다. 
 
 * 봇 개발 중에 수동으로 대화의 대화 스택과 상태를 재설정하려면 ` /deleteprofile` 명령을 사용하여 상태 데이터를 삭제할 수 있습니다. 채널이 해석하지 않도록 명령에 선행 공백을 포함해야 합니다.
-* 봇을 프로덕션에 배포한 후에는 버전을 범프하면 연결된 상태 데이터가 지워지도록 봇 데이터 버전을 지정할 수 있습니다. Node.js용 Bot Builder SDK에서는 미들웨어를 통해, .NET용 Bot Builder SDK에서는 `IPostToBot` 구현을 통해 이를 수행할 수 있습니다.
+* 봇을 프로덕션에 배포한 후에는 버전을 범프하면 연결된 상태 데이터가 지워지도록 봇 데이터 버전을 지정할 수 있습니다. Node.js용 Bot Framework SDK에서는 미들웨어를 통해, .NET용 Bot Framework SDK에서는 `IPostToBot` 구현을 통해 이를 수행할 수 있습니다.
 
 > [!NOTE]
 > 코드가 너무 많이 변경되었거나 직렬화 형식이 변경되어 대화 스택이 올바르게 역직렬화될 수 없으면 대화 상태가 재설정됩니다.
@@ -248,11 +248,11 @@ builder.Update(Conversation.Container);
 
 ## <a name="how-can-i-use-more-than-one-luis-model"></a>여러 LUIS 모델은 어떻게 사용하나요?
 
-Node.js용 Bot Builder SDK와 .NET용 Bot Builder SDK 모두 단일 LUIS 의도 대화에서 여러 LUIS 모델 호출을 지원합니다. 다음 사항을 주의하세요.
+Node.js용 Bot Framework SDK와 .NET용 Bot Framework SDK 모두 단일 LUIS 의도 대화에서 여러 LUIS 모델 호출을 지원합니다. 다음 사항을 주의하세요.
 
 * 여러 LUIS 모델을 사용할 때는 LUIS 모델에 겹치지 않는 의도 집합이 있다고 가정합니다.
 * 여러 LUIS 모델을 사용할 때는 서로 다른 모델의 점수를 비교하여 여러 모델 중에서 "가장 일치하는 의도"를 선택할 수 있다고 가정합니다.
-* 여러 LUIS 모델을 사용하는 것은 의도가 한 모델과 일치하면 다른 모델의 "없음" 의도와도 강력하게 일치한다는 뜻입니다. 이런 상황에서 "없음" 의도 선택을 방지할 수 있습니다. Node.js용 Bot Builder SDK는 이런 문제를 방지하기 위해 "없음" 의도에 대한 점수를 자동으로 줄입니다.
+* 여러 LUIS 모델을 사용하는 것은 의도가 한 모델과 일치하면 다른 모델의 "없음" 의도와도 강력하게 일치한다는 뜻입니다. 이런 상황에서 "없음" 의도 선택을 방지할 수 있습니다. Node.js용 Bot Framework SDK는 이런 문제를 방지하기 위해 "없음" 의도에 대한 점수를 자동으로 줄입니다.
 
 ## <a name="where-can-i-get-more-help-on-luis"></a>LUIS에 대한 자세한 도움말은 어디서 얻을 수 있나요?
 
@@ -288,7 +288,7 @@ Azure Bot Service 봇을 만들 수 있는 권한은 AAD(Azure Active Directory)
 **게스트**가 아닌지 확인한 다음, Active Directory 내 사용자가 봇 서비스를 만들 수 있는지 확인하고 디렉터리 관리자가 다음 설정을 구성해야 합니다.
 
 1. [AAD 포털](http://aad.portal.azure.com)에 로그인합니다. **사용자 및 그룹**으로 이동하고 **사용자 설정**을 선택합니다.
-2. **앱 등록** 섹션에서 **사용자가 응용 프로그램을 등록할 수 있음**을 **예**로 설정합니다. 이렇게 하면 디렉터리의 사용자가 봇 서비스를 만들 수 있습니다.
+2. **앱 등록** 섹션에서 **사용자가 애플리케이션을 등록할 수 있음**을 **예**로 설정합니다. 이렇게 하면 디렉터리의 사용자가 봇 서비스를 만들 수 있습니다.
 3. **외부 사용자** 섹션에서 **게스트 사용자 권한이 제한됨**을 **아니요**로 설정합니다. 이렇게 하면 디렉터리의 게스트 사용자가 봇 서비스를 만들 수 있습니다.
 
 ![Azure Active Directory 관리 센터](~/media/azure-active-directory/admin_center.png)
@@ -306,7 +306,7 @@ Azure Bot Service 봇을 만들 수 있는 권한은 AAD(Azure Active Directory)
 ## <a name="where-can-i-get-more-help"></a>자세한 도움말은 어디서 얻을 수 있나요?
 
 * 이전에 [스택 오버플로](https://stackoverflow.com/questions/tagged/botframework)에 관해 답변한 질문에서 정보를 활용하거나 `botframework` 태그를 사용하여 질문을 게시합니다. 스택 오버플로에는 설명을 포함하는 제목, 완전하고 간결한 문제 설명 및 문제를 재현하기 위한 충분한 세부 정보 등의 지침이 포함되어 있습니다. 기능 요청 또는 너무 광범위한 질문은 주제를 벗어납니다. 자세한 내용을 원하는 새 사용자는 [스택 오버플로 도움말 센터](https://stackoverflow.com/help/how-to-ask)를 방문해야 합니다.
-* GitHub의 [BotBuilder 문제](https://github.com/Microsoft/BotBuilder/issues)에서 Bot Builder SDK의 알려진 문제를 참조하거나 새 문제를 보고합니다.
+* GitHub의 [BotBuilder 문제](https://github.com/Microsoft/BotBuilder/issues)에서 Bot Framework SDK의 알려진 문제를 참조하거나 새 문제를 보고합니다.
 * [Gitter](https://gitter.im/Microsoft/BotBuilder)의 BotBuilder 커뮤니티 토론에 있는 정보를 활용합니다.
 
 

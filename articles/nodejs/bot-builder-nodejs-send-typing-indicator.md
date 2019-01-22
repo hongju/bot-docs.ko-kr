@@ -1,6 +1,6 @@
 ---
 title: 타이핑 표시기 보내기 | Microsoft Docs
-description: Node.js용 Bot Builder SDK를 사용하여 봇이 요청을 처리하고 있는 것을 사용자에게 알리기 위해 "please wait"(기다려주십시오.) 표시기를 추가하는 방법에 대해 알아봅니다.
+description: Node.js용 Bot Framework SDK를 사용하여 봇이 요청을 처리하고 있는 것을 사용자에게 알리기 위해 "please wait"(기다려주십시오.) 표시기를 추가하는 방법에 대해 알아봅니다.
 author: DeniseMak
 ms.author: v-demak
 manager: kamrani
@@ -9,12 +9,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 738816e2e790dc365e858cb27ee5e58a9d8b6d97
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: 3852c0b25ea385301be11edd0a46ed5984510820
+ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "50000182"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54224868"
 ---
 # <a name="send-a-typing-indicator"></a>타이핑 표시기 보내기 
 

@@ -1,6 +1,6 @@
 ---
 title: 다이얼로그 바꾸기 | Microsoft Docs
-description: 다이얼로그를 교체하여 입력을 다시 프롬프트하고, Node.js용 Bot Builder SDK를 사용하여 대화 흐름을 관리하는 방법을 알아봅니다.
+description: 다이얼로그를 교체하여 입력을 다시 프롬프트하고, Node.js용 Bot Framework SDK를 사용하여 대화 흐름을 관리하는 방법을 알아봅니다.
 author: v-ducvo
 ms.author: v-ducvo
 manager: kamrani
@@ -9,22 +9,22 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 30ac28f5ce700829b8c382c49905883ffa45da29
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: 58d2c3fc4a1fb266b74402541fc937f0b52fa189
+ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "50000060"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54224988"
 ---
 # <a name="replace-dialogs"></a>다이얼로그 바꾸기
 
 [!INCLUDE [pre-release-label](../includes/pre-release-label-v3.md)]
 
-다이얼로그를 바꾸는 기능은 대화 과정 중에 사용자 입력이 유효한지 검사하거나 작업을 반복적으로 수행해야 할 경우에 유용할 수 있습니다. Node.js용 Bot Builder SDK를 사용하면 [`session.replaceDialog`](http://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.session#replacedialog) 메서드를 사용하여 다이얼로그를 바꿀 수 있습니다. 이 메서드를 사용하면 호출자로 돌아가지 않고도 현재 다이얼로그를 종료한 후 새 다이얼로그로 바꿀 수 있습니다. 
+다이얼로그를 바꾸는 기능은 대화 과정 중에 사용자 입력이 유효한지 검사하거나 작업을 반복적으로 수행해야 할 경우에 유용할 수 있습니다. Node.js용 Bot Framework SDK를 사용하면 [`session.replaceDialog`](http://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.session#replacedialog) 메서드를 사용하여 다이얼로그를 바꿀 수 있습니다. 이 메서드를 사용하면 호출자로 돌아가지 않고도 현재 다이얼로그를 종료한 후 새 다이얼로그로 바꿀 수 있습니다. 
 
 ## <a name="create-custom-prompts-to-validate-input"></a>입력 유효성 검사를 수행하는 사용자 지정 프롬프트 만들기
 
-Node.js용 Bot Builder SDK에는 특정 형식의 [프롬프트](bot-builder-nodejs-dialog-prompt.md)(예: `Prompts.time` 및 `Prompts.choice`)에 대한 입력 유효성 검사가 포함되어 있습니다. `Prompts.text`에 대한 응답으로, 수신된 텍스트 입력이 유효한지 검사하려면 자체 유효성 검사 논리 및 사용자 지정 프롬프트를 만들어야 합니다. 
+Node.js용 Bot Framework SDK에는 특정 형식의 [프롬프트](bot-builder-nodejs-dialog-prompt.md)(예: `Prompts.time` 및 `Prompts.choice`)에 대한 입력 유효성 검사가 포함되어 있습니다. `Prompts.text`에 대한 응답으로, 수신된 텍스트 입력이 유효한지 검사하려면 자체 유효성 검사 논리 및 사용자 지정 프롬프트를 만들어야 합니다. 
 
 입력이 지정한 특정 값, 패턴, 범위 또는 조건을 준수해야 할 경우 입력이 유효한지 검사하려고 할 수 있습니다. 입력 유효성 검사가 실패하면 봇은 `session.replaceDialog` 메서드를 사용하여 해당 정보를 사용자에게 다시 물어볼 수 있습니다.
 

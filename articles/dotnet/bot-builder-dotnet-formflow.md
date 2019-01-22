@@ -1,6 +1,6 @@
 ---
 title: FormFlow의 기본 기능 | Microsoft Docs
-description: .NET용 Bot Builder SDK 내에서 FormFlow를 사용하여 대화 흐름을 안내하는 방법을 알아봅니다.
+description: .NET용 Bot Framework SDK 내에서 FormFlow를 사용하여 대화 흐름을 안내하는 방법을 알아봅니다.
 author: RobStand
 ms.author: kamrani
 manager: kamrani
@@ -9,18 +9,18 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: f5b36e1f916539b78f9bdcdd0970317db723f408
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: 710a8ce315faa02a72eaeb753c44b9b212524ec3
+ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "50000380"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54224678"
 ---
 # <a name="basic-features-of-formflow"></a>FormFlow의 기본 기능
 
 [!INCLUDE [pre-release-label](../includes/pre-release-label-v3.md)]
 
-[다이얼로그](bot-builder-dotnet-dialogs.md)는 매우 강력하고 유연하지만 샌드위치 주문과 같은 안내형 대화를 처리하려면 많은 노력이 필요할 수 있습니다. 대화의 각 지점에서는 진행될 다음 과정에 대한 여러 가능성이 있습니다. 예를 들어, 모호성을 없애거나, 도움말을 제공하거나, 뒤로 이동하거나, 진행 상태를 표시해야 할 수 있습니다. .NET용 Bot Builder SDK 내에서 **FormFlow**를 사용하여 이와 같은 안내형 대화를 관리하는 프로세스를 크게 간소화할 수 있습니다. 
+[다이얼로그](bot-builder-dotnet-dialogs.md)는 매우 강력하고 유연하지만 샌드위치 주문과 같은 안내형 대화를 처리하려면 많은 노력이 필요할 수 있습니다. 대화의 각 지점에서는 진행될 다음 과정에 대한 여러 가능성이 있습니다. 예를 들어, 모호성을 없애거나, 도움말을 제공하거나, 뒤로 이동하거나, 진행 상태를 표시해야 할 수 있습니다. .NET용 Bot Framework SDK 내에서 **FormFlow**를 사용하여 이와 같은 안내형 대화를 관리하는 프로세스를 크게 간소화할 수 있습니다. 
 
 FormFlow는 지정된 지침에 따라, 안내형 대화를 관리하는 데 필요한 다이얼로그를 자동으로 생성합니다. FormFlow를 사용하면 직접 다이얼로그를 만들고 관리할 때 얻을 수 있는 유연성이 다소 손실되지만 FormFlow를 사용하여 안내형 대화를 디자인하면 봇 개발에 소요되는 시간을 크게 단축할 수 있습니다. 또한 FormFlow 생성 다이얼로그 및 다른 유형의 다이얼로그 조합을 사용하여 봇을 구성할 수도 있습니다. 예를 들어 [LuisDialog][LuisDialog]는 사용자 입력을 평가하여 의도를 파악하지만 FormFlow 다이얼로그는 폼을 완성하는 프로세스를 안내할 수 있습니다.
 
@@ -323,7 +323,7 @@ FormFlow는 다이얼로그 개발을 간소화합니다. FormFlow의 고급 기
 - [양식 콘텐츠 지역화](bot-builder-dotnet-formflow-localize.md)
 - [JSON 스키마를 사용하여 양식 정의](bot-builder-dotnet-formflow-json-schema.md)
 - [패턴 언어를 사용하여 사용자 환경 사용자 지정](bot-builder-dotnet-formflow-pattern-language.md)
-- <a href="/dotnet/api/?view=botbuilder-3.11.0" target="_blank">.NET용 Bot Builder SDK 참조</a>
+- <a href="/dotnet/api/?view=botbuilder-3.11.0" target="_blank">.NET용 Bot Framework SDK 참조</a>
 
 [LuisDialog]: /dotnet/api/microsoft.bot.builder.dialogs.luisdialog-1
 

@@ -1,6 +1,6 @@
 ---
 title: 대화 상자 개요 | Microsoft Docs
-description: .NET용 Bot Builder SDK 내의 대화 상자를 사용하여 대화를 모델링하고 대화 흐름을 관리하는 방법에 대해 알아봅니다.
+description: .NET용 Bot Framework SDK 내의 다이얼로그를 사용하여 대화를 모델링하고 대화 흐름을 관리하는 방법에 대해 알아봅니다.
 author: RobStand
 ms.author: kamrani
 manager: kamrani
@@ -9,14 +9,14 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 943b206e4991c52f22928d2113977249ff9d9e04
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: 3089e7a073f6a6d9af3a3720954af3a915106888
+ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49997580"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54224998"
 ---
-# <a name="dialogs-in-the-bot-builder-sdk-for-net"></a>.NET용 Bot Builder SDK의 대화 상자
+# <a name="dialogs-in-the-bot-framework-sdk-for-net"></a>.NET용 Bot Framework SDK의 대화 상자
 
 [!INCLUDE [pre-release-label](../includes/pre-release-label-v3.md)]
 
@@ -24,9 +24,9 @@ ms.locfileid: "49997580"
 > - [.NET](../dotnet/bot-builder-dotnet-dialogs.md)
 > - [Node.JS](../nodejs/bot-builder-nodejs-dialog-overview.md)
 
-.NET용 Bot Builder SDK를 사용하는 봇을 만들 경우 대화 상자를 사용하여 대화를 모델링하고 [대화 흐름](../bot-service-design-conversation-flow.md)을 관리할 수 있습니다. 각 대화 상자는 `IDialog`를 구현하는 C# 클래스에서 자체 상태를 캡슐화하는 추상화입니다. 대화 상자를 다른 대화 상자로 구성하여 재사용을 최대화할 수 있고 대화 상자 컨텍스트는 특정 시점에 대화에서 활성 상태인 [대화 상자 스택](../bot-service-design-conversation-flow.md#dialog-stack)을 유지 관리할 수 있습니다. 
+.NET용 Bot Framework SDK를 사용하는 봇을 만들 경우 대화 상자를 사용하여 대화를 모델링하고 [대화 흐름](../bot-service-design-conversation-flow.md)을 관리할 수 있습니다. 각 대화 상자는 `IDialog`를 구현하는 C# 클래스에서 자체 상태를 캡슐화하는 추상화입니다. 대화 상자를 다른 대화 상자로 구성하여 재사용을 최대화할 수 있고 대화 상자 컨텍스트는 특정 시점에 대화에서 활성 상태인 [대화 상자 스택](../bot-service-design-conversation-flow.md#dialog-stack)을 유지 관리할 수 있습니다. 
 
-대화 상자를 구성하는 대화는 컴퓨터 간에 이동 가능하므로 봇 구현을 확장할 수 있습니다. .NET용 Bot Builder SDK의 대화 상자를 사용하면 대화 상태(대화 상자 스택 및 스택에 있는 각 대화 상자의 상태)가 선택된 [상태 데이터](bot-builder-dotnet-state.md) 저장소에 자동으로 저장됩니다. 따라서 웹 서버 메모리에 세션 상태를 저장할 필요가 없는 웹 애플리케이션처럼 봇의 서비스 코드를 상태 비저장으로 유지할 수 있습니다. 
+대화 상자를 구성하는 대화는 컴퓨터 간에 이동 가능하므로 봇 구현을 확장할 수 있습니다. .NET용 Bot Framework SDK의 대화 상자를 사용하면 대화 상태(대화 상자 스택 및 스택에 있는 각 대화 상자의 상태)가 선택된 [상태 데이터](bot-builder-dotnet-state.md) 스토리지에 자동으로 저장됩니다. 따라서 웹 서버 메모리에 세션 상태를 저장할 필요가 없는 웹 애플리케이션처럼 봇의 서비스 코드를 상태 비저장으로 유지할 수 있습니다. 
 
 ## <a name="echo-bot-example"></a>Echo 봇 예제
 
@@ -37,7 +37,7 @@ ms.locfileid: "49997580"
 
 ### <a name="messagescontrollercs"></a>MessagesController.cs 
 
-.NET용 Bot Builder SDK에서 [Builder][builderLibrary] 라이브러리를 사용하여 대화 상자를 구현할 수 있습니다. 관련 클래스에 액세스하려면 `Dialogs` 네임스페이스를 가져옵니다.
+.NET용 Bot Framework SDK에서 [Builder][builderLibrary] 라이브러리를 사용하여 대화 상자를 구현할 수 있습니다. 관련 클래스에 액세스하려면 `Dialogs` 네임스페이스를 가져옵니다.
 
 [!code-csharp[Using statement](../includes/code/dotnet-dialogs.cs#usingStatement)]
 
@@ -53,7 +53,7 @@ ms.locfileid: "49997580"
 
 Bot Builder가 C# 기능을 사용하여 비동기 통신을 처리하므로, `Post` 메서드가 `async`로 표시됩니다. 전달된 메시지에 응답을 보내는 작업을 나타내는 `Task` 개체를 반환합니다. 예외가 있는 경우 메서드에서 반환되는 `Task`에 예외 정보가 포함됩니다. 
 
-`Conversation.SendAsync` 메서드는 .NET용 Bot Builder SDK를 사용하여 대화 상자를 구현하는 키입니다. <a href="https://en.wikipedia.org/wiki/Dependency_inversion_principle" target="_blank">종속성 반전 원칙</a>을 따르고 다음 단계를 수행합니다.
+`Conversation.SendAsync` 메서드는 .NET용 Bot Framework SDK를 사용하여 대화 상자를 구현하는 키입니다. <a href="https://en.wikipedia.org/wiki/Dependency_inversion_principle" target="_blank">종속성 반전 원칙</a>을 따르고 다음 단계를 수행합니다.
 
 1. 필수 구성 요소 인스턴스화  
 2. `IBotDataStore`에서 대화 상태(대화 상자 스택 및 스택에 있는 각 대화 상자의 상태) 역직렬화
@@ -81,7 +81,7 @@ Bot Builder가 C# 기능을 사용하여 비동기 통신을 처리하므로, `P
 
 ## <a name="dialog-context"></a>대화 상자 컨텍스트
 
-각 대화 상자 메서드에 전달되는 `IDialogContext` 인터페이스는 대화 상자가 상태를 저장하고 채널과 통신하는 데 필요한 서비스에 액세스할 수 있게 해줍니다. `IDialogContext` 인터페이스는 [Internals.IBotData][iBotData], [Internals.IBotToUser][iBotToUser] 및 [ Internals.IDialogStack][iDialogStack] 등의 세 인터페이스로 구성됩니다. 
+각 대화 상자 메서드에 전달되는 `IDialogContext` 인터페이스는 대화 상자가 상태를 저장하고 채널과 통신하는 데 필요한 서비스에 액세스할 수 있게 해줍니다. `IDialogContext` 인터페이스는 세 가지 인터페이스 [Internals.IBotData][iBotData], [Internals.IBotToUser][iBotToUser] 및 [Internals.IDialogStack][iDialogStack]으로 구성됩니다. 
 
 ### <a name="internalsibotdata"></a>Internals.IBotData
 

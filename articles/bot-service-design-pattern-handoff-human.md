@@ -7,12 +7,12 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.date: 12/13/2017
-ms.openlocfilehash: 6b50df60c3a8165198e8f9a55964f2f596d62406
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: f18b375a1e4ebcf06d00d045e383db8b05fb5111
+ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49998730"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54225738"
 ---
 # <a name="transition-conversations-from-bot-to-human"></a>봇에서 사람으로 대화 전환
 
@@ -74,7 +74,7 @@ ms.locfileid: "49998730"
 
 ## <a name="sample-code"></a>샘플 코드
 
-Node.js용 Bot Builder SDK를 사용하여 봇에서 사람으로 대화를 전달하는 방법을 보여 주는 전체 샘플은 GitHub의 <a href="https://github.com/palindromed/Bot-HandOff" target="_blank">Bot-HandOff 샘플</a>을 참조하세요.
+Node.js용 Bot Framework SDK를 사용하여 봇에서 사람으로 대화를 전달하는 방법을 보여주는 전체 샘플은 GitHub의 <a href="https://github.com/palindromed/Bot-HandOff" target="_blank">Bot-HandOff 샘플</a>을 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 

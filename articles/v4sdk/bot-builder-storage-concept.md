@@ -1,16 +1,16 @@
 ---
 redirect_url: /bot-framework/bot-builder-howto-v4-state
-ms.openlocfilehash: cdbe139f6b901cf812356358deecc61394eae2a5
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: a0d2b1295be1271e827d617ad09878ee8cfcd356
+ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49998900"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54223918"
 ---
 <a name="--"></a><!--
 ---
-제목: 상태 및 저장소 | Microsoft Docs 설명: 어떤 상태 관리자, 대화 상태 및 사용자 상태가 Bot Builder SDK 내에 있는지 설명합니다.
-키워드: LUIS, 대화 상태, 사용자 상태, 저장소, 관리 상태 작성자: DeniseMak ms.author: v-demak manager: kamrani ms.topic: article ms.service: bot-service ms.subservice: sdk ms.date: 02/15/2018 monikerRange: 'azure-bot-service-4.0'
+제목: 상태 및 스토리지 | Microsoft Docs 설명: 어떤 상태 관리자, 대화 상태 및 사용자 상태가 Bot Framework SDK 내에 있는지 설명합니다.
+키워드: LUIS, 대화 상태, 사용자 상태, 스토리지, 상태 관리 작성자: DeniseMak ms.author: v-demak manager: kamrani ms.topic: article ms.service: bot-service ms.subservice: sdk ms.date: 02/15/2018 monikerRange: 'azure-bot-service-4.0'
 ---
 
 # <a name="state-and-storage"></a>상태 및 저장소
@@ -18,7 +18,7 @@ ms.locfileid: "49998900"
 
 좋은 봇 디자인의 핵심은 대화의 컨텍스트를 추적하여 이전 질문에 대한 답변 같은 것을 기억하도록 하는 것입니다.
 봇의 용도에 따라 상태의 트랙을 유지하거나 대화의 수명보다 오랫동안 정보를 저장해야 할 수 있습니다.
-봇의 *상태*는 들어오는 메시지에 적절하게 응답하기 위해 기억하는 정보입니다. Bot Builder SDK는 사용자 또는 대화와 연결된 개체로 상태 데이터를 저장 및 검색하기 위한 클래스를 제공합니다.
+봇의 *상태*는 들어오는 메시지에 적절하게 응답하기 위해 기억하는 정보입니다. Bot Framework SDK는 사용자 또는 대화와 연결된 개체로 상태 데이터를 저장 및 검색하기 위한 클래스를 제공합니다.
 
 * **대화 속성**은 봇이 사용자와 갖는 현재 대화의 트랙을 유지하도록 돕습니다. 봇에서 대화 항목 간의 단계 또는 전환의 시퀀스를 완료해야 하는 경우 대화 속성을 사용하여 시퀀스의 단계를 관리하거나 현재 항목을 추적할 수 있습니다. 대화 속성은 현재 대화의 상태를 반영하므로 일반적으로 봇에서 _대화 종료_ 작업을 받을 때 대화의 끝에서 이를 지웁니다.
 * **사용자 속성**은 사용자의 이전 대화를 중단한 위치를 확인하거나 단순히 이름별로 돌아온 사용자에게 인사말을 제공하는 등의 다양한 용도로 사용할 수 있습니다. 사용자의 기본 설정을 저장하면 이 정보를 사용하여 다음에 채팅할 때 대화를 사용자 지정할 수 있습니다. 예를 들어 관심 있는 주제에 대한 뉴스 기사를 사용자에게 알리거나 약속이 가능해질 때 사용자에게 알릴 수 있습니다. 봇에서 _사용자 데이터 삭제_ 작업을 수신하는 경우 이를 지워야 합니다.
@@ -46,7 +46,7 @@ Bots built using Azure Table Storage can be designed to be stateless and scalabl
 
 ## Writing directly to storage
 
-You can also use the Bot Builder SDK to read and write data directly to storage, without using middleware or without using the bot context. This can be appropriate to data that your bot uses, that comes from a source outside your bot's conversation flow.
+You can also use the Bot Framework SDK to read and write data directly to storage, without using middleware or without using the bot context. This can be appropriate to data that your bot uses, that comes from a source outside your bot's conversation flow.
 
 For example, let's say your bot allows the user to ask for the weather report, and your bot retrieves the weather report for a specified date, by reading it from an external database. The content of the weather database isn't dependent on user information or the conversation context, so you could just read it directly from storage instead of using the state manager.  See [How to write directly to storage](bot-builder-howto-v4-storage.md) for an example.
 

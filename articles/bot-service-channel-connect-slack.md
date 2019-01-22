@@ -2,19 +2,19 @@
 title: Slack에 봇 연결 | Microsoft Docs
 description: Slack에 대한 봇 연결을 구성하는 방법을 알아봅니다.
 keywords: 봇 연결, 봇 채널, Slack 봇, Slack 메시징 앱
-author: RobStand
-ms.author: kamrani
+author: JonathanFingold
+ms.author: v-jofing
 manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
-ms.date: 12/13/2017
-ms.openlocfilehash: f69cfa4c67a1f628d835f0d96903065b8b033d32
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.date: 01/09/2019
+ms.openlocfilehash: 3573103e1d1c55e3ad648ad68d84674a98b397f7
+ms.sourcegitcommit: 8161753641368567f239e24a35ad61768acccd8e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "50000130"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54202565"
 ---
 # <a name="connect-a-bot-to-slack"></a>Slack에 봇 연결
 
@@ -22,7 +22,7 @@ Slack 메시징 앱을 사용하여 사용자와 통신하도록 봇을 구성�
 
 ## <a name="create-a-slack-application-for-your-bot"></a>봇에 대한 Slack 애플리케이션 만들기
 
-[Slack](https://slack.com/signin)에 로그인한 다음, [Slack 응용 프로그램 만들기](https://api.slack.com/apps) 채널로 이동합니다.
+[Slack](https://slack.com/signin)에 로그인한 다음, [Slack 애플리케이션 만들기](https://api.slack.com/apps) 채널로 이동합니다.
 
 ![봇 설정](~/media/channels/slack-NewApp.png)
 
@@ -68,9 +68,11 @@ Slack 메시징 앱을 사용하여 사용자와 통신하도록 봇을 구성�
 
 1. **이벤트 구독** 탭을 선택합니다.
 2. **이벤트 사용**을 **켜기**로 설정합니다.
-3. **요청 URL**에서 이 URL을 입력하되 `{YourBotHandle}`을 봇 핸들로 바꿉니다. 이 자습서에서 사용된 봇 핸들은 testChannels입니다.
-        `https://slack.botframework.com/api/Events/{YourBotHandle}`
-4. **Workspace 이벤트 구독**에서 **Workspace 이벤트 추가**를 클릭합니다.
+3. **요청 URL**에 `https://slack.botframework.com/api/Events/{YourBotHandle}`을 중괄호 없이 입력합니다. 여기서 `{YourBotHandle}`은 봇 핸들입니다. 이 예제에 사용되는 봇 핸들은 **ContosoBot**입니다.
+
+   ![이벤트 구독: 위](~/media/channels/slack-SubscribeEvents-a.png)
+
+4. **봇 이벤트 구독**에서 **봇 사용자 이벤트 추가**를 클릭합니다.
 5. 이벤트 목록에서 이러한 6개 이벤트 유형을 선택합니다.
     * `member_joined_channel`
     * `member_left_channel`
@@ -79,8 +81,11 @@ Slack 메시징 앱을 사용하여 사용자와 통신하도록 봇을 구성�
     * `message.im`
     * `message.mpim`
 
-![이벤트 구독](~/media/channels/slack-SubscribeEvents.png)
+   ![이벤트 구독: 가운데](~/media/channels/slack-SubscribeEvents-b.png)
+
 6. **변경 내용 저장**을 클릭합니다.
+
+   ![이벤트 구독: 아래](~/media/channels/slack-SubscribeEvents-c.png)
 
 ## <a name="add-and-configure-interactive-messages-optional"></a>대화형 메시지 추가 및 구성(선택 사항)
 

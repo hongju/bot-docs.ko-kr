@@ -1,6 +1,6 @@
 ---
 title: 메시지 만들기 | Microsoft Docs
-description: Node.js용 Bot Builder SDK를 사용하여 메시지를 만드는 방법에 대해 알아봅니다.
+description: Node.js용 Bot Framework SDK를 사용하여 메시지를 만드는 방법에 대해 알아봅니다.
 author: v-ducvo
 ms.author: v-ducvo
 manager: kamrani
@@ -9,12 +9,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 09/7/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 8011611aa11e81cf322ba841f616fa2797038e84
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: 3a4f9e1dc3c5598c3aa79996b01f11e8b1339fe2
+ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49998170"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54225218"
 ---
 # <a name="create-messages"></a>메시지 만들기
 
@@ -26,7 +26,7 @@ ms.locfileid: "49998170"
 
 ## <a name="default-message-handler"></a>기본 메시지 처리기
 
-Node.js용 Bot Builder SDK는 [`session`](https://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.session.html)개체에 기본 제공되는 기본 메시지 처리기와 함께 제공됩니다. 이 메시지 처리기를 사용하면 봇과 사용자 간에 텍스트 메시지를 주고받을 수 있습니다.
+Node.js용 Bot Framework SDK는 [`session`](https://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.session.html)개체에 기본 제공되는 기본 메시지 처리기와 함께 제공됩니다. 이 메시지 처리기를 사용하면 봇과 사용자 간에 텍스트 메시지를 주고받을 수 있습니다.
 
 ### <a name="send-a-text-message"></a>텍스트 메시지 보내기
 
@@ -88,12 +88,12 @@ session.send(customMessage);
 | [`compose(prompts:string[], ...args:any[])`](https://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.message.html#compose) | 사용자에게 보낼 복잡하고 임의적인 응답을 작성합니다. |
 | [`entities(list:Object[])`](https://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.message.html#entities) | 봇 또는 사용자에게 전달된 구조화된 개체입니다. |
 | [`inputHint(hint:string)`](https://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.message.html#inputhint) | 봇이 추가 입력이 필요한지 여부를 알리며 사용자에게 보낸 힌트입니다. 기본 제공 프롬프트는 보내는 메시지에 대한 이 값을 자동으로 채웁니다. |
-| [`localTimeStamp((optional)time:string)`](https://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.message.html#localtimestamp) | 메시지를 보낸 로컬 시간(클라이언트 또는 봇에서 설정, 예: 2016-09-23T13:07:49.4714686-07:00.) |
+| [`localTimeStamp((optional)time:string)`](https://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.message.html#localtimestamp) | 메시지를 보낸 로컬 시간(클라이언트 또는 봇에서 설정, 예: 2016-09-23T13:07:49.4714686-07:00) |
 | [`originalEvent(event:any)`](https://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.message.html#originalevent) | 들어오는 메시지에 대한 채널의 원래/원시 형식의 메시지입니다. |
 | [`sourceEvent(map:ISourceEventMap)`](https://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.message.html#sourceevent) | 보내는 메시지는 사용자 지정 첨부 파일과 같이 원본 관련 이벤트 데이터에 전달하는 데 사용할 수 있습니다. |
 | [`speak(ssml:TextType, ...args:any[])`](https://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.message.html#speak) | 메시지의 음성 필드를 *SSML(Speech Synthesis Markup Language)* 로 설정합니다. 이는 지원되는 디바이스에서 사용자에게 음성으로 전달됩니다. |
 | [`suggestedActions(suggestions:ISuggestedActions `&#124;` IIsSuggestedActions)`](https://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.message.html#suggestedactions) | 사용자에게 보낼 제안된 선택적 작업입니다. 제안된 작업은 제안된 작업을 지원하는 채널에만 표시됩니다. |
-| [`summary(text:TextType, ...argus:any[])`](https://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.message.html#summary) | 메시지 콘텐츠에 대한 간단한 설명 및 대체로 표시될 텍스트입니다(예: 최근 대화 목록.) |
+| [`summary(text:TextType, ...argus:any[])`](https://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.message.html#summary) | 메시지 콘텐츠에 대한 간단한 설명 및 대체로 표시될 텍스트입니다(예: 최근 대화 목록). |
 | [`text(text:TextType, ...args:any[])`](https://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.message.html#text) | 메시지 텍스트를 설정합니다. |
 | [`textFormat(style:string)`](https://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.message.html#textformat) | 텍스트 형식을 설정합니다. 기본 형식은 **markdown**입니다. |
 | [`textLocale(locale:string)`](https://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.message.html#textlocale) | 메시지의 대상 언어를 설정합니다. |

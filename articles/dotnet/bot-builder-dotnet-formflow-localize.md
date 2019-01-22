@@ -1,6 +1,6 @@
 ---
 title: 폼 콘텐츠 지역화 | Microsoft Docs
-description: FormFlow 및 .NET용 Bot Builder SDK를 사용하여 폼 콘텐츠를 지역화하는 방법을 알아봅니다.
+description: FormFlow 및 .NET용 Bot Framework SDK를 사용하여 폼 콘텐츠를 지역화하는 방법을 알아봅니다.
 author: RobStand
 ms.author: kamrani
 manager: kamrani
@@ -9,12 +9,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 11/02/2018
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 914c33033be3fe35db7cae6d54b5835cb032a5fd
-ms.sourcegitcommit: 984705927561cc8d6a84f811ff24c8c71b71c76b
+ms.openlocfilehash: 3ec3d12a7d35f65adca901395edff2db3ab71c66
+ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50965691"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54225588"
 ---
 # <a name="localize-form-content"></a>폼 콘텐츠 지역화
 
@@ -165,7 +165,7 @@ Par pain "neuf" vouliez-vous dire (1. Neuf grains miel avoine, ou 2. Neuf grains
 - [FormBuilder를 사용하여 폼 사용자 지정](bot-builder-dotnet-formflow-formbuilder.md)
 - [JSON 스키마를 사용하여 폼 정의](bot-builder-dotnet-formflow-json-schema.md)
 - [패턴 언어를 사용하여 사용자 환경 사용자 지정](bot-builder-dotnet-formflow-pattern-language.md)
-- <a href="/dotnet/api/?view=botbuilder-3.11.0" target="_blank">.NET용 Bot Builder SDK 참조</a>
+- <a href="/dotnet/api/?view=botbuilder-3.11.0" target="_blank">.NET용 Bot Framework SDK 참조</a>
 
 [build]: /dotnet/api/microsoft.bot.builder.formflow.formbuilder-1.build 
 

@@ -1,6 +1,6 @@
 ---
 title: 봇 작동 방식 | Microsoft Docs
-description: Bot Builder SDK 내에서 활동 및 http가 어떻게 작동하는지 설명합니다.
+description: Bot Framework SDK 내부에서 작업 및 http의 작동 방식을 설명합니다.
 keywords: 대화 흐름, 순서, 봇 대화, 대화 상자, 프롬프트, 폭포, 대화 상자 집합
 author: johnataylor
 ms.author: johtaylo
@@ -8,20 +8,20 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
-ms.date: 11/15/2018
+ms.date: 1/10/2019
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: c4d4879f7ad127838de9d2563dee8f8d7320d61e
-ms.sourcegitcommit: 91156d0866316eda8d68454a0c4cd74be5060144
+ms.openlocfilehash: a1b155db3ec717a1084ae0e098e8f22997a80b0e
+ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53010578"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54225938"
 ---
 # <a name="how-bots-work"></a>봇 작동 방식
 
 [!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
 
-봇은 사용자가 텍스트, 그래픽(예: 카드 또는 이미지) 또는 음성을 사용하여 대화형 방식으로 상호 작용하는 앱입니다. 사용자와 봇 간에 상호 작용이 이루어질 때마다 *활동*이 생성됩니다. Bot Service는 사용자의 봇에 연결된 앱(예: Facebook, Skype, Slack 등을 말하며, *채널*이라고 함)과 봇 간에 정보를 전송합니다. 각 채널이 전송하는 활동에 추가 정보가 포함될 수 있습니다. 봇을 만들기 전에 봇이 활동 개체를 사용하여 사용자와 소통하는 방법을 이해하는 것이 중요합니다. 먼저 간단한 에코 봇을 실행할 때 주고받는 활동을 살펴보겠습니다.
+봇은 사용자가 텍스트, 그래픽(예: 카드 또는 이미지) 또는 음성을 사용하여 대화형 방식으로 상호 작용하는 앱입니다. 사용자와 봇 간에 상호 작용이 이루어질 때마다 *활동*이 생성됩니다. Azure Bot Service의 구성 요소인 Bot Framework Service는 사용자의 봇에 연결된 앱(예: Facebook, Skype, Slack 등을 말하며, *채널*이라고 함)과 봇 간에 정보를 전송합니다. 각 채널이 전송하는 활동에 추가 정보가 포함될 수 있습니다. 봇을 만들기 전에 봇이 활동 개체를 사용하여 사용자와 소통하는 방법을 이해하는 것이 중요합니다. 먼저 간단한 에코 봇을 실행할 때 주고받는 활동을 살펴보겠습니다. 
 
 ![활동 다이어그램](media/bot-builder-activity.png)
 
@@ -41,7 +41,7 @@ ms.locfileid: "53010578"
 
 ### <a name="defining-a-turn"></a>순서 정의
 
-대화에서 사람들은 한 번에 한 명씩 순서대로 말을 합니다. 봇을 사용하면 봇은 일반적으로 사용자 입력에 반응합니다. Bot Builder SDK 내에서 _순서_는 사용자로부터 봇으로 들어오는 작업과 봇이 즉각적으로 응답하여 사용자에게 되돌려 보내는 작업으로 구성됩니다. 순서를 특정 작업의 도착과 관련된 프로세싱으로 생각하시면 됩니다.
+대화에서 사람들은 한 번에 한 명씩 순서대로 말을 합니다. 봇을 사용하면 봇은 일반적으로 사용자 입력에 반응합니다. Bot Framework SDK 내에서 _순서_는 사용자로부터 봇으로 들어오는 작업과 봇이 즉각적으로 응답하여 사용자에게 되돌려 보내는 작업으로 구성됩니다. 순서를 특정 작업의 도착과 관련된 프로세싱으로 생각하시면 됩니다.
 
 *순서 컨텍스트* 개체는 발신자 및 수신자, 채널, 활동을 처리하는 데 필요한 기타 데이터와 같은 활동에 대한 정보를 제공합니다. 또한 봇의 다양한 계층에서 순서가 처리되는 동안 정보를 추가할 수 있게 해줍니다.
 

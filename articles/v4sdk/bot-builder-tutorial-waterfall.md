@@ -1,15 +1,15 @@
 ---
 redirect_url: /bot-framework/bot-builder-prompts
-ms.openlocfilehash: e7cfbad19290b3ef61d40dc90493db8f530a9a4e
-ms.sourcegitcommit: 4661b9bb31d74731dbbb16e625be088b44ba5899
+ms.openlocfilehash: d45ec888a0082ee17718c93fc34a3df99431a254
+ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51826940"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54225418"
 ---
 <a name="--"></a><!--
 ---
-제목: 사용자에게 질문하기 | Microsoft Docs 설명: 폭포 모델을 사용하여 Bot Builder SDK에서 사용자에게 여러 입력을 요청하는 방법을 알아봅니다.
+제목: 사용자 관련 질문하기 | Microsoft Docs 설명: 폭포 모델을 사용하여 Bot Framework SDK에서 여러 입력을 사용자에게 요청하는 방법을 알아봅니다.
 키워드: 폭포, 대화, 질문하기, 프롬프트 작성자: v-ducvo ms.author: v-ducvo manager: kamrani ms.topic: article ms.service: bot-service ms.subservice: sdk ms.date: 5/10/2018 monikerRange: 'azure-bot-service-4.0'
 ---
 

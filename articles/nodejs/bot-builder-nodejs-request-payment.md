@@ -1,6 +1,6 @@
 ---
 title: 결제 요청 | Microsoft Docs
-description: Node.js용 Bot Builder SDK를 사용하여 결제 요청을 보내는 방법을 알아봅니다.
+description: Node.js용 Bot Framework SDK를 사용하여 결제 요청을 보내는 방법을 알아봅니다.
 author: v-ducvo
 ms.author: v-ducvo
 manager: kamrani
@@ -9,12 +9,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 5bdb699e242784883f7c1a5dda895a31ff80efb1
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: 296004c654cfd59de6c245bf9702a80024526140
+ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49999168"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54225748"
 ---
 # <a name="request-payment"></a>결제 요청
 
@@ -24,11 +24,11 @@ ms.locfileid: "49999168"
 > - [.NET](../dotnet/bot-builder-dotnet-request-payment.md)
 > - [Node.JS](../nodejs/bot-builder-nodejs-request-payment.md)
 
-봇을 통해 사용자가 항목을 구매할 수 있는 경우 [서식 있는 카드](bot-builder-nodejs-send-rich-cards.md) 내 특수한 단추 유형을 포함시키면 결제를 요청할 수 있습니다. 이 문서에서는 Node.js용 Bot Builder SDK를 사용하여 결제 요청을 보내는 방법을 설명합니다.
+봇을 통해 사용자가 항목을 구매할 수 있는 경우 [서식 있는 카드](bot-builder-nodejs-send-rich-cards.md) 내 특수한 단추 유형을 포함시키면 결제를 요청할 수 있습니다. 이 문서에서는 Node.js용 Bot Framework SDK를 사용하여 결제 요청을 보내는 방법을 설명합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-Node.js용 Bot Builder SDK를 사용하여 결제 요청을 보내기 전에 이러한 필수 구성 요소 작업을 완료해야 합니다.
+Node.js용 Bot Framework SDK를 사용하여 결제 요청을 보내기 전에 이러한 필수 구성 요소 작업을 완료해야 합니다.
 
 ### <a name="register-and-configure-your-bot"></a>봇 등록 및 구성
 

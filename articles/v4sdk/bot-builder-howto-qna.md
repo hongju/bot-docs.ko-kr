@@ -8,14 +8,14 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: cognitive-services
-ms.date: 11/19/2018
+ms.date: 01/15/2019
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 0708244b9f9e4859ba069ed463cef83a0ecdf20d
-ms.sourcegitcommit: b9482670285295a2af0dfbb8f4b7e543c1c10542
+ms.openlocfilehash: 4a221f6e94324c56f88dd1d4d6851d5cc4d38e6c
+ms.sourcegitcommit: 3cc768a8e676246d774a2b62fb9c688bbd677700
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53327159"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54323679"
 ---
 # <a name="use-qna-maker-to-answer-questions"></a>QnA Maker를 사용하여 질문에 답변
 
@@ -40,7 +40,7 @@ QnA Maker 서비스를 사용하여 봇에 질문 및 답변 지원 기능을 �
 1. 기술 자료를 연 후 **설정**을 선택합니다. _서비스 이름_에 표시되는 <your_kb_name>이라는 값을 기록합니다.
 1. 아래로 스크롤하여 **배포 세부 정보**를 찾아 다음 값을 기록합니다.
    - POST /knowledgebases/<your_knowledge_base_id>/generateAnswer
-   - 호스트: https://<you_hostname>.azurewebsites.net/qnamaker
+   - 호스트: <your_hostname>/qnamaker
    - 권한 부여: EndpointKey <your_endpoint_key>
 
 ## <a name="update-the-bot-file"></a>.bot 파일 업데이트

@@ -1,6 +1,6 @@
 ---
 title: 봇에 사용자 지정 스토리지 구현 | Microsoft Docs
-description: Bot Builder SDK v4.0에서 사용자 지정 스토리지를 빌드하는 방법입니다.
+description: Bot Framework SDK v4.0에서 사용자 지정 스토리지를 빌드하는 방법입니다.
 keywords: 사용자 지정, 스토리지, 상태, 대화
 author: johnataylor
 ms.author: johtaylo
@@ -10,12 +10,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 10/31/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: b005b9f024c5813ba22cd8663c196a8c3a5bb716
-ms.sourcegitcommit: 15f7fa40b7e0a05507cdc66adf75bcfc9533e781
+ms.openlocfilehash: 4503e2953543d2ec9c06e8cd60484a5c87d95987
+ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50919007"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54224008"
 ---
 # <a name="implement-custom-storage-for-your-bot"></a>봇에 사용자 지정 스토리지 구현
 
@@ -25,7 +25,7 @@ ms.locfileid: "50919007"
 
 이 문서에서는 Azure Bot Service 및 Store와의 상호작용에 관한 의미 체계를 살펴봅니다.
 
-Bot Builder 프레임워크에는 기본 구현이 포함되어 있습니다. 이 구현은 많은 애플리케이션의 요구 사항에 매우 적합하며, 이를 사용하기 위해 수행해야 하는 모든 작업은 몇 줄의 초기화 코드를 통해 해당 요소를 모두 연결하는 것입니다. 많은 샘플에서 이를 잘 보여 줍니다.
+Bot Framework에는 기본 구현이 포함되어 있습니다. 이 구현은 많은 애플리케이션의 요구 사항에 매우 적합하며, 이를 사용하기 위해 수행해야 하는 모든 작업은 몇 줄의 초기화 코드를 통해 해당 요소를 모두 연결하는 것입니다. 많은 샘플에서 이를 잘 보여 줍니다.
 
 그러나 여기서의 목표는 기본 구현의 의미 체계가 애플리케이션에서 원하는 대로 제대로 작동하지 않을 때 수행할 수 있는 작업을 설명하는 것입니다. 기본 요점은 이 의미 체계가 프레임워크이며, 확정된 동작으로 미리 준비된 애플리케이션이 아니라는 것입니다. 즉 프레임워크의 많은 메커니즘을 구현하는 것이 기본 구현일 뿐이며 유일한 구현은 아니다.
 

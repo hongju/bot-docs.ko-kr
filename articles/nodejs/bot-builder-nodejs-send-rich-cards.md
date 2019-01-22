@@ -1,6 +1,6 @@
 ---
 title: 메시지에 서식 있는 카드 첨부 파일 추가 | Microsoft Docs
-description: Node.js용 Bot Builder SDK를 사용하여 서식 있는 유용한 대화형 카드를 전송하는 방법을 알아봅니다.
+description: Node.js용 Bot Framework SDK를 사용하여 서식 있는 유용한 대화형 카드를 전송하는 방법을 알아봅니다.
 author: v-ducvo
 ms.author: v-ducvo
 manager: kamrani
@@ -9,12 +9,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 12d18e83064cdf8ce43a662198a2fa94eb995b3b
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: e3bf4a6868702f24af08e69d5f07c036082ec3b6
+ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "50000090"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54225238"
 ---
 # <a name="add-rich-card-attachments-to-messages"></a>메시지에 서식 있는 카드 첨부 파일 추가
 

@@ -8,14 +8,14 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
-ms.date: 11/26/2018
+ms.date: 01/15/2019
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 62cf3663a6e1c9b9321d7b74393b95e4a2ed3a69
-ms.sourcegitcommit: fd7781a06303fee5f39a253da5b3a3818d54b2ba
+ms.openlocfilehash: c798c26f108458e1caeb16aa22c02c6e7c70fb61
+ms.sourcegitcommit: 3cc768a8e676246d774a2b62fb9c688bbd677700
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53806774"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54323659"
 ---
 # <a name="use-multiple-luis-and-qna-models"></a>다중 LUIS 및 QnA 모델 사용
 
@@ -41,7 +41,7 @@ ms.locfileid: "53806774"
 
  ### <a name="create-your-bot-using-service-ui"></a>서비스 UI를 사용하여 봇 만들기
  
-수동으로 봇 만들기를 시작하려면 GitHub [BotFramework-Samples](https://github.com/Microsoft/BotFramework-Samples) 리포지토리에 있는 [home-automation.json](https://aka.ms/dispatch-home-automation-json), [weather.json](https://aka.ms/dispatch-weather-json), [nlp-with-dispatchDispatch.json](https://aka.ms/dispatch-dispatch-json), [QnAMaker.tsv](https://aka.ms/dispatch-qnamaker-tsv)와 같은 4개 파일을 로컬 폴더에 다운로드하세요.
+수동으로 봇 만들기를 시작하려면 GitHub [BotFramework 샘플](https://aka.ms/botdispatchgitsamples) 리포지토리에 있는 4개 파일 [home-automation.json](https://aka.ms/dispatch-home-automation-json), [weather.json](https://aka.ms/dispatch-weather-json), [nlp-with-dispatchDispatch.json](https://aka.ms/dispatch-dispatch-json), [QnAMaker.tsv](https://aka.ms/dispatch-qnamaker-tsv)를 로컬 폴더에 다운로드합니다. 이 작업을 수행하는 한 가지 방법은 위의 GitHub 리포지토리 링크를 열고 **BotFramework 샘플**을 클릭한 다음, 리포지토리를 로컬 머신으로 "복제 또는 다운로드"합니다. 이러한 파일은 필수 구성 요소에 언급된 샘플이 아닌 다른 리포지토리에 있습니다.
 
 ### <a name="manually-create-luis-apps"></a>수동으로 LUIS 앱 만들기
 
@@ -494,7 +494,10 @@ async onTurn(turnContext) {
 
 위의 두 동작 중 하나로 봇이 '답변을 찾을 수 없습니다.'라는 메시지로 사용자에게 응답하는 횟수를 줄일 수 있습니다. 
 
-## <a name="additional-resources"></a>추가 리소스 
+## <a name="additional-resources"></a>추가 리소스
+
+**LUIS 모델 업데이트 또는 새로 만들기:** 이 샘플은 미리 구성된 LUIS 모델을 기반으로 합니다. 이 모델을 업데이트하거나 새 LUIS 모델을 만드는 데 도움이 되는 추가 정보는 [여기](https://aka.ms/create-luis-model#updating-your-cognitive-models
+)서 찾을 수 있습니다.
 
 **리소스 삭제:** 이 샘플에서는 아래에 나열된 단계를 사용하여 삭제할 수 있는 다양한 애플리케이션과 리소스를 만들지만 *다른 애플리케이션 또는 서비스*에서 사용하는 리소스는 삭제하면 안 됩니다. 
 
