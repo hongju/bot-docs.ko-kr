@@ -1,11 +1,3 @@
----
-ms.openlocfilehash: 73149f8137144ee34c1ab1e8fc6a645d1405b694
-ms.sourcegitcommit: bdb981c0b11ee99d128e30ae0462705b2dae8572
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54360763"
----
 # [Azure Bot Service 설명서](index.md)
 # 개요
 ## [Azure Bot Service 정보](bot-service-overview-introduction.md)
