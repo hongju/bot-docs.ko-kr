@@ -9,20 +9,15 @@ layout: LandingPage
 ms.service: bot-service
 ms.subservice: sdk
 ms.date: 01/16/2019
-ms.openlocfilehash: 5c7851bdc05180605d20698f3e94e07c9bcace2b
-ms.sourcegitcommit: bdb981c0b11ee99d128e30ae0462705b2dae8572
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54360773"
 ---
 ::: moniker range="azure-bot-service-3.0"
 
-> [!NOTE]
-> 이 항목은 **이전 버전의 SDK (v3)** 에 적용됩니다. 현재 버전의 SDK(v4)에 대한 문서는 [여기](https://docs.microsoft.com/en-us/azure/bot-service/?view=azure-bot-service-4.0)에서 볼 수 있습니다.
-
 <div class="content">
     <h1>Azure Bot Service 설명서</h1>
+    <div class="alert is-info">
+        <p class="alert-title"><span class="docon docon-status-error-outline"></span> 참고</p>
+        <p>이 항목은 <strong>이전 버전의 SDK (v3)</strong>에 적용됩니다. 현재 버전의 SDK(v4)에 대한 문서는 <a href="https://docs.microsoft.com/en-us/azure/bot-service/?view=azure-bot-service-4.0" data-linktype="external">여기</a>에서 볼 수 있습니다.</p>
+    </div>
     <div class="intro" style="min-width: 200px">
         <p>Bot Service는 봇 개발에 특화된 통합 환경을 제공하여 지능형 봇을 한 곳에서 빌드하고, 연결하고, 테스트하고, 배포하고, 관리할 수 있습니다. Azure Bot Service는 .NET 및 Node.js에 대한 지원에서 Bot Framework SDK를 활용합니다. 빠른 시작 및 샘플을 통해 Bot Service를 사용하는 방법을 알아봅니다.</p>
     </div>
@@ -67,11 +62,12 @@ ms.locfileid: "54360773"
 
 ::: moniker range="azure-bot-service-4.0"
 
-> [!NOTE] 
-> 이 항목에서는 현재 버전의 SDK(v4)를 다룹니다. 이전 버전의 SDK(v3)에 대한 문서는 [여기](https://docs.microsoft.com/en-us/azure/bot-service/?view=azure-bot-service-3.0)를 참조하세요.
-
 <div class="content">
     <h1>Azure Bot Service 설명서</h1>
+    <div class="alert is-info">
+        <p class="alert-title"><span class="docon docon-status-error-outline"></span> 참고</p>
+        <p>이 항목에서는 현재 버전의 SDK(v4)를 다룹니다. 이전 버전의 SDK(v3)에 대한 문서는 <a href="https://docs.microsoft.com/en-us/azure/bot-service/?view=azure-bot-service-3.0" data-linktype="external">여기</a>를 참조하세요.</p>
+    </div>
     <div class="intro" style="min-width: 200px">
         <p>Azure Bot Service는 봇 개발에 특화된 통합 환경을 제공하여 지능형 봇을 한 곳에서 빌드하고, 연결하고, 테스트하고, 배포하고, 관리할 수 있습니다. Azure Bot Service는 C# 및 JavaScript에 대한 지원에서 Bot Framework SDK를 활용합니다. 빠른 시작, 자습서 및 샘플을 통해 Bot Service를 사용하는 방법을 알아봅니다.
 </p>
