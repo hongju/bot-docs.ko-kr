@@ -9,12 +9,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: d8e482d8f4003ad7bcd807e8fd12e3c68c4ce8c8
-ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
+ms.openlocfilehash: cfb849474c23c62a666e013c700b755519c1868a
+ms.sourcegitcommit: c6ce4c42fc56ce1e12b45358d2c747fb77eb74e2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54225898"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54453808"
 ---
 # <a name="manage-conversation-flow-with-dialogs"></a>다이얼로그를 사용하여 대화 흐름 관리
 
@@ -129,11 +129,11 @@ private async Task NameDialogResumeAfter(IDialogContext context, IAwaitable<stri
 
 ## <a name="sample-code"></a>샘플 코드 
 
-.NET용 Bot Framework SDK의 대화 상자를 사용하여 대화를 관리하는 방법을 보여주는 전체 샘플은 GitHub에서 <a href="https://github.com/Microsoft/BotBuilder-Samples/tree/master/CSharp/core-BasicMultiDialog" target="_blank">Basic Multi-Dialog sample</a>(기본 다중 대화 상자 샘플)을 참조하세요.
+.NET용 Bot Framework SDK의 대화 상자를 사용하여 대화를 관리하는 방법을 보여주는 전체 샘플은 GitHub에서 [Basic Multi-Dialog sample](https://aka.ms/v3cs-MultiDialog-Sample)(기본 다중 대화 상자 샘플)을 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 
 - [다이얼로그](bot-builder-dotnet-dialogs.md)
 - [대화 흐름 디자인 및 제어](../bot-service-design-conversation-flow.md)
-- <a href="https://github.com/Microsoft/BotBuilder-Samples/tree/master/CSharp/core-BasicMultiDialog" target="_blank">Basic Multi-Dialog sample (GitHub)</a>(기본 다중 대화 샘플(GitHub))
+- [Basic Multi-Dialog sample (GitHub)](https://aka.ms/v3cs-MultiDialog-Sample)(기본 다중 대화 샘플(GitHub))
 - <a href="/dotnet/api/?view=botbuilder-3.11.0" target="_blank">.NET용 Bot Framework SDK 참조</a>

@@ -10,12 +10,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 11/13/18
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: cd1f8270acf426c84d64efef796b7a007c49c2c1
-ms.sourcegitcommit: bdb981c0b11ee99d128e30ae0462705b2dae8572
+ms.openlocfilehash: f5f566c48eb62bd6b60c869c28904bc61d74eda4
+ms.sourcegitcommit: fc75b206e276ce66e9848e97d75f562bf9401f04
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54360793"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54837980"
 ---
 # <a name="write-directly-to-storage"></a>저장소에 직접 작성
 
@@ -97,6 +97,7 @@ public async Task OnTurnAsync(ITurnContext context)
          await context.SendActivityAsync($"The list is now: {string.Join(", ", logItems.UtteranceList)}");
          
          // Create Dictionary object to hold new list of messages.
+         var changes = new Dictionary<string, object>();
          {
              changes.Add("UtteranceLog", logItems);
           };

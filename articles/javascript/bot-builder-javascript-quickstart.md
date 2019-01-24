@@ -8,20 +8,22 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
-ms.date: 10/30/2018
+ms.date: 01/17/2019
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 3293fa18be514fefb04240899d2318fa6f64bade
-ms.sourcegitcommit: bdb981c0b11ee99d128e30ae0462705b2dae8572
+ms.openlocfilehash: 7b7f8012176de5248e1962b6f29128284441a798
+ms.sourcegitcommit: c6ce4c42fc56ce1e12b45358d2c747fb77eb74e2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54360783"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54453917"
 ---
 # <a name="create-a-bot-with-the-bot-framework-sdk-for-javascript"></a>JavaScript용 Bot Framework SDK를 사용하여 봇 만들기
 
 [!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
 
 이 빠른 시작에서는 Yeoman Bot Builder 생성기 및 JavaScript용 Bot Framework SDK를 사용하여 단일 봇을 빌드한 다음, Bot Framework Emulator를 사용하여 테스트하는 방법을 안내합니다.
+
+[!INCLUDE [Azure vs local development](~/includes/snippet-quickstart-paths.md)]
 
 [!INCLUDE [javascript quickstart](~/includes/quickstart-javascript.md)]
 
