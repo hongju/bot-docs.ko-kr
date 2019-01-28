@@ -8,20 +8,22 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
-ms.date: 11/08/2018
+ms.date: 01/16/2019
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 9cfe077c8d8573145625b211c3c1ca05a6a21e19
-ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
+ms.openlocfilehash: ff52a62353df8983d94bbd09276de4ae94e6535e
+ms.sourcegitcommit: c6ce4c42fc56ce1e12b45358d2c747fb77eb74e2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54224818"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54453877"
 ---
-# <a name="send-and-receive-text-message"></a>문자 메시지 보내기 및 받기 
+# <a name="send-and-receive-text-message"></a>문자 메시지 보내기 및 받기
 
 [!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
 
 봇이 사용자와 커뮤니케이션하고 마찬가지로 커뮤니케이션을 수신하는 기본 방법은 **메시지** 활동입니다. 일부 메시지는 단순히 일반 텍스트로 구성되지만 다른 메시지는 카드나 첨부 파일 같이 서식이 더 많은 콘텐츠를 포함할 수 있습니다. 봇의 전환 처리기는 사용자로부터 메시지를 수신하고 거기서부터 사용자에게 응답을 보낼 수 있습니다. 전환 컨텍스트 개체는 메시지를 다시 사용자에게 보내기 위한 메서드를 제공합니다. 이 문서에서는 단문 메시지를 보내는 방법을 설명합니다.
+
+Markdown은 대부분의 텍스트 필드에 지원되지만 채널별로 지원이 다를 수 있습니다.
 
 ## <a name="send-a-text-message"></a>텍스트 메시지 보내기
 
@@ -57,12 +59,16 @@ var responseMessage = turnContext.Activity.Text;
 
 # <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
-봇의 `OnTurnAsync` 메서드에서 다음 코드를 사용하여 메시지를 수신합니다. 
+봇의 `OnTurnAsync` 메서드에서 다음 코드를 사용하여 메시지를 수신합니다.
+
 ```javascript
 let text = turnContext.activity.text;
 ```
+
 ---
 
-
 ## <a name="additional-resources"></a>추가 리소스
-일반적인 작업 처리에 대한 자세한 내용은 [작업 처리](~/v4sdk/bot-builder-basics.md#the-activity-processing-stack)를 참조하세요. 서식이 더 많은 콘텐츠를 보내려면 [서식 있는 미디어](bot-builder-howto-add-media-attachments.md) 첨부 파일 추가 방법을 참조하세요.
+
+- 일반적인 작업 처리에 대한 자세한 내용은 [작업 처리](~/v4sdk/bot-builder-basics.md#the-activity-processing-stack)를 참조하세요.
+- 서식이 더 많은 콘텐츠를 보내려면 [서식 있는 미디어](bot-builder-howto-add-media-attachments.md) 첨부 파일 추가 방법을 참조하세요.
+- 서식 지정에 대한 자세한 내용은 Bot Framework 작업 스키마의 [메시지 작업 섹션](https://aka.ms/botSpecs-activitySchema#message-activity)을 참조하세요.

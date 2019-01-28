@@ -10,12 +10,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 11/28/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: fc44701d7739ecfca662d27cad4f521caa7f4d6d
-ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
+ms.openlocfilehash: 31a0497f1422cee8c4966e59d94a89ae359a5cb7
+ms.sourcegitcommit: c6ce4c42fc56ce1e12b45358d2c747fb77eb74e2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54225488"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54453937"
 ---
 # <a name="dialogs-library"></a>대화 상자 라이브러리
 
@@ -131,11 +131,22 @@ ms.locfileid: "54225488"
 
 ### <a name="to-start-a-dialog"></a>대화 상자를 시작하려면
 
-대화를 시작하려면 시작하려는 *대화 ID*를 대화 컨텍스트의 *대화 시작*, *프롬프트* 또는 *대화 대체* 메서드로 전달합니다. 대화 시작 메서드는 대화를 스택의 맨 위로 푸시하지만, 대화 대체 메서드는 현재 대화를 스택에서 꺼내고 대화 대체를 스택으로 푸시합니다.
+대화를 시작하려면 시작하려는 *대화 ID*를 대화 컨텍스트의 *대화 시작*, *프롬프트* 또는 *대화 대체* 메서드로 전달합니다.
+
+* 시작 대화 상자 메서드는 스택의 맨 위에 대화 상자를 푸시합니다.
+* 대체 대화 상자 메서드는 현재 대화 상자를 스택에서 삭제하고 대체 대화 상자를 스택 위로 푸시합니다. 대체된 대화 상자는 취소되고 인스턴스에 포함된 모든 정보는 삭제됩니다.
+
+_options_ 매개 변수를 사용하여 대화 상자의 새 인스턴스로 정보를 전달합니다.
+새 대화 상자에 전달된 옵션은 대화 상자의 어느 단계에서든 단계 컨텍스트의 *options* 속성을 통해 액세스할 수 있습니다.
+예제 코드는 [분기 및 루프를 사용하여 고급 대화 흐름 만들기](bot-builder-dialog-manage-complex-conversation-flow.md) 방법을 참조하세요.
 
 ### <a name="to-continue-a-dialog"></a>대화를 계속하려면
 
 대화를 계속하려면 *대화 계속* 메서드를 호출합니다. 스택의 맨 위에 대화(활성 대화)가 있는 경우 계속 메서드에서 항상 해당 메서드를 계속합니다. 계속된 대화가 종료되면 제어가 동일한 턴 내에서 계속되는 부모 컨텍스트로 전달됩니다.
+
+단계 컨텍스트의 *values* 속성을 사용하여 턴 사이의 상태를 유지합니다.
+이전 턴에서 이 컬렉션에 추가된 모든 값을 후속 턴에서 사용할 수 있습니다.
+예제 코드는 [분기 및 루프를 사용하여 고급 대화 흐름 만들기](bot-builder-dialog-manage-complex-conversation-flow.md) 방법을 참조하세요.
 
 ### <a name="to-end-a-dialog"></a>대화 상자를 종료하려면
 
@@ -152,10 +163,11 @@ ms.locfileid: "54225488"
 
 ### <a name="repeating-a-dialog"></a>대화 상자 반복
 
-대화 상자를 반복하려면 *replace dialog* 메서드를 사용합니다. 대화 컨텍스트의 *대화 대체* 메서드는 현재 활성 대화를 스택에서 꺼내고(정상적으로 종료하지 않고) 대체 대화를 스택의 맨 위로 푸시하여 해당 대화를 시작합니다. 이는 [복잡한 반복](~/v4sdk/bot-builder-dialog-manage-complex-conversation-flow.md)을 처리하는 좋은 방법이며, 메뉴를 관리하는 데 유용한 기술입니다. 이 메서드를 사용하여 다이얼로그를 자체로 대체하여 루프를 만들 수 있습니다.
+대화 상자를 직접 대체하여 루프를 만들 수 있습니다.
+이는 [복잡한 반복](~/v4sdk/bot-builder-dialog-manage-complex-conversation-flow.md)을 처리하는 좋은 방법이며, 메뉴를 관리하는 데 유용한 기술입니다.
 
 > [!NOTE]
-> 현재 대화에 대한 내부 상태를 유지해야 하는 경우 *대화 대체* 메서드 호출에서 대화의 새 인스턴스로 정보를 전달한 다음, 대화를 적절히 초기화해야 합니다. 새 대화 상자에 전달된 옵션은 대화 상자의 어느 단계에서든 단계 컨텍스트의 *options* 속성을 통해 액세스할 수 있습니다.
+> 현재 대화에 대한 내부 상태를 유지해야 하는 경우 *대화 대체* 메서드 호출에서 대화의 새 인스턴스로 정보를 전달한 다음, 대화를 적절히 초기화해야 합니다.
 
 ### <a name="branch-a-conversation"></a>대화 분기
 

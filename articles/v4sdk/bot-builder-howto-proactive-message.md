@@ -10,12 +10,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 11/15/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 82811d202e0e20169ae2ebb348949366009d2421
-ms.sourcegitcommit: 4661b9bb31d74731dbbb16e625be088b44ba5899
+ms.openlocfilehash: 7a9a2e4f30d1e9b293e51a921afce57d243376d7
+ms.sourcegitcommit: c6ce4c42fc56ce1e12b45358d2c747fb77eb74e2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51826930"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54453967"
 ---
 # <a name="get-notification-from-bots"></a>봇에서 알림 받기
 
@@ -38,7 +38,8 @@ ms.locfileid: "51826930"
 알림을 더 원활하게 처리하려면 대화 상태에 플래그를 설정하거나 알림을 큐에 추가하는 것처럼 알림을 대화 흐름에 통합하는 다른 방법을 사용하는 것이 좋습니다.
 
 ## <a name="prerequisites"></a>필수 조건
-- [봇 기본 사항](bot-builder-basics.md)을 이해합니다. 
+
+- [봇 기본 사항](bot-builder-basics.md) 및 [상태 관리](bot-builder-concept-state.md)에 대한 이해
 - [ C# ](https://aka.ms/proactive-sample-cs) 또는 [JS](https://aka.ms/proactive-sample-js)의 **자동 관리 메시지 샘플**의 복사본 이 샘플은 이 문서에서 자동 관리 메시지를 설명하는 데 사용됩니다. 
 
 ## <a name="about-the-sample-code"></a>샘플 코드 정보
@@ -48,9 +49,12 @@ ms.locfileid: "51826930"
 ## <a name="define-job-data-and-state"></a>작업 데이터 및 상태 정의
 
 이 시나리오에서는 다양한 사용자가 여러 대화에서 만들 수 있는 임의의 작업을 추적합니다. 대화 참조와 작업 식별자를 포함하여 각 작업에 대한 정보를 저장해야 합니다. 다음이 필요합니다.
+
 - 적절한 대화에 자동 관리 메시지를 보낼 수 있도록 대화 참조
 - 작업을 확인하는 방법 다음 예제에서는 간단한 타임스탬프를 사용합니다.
 - 대화 또는 사용자 상태와 관계없이 작업 상태를 저장하려고 합니다.
+
+_봇 상태_를 확장하여 고유한 봇 전체의 상태 관리 개체를 정의합니다. Bot Framework는 _스토리지 키_와 턴 컨텍스트를 사용하여 상태를 유지하고 검색합니다. 자세한 내용은 [상태 관리](bot-builder-concept-state.md)를 참조하세요.
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
@@ -77,9 +81,9 @@ public class JobLog : Dictionary<long, JobLog.JobData>
 }
 ```
 
-### <a name="define-a-state-middleware-class"></a>상태 미들웨어 클래스 정의
+### <a name="define-a-state-management-class"></a>상태 관리 클래스 정의
 
-`JobState` 클래스는 대화 또는 사용자 상태와 관계없이 작업 상태를 관리합니다.
+`JobState` 클래스는 대화 또는 사용자 상태와 관계 없이 작업 상태를 관리합니다.
 
 ```csharp
 using Microsoft.Bot.Builder;
@@ -129,11 +133,10 @@ public void ConfigureServices(IServiceCollection services)
 
 # <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
-봇에는 메시지 간에 대화와 사용자 상태를 유지하는 상태 스토리지 시스템이 필요합니다. 이 경우 시스템은 메모리 내 스토리지 공급자를 사용하여 정의됩니다. 
+봇에는 메시지 간에 대화와 사용자 상태를 유지하는 상태 스토리지 시스템이 필요합니다. 이 경우 시스템은 메모리 내 스토리지 공급자를 사용하여 정의됩니다.
 
 ```javascript
-// index.js 
-
+// index.js
 
 const memoryStorage = new MemoryStorage();
 const botState = new BotState(memoryStorage, () => 'proactiveBot.botState');
@@ -173,8 +176,6 @@ server.post('/api/messages', (req, res) => {
 - 작업 만들기 및 완료 메서드
 
 ### <a name="declare-the-class"></a>클래스 선언
-
-사용자와의 각 상호 작용은 `ProactiveBot` 클래스의 인스턴스를 만듭니다. 필요할 때마다 서비스를 만드는 프로세스를 임시 수명 서비스라고 합니다. 생성 비용이 많이 들거나 단일 턴을 초과하는 수명을 가진 개체는 신중하게 관리해야 합니다.
 
 사용자와의 각 상호 작용은 `ProactiveBot` 클래스의 인스턴스를 만듭니다. 필요할 때마다 서비스를 만드는 프로세스를 임시 수명 서비스라고 합니다. 생성 비용이 많이 들거나 단일 턴을 초과하는 수명을 가진 개체는 신중하게 관리해야 합니다.
 

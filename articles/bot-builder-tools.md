@@ -10,12 +10,12 @@ ms.service: bot-service
 ms.subservice: tools
 ms.date: 11/13/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: f9eafa708be2ce597ec2679fb6975d7da71951ea
-ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
+ms.openlocfilehash: 07df43111f3b2e57dcf0140f291a771e749de563
+ms.sourcegitcommit: c6ce4c42fc56ce1e12b45358d2c747fb77eb74e2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54225878"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54453858"
 ---
 # <a name="manage-bots-using-cli-tools"></a>CLI 도구를 사용하여 봇 관리
 
@@ -63,6 +63,7 @@ Here's a form for you
 ```
 
 ### <a name="create-a-transcript-file-from-chat-file"></a>.chat 파일에서 전사 파일 만들기
+
 Chatdown 명령은 다음과 같습니다.
 
 ```bash
@@ -72,13 +73,15 @@ chatdown sample.chat > sample.transcript
 그러면 `sample.chat`을 사용하여 `sample.transcript`를 출력합니다. 자세한 내용은 [Chatdown CLI][chatdown]를 참조하세요.
 
 ## <a name="build"></a>빌드
+
 ### <a name="create-a-luis-application-with-ludown"></a>LUDown을 사용하여 LUIS 애플리케이션 만들기
+
 LUDown 도구를 사용하여 LUIS와 QnA 둘 다에 대한 새 .json 모델을 만들 수 있습니다.  
 LUIS 포털에서와 마찬가지로, LUIS 애플리케이션에 대한 [의도](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/add-intents) 및 [엔터티](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/add-entities)를 정의할 수 있습니다.
 
 ‘#\<intent-name\>’은 새 의도 정의 섹션을 설명합니다. 그 뒤의 각 줄에는 해당 의도를 설명하는 [발화](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/add-example-utterances)가 표시됩니다.
 
-예를 들어, 다음과 같이 단일 .lu 파일에 여러 개의 LUIS 의도를 만들 수 있습니다. 
+예를 들어, 다음과 같이 단일 .lu 파일에 여러 개의 LUIS 의도를 만들 수 있습니다.
 
 ```LUDown
 # Greeting
@@ -95,12 +98,12 @@ LUIS 포털에서와 마찬가지로, LUIS 애플리케이션에 대한 [의도]
 
 ### <a name="create-qna-pairs-with-ludown"></a>LUDown을 사용하여 QnA 쌍 만들기
 
-.lu 파일 형식은 다음 표기법을 사용하는 QnA 쌍도 지원합니다. 
+.lu 파일 형식은 다음 표기법을 사용하는 QnA 쌍도 지원합니다.
 
 ~~~LUDown
 > comment
 ### ? question ?
-  ```markdown
+  ```
     answer
   ```
 ~~~
@@ -109,7 +112,7 @@ LUDown 도구는 질문과 대답을 qnamaker JSON 파일로 자동으로 구분
 
 ~~~LUDown
 ### ? How do I change the default message for QnA Maker?
-  ```markdown
+  ```
   You can change the default message if you use the QnAMakerDialog. 
   See [this link](https://docs.botframework.com/en-us/azure-bot-service/templates/qnamaker/#navtitle) for details.
   ```
@@ -120,14 +123,14 @@ LUDown 도구는 질문과 대답을 qnamaker JSON 파일로 자동으로 구분
 ~~~LUDown
 ### ? What is your name?
 - What should I call you?
-  ```markdown
+  ```
     I'm the echoBot! Nice to meet you.
   ```
 ~~~
 
 ### <a name="generate-json-models-with-ludown"></a>LUDown을 사용하여 .json 모델 생성
 
-.lu 형식으로 LUIS 또는 QnA 언어 구성 요소를 정의한 후 LUIS .json, QnA .json 또는 QnA .tsv 파일에 게시할 수 있습니다. LUDown 도구를 실행하면 동일한 작업 디렉터리에서 구문 분석할 .lu 파일을 찾습니다. LUDown 도구는 .lu 파일을 사용하여 LUIS 또는 QnA 둘 다를 대상으로 지정할 수 있으므로 일반 명령 **ludown parse <Service> -- in <luFile>** 을 사용하여 생성할 대상 언어 서비스를 지정하면 됩니다. 
+.lu 형식으로 LUIS 또는 QnA 언어 구성 요소를 정의한 후 LUIS .json, QnA .json 또는 QnA .tsv 파일에 게시할 수 있습니다. LUDown 도구를 실행하면 동일한 작업 디렉터리에서 구문 분석할 .lu 파일을 찾습니다. LUDown 도구는 .lu 파일을 사용하여 LUIS 또는 QnA 둘 다를 대상으로 지정할 수 있으므로 일반 명령 **ludown parse \<to-service-type> -- in \<lu-file-path>** 을 사용하여 생성할 대상 언어 서비스를 지정하면 됩니다.
 
 샘플 작업 디렉터리에는 LUIS 모델을 만들기 위한 ‘1.lu’ 및 QnA 기술 자료를 만들기 위한 ‘qna1.lu’ 등 구문 분석할 두 개의 .lu 파일이 있습니다.
 
@@ -144,7 +147,7 @@ ludown parse ToLuis --in <luFile>
 마찬가지로, QnA 기술 자료를 만들려면 구문 분석 대상을 변경하면 됩니다.
 
 ```shell
-ludown parse ToQna --in <luFile> 
+ludown parse ToQna --in <luFile>
 ```
 
 생성된 JSON 파일은 LUIS 및 QnA가 해당 포털이나 새 CLI 도구를 통해 사용할 수 있습니다. 자세한 내용은 [LUdown CLI][ludown] GitHub 리포지토리를 참조하세요.
@@ -290,10 +293,10 @@ az bot show [options] --msbot | msbot connect bot --stdin
 | --resource-group -g               | 리소스 그룹의 이름입니다. `az configure --defaults group=<name>`을 사용하여 기본 그룹을 구성할 수 있습니다.  기본값: build2018 |
 | --tags                            | 봇에 추가할 태그 집합입니다. |
 
-
 ### <a name="configure-channels"></a>채널 구성
 
-Azure CLI를 사용하여 봇의 채널을 관리할 수 있습니다. 
+Azure CLI를 사용하여 봇의 채널을 관리할 수 있습니다.
+
 ```shell
 >az bot -h
 Group
@@ -321,7 +324,9 @@ Group
 ```
 
 ## <a name="additional-information"></a>추가 정보
+
 - [GitHub의 Bot Framework 도구][cliTools]
+- [.lu 파일 형식](https://aka.ms/ludown-file-format)
 
 <!-- Footnote links -->
 

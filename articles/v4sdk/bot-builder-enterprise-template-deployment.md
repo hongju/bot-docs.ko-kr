@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: bot-service
 ms.date: 09/18/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: e557b359da09615d2998c4c729f57ffb9faf0de1
-ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
+ms.openlocfilehash: dd52376e049f1f0e09216e0065ced7443b6eb02a
+ms.sourcegitcommit: c6ce4c42fc56ce1e12b45358d2c747fb77eb74e2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54224968"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54453887"
 ---
 # <a name="enterprise-bot-template---deploying-your-bot"></a>엔터프라이즈 봇 템플릿 - 봇 배포
 
@@ -81,8 +81,10 @@ az account set --subscription "YOUR_SUBSCRIPTION_NAME"
 
 만든 프로젝트 내의 README.md에는 만든 봇 이름으로 업데이트된 `msbot clone services` 명령줄 예제가 포함되어 있으며, 일반 버전이 아래에 나와 있습니다. 이전 단계에서 제작 키를 업데이트하고 사용하려는 Azure 데이터 센터 위치(예: westus 또는 westeurope)를 선택해야 합니다. 이전 단계에서 검색한 LUIS 제작 키가 아래에 지정한 지역에 해당하는지 확인합니다(예: luis.ai의 경우 westus 또는 eu.luis.ai의 경우 westeurope). 마지막으로, 사용하려는 언어의 폴더를 참조합니다(예: `DeploymentScripts\en`).
 
+> **참고** 아래 msbot 명령 창에서는 Azure 서비스 이름을 만드는 데 YOUR-BOT-NAME이 사용됩니다. Azure 서비스 이름에 허용 가능한 문자는 소문자, 숫자 및 대시(“-”)입니다. YOUR-BOT-NAME의 일부로 밑줄(“_”) 및 영문자가 아닌 문자는 포함하지 마세요.
+
 ```shell
-msbot clone services --name "YOUR_BOT_NAME" --luisAuthoringKey "YOUR_AUTHORING_KEY" --folder "DeploymentScripts\LOCALE_FOLDER" --location "REGION"
+msbot clone services --name "YOUR-BOT-NAME" --luisAuthoringKey "YOUR_AUTHORING_KEY" --folder "DeploymentScripts\LOCALE_FOLDER" --location "REGION"
 ```
 
 > 배포를 실행할 때 일부 사용자에게 `ERROR: Unable to provision MSA id automatically. Please pass them in as parameters and try again` 오류가 발생할 수 있습니다. 이 경우 https://apps.dev.microsoft.com 을 방문하여 수동으로 새 애플리케이션을 만들고 ApplicationID 및 암호/비밀을 검색합니다. 위의 msbot 복제 서비스 명령을 실행하되, 새 인수 `appId` 및 `appSecret`을 입력하고 방금 검색한 값을 전달합니다. 따옴표로 비밀을 래핑하여 문제를 구문 분석하지 않도록 방지해야 합니다(예: `-appSecret "YOUR_SECRET"`)
@@ -119,7 +121,7 @@ Bot Framework Emulator에 문제가 있으면 먼저 최신 Bot Framework Emulat
 종단 간 테스트를 로컬로 수행할 수 있습니다. 봇을 Azure에 배포하여 추가 테스트를 수행할 준비가 되면 다음 명령을 사용하여 소스 코드를 게시할 수 있으며, 소스 코드 업데이트를 푸시하려고 할 때마다 이를 실행할 수 있습니다.
 
 ```shell
-az bot publish -g YOUR_BOT_NAME -n YOUR_BOT_NAME --proj-file YOUR_BOT_NAME.csproj --sdk-version v4
+az bot publish -g YOUR-BOT-NAME -n YOUR-BOT-NAME --proj-file YOUR-BOT-NAME.csproj --sdk-version v4
 ```
 
 ## <a name="enabling-more-scenarios"></a>추가 시나리오 사용

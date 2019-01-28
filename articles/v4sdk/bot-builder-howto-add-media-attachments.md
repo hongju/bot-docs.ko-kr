@@ -8,20 +8,20 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
-ms.date: 12/17/2018
+ms.date: 01/16/2019
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 1ea9daeb35033e49232d64bfe98a223807dabf75
-ms.sourcegitcommit: b94361234816e6b95459f142add936732fc40344
+ms.openlocfilehash: 4805e1a3c86ce28833054ce374a57c5c40b717e1
+ms.sourcegitcommit: c6ce4c42fc56ce1e12b45358d2c747fb77eb74e2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54317603"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54453867"
 ---
 # <a name="add-media-to-messages"></a>메시지에 미디어 추가
 
 [!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
 
-사용자와 봇 간에 교환되는 메시지에는 이미지, 비디오, 오디오 및 파일과 같은 미디어 첨부 파일이 포함될 수 있습니다. Bot Framework SDK는 사용자에게 다양한 메시지를 보내는 작업을 지원합니다. 채널(Facebook, Skype, Slack 등)에서 지원하는 다양한 메시지의 유형을 결정하려면 채널 설명서에서 제한 사항에 대한 정보를 참조하세요. 사용 가능한 카드 목록은 [사용자 환경 디자인](../bot-service-design-user-experience.md)을 참조하세요. 
+사용자와 봇 간에 교환되는 메시지에는 이미지, 비디오, 오디오 및 파일과 같은 미디어 첨부 파일이 포함될 수 있습니다. Bot Framework SDK는 사용자에게 다양한 메시지를 보내는 작업을 지원합니다. 채널(Facebook, Skype, Slack 등)에서 지원하는 다양한 메시지의 유형을 결정하려면 채널 설명서에서 제한 사항에 대한 정보를 참조하세요. 사용 가능한 카드 목록은 [사용자 환경 디자인](../bot-service-design-user-experience.md)을 참조하세요.
 
 ## <a name="send-attachments"></a>첨부 파일 보내기
 
@@ -84,11 +84,11 @@ getInternetAttachment() {
 
 ## <a name="send-a-hero-card"></a>영웅 카드 보내기
 
-단순 이미지 또는 비디오 첨부 파일 외에도 **영웅 카드**를 첨부할 수 있습니다. 이 카드를 사용하면 이미지 및 단추를 하나의 개체로 결합하여 사용자에게 보낼 수 있습니다.
+단순 이미지 또는 비디오 첨부 파일 외에도 **영웅 카드**를 첨부할 수 있습니다. 이 카드를 사용하면 이미지 및 단추를 하나의 개체로 결합하여 사용자에게 보낼 수 있습니다. Markdown은 대부분의 텍스트 필드에 지원되지만 채널별로 지원이 다를 수 있습니다.
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
-영웅 카드와 단추가 있는 메시지를 작성하려면 `HeroCard`를 메시지에 첨부할 수 있습니다. 여기서 보여 주는 소스 코드는 [첨부 파일 처리](https://aka.ms/bot-attachments-sample-code) 샘플을 기반으로 합니다. 
+영웅 카드와 단추가 있는 메시지를 작성하려면 `HeroCard`를 메시지에 첨부할 수 있습니다. 여기서 보여 주는 소스 코드는 [첨부 파일 처리](https://aka.ms/bot-attachments-sample-code) 샘플을 기반으로 합니다.
 
 ```csharp
 using Microsoft.Bot.Builder;
@@ -363,7 +363,7 @@ await context.sendActivity(messageWithCarouselOfCards);
 
 ## <a name="additional-resources"></a>추가 리소스
 
-카드 스키마에 대한 자세한 내용은 [Bot Framework 카드 스키마](https://aka.ms/botSpecs-cardSchema)를 참조하세요.
+스키마에 대한 자세한 내용은 Bot Framework 작업 스키마의 [Bot Framework 카드 스키마](https://aka.ms/botSpecs-cardSchema) 및 [메시지 작업 섹션](https://aka.ms/botSpecs-activitySchema#message-activity)을 참조하세요.
 
 카드의 샘플 코드는 여기에서 확인할 수 있습니다. [C#](https://aka.ms/bot-cards-sample-code)/[JS](https://aka.ms/bot-cards-js-sample-code), 적응형 카드: [C#](https://aka.ms/bot-adaptive-cards-sample-code)/[JS](https://aka.ms/bot-adaptive-cards-js-sample-code), 첨부 파일: [C#](https://aka.ms/bot-attachments-sample-code)/[JS](https://aka.ms/bot-attachments-sample-code-js) 및 제안된 작업: [C#](https://aka.ms/SuggestedActionsCSharp)/[JS](https://aka.ms/SuggestedActionsJS).
 추가 샘플은 [GitHub](https://aka.ms/bot-samples-readme)의 Bot Builder 샘플 리포지토리를 참조하세요.
