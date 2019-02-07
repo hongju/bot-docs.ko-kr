@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
 ms.date: 12/20/2018
-ms.openlocfilehash: 8ab1cd34f2cc239602db423bccd131d9df39222a
-ms.sourcegitcommit: f7a8f05fc05ff4a7212a437d540485bf68831604
+ms.openlocfilehash: f86cacce5b25f60010f646cf5989123e3abf3bf2
+ms.sourcegitcommit: 32615b88e4758004c8c99e9d564658a700c7d61f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53736025"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55711977"
 ---
 # <a name="troubleshoot-http-500-errors"></a>HTTP 500 오류 해결
 
@@ -28,7 +28,7 @@ luis-with-appinsights([C#](https://aka.ms/cs-luis-with-appinsights-sample) / [JS
 
 ## <a name="enable-application-insights-on-nodejs"></a>Node.js에서 Application Insights 사용
 
-기본 Application Insights 지원의 경우 [Application Insights를 사용하여 Node.js 서비스 및 앱을 모니터링](https://docs.microsoft.com/azure/application-insights/app-insights-nodejs)하는 방법을 참조하세요. Bot Framework(v4.2부터)는 추가 수준의 Application Insights 텔레메트리를 제공하지만 HTTP 500 오류를 진단하는데 필수는 아닙니다.
+기본 Application Insights 지원의 경우 [Application Insights를 사용하여 Node.js 서비스 및 앱을 모니터링](https://docs.microsoft.com/azure/azure-monitor/learn/nodejs-quick-start)하는 방법을 참조하세요. Bot Framework(v4.2부터)는 추가 수준의 Application Insights 텔레메트리를 제공하지만 HTTP 500 오류를 진단하는데 필수는 아닙니다.
 
 ## <a name="query-for-exceptions"></a>예외 쿼리
 

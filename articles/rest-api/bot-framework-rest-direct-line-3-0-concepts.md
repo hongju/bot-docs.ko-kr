@@ -7,13 +7,13 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
-ms.date: 09/28/2018
-ms.openlocfilehash: 8c63893704f513a420220a47528bada5c4f845d3
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.date: 01/06/2019
+ms.openlocfilehash: 94ef9cc221e67f4f3762eb7a1a006a915e3c5307
+ms.sourcegitcommit: fd60ad0ff51b92fa6495b016e136eaf333413512
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49999710"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55764101"
 ---
 # <a name="key-concepts-in-direct-line-api-30"></a>직접 회선 API 3.0의 주요 개념
 
@@ -44,8 +44,6 @@ Bot Framework는 C# 및 Node.js를 통해 직접 회선 API 3.0에 쉽게 액세
 - Visual Studio 프로젝트 내에서 .NET 클라이언트 라이브러리를 사용하려면 `Microsoft.Bot.Connector.DirectLine` <a href="https://www.nuget.org/packages/Microsoft.Bot.Connector.DirectLine" target="_blank">NuGet 패키지</a>를 설치합니다. 
 
 - Node.js 클라이언트 라이브러리를 사용하려면 <a href="https://www.npmjs.com/package/botframework-directlinejs" target="_blank">NPM</a>을 사용(또는 소스 <a href="https://github.com/Microsoft/BotFramework-DirectLineJS" target="_blank">다운로드</a>)하여 `botframework-directlinejs` 라이브러리를 설치합니다.
-
-C# 또는 Node.js 클라이언트 라이브러리를 사용하는 대신, <a href="https://docs.botframework.com/en-us/restapi/directline3/swagger.json" target="_blank">직접 회선 API 3.0 Swagger 파일</a>을 사용하여 선택한 언어로 고유한 클라이언트 라이브러리를 생성할 수 있습니다.
 
 ::: moniker range="azure-bot-service-3.0"
 

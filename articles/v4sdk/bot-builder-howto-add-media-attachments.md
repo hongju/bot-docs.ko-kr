@@ -10,12 +10,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 01/16/2019
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 4805e1a3c86ce28833054ce374a57c5c40b717e1
-ms.sourcegitcommit: c6ce4c42fc56ce1e12b45358d2c747fb77eb74e2
+ms.openlocfilehash: 4999f08c62d2926be37b5730a2d1025749fc280e
+ms.sourcegitcommit: 32615b88e4758004c8c99e9d564658a700c7d61f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54453867"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55711987"
 ---
 # <a name="add-media-to-messages"></a>메시지에 미디어 추가
 
@@ -148,7 +148,7 @@ await turnContext.sendActivity(reply);
 
 올바르게 작동하려면 카드의 클릭 가능한 각 항목에 작업 유형을 할당합니다. 이 표에는 사용 가능한 동작 유형 및 관련 값 속성에 필요한 항목과 관련 설명이 나와 있습니다.
 
-| type | 설명 | 값 |
+| Type | 설명 | 값 |
 | :---- | :---- | :---- |
 | openUrl | 기본 제공 브라우저에서 URL이 열립니다. | 열려는 URL입니다. |
 | imBack | 봇에 메시지를 보내고 채팅에 표시 가능한 응답을 게시합니다. | 보낼 메시지의 텍스트입니다. |
@@ -241,6 +241,7 @@ using AdaptiveCards;
 using Microsoft.Bot.Builder;
 using Microsoft.Bot.Builder.Core.Extensions;
 using Microsoft.Bot.Schema;
+using Newtonsoft.Json;
 
 // Creates an attachment that contains an adaptive card
 // filePath is the path to JSON file

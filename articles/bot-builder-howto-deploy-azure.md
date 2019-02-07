@@ -9,12 +9,12 @@ ms.topic: get-started-article
 ms.service: bot-service
 ms.subservice: abs
 ms.date: 12/08/2018
-ms.openlocfilehash: ac4e5f2ea385cb8318ad59e04c8ca8787480f5c8
-ms.sourcegitcommit: 77664484e1b0780a15f686ef08bd23716b049b4a
+ms.openlocfilehash: eb559418bc2925ec6fb64902086dede50e485414
+ms.sourcegitcommit: 32615b88e4758004c8c99e9d564658a700c7d61f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2018
-ms.locfileid: "53121789"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55712017"
 ---
 # <a name="deploy-your-c-bot-using-visual-studio"></a>Visual Studio를 사용하여 C# 봇 배포
 
@@ -26,7 +26,6 @@ ms.locfileid: "53121789"
 
 ## <a name="prerequisites"></a>필수 조건
 - [Bot Framework Emulator](https://aka.ms/Emulator-wiki-getting-started)를 설치합니다.
-- [ngrok](https://github.com/Microsoft/BotFramework-Emulator/wiki/Tunneling-%28ngrok%29)를 설치 및 구성합니다.
 - [.bot](v4sdk/bot-file-basics.md) 파일에 대한 지식이 필요합니다.
 
 ## <a name="deploy-your-bot-in-app-service"></a>App Service에 봇 배포

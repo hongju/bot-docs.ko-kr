@@ -7,14 +7,14 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
-ms.date: 12/13/2017
+ms.date: 1/28/2019
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: ef2cb33e8d2ab7d8db291e3c6e051630d6af0394
-ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
+ms.openlocfilehash: 6169ed28fb765e84aaf31cf9e7d2ca404294bcad
+ms.sourcegitcommit: c7d2e939ec71f46f48383c750fddaf6627b6489d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54224548"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55783362"
 ---
 # <a name="create-data-driven-experiences-with-azure-search"></a>Azure Search를 사용하여 데이터 기반 환경 만들기 
 
@@ -173,11 +173,10 @@ public class SearchHitStyler : PromptStyler
 
 ## <a name="samples"></a>샘플
 
-.NET용 Bot Framework SDK를 사용하여 봇을 통해 Azure Search를 지원하는 방법을 보여주는 두 개의 전체 샘플은 GitHub에서 [부동산 봇 샘플](https://github.com/Microsoft/BotBuilder-Samples/tree/master/CSharp/demo-Search/RealEstateBot) 또는 [작업 나열 봇 샘플](https://github.com/Microsoft/BotBuilder-Samples/tree/master/CSharp/demo-Search/JobListingBot)을 참조하세요. 
+.NET용 Bot Framework SDK를 사용하여 봇을 통해 Azure Search를 지원하는 방법을 보여주는 두 개의 전체 샘플은 GitHub에서 [부동산 봇 샘플](https://github.com/Microsoft/BotBuilder-Samples/tree/v3-sdk-samples/CSharp/demo-Search/RealEstateBot) 또는 [작업 나열 봇 샘플](https://github.com/Microsoft/BotBuilder-Samples/tree/v3-sdk-samples/CSharp/demo-Search/JobListingBot)을 참조하세요. 
 
 ## <a name="additional-resources"></a>추가 리소스
 * [Azure Search][search]
 * [대화 상자 개요](bot-builder-dotnet-dialogs.md)
-* [Azure Search 봇 샘플](https://github.com/Microsoft/botBuilder-Samples/tree/master/CSharp/demo-Search)
 
 [search]: /azure/search/search-what-is-azure-search
