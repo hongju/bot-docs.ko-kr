@@ -24,6 +24,7 @@
 ## [봇에서 작업 수신](bot-framework-rest-direct-line-3-0-receive-activities.md)
 ## [대화 종료](bot-framework-rest-direct-line-3-0-end-conversation.md)
 ## [API 참조](bot-framework-rest-direct-line-3-0-api-reference.md)
+## [Swagger 파일](https://github.com/Microsoft/BotBuilder/blob/master/specs/botframework-protocol/directline-3.0.json)
 # 직접 회선 API 1.1
 ## [주요 개념](bot-framework-rest-direct-line-1-1-concepts.md)
 ## [인증](bot-framework-rest-direct-line-1-1-authentication.md)
@@ -31,3 +32,4 @@
 ## [봇에 메시지 보내기](bot-framework-rest-direct-line-1-1-send-message.md)
 ## [봇에서 메시지 받기](bot-framework-rest-direct-line-1-1-receive-messages.md)
 ## [API 참조](bot-framework-rest-direct-line-1-1-api-reference.md)
+## [Swagger 파일](https://github.com/Microsoft/BotBuilder/blob/master/specs/botframework-protocol/directline-1.1.json)

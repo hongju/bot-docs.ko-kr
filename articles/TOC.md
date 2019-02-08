@@ -53,6 +53,7 @@
 ### [저장소에 직접 작성](v4sdk/bot-builder-howto-v4-storage.md)
 ### [봇에 인증 추가](v4sdk/bot-builder-authentication.md)
 ### [봇에 사용자 지정 저장소 구현](v4sdk/bot-builder-custom-storage.md)
+### [봇에 원격 분석 추가](v4sdk/bot-builder-telemetry.md)
 ### [CLI 도구를 사용하여 봇 관리](bot-builder-tools.md)
 ### [.NET](dotnet/TOC.md)
 ### [Node.JS](nodejs/TOC.md)
@@ -63,6 +64,7 @@
 <!-- ### [Download and redeploy bot code](bot-service-build-download-source-code.md) -->
 ### [지속적인 배포 설정](bot-service-build-continuous-deployment.md)
 ## [관리](manage/TOC.md)
+## [마이그레이션](v4sdk/migration/TOC.md)
 # 참고 자료
 ## [.NET SDK v4](https://aka.ms/dotnetsdk4)
 ## [JavaScript SDK v4](https://aka.ms/jssdk4)
