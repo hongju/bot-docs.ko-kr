@@ -59,17 +59,17 @@
 ### [Node.JS](nodejs/TOC.md)
 ## [디버그](debug/TOC.md)
 ## 배포
-### [Azure CLI를 사용하여 봇 배포](bot-builder-deploy-az-cli.md)
-### [Visual Studio를 사용하여 C# 봇 배포](bot-builder-howto-deploy-azure.md)
-<!-- ### [Download and redeploy bot code](bot-service-build-download-source-code.md) -->
-### [지속적인 배포 설정](bot-service-build-continuous-deployment.md)
+### [Azure에 봇 배포](bot-builder-deploy-az-cli.md)
+<!-- ### [Deploy your C# bot using Visual Studio](bot-builder-howto-deploy-azure.md)
+### [Download and redeploy bot code](bot-service-build-download-source-code.md) 
+### [Set up continuous deployment](bot-service-build-continuous-deployment.md) -->
 ## [관리](manage/TOC.md)
 ## [마이그레이션](v4sdk/migration/TOC.md)
 # 참고 자료
 ## [.NET SDK v4](https://aka.ms/dotnetsdk4)
 ## [JavaScript SDK v4](https://aka.ms/jssdk4)
 ## [REST (영문)](rest-api/TOC.md)
-## [.NET SDK v3](/dotnet/api/?view=botbuilder-3.12.2.4)
+## [.NET SDK v3](/dotnet/api/?view=botbuilder-dotnet-3.0)
 ## [Node.js SDK v3](https://docs.botframework.com/en-us/node/builder/chat-reference/modules/_botbuilder_d_.html)
 ## [엔터티 및 작업 형식](bot-service-activities-entities.md)
 # [리소스](resources/TOC.md)
