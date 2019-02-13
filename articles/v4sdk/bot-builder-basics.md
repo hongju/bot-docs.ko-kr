@@ -10,12 +10,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 1/10/2019
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: a1b155db3ec717a1084ae0e098e8f22997a80b0e
-ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
+ms.openlocfilehash: 70f333cdce15f1d1e908b73d21e706f1af33454b
+ms.sourcegitcommit: c7d2e939ec71f46f48383c750fddaf6627b6489d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54225938"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55783382"
 ---
 # <a name="how-bots-work"></a>봇 작동 방식
 
@@ -67,7 +67,7 @@ SDK의 통합 구성 요소인 *어댑터*는 SDK 런타임의 핵심입니다. 
 다음 섹션에서는 봇의 주요 부분을 살펴봅니다.
 
 ### <a name="prerequisites"></a>필수 조건
-- [C#](https://aka.ms/EchoBotWithStateCSharp) 또는 [JS](https://aka.ms/EchoBotWithStateJS)의 **EchoBotWithCounter** 샘플 복사본입니다. 여기서는 관련 코드만 표시되지만, 완전한 소스 코드는 샘플에서 참조할 수 있습니다.
+- **[C#](https://aka.ms/EchoBotWithStateCSharp) 또는 [JS](https://aka.ms/EchoBotWithStateJS)** 의 **EchoBotWithCounter** 샘플 복사본입니다. 여기서는 관련 코드만 표시되지만, 완전한 소스 코드는 샘플에서 참조할 수 있습니다.
 
 # <a name="ctabcs"></a>[C#](#tab/cs)
 

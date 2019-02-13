@@ -1,21 +1,18 @@
 ---
-title: .NET Core를 사용하여 활동 인증 | Microsoft Docs
-description: .NET Core를 사용하여 봇 활동을 인증하는 방법을 알아봅니다.
-author: v-ducvo
-ms.author: v-ducvo
-manager: kamrani
-ms.topic: article
-ms.service: bot-service
-ms.subservice: sdk
-ms.date: 12/13/17
-monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: f3aa350cbada77bd9e423a1910f93440a7a1682d
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+redirect_url: /bot-framework/bot-builder-tutorial-authentication
+ms.openlocfilehash: 6dd1013e870fb749919f272e82b60ee633cddadb
+ms.sourcegitcommit: c7d2e939ec71f46f48383c750fddaf6627b6489d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49996990"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55783372"
 ---
+<a name="--"></a><!--
+---
+제목: .NET Core를 사용하여 활동 인증 | Microsoft Docs 설명: .NET Core를 사용하여 봇 활동을 인증하는 방법을 알아봅니다.
+author: v-ducvo ms.author: v-ducvo manager: kamrani ms.topic: article ms.service: bot-service ms.subservice: sdk ms.date: 12/13/17 monikerRange: 'azure-bot-service-3.0'
+---
+
 # <a name="authenticating-activities-using-net-core"></a>.NET Core를 사용하여 활동 인증
 
 [!INCLUDE [pre-release-label](../includes/pre-release-label-v3.md)]
@@ -40,7 +37,7 @@ Bot Framework Connector.AspNetCore는 다음 버전의 ASP.NET을 지원합니�
 
 1. Visual Studio 2017를 열고 **파일 > 새로 만들기 > 프로젝트...** 를 클릭합니다.
 2. **Visual C#** 노드를 확장하고 **.NET Core**를 클릭합니다.
-3. **ASP.NET Core 웹 응용 프로그램** 프로젝트 형식을 선택하고 프로젝트 정보(예: 이름, 위치 및 솔루션 이름 필드)를 입력합니다.
+3. **ASP.NET Core 웹 애플리케이션** 프로젝트 형식을 선택하고 프로젝트 정보(예: 이름, 위치 및 솔루션 이름 필드)를 입력합니다.
 4. **확인**을 클릭합니다.
 5. 프로젝트가 원하는 *.NET Core* 및 *ASP.NET Core* 버전을 대상으로 지정하는지 확인합니다. 예를 들어, 아래 스크린샷은 프로젝트가 **.NET Core** 및 **ASP.NET Core 2.0**을 대상으로 지정하고 있음을 보여 줍니다.
 
@@ -246,3 +243,4 @@ public async Task<OkResult> Post([FromBody] Activity activity)
     return Ok();
 }
 ```
+-->

@@ -10,12 +10,12 @@ ms.service: bot-service
 ms.subservice: abs
 ms.date: 01/15/2019
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 78e960357d6c4dc1c9751a9921a2338f552738b0
-ms.sourcegitcommit: b94361234816e6b95459f142add936732fc40344
+ms.openlocfilehash: 3ca8ac4bfe14ed20f11a0ab26d8102ac21e60e2b
+ms.sourcegitcommit: 32615b88e4758004c8c99e9d564658a700c7d61f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54317619"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55711957"
 ---
 # <a name="deploy-bots-from-botbuilder-samples-repo"></a>botbuilder 샘플 리포지토리에서 봇 배포
 
@@ -101,6 +101,7 @@ cd <local-bot-folder>
 [MSA](https://en.wikipedia.org/wiki/Microsoft_account) 이메일 계정을 사용하는 경우 `msbot clone services` 명령에 사용할 appId 및 appSecret을 만들어야 합니다.
 
 - [애플리케이션 등록 포털](https://apps.dev.microsoft.com/)로 이동합니다. **앱 추가**를 클릭하여 애플리케이션을 등록하고, **애플리케이션 ID**를 만들고, **새 암호 생성**을 수행합니다.
+> 참고 - 생성된 암호에 "|" 문자가 포함된 경우 이 암호는 Azure에서 거부됩니다. 이 문제를 해결하려면 다른 새 암호를 생성합니다.
 - `msbot clone services` 명령에 사용할 수 있도록 방금 생성한 애플리케이션 ID와 새 암호를 모두 저장합니다.
 - 배포하려면 봇에 적용되는 명령을 사용합니다.
 

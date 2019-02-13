@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
 ms.date: 12/13/2017
-ms.openlocfilehash: 03c7e1316e463caf84b8dfd503e1502bb66469e6
-ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
+ms.openlocfilehash: f9fa2bee156752f1545d201768040b6106558e01
+ms.sourcegitcommit: 32615b88e4758004c8c99e9d564658a700c7d61f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54224848"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55711837"
 ---
 # <a name="embed-a-bot-in-a-website"></a>웹 사이트에 봇 포함
 
@@ -25,7 +25,7 @@ Microsoft는 웹 사이트에서 봇을 통합하는 두 가지 방법인 Skype 
 
 ## <a name="skype-web-control"></a>Skype 웹 컨트롤
 
-Skype 웹 컨트롤은 기본적으로 웹 지원 컨트롤의 Skype 클라이언트입니다. 기본 제공 Skype 인증을 통해 개발자가 사용자 지정 코드를 작성하지 않아도 봇이 사용자를 인증하고 인식할 수 있습니다. Skype는 해당 웹 클라이언트에서 사용되는 Microsoft 계정을 자동으로 인식합니다. 
+[Skype 웹 컨트롤](https://aka.ms/bot-skype-web-control)은 기본적으로 웹 지원 컨트롤의 Skype 클라이언트입니다. 기본 제공 Skype 인증을 통해 개발자가 사용자 지정 코드를 작성하지 않아도 봇이 사용자를 인증하고 인식할 수 있습니다. Skype는 해당 웹 클라이언트에서 사용되는 Microsoft 계정을 자동으로 인식합니다. 
 
 Skype 웹 컨트롤은 단순히 Skype용 프런트 엔드의 역할을 하므로, 사용자의 Skype 클라이언트는 웹 컨트롤이 이용하는 모든 대화의 전체 컨텍스트에 자동으로 액세스합니다. 웹 브라우저를 닫은 후에도 사용자는 Skype 클라 이언트를 사용하여 봇과 계속 상호 작용할 수 있습니다. 
 

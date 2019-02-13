@@ -10,12 +10,12 @@ ms.service: bot-service
 ms.subservice: cognitive-services
 ms.date: 01/15/2019
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 4a221f6e94324c56f88dd1d4d6851d5cc4d38e6c
-ms.sourcegitcommit: 3cc768a8e676246d774a2b62fb9c688bbd677700
+ms.openlocfilehash: f1e3e3fa05a297aa50a2368a103a7aa00be49009
+ms.sourcegitcommit: fd60ad0ff51b92fa6495b016e136eaf333413512
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54323679"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55764141"
 ---
 # <a name="use-qna-maker-to-answer-questions"></a>QnA Maker를 사용하여 질문에 답변
 
@@ -27,24 +27,28 @@ QnA Maker 서비스를 사용하여 봇에 질문 및 답변 지원 기능을 �
 
 ## <a name="prerequisites"></a>필수 조건
 - [QnA Maker](https://www.qnamaker.ai/) 계정
-- 이 문서의 코드는 **QnA Maker** 샘플을 기반으로 합니다. [C#](https://aka.ms/cs-qna) 또는 [JS](https://aka.ms/js-qna-sample)로 작성된 샘플의 복사본이 필요합니다.
+- 이 문서의 코드는 **QnA Maker** 샘플을 기반으로 합니다. [C# 샘플](https://aka.ms/cs-qna) 또는 [Javascript 샘플](https://aka.ms/js-qna-sample)의 복사본이 필요합니다.
 - [Bot Framework Emulator](https://github.com/Microsoft/BotFramework-Emulator/blob/master/README.md#download)
 - [봇 기본 사항](bot-builder-basics.md), [QnA Maker](https://docs.microsoft.com/en-us/azure/cognitive-services/qnamaker/overview/overview) 및 [.bot](bot-file-basics.md) 파일에 대한 지식이 필요합니다.
 
 ## <a name="create-a-qna-maker-service-and-publish-a-knowledge-base"></a>QnA Maker 서비스를 만들고 기술 자료 게시
 1. 먼저 [QnA Maker 서비스](https://docs.microsoft.com/en-us/azure/cognitive-services/qnamaker/how-to/set-up-qnamaker-service-azure)를 만들어야 합니다.
 1. 다음으로, 프로젝트의 CognitiveModels 폴더에 있는 `smartLightFAQ.tsv` 파일을 사용하여 기술 자료를 만듭니다. QnA Maker [기술 자료](https://docs.microsoft.com/en-us/azure/cognitive-services/qnamaker/quickstarts/create-publish-knowledge-base)를 생성, 학습 및 게시하는 단계는 QnA Maker 설명서에 나와 있습니다. 다음 단계에 따라 `qna` KB의 이름을 지정하고, `smartLightFAQ.tsv` 파일을 사용하여 KB를 채웁니다.
+> 참고. 이 문서는 사용자가 개발한 QnA Maker 기술 자료에 액세스하는 데 사용할 수도 있습니다.
 
-## <a name="obtain-values-to-connect-to-your-connect-your-bot-to-the-knowledge-base"></a>봇을 기술 자료에 연결하는 데 필요한 값 가져오기
+## <a name="obtain-values-to-connect-your-bot-to-the-knowledge-base"></a>봇을 기술 자료에 연결하는 데 필요한 값 가져오기
 1. [QnA Maker](https://www.qnamaker.ai/) 사이트에서 기술 자료를 선택합니다.
-1. 기술 자료를 연 후 **설정**을 선택합니다. _서비스 이름_에 표시되는 <your_kb_name>이라는 값을 기록합니다.
+1. 기술 자료를 연 후 **설정**을 선택합니다. _서비스 이름_에 표시되는 값을 기록합니다. 이 값은 QnA Maker 포털 인터페이스를 사용하는 경우 관심 있는 기술 자료를 찾는 데 유용합니다. 기술 자료에 봇 앱을 연결하는 데 사용되지 않습니다. 
 1. 아래로 스크롤하여 **배포 세부 정보**를 찾아 다음 값을 기록합니다.
-   - POST /knowledgebases/<your_knowledge_base_id>/generateAnswer
-   - 호스트: <your_hostname>/qnamaker
-   - 권한 부여: EndpointKey <your_endpoint_key>
+   - POST /knowledgebases/<Your_Knowledge_Base_Id>/getAnswers
+   - Host: <Your_Hostname>/qnamaker
+   - 권한 부여: EndpointKey <Your_Endpoint_Key>
+   
+다음 세 값은 Azure QnA 서비스를 통해 앱을 QnA Maker 기술 자료에 연결하는 데 필요한 정보를 제공합니다.  
 
 ## <a name="update-the-bot-file"></a>.bot 파일 업데이트
-먼저, 호스트 이름, 엔드포인트 키 및 기술 자료 ID(KbId) 등 기술 자료에 액세스하는 데 필요한 정보를 `qnamaker.bot`에 추가합니다. 이는 QnA Maker의 기술 자료 **설정**에서 저장한 값입니다.
+먼저, 호스트 이름, 엔드포인트 키 및 기술 자료 ID(KbId) 등 기술 자료에 액세스하는 데 필요한 정보를 `qnamaker.bot`에 추가합니다. 이는 QnA Maker의 기술 자료 **설정**에서 저장한 값입니다. 
+> 참고. QnA Maker 기술 자료에 대한 액세스를 기존의 봇 애플리케이션에 추가하는 경우 아래와 같은 "type": "qna" 섹션을 .bot 파일에 추가해야 합니다. 이 섹션의 "이름" 값은 해당 앱 내에서 이 정보에 액세스하는 데 필요한 키를 제공합니다.
 
 ```json
 {
@@ -55,17 +59,16 @@ QnA Maker 서비스를 사용하여 봇에 질문 및 답변 지원 기능을 �
       "name": "development",
       "endpoint": "http://localhost:3978/api/messages",
       "appId": "",
-      "appPassword": ""
-      "id": "25",
-    
+      "appPassword": "",
+      "id": "25"    
     },
     {
       "type": "qna",
       "name": "QnABot",
-      "KbId": "<YOUR_KNOWLEDGE_BASE_ID>",
-      "subscriptionKey": "<Your_Azure_Subscription_Key>", // Used when creating your QnA service.
-      "endpointKey": "<Your_Recorded_Endpoint_Key>",
-      "hostname": "<Your_Recorded_Hostname>",
+      "KbId": "<Your_Knowledge_Base_Id>",
+      "subscriptionKey": "",
+      "endpointKey": "<Your_Endpoint_Key>",
+      "hostname": "<Your_Hostname>",
       "id": "117"
     }
   ],
@@ -75,7 +78,7 @@ QnA Maker 서비스를 사용하여 봇에 질문 및 답변 지원 기능을 �
 ```
 
 # <a name="ctabcs"></a>[C#](#tab/cs)
-다음으로, .bot 파일에서 위의 정보를 가져오는 BotServices.cs에 있는 BotService 클래스의 새 인스턴스를 초기화합니다. 외부 서비스는 BotConfiguration 클래스를 사용하여 구성됩니다.
+다음으로, .bot 파일에서 위의 정보를 가져오는 **BotServices.cs**에 있는 BotService 클래스의 새 인스턴스를 초기화합니다. 외부 서비스는 BotConfiguration 클래스를 사용하여 구성됩니다.
 
 ```csharp
 private static BotServices InitBotServices(BotConfiguration config)
@@ -128,7 +131,7 @@ private static BotServices InitBotServices(BotConfiguration config)
 }
 ```
 
-그런 다음, QnABot.cs에서 이 QnAMaker 인스턴스를 봇에 제공합니다. 자체 기술 자료에 액세스하는 경우 아래에 표시된 _welcome_ 메시지를 변경하여 사용자에게 유용한 초기 지침을 제공하세요.
+그런 다음, **QnABot.cs**에서 이 QnAMaker 인스턴스를 봇에 제공합니다. 자체 기술 자료에 액세스하는 경우 아래에 표시된 _welcome_ 메시지를 변경하여 사용자에게 유용한 초기 지침을 제공하세요. 또한 이 클래스는 정적 변수 _QnAMakerKey_가 정의된 곳이기도 합니다. 이는 QnA Mkaer 기술 자료에 액세스하는 데 필요한 연결 정보를 포함하는 .bot 파일 내의 섹션을 가리킵니다.
 
 ```csharp
 public class QnABot : IBot
@@ -155,11 +158,11 @@ public class QnABot : IBot
 
 **index.js** 파일에서 구성 정보를 읽어들여 QnA Maker 서비스를 생성하고 봇을 초기화합니다.
 
-`QNA_CONFIGURATION` 값을 구성 파일에 표시되는 기술 자료의 이름으로 업데이트합니다.
+.bot 파일의 `QNA_CONFIGURATION` 값을 "이름": 값으로 업데이트합니다. 이는 QnA Maker 기술 자료에 액세스하는 데 필요한 연결 매개 변수를 포함하는 .bot 파일 "type": "qna" 섹션의 키입니다.
 
 ```js
-// QnA Maker knowledge base name as specified in .bot file.
-const QNA_CONFIGURATION = '<YOUR_KB_NAME>';
+// Name of the QnA Maker service in the .bot file. 
+const QNA_CONFIGURATION = '<BOT_FILE_NAME>';
 
 // Get endpoint and QnA Maker configurations by service name.
 const endpointConfig = botConfig.findServiceByNameOrId(BOT_CONFIGURATION);
@@ -230,7 +233,7 @@ else
 
 # <a name="javascripttabjs"></a>[JavaScript](#tab/js)
 
-**bot.js** 파일에서 QnA Maker 서비스의 `generateAnswer` 메서드에 사용자 입력을 전달하여 기술 자료에서 응답을 가져옵니다. 자체 기술 자료에 액세스하는 경우 아래의 _no answers_ 및 _welcome_ 메시지를 변경하여 사용자에게 유용한 지침을 제공하세요.
+**bot.js** 파일에서 QnA Maker 서비스의 `getAnswers` 메서드에 사용자 입력을 전달하여 기술 자료에서 응답을 가져옵니다. 자체 기술 자료에 액세스하는 경우 아래의 _no answers_ 및 _welcome_ 메시지를 변경하여 사용자에게 유용한 지침을 제공하세요.
 
 ```javascript
 const { ActivityTypes, TurnContext } = require('botbuilder');
@@ -258,7 +261,7 @@ class QnAMakerBot {
         // By checking the incoming Activity type, the bot only calls QnA Maker in appropriate cases.
         if (turnContext.activity.type === ActivityTypes.Message) {
             // Perform a call to the QnA Maker service to retrieve matching Question and Answer pairs.
-            const qnaResults = await this.qnaMaker.generateAnswer(turnContext.activity.text);
+            const qnaResults = await this.qnaMaker.getAnswers(turnContext.activity.text);
 
             // If an answer was received from QnA Maker, send the answer back to the user.
             if (qnaResults[0]) {

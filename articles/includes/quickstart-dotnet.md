@@ -1,11 +1,3 @@
----
-ms.openlocfilehash: 2096aa342fe954b9f9f1d128bc080c0e0e6efdce
-ms.sourcegitcommit: bdb981c0b11ee99d128e30ae0462705b2dae8572
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54360803"
----
 ## <a name="prerequisites"></a>필수 조건
 - Visual Studio [2017](https://www.visualstudio.com/downloads)
 - [C#](https://aka.ms/bot-vsix)용 Bot Framework SDK v4 템플릿
@@ -15,7 +7,7 @@ ms.locfileid: "54360803"
 ## <a name="create-a-bot"></a>봇 만들기
 필수 조건 섹션에서 다운로드한 BotBuilderVSIX.vsix 템플릿을 설치합니다.
 
-Visual Studio에서 Bot Framework Echo Bot V4 템플릿을 사용하여 새 봇 프로젝트를 만듭니다.
+Visual Studio에서 **Bot Framework Echo Bot** V4 템플릿을 사용하여 새 봇 프로젝트를 만듭니다.
 
 ![Visual Studio 프로젝트](~/media/azure-bot-quickstarts/bot-builder-dotnet-project.png)
 

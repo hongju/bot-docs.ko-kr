@@ -10,12 +10,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 01/15/2019
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: c798c26f108458e1caeb16aa22c02c6e7c70fb61
-ms.sourcegitcommit: 3cc768a8e676246d774a2b62fb9c688bbd677700
+ms.openlocfilehash: bec6f44db929eab43cfcbbd6b2920b79924b7576
+ms.sourcegitcommit: 32615b88e4758004c8c99e9d564658a700c7d61f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54323659"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55712007"
 ---
 # <a name="use-multiple-luis-and-qna-models"></a>다중 LUIS 및 QnA 모델 사용
 
@@ -23,7 +23,7 @@ ms.locfileid: "54323659"
 
 이 자습서에서는 봇이 지원하는 여러 시나리오에 대해 여러 LUIS 모델과 QnA Maker 서비스가 있을 때 디스패치 서비스를 사용하여 발화를 라우팅하는 방법을 보여 줍니다. 이 경우 홈 자동화 및 날씨 정보와 관련된 대화를 위한 여러 LUIS 모델로 Dispatch를 구성하고, QnA Maker 서비스에서 FAQ 텍스트 파일에 기반하여 입력된 질문에 답변합니다. 이 샘플에서는 다음 서비스를 결합합니다.
 
-| 이름 | 설명 |
+| Name | 설명 |
 |------|------|
 | HomeAutomation | 연결된 엔터티 데이터를 사용하여 홈 자동화 의도를 인식하는 LUIS 앱입니다.|
 | Weather | 위치 데이터를 사용하여 `Weather.GetForecast` 및 `Weather.GetCondition` 의도를 인식하는 LUIS 앱입니다.|
@@ -183,7 +183,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 
 ```
-다음 코드는 외부 서비스에 대한 봇의 참조를 초기화합니다. 예를 들어 여기서는 LUIS 및 QnaMaker 서비스가 만들어집니다. 이러한 외부 서비스는 ".bot" 파일의 내용에 따라 `BotConfiguration` 클래스를 사용하여 구성됩니다.
+다음 코드는 외부 서비스에 대한 봇의 참조를 초기화합니다. 예를 들어 여기서는 LUIS 및 QnaMaker 서비스가 만들어집니다. 이러한 외부 서비스는 (`.bot` 파일의 내용에 따라) `BotConfiguration` 클래스를 사용하여 구성됩니다.
 
 ```csharp
 private static BotServices InitBotServices(BotConfiguration config)
@@ -237,7 +237,8 @@ private static BotServices InitBotServices(BotConfiguration config)
 
 # <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
-샘플 코드는 미리 정의된 명명 상수를 사용하여 .bot 파일의 다양한 섹션을 확인합니다. _nlp-with-dispatch.bot_ 파일에서 원래 샘플 명명 방식으로 섹션 이름을 수정한 경우 **bot.js**, **homeAutomation.js**, **qna.js** 또는 **weather.js** 파일에서 관련 상수 선언을 찾아 해당 항목을 수정된 이름으로 변경하세요.  
+샘플 코드는 미리 정의된 명명 상수를 사용하여 `.bot` 파일의 다양한 섹션을 확인합니다. _nlp-with-dispatch.bot_ 파일에서 원래 샘플 명명 방식으로 섹션 이름을 수정한 경우 **bot.js**, **homeAutomation.js**, **qna.js** 또는 **weather.js** 파일에서 관련 상수 선언을 찾아 해당 항목을 수정된 이름으로 변경하세요.  
+
 ```javascript
 // In file bot.js
 // this is the LUIS service type entry in the .bot file.
@@ -432,8 +433,11 @@ switch (dispatchTopIntent) {
        await turnContext.sendActivity(`I do not understand that.`);
        await turnContext.sendActivity(`I can help with weather forecast, turning devices on and off and answer general questions like 'hi', 'who are you' etc.`);
  }
+ ```
+
+ 위치: `homeAutomation.js`
  
- // In homeAutomation.js
+ ```javascript
  async onTurn(turnContext) {
     // make call to LUIS recognizer to get home automation intent + entities
     const homeAutoResults = await this.luisRecognizer.recognize(turnContext);
@@ -448,8 +452,11 @@ switch (dispatchTopIntent) {
          await turnContext.sendActivity(`HomeAutomation dialog cannot fulfill this request.`);
     }
 }
-    
-// In weather.js
+```
+
+위치: `weather.js`
+
+```javascript
 async onTurn(turnContext) {
    // Call weather LUIS model.
    const weatherResults = await this.luisRecognizer.recognize(turnContext);
@@ -470,8 +477,11 @@ async onTurn(turnContext) {
          wait turnContext.sendActivity(`Weather dialog cannot fulfill this request.`);
    }
 }
-    
-// In qna.js
+```
+
+위치: `qna.js`
+
+```javascript
 async onTurn(turnContext) {
    // Call QnA Maker and get results.
    const qnaResult = await this.qnaRecognizer.generateAnswer(turnContext.activity.text, QNA_TOP_N, QNA_CONFIDENCE_THRESHOLD);

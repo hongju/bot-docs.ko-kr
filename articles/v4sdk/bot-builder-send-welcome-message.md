@@ -10,12 +10,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 12/20/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 7e6ea963ce018833b362be3f413f15da4d4bf658
-ms.sourcegitcommit: f7a8f05fc05ff4a7212a437d540485bf68831604
+ms.openlocfilehash: 8198e5d23975780b313dc49bb78d44374a1fd106
+ms.sourcegitcommit: 32615b88e4758004c8c99e9d564658a700c7d61f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53735943"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55711967"
 ---
 # <a name="send-welcome-message-to-users"></a>사용자에게 환영 메시지 보내기
 
@@ -49,7 +49,7 @@ ms.locfileid: "53735943"
 
 ## <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
-대화에 지정된 사용자 및 해당 접근자에 대한 상태 개체를 만들어야 합니다.
+C# 샘플 코드에서 Startup.cs는 'WelcomeUserStateAccessors'를 서비스/싱글톤으로 정의하고 'UserState'를 애플리케이션 상태에 추가합니다. 이제 이들을 사용하여 대화의 주어진 사용자 및 해당 접근자에 대한 상태 개체를 생성합니다.
 
 ```csharp
 /// The state object is used to keep track of various state related to a user in a conversation.
