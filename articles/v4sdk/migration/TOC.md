@@ -1,1 +1,2 @@
-# [동일한.NET Framework 프로젝트 내에서 봇 마이그레이션](conversion-framework.md)
+# [v3 및 v4 .NET SDK 간의 차이점](migration-about.md)
+# [.NET SDK v3 봇을 v4로 마이그레이션](conversion-framework.md)
