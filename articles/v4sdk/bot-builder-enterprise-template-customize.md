@@ -6,14 +6,14 @@ ms.author: darrenj
 manager: kamrani
 ms.topic: article
 ms.service: bot-service
-ms.date: 09/18/2018
+ms.date: 02/7/2019
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 319700f8b7b236ce74058bac5fabb84f21e04d69
-ms.sourcegitcommit: 6c719b51c9e4e84f5642100a33fe346b21360e8a
+ms.openlocfilehash: d472cbe7c0235862f8dcff1bcc2d53d977bb7657
+ms.sourcegitcommit: 8183bcb34cecbc17b356eadc425e9d3212547e27
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52452015"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55971493"
 ---
 # <a name="enterprise-bot-template---customize-your-bot"></a>엔터프라이즈 봇 - 봇 사용자 지정
 
@@ -107,11 +107,11 @@ ms.locfileid: "52452015"
 ```
 3. 다음 명령을 사용하여 이 새 LUIS 모델을 디스패처에 추가합니다
 ```shell
-    dispatch add -t luis -id LUIS_APP_ID -bot "YOUR_BOT.bot" -secret YOURSECRET
+    dispatch add -t luis -id LUIS_APP_ID -bot "YOUR_BOT.bot" --secret YOURSECRET
 ```
 4. 다음 명령을 통해 LUIS 모델 변경 내용을 반영하도록 디스패치 모델을 새로 고칩니다.
 ```shell
-    dispatch refresh -bot "YOUR_BOT.bot" -secret YOUR_SECRET
+    dispatch refresh -bot "YOUR_BOT.bot" --secret YOUR_SECRET
 ```
 
 ### <a name="adding-an-additional-qna-maker-knowledge-base"></a>추가 QnA Maker 기술 자료 추가

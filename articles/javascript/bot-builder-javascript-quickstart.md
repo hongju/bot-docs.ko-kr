@@ -8,14 +8,14 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
-ms.date: 01/17/2019
+ms.date: 02/7/2019
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 7b7f8012176de5248e1962b6f29128284441a798
-ms.sourcegitcommit: c6ce4c42fc56ce1e12b45358d2c747fb77eb74e2
+ms.openlocfilehash: 7c9e00ac150f4c487a24765a2f3f4f21e408f279
+ms.sourcegitcommit: 8183bcb34cecbc17b356eadc425e9d3212547e27
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54453917"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55971413"
 ---
 # <a name="create-a-bot-with-the-bot-framework-sdk-for-javascript"></a>JavaScript용 Bot Framework SDK를 사용하여 봇 만들기
 
@@ -34,4 +34,4 @@ ms.locfileid: "54453917"
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [봇 작동 방식](../v4sdk/bot-builder-basics.md)
+> [Azure에 봇 배포](../bot-builder-deploy-az-cli.md)

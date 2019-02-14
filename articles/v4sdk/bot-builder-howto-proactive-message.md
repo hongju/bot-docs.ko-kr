@@ -10,12 +10,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 11/15/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 7a9a2e4f30d1e9b293e51a921afce57d243376d7
-ms.sourcegitcommit: c6ce4c42fc56ce1e12b45358d2c747fb77eb74e2
+ms.openlocfilehash: 780fdb05acf2c81d72aaa6c415bdd9a6b0229082
+ms.sourcegitcommit: 8183bcb34cecbc17b356eadc425e9d3212547e27
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54453967"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55971503"
 ---
 # <a name="get-notification-from-bots"></a>봇에서 알림 받기
 
@@ -601,4 +601,4 @@ async completeJob(turnContext, jobIdNumber) {
 ![작업 시스템의 에뮬레이터 세션](~/v4sdk/media/how-to-proactive/job-system.png)
 
 ## <a name="additional-resources"></a>추가 리소스
-[GitHub](https://github.com/Microsoft/BotBuilder-Samples/blob/master/readme.md)에서 C# 및 JS 추가 샘플을 확인합니다.
+[GitHub](https://github.com/Microsoft/BotBuilder-Samples/blob/master/README.md)에서 C# 및 JS 추가 샘플을 확인합니다.

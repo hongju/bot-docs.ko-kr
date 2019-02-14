@@ -10,12 +10,12 @@ ms.service: bot-service
 ms.subservice: cognitive-services
 ms.date: 01/15/2019
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: f1e3e3fa05a297aa50a2368a103a7aa00be49009
-ms.sourcegitcommit: fd60ad0ff51b92fa6495b016e136eaf333413512
+ms.openlocfilehash: 6722a9c49961857ab53a2d80fca926775e712aae
+ms.sourcegitcommit: 7f418bed4d0d8d398f824e951ac464c7c82b8c3e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55764141"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56240169"
 ---
 # <a name="use-qna-maker-to-answer-questions"></a>QnA Maker를 사용하여 질문에 답변
 
@@ -261,7 +261,7 @@ class QnAMakerBot {
         // By checking the incoming Activity type, the bot only calls QnA Maker in appropriate cases.
         if (turnContext.activity.type === ActivityTypes.Message) {
             // Perform a call to the QnA Maker service to retrieve matching Question and Answer pairs.
-            const qnaResults = await this.qnaMaker.getAnswers(turnContext.activity.text);
+            const qnaResults = await this.qnaMaker.getAnswers(turnContext);
 
             // If an answer was received from QnA Maker, send the answer back to the user.
             if (qnaResults[0]) {

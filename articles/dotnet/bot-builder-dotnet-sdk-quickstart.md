@@ -8,15 +8,15 @@ manager: kamrani
 ms.topic: get-started-article
 ms.service: bot-service
 ms.subservice: sdk
-ms.date: 01/17/2019
+ms.date: 02/07/2019
 monikerRange: azure-bot-service-4.0
 templateName: Echo Bot
-ms.openlocfilehash: 265b1a1c779952cc099f426ddff1bb59846667cc
-ms.sourcegitcommit: c6ce4c42fc56ce1e12b45358d2c747fb77eb74e2
+ms.openlocfilehash: d6987cbfc5a0cd7f885b511a883b45afc3deb49d
+ms.sourcegitcommit: 8183bcb34cecbc17b356eadc425e9d3212547e27
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54453957"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55971383"
 ---
 # <a name="create-a-bot-with-the-bot-framework-sdk-for-net"></a>.NET용 Bot Framework SDK를 사용하여 봇 만들기
 
@@ -35,4 +35,5 @@ ms.locfileid: "54453957"
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [봇 작동 방식](../v4sdk/bot-builder-basics.md) 
+> [Azure에 봇 배포](../bot-builder-deploy-az-cli.md)
+
