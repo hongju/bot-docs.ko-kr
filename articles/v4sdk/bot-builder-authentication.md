@@ -7,14 +7,14 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: abs
-ms.date: 10/30/2018
+ms.date: 02/05/2019
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 3bfbcb27aa6e38792f96e0d3fe042f02f6e11083
-ms.sourcegitcommit: d385ec5fe61c469ab17e6f21b4a0d50e5110d0fd
+ms.openlocfilehash: c55909afa0a8942a01d3fca0f8a64331bbcdf963
+ms.sourcegitcommit: 8183bcb34cecbc17b356eadc425e9d3212547e27
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54298320"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55971523"
 ---
 # <a name="add-authentication-to-your-bot-via-azure-bot-service"></a>Azure Bot Service를 통해 봇에 인증 추가
 
@@ -51,7 +51,7 @@ These capabilities were bundled in the BotAuth and AuthBot samples that are on G
 
 ## <a name="overview"></a>개요
 
-이 자습서에서는 Azure AD v1 또는 v2 토큰을 사용하여 Microsoft Graph에 연결하는 샘플 봇을 만듭니다. 이 프로세스의 일환으로 [Microsoft/BotBuilder-Samples](https://github.com/Microsoft/BotBuilder-Samples) GitHub 리포지토리의 코드를 사용하고, 이 자습서에서는 봇 애플리케이션을 포함하여 설정하는 방법에 대해 설명합니다.
+이 자습서에서는 Azure AD v1 또는 v2 토큰 및 관련 Azure AD 앱을 사용하여 Microsoft Graph에 연결하는 샘플 봇을 만듭니다. 이 프로세스의 일환으로 [Microsoft/BotBuilder-Samples](https://github.com/Microsoft/BotBuilder-Samples) GitHub 리포지토리의 코드를 사용하고, 이 자습서에서는 봇 애플리케이션을 포함하여 설정하는 방법에 대해 설명합니다.
 
 - **봇 및 인증 애플리케이션 만들기**
 - **봇 샘플 코드 준비**

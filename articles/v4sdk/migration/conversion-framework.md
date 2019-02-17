@@ -8,30 +8,35 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
-ms.date: 02/04/2019
+ms.date: 02/11/2019
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 8bcb2e545cea640f74a37cac20f16b288c690956
-ms.sourcegitcommit: fd60ad0ff51b92fa6495b016e136eaf333413512
+ms.openlocfilehash: 1904bb09d8bd387cc5cec0d85f82df24d1f6ec9d
+ms.sourcegitcommit: 7f418bed4d0d8d398f824e951ac464c7c82b8c3e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55764194"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56240179"
 ---
-# <a name="migrate-a-bot-within-the-same-net-framework-project"></a>동일한.NET Framework 프로젝트 내에서 봇 마이그레이션
+# <a name="migrate-a-net-sdk-v3-bot-to-v4"></a>.NET SDK v3 봇을 v4로 마이그레이션
 
-Bot Framework SDK v4는 SDK v3과 동일한 기본 REST API를 기반으로 합니다. 그러나 SDK v4는 이전 버전의 SDK를 리팩터링하여 개발자가 자신의 봇을 더 유연하게 제어할 수 있도록 합니다. SDK의 주요 변경 내용은 다음과 같습니다.<!--TODO: Replace with a snippet summary of changes that includes a link to the concept topic.-->
+이 문서에서는 _프로젝트 형식을 변환하지 않고_ v3 [ContosoHelpdeskChatBot](https://github.com/Microsoft/intelligent-apps/tree/master/ContosoHelpdeskChatBot/ContosoHelpdeskChatBot)을 v4 봇으로 변환합니다. 이것은 .NET Framework 프로젝트로 그대로 유지됩니다.
+이 변환은 다음 단계로 구분됩니다.
+
+1. NuGet 패키지 업데이트 및 설치
+1. Global.asax.cs 파일 업데이트
+1. MessagesController 클래스 업데이트
+1. 대화 변환
+
+<!--TODO: Link to the converted bot...[ContosoHelpdeskChatBot](https://github.com/EricDahlvang/intelligent-apps/tree/v4netframework/ContosoHelpdeskChatBot).-->
+
+Bot Framework SDK v4는 SDK v3과 동일한 기본 REST API를 기반으로 합니다. 그러나 SDK v4는 이전 버전의 SDK를 리팩터링하여 개발자가 자신의 봇을 더 유연하게 제어할 수 있도록 합니다. SDK의 주요 변경 내용은 다음과 같습니다.
 
 - 상태가 상태 관리 개체 및 속성 접근자를 통해 관리됩니다.
 - 턴 처리기 설정 및 활동 전달이 변경되었습니다.
 - Scorable 클래스가 더 이상 존재하지 않습니다. 대화에 제어를 전달하기 전에 턴 처리기에서 "global" 명령을 확인할 수 있습니다.
 - 이전 버전과 매우 다른 새 Dialogs 라이브러리입니다. 구성 요소, 폭포 대화 및 v4용 Formflow 대화의 커뮤니티 구현을 사용하여 이전 대화를 새 대화 시스템으로 변환해야 합니다.
 
-이 문서에서는 v3 [ContosoHelpdeskChatBot](https://github.com/Microsoft/intelligent-apps/tree/master/ContosoHelpdeskChatBot/ContosoHelpdeskChatBot)에 집중하여 v4 봇으로 변환합니다. <!--TODO: Link to the converted bot...[ContosoHelpdeskChatBot](https://github.com/EricDahlvang/intelligent-apps/tree/v4netframework/ContosoHelpdeskChatBot).--> 프로젝트 형식을 변환하지 않고 봇을 변환하므로 .NET Framework 프로젝트로 남아 있습니다. 이 변환은 다음 단계로 구분됩니다.
-
-1. NuGet 패키지 업데이트 및 설치
-1. Global.asax.cs 파일 업데이트
-1. MessagesController 클래스 업데이트
-1. 대화 변환
+특정 변경에 대한 자세한 내용은 [v3 및 v4 .NET SDK 간의 차이점](migration-about.md)을 참조하세요.
 
 ## <a name="update-and-install-nuget-packages"></a>NuGet 패키지 업데이트 및 설치
 
@@ -343,7 +348,6 @@ v4 코드에 대한 참고 사항:
 - 폭포 단계에는 `DialogContext`에서 파생된 `WaterfallStepContext` 매개 변수가 있습니다.
 - 모든 구체적인 대화 및 프롬프트 클래스는 `Dialog` 추상 클래스에서 파생됩니다.
 - 구성 요소 대화를 만들 때 ID를 할당합니다. 대화 집합의 각 대화에는 해당 집합 내에서 고유한 ID가 할당되어야 합니다.
-- `PostAsync` 및 `Done` 확장 메서드를 구현하여 변환된 대화를 v3 이상과 비슷하게 만듭니다. 변환 프로세스를 자세히 완화하는 추가 확장 메서드를 추가할 수 있거나, 마이그레이션된 코드를 v4 이상과 비슷하게 유지하도록 이 프로세스를 건너뛸 수 있습니다.
 
 ### <a name="update-the-root-dialog"></a>루트 대화 업데이트
 

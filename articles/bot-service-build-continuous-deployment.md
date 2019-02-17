@@ -1,20 +1,17 @@
 ---
-title: Bot Service에 대한 연속 배포 구성 | Microsoft Docs
-description: Bot Service에 대한 소스 제어에서 연속 배포를 설정하는 방법을 알아봅니다.
-keywords: 연속 배포, 게시, 배포, azure portal
-author: ivorb
-ms.author: v-ivorb
-manager: kamrani
-ms.topic: article
-ms.service: bot-service
-ms.date: 12/06/2018
-ms.openlocfilehash: ffbc3ef83c8fe1cd6f04697a3fff9e229df9956f
-ms.sourcegitcommit: 080b9633925ffe381f2c3cf11c8f8ca4b37e2046
+redirect_url: /bot-framework/bot-builder-deploy-az-cli
+ms.openlocfilehash: 8149471553658df6778e2983bae114e80c846c9b
+ms.sourcegitcommit: 8183bcb34cecbc17b356eadc425e9d3212547e27
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53068716"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55971431"
 ---
+<a name="--"></a><!--
+---
+제목: Bot Service에 대한 지속적인 배포 구성 | Microsoft Docs 설명: Bot Service에 대한 소스 제어에서 연속 배포를 설정하는 방법을 알아봅니다. 키워드: 지속적인 배포, 게시, 배포, Azure Portal 작성자: ivorb ms.author: v-ivorb 관리자: kamrani ms.topic: article ms.service: bot-service ms.date: 12/06/2018
+---
+
 # <a name="set-up-continuous-deployment"></a>연속 배포 설정
 코드가 **GitHub** 또는 **Azure DevOps(이전의 Visual Studio Team Services)** 로 체크 인되는 경우 지속적인 배포를 사용하여 원본 리포지토리에서 Azure로 코드 변경 내용을 자동으로 배포합니다. 이 항목에서는 **GitHub** 및 **Azure DevOps**에 대한 지속적인 배포 설정을 다룹니다.
 
@@ -71,3 +68,6 @@ Azure에 배포하려는 소스 코드가 포함된 GitHub 리포지토리를 �
 
 ## <a name="additional-information"></a>추가 정보
 - Visual Studio Team Services는 이제 [Azure DevOps Services](https://docs.microsoft.com/en-us/azure/devops/?view=vsts)입니다.
+
+
+-->

@@ -7,13 +7,13 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
-ms.date: 12/13/2017
-ms.openlocfilehash: 812ad04232629e889b0ab5472af07ff986ca787b
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.date: 2/09/2019
+ms.openlocfilehash: 45675e612553e79f51edde60eaee6bf14df0e44d
+ms.sourcegitcommit: 8183bcb34cecbc17b356eadc425e9d3212547e27
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "50000310"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55971403"
 ---
 # <a name="reconnect-to-a-conversation"></a>대화에 다시 연결
 
@@ -59,6 +59,8 @@ HTTP/1.1 200 OK
 ## <a name="reconnect-to-the-conversation"></a>대화에 다시 연결
 
 클라이언트는 새 WebSocket 스트림 URL을 사용하여 60초 이내에 [대화에 다시 연결](bot-framework-rest-direct-line-3-0-receive-activities.md#connect-via-websocket)해야 합니다. 이 시간 동안 연결을 설정할 수 없는 경우, 클라이언트는 다른 다시 연결 요청을 실행하여 새 스트림 URL을 생성해야 합니다.
+
+Direct Line 설정에서 "향상된 인증 옵션"을 사용하도록 설정한 경우 사용자 ID가 지정되지 않았다는 400 "MissingProperty" 오류가 발생할 수 있습니다.
 
 ## <a name="additional-resources"></a>추가 리소스
 

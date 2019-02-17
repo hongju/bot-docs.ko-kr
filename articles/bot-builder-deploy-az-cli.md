@@ -1,108 +1,177 @@
 ---
-title: Azure CLI를 사용하여 봇 배포 | Microsoft Docs
+title: 봇 배포 | Microsoft Docs
 description: Azure 클라우드에 봇을 배포합니다.
-keywords: 봇 배포, Azure 배포, 봇 게시, az deploy bot, Visual Studio 배포 봇, msbot publish, msbot clone
+keywords: 봇 배포, Azure 봇 배포, 봇 게시
 author: ivorb
 ms.author: v-ivorb
 manager: kamrani
 ms.topic: get-started-article
 ms.service: bot-service
 ms.subservice: abs
-ms.date: 01/07/2019
-ms.openlocfilehash: 3ebc13cf9e2d111d716d081c36f125d28a441811
-ms.sourcegitcommit: bdb981c0b11ee99d128e30ae0462705b2dae8572
+ms.date: 02/07/2019
+ms.openlocfilehash: b4c3b982bf061b3a24c6d240b05dc40b0cf07816
+ms.sourcegitcommit: 8183bcb34cecbc17b356eadc425e9d3212547e27
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54360743"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55971430"
 ---
-# <a name="deploy-your-bot-using-azure-cli"></a>Azure CLI를 사용하여 봇 배포
+# <a name="deploy-your-bot"></a>봇 배포 
 
 [!INCLUDE [pre-release-label](./includes/pre-release-label.md)]
 
 봇을 만들어 로컬로 테스트한 후에는 어디서나 액세스할 수 있도록 Azure에 배포할 수 있습니다. 봇이 Azure에 배포되면 사용하는 서비스에 대한 비용을 지불해야 합니다. [청구 및 비용 관리](https://docs.microsoft.com/en-us/azure/billing/) 문서는 Azure 청구를 이해하고, 사용량과 비용을 모니터링하며, 계정과 구독을 관리하는 데 도움이 됩니다.
 
-이 문서에서는 `az` 및 `msbot` cli를 사용하여 C# 및 JavaScript 봇을 Azure에 배포하는 방법을 보여 줍니다. 단계를 수행하기 전에 이 문서를 참조하면 봇 배포와 관련된 내용을 완전히 이해할 수 있습니다.
+이 문서에서는 C# 및 JavaScript 봇을 Azure에 배포하는 방법을 보여 줍니다. 단계를 수행하기 전에 이 문서를 참조하면 봇 배포와 관련된 내용을 완전히 이해할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
+- 최신 버전의 [MSBot](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/MSBot) 도구를 설치합니다.
+- 로컬 머신에서 개발한 [CSharp](./dotnet/bot-builder-dotnet-sdk-quickstart.md) 또는 [JavaScript](./javascript/bot-builder-javascript-quickstart.md) 봇이 있어야 합니다. 
+
+## <a name="create-a-web-app-bot-in-azure"></a>Azure에서 웹앱 봇 만들기
+이미 Azure에서 사용하려는 봇을 만든 경우 이 섹션은 선택 사항입니다.
+
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. Azure Portal의 왼쪽 위 모서리에 있는 **새 리소스 만들기** 링크를 클릭하고 **AI + Machine Learning > 웹앱 봇**을 선택합니다.
+1. 웹앱 봇에 대한 정보가 포함된 새 블레이드가 열립니다. 
+1. **Bot Service** 블레이드에서 봇에 대해 요청되는 정보를 제공합니다.
+1. **만들기**를 클릭하여 서비스를 만들고 봇을 클라우드에 배포합니다. 이 프로세스에는 몇 분 정도 걸릴 수 있습니다.
+
+## <a name="download-the-source-code"></a>소스 코드 다운로드
+1. **봇 관리** 섹션에서 **빌드**를 클릭합니다.
+1. 오른쪽 창에서 **Bot 소스 코드 다운로드** 링크를 클릭합니다.
+1. 표시되는 메시지에 따라 코드를 다운로드한 다음, 폴더의 압축을 풉니다.
+
+## <a name="decrypt-the-bot-file"></a>.bot 파일 암호 해독
+Azure Portal에서 다운로드한 소스 코드에는 암호화된 .bot 파일이 포함되어 있습니다. 값을 로컬 .bot 파일에 복사하려면 암호를 해독해야 합니다.  
+
+1. Azure Portal에서 봇용 웹앱 봇 리소스를 엽니다.
+1. 봇의 **애플리케이션 설정**을 엽니다.
+1. **애플리케이션 설정** 창에서 **애플리케이션 설정**까지 아래로 스크롤합니다.
+1. **botFileSecret**을 찾고 해당 값을 복사합니다.
+
+`msbot cli`을 사용하여 파일의 암호를 해독합니다.
+```
+msbot secret --bot <name-of-bot-file> --secret "<bot-file-secret>" --clear
+```
+
+## <a name="update-the-bot-file"></a>.bot 파일 업데이트
+암호를 해독한 .bot 파일을 엽니다. `services` 섹션에 나열된 항목을 복사하여 로컬 .bot 파일에 추가합니다. 예: 
+
+```
+{
+   "type": "endpoint",
+   "name": "production",
+   "endpoint": "https://<something>.azurewebsites.net/api/messages",
+   "appId": "<App Id>",
+   "appPassword": "<App Password>",
+   "id": "2
+}
+```
+
+파일을 저장합니다.
+ 
+## <a name="setup-a-repository"></a>리포지토리 설정
+즐겨찾는 Git 원본 제어 공급자를 사용하여 Git 리포지토리를 만듭니다. 코드를 리포지토리에 커밋합니다.
+ 
+## <a name="update-app-settings-in-azure"></a>Azure에서 앱 설정 업데이트
+1. Azure Portal에서 봇용 **웹앱 봇** 리소스를 엽니다.
+1. 봇의 **애플리케이션 설정**을 엽니다.
+1. **애플리케이션 설정** 창에서 **애플리케이션 설정**까지 아래로 스크롤합니다.
+1. **botFileSecret**을 찾아 삭제합니다.
+1. 리포지토리에 체크 인한 파일과 일치하도록 봇 파일의 이름을 업데이트합니다.
+1. 변경 내용을 저장합니다.
+
+
+## <a name="deploy-using-azure-deployment-center"></a>Azure 배포 센터를 사용하여 배포
+이제 Git 리포지토리를 Azure App Services에 연결해야 합니다. [지속적인 배포 설정](https://docs.microsoft.com/en-us/azure/app-service/deploy-continuous-deployment) 항목의 지침을 따릅니다. `App Service Kudu build server`를 사용하여 빌드하는 것이 좋습니다.
+
+## <a name="test-your-deployment"></a>배포 테스트
+배포가 성공하면 몇 초 동안 기다린 후 필요에 따라 웹앱을 다시 시작하여 캐시를 지웁니다. 웹앱 봇 블레이드로 돌아가서 Azure Portal에 제공된 웹 채팅을 사용하여 테스트합니다.
+
+## <a name="additional-resources"></a>추가 리소스
+- [연속 배포의 일반 문제를 조사하는 방법](https://github.com/projectkudu/kudu/wiki/Investigating-continuous-deployment)
+
+<!--
+
+## Prerequisites
 
 [!INCLUDE [prerequisite snippet](~/includes/deploy/snippet-prerequisite.md)]
 
 
-## <a name="deploy-javascript-and-c-bots-using-az-cli"></a>az cli를 사용하여 JavaScript 및 C# 봇 배포
+## Deploy JavaScript and C# bots using az cli
 
-이미 로컬에서 봇을 만들고 테스트했고, 이제는 이 봇을 Azure에 배포하려고 합니다. 이러한 단계에서는 필요한 Azure 리소스를 만들었다고 가정합니다.
+You've already created and tested a bot locally, and now you want to deploy it to Azure. These steps assume that you have created the required Azure resources.
 
 [!INCLUDE [az login snippet](~/includes/deploy/snippet-az-login.md)]
 
-### <a name="create-a-web-app-bot"></a>웹앱 봇 만들기
+### Create a Web App Bot
 
-봇을 게시할 리소스 그룹이 아직 없는 경우 새로 만듭니다.
+If you don't already have a resource group to which to publish your bot, create one:
 
 [!INCLUDE [az create group snippet](~/includes/deploy/snippet-az-create-group.md)]
 
 [!INCLUDE [az create web app snippet](~/includes/deploy/snippet-create-web-app.md)]
 
-먼저 Azure에 로그인하는 데 사용하는 이메일 계정 유형에 따라 적용되는 지침을 참조한 후에 계속 진행합니다.
+Before proceeding, read the instructions that apply to you based on the type of email account you use to log in to Azure.
 
-#### <a name="msa-email-account"></a>MSA 이메일 계정
+#### MSA email account
 
-[MSA](https://en.wikipedia.org/wiki/Microsoft_account) 이메일 계정을 사용 중인 경우 애플리케이션 등록 포털에서 `az bot create`에 사용할 앱 ID와 앱 암호를 만들어야 합니다.
+If you are using an [MSA](https://en.wikipedia.org/wiki/Microsoft_account) email account, you will need to create the app ID and app password on the Application Registration Portal to use with `az bot create` command.
 
 [!INCLUDE [create bot msa snippet](~/includes/deploy/snippet-create-bot-msa.md)]
 
-#### <a name="business-or-school-account"></a>회사 또는 학교 계정
+#### Business or school account
 
 [!INCLUDE [create bot snippet](~/includes/deploy/snippet-create-bot.md)]
 
-### <a name="download-the-bot-from-azure"></a>Azure에서 봇 다운로드
+### Download the bot from Azure
 
-그런 다음, 방금 만든 봇을 다운로드합니다. 
+Next, download the bot you just created. 
 [!INCLUDE [download bot snippet](~/includes/deploy/snippet-download-bot.md)]
 
-### <a name="decrypt-the-downloaded-bot-file-and-use-in-your-project"></a>다운로드한 .bot 파일을 암호 해독하여 프로젝트에 사용
+### Decrypt the downloaded .bot file and use in your project
 
-.bot 파일의 민감한 정보는 암호화되어 있습니다.
+The sensitive information in the .bot file is encrypted.
 
 [!INCLUDE [decrypt bot snippet](~/includes/deploy/snippet-decrypt-bot.md)]
 
-### <a name="update-the-bot-file"></a>.bot 파일 업데이트
+### Update the .bot file
 
-봇이 LUIS, QnA Maker 또는 Dispatch 서비스를 사용하는 경우 이에 대한 참조를 .bot 파일에 추가해야 합니다. 그렇지 않을 경우 이 단계를 건너뛸 수 있습니다.
+If your bot uses LUIS, QnA Maker, or Dispatch services, you will need to add references to them to your .bot file. Otherwise, you can skip this step.
 
-1. 새 .bot 파일을 사용하여 BotFramework Emulator에서 봇을 엽니다. 이 봇은 로컬에서 실행할 필요가 없습니다.
-1. **BOT EXPLORER** 패널에서 **SERVICES** 섹션을 확장합니다.
-1. LUIS 앱에 대한 참조를 추가하려면 **SERVICES** 오른쪽에 있는 더하기 기호(+)를 클릭합니다.
-   1. **LUIS(Language Understanding) 추가**를 선택합니다.
-   1. Azure 계정에 로그인하라는 메시지가 표시되면 로그인합니다.
-   1. 액세스할 수 있는 LUIS 애플리케이션의 목록이 표시됩니다. 봇에 사용할 애플리케이션을 선택합니다.
-1. QnA Maker 기술 자료에 대한 참조를 추가하려면 **SERVICES** 오른쪽에 있는 더하기 기호(+)를 클릭합니다.
-   1. **QnA Maker 추가**를 선택합니다.
-   1. Azure 계정에 로그인하라는 메시지가 표시되면 로그인합니다.
-   1. 액세스할 수 있는 기술 자료의 목록이 표시됩니다. 봇에 사용할 애플리케이션을 선택합니다.
-1. Dispatch 모델에 대한 참조를 추가하려면 **SERVICES** 오른쪽에 있는 더하기 기호(+)를 클릭합니다.
-   1. **Dispatch 추가**를 선택합니다.
-   1. Azure 계정에 로그인하라는 메시지가 표시되면 로그인합니다.
-   1. 액세스할 수 있는 Dispatch 모델의 목록이 표시됩니다. 봇에 사용할 애플리케이션을 선택합니다.
+1. Open your bot in the BotFramework Emulator, using the new .bot file. The bot does not need to be running locally.
+1. In the **BOT EXPLORER** panel, expand the **SERVICES** section.
+1. To add references to LUIS apps, click the plus-sign (+) to the right of **SERVICES**.
+   1. Select **Add Language Understanding (LUIS)**.
+   1. If it prompts you to log into your Azure account, do so.
+   1. It presents a list of LUIS applications you have access to. Select the ones for your bot.
+1. To add references to a QnA Maker knowledge base, click the plus-sign (+) to the right of **SERVICES**.
+   1. Select **Add QnA Maker**.
+   1. If it prompts you to log into your Azure account, do so.
+   1. It presents a list of knowledge bases you have access to. Select the ones for your bot.
+1. To add references to Dispatch models, click the plus-sign (+) to the right of **SERVICES**.
+   1. Select **Add Dispatch**.
+   1. If it prompts you to log into your Azure account, do so.
+   1. It presents a list of Dispatch models you have access to. Select the ones for your bot.
 
-### <a name="test-your-bot-locally"></a>로컬에서 봇 테스트
+### Test your bot locally
 
-현 상태에서 봇은 이전의 .bot 파일과 동일한 방식으로 작동해야 합니다. 새 .bot 파일을 사용하여 예상대로 작동하는지 확인하세요.
+At this point, your bot should work the same way it did with the old .bot file. Make sure that it works as expected with the new .bot file.
 
-### <a name="publish-your-bot-to-azure"></a>Azure에 봇 게시
-
-<!-- TODO: re-encrypt your .bot file? -->
+### Publish your bot to Azure
 
 [!INCLUDE [publish snippet](~/includes/deploy/snippet-publish.md)]
 
-<!-- TODO: If we tell them to re-encrypt, this step is not necessary. -->
 
 [!INCLUDE [clear encryption snippet](~/includes/deploy/snippet-clear-encryption.md)]
 
-## <a name="additional-resources"></a>추가 리소스
+## Additional resources
 
 [!INCLUDE [additional resources snippet](~/includes/deploy/snippet-additional-resources.md)]
 
-## <a name="next-steps"></a>다음 단계
+## Next steps
 > [!div class="nextstepaction"]
-> [지속적인 배포 설정](bot-service-build-continuous-deployment.md)
+> [Set up continous deployment](bot-service-build-continuous-deployment.md)
+
+-->

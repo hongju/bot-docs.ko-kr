@@ -1,21 +1,18 @@
 ---
-title: Visual Studio를 사용하여 C# 봇 배포 | Microsoft Docs
-description: Azure 클라우드에 봇을 배포합니다.
-keywords: 봇 배포, Azure 배포, 봇 게시, az deploy bot, Visual Studio 배포 봇, msbot publish, msbot clone
-author: ivorb
-ms.author: v-ivorb
-manager: kamrani
-ms.topic: get-started-article
-ms.service: bot-service
-ms.subservice: abs
-ms.date: 12/08/2018
-ms.openlocfilehash: eb559418bc2925ec6fb64902086dede50e485414
-ms.sourcegitcommit: 32615b88e4758004c8c99e9d564658a700c7d61f
+redirect_url: /bot-framework/bot-builder-deploy-az-cli
+ms.openlocfilehash: a300d6602a59c5e7d7cebdf14bb4f720a30ecbf8
+ms.sourcegitcommit: 8183bcb34cecbc17b356eadc425e9d3212547e27
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55712017"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55971473"
 ---
+<a name="--"></a><!--
+---
+제목: Visual Studio를 사용하여 C# 봇 배포 | Microsoft Docs 설명: Azure 클라우드에 봇을 배포합니다.
+키워드: 봇 배포, Azure 배포, 봇 게시, az deploy bot, Visual Studio 봇 배포, msbot publish, msbot clone 작성자: ivorb ms.author: v-ivorb 관리자: kamrani ms.topic: get-started-article ms.service: bot-service ms.subservice: abs ms.date: 02/07/2019
+---
+
 # <a name="deploy-your-c-bot-using-visual-studio"></a>Visual Studio를 사용하여 C# 봇 배포
 
 [!INCLUDE [pre-release-label](./includes/pre-release-label.md)]
@@ -28,7 +25,16 @@ ms.locfileid: "55712017"
 - [Bot Framework Emulator](https://aka.ms/Emulator-wiki-getting-started)를 설치합니다.
 - [.bot](v4sdk/bot-file-basics.md) 파일에 대한 지식이 필요합니다.
 
+
+## <a name="update-bot-file-properties"></a>.bot 파일 속성 업데이트
+
+배포 프로세스를 시작하기 전에 Visual Studio에서 다음 .bot 파일 속성을 업데이트합니다.
+- **빌드 작업: 콘텐츠**
+- **출력 디렉터리에 복사: 항상 복사**
+
+
 ## <a name="deploy-your-bot-in-app-service"></a>App Service에 봇 배포
+
 먼저 App Service의 Visual Studio에서 Azure에 봇을 배포합니다. 그런 다음, 봇 채널 등록을 사용하여 Azure Bot Service로 봇을 구성합니다.
 
 **참고: Visual Studio 프로젝트 이름에 공백이 있으면 아래에서 설명하는 배포 단계가 작동하지 않습니다.**
@@ -164,3 +170,4 @@ Azure 리소스 그룹에 익숙하지 않은 경우 이 [용어](https://docs.m
 ## <a name="next-steps"></a>다음 단계
 > [!div class="nextstepaction"]
 > [지속적인 배포 설정](bot-service-build-continuous-deployment.md)
+-->

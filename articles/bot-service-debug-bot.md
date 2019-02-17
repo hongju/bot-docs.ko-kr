@@ -8,13 +8,13 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
-ms.date: 11/13/2018
-ms.openlocfilehash: b445ce7796c3f7f3180b15fd6dfac1ef82b808ae
-ms.sourcegitcommit: d385ec5fe61c469ab17e6f21b4a0d50e5110d0fd
+ms.date: 2/09/2019
+ms.openlocfilehash: 3aae1e212759dd70226fab3b0567ba5b4e345a30
+ms.sourcegitcommit: 8183bcb34cecbc17b356eadc425e9d3212547e27
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54298300"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55971453"
 ---
 # <a name="debug-a-bot"></a>봇 디버그
 
@@ -129,7 +129,10 @@ Visual Studio 2017에서 중단점을 사용하여 코드를 디버그할 수 �
 
 ::: moniker-end
 
-## <a name="next-steps"></a>다음 단계
+## <a name="additional-resources"></a>추가 리소스
 
+프로덕션에서 봇을 디버그하는 방법에 대한 자세한 내용은 [ngrok를 사용하여 로컬로 채널 디버그](https://blog.botframework.com/2017/10/19/debug-channel-locally-using-ngrok/) 블로그 게시물을 참조하세요.
+
+## <a name="next-steps"></a>다음 단계
 > [!div class="nextstepaction"]
 > [대본 파일을 사용하여 봇 디버그](~/v4sdk/bot-builder-debug-transcript.md).

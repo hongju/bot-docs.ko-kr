@@ -8,13 +8,13 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: abs
-ms.date: 01/17/2019
-ms.openlocfilehash: 515ef592e4ce7f159890db4cb5f61f97cccf3786
-ms.sourcegitcommit: c6ce4c42fc56ce1e12b45358d2c747fb77eb74e2
+ms.date: 02/07/2019
+ms.openlocfilehash: 2648058456677fb009e3fe76c4215f8028aac6bf
+ms.sourcegitcommit: 8183bcb34cecbc17b356eadc425e9d3212547e27
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54453947"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55971513"
 ---
 # <a name="create-a-bot-with-azure-bot-service"></a>Azure Bot Service로 봇 만들기
 
@@ -138,10 +138,6 @@ Azure Bot Service는 봇 개발을 위한 Bot Framework SDK 및 채널에 봇을
 이를 수행하기 위해 Azure Portal로 이동합니다. 포털에서 봇을 선택한 다음, **App Service 설정** 섹션에서 **애플리케이션 설정**을 클릭합니다. **애플리케이션 설정** 창에 `botFilePath` 및 `botFileSecret` 값이 표시됩니다. 이러한 값을 복사하고 .env 또는 appsettings.json 파일을 업데이트합니다. 
 
 ## <a name="next-steps"></a>다음 단계
-
-이 항목에서는 Azure Bot Service를 사용하여 **Echo** 웹앱 봇을 만드는 방법을 알아보고 기본 제공 웹 채팅 컨트롤을 사용하여 봇의 기능을 확인했습니다. 이제 봇을 관리하는 방법을 알아보고 원본 코드 작업을 시작합니다.
-
-> [!div class="nextstepaction"]
-> [봇 작동 방식](~/v4sdk/bot-builder-basics.md)
+코드가 다운로드되면 머신에서 봇을 로컬로 계속 개발할 수 있습니다. 봇을 테스트하고 봇 코드를 Azure Portal에 업로드할 준비가 되면 배포 항목의 [리포지토리 설정](./bot-builder-deploy-az-cli.md#setup-a-repository) 섹션에 나열된 지침을 따릅니다.
 
 ::: moniker-end
