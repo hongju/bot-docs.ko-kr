@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
 ms.date: 10/25/2018
-ms.openlocfilehash: 81192c9b5806d467c2a1fd292ee3d5db539e9ead
-ms.sourcegitcommit: 15f7fa40b7e0a05507cdc66adf75bcfc9533e781
+ms.openlocfilehash: fd98b1bc8c3aa3b2c9fd716289dfd3ce75bec75b
+ms.sourcegitcommit: 8183bcb34cecbc17b356eadc425e9d3212547e27
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50916870"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55971543"
 ---
 # <a name="api-reference"></a>API 참조
 
@@ -134,7 +134,7 @@ Authorization: Bearer ACCESS_TOKEN
 | [활동 멤버 가져오기](#get-activity-members) | 지정한 대화 내에서 지정한 활동의 멤버를 가져옵니다. | 
 | [활동 업데이트](#update-activity) | 기존 활동을 업데이트합니다. | 
 | [활동 삭제](#delete-activity) | 기존 활동을 삭제합니다. | 
-| [채널에 첨부 파일 업로드](#upload-attachment-to-channel) | 첨부 파일을 채널의 Blob 저장소에 직접 업로드합니다. |
+| [채널에 첨부 파일 업로드](#upload-attachment-to-channel) | 첨부 파일을 채널의 Blob Storage에 직접 업로드합니다. |
 
 ### <a name="create-conversation"></a>대화 만들기
 새 대화를 만듭니다. 
@@ -225,7 +225,7 @@ DELETE /v3/conversations/{conversationId}/activities/{activityId}
 | **반환** | 작업 결과를 나타내는 HTTP 상태 코드입니다. 응답 본문에는 아무 것도 지정되지 않습니다. | 
 
 ### <a name="upload-attachment-to-channel"></a>채널에 첨부 파일 업로드
-지정한 대화에 대한 첨부 파일을 채널의 Blob 저장소에 직접 업로드합니다. 이렇게 하면 호환되는 저장소에 데이터를 저장할 수 있습니다. 
+지정한 대화에 대한 첨부 파일을 채널의 Blob Storage에 직접 업로드합니다. 이렇게 하면 호환되는 저장소에 데이터를 저장할 수 있습니다. 
 ```http 
 POST /v3/conversations/{conversationId}/attachments
 ```
@@ -403,7 +403,7 @@ DELETE /v3/botstate/{channelId}/users/{userId}
 ### <a name="activity-object"></a>Activity 개체
 봇과 사용자 간에 교환되는 메시지를 정의합니다.<br/><br/> 
 
-| 자산 | type | 설명 |
+| 자산 | Type | 설명 |
 |----|----|----|
 | **action** | string | 적용할 작업 또는 적용된 작업입니다. **type** 속성을 사용하여 작업의 컨텍스트를 결정합니다. 예를 들어 **type**이 **contactRelationUpdate**일 때 사용자가 자신의 연락처 목록에 봇을 추가한 경우 **action** 속성의 값은 **add**이고, 해당 연락처 목록에서 봇을 제거한 경우 **remove**입니다. |
 | **attachments** | [Attachment](#attachment-object)[] | 메시지에 포함할 추가 정보를 정의하는 **Attachment** 개체의 배열입니다. 각 첨부 파일은 미디어 파일(예: 오디오, 비디오, 이미지, 파일) 또는 서식 있는 카드일 수 있습니다. |
@@ -433,7 +433,7 @@ DELETE /v3/botstate/{channelId}/users/{userId}
 | **textFormat** | string | 메시지의 **text** 형식입니다. **markdown**, **plain**, **xml** 값 중 하나입니다. 텍스트 형식에 대한 자세한 내용은 [메시지 만들기](bot-framework-rest-connector-create-messages.md)를 참조하세요. |
 | **timestamp** | string | 메시지를 UTC 표준 시간대로 보낸 날짜와 시간으로 <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO-8601</a> 형식으로 표시됩니다. |
 | **topicName** | string | 활동이 속한 대화의 주제입니다. |
-| **type** | string | 활동의 유형입니다. **contactRelationUpdate**, **conversationUpdate**, **deleteUserData**, **message**, **typing**, **endOfConversation** 값 중 하나입니다. 활동 유형에 대한 자세한 내용은 [활동 개요](bot-framework-rest-connector-activities.md)를 참조하세요. |
+| **type** | string | 활동의 유형입니다. **contactRelationUpdate**, **conversationUpdate**, **deleteUserData**, **message**, **typing**, **event** 및 **endOfConversation** 값 중 하나입니다. 활동 유형에 대한 자세한 내용은 [활동 개요](bot-framework-rest-connector-activities.md)를 참조하세요. |
 | **값** | object | 무한 값입니다. |
 | **semanticAction** |[SemanticAction](#semanticaction-object) | 프로그래밍 방식 작업의 참조를 나타내는 **SemanticAction** 개체입니다. |
 
@@ -442,7 +442,7 @@ DELETE /v3/botstate/{channelId}/users/{userId}
 ### <a name="animationcard-object"></a>AnimationCard 개체
 애니메이션 GIF 또는 짧은 비디오를 재생할 수 있는 카드를 정의합니다.<br/><br/> 
 
-| 자산 | type | 설명 |
+| 자산 | Type | 설명 |
 |----|----|----|
 | **autoloop** | 부울 | 마지막 애니메이션 GIF가 끝날 때 해당 애니메이션 GIF 목록을 재생할지 여부를 나타내는 플래그입니다. 애니메이션을 자동으로 다시 재생하려면 이 속성을 **true**로 설정하고, 그렇지 않으면 **false**로 설정합니다. 기본값은 **true**입니다. |
 | **autostart** | 부울 | 카드가 표시될 때 애니메이션을 자동으로 재생할지 여부를 나타내는 플래그입니다. 애니메이션을 자동으로 재생하려면 이 속성을 **true**로 설정하고, 그렇지 않으면 **false**로 설정합니다. 기본값은 **true**입니다. |
@@ -461,9 +461,9 @@ DELETE /v3/botstate/{channelId}/users/{userId}
 ### <a name="attachment-object"></a>Attachment 개체
 메시지에 포함할 추가 정보를 정의합니다. 첨부 파일은 미디어 파일(예: 오디오, 비디오, 이미지, 파일) 또는 서식 있는 카드일 수 있습니다.<br/><br/> 
 
-| 자산 | type | 설명 |
+| 자산 | Type | 설명 |
 |----|----|----|
-| **contentType** | string | 첨부 파일에 있는 콘텐츠의 미디어 유형입니다. 미디어 파일의 경우 이 속성을 **image/png**, **audio/wav** 및 **video/mp4**와 같이 알려진 미디어 유형으로 설정합니다. 서식 있는 카드의 경우 이 속성을 공급업체 관련 유형 중 하나로 설정합니다.<ul><li>**application/vnd.microsoft.card.adaptive**: 텍스트, 음성, 이미지, 단추 및 입력 필드의 조합을 포함할 수 있는 서식 있는 카드입니다. **content** 속성을 <a href="http://adaptivecards.io/documentation/#create-cardschema" target="_blank">AdaptiveCard</a> 개체로 설정합니다.</li><li>**application/vnd.microsoft.card.animation**: 애니메이션을 재생하는 서식 있는 카드입니다. **content** 속성을 [AnimationCard](#animationcard-object) 개체로 설정합니다.</li><li>**application/vnd.microsoft.card.audio**: 오디오 파일을 재생하는 서식 있는 카드입니다. **content** 속성을 [AudioCard](#audiocard-object) 개체로 설정합니다.</li><li>**application/vnd.microsoft.card.video**: 비디오를 재생하는 서식 있는 카드입니다. **content** 속성을 [VideoCard](#videocard-object) 개체로 설정합니다.</li><li>**application/vnd.microsoft.card.hero**: 영웅 카드입니다. **content** 속성을 [HeroCard](#herocard-object) 개체로 설정합니다.</li><li>**application/vnd.microsoft.card.thumbnail**: 썸네일 카드입니다. **content** 속성을 [ThumbnailCard](#thumbnailcard-object) 개체로 설정합니다.</li><li>**application/vnd.microsoft.com.card.receipt**: 영수증 카드입니다. **content** 속성을 [ReceiptCard](#receiptcard-object) 개체로 설정합니다.</li><li>**application/vnd.microsoft.com.card.signin**: 사용자 로그인 카드입니다. **content** 속성을 [SignInCard](#signincard-object) 개체로 설정합니다.</li></ul> |
+| **contentType** | string | 첨부 파일에 있는 콘텐츠의 미디어 유형입니다. 미디어 파일의 경우 이 속성을 **image/png**, **audio/wav** 및 **video/mp4**와 같이 알려진 미디어 유형으로 설정합니다. 서식 있는 카드의 경우 이 속성을 공급업체 관련 유형 중 하나로 설정합니다.<ul><li>**application/vnd.microsoft.card.adaptive**: 텍스트, 음성, 이미지, 단추 및 입력 필드의 조합을 포함할 수 있는 서식 있는 카드입니다. **content** 속성을 <a href="http://adaptivecards.io/documentation/#create-cardschema" target="_blank">AdaptiveCard</a> 개체로 설정합니다.</li><li>**application/vnd.microsoft.card.animation**: 애니메이션을 재생하는 서식 있는 카드입니다. **content** 속성을 [AnimationCard](#animationcard-object) 개체로 설정합니다.</li><li>**application/vnd.microsoft.card.audio**: 오디오 파일을 재생하는 서식 있는 카드입니다. **content** 속성을 [AudioCard](#audiocard-object) 개체로 설정합니다.</li><li>**application/vnd.microsoft.card.video**: 비디오를 재생하는 서식 있는 카드입니다. **content** 속성을 [VideoCard](#videocard-object) 개체로 설정합니다.</li><li>**application/vnd.microsoft.card.hero**: 영웅 카드입니다. **content** 속성을 [HeroCard](#herocard-object) 개체로 설정합니다.</li><li>**application/vnd.microsoft.card.thumbnail**: 썸네일 카드입니다. **content** 속성을 [ThumbnailCard](#thumbnailcard-object) 개체로 설정합니다.</li><li>**application/vnd.microsoft.com.card.receipt**: 수신 카드입니다. **content** 속성을 [ReceiptCard](#receiptcard-object) 개체로 설정합니다.</li><li>**application/vnd.microsoft.com.card.signin**: 사용자 로그인 카드입니다. **content** 속성을 [SignInCard](#signincard-object) 개체로 설정합니다.</li></ul> |
 | **contentUrl** | string | 첨부 파일의 콘텐츠에 대한 URL입니다. 예를 들어 첨부 파일이 이미지인 경우 **contentUrl**을 이미지의 위치를 나타내는 URL로 설정합니다. 지원되는 프로토콜은 HTTP, HTTPS, 파일 및 데이터입니다. |
 | **content** | object | 첨부 파일의 콘텐츠입니다. 첨부 파일이 서식 있는 카드인 경우 이 속성을 서식 있는 카드 개체로 설정합니다. 이 속성과 **contentUrl** 속성은 상호 배타적입니다. |
 | **name** | string | 첨부 파일의 이름입니다. |
@@ -474,7 +474,7 @@ DELETE /v3/botstate/{channelId}/users/{userId}
 ### <a name="attachmentdata-object"></a>AttachmentData 개체 
 첨부 파일 데이터를 설명합니다.
 
-| 자산 | type | 설명 |
+| 자산 | Type | 설명 |
 |----|----|----|
 | **name** | string | 첨부 파일의 이름입니다. |
 | **originalBase64** | string | 첨부 파일의 콘텐츠입니다. |
@@ -484,7 +484,7 @@ DELETE /v3/botstate/{channelId}/users/{userId}
 ### <a name="attachmentinfo-object"></a>AttachmentInfo 개체
 첨부 파일을 설명합니다.<br/><br/> 
 
-| 자산 | type | 설명 |
+| 자산 | Type | 설명 |
 |----|----|----|
 | **name** | string | 첨부 파일의 이름입니다. |
 | **type** | string | 첨부 파일의 ContentType입니다. |
@@ -495,7 +495,7 @@ DELETE /v3/botstate/{channelId}/users/{userId}
 ### <a name="attachmentview-object"></a>AttachmentView 개체
 첨부 파일 보기를 정의합니다.<br/><br/> 
 
-| 자산 | type | 설명 |
+| 자산 | Type | 설명 |
 |----|----|----|
 | **viewId** | string | 보기 ID입니다. |
 | **크기** | number | 파일의 크기입니다. |
@@ -506,7 +506,7 @@ DELETE /v3/botstate/{channelId}/users/{userId}
 ### <a name="attachmentupload-object"></a>AttachmentUpload 개체
 업로드할 첨부 파일을 정의합니다.<br/><br/> 
 
-| 자산 | type | 설명 |
+| 자산 | Type | 설명 |
 |----|----|----|
 | **type** | string | 첨부 파일의 ContentType입니다. | 
 | **name** | string | 첨부 파일의 이름입니다. | 
@@ -518,7 +518,7 @@ DELETE /v3/botstate/{channelId}/users/{userId}
 ### <a name="audiocard-object"></a>AudioCard 개체
 오디오 파일을 재생할 수 있는 카드를 정의합니다.<br/><br/> 
 
-| 자산 | type | 설명 |
+| 자산 | Type | 설명 |
 |----|----|----|
 | **aspect** | string | **image** 속성에 지정한 썸네일의 가로 세로 비율입니다. 유효한 값은 **16:9** 및 **9:16**입니다. |
 | **autoloop** | 부울 | 마지막 오디오 파일이 끝날 때 해당 오디오 파일 목록을 재생할지 여부를 나타내는 플래그입니다. 오디오 파일을 자동으로 재생하려면 이 속성을 **true**로 설정하고, 그렇지 않으면 **false**로 설정합니다. 기본값은 **true**입니다. |
@@ -539,7 +539,7 @@ DELETE /v3/botstate/{channelId}/users/{userId}
 ### <a name="botdata-object"></a>BotData 개체
 Bot State 서비스를 사용하여 저장된 사용자, 대화 또는 특정 대화의 컨텍스트에 있는 사용자에 대한 상태 데이터를 정의합니다.<br/><br/>
 
-| 자산 | type | 설명 |
+| 자산 | Type | 설명 |
 |----|----|----|
 | **데이터** | object | 요청에서 Bot State 서비스를 사용하여 저장할 속성과 값을 지정하는 JSON 개체입니다. 응답에서 Bot State 서비스를 사용하여 저장한 속성과 값을 지정하는 JSON 개체입니다. | 
 | **eTag** | string | Bot State 서비스를 사용하여 저장하는 데이터에 대한 데이터 동시성을 제어하는 데 사용할 수 있는 엔터티 태그 값입니다. 자세한 내용은 [상태 데이터 관리](bot-framework-rest-state.md)를 참조하세요. | 
@@ -549,12 +549,12 @@ Bot State 서비스를 사용하여 저장된 사용자, 대화 또는 특정 �
 ### <a name="cardaction-object"></a>CardAction 개체
 수행할 작업을 정의합니다.<br/><br/> 
 
-| 자산 | type | 설명 |
+| 자산 | Type | 설명 |
 |----|----|----|
 | **image** | string | 표시할 이미지에 대한 URL입니다. | 
 | **text** | string | 작업에 대한 텍스트입니다. |
 | **title** | string | 단추에 대한 텍스트입니다. 단추의 작업에만 적용됩니다. |
-단추를 선택합니다. 단추의 작업에만 적용됩니다. |
+ 단추를 선택합니다. 단추의 작업에만 적용됩니다. |
 | **type** | string | 수행할 작업의 유형입니다. 유효한 값 목록은 [메시지에 서식 있는 카드 첨부 파일 추가](bot-framework-rest-connector-add-rich-cards.md)를 참조하세요. |
 | **값** | object | 작업에 대한 보조 매개 변수입니다. 이 속성의 값은 **type** 작업에 따라 다릅니다. 자세한 내용은 [메시지에 서식 있는 카드 첨부 파일 추가](bot-framework-rest-connector-add-rich-cards.md)를 참조하세요. |
 
@@ -563,7 +563,7 @@ Bot State 서비스를 사용하여 저장된 사용자, 대화 또는 특정 �
 ### <a name="cardimage-object"></a>CardImage 개체
 카드에 표시할 이미지를 정의합니다.<br/><br/> 
 
-| 자산 | type | 설명 |
+| 자산 | Type | 설명 |
 |----|----|----|
 | **alt** | string | 이미지에 대한 설명입니다. 접근성을 지원하는 설명이 포함되어야 합니다. |
 | **tap** | [CardAction](#cardaction-object) | 사용자가 이미지를 탭하거나 클릭하면 수행할 작업을 지정하는 **CardAction** 개체입니다. |
@@ -574,7 +574,7 @@ Bot State 서비스를 사용하여 저장된 사용자, 대화 또는 특정 �
 ### <a name="channelaccount-object"></a>ChannelAccount 개체
 채널의 봇 또는 사용자 계정을 정의합니다.<br/><br/>
 
-| 자산 | type | 설명 |
+| 자산 | Type | 설명 |
 |----|----|----|
 | **id** | string | 채널의 봇 또는 사용자를 고유하게 식별하는 ID입니다. |
 | **name** | string | 봇 또는 사용자에 대한 이름입니다. |
@@ -585,7 +585,7 @@ Bot State 서비스를 사용하여 저장된 사용자, 대화 또는 특정 �
 ### <a name="conversation-object"></a>Conversation 개체
 대화 내에 포함된 봇 및 사용자를 포함한 대화를 정의합니다.<br/><br/> 
 
-| 자산 | type | 설명 |
+| 자산 | Type | 설명 |
 |----|----|----|
 | **bot** | [ChannelAccount](#channelaccount-object) | 봇을 식별하는 **ChannelAccount** 개체입니다. |
 | **isGroup** | 부울 | 그룹 대화인지 여부를 나타내는 플래그입니다. 그룹 대화이면 **true**로 설정하고, 그렇지 않으면 **false**로 설정합니다. 기본값은 **false**입니다. 그룹 대화를 시작하려면 채널에서 그룹 대화를 지원해야 합니다. |
@@ -598,7 +598,7 @@ Bot State 서비스를 사용하여 저장된 사용자, 대화 또는 특정 �
 ### <a name="conversationaccount-object"></a>ConversationAccount 개체
 채널의 대화를 정의합니다.<br/><br/>
 
-| 자산 | type | 설명 |
+| 자산 | Type | 설명 |
 |----|----|----|
 | **id** | string | 대화를 식별하는 ID입니다. ID는 채널별로 고유합니다. 채널에서 대화를 시작하면 이 ID가 설정됩니다. 그렇지 않으면 대화를 시작할 때 봇에서 이 속성을 응답으로 반환되는 ID로 설정합니다('대화 시작' 참조). |
 | **isGroup** | 부울 | 활동이 생성된 시점에 세 명 이상의 참가자가 대화에 포함되어 있는지 여부를 나타내는 플래그입니다. 그룹 대화이면 **true**로 설정하고, 그렇지 않으면 **false**로 설정합니다. 기본값은 **false**입니다. |
@@ -610,7 +610,7 @@ Bot State 서비스를 사용하여 저장된 사용자, 대화 또는 특정 �
 ### <a name="conversationparameters-object"></a>ConversationParameters 개체
 새 대화를 만들기 위한 매개 변수를 정의합니다.
 
-| 자산 | type | 설명 |
+| 자산 | Type | 설명 |
 |----|----|----|
 | **isGroup** | 부울 | 그룹 대화인지 여부를 나타냅니다. |
 | **bot** | [ChannelAccount](#channelaccount-object) | 대화에 있는 봇의 주소입니다. |
@@ -622,7 +622,7 @@ Bot State 서비스를 사용하여 저장된 사용자, 대화 또는 특정 �
 ### <a name="conversationreference-object"></a>ConversationReference 개체
 대화의 특정 지점을 정의합니다.<br/><br/>
 
-| 자산 | type | 설명 |
+| 자산 | Type | 설명 |
 |----|----|----|
 | **activityId** | string | 이 개체에서 참조하는 활동을 고유하게 식별하는 ID입니다. | 
 | **bot** | [ChannelAccount](#channelaccount-object) | 이 개체에서 참조하는 대화에서 봇을 식별하는 **ChannelAccount** 개체입니다. |
@@ -636,7 +636,7 @@ Bot State 서비스를 사용하여 저장된 사용자, 대화 또는 특정 �
 ### <a name="conversationresourceresponse-object"></a>ConversationResourceResponse 개체
 리소스를 포함하는 응답을 정의합니다.
 
-| 자산 | type | 설명 |
+| 자산 | Type | 설명 |
 |----|----|----|
 | **activityId** | string | 활동의 ID입니다. |
 | **id** | string | 리소스의 ID입니다. |
@@ -645,7 +645,7 @@ Bot State 서비스를 사용하여 저장된 사용자, 대화 또는 특정 �
 ### <a name="error-object"></a>Error 개체
 오류를 정의합니다.<br/><br/>
 
-| 자산 | type | 설명 |
+| 자산 | Type | 설명 |
 |----|----|----|
 | **code** | string | 오류 코드 |
 | **message** | string | 오류에 대한 설명입니다. |
@@ -655,7 +655,7 @@ Bot State 서비스를 사용하여 저장된 사용자, 대화 또는 특정 �
 ### <a name="entity-object"></a>Entity 개체
 엔터티 개체를 정의합니다.
 
-| 자산 | type | 설명 |
+| 자산 | Type | 설명 |
 |----|----|----|
 | **type** | string | 엔터티 형식입니다. 일반적으로 schema.org의 형식을 포함합니다. |
 
@@ -663,7 +663,7 @@ Bot State 서비스를 사용하여 저장된 사용자, 대화 또는 특정 �
 ### <a name="errorresponse-object"></a>ErrorResponse 개체
 HTTP API 응답을 정의합니다.<br/><br/> 
 
-| 자산 | type | 설명 |
+| 자산 | Type | 설명 |
 |----|----|----|
 | **error** | [오류](#error-object) | 오류에 대한 정보를 포함하는 **Error** 개체입니다. |
 
@@ -672,7 +672,7 @@ HTTP API 응답을 정의합니다.<br/><br/>
 ### <a name="fact-object"></a>Fact 개체
 팩트가 포함된 키-값 쌍을 정의합니다.<br/><br/> 
 
-| 자산 | type | 설명 |
+| 자산 | Type | 설명 |
 |----|----|----|
 | **key** | string | 팩트의 이름입니다. 예: **체크 인**. 키는 팩트 값을 표시할 때 레이블로 사용됩니다. |
 | **값** | string | 팩트의 값입니다. 예: **2016년 10월 10일** |
@@ -682,7 +682,7 @@ HTTP API 응답을 정의합니다.<br/><br/>
 ### <a name="geocoordinates-object"></a>Geocoordinates 개체
 World Geodetic System(WSG84) 좌표를 사용하여 지리적 위치를 정의합니다.<br/><br/> 
 
-| 자산 | type | 설명 |
+| 자산 | Type | 설명 |
 |----|----|----|
 | **elevation** | number | 위치의 고도입니다. |
 | **name** | string | 위치의 이름입니다. |
@@ -695,7 +695,7 @@ World Geodetic System(WSG84) 좌표를 사용하여 지리적 위치를 정의�
 ### <a name="herocard-object"></a>HeroCard 개체
 큰 이미지, 제목, 텍스트 및 작업 단추가 있는 카드를 정의합니다.<br/><br/> 
 
-| 자산 | type | 설명 |
+| 자산 | Type | 설명 |
 |----|----|----|
 | **buttons** | [CardAction](#cardaction-object)[] | 사용자가 하나 이상의 작업을 수행할 수 있도록 하는 **CardAction** 개체의 배열입니다. 채널에서 지정할 수 있는 단추의 수를 결정합니다. |
 | **images** | [CardImage](#cardimage-object)[] | 카드에 표시할 이미지를 지정하는 **CardImage** 개체의 배열입니다. 영웅 카드에는 하나의 이미지만 포함됩니다. |
@@ -710,7 +710,7 @@ World Geodetic System(WSG84) 좌표를 사용하여 지리적 위치를 정의�
 ### <a name="identification-object"></a>Identification 개체
 리소스를 식별합니다.<br/><br/> 
 
-| 자산 | type | 설명 |
+| 자산 | Type | 설명 |
 |----|----|----|
 | **id** | string | 리소스를 고유하게 식별하는 ID입니다. |
 
@@ -719,14 +719,14 @@ World Geodetic System(WSG84) 좌표를 사용하여 지리적 위치를 정의�
 ### <a name="mediaeventvalue-object"></a>MediaEventValue 개체 
 미디어 이벤트에 대한 보조 매개 변수입니다.
 
-| 자산 | type | 설명 |
+| 자산 | Type | 설명 |
 |----|----|----|
 | **cardValue** | object | 이 이벤트를 발생시킨 미디어 카드의 **Value** 필드에 지정한 콜백 매개 변수입니다. |
 
 ### <a name="mediaurl-object"></a>MediaUrl 개체
 미디어 파일의 원본에 대한 URL을 정의합니다.<br/><br/> 
 
-| 자산 | type | 설명 |
+| 자산 | Type | 설명 |
 |----|----|----|
 | **profile** | string | 미디어의 콘텐츠를 설명하는 힌트입니다. |
 | **url** | string | 미디어 파일의 원본에 대한 URL입니다. |
@@ -738,7 +738,7 @@ World Geodetic System(WSG84) 좌표를 사용하여 지리적 위치를 정의�
 대화에서 언급된 사용자 또는 봇을 정의합니다.<br/><br/> 
 
 
-|          자산          |                   type                   |                                                                                                                                                                                                                           설명                                                                                                                                                                                                                            |
+|          자산          |                   Type                   |                                                                                                                                                                                                                           설명                                                                                                                                                                                                                            |
 |----------------------------|------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | <strong>mentioned</strong> | [ChannelAccount](#channelaccount-object) | 언급된 사용자 또는 봇을 지정하는 <strong>ChannelAccount</strong> 개체입니다. Slack과 같은 일부 채널에서는 대화별로 이름을 할당하므로 메시지의 <strong>recipient</strong> 속성에서 언급된 봇의 이름이 봇을 [등록](../bot-service-quickstart-registration.md)했을 때 지정한 핸들과 다를 수도 있습니다. 그러나 둘 다에 대한 계정 ID는 동일합니다. |
 |   <strong>text</strong>    |                  string                  |                                                                                                                         대화에서 언급된 사용자 또는 봇입니다. 예를 들어 메시지가 "@ColorBot에서 나에게 새로운 색을 지정합니다."인 경우 이 속성은 <strong>@ColorBot</strong>으로 설정됩니다. 일부 채널에서는 이 속성을 설정하지 않습니다.                                                                                                                          |
@@ -749,14 +749,14 @@ World Geodetic System(WSG84) 좌표를 사용하여 지리적 위치를 정의�
 ### <a name="messagereaction-object"></a>MessageReaction 개체
 메시지에 대한 반응을 정의합니다.
 
-| 자산 | type | 설명 |
+| 자산 | Type | 설명 |
 |----|----|----|
 | **type** | string | 반응의 형식입니다. |
 
 ### <a name="place-object"></a>Place 개체
 대화에서 언급된 위치를 정의합니다.<br/><br/> 
 
-| 자산 | type | 설명 |
+| 자산 | Type | 설명 |
 |----|----|----|
 | **address** | object |  위치의 주소입니다. 이 속성은 `string`이거나 `PostalAddress` 형식의 복합 개체일 수 있습니다. |
 | **geo** | [GeoCoordinates](#geocoordinates-object) | 위치의 지리적 좌표를 지정하는 **GeoCoordinates** 개체입니다. |
@@ -769,7 +769,7 @@ World Geodetic System(WSG84) 좌표를 사용하여 지리적 위치를 정의�
 ### <a name="receiptcard-object"></a>ReceiptCard 개체
 구매 영수증이 포함된 카드를 정의합니다.<br/><br/>
 
-| 자산 | type | 설명 |
+| 자산 | Type | 설명 |
 |----|----|----|
 | **buttons** | [CardAction](#cardaction-object)[] | 사용자가 하나 이상의 작업을 수행할 수 있도록 하는 **CardAction** 개체의 배열입니다. 채널에서 지정할 수 있는 단추의 수를 결정합니다. |
 | **facts** | [Fact](#fact-object)[] | 구매에 대한 정보를 지정하는 **Fact** 개체의 배열입니다. 예를 들어 호텔 투숙 영수증에 대한 팩트 목록에는 체크 인 날짜와 체크 아웃 날짜가 포함될 수 있습니다. 채널에서 지정할 수 있는 팩트의 수를 결정합니다. |
@@ -785,7 +785,7 @@ World Geodetic System(WSG84) 좌표를 사용하여 지리적 위치를 정의�
 ### <a name="receiptitem-object"></a>ReceiptItem 개체
 영수증 내의 품목을 정의합니다.<br/><br/> 
 
-| 자산 | type | 설명 |
+| 자산 | Type | 설명 |
 |----|----|----|
 | **image** | [CardImage](#cardimage-object) | 품목 옆에 표시할 썸네일 이미지를 지정하는 **CardImage** 개체입니다.  |
 | **price** | string | 구입한 모든 단위의 총 가격을 지정하는 통화 형식 문자열입니다. |
@@ -801,7 +801,7 @@ World Geodetic System(WSG84) 좌표를 사용하여 지리적 위치를 정의�
 리소스 ID를 포함하는 응답을 정의합니다.<br/><br/>
 
 
-|      자산       |  type  |                설명                |
+|      자산       |  Type  |                설명                |
 |---------------------|--------|-------------------------------------------|
 | <strong>id</strong> | string | 리소스를 고유하게 식별하는 ID입니다. |
 
@@ -810,7 +810,7 @@ World Geodetic System(WSG84) 좌표를 사용하여 지리적 위치를 정의�
 ### <a name="signincard-object"></a>SignInCard 개체
 사용자가 서비스에 로그인할 수 있도록 하는 카드를 정의합니다.<br/><br/>
 
-| 자산 | type | 설명 |
+| 자산 | Type | 설명 |
 |----|----|----|
 | **buttons** | [CardAction](#cardaction-object)[] | 사용자가 서비스에 로그인할 수 있도록 하는 **CardAction** 개체의 배열입니다. 채널에서 지정할 수 있는 단추의 수를 결정합니다. |
 | **text** | string | 로그인 카드에 포함할 설명 또는 프롬프트입니다. |
@@ -820,7 +820,7 @@ World Geodetic System(WSG84) 좌표를 사용하여 지리적 위치를 정의�
 ### <a name="suggestedactions-object"></a>SuggestedActions 개체
 사용자가 선택할 수 있는 옵션을 정의합니다.<br/><br/> 
 
-| 자산 | type | 설명 |
+| 자산 | Type | 설명 |
 |----|----|----|
 | **actions** | [CardAction](#cardaction-object)[] | 제안된 작업을 정의하는 **CardAction** 개체의 배열입니다. |
 | **to** | string[] | 제안된 작업이 표시되어야 하는 받는 사람의 ID를 포함하는 문자열의 배열입니다. |
@@ -830,7 +830,7 @@ World Geodetic System(WSG84) 좌표를 사용하여 지리적 위치를 정의�
 ### <a name="thumbnailcard-object"></a>ThumbnailCard 개체
 썸네일 이미지, 제목, 텍스트 및 작업 단추가 있는 카드를 정의합니다.<br/><br/>
 
-| 자산 | type | 설명 |
+| 자산 | Type | 설명 |
 |----|----|----|
 | **buttons** | [CardAction](#cardaction-object)[] | 사용자가 하나 이상의 작업을 수행할 수 있도록 하는 **CardAction** 개체의 배열입니다. 채널에서 지정할 수 있는 단추의 수를 결정합니다. |
 | **images** | [CardImage](#cardimage-object)[] | 카드에 표시할 썸네일 이미지를 지정하는 **CardImage** 개체의 배열입니다. 채널에서 지정할 수 있는 썸네일 이미지의 수를 결정합니다. |
@@ -844,7 +844,7 @@ World Geodetic System(WSG84) 좌표를 사용하여 지리적 위치를 정의�
 ### <a name="thumbnailurl-object"></a>ThumbnailUrl 개체
 이미지 원본에 대한 URL을 정의합니다.<br/><br/> 
 
-| 자산 | type | 설명 |
+| 자산 | Type | 설명 |
 |----|----|----|
 | **alt** | string | 이미지에 대한 설명입니다. 접근성을 지원하는 설명이 포함되어야 합니다. |
 | **url** | string | 이미지 원본 또는 이미지의 base64 이진 파일에 대한 URL입니다(예: `data:image/png;base64,iVBORw0KGgo...`). |
@@ -854,7 +854,7 @@ World Geodetic System(WSG84) 좌표를 사용하여 지리적 위치를 정의�
 ### <a name="videocard-object"></a>VideoCard 개체
 비디오를 재생할 수 있는 카드를 정의합니다.<br/><br/>
 
-| 자산 | type | 설명 |
+| 자산 | Type | 설명 |
 |----|----|----|
 | **aspect** | string | 비디오의 가로 세로 비율입니다(예: 16:9, 4:3).|
 | **autoloop** | 부울 | 마지막 비디오 파일이 끝날 때 해당 비디오 파일 목록을 재생할지 여부를 나타내는 플래그입니다. 비디오를 자동으로 다시 재생하려면 이 속성을 **true**로 설정하고, 그렇지 않으면 **false**로 설정합니다. 기본값은 **true**입니다. |
@@ -874,7 +874,7 @@ World Geodetic System(WSG84) 좌표를 사용하여 지리적 위치를 정의�
 ### <a name="semanticaction-object"></a>SemanticAction 개체
 프로그래밍 방식 작업에 대한 참조를 정의합니다.<br/><br/>
 
-| 자산 | type | 설명 |
+| 자산 | Type | 설명 |
 |----|----|----|
 | **id** | string | 이 작업 ID |
 | **entities** | [엔터티](#entity-object) | 이 작업과 연결된 엔터티 |
