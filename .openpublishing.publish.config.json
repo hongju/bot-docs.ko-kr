@@ -113,6 +113,10 @@
     "master": [
       "Publish",
       "Pdf"
+    ],
+    "live-sxs": [
+      "Publish",
+      "Pdf"
     ]
   },
   "need_generate_pdf_url_template": true,
