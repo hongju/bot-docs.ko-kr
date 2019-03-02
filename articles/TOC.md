@@ -39,7 +39,7 @@
 ### [사용자에게 입력할 프롬프트 창 표시](v4sdk/bot-builder-primitive-prompts.md) 
 ### [사용자에게 환영 메시지 보내기](v4sdk/bot-builder-send-welcome-message.md)
 <!-- ## [Add input hints to messages](v4sdk/bot-builder-howto-add-input-hints.md) -->
-### [봇에서 알림 받기](v4sdk/bot-builder-howto-proactive-message.md)
+### [사용자에게 자동 관리 알림 보내기](v4sdk/bot-builder-howto-proactive-message.md)
 ### [봇에 자연어 해석 추가](v4sdk/bot-builder-howto-v4-luis.md)
 ### [QnA Maker를 사용하여 사용자 질문에 답변](v4sdk/bot-builder-howto-qna.md)
 ### [다중 LUIS 및 QnA 모델 사용](v4sdk/bot-builder-tutorial-dispatch.md)

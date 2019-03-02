@@ -9,6 +9,7 @@
 ## [개요](../v4sdk/bot-builder-virtual-assistant-introduction.md)
 # [FAQ](../bot-service-resources-bot-framework-faq.md)
 # [지원 받기](../bot-service-resources-links-help.md)
+# [채널 참조](../bot-service-channels-reference.md)
 # [식별자에 대한 가이드](../bot-service-resources-identifiers-guide.md)
 # [App Insights 키](../bot-service-resources-app-insights-keys.md)
 # [사용자 에이전트 요청](../bot-service-resources-user-agent.md)
