@@ -8,15 +8,15 @@ manager: kamrani
 ms.topic: get-started-article
 ms.service: bot-service
 ms.subservice: abs
-ms.date: 02/07/2019
-ms.openlocfilehash: b4c3b982bf061b3a24c6d240b05dc40b0cf07816
-ms.sourcegitcommit: 8183bcb34cecbc17b356eadc425e9d3212547e27
+ms.date: 02/13/2019
+ms.openlocfilehash: 53889703d58983a87a7a2d16622f1298d56c87db
+ms.sourcegitcommit: 05ddade244874b7d6e2fc91745131b99cc58b0d6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55971430"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56591031"
 ---
-# <a name="deploy-your-bot"></a>봇 배포 
+# <a name="deploy-your-bot"></a>봇 배포
 
 [!INCLUDE [pre-release-label](./includes/pre-release-label.md)]
 
@@ -25,11 +25,23 @@ ms.locfileid: "55971430"
 이 문서에서는 C# 및 JavaScript 봇을 Azure에 배포하는 방법을 보여 줍니다. 단계를 수행하기 전에 이 문서를 참조하면 봇 배포와 관련된 내용을 완전히 이해할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
-- 최신 버전의 [MSBot](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/MSBot) 도구를 설치합니다.
-- 로컬 머신에서 개발한 [CSharp](./dotnet/bot-builder-dotnet-sdk-quickstart.md) 또는 [JavaScript](./javascript/bot-builder-javascript-quickstart.md) 봇이 있어야 합니다. 
 
-## <a name="create-a-web-app-bot-in-azure"></a>Azure에서 웹앱 봇 만들기
-이미 Azure에서 사용하려는 봇을 만든 경우 이 섹션은 선택 사항입니다.
+- 최신 버전의 [msbot](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/MSBot) 도구를 설치합니다.
+- 로컬 머신에서 개발한 [CSharp](./dotnet/bot-builder-dotnet-sdk-quickstart.md) 또는 [JavaScript](./javascript/bot-builder-javascript-quickstart.md) 봇이 있어야 합니다.
+
+## <a name="1-prepare-for-deployment"></a>1. 배포 준비
+배포 프로세스를 수행하려면 Azure에 대상 웹앱 봇이 있어야 로컬 봇이 배포될 수 있습니다. Azure에서 대상 웹앱 봇과 이 봇에 프로비저닝되는 리소스는 로컬 봇에서 배포용으로 사용합니다. 로컬 봇에는 필요한 Azure 리소스 중 일부가 프로비저닝되어 있지 않기 때문에 이 항목이 필요합니다. 대상 웹앱 봇을 만들면 다음 리소스가 자동으로 프로비저닝됩니다.
+-   웹앱 봇 – 로컬 봇을 배포할 때 사용할 봇입니다.
+-   App Service 플랜 - App Service 앱이 실행해야 하는 리소스를 제공합니다.
+-   App Service - 웹 애플리케이션을 호스팅하기 위한 서비스
+-   스토리지 계정 - Blob, 파일, 큐, 테이블, 디스크 등, 모든 Azure Storage 데이터 개체가 포함됩니다.
+
+대상 웹앱 봇을 만드는 동안 봇의 앱 ID 및 암호도 생성됩니다. Azure에서 앱 ID 및 암호는 [서비스 인증 및 권한 부여](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization)를 지원합니다. 이 정보 중 일부를 검색하여 로컬 봇 코드에서 사용하게 됩니다. 
+
+> [!IMPORTANT]
+> 서비스의 봇 템플릿 언어는 봇이 작성될 때 사용된 언어와 일치해야 합니다.
+
+이미 Azure에서 사용하려는 봇을 만든 경우 새 웹앱 봇을 만드는 것은 선택 사항입니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. Azure Portal의 왼쪽 위 모서리에 있는 **새 리소스 만들기** 링크를 클릭하고 **AI + Machine Learning > 웹앱 봇**을 선택합니다.
@@ -37,13 +49,16 @@ ms.locfileid: "55971430"
 1. **Bot Service** 블레이드에서 봇에 대해 요청되는 정보를 제공합니다.
 1. **만들기**를 클릭하여 서비스를 만들고 봇을 클라우드에 배포합니다. 이 프로세스에는 몇 분 정도 걸릴 수 있습니다.
 
-## <a name="download-the-source-code"></a>소스 코드 다운로드
+### <a name="download-the-source-code"></a>소스 코드 다운로드
+대상 웹앱 봇을 만든 후에는 Azure Portal에서 로컬 머신으로 봇 코드를 다운로드해야 합니다. 코드를 다운로드하는 이유는 [.bot 파일](./v4sdk/bot-file-basics.md)에 있는 서비스 참조를 가져오기 위해서입니다. 이러한 서비스 참조는 웹앱 봇, App Service 플랜, App Service 및 스토리지 계정용입니다. 
+
 1. **봇 관리** 섹션에서 **빌드**를 클릭합니다.
 1. 오른쪽 창에서 **Bot 소스 코드 다운로드** 링크를 클릭합니다.
 1. 표시되는 메시지에 따라 코드를 다운로드한 다음, 폴더의 압축을 풉니다.
 
-## <a name="decrypt-the-bot-file"></a>.bot 파일 암호 해독
-Azure Portal에서 다운로드한 소스 코드에는 암호화된 .bot 파일이 포함되어 있습니다. 값을 로컬 .bot 파일에 복사하려면 암호를 해독해야 합니다.  
+### <a name="decrypt-the-bot-file"></a>.bot 파일 암호 해독
+
+Azure Portal에서 다운로드한 소스 코드에는 암호화된 .bot 파일이 포함되어 있습니다. 값을 로컬 .bot 파일에 복사하려면 암호를 해독해야 합니다. 이 단계는 암호화된 서비스 참조가 아니라 실제 서비스 참조를 복사하기 위해 필요합니다.  
 
 1. Azure Portal에서 봇용 웹앱 봇 리소스를 엽니다.
 1. 봇의 **애플리케이션 설정**을 엽니다.
@@ -51,30 +66,76 @@ Azure Portal에서 다운로드한 소스 코드에는 암호화된 .bot 파일�
 1. **botFileSecret**을 찾고 해당 값을 복사합니다.
 
 `msbot cli`을 사용하여 파일의 암호를 해독합니다.
-```
+
+```cmd
 msbot secret --bot <name-of-bot-file> --secret "<bot-file-secret>" --clear
 ```
 
-## <a name="update-the-bot-file"></a>.bot 파일 업데이트
-암호를 해독한 .bot 파일을 엽니다. `services` 섹션에 나열된 항목을 복사하여 로컬 .bot 파일에 추가합니다. 예: 
+### <a name="update-your-local-bot-file"></a>로컬 .bot 파일 업데이트
 
-```
-{
-   "type": "endpoint",
-   "name": "production",
-   "endpoint": "https://<something>.azurewebsites.net/api/messages",
-   "appId": "<App Id>",
-   "appPassword": "<App Password>",
-   "id": "2
-}
+암호를 해독한 .bot 파일을 엽니다. `services` 섹션에 나열된 **모든** 항목을 복사하여 로컬 .bot 파일에 추가합니다. 모든 중복 서비스 항목을 확인하거나 서비스 ID를 복제합니다. 봇이 종속된 추가 서비스 참조를 유지합니다. 예: 
+
+```json
+"services": [
+    {
+        "type": "abs",
+        "tenantId": "<tenant-id>",
+        "subscriptionId": "<subscription-id>",
+        "resourceGroup": "<resource-group-name>",
+        "serviceName": "<bot-service-name>",
+        "name": "<friendly-service-name>",
+        "id": "1",
+        "appId": "<app-id>"
+    },
+    {
+        "type": "blob",
+        "connectionString": "<connection-string>",
+        "tenantId": "<tenant-id>",
+        "subscriptionId": "<subscription-id>",
+        "resourceGroup": "<resource-group-name>",
+        "serviceName": "<blob-service-name>",
+        "id": "2"
+    },
+    {
+        "type": "endpoint",
+        "appId": "",
+        "appPassword": "",
+        "endpoint": "<local-endpoint-url>",
+        "name": "development",
+        "id": "3"
+    },
+    {
+        "type": "endpoint",
+        "appId": "<app-id>",
+        "appPassword": "<app-password>",
+        "endpoint": "<hosted-endpoint-url>",
+        "name": "production",
+        "id": "4"
+    },
+    {
+        "type": "appInsights",
+        "instrumentationKey": "<instrumentation-key>",
+        "applicationId": "<appinsights-app-id>",
+        "apiKeys": {},
+        "tenantId": "<tenant-id>",
+        "subscriptionId": "<subscription-id>",
+        "resourceGroup": "<resource-group>",
+        "serviceName": "<appinsights-service-name>",
+        "id": "5"
+    }
+],
 ```
 
 파일을 저장합니다.
- 
-## <a name="setup-a-repository"></a>리포지토리 설정
-즐겨찾는 Git 원본 제어 공급자를 사용하여 Git 리포지토리를 만듭니다. 코드를 리포지토리에 커밋합니다.
- 
-## <a name="update-app-settings-in-azure"></a>Azure에서 앱 설정 업데이트
+
+### <a name="setup-a-repository"></a>리포지토리 설정
+
+지속적인 배포를 지원하려면 즐겨찾는 Git 원본 제어 공급자를 사용하여 Git 리포지토리를 만듭니다. 코드를 리포지토리에 커밋합니다. 
+
+[리포지토리 준비](https://docs.microsoft.com/azure/app-service/deploy-continuous-deployment#prepare-your-repository)에 설명된 대로 리포지토리 루트에 프로젝트의 올바른 파일에 있는지 확인합니다.
+
+### <a name="update-app-settings-in-azure"></a>Azure에서 앱 설정 업데이트
+로컬 봇은 암호화된 .bot 파일을 사용하지 않지만 Azure Portal에는 배포 중인 항목이 있음 
 1. Azure Portal에서 봇용 **웹앱 봇** 리소스를 엽니다.
 1. 봇의 **애플리케이션 설정**을 엽니다.
 1. **애플리케이션 설정** 창에서 **애플리케이션 설정**까지 아래로 스크롤합니다.
@@ -82,14 +143,20 @@ msbot secret --bot <name-of-bot-file> --secret "<bot-file-secret>" --clear
 1. 리포지토리에 체크 인한 파일과 일치하도록 봇 파일의 이름을 업데이트합니다.
 1. 변경 내용을 저장합니다.
 
+## <a name="2-deploy-using-azure-deployment-center"></a>2. Azure 배포 센터를 사용하여 배포
 
-## <a name="deploy-using-azure-deployment-center"></a>Azure 배포 센터를 사용하여 배포
-이제 Git 리포지토리를 Azure App Services에 연결해야 합니다. [지속적인 배포 설정](https://docs.microsoft.com/en-us/azure/app-service/deploy-continuous-deployment) 항목의 지침을 따릅니다. `App Service Kudu build server`를 사용하여 빌드하는 것이 좋습니다.
+이제 Azure에 봇 코드를 업로드해야 합니다. [Azure App Service에 지속적인 배포](https://docs.microsoft.com/azure/app-service/deploy-continuous-deployment) 항목의 지침을 따릅니다.
 
-## <a name="test-your-deployment"></a>배포 테스트
+`App Service Kudu build server`를 사용하여 빌드하는 것이 좋습니다.
+
+지속적인 배포를 구성하면 리포지토리에 커밋한 변경 사항이 게시됩니다. 그러나 봇에 서비스를 추가하는 경우에는 이와 관련된 항목을 .bot 파일에 추가해야 합니다.
+
+## <a name="3-test-your-deployment"></a>3. 배포 테스트
+
 배포가 성공하면 몇 초 동안 기다린 후 필요에 따라 웹앱을 다시 시작하여 캐시를 지웁니다. 웹앱 봇 블레이드로 돌아가서 Azure Portal에 제공된 웹 채팅을 사용하여 테스트합니다.
 
 ## <a name="additional-resources"></a>추가 리소스
+
 - [연속 배포의 일반 문제를 조사하는 방법](https://github.com/projectkudu/kudu/wiki/Investigating-continuous-deployment)
 
 <!--

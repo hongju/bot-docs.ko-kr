@@ -10,12 +10,12 @@ ms.service: bot-service
 ms.subservice: cognitive-services
 ms.date: 01/15/2019
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 6722a9c49961857ab53a2d80fca926775e712aae
-ms.sourcegitcommit: 7f418bed4d0d8d398f824e951ac464c7c82b8c3e
+ms.openlocfilehash: 5a5aec71092503dad83827225f7c0adaf22c4d17
+ms.sourcegitcommit: 05ddade244874b7d6e2fc91745131b99cc58b0d6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56240169"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56590978"
 ---
 # <a name="use-qna-maker-to-answer-questions"></a>QnA Maker를 사용하여 질문에 답변
 
@@ -47,7 +47,7 @@ QnA Maker 서비스를 사용하여 봇에 질문 및 답변 지원 기능을 �
 다음 세 값은 Azure QnA 서비스를 통해 앱을 QnA Maker 기술 자료에 연결하는 데 필요한 정보를 제공합니다.  
 
 ## <a name="update-the-bot-file"></a>.bot 파일 업데이트
-먼저, 호스트 이름, 엔드포인트 키 및 기술 자료 ID(KbId) 등 기술 자료에 액세스하는 데 필요한 정보를 `qnamaker.bot`에 추가합니다. 이는 QnA Maker의 기술 자료 **설정**에서 저장한 값입니다. 
+먼저, 호스트 이름, 엔드포인트 키 및 기술 자료 ID(kbId) 등 기술 자료에 액세스하는 데 필요한 정보를 `qnamaker.bot`에 추가합니다. 이는 QnA Maker의 기술 자료 **설정**에서 저장한 값입니다. 
 > 참고. QnA Maker 기술 자료에 대한 액세스를 기존의 봇 애플리케이션에 추가하는 경우 아래와 같은 "type": "qna" 섹션을 .bot 파일에 추가해야 합니다. 이 섹션의 "이름" 값은 해당 앱 내에서 이 정보에 액세스하는 데 필요한 키를 제공합니다.
 
 ```json
@@ -65,7 +65,7 @@ QnA Maker 서비스를 사용하여 봇에 질문 및 답변 지원 기능을 �
     {
       "type": "qna",
       "name": "QnABot",
-      "KbId": "<Your_Knowledge_Base_Id>",
+      "kbId": "<Your_Knowledge_Base_Id>",
       "subscriptionKey": "",
       "endpointKey": "<Your_Endpoint_Key>",
       "hostname": "<Your_Hostname>",
@@ -98,7 +98,7 @@ private static BotServices InitBotServices(BotConfiguration config)
                     throw new InvalidOperationException("The QnA service is not configured correctly in your '.bot' file.");
                 }
 
-                if (string.IsNullOrWhiteSpace(qna.KbId))
+                if (string.IsNullOrWhiteSpace(qna.kbId))
                 {
                     throw new InvalidOperationException("The QnA KnowledgeBaseId ('kbId') is required to run this sample. Please update your '.bot' file.");
                 }
@@ -115,7 +115,7 @@ private static BotServices InitBotServices(BotConfiguration config)
 
                 var qnaEndpoint = new QnAMakerEndpoint()
                 {
-                    KnowledgeBaseId = qna.KbId,
+                    KnowledgeBaseId = qna.kbId,
                     EndpointKey = qna.EndpointKey,
                     Host = qna.Hostname,
                 };

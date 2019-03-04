@@ -6,13 +6,13 @@ ms.author: v-demak
 manager: kamrani
 ms.topic: article
 ms.service: bot-service
-ms.date: 08/28/2018
-ms.openlocfilehash: 9b77f05b77017b17ba63e83fa2a8b58e483f9bf8
-ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
+ms.date: 02/21/2019
+ms.openlocfilehash: 54be82eb263c2189fd6bb7a0dc4018b9ecf5c2f2
+ms.sourcegitcommit: e41dabe407fdd7e6b1d6b6bf19bef5f7aae36e61
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54225808"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56893503"
 ---
 # <a name="bot-framework-frequently-asked-questions"></a>Bot Framework 질문과 대답
 
@@ -49,9 +49,11 @@ SDK V3 봇은 계속 실행되고, Azure Bot Service의 지원을 받습니다. 
 - Bot Framework SDK V4는 확장 가능한 모듈식 SDK 아키텍처로 대화 중심의 개발 환경을 제공하여 개발자가 강력하고 정교한 챗 애플리케이션을 만들 수 있게 해줍니다. V4의 확장 가능한 디자인은 SDK V3 대화 모델과 기본 형식이 너무 엄격하고 확장성에 제약을 준다는 고객 피드백을 반영한 것입니다.  
 
 ### <a name="what-is-the-general-migration-strategy-i-have-a-v3-bot-how-can-i-migrate-it-to-v4-can-i-migrate-my-v3-bot-to-v4"></a>일반적인 마이그레이션 전략은 무엇입니까? V3 봇이 있는데 V4로 마이그레이션하려면 어떻게 하나요?/V3 봇을 V4로 마이그레이션할 수 있나요?
-- 현재 SDK V3로 만든 봇을 SDK V4로 마이그레이션하는 방법에 대한 도움말이 설명서와 샘플의 형태로 제공되고 있습니다. 현재 SDK V4에 V4 봇 내에서 V3 빌드 봇이 작동할 수 있게 해주는 SDK V3 호환성 레이어를 제공할 계획은 없습니다. 
-- 프로덕션 환경에 Bot Framework SDK V3 봇이 이미 있는 경우 당분간 그대로 계속 작동할 것이니 걱정하지 마세요. 
-- Bot Framework SDK V4는 큰 성공을 거둔 V3 SDK의 진화된 형태입니다. V4는 주 버전 릴리스로, V3 봇이 최신 V4 SDK에서 실행하지 못하게 하는, 호환성이 손상되는 변경 사항을 포함하고 있습니다. 
+
+- V3 봇을 V4로 마이그레이션하는 방법에 대한 자세한 내용은 [v3 및 v4 .NET SDK의 차이점](v4sdk/migration/migration-about.md)을 참조하세요.
+- 현재 SDK V3로 만든 봇을 SDK V4로 마이그레이션하는 방법에 대한 도움말이 설명서와 샘플의 형태로 제공되고 있습니다. 현재 SDK V4에 V4 봇 내에서 V3 빌드 봇이 작동할 수 있게 해주는 SDK V3 호환성 레이어를 제공할 계획은 없습니다.
+- 프로덕션 환경에 Bot Framework SDK V3 봇이 이미 있는 경우 당분간 그대로 계속 작동할 것이니 걱정하지 마세요.
+- Bot Framework SDK V4는 큰 성공을 거둔 V3 SDK의 진화된 형태입니다. V4는 주 버전 릴리스로, V3 봇이 최신 V4 SDK에서 실행하지 못하게 하는, 호환성이 손상되는 변경 사항을 포함하고 있습니다.
 
 ### <a name="should-i-build-new-a-bot-using-v3-or-v4"></a>V3 또는 V4를 사용하는 새 봇을 빌드해야 합니까?
 - 새로운 대화 환경을 위해 Bot Framework SDK V4를 사용하여 새 봇을 시작하는 것이 좋습니다.

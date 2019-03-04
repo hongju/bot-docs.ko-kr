@@ -9,12 +9,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 8ca8043c5680a993fa27e2febb9740206691884c
-ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
+ms.openlocfilehash: e5f8ec76e5711371653e75e11ac6fcc447b4f2e1
+ms.sourcegitcommit: 05ddade244874b7d6e2fc91745131b99cc58b0d6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54225578"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56590939"
 ---
 # <a name="send-proactive-messages"></a>사전 대응 메시지 보내기
 [!INCLUDE [pre-release-label](../includes/pre-release-label-v3.md)]
@@ -71,7 +71,7 @@ function sendProactiveMessage(address) {
 
 ## <a name="send-a-dialog-based-proactive-message"></a>대화 상자 기반 사전 대응 메시지 보내기
 
-다음 코드 샘플은 Node.js용 Bot Framework SDK를 사용하여 다이얼로그 기반 사전 대응 메시지를 보내는 방법을 보여줍니다. [Microsoft/BotBuilder-Samples/Node/core-proactiveMessages/startNewDialog](https://github.com/Microsoft/BotBuilder-Samples/tree/master/Node/core-proactiveMessages/startNewDialog) 폴더에서 전체 작업 예제를 찾을 수 있습니다.
+다음 코드 샘플은 Node.js용 Bot Framework SDK를 사용하여 다이얼로그 기반 사전 대응 메시지를 보내는 방법을 보여줍니다. [startNewDialog](https://aka.ms/js-startnewdialog-sample-v3) 폴더에서 전체 작업 예제를 확인할 수 있습니다.
 
 사용자에게 대화 상자 기반 메시지를 보낼 수 있으려면 봇이 먼저 현재 대화에서 정보를 수집하고 저장해야 합니다. `session.message.address` 개체에는 봇이 사용자에게 대화 상자 기반 사전 대응 메시지를 보내는 데 필요한 모든 정보가 포함됩니다. 
 
@@ -103,7 +103,7 @@ function startProactiveDialog(address) {
 ```
 
 > [!NOTE]
-> 위의 코드 샘플에는 사용자 지정 파일 **botadapter.js**가 필요합니다([GitHub에서 다운로드](https://github.com/Microsoft/BotBuilder-Samples/blob/master/Node/core-proactiveMessages/startNewDialog/botadapter.js)할 수 있음).
+> 위의 코드 샘플에는 사용자 지정 파일 **botadapter.js**가 필요합니다([GitHub에서 다운로드](https://aka.ms/js-botadaptor-file-v3)할 수 있음).
 
 설문 조사 대화 상자는 완료될 때까지 대화를 제어합니다. 그런 다음, 대화 상자가 닫히고(`session.endDialog()` 호출을 통해) 제어 권한을 다시 이전 대화 상자에 반환합니다. 
 
@@ -122,7 +122,7 @@ bot.dialog('survey', function (session, args, next) {
 
 ## <a name="sample-code"></a>샘플 코드
 
-Node.js용 Bot Framework SDK를 사용하여 사전 대응 메시지를 보내는 방법을 보여주는 전체 샘플은 GitHub의 <a href="https://github.com/Microsoft/BotBuilder-Samples/tree/master/Node/core-proactiveMessages" target="_blank">Proactive Messages sample</a>(사전 대응 메시지 샘플)을 참조하세요. 사전 대응 메시지 샘플 내에서 <a href="https://github.com/Microsoft/BotBuilder-Samples/tree/master/Node/core-proactiveMessages/simpleSendMessage" target="_blank">simpleSendMessage</a>는 임시 사전 대응 메시지를 보내는 방법을 보여주고 <a href="https://github.com/Microsoft/BotBuilder-Samples/tree/master/Node/core-proactiveMessages/startNewDialog" target="_blank">startNewDialog</a>는 대화 상자 기반 사전 대응 메시지를 보내는 방법을 보여줍니다.
+Node.js용 Bot Framework SDK를 사용하여 사전 대응 메시지를 보내는 방법을 보여주는 전체 샘플은 GitHub의 <a href="https://aka.ms/js-proactivemessages-sample-v3" target="_blank">Proactive Messages sample</a>(사전 대응 메시지 샘플)을 참조하세요. 사전 대응 메시지 샘플 내에서 <a href="https://aka.ms/js-simplesendmessage-sample-v3" target="_blank">simpleSendMessage</a>는 임시 사전 대응 메시지를 보내는 방법을 보여주고 <a href="https://aka.ms/js-startnewdialog-sample-v3" target="_blank">startNewDialog</a>는 대화 상자 기반 사전 대응 메시지를 보내는 방법을 보여줍니다.
 
 ## <a name="additional-resources"></a>추가 리소스
 

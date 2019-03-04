@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: bot-service
 ms.date: 09/18/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: b337614b37142dc15f6cf085388dace9f4b7cafe
-ms.sourcegitcommit: 66769e697d94f7bf5e0441dfacf2c0e3768845ea
+ms.openlocfilehash: 0fb59e63dc8786e204085eaa8570ec4b751492ff
+ms.sourcegitcommit: 05ddade244874b7d6e2fc91745131b99cc58b0d6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53654974"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56591084"
 ---
 # <a name="enterprise-template---detailed-overview"></a>엔터프라이즈 템플릿 - 자세한 개요
 

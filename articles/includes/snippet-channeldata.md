@@ -1,5 +1,3 @@
-# <a name="implement-channel-specific-functionality"></a>채널 관련 기능 구현
-
 일부 채널은 메시지 텍스트 및 첨부 파일만으로는 구현할 수 없는 기능을 제공합니다. 채널 관련 기능을 구현하려면 활동 개체의 _채널 데이터_ 속성에서 채널에 네이티브 메타데이터를 전달할 수 있습니다. 예를 들어, 봇은 채널 데이터 속성을 사용하여 Telegram에 스티커를 전송하도록 지시하거나 Office365에 이메일을 전송하도록 지시할 수 있습니다.
 
 이 문서에서는 메시지 작업의 채널 데이터 속성을 사용하여 다음과 같은 채널 관련 기능을 구현하는 방법을 설명합니다.
@@ -345,7 +343,7 @@ Facebook 알림을 만들려면 활동 개체의 채널 데이터 속성을 이�
 
 | 자산 | 설명 |
 |----|----|
-|  메시지의 최대 전달 수 | Kik 메시지의 배열입니다. Kik 메시지 형식에 대한 자세한 내용은 <a href="https://dev.kik.com/#/docs/messaging#message-formats" target="_blank">Kik 메시지 형식</a>을 참조하세요. |
+| 메시지의 최대 전달 수 | Kik 메시지의 배열입니다. Kik 메시지 형식에 대한 자세한 내용은 <a href="https://dev.kik.com/#/docs/messaging#message-formats" target="_blank">Kik 메시지 형식</a>을 참조하세요. |
 
 이 코드 조각은 네이티브 Kik 메시지에 대한 `channelData` 속성의 예제를 보여 줍니다.
 
@@ -370,6 +368,72 @@ Facebook 알림을 만들려면 활동 개체의 채널 데이터 속성을 이�
                 }
         }
     ]
+}
+```
+
+## <a name="create-a-line-message"></a>LINE 메시지 만들기
+
+LINE 관련 메시지 유형(예: 스티커, 템플릿 또는 휴대폰 카메라 열기 같은 LINE 관련 작업 유형)을 구현하는 메시지를 만들려면 활동 개체의 채널 데이터 속성을 LINE 메시지 유형 및 작업 유형을 지정하는 JSON 개체로 설정하세요. 
+
+| 자산 | 설명 |
+|----|----|
+| 형식 | LINE 작업/메시지 유형 이름 |
+
+다음과 같은 LINE 메시지 유형이 지원됩니다.
+* 스티커
+* 이미지맵 
+* 템플릿(단추, 확인, 회전식) 
+* Flex 
+
+이러한 LINE 작업은 메시지 유형 JSON 개체의 작업 필드에 지정할 수 있습니다. 
+* 포스트백 
+* Message 
+* URI 
+* Datetimerpicker 
+* Camera 
+* 카메라 앨범 
+* 위치 
+
+이러한 LINE 메서드 및 해당 매개 변수에 대한 자세한 내용은 [LINE Bot API 설명서](https://developers.line.biz/en/docs/messaging-api/)를 참조하세요. 
+
+이 코드 조각은 채널 메시지 유형 `ButtonTemplate` 및 camera, cameraRoll, Datetimepicker와 같은 3개의 작업 유형을 지정하는 `channelData` 속성의 예를 보여줍니다. 
+
+```json
+"channelData": { 
+    "type": "ButtonsTemplate", 
+    "altText": "This is a buttons template", 
+    "template": { 
+        "type": "buttons", 
+        "thumbnailImageUrl": "https://example.com/bot/images/image.jpg", 
+        "imageAspectRatio": "rectangle", 
+        "imageSize": "cover", 
+        "imageBackgroundColor": "#FFFFFF", 
+        "title": "Menu", 
+        "text": "Please select", 
+        "defaultAction": { 
+            "type": "uri", 
+            "label": "View detail", 
+            "uri": "http://example.com/page/123" 
+        }, 
+        "actions": [{ 
+                "type": "cameraRoll", 
+                "label": "Camera roll" 
+            }, 
+            { 
+                "type": "camera", 
+                "label": "Camera" 
+            }, 
+            { 
+                "type": "datetimepicker", 
+                "label": "Select date", 
+                "data": "storeId=12345", 
+                "mode": "datetime", 
+                "initial": "2017-12-25t00:00", 
+                "max": "2018-01-24t23:59", 
+                "min": "2017-12-25t00:00" 
+            } 
+        ] 
+    } 
 }
 ```
 

@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: bot-service
 ms.subservice: abs
 ms.date: 12/13/2017
-ms.openlocfilehash: e68db6c1fe9d3d136a8643652df034fb6df2858f
-ms.sourcegitcommit: 8b7bdbcbb01054f6aeb80d4a65b29177b30e1c20
+ms.openlocfilehash: fef82d27c6dd4fb61c9a0cf864e76a88128847d7
+ms.sourcegitcommit: 05ddade244874b7d6e2fc91745131b99cc58b0d6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51645603"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56591164"
 ---
 # <a name="manage-a-bot"></a>봇 관리
 
@@ -46,16 +46,20 @@ ms.locfileid: "51645603"
 
 ![App Service 설정](~/media/azure-manage-a-bot/app-service-settings.png)
 
-**응용 프로그램 설정** 블레이드에는 봇의 환경, ID, Application Insights 키, Microsoft 앱 ID 및 Microsoft 앱 암호와 같은 봇에 대한 자세한 정보가 포함되어 있습니다.
+**애플리케이션 설정** 블레이드에는 봇의 환경, 디버그 설정, botFilePath 및 botFileSecret와 같은 애플리케이션 설정 키 등 봇에 대한 자세한 정보가 포함되어 있습니다.
 
 ### <a name="microsoftappid-and-microsoftapppassword"></a>MicrosoftAppID 및 MicrosoftAppPassword
 
-**설정** 블레이드에서 봇의 **MicrosoftAppID**를 찾을 수 있습니다. 봇의 **MicrosoftAppPassword**는 먼저 봇을 만들 때에만 표시됩니다.
+**MicrosoftAppID** 및 **MicrosoftAppPassword**는 봇의 `.bot` 파일에 보관됩니다. 이를 가져오려면 봇 파일을 다운로드하고 암호를 해독하세요. ID 및 암호를 사용하여 로컬에서 테스트하는 데 필요할 수 있습니다.
 
-![Microsoft AppID 및 암호](~/media/azure-manage-a-bot/app-settings.png)
+### <a name="bot-file-path-and-secret"></a>봇 파일 경로 및 비밀
+
+**애플리케이션 설정** 블레이드에서 봇의 **botFilePath** 및 **botFileSecret**를 찾을 수 있습니다.
+
+![Microsoft 봇 파일 경로 및 비밀](~/media/azure-manage-a-bot/app-settings.png)
 
 > [!NOTE]
-> **봇 채널 등록** 봇 서비스에는 *MicrosoftAppID*가 제공되지만 이 유형의 서비스와 연결된 App Service가 없기 때문에 *MicrosoftAppPassword*를 조회할 수 있는 **응용 프로그램 설정** 블레이드가 없습니다. 암호를 가져오려면 암호를 생성해야 합니다. **봇 채널 등록**의 암호를 생성하려면 [봇 채널 등록 암호](bot-service-quickstart-registration.md#bot-channels-registration-password)를 참조하세요.
+> **봇 채널 등록** 봇 서비스에는 *MicrosoftAppID*가 제공되지만 이 유형의 서비스와 연결된 App Service가 없기 때문에 *MicrosoftAppPassword*를 조회할 수 있는 **애플리케이션 설정** 블레이드가 없습니다. 암호를 가져오려면 암호를 생성해야 합니다. **봇 채널 등록**의 암호를 생성하려면 [봇 채널 등록 암호](bot-service-quickstart-registration.md#bot-channels-registration-password)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 Azure Portal에서 Bot Service 블레이드를 살펴보았으므로, 이제 온라인 코드 편집기를 사용하여 봇을 사용자 지정하는 방법에 대해 알아봅니다.

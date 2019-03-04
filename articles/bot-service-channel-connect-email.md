@@ -8,13 +8,13 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
-ms.date: 10/10/2018
-ms.openlocfilehash: bd18edb87cdff502ed66177f92f88a8488135431
-ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
+ms.date: 02/08/2019
+ms.openlocfilehash: e77f6cddac07cdcc06d6d35cda98544f33dd1d43
+ms.sourcegitcommit: 05ddade244874b7d6e2fc91745131b99cc58b0d6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54225708"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56591184"
 ---
 # <a name="connect-a-bot-to-office-365-email"></a>Office 365 메일에 봇 연결
 
@@ -70,6 +70,10 @@ AAD를 대체하는 공급업체를 사용하는 페더레이션 인증은 지�
 ::: moniker range="azure-bot-service-4.0"
 `channelData` 사용 방법에 대한 자세한 내용은 [채널 관련 기능을 구현하는 방법](~/v4sdk/bot-builder-channeldata.md)을 참조하세요.
 ::: moniker-end
+
+## <a name="other-considerations"></a>기타 고려 사항
+
+봇이 수신 이메일 메시지에 대한 응답으로 200 OK HTTP 상태 코드를 15초 내에 반환하지 않을 경우 이메일 채널이 메시지 재전송을 시도하고, 봇이 동일한 이메일 메시지 활동을 몇 번 수신할 수 있습니다. 자세한 내용은 **봇 작동 방식** 및 [시간 초과 오류 문제 해결](https://github.com/daveta/analytics/blob/master/troubleshooting_timeout.md) 방법 문서의 [HTTP 세부 정보](v4sdk/bot-builder-basics.md#http-details) 섹션을 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 
