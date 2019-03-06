@@ -73,7 +73,7 @@ C# 스크립트 파일에는 `#r` 키워드를 사용하는 참조 모듈이 포
 - `Newtonsoft.Json`, `Microsoft.ServiceBus` 및 기타 자동으로 참조된 어셈블리
 - `System.Threading.Tasks` 및 기타 자동으로 가져온 네임스페이스
 
-추가 지침에 대해서는 <a target='_blank' href='https://blogs.msdn.microsoft.com/appserviceteam/2017/03/16/publishing-a-net-class-library-as-a-function-app/'>.NET 클래스 라이브러리를 함수 앱으로 게시</a>에서 *클래스 파일로 변환*을 참조하세요.
+추가 지침에 대해서는 <a target='_blank' href='https://blogs.msdn.microsoft.com/appserviceteam/2017/03/16/publishing-a-net-class-library-as-a-function-app/'>.NET 클래스 라이브러리를 Function App으로 게시</a>에서 *클래스 파일로 변환*을 참조하세요.
 
 ## <a name="debug-your-new-bot"></a>새 봇 디버그
 

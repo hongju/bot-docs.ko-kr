@@ -52,7 +52,7 @@ Language understanding 템플릿을 사용하여 봇을 만들 때 Bot Service�
 | 리소스 | 설명 |
 |----|----|
 | Azure Storage | 큐를 만드는 데 사용됩니다. |
-| Azure 함수 앱 | 큐에 메시지가 있을 때마다 트리거되는 `queueTrigger` Azure Function입니다. [Direct Line](https://docs.microsoft.com/bot-framework/rest-api/bot-framework-rest-direct-line-3-0-concepts)을 사용하여 Bot Service와 통신합니다. 이 함수는 봇 바인딩을 사용하여 트리거의 페이로드 일부로 메시지를 보냅니다. 이 예제 함수는 사용자의 메시지를 있는 그대로 큐로부터 전달합니다.
+| Azure Function App | 큐에 메시지가 있을 때마다 트리거되는 `queueTrigger` Azure Function입니다. [Direct Line](https://docs.microsoft.com/bot-framework/rest-api/bot-framework-rest-direct-line-3-0-concepts)을 사용하여 Bot Service와 통신합니다. 이 함수는 봇 바인딩을 사용하여 트리거의 페이로드 일부로 메시지를 보냅니다. 이 예제 함수는 사용자의 메시지를 있는 그대로 큐로부터 전달합니다.
 | Bot 서비스 | 내 봇. 사용자로부터 메시지를 수신하고, 메시지를 Azure 큐에 추가하며, Azure Function에서 트리거를 수신하고, 다시 트리거의 페이로드를 통해 수신한 메시지를 보내는 논리가 포함됩니다. |
 
 다음 다이어그램은 사전 템플릿을 통해 봇을 만들 때 트리거된 이벤트가 어떻게 작동하는지 보여 줍니다.
