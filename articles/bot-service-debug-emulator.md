@@ -7,13 +7,13 @@ ms.author: v-demak
 manager: kamrani
 ms.topic: article
 ms.service: bot-service
-ms.date: 11/13/2018
-ms.openlocfilehash: f3a6a57a5fd01061493e5c216875f0c4210483f6
-ms.sourcegitcommit: 8b7bdbcbb01054f6aeb80d4a65b29177b30e1c20
+ms.date: 2/26/2019
+ms.openlocfilehash: 2266dcb936205a20e1d19d97983a3b802fbe2736
+ms.sourcegitcommit: cf3786c6e092adec5409d852849927dc1428e8a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51645613"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57224871"
 ---
 # <a name="debug-with-the-emulator"></a>에뮬레이터를 사용하여 디버그
 
@@ -81,7 +81,9 @@ Windows를 사용하고 있고 방화벽 또는 다른 네트워크 경계 뒤�
 
 Bot Framework Emulator는 오픈 소스입니다. [버그 및 제안을 제출][EmulatorGithubBugs]하여 개발에 [기여][EmulatorGithubContribute]할 수 있습니다.
 
+문제를 해결하려면 [일반 문제 해결](bot-service-troubleshoot-bot-configuration.md) 및 해당 섹션의 다른 문제 해결 문서를 참조하세요.
 
+<!-- Footnote-style URLs -->
 
 [EmulatorGithubContribute]: https://github.com/Microsoft/BotFramework-Emulator/wiki/How-to-Contribute
 [EmulatorGithubBugs]: https://github.com/Microsoft/BotFramework-Emulator/wiki/Submitting-Bugs-%26-Suggestions

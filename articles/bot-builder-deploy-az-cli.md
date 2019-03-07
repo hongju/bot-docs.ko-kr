@@ -9,12 +9,12 @@ ms.topic: get-started-article
 ms.service: bot-service
 ms.subservice: abs
 ms.date: 02/13/2019
-ms.openlocfilehash: 53889703d58983a87a7a2d16622f1298d56c87db
-ms.sourcegitcommit: 05ddade244874b7d6e2fc91745131b99cc58b0d6
+ms.openlocfilehash: 2ee66ac335ab9e34d7a73996d44da939e74d5b87
+ms.sourcegitcommit: cf3786c6e092adec5409d852849927dc1428e8a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56591031"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57224921"
 ---
 # <a name="deploy-your-bot"></a>봇 배포
 
@@ -64,12 +64,11 @@ Azure Portal에서 다운로드한 소스 코드에는 암호화된 .bot 파일�
 1. 봇의 **애플리케이션 설정**을 엽니다.
 1. **애플리케이션 설정** 창에서 **애플리케이션 설정**까지 아래로 스크롤합니다.
 1. **botFileSecret**을 찾고 해당 값을 복사합니다.
+1. `msbot cli`을 사용하여 파일의 암호를 해독합니다.
 
-`msbot cli`을 사용하여 파일의 암호를 해독합니다.
-
-```cmd
-msbot secret --bot <name-of-bot-file> --secret "<bot-file-secret>" --clear
-```
+    ```cmd
+    msbot secret --bot <name-of-bot-file> --secret "<bot-file-secret>" --clear
+    ```
 
 ### <a name="update-your-local-bot-file"></a>로컬 .bot 파일 업데이트
 
@@ -128,18 +127,24 @@ msbot secret --bot <name-of-bot-file> --secret "<bot-file-secret>" --clear
 
 파일을 저장합니다.
 
+게시하기 전에 msbot 도구를 사용하여 새 비밀을 생성하고 .bot 파일을 암호화할 수 있습니다. .bot 파일을 다시 암호화하는 경우 Azure Portal에서 봇의 **botFileSecret**를 업데이트하여 새 비밀을 포함시킵니다.
+
+```cmd
+msbot secret --bot <name-of-bot-file> --new
+```
+
 ### <a name="setup-a-repository"></a>리포지토리 설정
 
-지속적인 배포를 지원하려면 즐겨찾는 Git 원본 제어 공급자를 사용하여 Git 리포지토리를 만듭니다. 코드를 리포지토리에 커밋합니다. 
+지속적인 배포를 지원하려면 즐겨찾는 Git 원본 제어 공급자를 사용하여 Git 리포지토리를 만듭니다. 코드를 리포지토리에 커밋합니다.
 
 [리포지토리 준비](https://docs.microsoft.com/azure/app-service/deploy-continuous-deployment#prepare-your-repository)에 설명된 대로 리포지토리 루트에 프로젝트의 올바른 파일에 있는지 확인합니다.
 
 ### <a name="update-app-settings-in-azure"></a>Azure에서 앱 설정 업데이트
-로컬 봇은 암호화된 .bot 파일을 사용하지 않지만 Azure Portal에는 배포 중인 항목이 있음 
+로컬 봇은 암호화된 .bot 파일을 사용하지 않지만 Azure Portal이 암호화된 .bot 파일을 사용하도록 구성됩니다. 이 문제는 Azure 봇 설정에 저장된 **botFileSecret**를 제거하여 해결할 수 있습니다.
 1. Azure Portal에서 봇용 **웹앱 봇** 리소스를 엽니다.
 1. 봇의 **애플리케이션 설정**을 엽니다.
 1. **애플리케이션 설정** 창에서 **애플리케이션 설정**까지 아래로 스크롤합니다.
-1. **botFileSecret**을 찾아 삭제합니다.
+1. **botFileSecret**을 찾아 삭제합니다. (.bot 파일을 다시 암호화한 경우 **botFileSecret**에 새 비밀이 포함되어 있는지 확인하고, 해당 설정은 **삭제하지 마세요**.)
 1. 리포지토리에 체크 인한 파일과 일치하도록 봇 파일의 이름을 업데이트합니다.
 1. 변경 내용을 저장합니다.
 

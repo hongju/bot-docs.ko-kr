@@ -1,5 +1,5 @@
 ---
-title: 봇에서 알림 받기 | Microsoft Docs
+title: 사용자에게 자동 관리 알림 보내기 | Microsoft Docs
 description: 알림 메시지를 보내는 방법 이해
 keywords: 자동 관리 메시지, 알림 메시지, 봇 알림
 author: jonathanfingold
@@ -10,14 +10,14 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 11/15/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 780fdb05acf2c81d72aaa6c415bdd9a6b0229082
-ms.sourcegitcommit: 8183bcb34cecbc17b356eadc425e9d3212547e27
+ms.openlocfilehash: 207dfaf71e8af7af3a36e496deb506ff9d0c13c8
+ms.sourcegitcommit: cf3786c6e092adec5409d852849927dc1428e8a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55971503"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57224891"
 ---
-# <a name="get-notification-from-bots"></a>봇에서 알림 받기
+# <a name="send-proactive-notifications-to-users"></a>사용자에게 자동 관리 알림 보내기
 
 [!INCLUDE [pre-release-label](~/includes/pre-release-label.md)]
 
@@ -64,6 +64,7 @@ _봇 상태_를 확장하여 고유한 봇 전체의 상태 관리 개체를 정
 
 `JobLog` 클래스는 작업 번호(타임스탬프)로 인덱싱된 작업 데이터를 추적합니다. `JobLog` 클래스는 처리 중인 모든 작업을 추적합니다.  고유 키로 각 작업을 식별합니다. `JobData`는 작업의 상태를 설명하고 사전의 내부 클래스로 정의됩니다.
 
+**JobLog.cs**
 ```csharp
 public class JobLog : Dictionary<long, JobLog.JobData>
 {
@@ -85,6 +86,7 @@ public class JobLog : Dictionary<long, JobLog.JobData>
 
 `JobState` 클래스는 대화 또는 사용자 상태와 관계 없이 작업 상태를 관리합니다.
 
+**JobState.cs**
 ```csharp
 using Microsoft.Bot.Builder;
 
@@ -111,6 +113,7 @@ public class JobState : BotState
 
 `ConfigureServices` 메서드는 오류 처리 및 상태 관리를 포함하여 봇 및 엔드포인트 서비스를 등록합니다. 또한 작업 상태 접근자를 등록합니다.
 
+**Startup.cs**
 ```csharp
 public void ConfigureServices(IServiceCollection services)
 {
@@ -135,9 +138,8 @@ public void ConfigureServices(IServiceCollection services)
 
 봇에는 메시지 간에 대화와 사용자 상태를 유지하는 상태 스토리지 시스템이 필요합니다. 이 경우 시스템은 메모리 내 스토리지 공급자를 사용하여 정의됩니다.
 
+**index.js**
 ```javascript
-// index.js
-
 const memoryStorage = new MemoryStorage();
 const botState = new BotState(memoryStorage, () => 'proactiveBot.botState');
 
@@ -179,6 +181,7 @@ server.post('/api/messages', (req, res) => {
 
 사용자와의 각 상호 작용은 `ProactiveBot` 클래스의 인스턴스를 만듭니다. 필요할 때마다 서비스를 만드는 프로세스를 임시 수명 서비스라고 합니다. 생성 비용이 많이 들거나 단일 턴을 초과하는 수명을 가진 개체는 신중하게 관리해야 합니다.
 
+**ProactiveBot.cs**
 ```csharp
 namespace Microsoft.BotBuilderSamples
 {
@@ -196,6 +199,7 @@ namespace Microsoft.BotBuilderSamples
 
 ### <a name="add-initialization-code"></a>초기화 코드 추가
 
+**ProactiveBot.cs**
 ```csharp
 private readonly JobState _jobState;
 private readonly IStatePropertyAccessor<JobLog> _jobLogPropertyAccessor;
@@ -214,6 +218,7 @@ public ProactiveBot(JobState jobState, EndpointService endpointService)
 
 어댑터에서 `Activity` 형식을 검사하고 적절한 메서드를 호출하는 턴 처리기로 작업을 전달합니다. 모든 봇에서 순서 처리기를 구현해야 합니다.
 
+**ProactiveBot.cs**
 ```csharp
 public async Task OnTurnAsync(ITurnContext turnContext, CancellationToken cancellationToken = default(CancellationToken))
 {
@@ -305,6 +310,7 @@ private static async Task SendWelcomeMessageAsync(ITurnContext turnContext)
 
 작업이 완료된 이벤트에서 작업을 완료로 표시하고 사용자에게 알립니다.
 
+**ProactiveBot.cs**
 ```csharp
 private async Task OnSystemActivityAsync(ITurnContext turnContext)
 {
@@ -339,6 +345,7 @@ private async Task OnSystemActivityAsync(ITurnContext turnContext)
 - 대화 계속 호출은 사용자와는 관계없이 순서를 시작하라는 메시지를 채널에 표시합니다.
 - 어댑터는 순서 처리기에서 봇의 정상적인 처리 대신 연결된 콜백을 실행합니다. 이 순서에는 상태 정보를 검색하고 사용자에게 자동 관리 메시지를 보내는 자체의 순서 컨텍스트가 있습니다.
 
+**ProactiveBot.cs**
 ```csharp
 // Creates and "starts" a new job.
 private JobLog.JobData CreateJob(ITurnContext turnContext, JobLog jobLog)
@@ -357,6 +364,7 @@ private JobLog.JobData CreateJob(ITurnContext turnContext, JobLog jobLog)
 
 ### <a name="sends-a-proactive-message-to-the-user"></a>사용자에게 자동 관리 메시지 보내기
 
+**ProactiveBot.cs**
 ```csharp
 private async Task CompleteJobAsync(
     BotAdapter adapter,
@@ -370,6 +378,7 @@ private async Task CompleteJobAsync(
 
 ### <a name="creates-the-turn-logic-to-use-for-the-proactive-message"></a>자동 관리 메시지에 사용할 턴 논리 만들기
 
+**ProactiveBot.cs**
 ```csharp
 private BotCallbackHandler CreateCallback(JobLog.JobData jobInfo)
 {
@@ -436,6 +445,7 @@ module.exports.ProactiveBot = ProactiveBot;
 
 `onTurn` 및 `showJobs` 메서드는 `ProactiveBot` 클래스 내에 정의됩니다. `onTurn`은 사용자의 입력을 처리합니다. 또한 가상 작업 처리 시스템에서 이벤트 활동도 받습니다. `showJobs`는 작업 로그를 형식 지정하고 보냅니다.
 
+**bot.js**
 ```javascript
 /**
     *
@@ -498,6 +508,7 @@ async showJobs(turnContext) {
 
 `createJob` 메서드는 `ProactiveBot` 클래스 내에 정의됩니다. 사용자에 대한 새 작업을 만들고 기록합니다. 이론적으로 이 정보는 작업 처리 시스템에도 전달합니다.
 
+**bot.js**
 ```javascript
 // Save job ID and conversation reference.
 async createJob(turnContext) {
@@ -541,6 +552,7 @@ async createJob(turnContext) {
 
 `completeJob` 메서드는 `ProactiveBot` 클래스 내에 정의됩니다. 일부 기록을 수행하고, 원래 대화 중이었던 사용자에게 해당 작업이 완료되었다는 자동 관리 메시지를 보냅니다.
 
+**bot.js**
 ```javascript
 async completeJob(turnContext, jobIdNumber) {
     // Get the list of jobs from the bot's state property accessor.

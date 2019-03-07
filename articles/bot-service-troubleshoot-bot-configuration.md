@@ -8,13 +8,13 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
-ms.date: 12/20/2018
-ms.openlocfilehash: 8a3ff4a30e3041937ba831efc237343c9aa27e62
-ms.sourcegitcommit: 8161753641368567f239e24a35ad61768acccd8e
+ms.date: 2/26/2019
+ms.openlocfilehash: 53cb392dea5ee0e355451e7455a16512f22ebbaa
+ms.sourcegitcommit: cf3786c6e092adec5409d852849927dc1428e8a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54202549"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57224851"
 ---
 # <a name="troubleshoot-bot-configuration-issues"></a>봇 구성 문제 해결
 
@@ -87,3 +87,7 @@ ms.locfileid: "54202549"
 간혹 일부 채널의 서비스가 중단되는 경우가 있을 수 있습니다. 일반적으로 이러한 중단은 오래 지속되지 않습니다. 그러나 중단이 의심될 경우 채널 웹 사이트 또는 소셜 미디어를 참조하세요.
 
 채널이 중단되었는지 확인하는 또 다른 방법은 테스트 봇(예: 간단한 Echo Bot)을 만들고 채널을 추가하는 것입니다. 테스트 봇이 일부 채널에서 작동하지만 다른 채널에서는 작동하지 않을 경우 프로덕션 봇의 문제가 아닐 수 있습니다.
+
+## <a name="additional-resources"></a>추가 리소스
+
+[봇을 디버그하는 방법](bot-service-debug-bot.md) 및 해당 섹션의 다른 디버깅 문서를 참조하세요.

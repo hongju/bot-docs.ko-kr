@@ -6,13 +6,13 @@ ms.author: v-demak
 manager: kamrani
 ms.topic: article
 ms.service: bot-service
-ms.date: 09/26/2018
-ms.openlocfilehash: 34a23910c76a22fe39d1ce5457bb74dd285ca939
-ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
+ms.date: 02/26/2019
+ms.openlocfilehash: 48a0a42d193b0e561a484330222217c18a611e8d
+ms.sourcegitcommit: cf3786c6e092adec5409d852849927dc1428e8a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54225524"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57224951"
 ---
 # <a name="troubleshooting-general-problems"></a>일반 문제 해결
 이 질문과 대답은 일반 봇 개발 또는 운영 문제를 해결할 수 있습니다.
@@ -20,11 +20,12 @@ ms.locfileid: "54225524"
 ## <a name="how-can-i-troubleshoot-issues-with-my-bot"></a>봇과 관련된 문제는 어떻게 해결할 수 있나요?
 
 1. [Visual Studio Code](debug-bots-locally-vscode.md) 또는 [Visual Studio](https://docs.microsoft.com/en-us/visualstudio/debugger/navigating-through-code-with-the-debugger?view=vs-2017)를 사용하여 봇 소스 코드를 디버그합니다.
-2. 클라우드에 배포하기 전에 [에뮬레이터](bot-service-debug-emulator.md)를 사용하여 테스트합니다.
-3. Azure와 같은 플랫폼을 호스팅하는 클라우드에 봇을 배포한 다음, <a href="https://dev.botframework.com" target="_blank">Bot Framework Portal</a>의 봇 대시보드에서 기본 제공 웹 챗 제어를 사용하여 봇 연결을 테스트합니다. Azure에 봇을 배포한 후 문제가 발생하면 블로그 문서 [Azure 문제 해결 및 지원 이해](https://azure.microsoft.com/en-us/blog/understanding-azure-troubleshooting-and-support/)를 사용하는 것이 좋을 수 있습니다.
-4. [인증][TroubleshootingAuth]은 가능한 문제에서 배제합니다.
-5. Skype에서 봇을 테스트합니다. 이렇게 하면 통합형 사용자 환경의 유효성을 검사하는 데 도움이 됩니다.
-6. Direct Line 또는 Web Chat 같은 추가 인증 요구 사항이 있는 채널에서 봇을 테스트하는 것이 좋습니다.
+1. 클라우드에 배포하기 전에 [에뮬레이터](bot-service-debug-emulator.md)를 사용하여 테스트합니다.
+1. Azure와 같은 플랫폼을 호스팅하는 클라우드에 봇을 배포한 다음, <a href="https://dev.botframework.com" target="_blank">Bot Framework Portal</a>의 봇 대시보드에서 기본 제공 웹 챗 제어를 사용하여 봇 연결을 테스트합니다. Azure에 봇을 배포한 후 문제가 발생하면 블로그 문서 [Azure 문제 해결 및 지원 이해](https://azure.microsoft.com/en-us/blog/understanding-azure-troubleshooting-and-support/)를 사용하는 것이 좋을 수 있습니다.
+1. [인증][TroubleshootingAuth]은 가능한 문제에서 배제합니다.
+1. Skype에서 봇을 테스트합니다. 이렇게 하면 통합형 사용자 환경의 유효성을 검사하는 데 도움이 됩니다.
+1. Direct Line 또는 Web Chat 같은 추가 인증 요구 사항이 있는 채널에서 봇을 테스트하는 것이 좋습니다.
+1. [봇을 디버그하는 방법](bot-service-debug-bot.md) 및 해당 섹션의 다른 디버깅 문서를 검토하세요.
 
 ## <a name="how-can-i-troubleshoot-authentication-issues"></a>인증 문제는 어떻게 해결하나요?
 

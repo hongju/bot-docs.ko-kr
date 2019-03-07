@@ -8,14 +8,14 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: cognitive-services
-ms.date: 01/15/2019
+ms.date: 02/27/2019
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 5a5aec71092503dad83827225f7c0adaf22c4d17
-ms.sourcegitcommit: 05ddade244874b7d6e2fc91745131b99cc58b0d6
+ms.openlocfilehash: 494af4cc7936c8b191280d3f3f6cd73e7bc7d364
+ms.sourcegitcommit: cf3786c6e092adec5409d852849927dc1428e8a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56590978"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57224901"
 ---
 # <a name="use-qna-maker-to-answer-questions"></a>QnA Maker를 사용하여 질문에 답변
 
@@ -78,75 +78,65 @@ QnA Maker 서비스를 사용하여 봇에 질문 및 답변 지원 기능을 �
 ```
 
 # <a name="ctabcs"></a>[C#](#tab/cs)
-다음으로, .bot 파일에서 위의 정보를 가져오는 **BotServices.cs**에 있는 BotService 클래스의 새 인스턴스를 초기화합니다. 외부 서비스는 BotConfiguration 클래스를 사용하여 구성됩니다.
+
+프로젝트에 **Microsoft.Bot.Builder.AI.QnA** NuGet 패키지가 설치되어 있는지 확인합니다.
+
+다음으로, .bot 파일에서 위의 정보를 가져오는 **BotServices.cs**의 `BotServices` 클래스에 대한 새 인스턴스를 초기화합니다. 외부 서비스는 BotConfiguration 클래스를 사용하여 구성됩니다.
 
 ```csharp
-private static BotServices InitBotServices(BotConfiguration config)
+using Microsoft.Bot.Builder.AI.QnA;
+using Microsoft.Bot.Configuration;
+```
+
+```csharp
+public BotServices(BotConfiguration botConfiguration)
 {
-    var qnaServices = new Dictionary<string, QnAMaker>();
-    foreach (var service in config.Services)
+    foreach (var service in botConfiguration.Services)
     {
         switch (service.Type)
         {
             case ServiceTypes.QnA:
-            {
-                // Create a QnA Maker that is initialized and suitable for passing
-                // into the IBot-derived class (QnABot).
-                var qna = (QnAMakerService)service;
-                if (qna == null)
                 {
-                    throw new InvalidOperationException("The QnA service is not configured correctly in your '.bot' file.");
+                    // Create a QnA Maker that is initialized and suitable for passing
+                    // into the IBot-derived class (QnABot).
+                    var qna = service as QnAMakerService;
+
+                    // ...
+
+                    var qnaEndpoint = new QnAMakerEndpoint()
+                    {
+                        KnowledgeBaseId = qna.KbId,
+                        EndpointKey = qna.EndpointKey,
+                        Host = qna.Hostname,
+                    };
+
+                    var qnaMaker = new QnAMaker(qnaEndpoint);
+                    QnAServices.Add(qna.Name, qnaMaker);
+                    break;
                 }
-
-                if (string.IsNullOrWhiteSpace(qna.kbId))
-                {
-                    throw new InvalidOperationException("The QnA KnowledgeBaseId ('kbId') is required to run this sample. Please update your '.bot' file.");
-                }
-
-                if (string.IsNullOrWhiteSpace(qna.EndpointKey))
-                {
-                    throw new InvalidOperationException("The QnA EndpointKey ('endpointKey') is required to run this sample. Please update your '.bot' file.");
-                }
-
-                if (string.IsNullOrWhiteSpace(qna.Hostname))
-                {
-                    throw new InvalidOperationException("The QnA Host ('hostname') is required to run this sample. Please update your '.bot' file.");
-                }
-
-                var qnaEndpoint = new QnAMakerEndpoint()
-                {
-                    KnowledgeBaseId = qna.kbId,
-                    EndpointKey = qna.EndpointKey,
-                    Host = qna.Hostname,
-                };
-
-                var qnaMaker = new QnAMaker(qnaEndpoint);
-                qnaServices.Add(qna.Name, qnaMaker);
-                break;
-            }
         }
     }
-    var connectedServices = new BotServices(qnaServices);
-    return connectedServices;
 }
 ```
 
-그런 다음, **QnABot.cs**에서 이 QnAMaker 인스턴스를 봇에 제공합니다. 자체 기술 자료에 액세스하는 경우 아래에 표시된 _welcome_ 메시지를 변경하여 사용자에게 유용한 초기 지침을 제공하세요. 또한 이 클래스는 정적 변수 _QnAMakerKey_가 정의된 곳이기도 합니다. 이는 QnA Mkaer 기술 자료에 액세스하는 데 필요한 연결 정보를 포함하는 .bot 파일 내의 섹션을 가리킵니다.
+그런 다음, **QnABot.cs**에서 이 QnAMaker 인스턴스를 봇에 제공합니다. 자체 기술 자료에 액세스하는 경우 아래에 표시된 _welcome_ 메시지를 변경하여 사용자에게 유용한 초기 지침을 제공하세요. 또한 이 클래스는 `QnAMakerKey` 정적 변수가 정의되는 곳이기도 합니다. 이 변수는 QnA Maker 기술 자료에 액세스하기 위한 연결 정보가 포함된 .bot 파일 내의 섹션을 가리킵니다.
 
 ```csharp
 public class QnABot : IBot
 {
     public static readonly string QnAMakerKey = "QnABot";
+
     private const string WelcomeText = @"This bot will introduce you to QnA Maker.
                                          Ask a question to get started.";
     private readonly BotServices _services;
+
     public QnABot(BotServices services)
     {
         _services = services ?? throw new System.ArgumentNullException(nameof(services));
-        Console.WriteLine($"{_services}");
         if (!_services.QnAServices.ContainsKey(QnAMakerKey))
         {
-            throw new System.ArgumentException($"Invalid configuration. Please check your '.bot' file for a QnA service named '{QnAMakerKey}'.");
+            throw new System.ArgumentException(
+                $"Invalid configuration. Please check your '.bot' file for a QnA service named '{QnAMakerKey}'.");
         }
     }
 }
@@ -161,8 +151,8 @@ public class QnABot : IBot
 .bot 파일의 `QNA_CONFIGURATION` 값을 "이름": 값으로 업데이트합니다. 이는 QnA Maker 기술 자료에 액세스하는 데 필요한 연결 매개 변수를 포함하는 .bot 파일 "type": "qna" 섹션의 키입니다.
 
 ```js
-// Name of the QnA Maker service in the .bot file. 
-const QNA_CONFIGURATION = '<BOT_FILE_NAME>';
+// Name of the QnA Maker service stored in "name" field of .bot file. 
+const QNA_CONFIGURATION = '<SERVICE_NAME_FROM_.BOT_FILE>';
 
 // Get endpoint and QnA Maker configurations by service name.
 const endpointConfig = botConfig.findServiceByNameOrId(BOT_CONFIGURATION);
@@ -233,7 +223,10 @@ else
 
 # <a name="javascripttabjs"></a>[JavaScript](#tab/js)
 
-**bot.js** 파일에서 QnA Maker 서비스의 `getAnswers` 메서드에 사용자 입력을 전달하여 기술 자료에서 응답을 가져옵니다. 자체 기술 자료에 액세스하는 경우 아래의 _no answers_ 및 _welcome_ 메시지를 변경하여 사용자에게 유용한 지침을 제공하세요.
+<!-- 4.2 uses `generateAnswer`, whereas 4.3 will use `getAnswers`. Change here and in the code when 4.3 goes live.
+In the **bot.js** file, we pass the user's input to the QnA Maker service's `getAnswers` method to get answers from the knowledge base. If you are accessing your own knowledge base, change the _no answers_ and _welcome_ messages below to provide useful instructions for your users.
+ -->
+**bot.js** 파일에서 QnA Maker 서비스의 `generateAnswer` 메서드에 사용자 입력을 전달하여 기술 자료에서 응답을 가져옵니다. 자체 기술 자료에 액세스하는 경우 아래의 _no answers_ 및 _welcome_ 메시지를 변경하여 사용자에게 유용한 지침을 제공하세요.
 
 ```javascript
 const { ActivityTypes, TurnContext } = require('botbuilder');
@@ -261,7 +254,7 @@ class QnAMakerBot {
         // By checking the incoming Activity type, the bot only calls QnA Maker in appropriate cases.
         if (turnContext.activity.type === ActivityTypes.Message) {
             // Perform a call to the QnA Maker service to retrieve matching Question and Answer pairs.
-            const qnaResults = await this.qnaMaker.getAnswers(turnContext);
+            const qnaResults = await this.qnaMaker.generateAnswer(turnContext);
 
             // If an answer was received from QnA Maker, send the answer back to the user.
             if (qnaResults[0]) {

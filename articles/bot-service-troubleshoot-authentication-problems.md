@@ -6,13 +6,13 @@ ms.author: v-demak
 manager: kamrani
 ms.topic: article
 ms.service: bot-service
-ms.date: 12/13/17
-ms.openlocfilehash: 2335ac34292e224f44a09820574f3bd9de00eda4
-ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
+ms.date: 02/26/2019
+ms.openlocfilehash: 780dcf4d9db48f9ef7f5a92180dc13c41cc63305
+ms.sourcegitcommit: cf3786c6e092adec5409d852849927dc1428e8a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54224658"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57224941"
 ---
 # <a name="troubleshooting-bot-framework-authentication"></a>Bot Framework 인증 문제 해결
 
@@ -227,6 +227,7 @@ Azure에 봇을 배포하면 애플리케이션에 대한 SSL이 자동으로 �
 
 위의 단계를 완료한 후에도 문제가 계속 발생하는 경우, 다음을 수행할 수 있습니다.
 
+* [봇을 디버그하는 방법](bot-service-debug-bot.md) 및 해당 섹션의 다른 디버깅 문서를 검토합니다.
 * Bot Framework Emulator 및 <a href="https://ngrok.com/" target="_blank">ngrok</a>를 사용하여 [클라우드에서 봇을 디버그](~/bot-service-debug-emulator.md)합니다.
 * [Fiddler](https://www.telerik.com/fiddler) 같은 프록시 도구를 사용하여 봇에서 보내고 받는 HTTPS 트래픽을 검사합니다. *Fiddler는 Microsoft 제품이 아닙니다.*
 * Bot Framework가 사용하는 인증 기술을 알아보려면 [Bot Connector 인증 가이드][BotConnectorAuthGuide]를 검토하세요.

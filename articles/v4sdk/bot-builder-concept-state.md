@@ -8,14 +8,14 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
-ms.date: 11/15/2018
+ms.date: 02/25/2019
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: dfbc9f4ed0f08c7349d758147460b8268c49e372
-ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
+ms.openlocfilehash: 06982f1790bd573e7300cee249042e6e3d60e912
+ms.sourcegitcommit: cf3786c6e092adec5409d852849927dc1428e8a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54225868"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57224911"
 ---
 # <a name="managing-state"></a>상태 관리
 
@@ -118,7 +118,8 @@ Bot Framework SDK에는 스토리지 계층에 대한 몇 가지 구현이 포�
 - 접근자의 *get* 메서드:
   - 접근자가 상태 캐시에서 속성을 요청합니다.
   - 속성이 캐시에 있으면 이를 반환합니다. 그렇지 않으면 상태 관리 개체에서 가져옵니다.
-    (아직 상태에 없으면 접근자의 *get* 호출에 제공된 팩터리 메서드를 사용합니다.) - 접근자의 *set* 메서드:
+    (상태에 아직 없는 경우 접근자의 *get* 호출에 제공된 팩터리 메서드를 사용합니다.)
+- 접근자의 *set* 메서드:
   - 상태 캐시를 새 속성 값으로 업데이트합니다.
 - 상태 관리 개체의 *변경 내용 저장* 메서드:
   - 상태 캐시에서 속성에 대한 변경 내용을 확인합니다.

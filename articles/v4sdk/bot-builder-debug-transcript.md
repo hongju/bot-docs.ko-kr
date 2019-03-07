@@ -8,14 +8,14 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservices: sdk
-ms.date: 10/18/2018
+ms.date: 2/26/2019
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 2c493a27d7829e7c7be21b6ce70cb6f046dad616
-ms.sourcegitcommit: 6c719b51c9e4e84f5642100a33fe346b21360e8a
+ms.openlocfilehash: 997ad82e15a0fcd67d47b2fd6495c8e88a5ea127
+ms.sourcegitcommit: cf3786c6e092adec5409d852849927dc1428e8a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52452095"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57224821"
 ---
 # <a name="debug-your-bot-using-transcript-files"></a>기록 파일을 사용하여 봇 디버그
 [!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
@@ -65,9 +65,10 @@ Bot Framework Emulator를 사용하여 봇 기록 파일을 검색하려면 아�
 Bot Framework Emulator와 함께 기록 파일을 사용하는 것은 봇의 코드 및 사용자 상호 작용을 테스트하고 디버그하는 데 사용할 수 있는 여러 도구 중 하나일 뿐입니다. 봇을 테스트 및 디버그하는 방법을 더 보려면 아래에 나열된 추가 리소스를 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
+
 테스트 및 디버깅에 대한 추가 정보는 다음 항목을 참조하세요.
+
 * [봇 테스트 및 디버깅 지침](./bot-builder-testing-debugging.md)
 * [Bot Framework Emulator를 사용하여 디버그](../bot-service-debug-emulator.md)
+* [일반 문제 해결](../bot-service-troubleshoot-bot-configuration.md) 및 해당 섹션의 다른 문제 해결 문서
 * [Visual Studio의 디버깅](https://docs.microsoft.com/en-us/visualstudio/debugger/index)
-
-
