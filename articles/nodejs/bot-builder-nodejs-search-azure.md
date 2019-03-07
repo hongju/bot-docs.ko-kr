@@ -9,12 +9,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: ac4597e93f8cdaa4c9b015a4136ab09e9b7adc95
-ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
+ms.openlocfilehash: 259f709ae460fde13cdf25ce6d7cbf5dd44a333d
+ms.sourcegitcommit: cf3786c6e092adec5409d852849927dc1428e8a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54224718"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57224861"
 ---
 # <a name="create-data-driven-experiences-with-azure-search"></a>Azure Search를 사용하여 데이터 기반 환경 만들기 
 
@@ -151,7 +151,7 @@ function searchHitAsCard(showSave, searchHit) {
 
 ## <a name="sample-code"></a>샘플 코드
 
-Node.js용 Bot Framework SDK를 사용하여 봇과 함께 Azure Search를 지원하는 방법을 보여주는 두 개의 완전한 샘플은 GitHub의 [부동산 봇 샘플](https://github.com/Microsoft/BotBuilder-Samples/tree/master/Node/demo-Search/RealEstateBot) 또는 [작업 목록 봇 샘플](https://github.com/Microsoft/BotBuilder-Samples/tree/master/Node/demo-Search/JobListingBot)을 참조하세요. 
+Node.js용 Bot Framework SDK를 사용하여 봇과 함께 Azure Search를 지원하는 방법을 보여주는 두 개의 완전한 샘플은 GitHub의 [부동산 봇 샘플](https://github.com/Microsoft/BotBuilder-Samples/tree/v3-sdk-samples/Node/demo-Search/RealEstateBot) 또는 [작업 목록 봇 샘플](https://github.com/Microsoft/BotBuilder-Samples/tree/v3-sdk-samples/Node/demo-Search/JobListingBot)을 참조하세요. 
 
 ## <a name="additional-resources"></a>추가 리소스
 
