@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: bot-service
 ms.subservice: abs
 ms.date: 12/13/2017
-ms.openlocfilehash: 38b26ed5a50409de64518562faabf532f45c857e
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: 65de0e4e4be129c9fa467cd8610cf0f0b13e5965
+ms.sourcegitcommit: b2245df2f0a18c5a66a836ab24a573fd70c7d272
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49999150"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57568180"
 ---
 # <a name="publish-a-bot-to-bot-service"></a>Bot Service에 봇 게시
 
@@ -34,6 +34,7 @@ C# 봇 소스 코드를 업데이트한 후 Visual Studio를 사용하여 게시
 Visual Studio에서 `.PublishSettings` 파일을 사용하여 게시를 설정하려면 다음 단계를 수행합니다.
 
 1. Azure Portal에서 Bot 서비스를 클릭하고, **BUILD** 탭을 클릭한 다음, **zip 파일 다운로드**를 클릭합니다.
+    1. [!INCLUDE [download keys snippet](~/includes/snippet-abs-key-download.md)]
 3. 다운로드한 zip 파일 콘텐츠의 압축을 로컬 폴더에 풉니다.
 4. 탐색기에서 봇에 대한 Visual Studio Solution(.sln) 파일을 찾아 두 번 클릭합니다.
 4. Visual Studio에서 **보기**를 클릭하고 **솔루션 탐색기**를 클릭합니다.
@@ -66,6 +67,7 @@ Visual Studio에서 `.PublishSettings` 파일을 사용하여 게시를 설정�
 Visual Studio Online 또는 Github *이외의* 소스 제어 서비스를 사용하려면 이 단계를 따릅니다. Visual Studio Online 및 Github가 Azure에서 봇에 대한 소스 코드를 가져오므로 이 두 서비스 사용자는 이 단계를 건너뛸 수 있습니다.
 
 3. App Service 계획의 봇의 경우 Azure에서 봇 페이지를 찾고 **BUILD** 탭을 클릭한 다음, **소스 코드 다운로드** 섹션을 찾아 **zip 파일 다운로드**를 클릭합니다.
+    1. [!INCLUDE [download keys snippet](~/includes/snippet-abs-key-download.md)]
 1. Azure에서 지원하는 소스 제어 시스템 중 하나에서 빈 리포지토리를 만듭니다.
 
     ![소스 제어 시스템](~/media/continuous-integration-sourcecontrolsystem.png)

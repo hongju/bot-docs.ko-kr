@@ -9,12 +9,12 @@ ms.topic: get-started-article
 ms.service: bot-service
 ms.subservice: abs
 ms.date: 02/13/2019
-ms.openlocfilehash: 2ee66ac335ab9e34d7a73996d44da939e74d5b87
-ms.sourcegitcommit: cf3786c6e092adec5409d852849927dc1428e8a2
+ms.openlocfilehash: 9cd2ed67110aa1611c41c33c31874f103e24b14d
+ms.sourcegitcommit: b2245df2f0a18c5a66a836ab24a573fd70c7d272
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57224921"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57568200"
 ---
 # <a name="deploy-your-bot"></a>봇 배포
 
@@ -55,6 +55,7 @@ ms.locfileid: "57224921"
 1. **봇 관리** 섹션에서 **빌드**를 클릭합니다.
 1. 오른쪽 창에서 **Bot 소스 코드 다운로드** 링크를 클릭합니다.
 1. 표시되는 메시지에 따라 코드를 다운로드한 다음, 폴더의 압축을 풉니다.
+    1. [!INCLUDE [download keys snippet](~/includes/snippet-abs-key-download.md)]
 
 ### <a name="decrypt-the-bot-file"></a>.bot 파일 암호 해독
 
@@ -201,6 +202,8 @@ If you are using an [MSA](https://en.wikipedia.org/wiki/Microsoft_account) email
 
 Next, download the bot you just created. 
 [!INCLUDE [download bot snippet](~/includes/deploy/snippet-download-bot.md)]
+
+[!INCLUDE [download keys snippet](~/includes/snippet-abs-key-download.md)]
 
 ### Decrypt the downloaded .bot file and use in your project
 

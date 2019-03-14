@@ -10,12 +10,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 1/9/2019
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: dbde6eba946e27aaa6b883f1e9205adc63cb22f8
-ms.sourcegitcommit: bdb981c0b11ee99d128e30ae0462705b2dae8572
+ms.openlocfilehash: 7927ab97dc88657a198c8f1d8e56bcb1ddf0fabe
+ms.sourcegitcommit: b2245df2f0a18c5a66a836ab24a573fd70c7d272
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54360953"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57568240"
 ---
 # <a name="tutorial-create-and-deploy-a-basic-bot"></a>자습서: 기본 봇 만들기 및 배포
 
@@ -80,6 +80,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 그런 다음, 방금 만든 봇을 다운로드합니다. 
 [!INCLUDE [download bot snippet](~/includes/deploy/snippet-download-bot.md)]
+
+[!INCLUDE [download keys snippet](~/includes/snippet-abs-key-download.md)]
 
 ### <a name="decrypt-the-downloaded-bot-file-and-use-in-your-project"></a>다운로드한 .bot 파일을 암호 해독하여 프로젝트에 사용
 
