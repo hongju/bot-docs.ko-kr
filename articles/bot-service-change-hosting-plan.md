@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: bot-service
 ms.subservice: abs
 ms.date: 12/13/2017
-ms.openlocfilehash: aafbfb2a38e2d5370cb2db5721dd7bc130497d74
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: e463b272385b97e630d4087908aa82e23a70fea9
+ms.sourcegitcommit: b2245df2f0a18c5a66a836ab24a573fd70c7d272
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49999220"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57568190"
 ---
 # <a name="change-the-hosting-plan-for-your-bot-service"></a>Bot Service에 대한 호스팅 계획 변경
 
@@ -33,6 +33,7 @@ App Service 계획의 봇은 Azure 웹앱으로 실행됩니다. 웹앱 봇은 �
 
 1. Azure 봇 내에서 **설정** 탭을 클릭하고 **연속 배포** 섹션을 확장합니다.  
 2. 파란색 단추를 클릭하여 봇의 소스 코드를 포함하는 zip 파일을 다운로드합니다.  
+    1. [!INCLUDE [download keys snippet](~/includes/snippet-abs-key-download.md)]
     ![봇 zip 파일 다운로드](~/media/continuous-deployment-consumption-download.png)
 3. 다운로드한 zip 파일 콘텐츠의 압축을 로컬 폴더에 풉니다. 
 
