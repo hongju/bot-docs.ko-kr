@@ -10,12 +10,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 11/13/18
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 268ac62c68d2157a50d3b20cddf7e8f54cccaefe
-ms.sourcegitcommit: 05ddade244874b7d6e2fc91745131b99cc58b0d6
+ms.openlocfilehash: a7d881e5e7748da11ea46721c23c5489597cdc94
+ms.sourcegitcommit: 4139ef7ebd8bb0648b8af2406f348b147817d4c7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56591204"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58073829"
 ---
 # <a name="write-directly-to-storage"></a>저장소에 직접 작성
 
@@ -157,18 +157,6 @@ public async Task OnTurnAsync(ITurnContext turnContext, CancellationToken cancel
 ```javascript
 const { BotFrameworkAdapter, ConversationState, MemoryStorage } = require('botbuilder');
 const restify = require('restify');
-
-// Create server.
-// let server = restify.createServer();
-// server.listen(process.env.port || process.env.PORT || 3978, function () {
-//    console.log(`${server.name} listening to ${server.url}`);
-// });
-
-// Create adapter.
-// const adapter = new BotFrameworkAdapter({
-//    appId: process.env.MICROSOFT_APP_ID,
-//    appPassword: process.env.MICROSOFT_APP_PASSWORD
-//  });
 
 // Add memory storage.
 var storage = new MemoryStorage();

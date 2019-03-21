@@ -8,14 +8,14 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
-ms.date: 11/23/2018
+ms.date: 03/11/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: fdf0b16cc89b322ffa9d36b5516b09b0338ce9dc
-ms.sourcegitcommit: b94361234816e6b95459f142add936732fc40344
+ms.openlocfilehash: db7957c611df4a3010469f86f51184b52d49addb
+ms.sourcegitcommit: 4139ef7ebd8bb0648b8af2406f348b147817d4c7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54317573"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58073859"
 ---
 # <a name="manage-resources-with-a-bot-file"></a>.bot 파일을 사용하여 리소스 관리
 
@@ -29,7 +29,7 @@ ms.locfileid: "54317573"
 * [**Azure Bot Service**](https://azure.microsoft.com/en-us/services/bot-service/) Azure Bot Service 등록
 * [**LUIS.AI**](https://www.luis.ai/) LUIS는 봇이 자연어를 사용하여 사용자와 통신할 수 있는 기능을 제공합니다... 
 * [**QnA Maker**](https://qnamaker.ai/) 몇 분 안에 FAQ URL, 구조화된 문서 또는 편집 콘텐츠에 따라 간단한 질문 및 대답 봇을 빌드하고, 학습하고, 게시합니다.
-* [**디스패치**](https://github.com/Microsoft/botbuilder-tools/tree/master/Dispatch) 여러 서비스에서 디스패치하기 위한 모델입니다.
+* [**디스패치**](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/Dispatch) 여러 서비스에서 디스패치하기 위한 모델입니다.
 * [**Azure Application Insights**](https://azure.microsoft.com/en-us/services/application-insights/) 인사이트 및 봇 분석을 위한 기능입니다.
 * [**Azure Blob Storage**](https://azure.microsoft.com/en-us/services/storage/blobs/) 봇 상태 지속성을 위한 기능입니다. 
 * [**Azure Cosmos DB**](https://azure.microsoft.com/en-us/services/cosmos-db/) 봇 상태를 유지하기 위해 전역적으로 배포된 다중 모델 데이터베이스 서비스입니다.

@@ -7,14 +7,14 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
-ms.date: 12/13/2017
+ms.date: 03/01/2019
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 54ab447fac81ba17f1fa277347cf7a5aaaab8850
-ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
+ms.openlocfilehash: 0e8873d2914d42b928004c31c14c8d60cb35b2a3
+ms.sourcegitcommit: 4139ef7ebd8bb0648b8af2406f348b147817d4c7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54223778"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58073769"
 ---
 # <a name="intercept-messages"></a>메시지 가로채기
 
@@ -62,9 +62,9 @@ public class DebugActivityLogger : IActivityLogger
 
 ## <a name="sample-code"></a>샘플 코드 
 
-.NET용 Bot Framework SDK를 사용하여 메시지를 가로채는 방법을 보여주는 전체 샘플은 GitHub의 <a href="https://github.com/Microsoft/BotBuilder-Samples/tree/master/CSharp/core-Middleware" target="_blank">미들웨어 샘플</a>을 참조하세요. 
+.NET용 Bot Framework SDK를 사용하여 메시지를 가로채는 방법을 보여주는 전체 샘플은 GitHub의 <a href="https://github.com/Microsoft/BotBuilder-Samples/tree/v3-sdk-samples/CSharp/core-Middleware" target="_blank">미들웨어 샘플</a>을 참조하세요. 
 
 ## <a name="additional-resources"></a>추가 리소스
 
 - <a href="/dotnet/api/?view=botbuilder-3.11.0" target="_blank">.NET용 Bot Framework SDK 참조</a>
-- <a href="https://github.com/Microsoft/BotBuilder-Samples/tree/master/CSharp/core-Middleware" target="_blank">미들웨어 샘플(GitHub)</a>
+- <a href="https://github.com/Microsoft/BotBuilder-Samples/tree/v3-sdk-samples/CSharp/core-Middleware" target="_blank">미들웨어 샘플(GitHub)</a>
