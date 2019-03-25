@@ -59,7 +59,7 @@ ms.locfileid: "57571880"
 제공된 배포 스크립트를 사용하여 이러한 서비스를 배포하는 데 도움이 되는 단계는 다음과 같습니다.
 
 1. LUIS 작성 키를 검색합니다.
-   - [이 설명서](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-reference-regions) 페이지에서 배포 지역에 적합한 LUIS 포털을 검토합니다. www.luis.ai는 미국 지역을 참조하며 이 포털에서 검색된 작성 키는 유럽 배포에서 작동하지 않습니다.
+   - [이 설명서](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-reference-regions) 페이지에서 배포 지역에 적합한 LUIS 포털을 검토합니다. [www.luis.ai](www.luis.ai)는 미국 지역을 참조하며 이 포털에서 검색된 작성 키는 유럽 배포에서 작동하지 않습니다.
    - 로그인한 후에 오른쪽 위 모서리에서 이름을 클릭합니다.
    - **설정**을 선택하고, 나중에 사용할 수 있도록 작성 키를 적어 둡니다.
     
