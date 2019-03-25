@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: bot-service
 ms.subservice: tools
 ms.date: 03/01/2019
-ms.openlocfilehash: 0fb0f650b44d320d78a0ada5d46105048019964c
-ms.sourcegitcommit: cf3786c6e092adec5409d852849927dc1428e8a2
+ms.openlocfilehash: 28c4ece705c001d5f80fdc877773c03ac400204c
+ms.sourcegitcommit: 4139ef7ebd8bb0648b8af2406f348b147817d4c7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57224961"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58073849"
 ---
 # <a name="categorized-activities-by-channel"></a>분류된 채널별 활동
 
@@ -71,7 +71,7 @@ Event.*                    | :white_large_square: | :white_check_mark: | :white_
 Event.CreateConversation   | :white_large_square: | :white_large_square: | :white_large_square:   | :white_large_square: | :white_large_square:  | :white_large_square: | :white_large_square: | :white_large_square:  | :white_large_square:  | :white_large_square:  | :white_large_square:           | :white_large_square:     | :white_large_square:  
 Event.ContinueConversation | :white_large_square: | :white_large_square: | :white_large_square:   | :white_large_square: | :white_large_square:  | :white_large_square: | :white_large_square: | :white_large_square:  | :white_large_square:  | :white_large_square:  | :white_large_square:           | :white_large_square:     | :white_large_square:  
 
-- Event 활동은 Direct Line(_aka Direct Line_)의 확장 메커니즘입니다.
+- Event 활동은 Direct Line(_즉, Web Chat_)의 확장 메커니즘입니다.
 - 클라이언트와 서버를 모두 소유한 애플리케이션에서 이 Event 활동을 사용하여 서비스를 통해 자체 이벤트를 터널링하도록 선택할 수 있습니다.
 
 
@@ -85,7 +85,7 @@ Invoke.ComposeResponse     | :x:      | :x:          | :x: | :x:   | :x:       |
 
 - Microsoft Teams는 형식화된 다른 여러 활동과 함께 몇 가지 Teams 특정 Invoke 활동을 정의합니다.
 - Invoke 활동은 애플리케이션에 관련되며 클라이언트에서 정의하는 것이 아닙니다.
-- 활동의 특정 하위 형식만 호출한다는 일반적인 개념은 없습니다.
+- 활동의 특정 하위 형식을 호출한다는 일반적인 개념은 없습니다.
 - Invoke는 현재 봇에서 요청-응답 동작을 트리거하는 유일한 활동입니다.
 
 매우 중요한 사항으로, 대화(Dialogs)를 사용하여 OAuth 프롬프트에서 작동하려면 Invoke.TeamsVerification 활동을 Dialog에 전달해야 합니다.

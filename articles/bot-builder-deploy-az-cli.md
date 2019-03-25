@@ -9,12 +9,12 @@ ms.topic: get-started-article
 ms.service: bot-service
 ms.subservice: abs
 ms.date: 02/13/2019
-ms.openlocfilehash: 9cd2ed67110aa1611c41c33c31874f103e24b14d
-ms.sourcegitcommit: b2245df2f0a18c5a66a836ab24a573fd70c7d272
+ms.openlocfilehash: 8db2f0629b0d95dda0cb5d10dea5c9225e5d8d83
+ms.sourcegitcommit: 4139ef7ebd8bb0648b8af2406f348b147817d4c7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57568200"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58073789"
 ---
 # <a name="deploy-your-bot"></a>봇 배포
 
@@ -133,6 +133,9 @@ Azure Portal에서 다운로드한 소스 코드에는 암호화된 .bot 파일�
 ```cmd
 msbot secret --bot <name-of-bot-file> --new
 ```
+
+> [!TIP]
+> Visual Studio 내 .bot 파일의 파일 속성에서 **출력 디렉터리로 복사**가 *항상 복사*로 설정되어 있는지 확인합니다.
 
 ### <a name="setup-a-repository"></a>리포지토리 설정
 
