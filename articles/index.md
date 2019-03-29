@@ -8,7 +8,7 @@ ms.topic: landing-page
 layout: LandingPage
 ms.service: bot-service
 ms.subservice: sdk
-ms.date: 01/16/2019
+ms.date: 03/28/2019
 ---
 ::: moniker range="azure-bot-service-3.0"
 
@@ -46,7 +46,7 @@ ms.date: 01/16/2019
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>언어</h3>
+                        <h3>Languages</h3>
                         <p><a href="/dotnet/api/?view=botbuilder-3.12.2.4">.NET</a></p>
                         <p><a href="https://docs.botframework.com/en-us/node/builder/chat-reference/modules/_botbuilder_d_.html">Node.JS</a></p>
                     </div>
@@ -97,8 +97,8 @@ ms.date: 01/16/2019
 </div>
 
 <h2 style="margin-top: 36px">단계별 자습서</h2>
-<p><a href="/bot-framework/bot-builder-tutorial-basic-deploy">기본 봇 생성 및 배포</a></p>
-<p><a href="/bot-framework/bot-builder-tutorial-add-qna">QnA Maker를 추가하고 봇 재배포</a></p>
+<p><a href="/bot-framework/bot-builder-tutorial-basic-deploy">1. 기본 봇 만들기 및 배포</a></p>
+<p><a href="/bot-framework/bot-builder-tutorial-add-qna">2. QnA Maker를 추가하고 봇 재배포</a></p>
 <h2 style="margin-top: 36px">참고 자료</h2>
 <ul class="panelContent cardsD">
     <li>

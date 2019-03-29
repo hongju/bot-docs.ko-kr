@@ -7,8 +7,8 @@
 ### [.NET](dotnet/bot-builder-dotnet-sdk-quickstart.md)
 ### [JavaScript](javascript/bot-builder-javascript-quickstart.md)
 # 자습서
-## [기본 봇 생성 및 배포](v4sdk/bot-builder-tutorial-basic-deploy.md)
-## [QnA Maker를 추가하고 봇 재배포](v4sdk/bot-builder-tutorial-add-qna.md)
+## [1. 기본 봇 만들기 및 배포](v4sdk/bot-builder-tutorial-basic-deploy.md)
+## [2. QnA Maker를 추가하고 봇 재배포](v4sdk/bot-builder-tutorial-add-qna.md)
 ## [봇에 인증 추가](bot-builder-tutorial-authentication.md)
 # 샘플
 ## [GitHub의 botbuilder 샘플 리포지토리](https://github.com/Microsoft/BotBuilder-Samples/blob/master/README.md)
