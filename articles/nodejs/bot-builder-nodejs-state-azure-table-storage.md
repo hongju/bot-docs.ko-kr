@@ -73,7 +73,7 @@ npm install --save botbuilder-azure
    ```
    `storageName` 및 `storageKay` 값은 Azure 테이블의 **액세스 키** 메뉴에서 찾을 수 있습니다. `tableName`이 Azure 테이블에 존재하지 않으면 만들어집니다.
 
-3. `botbuilder-azure` 모듈을 사용하여 Azure 테이블에 연결할 두 개의 개체를 새로 만듭니다. 먼저 연결 구성 설정을 전달하는 `AzureTableClient`의 인스턴스를 만듭니다. 다음으로, `AzureTableClient` 개체를 전달하는 `AzureBotStorage`의 인스턴스를 만듭니다. 예: 
+3. `botbuilder-azure` 모듈을 사용하여 Azure 테이블에 연결할 두 개의 개체를 새로 만듭니다. 먼저 연결 구성 설정을 전달하는 `AzureTableClient`의 인스턴스를 만듭니다. 다음으로, `AzureTableClient` 개체를 전달하는 `AzureBotStorage`의 인스턴스를 만듭니다. 예를 들면 다음과 같습니다.
 
    ```javascript
    var azureTableClient = new azure.AzureTableClient(tableName, storageName, storageKey);
@@ -81,7 +81,7 @@ npm install --save botbuilder-azure
    var tableStorage = new azure.AzureBotStorage({gzipData: false}, azureTableClient);
    ```
 
-4. 메모리 내 저장소 대신 사용자 지정 데이터베이스를 사용하고 데이터베이스에 세션 정보를 추가하도록 지정합니다. 예: 
+4. 메모리 내 저장소 대신 사용자 지정 데이터베이스를 사용하고 데이터베이스에 세션 정보를 추가하도록 지정합니다. 예를 들면 다음과 같습니다.
 
    ```javascript
    var bot = new builder.UniversalBot(connector, function (session) {
