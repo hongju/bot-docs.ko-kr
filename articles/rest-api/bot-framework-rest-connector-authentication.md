@@ -173,7 +173,7 @@ GET https://login.botframework.com/v1/.well-known/openidconfiguration
 
 ### <a id="connector-to-bot-step-3"></a> 3단계: 유효한 서명 키 목록 가져오기
 
-유효한 서명 키의 목록을 가져오려면 OpenID 메타데이터 문서에서 `jwks_uri` 속성이 지정한 URL에 대한 HTTPS를 통해 `GET` 요청을 실행합니다. 예: 
+유효한 서명 키의 목록을 가져오려면 OpenID 메타데이터 문서에서 `jwks_uri` 속성이 지정한 URL에 대한 HTTPS를 통해 `GET` 요청을 실행합니다. 예를 들면 다음과 같습니다.
 
 ```http
 GET https://login.botframework.com/v1/.well-known/keys
@@ -266,7 +266,7 @@ GET https://login.microsoftonline.com/botframework.com/v2.0/.well-known/openid-c
 
 ### <a id="emulator-to-bot-step-3"></a> 3단계: 유효한 서명 키 목록 가져오기
 
-유효한 서명 키의 목록을 가져오려면 OpenID 메타데이터 문서에서 `jwks_uri` 속성이 지정한 URL에 대한 HTTPS를 통해 `GET` 요청을 실행합니다. 예: 
+유효한 서명 키의 목록을 가져오려면 OpenID 메타데이터 문서에서 `jwks_uri` 속성이 지정한 URL에 대한 HTTPS를 통해 `GET` 요청을 실행합니다. 예를 들면 다음과 같습니다.
 
 ```http
 GET https://login.microsoftonline.com/common/discovery/v2.0/keys 

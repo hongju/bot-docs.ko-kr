@@ -166,7 +166,7 @@ bot.dialog('ensureProfile', [
 
 * `session.endDialog`: 호출 다이얼로그에 반환할 데이터가 없는 경우에는 이 메서드를 사용하여 폭포를 종료합니다.
 
-* `session.endDialogWithResult`: 호출 다이얼로그에 반환할 데이터가 있는 경우에는 이 메서드를 사용하여 폭포를 종료합니다. 반환되는 `response` 인수는 JSON 개체 또는 JavaScript 기본 데이터 형식일 수 있습니다. 예: 
+* `session.endDialogWithResult`: 호출 다이얼로그에 반환할 데이터가 있는 경우에는 이 메서드를 사용하여 폭포를 종료합니다. 반환되는 `response` 인수는 JSON 개체 또는 JavaScript 기본 데이터 형식일 수 있습니다. 예를 들면 다음과 같습니다.
   ```javascript
   session.endDialogWithResult({
     response: { name: session.dialogData.name, company: session.dialogData.company }
@@ -175,7 +175,7 @@ bot.dialog('ensureProfile', [
 
 * `session.endConversation`: 폭포의 끝이 대화 끝을 나타내는 경우 이 메서드를 사용하여 폭포를 종료합니다.
 
-폭포를 종료하는 이러한 세 가지 방법 중 하나를 사용하여 다이얼로그에 `endConversationAction` 트리거를 연결할 수 있습니다. 예: 
+폭포를 종료하는 이러한 세 가지 방법 중 하나를 사용하여 다이얼로그에 `endConversationAction` 트리거를 연결할 수 있습니다. 예를 들면 다음과 같습니다.
 
 ```javascript
 bot.dialog('dinnerOrder', [

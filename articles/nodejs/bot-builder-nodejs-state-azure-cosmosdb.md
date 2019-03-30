@@ -74,14 +74,14 @@ npm install --save botbuilder-azure
    ```
    `host` 및 `masterKey` 값은 테이블의 **키** 메뉴에서 찾을 수 있습니다. `database` 및 `collection` 항목이 Azure 데이터베이스에 존재하지 않으면 새로 만듭니다.
 
-3. `botbuilder-azure` 모듈을 사용하여 Azure 데이터베이스에 연결할 두 개의 개체를 새로 만듭니다. 먼저 연결 구성 설정을 전달하는 `DocumentDBClient`의 인스턴스를 만듭니다(위에서 `documentDbOptions`로 정의됨). 다음으로, `DocumentDBClient` 개체를 전달하는 `AzureBotStorage`의 인스턴스를 만듭니다. 예: 
+3. `botbuilder-azure` 모듈을 사용하여 Azure 데이터베이스에 연결할 두 개의 개체를 새로 만듭니다. 먼저 연결 구성 설정을 전달하는 `DocumentDBClient`의 인스턴스를 만듭니다(위에서 `documentDbOptions`로 정의됨). 다음으로, `DocumentDBClient` 개체를 전달하는 `AzureBotStorage`의 인스턴스를 만듭니다. 예를 들면 다음과 같습니다.
    ```javascript
    var docDbClient = new azure.DocumentDbClient(documentDbOptions);
 
    var cosmosStorage = new azure.AzureBotStorage({ gzipData: false }, docDbClient);
    ```
 
-4. 메모리 내 저장소 대신 사용자 지정 데이터베이스를 사용하도록 지정합니다. 예: 
+4. 메모리 내 저장소 대신 사용자 지정 데이터베이스를 사용하도록 지정합니다. 예를 들면 다음과 같습니다.
 
    ```javascript
    var bot = new builder.UniversalBot(connector, function (session) {
