@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: bot-service
 ms.subservice: abs
 ms.date: 02/07/2019
-ms.openlocfilehash: 8df68ccc78e7a0aa064cbfa83967d930f6b44878
-ms.sourcegitcommit: b2245df2f0a18c5a66a836ab24a573fd70c7d272
+ms.openlocfilehash: e0d62d4effaf02d52714153f51736e06949a2263
+ms.sourcegitcommit: 53a36af930b3ab754a3e7bc896e3f0a9a734c3e4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57568260"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58809021"
 ---
 # <a name="create-a-bot-with-azure-bot-service"></a>Azure Bot Service로 봇 만들기
 
@@ -134,9 +134,6 @@ Azure Bot Service는 봇 개발을 위한 Bot Framework SDK 및 채널에 봇을
 1. 오른쪽 창에서 **Bot 소스 코드 다운로드** 링크를 클릭합니다. 
 1. 표시되는 메시지에 따라 코드를 다운로드한 다음, 폴더의 압축을 풉니다.
     1. [!INCLUDE [download keys snippet](~/includes/snippet-abs-key-download.md)]
-
-다운로드한 코드는 암호화된 [.bot 파일](./v4sdk/bot-file-basics.md)을 사용합니다. appsettings.json 또는.env 파일에서 `botFilePath` 및 `botFileSecret` 항목을 업데이트해야 합니다. 
-이를 수행하기 위해 Azure Portal로 이동합니다. 포털에서 봇을 선택한 다음, **App Service 설정** 섹션에서 **애플리케이션 설정**을 클릭합니다. **애플리케이션 설정** 창에 `botFilePath` 및 `botFileSecret` 값이 표시됩니다. 이러한 값을 복사하고 .env 또는 appsettings.json 파일을 업데이트합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 코드가 다운로드되면 머신에서 봇을 로컬로 계속 개발할 수 있습니다. 봇을 테스트하고 봇 코드를 Azure Portal에 업로드할 준비가 되면 배포 항목의 [리포지토리 설정](./bot-builder-deploy-az-cli.md#setup-a-repository) 섹션에 나열된 지침을 따릅니다.

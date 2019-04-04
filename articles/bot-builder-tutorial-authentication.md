@@ -9,14 +9,14 @@ ms.service: bot-service
 ROBOTS: NOINDEX
 ms.date: 10/04/2018
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 33c6f22696038ed5e9d2ae09ad2ec99d401f6a60
-ms.sourcegitcommit: b94361234816e6b95459f142add936732fc40344
+ms.openlocfilehash: 62b5608de20bb89a31106c7e652b20f32b099d15
+ms.sourcegitcommit: 152760771214865b9c7d0ed481acfba05bdc44dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54317713"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58655503"
 ---
-[!INCLUDE [pre-release-label](includes/pre-release-label-v3.md)]
+[!INCLUDE [pre-release-label](includes/pre-release-label-v3.md)]  
 
 # <a name="add-authentication-to-your-bot-via-azure-bot-service"></a>Azure Bot Service를 통해 봇에 인증 추가
 이 자습서에서는 사용자를 Azure AD(Azure Active Directory), GitHub 및 Uber 등과 같은 다양한 ID 공급자에 인증하는 봇을 쉽게 개발하는 기능을 제공하는 Azure Bot Service에서 새 봇 인증 기능을 사용합니다. 이러한 업데이트는 또한 일부 클라이언트에 대한 _매직 코드 확인_을 제거하여 향상된 사용자 환경을 위한 단계를 수행합니다.
