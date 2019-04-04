@@ -9,6 +9,12 @@ layout: LandingPage
 ms.service: bot-service
 ms.subservice: sdk
 ms.date: 03/28/2019
+ms.openlocfilehash: eef74893d4d17536fa8a7c3add15f1fd6a614796
+ms.sourcegitcommit: 54a4382add4756346098b286695a9b4791db7139
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58616959"
 ---
 ::: moniker range="azure-bot-service-3.0"
 
