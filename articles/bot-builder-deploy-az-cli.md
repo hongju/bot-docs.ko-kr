@@ -8,13 +8,13 @@ manager: kamrani
 ms.topic: get-started-article
 ms.service: bot-service
 ms.subservice: abs
-ms.date: 02/13/2019
-ms.openlocfilehash: 8db2f0629b0d95dda0cb5d10dea5c9225e5d8d83
-ms.sourcegitcommit: 4139ef7ebd8bb0648b8af2406f348b147817d4c7
+ms.date: 04/02/2019
+ms.openlocfilehash: 556c444086fedf6c5be052726d934d9226b4eebb
+ms.sourcegitcommit: f1412178e4766fb6b29f0f33f7eff7cc9d0885cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58073789"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58868033"
 ---
 # <a name="deploy-your-bot"></a>봇 배포
 
@@ -25,9 +25,8 @@ ms.locfileid: "58073789"
 이 문서에서는 C# 및 JavaScript 봇을 Azure에 배포하는 방법을 보여 줍니다. 단계를 수행하기 전에 이 문서를 참조하면 봇 배포와 관련된 내용을 완전히 이해할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
-
-- 최신 버전의 [msbot](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/MSBot) 도구를 설치합니다.
-- 로컬 머신에서 개발한 [CSharp](./dotnet/bot-builder-dotnet-sdk-quickstart.md) 또는 [JavaScript](./javascript/bot-builder-javascript-quickstart.md) 봇이 있어야 합니다.
+- [Azure 구독](http://portal.azure.com)이 없는 경우 시작하기 전에 체험 계정을 만듭니다.
+- 로컬 머신에서 개발한 [**CSharp**](./dotnet/bot-builder-dotnet-sdk-quickstart.md) 또는 [**JavaScript**](./javascript/bot-builder-javascript-quickstart.md) 봇이 있어야 합니다.
 
 ## <a name="1-prepare-for-deployment"></a>1. 배포 준비
 배포 프로세스를 수행하려면 Azure에 대상 웹앱 봇이 있어야 로컬 봇이 배포될 수 있습니다. Azure에서 대상 웹앱 봇과 이 봇에 프로비저닝되는 리소스는 로컬 봇에서 배포용으로 사용합니다. 로컬 봇에는 필요한 Azure 리소스 중 일부가 프로비저닝되어 있지 않기 때문에 이 항목이 필요합니다. 대상 웹앱 봇을 만들면 다음 리소스가 자동으로 프로비저닝됩니다.
@@ -39,7 +38,7 @@ ms.locfileid: "58073789"
 대상 웹앱 봇을 만드는 동안 봇의 앱 ID 및 암호도 생성됩니다. Azure에서 앱 ID 및 암호는 [서비스 인증 및 권한 부여](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization)를 지원합니다. 이 정보 중 일부를 검색하여 로컬 봇 코드에서 사용하게 됩니다. 
 
 > [!IMPORTANT]
-> 서비스의 봇 템플릿 언어는 봇이 작성될 때 사용된 언어와 일치해야 합니다.
+> Azure Portal에서 사용되는 봇 템플릿에 대한 프로그래밍 언어는 봇을 작성할 때 사용한 프로그래밍 언어와 일치해야 합니다.
 
 이미 Azure에서 사용하려는 봇을 만든 경우 새 웹앱 봇을 만드는 것은 선택 사항입니다.
 
@@ -50,92 +49,49 @@ ms.locfileid: "58073789"
 1. **만들기**를 클릭하여 서비스를 만들고 봇을 클라우드에 배포합니다. 이 프로세스에는 몇 분 정도 걸릴 수 있습니다.
 
 ### <a name="download-the-source-code"></a>소스 코드 다운로드
-대상 웹앱 봇을 만든 후에는 Azure Portal에서 로컬 머신으로 봇 코드를 다운로드해야 합니다. 코드를 다운로드하는 이유는 [.bot 파일](./v4sdk/bot-file-basics.md)에 있는 서비스 참조를 가져오기 위해서입니다. 이러한 서비스 참조는 웹앱 봇, App Service 플랜, App Service 및 스토리지 계정용입니다. 
+대상 웹앱 봇을 만든 후에는 Azure Portal에서 로컬 머신으로 봇 코드를 다운로드해야 합니다. 이 코드는 appsettings.json 또는 .env 파일에 있는 서비스 참조(예: MicrosoftAppID, MicrosoftAppPassword, LUIS 또는 QnA)를 가져오기 위해 다운로드하는 것입니다. 
 
 1. **봇 관리** 섹션에서 **빌드**를 클릭합니다.
 1. 오른쪽 창에서 **Bot 소스 코드 다운로드** 링크를 클릭합니다.
 1. 표시되는 메시지에 따라 코드를 다운로드한 다음, 폴더의 압축을 풉니다.
     1. [!INCLUDE [download keys snippet](~/includes/snippet-abs-key-download.md)]
 
-### <a name="decrypt-the-bot-file"></a>.bot 파일 암호 해독
+### <a name="update-your-local-appsettingsjson-or-env-file"></a>로컬 appsettings.json 또는 .env 파일 업데이트
 
-Azure Portal에서 다운로드한 소스 코드에는 암호화된 .bot 파일이 포함되어 있습니다. 값을 로컬 .bot 파일에 복사하려면 암호를 해독해야 합니다. 이 단계는 암호화된 서비스 참조가 아니라 실제 서비스 참조를 복사하기 위해 필요합니다.  
-
-1. Azure Portal에서 봇용 웹앱 봇 리소스를 엽니다.
-1. 봇의 **애플리케이션 설정**을 엽니다.
-1. **애플리케이션 설정** 창에서 **애플리케이션 설정**까지 아래로 스크롤합니다.
-1. **botFileSecret**을 찾고 해당 값을 복사합니다.
-1. `msbot cli`을 사용하여 파일의 암호를 해독합니다.
-
-    ```cmd
-    msbot secret --bot <name-of-bot-file> --secret "<bot-file-secret>" --clear
-    ```
-
-### <a name="update-your-local-bot-file"></a>로컬 .bot 파일 업데이트
-
-암호를 해독한 .bot 파일을 엽니다. `services` 섹션에 나열된 **모든** 항목을 복사하여 로컬 .bot 파일에 추가합니다. 모든 중복 서비스 항목을 확인하거나 서비스 ID를 복제합니다. 봇이 종속된 추가 서비스 참조를 유지합니다. 예를 들면 다음과 같습니다.
-
-```json
-"services": [
-    {
-        "type": "abs",
-        "tenantId": "<tenant-id>",
-        "subscriptionId": "<subscription-id>",
-        "resourceGroup": "<resource-group-name>",
-        "serviceName": "<bot-service-name>",
-        "name": "<friendly-service-name>",
-        "id": "1",
-        "appId": "<app-id>"
-    },
-    {
-        "type": "blob",
-        "connectionString": "<connection-string>",
-        "tenantId": "<tenant-id>",
-        "subscriptionId": "<subscription-id>",
-        "resourceGroup": "<resource-group-name>",
-        "serviceName": "<blob-service-name>",
-        "id": "2"
-    },
-    {
-        "type": "endpoint",
-        "appId": "",
-        "appPassword": "",
-        "endpoint": "<local-endpoint-url>",
-        "name": "development",
-        "id": "3"
-    },
-    {
-        "type": "endpoint",
-        "appId": "<app-id>",
-        "appPassword": "<app-password>",
-        "endpoint": "<hosted-endpoint-url>",
-        "name": "production",
-        "id": "4"
-    },
-    {
-        "type": "appInsights",
-        "instrumentationKey": "<instrumentation-key>",
-        "applicationId": "<appinsights-app-id>",
-        "apiKeys": {},
-        "tenantId": "<tenant-id>",
-        "subscriptionId": "<subscription-id>",
-        "resourceGroup": "<resource-group>",
-        "serviceName": "<appinsights-service-name>",
-        "id": "5"
-    }
-],
-```
+다운로드한 appsettings.json 또는 .env 파일을 엽니다. 나열되는 **모든** 항목을 복사하여 _로컬_ appsettings.json 또는 .env 파일에 추가합니다. 모든 중복 서비스 항목을 확인하거나 서비스 ID를 복제합니다. 봇이 종속된 추가 서비스 참조를 유지합니다.
 
 파일을 저장합니다.
 
-게시하기 전에 msbot 도구를 사용하여 새 비밀을 생성하고 .bot 파일을 암호화할 수 있습니다. .bot 파일을 다시 암호화하는 경우 Azure Portal에서 봇의 **botFileSecret**를 업데이트하여 새 비밀을 포함시킵니다.
+### <a name="update-local-bot-code"></a>로컬 봇 코드 업데이트
+.bot 파일을 사용하는 대신 appsettings.json 또는 .env 파일을 사용하도록 로컬 Startup.cs 또는 index.js 파일을 업데이트합니다. .bot 파일은 더 이상 사용되지 않으며, .bot 파일 대신 appsettings.json 또는 .env 파일을 모두 사용하도록 VSIX 템플릿, Yeoman 생성기, 샘플 및 나머지 문서를 업데이트합니다. 그동안 봇 코드를 변경해야 합니다. 
 
-```cmd
-msbot secret --bot <name-of-bot-file> --new
+appsettings.json 또는 .env 파일에서 설정을 읽도록 코드를 업데이트합니다. 
+
+# [<a name="c"></a>C#](#tab/csharp)
+`ConfigureServices` 메서드에서 ASP.NET Core를 통해 제공되는 구성 개체를 사용합니다. 예를 들어 다음과 같습니다. 
+
+**Startup.cs**
+```csharp
+var appId = Configuration.GetSection("MicrosoftAppId").Value;
+var appPassword = Configuration.GetSection("MicrosoftAppPassword").Value;
+options.CredentialProvider = new SimpleCredentialProvider(appId, appPassword);
 ```
 
-> [!TIP]
-> Visual Studio 내 .bot 파일의 파일 속성에서 **출력 디렉터리로 복사**가 *항상 복사*로 설정되어 있는지 확인합니다.
+# [<a name="js"></a>JS](#tab/js)
+
+JavaScript에서 `process.env` 개체의 .env 변수를 참조합니다. 예를 들어 다음과 같습니다.
+   
+**index.js**
+
+```js
+const adapter = new BotFrameworkAdapter({
+    appId: process.env.MicrosoftAppId,
+    appPassword: process.env.MicrosoftAppPassword
+});
+```
+---
+
+- 파일을 저장하고 봇을 테스트합니다.
 
 ### <a name="setup-a-repository"></a>리포지토리 설정
 
@@ -144,12 +100,11 @@ msbot secret --bot <name-of-bot-file> --new
 [리포지토리 준비](https://docs.microsoft.com/azure/app-service/deploy-continuous-deployment#prepare-your-repository)에 설명된 대로 리포지토리 루트에 프로젝트의 올바른 파일에 있는지 확인합니다.
 
 ### <a name="update-app-settings-in-azure"></a>Azure에서 앱 설정 업데이트
-로컬 봇은 암호화된 .bot 파일을 사용하지 않지만 Azure Portal이 암호화된 .bot 파일을 사용하도록 구성됩니다. 이 문제는 Azure 봇 설정에 저장된 **botFileSecret**를 제거하여 해결할 수 있습니다.
+로컬 봇은 암호화된 .bot 파일을 사용하지 않지만 Azure Portal이 암호화된 .bot 파일을 사용하도록 구성된 _경우_에는 그렇지 않습니다. 이 문제는 Azure 봇 설정에 저장된 **botFileSecret**를 제거하여 해결할 수 있습니다.
 1. Azure Portal에서 봇용 **웹앱 봇** 리소스를 엽니다.
 1. 봇의 **애플리케이션 설정**을 엽니다.
 1. **애플리케이션 설정** 창에서 **애플리케이션 설정**까지 아래로 스크롤합니다.
-1. **botFileSecret**을 찾아 삭제합니다. (.bot 파일을 다시 암호화한 경우 **botFileSecret**에 새 비밀이 포함되어 있는지 확인하고, 해당 설정은 **삭제하지 마세요**.)
-1. 리포지토리에 체크 인한 파일과 일치하도록 봇 파일의 이름을 업데이트합니다.
+1. 봇에 **botFileSecret** 및 **botFilePath** 항목이 있는지 확인합니다. 있는 경우 해당 항목을 삭제합니다.
 1. 변경 내용을 저장합니다.
 
 ## <a name="2-deploy-using-azure-deployment-center"></a>2. Azure 배포 센터를 사용하여 배포
@@ -166,7 +121,7 @@ msbot secret --bot <name-of-bot-file> --new
 
 ## <a name="additional-resources"></a>추가 리소스
 
-- [연속 배포의 일반 문제를 조사하는 방법](https://github.com/projectkudu/kudu/wiki/Investigating-continuous-deployment)
+- [지속적인 배포와 관련된 일반적인 문제를 조사하는 방법](https://github.com/projectkudu/kudu/wiki/Investigating-continuous-deployment)
 
 <!--
 

@@ -7,22 +7,20 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: abs
-ms.date: 6/22/2017
+ms.date: 3/22/2019
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 6a1ae4d0966928a1b95e45ea7bcc62e9c1d14666
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: c6e91ebfe54857f11772bd4a926e3b5b2776c8cc
+ms.sourcegitcommit: 54a4382add4756346098b286695a9b4791db7139
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "50000070"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58616939"
 ---
 # <a name="migrate-your-bot-to-azure"></a>Azure에 봇 마이그레이션
 
-
-
 [Bot Framework Portal](http://dev.botframework.com)의 모든 **Azure Bot Service(미리 보기)** 는 Azure의 새 Bot Service로 마이그레이션해야 합니다. 이 서비스는 2017년 12월에 일반 제공(GA)되었습니다. 
 
-**Teams**, **Skype** 또는 **Cortana** 채널에만 연결된 봇은 마이그레이션할 필요가 *없습니다*. 예를 들어, **Facebook** 및 **Skype**에 연결된 등록 봇은 마이그레이션이 *필요하지만* **Skype** 및 **Cortana**에 연결된 등록 봇은 마이그레이션이 *필요 하지 않습니다*.
+**Teams**, **Skype** 또는 **Cortana** 채널에만 연결된 등록 봇은 *마이그레이션할 필요가 없습니다*. 예를 들어, **Facebook** 및 **Skype**에 연결된 등록 봇은 마이그레이션이 *필요하지만* **Skype** 및 **Cortana**에 연결된 등록 봇은 마이그레이션이 *필요 하지 않습니다*.
 
 > [!IMPORTANT]
 > Node.js로 만든 Functions 봇을 마이그레이션하기 전에 **Azure Functions Pack**을 사용하여 **node_modules** 모듈을 함께 패키징해야 합니다. 이렇게 하면 마이그레이션 중의 성능과, 마이그레이션 후의 Functions 봇 실행이 향상됩니다. 모듈 패키징은 [Funcpack을 사용하여 Functions 봇 패키징](#package-a-functions-bot-with-funcpack)을 참조하세요.
@@ -52,14 +50,14 @@ Node.js로 만든 Functions 봇은 마이그레이션하기 전에 [Funcpack](ht
 6.  Bot Framework Emulator를 통해 Functions 봇을 실행하여 로컬에서 테스트할 수 있습니다. *funcpack* 봇의 자세한 실행 방법은 [여기](https://github.com/Azure/azure-functions-pack#how-to-run)에 있습니다. 
 7.  코드를 다시 Azure에 업로드합니다. `.funcpack` 디렉터리가 업로드되었는지 확인합니다. **node_modules** 디렉터리는 업로드하지 않아도 됩니다.
 8. 원격 봇이 예상대로 응답하는지 테스트합니다.
-9. 위의 단계를 사용하여 [봇을 마이그레이션합니다](#migrate-your-bot-to-azure).
+9. 위의 단계를 사용하여 봇을 마이그레이션합니다.
 
 ## <a name="migration-under-the-hood"></a>내부에서 마이그레이션
 
 마이그레이션하는 봇의 유형에 따라 아래 목록을 통해 내부에서 일어나는 일에 대한 이해를 높일 수 있습니다.
 
-* **Web App 봇** 또는 **Functions 봇**: 이런 봇 유형에서는 소스 코드 프로젝트가 기존 봇에서 새 봇으로 복사됩니다. 봇의 저장소, Application Insights, LUIS 등과 같은 다른 리소스는 그대로 유지됩니다. 이러한 경우 새 봇은 기존 리소스에 대해 ID/키/암호 사본을 포함합니다. 
-* **봇 채널 등록**: 이러한 봇 유형의 경우 마이그레이션 프로세스에서는 단순히 새 **봇 채널 등록**을 만들고 기존 봇에서 엔드포인트를 복사합니다. 
+* **Web App 봇** 또는 **Functions 봇**: 이러한 유형의 봇에서는 소스 코드 프로젝트가 이전 봇에서 새 봇으로 복사됩니다. 봇의 저장소, Application Insights, LUIS 등과 같은 다른 리소스는 그대로 유지됩니다. 이러한 경우 새 봇은 기존 리소스에 대해 ID/키/암호 사본을 포함합니다. 
+* **봇 채널 등록**: 이 유형의 봇에서는 마이그레이션 프로세스에서 단순히 새 **봇 채널 등록**을 만들고 이전 봇의 엔드포인트를 복사합니다. 
 * 마이그레이션하려는 봇 유형에 관계없이 마이그레이션 프로세스에서 기존 봇의 상태가 어떤 식으로든 수정되지 않습니다. 이를 통해 롤백이 필요한 경우 안전하게 롤백할 수 있습니다.
 * [지속적인 배포](bot-service-build-continuous-deployment.md)를 설정한 경우 원본 제어가 대신 새 봇에 연결할 수 있게 다시 설정해야 합니다.
 

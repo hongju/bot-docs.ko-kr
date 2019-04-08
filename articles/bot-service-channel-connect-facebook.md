@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
 ms.date: 10/12/2018
-ms.openlocfilehash: 0932372c5b2bcf574d244cd60d46ef579acbd106
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: 57a3efd36ddae5c52a2d791b87ed4fa6a96d5e8a
+ms.sourcegitcommit: 152760771214865b9c7d0ed481acfba05bdc44dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "50000160"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58655523"
 ---
 # <a name="connect-a-bot-to-facebook"></a>Facebook에 봇 연결
 
@@ -150,6 +150,12 @@ Azure Portal에서 이전에 Facebook Messenger에서 복사한 **Facebook 앱 I
 
 ### <a name="make-the-app-public-and-publish-the-page"></a>앱을 공개로 설정하고 페이지 게시
 자세한 내용은 **Facebook Messenger에 봇 연결** 섹션을 참조하세요.
+
+## <a name="setting-the-api-version"></a>API 버전 설정
+
+Facebook으로부터 Graph API 특정 버전의 사용 중단에 대한 알림을 받으면 [Facebook 개발자 페이지](https://developers.facebook.com)로 이동합니다. 봇의 **앱 설정**으로 이동하고, **설정 > 고급 > API 버전 업그레이드**로 차례로 이동한 다음, **모든 호출 업그레이드**를 3.0으로 전환합니다.
+
+![API 버전 업그레이드](~/media/channels/facebook-version-upgrade.png)
 
 ## <a name="sample-code"></a>샘플 코드
 

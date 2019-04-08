@@ -10,12 +10,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 11/28/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 31a0497f1422cee8c4966e59d94a89ae359a5cb7
-ms.sourcegitcommit: c6ce4c42fc56ce1e12b45358d2c747fb77eb74e2
+ms.openlocfilehash: 997399997770db9a810db54c6dcb0cb943a99da9
+ms.sourcegitcommit: 54a4382add4756346098b286695a9b4791db7139
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54453937"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58616949"
 ---
 # <a name="dialogs-library"></a>대화 상자 라이브러리
 
@@ -121,7 +121,7 @@ ms.locfileid: "54453937"
 
 대화는 *대화 스택*이라고 하는 프로그래밍 방식의 스택으로 간주할 수 있으며, 한 스택에서 전달하고 비어 있는 경우 대체 역할을 수행하는 턴 처리기를 사용합니다. 해당 스택에서 가장 위쪽에 있는 항목은 *활성 대화*로 간주되며, 대화 컨텍스트에서 모든 입력을 활성 대화로 전달합니다.
 
-대화가 시작되면 스택으로 푸시되며, 그러면 바로 활성 대화가 됩니다. 이는 대화가 종료될 때까지 활성 대화로 유지되거나, [대화 대체](#repeating-a-dialog) 메서드를 통해 제거되거나, 턴 처리기 또는 활성 대화 자체를 통해 다른 대화가 스택에 푸시되어 활성 대화가 됩니다. 이 새 대화가 종료되면 스택에서 꺼내고 아래의 다음 대화가 다시 활성 대화가 됩니다. 이렇게 하면 아래에서 설명하는 [분기 및 반복](#looping-and-branching)이 허용됩니다.
+대화가 시작되면 스택으로 푸시되며, 그러면 바로 활성 대화가 됩니다. 이는 대화가 종료될 때까지 활성 대화로 유지되거나, [대화 대체](#repeating-a-dialog) 메서드를 통해 제거되거나, 턴 처리기 또는 활성 대화 자체를 통해 다른 대화가 스택에 푸시되어 활성 대화가 됩니다. 이 새 대화가 종료되면 스택에서 꺼내고 아래의 다음 대화가 다시 활성 대화가 됩니다. 이렇게 하면 아래에서 설명하는 분기와 반복이 허용됩니다.
 
 ### <a name="create-the-dialog-context"></a>대화 컨텍스트 만들기
 
