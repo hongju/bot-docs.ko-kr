@@ -9,12 +9,12 @@ layout: LandingPage
 ms.service: bot-service
 ms.subservice: sdk
 ms.date: 03/28/2019
-ms.openlocfilehash: eef74893d4d17536fa8a7c3add15f1fd6a614796
-ms.sourcegitcommit: 54a4382add4756346098b286695a9b4791db7139
+ms.openlocfilehash: 5c6a194c18fff144090c095f9cf01f964a1ad4ce
+ms.sourcegitcommit: 562dd44e38abacaa31427da5675da556a970cf11
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58616959"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59477126"
 ---
 ::: moniker range="azure-bot-service-3.0"
 
@@ -32,7 +32,7 @@ ms.locfileid: "58616959"
     <div class="ico48Link">
         <a href="/bot-framework/bot-service-quickstart">
             <img src="media/index/azure_portal.png" alt="">
-            <span>Azure 포털</span>
+            <span>Azure portal</span>
         </a>
     </div>
 </div>
@@ -41,7 +41,7 @@ ms.locfileid: "58616959"
 <p>다양한 기능이 포함된 유용한 봇을 빌드하기 시작합니다.</p>
 <ul>
     <li><a href="https://github.com/Microsoft/BotBuilder-Samples/tree/v3-sdk-samples/CSharp">.NET</a></li>
-    <li><a href="https://github.com/Microsoft/BotBuilder-Samples/tree/v3-sdk-samples/Node">Node.JS</a></li>
+    <li><a href="https://github.com/Microsoft/BotBuilder-Samples/tree/v3-sdk-samples/Node">Node.js</a></li>
 </ul>
 <h2 style="margin-top: 36px">단계별 자습서</h2>
 <p> <a href="/bot-framework/bot-builder-tutorial-authentication">봇에 인증 추가</a> </p>
@@ -52,9 +52,21 @@ ms.locfileid: "58616959"
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
+                        <h3>API</h3>
+                        <p><a href="https://aka.ms/botconnector-rest-api">REST (영문)</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
                         <h3>Languages</h3>
-                        <p><a href="/dotnet/api/?view=botbuilder-3.12.2.4">.NET</a></p>
-                        <p><a href="https://docs.botframework.com/en-us/node/builder/chat-reference/modules/_botbuilder_d_.html">Node.JS</a></p>
+                        <p><a href="https://aka.ms/botframework-v3-cs-sdk">.NET</a></p>
+                        <p><a href="https://docs.botframework.com/en-us/node/builder/chat-reference/modules/_botbuilder_d_.html">Node.js</a></p>
                     </div>
                 </div>
             </div>
@@ -85,7 +97,7 @@ ms.locfileid: "58616959"
     <div class="ico48Link">
         <a href="/bot-framework/bot-service-quickstart">
             <img src="media/index/azure_portal.png" alt="">
-            <span>Azure 포털</span>
+            <span>Azure portal</span>
         </a>
     </div>
     <div class="ico48Link">
@@ -113,8 +125,7 @@ ms.locfileid: "58616959"
                 <div class="card">
                     <div class="cardText">
                         <h3>API</h3>
-                        <p><a href="https://aka.ms/dotnetsdk4">.NET</a></p>
-                        <p><a href="https://aka.ms/jssdk4">JavaScript</a></p>
+                        <p><a href="https://aka.ms/botconnector-rest-api">REST (영문)</a></p>
                     </div>
                 </div>
             </div>
@@ -126,7 +137,7 @@ ms.locfileid: "58616959"
                 <div class="card">
                     <div class="cardText">
                         <h3>SDK</h3>
-                        <p><a href="https://github.com/Microsoft/botbuilder-dotnet">.NET</a></p>
+                        <p><a href="https://aka.ms/botframework-v4-cs-sdk">.NET</a></p>
                         <p><a href="https://github.com/Microsoft/botbuilder-js">JavaScript</a></p>
                     </div>
                 </div>
