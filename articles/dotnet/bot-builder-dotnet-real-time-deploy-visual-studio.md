@@ -79,7 +79,7 @@ Visual Studio에서 새 프로젝트를 엽니다. 솔루션 탐색기에서 클
 
 ![다음을 클릭하고 설정 탭으로 이동](../media/real-time-media-bot-publish-settings.png)
 
-필요에 따라 **고급 설정**을 선택하고 배포 로그에 대한 저장소 계정을 지정할 수 있습니다(문제를 디버그하는 데 사용할 수 있음).
+필요에 따라 **고급 설정**을 선택하고 배포 로그에 대한 스토리지 계정을 지정할 수 있습니다(문제를 디버그하는 데 사용할 수 있음).
 
 ![고급 설정 탭 클릭](../media/real-time-media-bot-publish-advanced-settings.png)
 
