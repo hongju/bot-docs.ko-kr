@@ -10,16 +10,16 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 1/10/2019
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 70f333cdce15f1d1e908b73d21e706f1af33454b
-ms.sourcegitcommit: c7d2e939ec71f46f48383c750fddaf6627b6489d
+ms.openlocfilehash: a7f6c22f35719eacf66598e79df5fe52ff19dd43
+ms.sourcegitcommit: 103aa3316f9ff658cf2b0d341c5e76c3efc581ee
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55783382"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59540367"
 ---
 # <a name="how-bots-work"></a>봇 작동 방식
 
-[!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
+[!INCLUDE[applies-to](../includes/applies-to.md)]
 
 봇은 사용자가 텍스트, 그래픽(예: 카드 또는 이미지) 또는 음성을 사용하여 대화형 방식으로 상호 작용하는 앱입니다. 사용자와 봇 간에 상호 작용이 이루어질 때마다 *활동*이 생성됩니다. Azure Bot Service의 구성 요소인 Bot Framework Service는 사용자의 봇에 연결된 앱(예: Facebook, Skype, Slack 등을 말하며, *채널*이라고 함)과 봇 간에 정보를 전송합니다. 각 채널이 전송하는 활동에 추가 정보가 포함될 수 있습니다. 봇을 만들기 전에 봇이 활동 개체를 사용하여 사용자와 소통하는 방법을 이해하는 것이 중요합니다. 먼저 간단한 에코 봇을 실행할 때 주고받는 활동을 살펴보겠습니다. 
 
