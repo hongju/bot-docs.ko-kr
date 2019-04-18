@@ -10,10 +10,10 @@ ms.service: bot-service
 ms.subservice: abs
 ms.date: 02/07/2019
 ms.openlocfilehash: e0d62d4effaf02d52714153f51736e06949a2263
-ms.sourcegitcommit: 53a36af930b3ab754a3e7bc896e3f0a9a734c3e4
+ms.sourcegitcommit: 721bb09f10524b0cb3961d7131966f57501734b8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58809021"
 ---
 # <a name="create-a-bot-with-azure-bot-service"></a>Azure Bot Service로 봇 만들기

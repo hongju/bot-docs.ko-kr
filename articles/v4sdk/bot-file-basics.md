@@ -10,10 +10,10 @@ ms.service: bot-service
 ms.date: 03/30/2019
 monikerRange: azure-bot-service-4.0
 ms.openlocfilehash: 14552c55da4b1f9b581b81917496de179e92762b
-ms.sourcegitcommit: 8d8b197c3f30593c4a5e4a6395ba5eff60dbd740
+ms.sourcegitcommit: 721bb09f10524b0cb3961d7131966f57501734b8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58811505"
 ---
 # <a name="manage-bot-resources"></a>봇 리소스 관리

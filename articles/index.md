@@ -10,10 +10,10 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 03/28/2019
 ms.openlocfilehash: 5c6a194c18fff144090c095f9cf01f964a1ad4ce
-ms.sourcegitcommit: 562dd44e38abacaa31427da5675da556a970cf11
+ms.sourcegitcommit: 721bb09f10524b0cb3961d7131966f57501734b8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/10/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59477126"
 ---
 ::: moniker range="azure-bot-service-3.0"
@@ -32,7 +32,7 @@ ms.locfileid: "59477126"
     <div class="ico48Link">
         <a href="/bot-framework/bot-service-quickstart">
             <img src="media/index/azure_portal.png" alt="">
-            <span>Azure portal</span>
+            <span>Azure 포털</span>
         </a>
     </div>
 </div>
@@ -41,7 +41,7 @@ ms.locfileid: "59477126"
 <p>다양한 기능이 포함된 유용한 봇을 빌드하기 시작합니다.</p>
 <ul>
     <li><a href="https://github.com/Microsoft/BotBuilder-Samples/tree/v3-sdk-samples/CSharp">.NET</a></li>
-    <li><a href="https://github.com/Microsoft/BotBuilder-Samples/tree/v3-sdk-samples/Node">Node.js</a></li>
+    <li><a href="https://github.com/Microsoft/BotBuilder-Samples/tree/v3-sdk-samples/Node">Node.JS</a></li>
 </ul>
 <h2 style="margin-top: 36px">단계별 자습서</h2>
 <p> <a href="/bot-framework/bot-builder-tutorial-authentication">봇에 인증 추가</a> </p>
@@ -66,7 +66,7 @@ ms.locfileid: "59477126"
                     <div class="cardText">
                         <h3>Languages</h3>
                         <p><a href="https://aka.ms/botframework-v3-cs-sdk">.NET</a></p>
-                        <p><a href="https://docs.botframework.com/en-us/node/builder/chat-reference/modules/_botbuilder_d_.html">Node.js</a></p>
+                        <p><a href="https://docs.botframework.com/en-us/node/builder/chat-reference/modules/_botbuilder_d_.html">Node.JS</a></p>
                     </div>
                 </div>
             </div>
@@ -97,7 +97,7 @@ ms.locfileid: "59477126"
     <div class="ico48Link">
         <a href="/bot-framework/bot-service-quickstart">
             <img src="media/index/azure_portal.png" alt="">
-            <span>Azure portal</span>
+            <span>Azure 포털</span>
         </a>
     </div>
     <div class="ico48Link">

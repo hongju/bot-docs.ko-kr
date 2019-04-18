@@ -11,12 +11,12 @@
 ## [2. QnA Maker를 추가하고 봇 재배포](v4sdk/bot-builder-tutorial-add-qna.md)
 ## [봇에 인증 추가](bot-builder-tutorial-authentication.md)
 # 샘플
-## [GitHub의 botbuilder-samples 리포지토리](https://github.com/Microsoft/BotBuilder-Samples/blob/master/README.md)
+## [GitHub의 botbuilder 샘플 리포지토리](https://github.com/Microsoft/BotBuilder-Samples/blob/master/README.md)
 ## [botbuilder 샘플 리포지토리에서 봇 배포](bot-builder-deploy-samples.md)
 # 개념
 ## [봇 작동 방식](v4sdk/bot-builder-basics.md)
 ## [상태 관리](v4sdk/bot-builder-concept-state.md)
-## [대화 상자 라이브러리](v4sdk/bot-builder-concept-dialog.md)
+## [다이얼로그 라이브러리](v4sdk/bot-builder-concept-dialog.md)
 ## [미들웨어](v4sdk/bot-builder-concept-middleware.md)
 ## [봇 리소스 관리](v4sdk/bot-file-basics.md)
 <!-- [Language understanding](v4sdk/bot-builder-concept-luis.md) -->
@@ -27,16 +27,16 @@
 ### [Cortana 기술 봇](bot-service-scenario-cortana-skill.md)
 ### [엔터프라이즈 생산성 봇](bot-service-scenario-enterprise-productivity.md)
 ### [정보 봇](bot-service-scenario-informational.md)
-### [IoT 봇](bot-service-scenario-internet-things.md)
+### [사물 인터넷 봇](bot-service-scenario-internet-things.md)
 # 사용 방법 
 ## [디자인](design/TOC.md)
 ## 개발
 <!-- ## [Best practice for welcoming the user](v4sdk/bot-builder-welcome-user.md) -->
-### [문자 메시지 보내기 및 받기](v4sdk/bot-builder-howto-send-messages.md)
+### [텍스트 메시지 보내기 및 받기](v4sdk/bot-builder-howto-send-messages.md)
 ### [메시지에 미디어 추가](v4sdk/bot-builder-howto-add-media-attachments.md)
 ### [사용자 작업을 안내하는 단추 추가](v4sdk/bot-builder-howto-add-suggested-actions.md)
 ### [사용자 및 대화 데이터 저장](v4sdk/bot-builder-howto-v4-state.md) 
-### [입력에 대해 사용자에게 확인](v4sdk/bot-builder-primitive-prompts.md) 
+### [사용자에게 입력할 프롬프트 창 표시](v4sdk/bot-builder-primitive-prompts.md) 
 ### [사용자에게 환영 메시지 보내기](v4sdk/bot-builder-send-welcome-message.md)
 <!-- ## [Add input hints to messages](v4sdk/bot-builder-howto-add-input-hints.md) -->
 ### [사용자에게 자동 관리 알림 보내기](v4sdk/bot-builder-howto-proactive-message.md)
@@ -47,16 +47,16 @@
 #### [순차적 대화 흐름 구현](v4sdk/bot-builder-dialog-manage-conversation-flow.md)
 #### [대화 상자 프롬프트를 사용하여 사용자 입력 수집](v4sdk/bot-builder-prompts.md)
 #### [분기 및 루프를 사용하여 고급 대화 흐름 만들기](v4sdk/bot-builder-dialog-manage-complex-conversation-flow.md)
-#### [사용자 중단 처리](v4sdk/bot-builder-howto-handle-user-interrupt.md)
+#### [사용자 작업 중단 처리](v4sdk/bot-builder-howto-handle-user-interrupt.md)
 #### [사용자 데이터 유지](v4sdk/bot-builder-tutorial-persist-user-inputs.md)
 #### [대화 상자 재사용](v4sdk/bot-builder-compositcontrol.md)
 ### [저장소에 직접 작성](v4sdk/bot-builder-howto-v4-storage.md)
 ### [봇에 인증 추가](v4sdk/bot-builder-authentication.md)
-### [봇에 사용자 지정 스토리지 구현](v4sdk/bot-builder-custom-storage.md)
+### [봇에 사용자 지정 저장소 구현](v4sdk/bot-builder-custom-storage.md)
 ### [봇에 원격 분석 추가](v4sdk/bot-builder-telemetry.md)
 ### [CLI 도구를 사용하여 봇 관리](bot-builder-tools.md)
 ### [.NET](dotnet/TOC.md)
-### [Node.js](nodejs/TOC.md)
+### [Node.JS](nodejs/TOC.md)
 ## [디버그](debug/TOC.md)
 ## 배포
 ### [Azure에 봇 배포](bot-builder-deploy-az-cli.md)
