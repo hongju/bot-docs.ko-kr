@@ -11,10 +11,10 @@ ms.subservice: sdk
 ms.date: 02/25/2019
 monikerRange: azure-bot-service-4.0
 ms.openlocfilehash: 024791aaf6aea0b09b097b275d4ca954fcd27ddf
-ms.sourcegitcommit: cacd381d185b2b8b7fb99082baf83d9f65dde341
+ms.sourcegitcommit: 721bb09f10524b0cb3961d7131966f57501734b8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59508240"
 ---
 # <a name="managing-state"></a>상태 관리
@@ -138,6 +138,6 @@ Bot Framework SDK에는 스토리지 계층에 대한 몇 가지 구현이 포�
 
 ## <a name="additional-resources"></a>추가 리소스
 
-- [Dialog 상태](bot-builder-concept-dialog.md#dialog-state)
+- [대화 상태](bot-builder-concept-dialog.md#dialog-state)
 - [저장소에 직접 작성](bot-builder-howto-v4-storage.md)
 - [대화 및 사용자 데이터 저장](bot-builder-howto-v4-state.md)

@@ -11,10 +11,10 @@ ms.subservice: sdk
 ms.date: 09/13/2018
 monikerRange: azure-bot-service-4.0
 ms.openlocfilehash: fa243d8cc00fd6fadf7c51668c9e7ba74d0c06e2
-ms.sourcegitcommit: cacd381d185b2b8b7fb99082baf83d9f65dde341
+ms.sourcegitcommit: 721bb09f10524b0cb3961d7131966f57501734b8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59508230"
 ---
 # <a name="activity-processing"></a>작업 처리

@@ -10,11 +10,11 @@ ms.subservice: sdk
 ms.date: 02/10/2019
 monikerRange: azure-bot-service-3.0
 ms.openlocfilehash: 5de773f6f8f4d46c0c1fe880588f2530c3c68f56
-ms.sourcegitcommit: cacd381d185b2b8b7fb99082baf83d9f65dde341
+ms.sourcegitcommit: 721bb09f10524b0cb3961d7131966f57501734b8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59508210"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59746067"
 ---
 # <a name="key-concepts-for-building-a-bot-for-cortana-skills-using-nodejs"></a>Node.js를 사용하여 Cortana Skill용 봇을 빌드하기 위한 주요 개념
  

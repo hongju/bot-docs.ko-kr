@@ -9,10 +9,10 @@ ms.subservice: sdk
 ms.date: 02/10/2019
 monikerRange: azure-bot-service-3.0
 ms.openlocfilehash: 690c456a1baa94eab1f0efbed6ce2c2e1f5cb280
-ms.sourcegitcommit: cacd381d185b2b8b7fb99082baf83d9f65dde341
+ms.sourcegitcommit: 721bb09f10524b0cb3961d7131966f57501734b8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59508160"
 ---
 # <a name="build-a-speech-enabled-bot-with-cortana-skills"></a>Cortana Skill을 사용하여 음성 지원 봇 빌드
@@ -21,7 +21,7 @@ ms.locfileid: "59508160"
 
 > [!div class="op_single_selector"]
 > - [.NET](../dotnet/bot-builder-dotnet-cortana-skill.md)
-> - [Node.js](../nodejs/bot-builder-nodejs-cortana-skill.md)
+> - [Node.JS](../nodejs/bot-builder-nodejs-cortana-skill.md)
 
 Node.js용 Bot Framework SDK를 사용하면 Cortana Skill로 Cortana 채널에 연결하여 음성 지원 봇을 빌드할 수 있습니다. Cortana Skill을 사용하면 Cortana를 통해 사용자의 음성 입력에 응답하는 기능을 제공할 수 있습니다.
 
