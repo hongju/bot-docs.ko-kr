@@ -9,12 +9,12 @@ ms.service: bot-service
 ROBOTS: NOINDEX
 ms.date: 10/04/2018
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 62b5608de20bb89a31106c7e652b20f32b099d15
-ms.sourcegitcommit: 152760771214865b9c7d0ed481acfba05bdc44dc
+ms.openlocfilehash: 54742bdeddee410ec9307157d0dbd34cc4fbe3c8
+ms.sourcegitcommit: 721bb09f10524b0cb3961d7131966f57501734b8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58655503"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59541079"
 ---
 [!INCLUDE [pre-release-label](includes/pre-release-label-v3.md)]  
 
@@ -68,7 +68,7 @@ These capabilities were bundled in the BotAuth and AuthBot samples that are on G
 
 ## <a name="create-your-bot-and-an-authentication-application"></a>봇 및 인증 애플리케이션 만들기
 
-봇 코드를 게시하는 등록 봇을 만들고, 봇에서 Office 365에 액세스하도록 허용하는 Azure AD(v1 또는 v2) 애플리케이션을 만들어야 합니다.
+배포된 봇의 코드에 메시징 엔드포인트를 설정하는 등록 봇을 만들고, 봇에서 Office 365에 액세스하도록 허용하는 Azure AD(v1 또는 v2) 애플리케이션을 만들어야 합니다.
 
 > [!NOTE]
 > 이러한 인증 기능은 다른 유형의 봇과 작동합니다. 그러나 이 자습서에는 등록 전용 봇을 사용합니다.
@@ -234,10 +234,10 @@ v1 및 v2 엔드포인트 간의 차이점에 대한 정보는 [v1-v2 비교](ht
     </appSettings>
     ```
 
-    **Microsoft 앱 ID** 및 **Microsoft 앱 암호** 값을 가져오는 방법을 알지 못하는 경우 Azure Portal에서 봇에 대해 프로비전된 Azure 앱 서비스의 **ApplicationSettings**를 확인합니다.
+    **Microsoft 앱 ID** 및 **Microsoft 앱 암호** 값을 가져오는 방법을 알지 못하는 경우 [bot-channels-registration-password](bot-service-quickstart-registration.md#bot-channels-registration-password)에 설명된 대로 새 암호를 만들거나 [find-your-azure-bots-appid-and-appsecret](https://blog.botframework.com/2018/07/03/find-your-azure-bots-appid-and-appsecret)에 설명된 배포에서 **봇 채널 등록**을 사용하여 프로비저닝된 **Microsoft 앱 ID** 및 **Microsoft 앱 암호**를 검색합니다.
 
     > [!NOTE]
-    > 이제 이 봇 코드를 Azure 구독에 다시 게시할 수 있지만(프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시** 선택) 이 자습서에서는 필요하지 않습니다. Azure Portal에서 봇을 구성할 때 사용한 애플리케이션 및 호스팅 계획을 사용하는 게시 구성을 설정해야 합니다.
+    > 이제 이 봇 코드를 Azure 구독에 게시할 수 있지만(프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시** 선택) 이 자습서에서는 필요하지 않습니다. Azure Portal에서 봇을 구성할 때 사용한 애플리케이션 및 호스팅 계획을 사용하는 게시 구성을 설정해야 합니다.
 
 ## <a name="use-the-emulator-to-test-your-bot"></a>에뮬레이터를 사용하여 봇 테스트
 

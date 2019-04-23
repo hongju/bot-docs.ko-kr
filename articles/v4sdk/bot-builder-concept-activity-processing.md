@@ -10,12 +10,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 09/13/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 6ba140324fb6b50c2d6696aae6e4bd3e8824fd96
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: fa243d8cc00fd6fadf7c51668c9e7ba74d0c06e2
+ms.sourcegitcommit: cacd381d185b2b8b7fb99082baf83d9f65dde341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49997570"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59508230"
 ---
 # <a name="activity-processing"></a>작업 처리
 
@@ -29,7 +29,7 @@ ms.locfileid: "49997570"
 
 봇 어댑터는 인증 프로세스를 캡슐화하고 Bot Connector Service와 작업을 주고받습니다. 봇이 작업을 받으면 어댑터는 해당 작업에 대한 모든 항목을 래핑하고, 턴에 대한 [컨텍스트 개체](#turn-context)를 만들어서 봇의 애플리케이션 논리에 전달하고, 봇이 생성한 응답을 다시 사용자의 채널로 보냅니다.
 
-## <a name="authentication"></a>인증
+## <a name="authentication"></a>Authentication
 
 어댑터는 작업의 정보 및 REST 요청의 `Authentication` 헤더를 사용하여 애플리케이션에서 수신하는 각 들어오는 작업을 인증합니다. 어댑터는 커넥터 개체 및 애플리케이션의 자격 증명을 사용하여 사용자에 대한 아웃바운드 작업을 인증합니다.
 
@@ -46,7 +46,7 @@ Bot Connector Service 인증에는 JWT(JSON 웹 토큰) `Bearer` 토큰 및 **Mi
 * 작업 - 대화의 요청과 회신은 모두 작업 형식입니다. 이 컨텍스트는 라우팅 정보, 채널 정보, 대화, 보낸 사람 및 받는 사람에 대한 정보를 포함하여 들어오는 작업에 대한 정보를 제공합니다.
 * 사용자 지정 정보 - 미들웨어를 구현하여 또는 봇 논리 내에서 봇을 확장하는 경우 각 턴에서 추가 정보를 제공할 수 있습니다.
 
-또한 컨텍스트 개체는 사용자에게 응답을 보내고, 어댑터에 대한 참조를 가져오는 데 사용될 수 있습니다<!-- to create a new conversation or continue an existing one-->.
+또한 컨텍스트 개체는 사용자에게 응답을 보내고, 어댑터에 대한 참조를 가져오는 데 사용될 수 있습니다.<!-- to create a new conversation or continue an existing one-->.
 
 > [!NOTE]
 > 애플리케이션 및 어댑터는 요청을 비동기적으로 처리하지만, 비즈니스 논리가 요청-응답 기반일 필요는 없습니다.

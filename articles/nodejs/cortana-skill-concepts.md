@@ -7,14 +7,14 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
-ms.date: 12/13/2017
+ms.date: 02/10/2019
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 909294243abe00ac95e8f5d89d6babc2edc4f994
-ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
+ms.openlocfilehash: 5de773f6f8f4d46c0c1fe880588f2530c3c68f56
+ms.sourcegitcommit: cacd381d185b2b8b7fb99082baf83d9f65dde341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54225688"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59508210"
 ---
 # <a name="key-concepts-for-building-a-bot-for-cortana-skills-using-nodejs"></a>Node.js를 사용하여 Cortana Skill용 봇을 빌드하기 위한 주요 개념
  
@@ -40,57 +40,49 @@ Cortana는 텍스트 대화뿐 아니라 음성 메시지도 주고받을 수 �
 
 사용자는 시스템이 자신의 발언을 접지(ground)하지 못하면 혼란스러워합니다. 예를 들어, 다음 대화에서 봇이 "다음은 뭔가요?"라고 질문하면 약간 혼란스러울 수 있습니다.
 
-```
-Agent: Did you want to review some more of your profile?
-
-User: No.
-
-Agent: What's next?
-```
+> **Cortana**: 프로필 몇 개를 더 검토하시겠습니까?  
+> **사용자**:  아니요.  
+> **Cortana**: 다음 작업
 
 봇이 확인의 의미로 "오케이"를 추가하면 사용자에게 보다 친절해집니다.
 
-```
-Agent: Did you want to review some more of your profile?
-
-User: No.
-
-Agent: **Okay**, what's next?
-```
-
+> **Cortana**: 프로필 몇 개를 더 검토하시겠습니까?  
+> **사용자**:  아니요.  
+> **Cortana**: **알겠습니다**. 다음은 무엇인가요?
 
 접지의 정도(약한 정도에서 강한 정도)
+
 1. 지속적인 주목
 2. 다음 관련 기여
 3. 확인: 최소한의 응답 또는 컨티뉴어: "예", "응", "오케이", "좋아"
 4. 데모: 발언을 재구성, 완성하여 이해했다는 것을 나타냅니다.
 5. 디스플레이: 발언의 전체 또는 일부를 반복합니다.
 
-#### <a name="acknowledgement-and-next-relevant-contribution"></a>확인 및 다음 관련 기여
-사용자: ... 5월에 여행을 가려고 합니다.
-에이전트: 그러면, 5월 **며칠**에 여행을 가시겠습니까?
-사용자: 네, 12일에서 15일까지요.
-에이전트: **그러면**, 어느 도시로 가시겠습니까?
+### <a name="acknowledgement-and-next-relevant-contribution"></a>확인 및 다음 관련 기여
 
-#### <a name="grounding-by-demonstration"></a>데모를 통한 접지
-사용자: ... 5월에 여행을 가려고 합니다.
-에이전트: 그러면, 5월 **며칠**에 여행을 가시겠습니까?
-사용자: 네, 12일에서 15일까지요.
-에이전트: **그러면**, 어느 도시로 가시겠습니까?
+> **사용자**: 5월에 여행을 가려고 합니다.  
+> **Cortana**: **알겠습니다**. 5월 며칠에 여행을 가시겠습니까?  
+> **사용자**: 음, 12일에서 15일까지요.  
+> **Cortana**: **알겠습니다**. 어느 도시로 가시겠습니까?  
 
+### <a name="grounding-by-demonstration"></a>데모를 통한 접지
 
+> **사용자**: 5월에 여행을 가려고 합니다.  
+> **Cortana**: 그러면, 5월 **며칠**에 여행을 가시겠습니까?  
+> **사용자**: 네, 12일에서 15일까지요.  
+> **Cortana**: **그러면**, 어느 도시로 가시겠습니까?  
+    
 ### <a name="closure"></a>Closure
 
-동작을 수행하는 봇은 수행이 성공한 증거를 표현해야 합니다.
-실패했거나 이해했다는 것을 나타내는 것도 중요합니다. 
-* 비-음성 클로저: 엘리베이터 버튼을 누르면 버튼의 등이 켜집니다.
-두 단계 프로세스:
-* 프레젠테이션 
-* 수락
+동작을 수행하는 봇은 수행이 성공한 증거를 표현해야 합니다. 실패했거나 이해했다는 것을 나타내는 것도 중요합니다. 
 
+* 비-음성 클로저: 엘리베이터 버튼을 누르면 버튼의 등이 켜집니다.  
+다음은 2단계 프로세스입니다.
+    * 프레젠테이션(단추를 누를 경우)
+    * 승인(단추가 밝아질 경우)
 
-### <a name="differences-in-content-presentation"></a>콘텐츠 표현의 차이점
-음성 지원 봇을 설계할 때는 음성 대화가 봇이 보내는 텍스트 메시지와 다른 경우가 많다는 점에 유의해야 합니다.
+## <a name="differences-in-content-presentation"></a>콘텐츠 표현의 차이점
+Cortana는 다양한 디바이스에서 지원되지만 그 중 화면이 있는 디바이스는 일부입니다. 음성 인식 봇을 설계할 때는 음성 대화가 봇에 표시되는 텍스트 메시지와 동일하지 않은 경우가 종종 있다는 점을 고려해야 합니다.
 <!-- If there are differences in what the bot will say, in the text vs the speak fields of a prompt or in a waterfall, for example, discuss them here.
 
 ## Speech
@@ -119,7 +111,7 @@ The **inputHint** property can take the following values:
 * **acceptingInput**: Indicates that the bot is passively ready for input but is not waiting on a response. Cortana accepts input from the user if the user holds down the microphone button.
 * **ignoringInput**: Cortana is ignoring input. Your bot may send this hint if it is actively processing a request and will ignore input from users until the request is complete.
 
-Prompts can take a `speak:` or `retrySpeak` option.
+Prompts must use the `speak:` option.
 
 ```javascript
         builder.Prompts.choice(session, "Decision Options", choices, {
@@ -130,12 +122,9 @@ Prompts can take a `speak:` or `retrySpeak` option.
 
 Prompts.number has *ordinal support*, meaning that you can say "the last", "the first", "the next-to-last" to choose an item in a list.
 
-
-
-
 ## Using synonyms
 
-<!-- Axl Rose example -->     
+<!-- Axl Rose example -->
 ```javascript   
          var choices = [
             { 
@@ -165,13 +154,12 @@ Prompts.number has *ordinal support*, meaning that you can say "the last", "the 
         });
 ```
 
-
 ## <a name="configuring-your-bot"></a>봇 구성
 
 ## <a name="prompts"></a>프롬프트
 
-
 ## <a name="additional-resources"></a>추가 리소스
 
-[CortanaGetstarted]: /cortana/getstarted
-[SSMLRef]: https://msdn.microsoft.com/en-us/library/hh378377(v=office.14).aspx
+Cortana 설명서: [Cortana 기술 설명서](/cortana/skills/)
+
+Cortana SSML 참조: [SSML(Speech Synthesis Markup Language) 참조](/cortana/skills/speech-synthesis-markup-language)

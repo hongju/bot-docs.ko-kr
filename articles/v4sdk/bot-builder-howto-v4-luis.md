@@ -10,12 +10,12 @@ ms.service: bot-service
 ms.subservice: cognitive-services
 ms.date: 11/28/18
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: a30a3f5dfe4693d67a4cd42a50d35893f8888e07
-ms.sourcegitcommit: 05ddade244874b7d6e2fc91745131b99cc58b0d6
+ms.openlocfilehash: 1f077cb5efd838f8a91a0f18a9bcc2f64455ceb6
+ms.sourcegitcommit: 721bb09f10524b0cb3961d7131966f57501734b8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56591041"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59541119"
 ---
 # <a name="add-natural-language-understanding-to-your-bot"></a>봇에 자연어 해석 추가
 

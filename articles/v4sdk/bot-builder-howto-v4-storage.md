@@ -10,12 +10,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 11/13/18
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: a7d881e5e7748da11ea46721c23c5489597cdc94
-ms.sourcegitcommit: 4139ef7ebd8bb0648b8af2406f348b147817d4c7
+ms.openlocfilehash: 314a8a55906ec150d001b56c67ffbfe0ae2049f8
+ms.sourcegitcommit: 721bb09f10524b0cb3961d7131966f57501734b8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58073829"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59541129"
 ---
 # <a name="write-directly-to-storage"></a>저장소에 직접 작성
 
@@ -587,7 +587,7 @@ const mystorage = new BlobStorage({
 봇을 실행하고 정보를 저장한 후 Azure Portal의 **Storage 탐색기** 탭 아래에서 볼 수 있습니다.
 
 ## <a name="blob-transcript-storage"></a>Blob 기록 저장소
-Azure Blob 기록 저장소는 기록된 기록의 형태로 사용자 대화를 쉽게 저장하고 검색할 수 있는 특수 저장소 옵션을 제공합니다. Azure Blob 기록 저장소는 봇의 성능을 디버깅할 때 검사할 사용자 입력을 자동으로 캡처하는 데 특히 유용합니다.
+Azure Blob 기록 저장소는 기록된 기록의 형태로 사용자 대화를 쉽게 저장하고 검색할 수 있는 특수 저장소 옵션을 제공합니다. Azure Blob 기록 스토리지는 봇의 성능을 디버깅할 때 검사할 사용자 입력을 자동으로 캡처하는 데 특히 유용합니다.
 
 ### <a name="set-up"></a>설정
 Azure Blob 기록 스토리지는 위의 섹션 &quot;_Blob Storage 계정 만들기_&quot; 및 &quot;_구성 정보 추가_&quot;에 설명된 단계를 따라 만들어진 동일한 Blob Storage 계정을 사용할 수 있습니다. 이 문서에서는 새 Blob 컨테이너, "_mybottranscripts_"를 추가했습니다. 
@@ -621,7 +621,7 @@ public ConversationHistoryBot(AzureBlobTranscriptStore transcriptStore)
 ```
 
 ### <a name="store-user-conversations-in-azure-blob-transcripts"></a>Azure Blob 기록에 사용자 대화 저장
-Blob 컨테이너를 기록을 저장하는 데 사용할 수 있으면 봇과 사용자의 대화를 저장하도록 시작할 수 있습니다. 이러한 대화는 사용자가 봇과 상호 작용하는 방법을 확인하기 위해 나중에 디버깅 도구로 사용될 수 있습니다. 다음 코드는 activity.text가 입력 메시지 _!history_를 검색할 때 사용자 대화 입력을 보존합니다.
+TranscriptLoggerMiddleware가 추가되면 기록 저장소가 사용자와 봇의 대화 내용을 자동으로 저장하기 시작합니다. 이러한 대화는 사용자가 봇과 상호 작용하는 방법을 확인하기 위해 나중에 디버깅 도구로 사용될 수 있습니다. 다음 코드는 대화 내용을 검색한 후 activity.text가 _!history_라는 입력 메시지를 수신하면 현재 대화로 해당 기록을 전송합니다. 참고: SendConversationHistoryAsync 메서드는 Direct Line, Web Chat 및 Emulator 채널에서 지원됩니다.
 
 
 ```csharp

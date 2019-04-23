@@ -1,3 +1,11 @@
+---
+ms.openlocfilehash: b3f9a0d2c24809c0814baa9bfb8f993a4ba55ef7
+ms.sourcegitcommit: 721bb09f10524b0cb3961d7131966f57501734b8
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59551582"
+---
 ## <a name="prerequisites"></a>필수 조건
 
 - [Visual Studio Code](https://www.visualstudio.com/downloads)
@@ -11,6 +19,7 @@
 > 아래에 나열된 Windows 빌드 도구의 설치는 Windows를 개발 운영 체제로 사용하는 경우에만 필요합니다. 일부 설치의 경우 Restify에 대한 설치 단계는 node-gyp 관련 오류를 제공합니다.
 > 이 경우 관리자 권한으로 다음 명령을 실행해 보세요.
 > Python이 시스템에 이미 설치되어 있는 경우 이 호출은 종료하지 않고 중단될 수도 있습니다.
+
 > ```bash
 > npm install -g windows-build-tools
 > ```

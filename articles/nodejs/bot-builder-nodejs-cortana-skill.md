@@ -6,14 +6,14 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
-ms.date: 12/13/2017
+ms.date: 02/10/2019
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: e00128ca82ec8b97502d8f2fbf42be10cc91ade6
-ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
+ms.openlocfilehash: 690c456a1baa94eab1f0efbed6ce2c2e1f5cb280
+ms.sourcegitcommit: cacd381d185b2b8b7fb99082baf83d9f65dde341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54225305"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59508160"
 ---
 # <a name="build-a-speech-enabled-bot-with-cortana-skills"></a>Cortana Skill을 사용하여 음성 지원 봇 빌드
 
@@ -21,7 +21,7 @@ ms.locfileid: "54225305"
 
 > [!div class="op_single_selector"]
 > - [.NET](../dotnet/bot-builder-dotnet-cortana-skill.md)
-> - [Node.JS](../nodejs/bot-builder-nodejs-cortana-skill.md)
+> - [Node.js](../nodejs/bot-builder-nodejs-cortana-skill.md)
 
 Node.js용 Bot Framework SDK를 사용하면 Cortana Skill로 Cortana 채널에 연결하여 음성 지원 봇을 빌드할 수 있습니다. Cortana Skill을 사용하면 Cortana를 통해 사용자의 음성 입력에 응답하는 기능을 제공할 수 있습니다.
 
@@ -58,42 +58,46 @@ Bot Framework를 사용하여 Cortana Skill을 만드는 경우 Cortana 관련 �
 |------|------|
 | **acceptingInput** | 봇이 소극적으로 입력을 받을 준비가 되었지만 응답을 기다리고 있지는 않습니다. Cortana는 사용자가 마이크 단추를 길게 누를 경우 사용자 입력을 허용합니다.|
 | **expectingInput** | 봇이 사용자 응답을 적극적으로 필요로 함을 나타냅니다. Cortana는 사용자가 마이크에 말하는 내용을 수신 대기합니다.  |
+||참고:  헤드리스 디바이스(디스플레이가 없는 디바이스)에서는 **expectingInput**을 사용하지 _마세요_. [Cortana 기술 키트 FAQ](https://review.docs.microsoft.com/en-us/cortana/skills/faq)를 참조하세요.|
 | **ignoringInput** | Cortana가 입력을 무시합니다. 봇은 요청을 적극적으로 처리 중이며 요청이 완료될 때까지 사용자 입력을 무시하는 경우 이 힌트를 보낼 수 있습니다.  |
-
 
 다음 예제는 Cortana가 일반 텍스트나 SSML을 읽는 방법을 보여줍니다.
 
 ```javascript
+
 // Have Cortana read plain text
 session.say('This is the text that Cortana displays', 'This is the text that is spoken by Cortana.');
 
 // Have Cortana read SSML
 session.say('This is the text that Cortana displays', '<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">This is the text that is spoken by Cortana.</speak>');
+
 ```
 
 이 예제에서는 사용자 입력이 필요함을 Cortana에 알리는 방법을 보여 줍니다. 마이크가 열려 있습니다.
+
 ```javascript
+
 // Add an InputHint to let Cortana know to expect user input
 session.say('Hi there', 'Hi, what’s your name?', {
     inputHint: builder.InputHint.expectingInput
 });
+
 ```
 <!-- TODO: tip about time limit and batching -->
-
 
 ### <a name="prompts"></a>프롬프트
 
 **session.say()** 메서드를 사용하는 것 외에도 **speak** 및 **retrySpeak** 옵션을 사용하여 기본 제공 프롬프트에 텍스트나 SSML을 전달할 수 있습니다.  
 
 ```javascript
+
 builder.Prompts.text(session, 'text based prompt', {                                    
     speak: 'Cortana reads this out initially',                                               
     retrySpeak: 'This message is repeated by Cortana after waiting a while for user input',  
     inputHint: builder.InputHint.expectingInput                                              
 });
+
 ```
-
-
 
 <!-- TODO: Link to SSML library -->
 
@@ -102,6 +106,7 @@ builder.Prompts.text(session, 'text based prompt', {
 **Prompts.choice**는 서수 선택을 지원합니다. 즉 사용자가 "the first", "the second" 또는 "the third"라고 말해서 목록에서 항목을 선택할 수 있습니다. 예를 들어 다음 프롬프트에서 사용자가 Cortana에게 "the second option"을 요청하면 프롬프트에 8이라는 값이 반환됩니다.
 
 ```javascript
+
         var choices = [
             { value: '4', action: { title: '4 Sides' }, synonyms: 'four|for|4 sided|4 sides' },
             { value: '8', action: { title: '8 Sides' }, synonyms: 'eight|ate|8 sided|8 sides' },
@@ -111,11 +116,13 @@ builder.Prompts.text(session, 'text based prompt', {
         builder.Prompts.choice(session, 'choose_sides', choices, { 
             speak: speak(session, 'choose_sides_ssml') // use helper function to format SSML
         });
+
 ```
 
 이전 예제에서 프롬프트의 **speak** 속성에 대한 SSML은 다음 형식으로 지역화된 프롬프트 파일에 저장된 문자열을 사용하여 형성됩니다. 
 
 ```json
+
 {
     "choose_sides": "__Number of Sides__",
     "choose_sides_ssml": [
@@ -124,8 +131,8 @@ builder.Prompts.text(session, 'text based prompt', {
         "All the standard sizes are supported."
     ]
 }
-```
 
+```
 
 그런 다음, 도우미 함수가 SSML(Speech Synthesis Markup Language) 문서의 필수 루트 요소를 빌드합니다. 
 
@@ -157,7 +164,7 @@ module.exports.speak = function (template, params, options) {
 
 다음 코드는 **speak** 및 **inputHint** 속성을 히어로(Hero) 카드를 포함하는 메시지에 추가하는 방법을 보여줍니다.
 
-```javascript 
+```javascript
 
 bot.dialog('HelpDialog', function (session) {
     var card = new builder.HeroCard(session)
@@ -172,7 +179,6 @@ bot.dialog('HelpDialog', function (session) {
         .inputHint(builder.InputHint.acceptingInput); // Tell Cortana to accept input
     session.send(msg).endDialog();
 }).triggerAction({ matches: /help/i });
-
 
 /** This helper function builds the required root element of a Speech Synthesis Markup Language (SSML) document. */
 module.exports.speak = function (template, params, options) {
@@ -196,6 +202,7 @@ Cortana에 해당 [호출 이름][InvocationNameGuidelines]을 말하여 기술�
 RollerSkill 샘플은 사용자에게 선택 가능한 옵션을 알려주는 단추가 있는 카드를 여는 것으로 시작됩니다.
 
 ```javascript
+
 /**
  *   Create your bot with a default message handler that receive messages from the user.
  * - This function is be called anytime the user's utterance isn't
@@ -231,8 +238,6 @@ dialog를 시작하기 위해 이 dialog의 **triggerAction()** 처리기에서 
 
 
 ```javascript
-
-
 bot.dialog('CreateGameDialog', [
     function (session) {
         // Initialize game structure.
@@ -293,6 +298,7 @@ bot.dialog('CreateGameDialog', [
     /(roll|role|throw|shoot).*(dice|die|dye|bones)/i,
     /new game/i
  ]});
+
 ```
 
 ### <a name="render-results"></a>렌더링 결과
@@ -402,6 +408,7 @@ bot.dialog('PlayGameDialog', function (session, args) {
         session.replaceDialog('CreateGameDialog');
     }
 }).triggerAction({ matches: /(roll|role|throw|shoot) again/i });
+
 ```
 
 ## <a name="next-steps"></a>다음 단계

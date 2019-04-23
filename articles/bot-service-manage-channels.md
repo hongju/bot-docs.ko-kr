@@ -9,26 +9,25 @@ ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
 ms.date: 09/22/2018
-ms.openlocfilehash: 0430562fd615aef67b4ba95538d390cf2223fb45
-ms.sourcegitcommit: c6ce4c42fc56ce1e12b45358d2c747fb77eb74e2
+ms.openlocfilehash: 448bd1acd39445c39e49f27c3b9446523124bf87
+ms.sourcegitcommit: 721bb09f10524b0cb3961d7131966f57501734b8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54453907"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59540999"
 ---
 # <a name="connect-a-bot-to-channels"></a>채널에 봇 연결
 
-채널은 봇과 통신 앱 사이의 연결입니다. 봇을 사용할 수 있기를 원하는 채널에 연결하도록 구성합니다. Azure Portal을 통해 구성된 Bot Framework Service는 봇을 이러한 채널에 연결하고, 봇과 사용자 간 통신을 용이하게 합니다. [Cortana](bot-service-channel-connect-cortana.md), [Facebook Messenger](bot-service-channel-connect-facebook.md), [Kik](bot-service-channel-connect-kik.md), [Slack](bot-service-channel-connect-slack.md) 및 기타 여러 서비스와 같은 많은 유명한 서비스에 연결할 수 있습니다. [Skype](https://dev.skype.com/bots) 및 Web Chat은 사용자를 위해 미리 구성됩니다. Bot Connector Service를 통해 제공되는 표준 채널 외에도 Direct Line을 채널로 사용하여 고유한 클라이언트 애플리케이션에 봇을 연결할 수도 있습니다.
+채널은 봇과 통신 앱 사이의 연결입니다. 봇을 사용할 수 있기를 원하는 채널에 연결하도록 구성합니다. Azure Portal을 통해 구성된 Bot Framework Service는 봇을 이러한 채널에 연결하고, 봇과 사용자 간 통신을 용이하게 합니다. [Cortana](bot-service-channel-connect-cortana.md), [Facebook Messenger](bot-service-channel-connect-facebook.md), [Kik](bot-service-channel-connect-kik.md), [Slack](bot-service-channel-connect-slack.md) 및 기타 여러 서비스와 같은 많은 유명한 서비스에 연결할 수 있습니다. [Web Chat](bot-service-channel-connect-webchat.md) 채널은 자동으로 미리 구성됩니다. 또한 Bot Connector Service를 통해 제공되는 표준 채널 이외에도 [직접 회선](bot-service-channel-connect-directline.md)을 채널로 사용하여 자체 클라이언트 애플리케이션에 봇을 연결할 수 있습니다.
 
 Bot Framework Service를 사용하면 봇이 채널에 전송하는 메시지를 정규화하여 채널 독립적인 방법으로 봇을 개발할 수 있습니다. 이는 봇 프레임워크 스키마에서 채널의 스키마로 변환하는 것을 포함합니다. 단, 채널이 봇 프레임워크 스키마 중 일부를 지원하지 않는 경우 서비스는 메시지를 채널이 지원하는 형식으로 변환하려고 시도합니다. 예를 들어, 봇이 작업 단추가 있는 카드가 포함된 메시지를 이메일 채널에 보내면 커넥터는 카드를 이미지로 전송하고 메시지의 텍스트에 링크로 작업을 포함시킬 수 있습니다.
-
 
 대부분의 채널의 경우 채널에서 봇을 실행하려면 채널 구성 정보를 제공해야 합니다. 대부분의 채널의 경우 봇이 채널에 계정이 있어야 하며, Facebook Messenger 등의 경우에는 봇이 채널에도 등록된 애플리케이션이 있어야 합니다.
 
 봇이 채널에 연결되도록 구성하려면 다음 단계를 수행합니다.
 
 1. <a href="https://portal.azure.com" target="_blank">Azure Portal</a>에 로그인합니다.
-1. 구성하려는 봇을 선택합니다.
+2. 구성하려는 봇을 선택합니다.
 3. Bot Service 블레이드의 **봇 관리**에서 **채널**을 클릭합니다.
 4. 봇에 추가하려는 채널의 아이콘을 클릭합니다.
 
@@ -43,4 +42,5 @@ Bot Framework Service를 사용하면 봇이 채널에 전송하는 메시지를
 [!INCLUDE [publishing](./includes/snippet-publish-to-channel.md)]
 
 ## <a name="additional-resources"></a>추가 리소스
-SDK에는 봇을 빌드하는 데 사용할 수 있는 샘플이 포함되어 있습니다. [GitHub](https://github.com/Microsoft/BotBuilder-samples) 리포지토리를 방문하여 샘플 목록을 참조하세요.
+
+SDK에는 봇을 빌드하는 데 사용할 수 있는 샘플이 포함되어 있습니다. 샘플 목록을 보려면 [GitHub의 샘플 리포지토리](https://github.com/Microsoft/BotBuilder-samples)를 방문하세요.

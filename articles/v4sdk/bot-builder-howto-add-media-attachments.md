@@ -10,12 +10,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 02/27/2019
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: ed723e2caebd7fc085c6f9f2887e277195ee3516
-ms.sourcegitcommit: cf3786c6e092adec5409d852849927dc1428e8a2
+ms.openlocfilehash: aea34c068afa6fef3a701bc1179341ff4861e32a
+ms.sourcegitcommit: 721bb09f10524b0cb3961d7131966f57501734b8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57224881"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59541099"
 ---
 # <a name="add-media-to-messages"></a>메시지에 미디어 추가
 
@@ -225,9 +225,9 @@ await context.sendActivity(hero);
 
 둘째, 적응형 카드는 카드 양식의 메시지를 전달하며, 채널은 카드의 레이아웃을 결정합니다. MessageFactory가 제공하는 메시지 양식은 채널에 따라 다르며, 적응형 카드가 첨부 파일의 일부가 아니라면 카드 양식이 아니어도 됩니다. 
 
-적응형 카드 채널 지원에 대한 최신 정보는 <a href="http://adaptivecards.io/visualizer/">적응형 카드 시각화 도우미</a>를 참조하세요.
+적응형 카드 채널 지원에 대한 최신 정보는 <a href="http://adaptivecards.io/designer/">적응형 카드 디자이너</a>를 참조하세요.
 
-적응형 카드를 사용하려면 `Microsoft.AdaptiveCards` NuGet 패키지를 추가해야 합니다. 
+적응형 카드를 사용하려면 `AdaptiveCards` NuGet 패키지를 추가해야 합니다. 
 
 
 > [!NOTE]

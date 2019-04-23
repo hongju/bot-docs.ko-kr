@@ -9,12 +9,12 @@ ms.service: bot-service
 ms.subservice: abs
 ms.date: 04/09/2019
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 27c97d257261a6f3b9d867503aee40382b685e20
-ms.sourcegitcommit: 562dd44e38abacaa31427da5675da556a970cf11
+ms.openlocfilehash: 1a295f68be626c2d2ef17dcb49b7c7d31ae2cefa
+ms.sourcegitcommit: 721bb09f10524b0cb3961d7131966f57501734b8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/10/2019
-ms.locfileid: "59477106"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59541049"
 ---
 # <a name="add-authentication-to-your-bot-via-azure-bot-service"></a>Azure Bot Service를 통해 봇에 인증 추가
 
@@ -168,7 +168,7 @@ v1 및 v2 엔드포인트 간의 차이점에 대한 정보는 [v1-v2 비교](ht
 
 다음 단계는 앞에서 만든 Azure AD 애플리케이션을 봇에 등록하는 것입니다.
 
-# [<a name="azure-ad-v1"></a>Azure AD v1](#tab/aadv1)
+# <a name="azure-ad-v1tabaadv1"></a>[Azure AD v1](#tab/aadv1)
 
 1. [Azure Portal](http://portal.azure.com/)에서 봇의 리소스 페이지로 이동합니다.
 1. **설정**을 클릭합니다.
@@ -193,7 +193,7 @@ v1 및 v2 엔드포인트 간의 차이점에 대한 정보는 [v1-v2 비교](ht
 > [!NOTE]
 > 이러한 값을 사용하면 애플리케이션은 Microsoft Graph API를 통해 Office 365 데이터에 액세스할 수 있습니다.
 
-# [<a name="azure-ad-v2"></a>Azure AD v2](#tab/aadv2)
+# <a name="azure-ad-v2tabaadv2"></a>[Azure AD v2](#tab/aadv2)
 
 1. [Azure Portal](http://portal.azure.com/)에서 봇의 봇 채널 등록 페이지로 이동합니다.
 1. **설정**을 클릭합니다.
@@ -273,10 +273,14 @@ v1 및 v2 엔드포인트 간의 차이점에 대한 정보는 [v1-v2 비교](ht
     }
     ```
 
-    **Microsoft 앱 ID** 및 **Microsoft 앱 암호** 값을 가져오는 방법을 알지 못하는 경우 Azure Portal에서 봇에 대해 프로비전된 Azure 앱 서비스의 **ApplicationSettings**를 확인합니다.
+    **Microsoft 앱 ID** 및 **Microsoft 앱 암호** 값을 가져오는 방법을 알지 못하는 경우
+
+    [bot-channels-registration-password](../bot-service-quickstart-registration.md#bot-channels-registration-password)에 설명된 대로 새 암호를 만들거나
+
+    [find-your-azure-bots-appid-and-appsecret](https://blog.botframework.com/2018/07/03/find-your-azure-bots-appid-and-appsecret)에 설명된 배포에서 **봇 채널 등록**을 사용하여 프로비저닝된 **Microsoft 앱 ID** 및 **Microsoft 앱 암호**를 검색합니다.
 
     > [!NOTE]
-    > 이제 이 봇 코드를 Azure 구독에 다시 게시할 수 있지만(프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시** 선택) 이 자습서에서는 필요하지 않습니다. Azure Portal에서 봇을 구성할 때 사용한 애플리케이션 및 호스팅 계획을 사용하는 게시 구성을 설정해야 합니다.
+    > 이제 이 봇 코드를 Azure 구독에 게시할 수 있지만(프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시** 선택) 이 자습서에서는 필요하지 않습니다. Azure Portal에서 봇을 구성할 때 사용한 애플리케이션 및 호스팅 계획을 사용하는 게시 구성을 설정해야 합니다.
 
 ## <a name="use-the-emulator-to-test-your-bot"></a>에뮬레이터를 사용하여 봇 테스트
 
@@ -327,7 +331,7 @@ v1 및 v2 엔드포인트 간의 차이점에 대한 정보는 [v1-v2 비교](ht
 
 이 코드에서 봇은 먼저 Azure Bot Service에 사용자에 대한 토큰(현재 작업 전송자에 의해 식별됨) 및 지정된 ConnectionName(구성에서 사용되는 연결 이름)이 이미 있는지 빠른 검사를 수행합니다. Azure Bot Service는 캐시된 토큰이 이미 있거나 없습니다. GetUserTokenAsync에 대한 호출은 이 빠른 검사를 수행합니다. Azure Bot Service에 토큰이 있고 반환하는 경우 토큰을 즉시 사용할 수 있습니다. Azure Bot Service에 토큰이 없는 경우 이 메서드는 Null을 반환합니다. 이 경우 봇은 로그인할 사용자에 대한 사용자 지정된 OAuthCard를 보낼 수 있습니다.
 
-# [<a name="c"></a>C#](#tab/csharp)
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ```csharp
 // First ask Bot Service if it already has a token for this user
@@ -342,7 +346,7 @@ else
 }
 ```
 
-# [<a name="javascript"></a>JavaScript](#tab/javascript)
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 public async getUserToken(context: TurnContext, code?: string): Promise<TokenResponse|undefined> {
@@ -364,7 +368,7 @@ public async getUserToken(context: TurnContext, code?: string): Promise<TokenRes
 
 이 호출의 끝에서 봇은 "토큰이 다시 돌아오기를 기다려야" 합니다. 로그인을 위해 수행해야 하는 많은 사용자가 있을 수 있으므로 이 대기는 주 작업 스트림에서 수행됩니다.
 
-# [<a name="c"></a>C#](#tab/csharp)
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ```csharp
 private async Task SendOAuthCardAsync(ITurnContext turnContext, IMessageActivity message, CancellationToken cancellationToken = default(CancellationToken))
@@ -397,7 +401,7 @@ private async Task SendOAuthCardAsync(ITurnContext turnContext, IMessageActivity
 }
 ```
 
-# [<a name="javascript"></a>JavaScript](#tab/javascript)
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 private async sendOAuthCardAsync(context: TurnContext, prompt?: string|Partial<Activity>): Promise<void> {
@@ -429,7 +433,7 @@ private async sendOAuthCardAsync(context: TurnContext, prompt?: string|Partial<A
 
 각 샘플의 봇 코드를 살펴보면 `Event` 및 `Invoke` 활동도 대화 상자 스택으로 라우팅되는 것을 알 수 있습니다.
 
-# [<a name="c"></a>C#](#tab/csharp)
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ```csharp
 // This can be called when the bot receives an Activity after sending an OAuthCard
@@ -477,7 +481,7 @@ private bool IsTeamsVerificationInvoke(ITurnContext turnContext)
 }
 ```
 
-# [<a name="javascript"></a>JavaScript](#tab/javascript)
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 private async recognizeToken(context: TurnContext): Promise<PromptRecognizerResult<TokenResponse>> {
