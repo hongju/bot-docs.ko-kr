@@ -10,14 +10,17 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 02/06/2019
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 4c268bc40b7dc3315232d8f695bdb79343b15e21
-ms.sourcegitcommit: c7d2e939ec71f46f48383c750fddaf6627b6489d
+ms.openlocfilehash: 75e12ab44915783c33c3b2ee10775cc6f00487bb
+ms.sourcegitcommit: aea57820b8a137047d59491b45320cf268043861
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55795596"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59905036"
 ---
 # <a name="add-telemetry-to-your-bot"></a>봇에 원격 분석 추가
+
+[!INCLUDE[applies-to](../includes/applies-to.md)]
+
 Bot Framework SDK 버전 4.2에서 원격 분석 로깅이 제품에 추가되었습니다.  이렇게 하면 봇 애플리케이션은 Application Insights와 같은 서비스에 이벤트 데이터를 보낼 수 있습니다.
 
 이 문서에서는 새로운 원격 분석 기능과 봇을 통합하는 방법에 대해 알아봅니다.  

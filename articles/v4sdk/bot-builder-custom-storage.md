@@ -8,16 +8,18 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
-ms.date: 10/31/2018
+ms.date: 4/31/2019
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 4503e2953543d2ec9c06e8cd60484a5c87d95987
-ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
+ms.openlocfilehash: 41a33c20148e128efa1d10b72410eb06a6a94982
+ms.sourcegitcommit: aea57820b8a137047d59491b45320cf268043861
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54224008"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59905006"
 ---
 # <a name="implement-custom-storage-for-your-bot"></a>봇에 사용자 지정 스토리지 구현
+
+[!INCLUDE[applies-to](../includes/applies-to.md)]
 
 한 개의 상호작용은 세 가지 영역으로 나뉩니다. 첫째, Azure Bot Service와 활동을 교환하는 것, 둘째, Store(저장소)를 통해 대화 상태를 로드하고 저장하는 것, 그리고 마지막으로 봇에서 작업을 수행하는 데 필요한 다른 백 엔드 서비스입니다.
 

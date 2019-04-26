@@ -10,16 +10,16 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 11/8/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 231ed330faf9ce777a5acc5f4e6272b747a6f7fc
-ms.sourcegitcommit: d385ec5fe61c469ab17e6f21b4a0d50e5110d0fd
+ms.openlocfilehash: fddaced5693242e1debed6135122ace5a3cd316b
+ms.sourcegitcommit: aea57820b8a137047d59491b45320cf268043861
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54298280"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59904996"
 ---
 # <a name="middleware"></a>미들웨어
 
-[!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
+[!INCLUDE [applies-to-v4](../includes/applies-to.md)]
 
 미들웨어는 간단하게 말해서 어댑터와 봇 논리 사이에 위치하는 클래스로, 초기화하는 동안 어댑터의 미들웨어 컬렉션에 추가됩니다. SDK를 사용하면 사용자 고유의 미들웨어를 작성하거나 다른 사람이 만든 미들웨어를 추가할 수 있습니다. 봇으로 들어오거나 봇에서 나가는 모든 작업은 미들웨어를 통과합니다.
 
@@ -41,7 +41,7 @@ SDK는 들어오고 나가는 활동을 기록할 수 있는 로깅 미들웨어
 ## <a name="the-bot-middleware-pipeline"></a>봇 미들웨어 파이프라인
 각 작업에 대해 어댑터는 미들웨어를 추가된 순서대로 호출합니다. 어댑터는 턴 및 _다음_ 대리자에 대한 컨텍스트 개체를 전달하고, 미들웨어는 파이프라인의 다음 미들웨어에 컨트롤을 전달할 대리자를 호출합니다. 또한 미들웨어는 _다음_ 대리자가 메서드를 반환한 후부터 완료하기 전까지 작업을 수행할 수 있는 기회가 있습니다. 각 미들웨어 개체에는 파이프라인에서 따르는 미들웨어 개체와 관련하여 작동할 수 있는 처음이자 마지막 기회가 있는 것으로 생각하셔도 좋습니다.
 
-예를 들면 다음과 같습니다.
+예: 
 
 - 첫 번째 미들웨어 개체의 턴 처리기가 _다음_을 호출하기 전에 코드를 실행합니다.
   - 두 번째 미들웨어 개체의 턴 처리기가 _다음_을 호출하기 전에 코드를 실행합니다.

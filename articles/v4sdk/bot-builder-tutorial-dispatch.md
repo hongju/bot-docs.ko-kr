@@ -10,16 +10,16 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 01/15/2019
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: bec6f44db929eab43cfcbbd6b2920b79924b7576
-ms.sourcegitcommit: 32615b88e4758004c8c99e9d564658a700c7d61f
+ms.openlocfilehash: 373470b000b168e6e434ed5ed08b35c18ab09a99
+ms.sourcegitcommit: aea57820b8a137047d59491b45320cf268043861
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55712007"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59904966"
 ---
 # <a name="use-multiple-luis-and-qna-models"></a>다중 LUIS 및 QnA 모델 사용
 
-[!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
+[!INCLUDE[applies-to](../includes/applies-to.md)]
 
 이 자습서에서는 봇이 지원하는 여러 시나리오에 대해 여러 LUIS 모델과 QnA Maker 서비스가 있을 때 디스패치 서비스를 사용하여 발화를 라우팅하는 방법을 보여 줍니다. 이 경우 홈 자동화 및 날씨 정보와 관련된 대화를 위한 여러 LUIS 모델로 Dispatch를 구성하고, QnA Maker 서비스에서 FAQ 텍스트 파일에 기반하여 입력된 질문에 답변합니다. 이 샘플에서는 다음 서비스를 결합합니다.
 

@@ -8,18 +8,18 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
-ms.date: 11/15/2018
+ms.date: 4/15/2019
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 207dfaf71e8af7af3a36e496deb506ff9d0c13c8
-ms.sourcegitcommit: cf3786c6e092adec5409d852849927dc1428e8a2
+ms.openlocfilehash: 65d811babcdaf775d4e3a9889a1440c8f2b1ece6
+ms.sourcegitcommit: aea57820b8a137047d59491b45320cf268043861
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57224891"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59905136"
 ---
 # <a name="send-proactive-notifications-to-users"></a>사용자에게 자동 관리 알림 보내기
 
-[!INCLUDE [pre-release-label](~/includes/pre-release-label.md)]
+[!INCLUDE[applies-to](../includes/applies-to.md)]
 
 일반적으로 봇이 사용자에게 직접 보내는 각각의 메시지는 사용자의 이전 입력과 관련이 있습니다.
 경우에 따라 봇은 현재 대화 주제 또는 사용자가 보낸 마지막 메시지와 직접 관련이 없는 메시지를 사용자에게 보내야 할 수도 있습니다. 이러한 종류의 메시지를 _자동 관리 메시지_라고 합니다.

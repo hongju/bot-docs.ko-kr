@@ -8,18 +8,18 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
-ms.date: 08/24/2018
+ms.date: 04/18/2019
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 751d5067d2e4b6b6ad21e1a4fd0ccb3818385d06
-ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
+ms.openlocfilehash: e788501e7bd4cc109677f0e6870eac95c0696e36
+ms.sourcegitcommit: aea57820b8a137047d59491b45320cf268043861
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54224878"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59904956"
 ---
 # <a name="add-input-hints-to-messages"></a>메시지에 입력 힌트 추가
 
-[!INCLUDE [pre-release-label](~/includes/pre-release-label.md)]
+[!INCLUDE[applies-to](../includes/applies-to.md)]
 
 메시지에 대한 입력 힌트를 지정하여 메시지를 클라이언트에 전달한 후 봇이 사용자 입력을 허용, 필요 또는 무시하는지 여부를 나타낼 수 있습니다. 많은 채널에서 이 기능을 사용하여 클라이언트가 사용자 입력 컨트롤 상태를 적절히 설정할 수 있습니다. 예를 들어 메시지의 입력 힌트가 봇이 사용자 입력을 무시하는 것을 표시하는 경우 클라이언트는 사용자가 입력을 제공하지 못하게 막으려면 마이크를 종료하고 입력란을 사용하지 않도록 설정할 수 있습니다.
 

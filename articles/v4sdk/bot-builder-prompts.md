@@ -10,16 +10,16 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 02/19/2019
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 68c01b0f12790393fe0ee7ae0bd28addf2d26ae7
-ms.sourcegitcommit: 05ddade244874b7d6e2fc91745131b99cc58b0d6
+ms.openlocfilehash: 811921cdeccc8c870b5b9dfc9daaab57e449c0cd
+ms.sourcegitcommit: aea57820b8a137047d59491b45320cf268043861
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56591124"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59905046"
 ---
 # <a name="gather-user-input-using-a-dialog-prompt"></a>대화 상자 프롬프트를 사용하여 사용자 입력 수집
 
-[!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
+[!INCLUDE[applies-to](../includes/applies-to.md)]
 
 질문을 제시하여 정보를 수집하는 것은 봇에서 사용자와 상호 작용하는 주요 방법 중 하나입니다. *대화* 라이브러리를 사용하면 질문을 쉽게 할 수 있을 뿐만 아니라 특정 데이터 형식과 일치하거나 사용자 지정 유효성 검사 규칙을 충족하는지 확인하기 위해 응답의 유효성도 검사할 수 있습니다. 이 항목에서는 폭포 대화에서 프롬프트를 만들고 호출하는 방법에 대해 자세히 설명합니다.
 

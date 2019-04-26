@@ -8,18 +8,18 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
-ms.date: 11/08/2018
+ms.date: 4/18/2019
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 927d206c44d5809611871cfec7369e03e07837aa
-ms.sourcegitcommit: cf3786c6e092adec5409d852849927dc1428e8a2
+ms.openlocfilehash: bf0c5c0bba335c41a268d43014e925f6a9289d75
+ms.sourcegitcommit: aea57820b8a137047d59491b45320cf268043861
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57224791"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59904976"
 ---
 # <a name="use-button-for-input"></a>입력에 단추 사용
 
-[!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
+[!INCLUDE[applies-to](../includes/applies-to.md)]
 
 사용자가 입력하기 위해 탭할 수 있는 단추를 봇이 표시하도록 할 수 있습니다. 단추는 사용자가 키보드를 사용하여 응답을 입력하는 대신 질문에 대답하거나 간단히 단추를 탭하여 선택할 수 있도록 하여 사용자 환경을 개선합니다. 제안된 동작 창 내에 표시되는 단추는 서식 있는 카드 내에 표시되는 단추와 달리(탭한 후에도 사용자에게 표시되고 액세스 가능함) 사용자가 선택한 후에 사라집니다. 따라서 사용자가 대화 내에서 유효하지 않은 단추를 탭하지 않게 되며, 봇 개발이 간소화됩니다(해당 시나리오를 고려할 필요가 없으므로). 
 

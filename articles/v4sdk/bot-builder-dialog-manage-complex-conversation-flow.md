@@ -8,18 +8,18 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
-ms.date: 11/28/2018
+ms.date: 4/18/2019
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 27bcd53e9f3d582a1206c5ed74cc844acab795b4
-ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
+ms.openlocfilehash: a5f3fe4fbec5a44a68bd6dcb7a2d6e2770052923
+ms.sourcegitcommit: aea57820b8a137047d59491b45320cf268043861
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54225888"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59905026"
 ---
 # <a name="create-advanced-conversation-flow-using-branches-and-loops"></a>분기 및 루프를 사용하여 고급 대화 흐름 만들기
 
-[!INCLUDE [pre-release-label](~/includes/pre-release-label.md)]
+[!INCLUDE[applies-to](../includes/applies-to.md)]
 
 이 문서에서는 분기하고 반복되는 복잡한 대화를 관리하는 방법에 대해 설명합니다. 또한 대화의 다른 부분 간에 인수를 전달하는 방법도 보여 줍니다.
 
