@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: bot-service
 ms.subservice: abs
 ms.date: 02/07/2019
-ms.openlocfilehash: e0d62d4effaf02d52714153f51736e06949a2263
-ms.sourcegitcommit: 721bb09f10524b0cb3961d7131966f57501734b8
+ms.openlocfilehash: 6e0e4bb9e0cecccd10ee1baf14d68a90f02bfa49
+ms.sourcegitcommit: aea57820b8a137047d59491b45320cf268043861
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58809021"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59904546"
 ---
 # <a name="create-a-bot-with-azure-bot-service"></a>Azure Bot Service로 봇 만들기
 
@@ -79,7 +79,7 @@ Bot Service는 봇 개발을 위한 Bot Framework SDK 및 채널에 봇을 연�
 
 ::: moniker range="azure-bot-service-4.0"
 
-[!INCLUDE [pre-release-label](includes/pre-release-label.md)]
+[!INCLUDE [applies-to-v4](includes/applies-to.md)]
 
 Azure Bot Service는 봇 개발을 위한 Bot Framework SDK 및 채널에 봇을 연결하기 위한 Bot Service를 포함하여 봇 만들기의 핵심 구성 요소를 제공합니다. 이 토픽에서 .NET 또는 Node.js 템플릿을 선택하여 Bot Framework SDK v4를 사용하는 봇을 만들 수 있습니다.
 

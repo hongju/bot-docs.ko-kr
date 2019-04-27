@@ -8,18 +8,18 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
-ms.date: 11/13/18
+ms.date: 4/13/19
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 314a8a55906ec150d001b56c67ffbfe0ae2049f8
-ms.sourcegitcommit: 721bb09f10524b0cb3961d7131966f57501734b8
+ms.openlocfilehash: 1f74e34c0eaf303e612f94605104482cd5f1f080
+ms.sourcegitcommit: aea57820b8a137047d59491b45320cf268043861
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59541129"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59904502"
 ---
 # <a name="write-directly-to-storage"></a>저장소에 직접 작성
 
-[!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
+[!INCLUDE[applies-to](../includes/applies-to.md)]
 
 미들웨어 또는 컨텍스트 개체를 사용하지 않고 저장소 개체를 직접 읽고 작성할 수 있습니다. 봇의 대화 흐름 외부 소스에서 제공되는 봇에서 사용하는 데이터에 적합할 수 있습니다. 예를 들어 봇을 통해 사용자는 일기 예보를 요청하고, 봇은 외부 데이터베이스에서 읽어 지정된 날짜에 대한 일기 예보를 검색한다고 가정해 봅니다. 날씨 데이터베이스의 콘텐츠는 사용자 정보 또는 대화 컨텍스트에 따라 달라지지 않으므로 상태 관리자를 사용하는 대신 저장소에서 직접 읽을 수 있습니다. 이 문서의 코드 예제에서는 **메모리 스토리지**, **Cosmos DB**, **Blob Storage** 및 **Azure Blob Transcript Store**를 사용하여 데이터를 읽고 스토리지에 작성하는 방법을 보여줍니다. 
 

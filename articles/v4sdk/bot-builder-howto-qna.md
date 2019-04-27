@@ -8,18 +8,18 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: cognitive-services
-ms.date: 02/27/2019
+ms.date: 04/17/2019
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 494af4cc7936c8b191280d3f3f6cd73e7bc7d364
-ms.sourcegitcommit: cf3786c6e092adec5409d852849927dc1428e8a2
+ms.openlocfilehash: f28b5af3d8d063f0bd946045c94fe88361b86ca7
+ms.sourcegitcommit: aea57820b8a137047d59491b45320cf268043861
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57224901"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59904908"
 ---
 # <a name="use-qna-maker-to-answer-questions"></a>QnA Maker를 사용하여 질문에 답변
 
-[!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
+[!INCLUDE[applies-to](../includes/applies-to.md)]
 
 QnA Maker 서비스를 사용하여 봇에 질문 및 답변 지원 기능을 추가할 수 있습니다. 사용자 고유의 QnA Maker 서비스를 만들 때 기본적인 요구 사항 중 하나는 질문 및 답변을 통해 보내는 것입니다. 대부분의 경우 질문 및 답변은 이미 FAQ 또는 기타 설명서와 같은 콘텐츠에 있습니다. 다른 경우 더 자연스러운 대화식으로 질문에 대한 답변을 사용자 지정하려고 합니다.
 

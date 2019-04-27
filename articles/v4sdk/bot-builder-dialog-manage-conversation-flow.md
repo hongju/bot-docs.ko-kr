@@ -8,18 +8,18 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
-ms.date: 11/18/2018
+ms.date: 4/18/2019
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 554d040dd4c9d126fa70c24f1af5a1ac97a39204
-ms.sourcegitcommit: b94361234816e6b95459f142add936732fc40344
+ms.openlocfilehash: 5361b2e411e12b296b60a0f27b560dee5f1f769f
+ms.sourcegitcommit: aea57820b8a137047d59491b45320cf268043861
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54317623"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59904866"
 ---
 # <a name="implement-sequential-conversation-flow"></a>순차적 대화 흐름 구현
 
-[!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
+[!INCLUDE[applies-to](../includes/applies-to.md)]
 
 대화 상자 라이브러리를 사용하여 단순 및 복합 대화 흐름을 관리할 수 있습니다. 간단한 상호 작용에서 봇은 고정된 일련의 단계를 통해 실행되고 대화가 완료됩니다. 이 문서에서는 _폭포 대화 상자_, 몇 가지 _프롬프트_ 및 _대화 상자 집합_을 사용하여 사용자에게 일련의 질문을 묻는 간단한 상호 작용을 만듭니다.
 

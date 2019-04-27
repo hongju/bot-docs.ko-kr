@@ -8,16 +8,18 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
-ms.date: 02/25/2019
+ms.date: 04/18/2019
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 024791aaf6aea0b09b097b275d4ca954fcd27ddf
-ms.sourcegitcommit: 721bb09f10524b0cb3961d7131966f57501734b8
+ms.openlocfilehash: b2650a52c25ad8ac3dd6e0e4ff2d2b5ec2dd5b6a
+ms.sourcegitcommit: aea57820b8a137047d59491b45320cf268043861
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59508240"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59904486"
 ---
 # <a name="managing-state"></a>상태 관리
+
+[!INCLUDE [applies-to-v4](../includes/applies-to.md)]
 
 봇 내의 상태는 최신 웹 애플리케이션과 동일한 패러다임을 따르며, Bot Framework SDK는 상태 관리를 더 쉽게 하기 위해 몇 가지 추상화를 제공합니다.
 

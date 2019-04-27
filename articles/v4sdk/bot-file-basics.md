@@ -7,16 +7,18 @@ ms.author: v-ivorb
 manager: kamrani
 ms.topic: article
 ms.service: bot-service
-ms.date: 03/30/2019
+ms.date: 04/18/2019
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 14552c55da4b1f9b581b81917496de179e92762b
-ms.sourcegitcommit: 721bb09f10524b0cb3961d7131966f57501734b8
+ms.openlocfilehash: 65ad712a4d3cfeebb5c85375e023e301f0e101ca
+ms.sourcegitcommit: aea57820b8a137047d59491b45320cf268043861
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58811505"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59904526"
 ---
 # <a name="manage-bot-resources"></a>봇 리소스 관리
+
+[!INCLUDE [applies-to-v4](../includes/applies-to.md)]
 
 봇은 일반적으로 [LUIS.ai](https://luis.ai) 또는 [QnaMaker.ai](https://qnamaker.ai)와 같은 다른 서비스를 사용합니다. 봇을 개발하는 경우 모두 리소스를 추적할 수 있어야 합니다. appsettings.json, web.config 또는 .env와 같은 다양한 방법을 사용할 수 있습니다. 
 

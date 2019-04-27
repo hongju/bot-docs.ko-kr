@@ -8,18 +8,18 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
-ms.date: 09/19/2018
+ms.date: 04/19/2019
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 97a89744282ca1e31a99aa0e45345656e43f5cd0
-ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
+ms.openlocfilehash: bb1e909de69a7690e844701e182dddcebf91cc87
+ms.sourcegitcommit: aea57820b8a137047d59491b45320cf268043861
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54225318"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59904926"
 ---
 # <a name="persist-user-data"></a>사용자 데이터 유지
 
-[!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
+[!INCLUDE[applies-to](../includes/applies-to.md)]
 
 봇에서 사용자에게 입력을 요청하는 경우 일부 형태의 저장소에 일부 정보를 유지하려는 경우가 있습니다. Bot Framework SDK를 사용하면 *메모리 내 스토리지* 또는 *CosmosDB* 같은 데이터베이스 스토리지를 사용하여 사용자 입력을 저장할 수 있습니다. 로컬 저장소 형식은 봇 테스트 또는 프로토타입 제작에 주로 사용됩니다. 그러나 데이터베이스 저장소 같은 영구 저장소 형식은 프로덕션 봇에 가장 적합합니다.
 

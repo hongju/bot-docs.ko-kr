@@ -9,16 +9,16 @@ ms.topic: article
 ms.service: bot-service
 ms.date: 2/26/2019
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: e0fbf2fe505866ec28385b2be3b9fcd7988be890
-ms.sourcegitcommit: cf3786c6e092adec5409d852849927dc1428e8a2
+ms.openlocfilehash: 618d438a384fa6a91ba919265519397cac555fda
+ms.sourcegitcommit: aea57820b8a137047d59491b45320cf268043861
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57224931"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59904856"
 ---
 # <a name="testing-and-debugging-guidelines"></a>테스트 및 디버깅 지침
 
-[!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
+[!INCLUDE[applies-to](../includes/applies-to.md)]
 
 봇은 수많은 다양한 파트가 함께 작동하는 복잡한 앱입니다. 다른 복잡한 앱의 경우처럼 흥미로운 버그가 발생하거나 봇이 예상과 다르게 동작할 수 있습니다.
 

@@ -8,18 +8,18 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
-ms.date: 11/26/18
+ms.date: 4/16/19
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 4cafa3516395fb8e44d2755d0fa09e7a5bd6203c
-ms.sourcegitcommit: 32615b88e4758004c8c99e9d564658a700c7d61f
+ms.openlocfilehash: a79fd768f7c132301ba28bace03b5b86599fb4dd
+ms.sourcegitcommit: aea57820b8a137047d59491b45320cf268043861
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55711947"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59904760"
 ---
 # <a name="save-user-and-conversation-data"></a>사용자 및 대화 데이터 저장
 
-[!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
+[!INCLUDE[applies-to](../includes/applies-to.md)]
 
 봇은 기본적으로 상태 비저장입니다. 일단 봇이 배포되면 동일한 프로세스 또는 동일한 머신에서 한 턴에서 다음 턴으로 실행되지 않을 수 있습니다. 그러나 봇은 대화의 컨텍스트를 추적하여 해당 동작을 관리하고 이전 질문에 대한 답변을 기억해야 할 수도 있습니다. SDK의 상태 및 스토리지 기능을 사용하면 상태를 봇에 추가할 수 있습니다.
 

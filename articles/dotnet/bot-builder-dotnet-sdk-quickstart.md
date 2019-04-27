@@ -8,19 +8,18 @@ manager: kamrani
 ms.topic: get-started-article
 ms.service: bot-service
 ms.subservice: sdk
-ms.date: 02/07/2019
+ms.date: 04/17/2019
 monikerRange: azure-bot-service-4.0
-templateName: Echo Bot
-ms.openlocfilehash: d6987cbfc5a0cd7f885b511a883b45afc3deb49d
-ms.sourcegitcommit: 8183bcb34cecbc17b356eadc425e9d3212547e27
+ms.openlocfilehash: 11b2e301bace5a88269428951fa5468561a84d77
+ms.sourcegitcommit: aea57820b8a137047d59491b45320cf268043861
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55971383"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59904607"
 ---
 # <a name="create-a-bot-with-the-bot-framework-sdk-for-net"></a>.NET용 Bot Framework SDK를 사용하여 봇 만들기
 
-[!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
+[!INCLUDE [applies-to-v4](../includes/applies-to.md)]
 
 이 빠른 시작에서는 C# 템플릿을 사용하여 봇을 빌드한 다음, Bot Framework Emulator를 사용하여 테스트하는 과정을 안내합니다.
 

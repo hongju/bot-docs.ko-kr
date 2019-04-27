@@ -8,18 +8,18 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
-ms.date: 09/13/2018
+ms.date: 04/13/2019
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: fa243d8cc00fd6fadf7c51668c9e7ba74d0c06e2
-ms.sourcegitcommit: 721bb09f10524b0cb3961d7131966f57501734b8
+ms.openlocfilehash: d72c374978f509bec0a17ba99c585578757ded61
+ms.sourcegitcommit: aea57820b8a137047d59491b45320cf268043861
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59508230"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59904476"
 ---
 # <a name="activity-processing"></a>작업 처리
 
-[!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
+[!INCLUDE[applies-to](../includes/applies-to.md)]
 
 봇과 사용자는 작업을 통해 상호 작용하고 정보를 교환합니다. 봇 애플리케이션이 받은 각 작업은 봇 어댑터로 전달되고, 봇 어댑터는 작업 정보를 봇 논리로 전달하고 궁극적으로 사용자에게 응답을 보냅니다. 작업 받기 및 이후의 봇을 통한 처리를 순서라고 하며, 봇의 전체 주기 하나를 나타냅니다. 순서는 모든 실행이 수행되고, 작업이 완전히 처리되고 봇의 모든 계층이 완료된 경우 종료합니다.
 

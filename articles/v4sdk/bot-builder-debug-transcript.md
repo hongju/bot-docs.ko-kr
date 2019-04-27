@@ -8,17 +8,18 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservices: sdk
-ms.date: 2/26/2019
+ms.date: 4/18/2019
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 997ad82e15a0fcd67d47b2fd6495c8e88a5ea127
-ms.sourcegitcommit: cf3786c6e092adec5409d852849927dc1428e8a2
+ms.openlocfilehash: 5f8ce42cdc110a81719313db6f02e63639fcad1f
+ms.sourcegitcommit: aea57820b8a137047d59491b45320cf268043861
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57224821"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59904916"
 ---
 # <a name="debug-your-bot-using-transcript-files"></a>기록 파일을 사용하여 봇 디버그
-[!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
+
+[!INCLUDE[applies-to](../includes/applies-to.md)]
 
 봇을 성공적으로 테스트 및 디버깅하기 위한 요소 중 하나는 봇을 실행하는 동안 발생하는 조건 집합을 기록하고 검사하는 기능입니다. 이 문서에서는 봇 기록 파일을 만들어서 테스트 및 디버깅을 위한 구체적인 사용자 상호 작용 및 봇 응답 집합을 제공하는 방법을 설명합니다.
 

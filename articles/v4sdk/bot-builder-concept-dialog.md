@@ -8,18 +8,18 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
-ms.date: 11/28/2018
+ms.date: 04/18/2019
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 997399997770db9a810db54c6dcb0cb943a99da9
-ms.sourcegitcommit: 54a4382add4756346098b286695a9b4791db7139
+ms.openlocfilehash: 36ccbb796c2cd014118d4ae1f426acd44aabed76
+ms.sourcegitcommit: aea57820b8a137047d59491b45320cf268043861
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58616949"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59904896"
 ---
 # <a name="dialogs-library"></a>대화 상자 라이브러리
 
-[!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
+[!INCLUDE [applies-to-v4](../includes/applies-to.md)]
 
 *대화*는 SDK의 중심 개념이며 사용자와 대화를 관리하는 유용한 방법을 제공합니다. 대화는 봇의 프로그램에서 함수처럼 작동하는 봇의 구조입니다. 각각의 대화는 특정 순서로 특정 작업을 수행하도록 설계되었습니다. 개별 대화의 순서를 지정하여 대화를 안내하고, 때로는 사용자에 대한 응답으로, 때로는 어떤 외부 자극에 대한 응답으로 또는 다른 대화로부터 다양한 방식으로 대화를 호출할 수 있습니다.
 
