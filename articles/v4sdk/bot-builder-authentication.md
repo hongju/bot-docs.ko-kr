@@ -9,16 +9,16 @@ ms.service: bot-service
 ms.subservice: abs
 ms.date: 04/09/2019
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 1a295f68be626c2d2ef17dcb49b7c7d31ae2cefa
-ms.sourcegitcommit: 721bb09f10524b0cb3961d7131966f57501734b8
+ms.openlocfilehash: 2f15817abe087650bc3f2bb998a32f177848cf50
+ms.sourcegitcommit: aea57820b8a137047d59491b45320cf268043861
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59541049"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59904536"
 ---
 # <a name="add-authentication-to-your-bot-via-azure-bot-service"></a>Azure Bot Service를 통해 봇에 인증 추가
 
-[!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
+[!INCLUDE [applies-to-v4](../includes/applies-to.md)]
 
 Azure Bot Service 및 v4 SDK는 새로운 봇 인증 기능을 포함하고 있으며 사용자를 Azure AD(Azure Active Directory), GitHub, Uber 등의 다양한 ID 공급자에 인증하는 봇을 쉽게 개발할 수 있는 기능을 제공합니다. 이러한 기능 덕분에 일부 클라이언트의 _매직 코드를 확인_할 필요가 없으므로 사용자 환경이 개선됩니다.
 
@@ -273,14 +273,14 @@ v1 및 v2 엔드포인트 간의 차이점에 대한 정보는 [v1-v2 비교](ht
     }
     ```
 
-    **Microsoft 앱 ID** 및 **Microsoft 앱 암호** 값을 가져오는 방법을 알지 못하는 경우
+**Microsoft 앱 ID** 및 **Microsoft 앱 암호** 값을 가져오는 방법을 알지 못하는 경우
 
-    [bot-channels-registration-password](../bot-service-quickstart-registration.md#bot-channels-registration-password)에 설명된 대로 새 암호를 만들거나
-
-    [find-your-azure-bots-appid-and-appsecret](https://blog.botframework.com/2018/07/03/find-your-azure-bots-appid-and-appsecret)에 설명된 배포에서 **봇 채널 등록**을 사용하여 프로비저닝된 **Microsoft 앱 ID** 및 **Microsoft 앱 암호**를 검색합니다.
+[bot-channels-registration-password](../bot-service-quickstart-registration.md#bot-channels-registration-password)에 설명된 대로 새 암호를 만들거나
+  
+[find-your-azure-bots-appid-and-appsecret](https://blog.botframework.com/2018/07/03/find-your-azure-bots-appid-and-appsecret)에서 설명한 배포에서 **봇 채널 등록**을 사용하여 프로비저닝된 **Microsoft 앱 ID** 및 **Microsoft 앱 암호**를 검색합니다.
 
     > [!NOTE]
-    > 이제 이 봇 코드를 Azure 구독에 게시할 수 있지만(프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시** 선택) 이 자습서에서는 필요하지 않습니다. Azure Portal에서 봇을 구성할 때 사용한 애플리케이션 및 호스팅 계획을 사용하는 게시 구성을 설정해야 합니다.
+    > You could now publish this bot code to your Azure subscription (right-click on the project and choose **Publish**), but it is not necessary for this tutorial. You would need to set up a publishing configuration that uses the application and hosting plan that you used when configuration the bot in the Azure Portal.
 
 ## <a name="use-the-emulator-to-test-your-bot"></a>에뮬레이터를 사용하여 봇 테스트
 

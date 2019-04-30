@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
 ms.date: 12/13/2017
-ms.openlocfilehash: 36a95ec60af117a9a13843dc078bd9bd5cfde635
-ms.sourcegitcommit: 6ed90a4c90add925a0a865be1127041b7775fd3d
+ms.openlocfilehash: 28074e7ad59249cabbd38436bd02dc48bcab5b88
+ms.sourcegitcommit: aea57820b8a137047d59491b45320cf268043861
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50234476"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59904886"
 ---
 # <a name="api-reference---direct-line-api-30"></a>API 참조 - 직접 회선 API 3.0
 
@@ -192,7 +192,7 @@ POST /v3/directline/conversations/{conversationId}/upload?userId={userId}
 ### <a name="activityset-object"></a>ActivitySet 개체 
 활동 집합을 정의합니다.<br/><br/>
 
-| 자산 | type | 설명 |
+| 자산 | Type | 설명 |
 |----|----|----|
 | **activities** | [Activity](bot-framework-rest-connector-api-reference.md#activity-object)[] | **Activity** 개체의 배열입니다. |
 | **watermark** | string | 집합 내에서 활동의 최대 워터마크입니다. 클라이언트는 `watermark` 값을 사용하여 [봇에서 활동을 검색](bot-framework-rest-direct-line-3-0-receive-activities.md#http-get)하거나 [새 WebSocket 스트림 URL을 생성](bot-framework-rest-direct-line-3-0-reconnect-to-conversation.md)할 때 확인한 가장 최근 메시지를 나타낼 수 있습니다. |
@@ -200,7 +200,7 @@ POST /v3/directline/conversations/{conversationId}/upload?userId={userId}
 ### <a name="conversation-object"></a>대화 개체
 직접 회선 대화를 정의합니다.<br/><br/>
 
-| 자산 | type | 설명 |
+| 자산 | Type | 설명 |
 |----|----|----|
 | **conversationId** | string | 지정된 토큰이 유효한 대화를 고유하게 식별하는 ID입니다. |
 | **expires_in** | number | 토큰이 만료되기 전 시간(초)입니다. |
@@ -223,6 +223,6 @@ POST /v3/directline/conversations/{conversationId}/upload?userId={userId}
 - `from` 속성은 클라이언트에서 선택한 사용자 ID로 채워져야 합니다.
 - 첨부 파일에는 기존 리소스의 URL 또는 직접 회선 첨부 파일 끝점을 통해 업로드된 URL이 포함될 수 있습니다.
 - `channelData` 속성은 수정 없이 그대로 보존됩니다.
-- JSON으로 직렬화할 때 작업의 총 크기가 300,000자를 초과하면 안 됩니다.
+- JSON으로 직렬화되고 암호화될 때 활동의 전체 크기는 256K 자를 초과할 수 없습니다. 따라서 활동은 150K 미만으로 유지하는 것이 좋습니다. 더 많은 데이터가 필요한 경우 활동을 여러 개로 나누거나 첨부 파일을 사용하는 것이 좋습니다.
 
 클라이언트는 요청당 하나의 활동을 [전송](bot-framework-rest-direct-line-3-0-send-activity.md)할 수 있습니다. 

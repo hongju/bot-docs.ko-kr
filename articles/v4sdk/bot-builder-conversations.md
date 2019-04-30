@@ -8,17 +8,17 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
-ms.date: 09/01/2018
+ms.date: 04/01/2019
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: b94150e168942370a38d39742157e57d0118f0eb
-ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
+ms.openlocfilehash: 7f35b8a135cdde6ffaf11798a5c0e4a3688d5b4f
+ms.sourcegitcommit: aea57820b8a137047d59491b45320cf268043861
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54225086"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59904826"
 ---
 # <a name="conversation-flow"></a>대화 흐름
-[!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
+[!INCLUDE[applies-to](../includes/applies-to.md)]
 
 봇의 대화 흐름을 디자인하려면 사용자가 무엇인가를 말할 때 봇이 응답하는 방법을 결정해야 합니다. 봇은 먼저 사용자의 메시지를 기반으로 작업 또는 대화 항목을 인식합니다. 사용자의 메시지와 관련된 작업 또는 항목(*의도*로 알려짐)을 결정하기 위해 봇은 사용자 메시지의 텍스트에서 단어 또는 패턴을 검색하거나 [Language Understanding](bot-builder-concept-luis.md) 및 [QnA Maker](https://docs.microsoft.com/en-us/azure/cognitive-services/qnamaker/overview/overview)와 같은 서비스를 활용할 수 있습니다.
 
@@ -102,7 +102,8 @@ Bot Framework SDK는 메시지를 처리하여 의도를 확인할 수 있는 _�
 
 ## <a name="conversation-lifetime"></a>대화 수명
 
-<!-- Note: these activities are dependent on whether the channel actually sends them. Also, we should add links --> 봇은 대화에 추가되고, 다른 멤버가 대화에 추가되거나 제거되고 또는 대화 메타데이터가 변경될 때마다 _대화 업데이트_ 작업을 받습니다.
+<!-- Note: these activities are dependent on whether the channel actually sends them. Also, we should add links -->
+봇은 대화에 추가되거나, 다른 멤버가 대화에 추가 또는 제거되거나, 대화 메타데이터가 변경될 때마다 _대화 업데이트_ 작업을 받습니다.
 사용자에게 인사하거나 자신을 소개하여 봇이 대화 업데이트 작업에 반응하도록 할 수 있습니다.
 
 봇은 사용자가 대화를 종료했음을 나타내기 위해 _대화 종료_ 작업을 받습니다. 봇은 대화가 끝나감을 나타내기 위해 _대화 종료_ 작업을 보낼 수 있습니다.
