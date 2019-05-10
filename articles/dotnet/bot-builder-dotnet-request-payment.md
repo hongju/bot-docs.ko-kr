@@ -10,11 +10,11 @@ ms.subservice: sdk
 ms.date: 12/13/17
 monikerRange: azure-bot-service-3.0
 ms.openlocfilehash: f9e693d8bd5aad03930259422939f5572a22ff0a
-ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
+ms.sourcegitcommit: 980612a922b8290b2faadaca193496c4117e415a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54225458"
+ms.lasthandoff: 04/26/2019
+ms.locfileid: "64563674"
 ---
 # <a name="request-payment"></a>결제 요청
 

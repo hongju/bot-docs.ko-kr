@@ -10,11 +10,11 @@ ms.subservice: sdk
 ms.date: 02/19/2019
 monikerRange: azure-bot-service-3.0
 ms.openlocfilehash: 73193b82c8f03a1a49df1927ced15684bd7af955
-ms.sourcegitcommit: 05ddade244874b7d6e2fc91745131b99cc58b0d6
+ms.sourcegitcommit: 980612a922b8290b2faadaca193496c4117e415a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56591114"
+ms.lasthandoff: 04/26/2019
+ms.locfileid: "64564156"
 ---
 # <a name="add-suggested-actions-to-messages"></a>메시지에 제안된 동작 추가
 

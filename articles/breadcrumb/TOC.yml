@@ -6,7 +6,7 @@
       tocHref: /Bot-Framework/
       topicHref: /Bot-Framework/index
       items:
-        - name: .NET용 봇 작성기 SDK
+        - name: .NET용 Bot Builder SDK
           tocHref: /Bot-Framework/dotnet
           topicHref: /Bot-Framework/dotnet/
         - name: Node.js용 봇 작성기 SDK

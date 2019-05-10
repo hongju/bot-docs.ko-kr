@@ -8,19 +8,22 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
-ms.date: 12/20/2018
-ms.openlocfilehash: f86cacce5b25f60010f646cf5989123e3abf3bf2
-ms.sourcegitcommit: 32615b88e4758004c8c99e9d564658a700c7d61f
+ms.date: 4/30/2019
+ms.openlocfilehash: 93689b7cee1c89bd9a7079c15ddf6aa16fcacc26
+ms.sourcegitcommit: f84b56beecd41debe6baf056e98332f20b646bda
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55711977"
+ms.lasthandoff: 05/03/2019
+ms.locfileid: "65033077"
 ---
 # <a name="troubleshoot-http-500-errors"></a>HTTP 500 오류 해결
 
 500 오류 해결의 첫 번째 단계는 Application Insights를 사용 설정하는 것입니다.
 
-luis-with-appinsights([C#](https://aka.ms/cs-luis-with-appinsights-sample) / [JS](https://aka.ms/js-luis-with-appinsights-sample)) 및 qna-with-appinsights([C#](https://aka.ms/qna-with-appinsights) / [JS](https://aka.ms/js-qna-with-appinsights-sample)) 샘플은 Azure Application Insights를 지원하는 봇을 보여줍니다. 기존 봇에 Application Insights를 추가하는 방법에 대한 자세한 내용은 [대화 분석 텔레메트리](https://aka.ms/botPowerBiTemplate)를 참조하세요.
+<!-- TODO: Add links back in once there's a fresh AppInsights sample.
+The luis-with-appinsights ([C# sample](https://aka.ms/cs-luis-with-appinsights-sample) / [JS sample](https://aka.ms/js-luis-with-appinsights-sample)) and qna-with-appinsights ([C# sample](https://aka.ms/qna-with-appinsights) / [JS sample](https://aka.ms/js-qna-with-appinsights-sample)) samples demonstrate bots that support Azure Application Insights.
+-->
+기존 봇에 Application Insights를 추가하는 방법에 대한 자세한 내용은 [대화 분석 텔레메트리](https://aka.ms/botframeworkanalytics)를 참조하세요.
 
 ## <a name="enable-application-insights-on-aspnet"></a>ASP.Net에서 Application Insights 사용
 
@@ -71,7 +74,7 @@ union_all
 
 ### <a name="ensure-configuration-files-are-being-copied-net-only"></a>구성 파일이 복사되는지 확인(.NET만 해당)
 
-배포 프로세스 중에 `.bot` 구성 파일 및 `appsettings.json` 파일이 올바르게 패키징되는지 확인하세요.
+배포 프로세스 중에 `appsettings.json` 및 기타 구성 파일이 올바르게 패키징되어 있는지 확인하세요.
 
 #### <a name="application-assemblies"></a>애플리케이션 어셈블리
 
@@ -86,7 +89,7 @@ union_all
 - Microsoft.AI.DependencyCollector
 - Microsoft.AI.Agent.Intercept
 
-배포 프로세스 중에 `.bot` 구성 파일 및 `appsettings.json` 파일이 올바르게 패키징되는지 확인하세요.
+배포 프로세스 중에 `appsettings.json` 및 기타 구성 파일이 올바르게 패키징되어 있는지 확인하세요.
 
 #### <a name="appsettingsjson"></a>appsettings.json
 
@@ -114,8 +117,6 @@ union_all
 
 ```json
 {
-    "botFilePath": "mybot.bot",
-    "botFileSecret": "<my secret>",
     "ApplicationInsights": {
         "InstrumentationKey": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
     }
@@ -124,12 +125,13 @@ union_all
 
 ---
 
-### <a name="verify-bot-config-file"></a>.bot 구성 파일 확인
+### <a name="verify-config-file"></a>구성 파일 확인
 
-.bot 파일에 Application Insights 키가 포함되어 있는지 확인하세요.
+구성 파일에 Application Insights 키가 포함되어 있는지 확인하세요.
 
 ```json
-    {
+{
+    "ApplicationInsights": {
         "type": "appInsights",
         "tenantId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
         "subscriptionId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
@@ -140,7 +142,8 @@ union_all
         "applicationId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
         "apiKeys": {},
         "id": ""
-    },
+    }
+},
 ```
 
 ### <a name="check-logs"></a>로그 확인

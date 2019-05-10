@@ -1,21 +1,18 @@
 ---
-title: Skype에 대한 실시간 미디어 봇 빌드 | Microsoft Docs
-description: .NET용 Bot Framework SDK 및 .NET용 Bot Builder-RealTimeMediaCalling SDK를 사용하여 Skype와의 실시간 오디오/비디오 통화를 수행하는 봇을 빌드하는 방법을 살펴봅니다.
-author: MalarGit
-ms.author: malarch
-manager: kamrani
-ms.topic: article
-ms.service: bot-service
-ms.subservice: sdk
-ms.date: 12/13/17
-monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: a539ca3258e8c9a8020bfa7c939f6eddbdd30feb
-ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
+redirect_url: https://aka.ms/realTimeMediaCalling-repo
+ms.openlocfilehash: 9251c3a8ea75376b0891fc173975470a66ccaec8
+ms.sourcegitcommit: f84b56beecd41debe6baf056e98332f20b646bda
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54225658"
+ms.lasthandoff: 05/03/2019
+ms.locfileid: "65032958"
 ---
+<a name="--"></a><!--
+---
+제목: Skype에 대한 실시간 미디어 봇 빌드 | Microsoft Docs 설명: .NET용 Bot Framework SDK 및 .NET용 Bot Builder-RealTimeMediaCalling SDK를 사용하여 Skype와의 실시간 오디오/비디오 통화를 수행하는 봇을 빌드하는 방법을 살펴봅니다.
+작성자: MalarGit ms.author: malarch manager: kamrani ms.topic: article ms.service: bot-service ms.subservice: sdk ms.date: 12/13/17 monikerRange: 'azure-bot-service-3.0'
+---
+
 # <a name="build-a-real-time-media-bot-for-skype"></a>Skype용 실시간 미디어 봇 빌드
 
 [!INCLUDE [pre-release-label](../includes/pre-release-label-v3.md)]
@@ -375,3 +372,4 @@ private async Task OnRosterUpdateNotification(RosterUpdateNotification rosterUpd
 ### <a name="handle-call-clean-up-by-the-bot-framework"></a>Bot Framework를 통한 호출 정리 처리
 오류 상황(예: `AnswerAppHostedMediaOutcomeEvent`가 합당한 시간 내에 수신되지 않은 경우)에서 Bot Framework는 호출을 종료할 수 있습니다. 봇은 `OnCallCleanup` 이벤트에 대해 등록하고 미디어 소켓을 삭제해야 합니다. 
 
+-->

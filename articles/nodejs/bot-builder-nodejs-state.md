@@ -10,11 +10,11 @@ ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
 ms.openlocfilehash: 6d653e47d2e906c6306134804c7731b374d830ba
-ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
+ms.sourcegitcommit: 980612a922b8290b2faadaca193496c4117e415a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54225008"
+ms.lasthandoff: 04/26/2019
+ms.locfileid: "64563975"
 ---
 # <a name="manage-state-data"></a>상태 데이터 관리
 

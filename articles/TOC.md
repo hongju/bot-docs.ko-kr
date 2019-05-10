@@ -1,6 +1,7 @@
 # [Azure Bot Service 설명서](index.md)
 # 개요
 ## [Azure Bot Service 정보](bot-service-overview-introduction.md)
+## [새로운 기능](what-is-new.md)
 # 빠른 시작
 ## [Azure Bot Service로 봇 만들기](~/bot-service-quickstart.md)
 ## 로컬에서 봇 만들기
@@ -11,8 +12,7 @@
 ## [2. QnA Maker를 추가하고 봇 재배포](v4sdk/bot-builder-tutorial-add-qna.md)
 ## [봇에 인증 추가](bot-builder-tutorial-authentication.md)
 # 샘플
-## [GitHub의 botbuilder 샘플 리포지토리](https://github.com/Microsoft/BotBuilder-Samples/blob/master/README.md)
-## [botbuilder 샘플 리포지토리에서 봇 배포](bot-builder-deploy-samples.md)
+## [GitHub에 Bot Framework 샘플 리포지토리](https://github.com/Microsoft/BotBuilder-Samples/blob/master/README.md)
 # 개념
 ## [봇 작동 방식](v4sdk/bot-builder-basics.md)
 ## [상태 관리](v4sdk/bot-builder-concept-state.md)
@@ -40,36 +40,33 @@
 ### [사용자에게 환영 메시지 보내기](v4sdk/bot-builder-send-welcome-message.md)
 <!-- ## [Add input hints to messages](v4sdk/bot-builder-howto-add-input-hints.md) -->
 ### [사용자에게 자동 관리 알림 보내기](v4sdk/bot-builder-howto-proactive-message.md)
+### [순차적 대화 흐름 구현](v4sdk/bot-builder-dialog-manage-conversation-flow.md)
 ### [봇에 자연어 해석 추가](v4sdk/bot-builder-howto-v4-luis.md)
 ### [QnA Maker를 사용하여 사용자 질문에 답변](v4sdk/bot-builder-howto-qna.md)
 ### [다중 LUIS 및 QnA 모델 사용](v4sdk/bot-builder-tutorial-dispatch.md)
-### 대화 상자 라이브러리를 사용하여 대화 관리 
-#### [순차적 대화 흐름 구현](v4sdk/bot-builder-dialog-manage-conversation-flow.md)
-#### [대화 상자 프롬프트를 사용하여 사용자 입력 수집](v4sdk/bot-builder-prompts.md)
-#### [분기 및 루프를 사용하여 고급 대화 흐름 만들기](v4sdk/bot-builder-dialog-manage-complex-conversation-flow.md)
-#### [사용자 작업 중단 처리](v4sdk/bot-builder-howto-handle-user-interrupt.md)
-#### [사용자 데이터 유지](v4sdk/bot-builder-tutorial-persist-user-inputs.md)
-#### [대화 상자 재사용](v4sdk/bot-builder-compositcontrol.md)
+### [분기 및 루프를 사용하여 고급 대화 흐름 만들기](v4sdk/bot-builder-dialog-manage-complex-conversation-flow.md)
+### [대화 상자 재사용](v4sdk/bot-builder-compositcontrol.md)
+<!--#### [Implement a greeting dialog](v4sdk/bot-builder-dialogs-greeting.md)--TODO: Add once there's a sample.-->
+### [사용자 작업 중단 처리](v4sdk/bot-builder-howto-handle-user-interrupt.md)
+<!--#### [Persist user data](v4sdk/bot-builder-tutorial-persist-user-inputs.md)--TODO: redirect to write directly to storage.-->
 ### [저장소에 직접 작성](v4sdk/bot-builder-howto-v4-storage.md)
 ### [봇에 인증 추가](v4sdk/bot-builder-authentication.md)
 ### [봇에 사용자 지정 저장소 구현](v4sdk/bot-builder-custom-storage.md)
 ### [봇에 원격 분석 추가](v4sdk/bot-builder-telemetry.md)
-### [CLI 도구를 사용하여 봇 관리](bot-builder-tools.md)
+### [봇에서 Direct Line Speech 사용](directline-speech-bot.md)
 ### [.NET](dotnet/TOC.md)
 ### [Node.JS](nodejs/TOC.md)
 ## [디버그](debug/TOC.md)
 ## 배포
 ### [Azure에 봇 배포](bot-builder-deploy-az-cli.md)
-<!-- ### [Deploy your C# bot using Visual Studio](bot-builder-howto-deploy-azure.md)
-### [Download and redeploy bot code](bot-service-build-download-source-code.md) 
-### [Set up continuous deployment](bot-service-build-continuous-deployment.md) -->
+### [지속적인 배포 설정](bot-service-build-continuous-deployment.md)
 ## [관리](manage/TOC.md)
 ## [마이그레이션](v4sdk/migration/TOC.md)
 # 참고 자료
 ## [.NET SDK v4](https://aka.ms/botframework-v4-cs-sdk)
-## [JavaScript SDK v4](https://aka.ms/jssdk4)
+## [JavaScript SDK v4](https://aka.ms/bot-jssdk-v4)
 ## [REST (영문)](rest-api/TOC.md)
 ## [.NET SDK v3](https://aka.ms/botframework-v3-cs-sdk)
-## [Node.js SDK v3](https://docs.botframework.com/en-us/node/builder/chat-reference/modules/_botbuilder_d_.html)
+## [Node.js SDK v3](https://aka.ms/bot-jssdk-v3)
 ## [엔터티 및 작업 형식](bot-service-activities-entities.md)
 # [리소스](resources/TOC.md)

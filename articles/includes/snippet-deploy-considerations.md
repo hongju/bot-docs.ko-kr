@@ -1,8 +1,16 @@
+---
+ms.openlocfilehash: 4e2ab87f509c29c33a27810668445975e31f6ac4
+ms.sourcegitcommit: 980612a922b8290b2faadaca193496c4117e415a
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 04/26/2019
+ms.locfileid: "64563848"
+---
 ## <a name="application-settings-and-messaging-endpoint"></a>애플리케이션 설정 및 메시징 엔드포인트
 
 ### <a name="verify-application-settings"></a>애플리케이션 설정 확인
 
-봇이 클라우드에서 제대로 작동하려면 애플리케이션 설정이 정확한지 확인해야 합니다. **appID** 및 **암호**가 있으면 배포 프로세스의 일부로 응용 프로그램 구성 설정에서 `Microsoft AppId` 및 `Microsoft App Password` 값을 업데이트합니다. 봇의 **AppID** 및 **AppPassword**를 찾으려면 [MicrosoftAppID 및 MicrosoftAppPassword](~/bot-service-manage-overview.md#microsoftappid-and-microsoftapppassword)를 참조하세요.
+봇이 클라우드에서 제대로 작동하려면 애플리케이션 설정이 정확한지 확인해야 합니다. **appID** 및 **암호**가 있으면 배포 프로세스의 일부로 애플리케이션 구성 설정에서 `Microsoft AppId` 및 `Microsoft App Password` 값을 업데이트합니다. 봇의 **AppID** 및 **AppPassword**를 찾으려면 [MicrosoftAppID 및 MicrosoftAppPassword](~/bot-service-manage-overview.md#microsoftappid-and-microsoftapppassword)를 참조하세요.
 
 > [!TIP]
 > [!INCLUDE [Application configuration settings](~/includes/snippet-tip-bot-config-settings.md)]

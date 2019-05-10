@@ -7,12 +7,12 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.date: 12/13/2017
-ms.openlocfilehash: f9379613953714333ce4d174f5fa544213f84e99
-ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
+ms.openlocfilehash: b63f58596e5e0f4548e766f30be1b13b5d2fcd4e
+ms.sourcegitcommit: f84b56beecd41debe6baf056e98332f20b646bda
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54224918"
+ms.lasthandoff: 05/03/2019
+ms.locfileid: "65033586"
 ---
 # <a name="bot-framework-additional-resources"></a>Bot Framework에 대한 추가 리소스
 
@@ -27,6 +27,7 @@ ms.locfileid: "54224918"
 |        <strong>커뮤니티 채팅 그룹</strong>        |                                                                                                                                                                                                                        [Gitter.IM](https://gitter.im/Microsoft/BotBuilder)                                                                                                                                                                                                                        |
 |            <strong>봇 사용</strong>             |                                                                                                                                                                                                                    해당 게시자 이메일을 통해 봇 개발자에게 문의                                                                                                                                                                                                                     |
 | <strong>Bot Framework SDK 문제/제안</strong> |                                                                                                                                                                                           <a href="https://github.com/Microsoft/BotBuilder-v3/" target="_blank">GitHub 리포지토리</a>의 문제 탭 사용                                                                                                                                                                                            |
+| <strong>Azure 도움말 및 지원</strong>             |                                                                                       [Azure 도움말 + 지원](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)                                                                                                                                                            |
 |        <strong>설명서 문제</strong>        |                                                                                                                                                                     Bot Framework 설명서 GitHub 리포지토리에 <a href="https://github.com/MicrosoftDocs/bot-framework-docs/issues" target="_blank">문제</a>를 제출합니다.                                                                                                                                                                      |
 |       <strong>설명서 업데이트</strong>        |                                                                                                                                                   문서에서 편집 링크를 클릭하고 끌어오기 요청을 <a href="https://github.com/MicrosoftDocs/bot-framework-docs" target="_blank">Bot Framework 설명서 GitHub 리포지토리</a>로 제출합니다.                                                                                                                                                   |
 |          <strong>남용 보고</strong>           |                                                                                                                                                                                                            [bf-reports@microsoft.com](mailto://bf-reports@microsoft.com)에서 문의하세요.                                                                                                                                                                                                            |

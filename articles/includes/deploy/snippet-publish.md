@@ -1,10 +1,10 @@
 ---
 ms.openlocfilehash: bb7520e8e99ad6326d7d00d8190dae306bf11afa
-ms.sourcegitcommit: aea57820b8a137047d59491b45320cf268043861
+ms.sourcegitcommit: 4ff7a8772124a567f43e2c3e13aded368c4002e3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59905170"
+ms.lasthandoff: 05/03/2019
+ms.locfileid: "65035749"
 ---
 Azure에 로컬 봇을 게시하세요. 이 단계는 시간이 약간 걸릴 수 있습니다.
 

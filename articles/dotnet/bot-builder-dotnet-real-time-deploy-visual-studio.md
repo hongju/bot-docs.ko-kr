@@ -1,21 +1,18 @@
 ---
-title: Azure에 Skype 실시간 미디어 봇 배포 | Microsoft Docs
-description: Visual Studio의 기본 제공 게시 기능을 사용하여 Azure에 Skype 실시간 오디오-비디오 봇을 배포하는 방법을 알아봅니다.
-author: MalarGit
-ms.author: malarch
-manager: ssulzer
-ms.topic: article
-ms.service: bot-service
-ms.subservice: sdk
-ms.date: 12/13/17
-monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 22cce8ad5bef3c1c6f08a8efc28118e0209dd3af
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+redirect_url: https://aka.ms/realTimeMediaCalling-repo
+ms.openlocfilehash: 1df0192632cdb9b35259b8ce1ec5c8b3be46c750
+ms.sourcegitcommit: f84b56beecd41debe6baf056e98332f20b646bda
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49999440"
+ms.lasthandoff: 05/03/2019
+ms.locfileid: "65032938"
 ---
+<a name="--"></a><!--
+---
+제목: Azure에 Skype 실시간 미디어 봇 배포 | Microsoft Docs 설명: Visual Studio의 기본 제공 게시 기능을 사용하여 Azure에 Skype 실시간 오디오-비디오 봇을 배포하는 방법을 알아봅니다.
+작성자: MalarGit ms.author: malarch manager: ssulzer ms.topic: article ms.service: bot-service ms.subservice: sdk ms.date: 12/13/17 monikerRange: 'azure-bot-service-3.0'
+---
+
 # <a name="deploy-a-real-time-media-bot-from-visual-studio-to-azure"></a>Visual Studio에서 Azure로 실시간 미디어 봇 배포
 
 [!INCLUDE [pre-release-label](../includes/pre-release-label-v3.md)]
@@ -84,3 +81,4 @@ Visual Studio에서 새 프로젝트를 엽니다. 솔루션 탐색기에서 클
 ![고급 설정 탭 클릭](../media/real-time-media-bot-publish-advanced-settings.png)
 
 **요약** 탭에서 구성을 확인하고 **게시**를 클릭하여 Microsoft Azure에 봇을 배포합니다.
+-->

@@ -6,20 +6,20 @@ ms.author: v-demak
 manager: kamrani
 ms.topic: article
 ms.service: bot-service
-ms.date: 02/26/2019
-ms.openlocfilehash: 780dcf4d9db48f9ef7f5a92180dc13c41cc63305
-ms.sourcegitcommit: cf3786c6e092adec5409d852849927dc1428e8a2
+ms.date: 04/30/2019
+ms.openlocfilehash: 756e24409532de1473e546e3f771be416cb44c78
+ms.sourcegitcommit: f84b56beecd41debe6baf056e98332f20b646bda
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57224941"
+ms.lasthandoff: 05/03/2019
+ms.locfileid: "65033646"
 ---
 # <a name="troubleshooting-bot-framework-authentication"></a>Bot Framework 인증 문제 해결
 
 이 가이드를 통해 일련의 시나리오를 평가하여 문제의 위치를 확인하는 방식으로 봇 관련 인증 문제를 해결할 수 있습니다. 
 
 > [!NOTE]
-> 이 가이드의 모든 단계를 완료하려면 [Bot Framework Emulator][Emulator]를 다운로드하여 사용해야 하고 <a href="https://dev.botframework.com" target="_blank">Bot Framework 포털</a>에서 봇의 등록 설정에 액세스할 수 있어야 합니다.
+> 이 가이드의 모든 단계를 완료하려면 [Bot Framework Emulator][Emulator]를 다운로드하여 사용해야 하고 <a href="https://portal.azure.com" target="_blank">Azure Portal</a>에서 봇의 등록 설정에 액세스할 수 있어야 합니다.
 
 ## <a id="PW"></a> 앱 ID 및 암호
 
@@ -65,15 +65,11 @@ var connector = new builder.ChatConnector({
 
 ::: moniker range="azure-bot-service-4.0"
 
-.NET용 Bot Framework SDK를 사용 중인 경우 `.bot` 파일에서 다음 설정을 편집합니다.
+.NET용 Bot Framework SDK를 사용 중인 경우 `appsettings.json` 파일에서 다음 설정을 편집합니다.
 
 ```json
-"services": [
-  {
-    "appId": "<your app ID>",
-    "appPassword": "<your app password>",
-  }
-]
+  "MicrosoftAppId": "<your app ID>",
+  "MicrosoftAppPassword": "<your app password>"
 ```
 
 Node.js용 Bot Framework SDK를 사용 중인 경우 다음 값을 편집하거나 해당 환경 변수를 업데이트합니다.
@@ -84,8 +80,6 @@ const adapter = new BotFrameworkAdapter({
     appPassword: null
 });
 ```
-
-구성을 위해 `.bot` 파일을 사용하는 경우 `appId` 및 `appPassword`를 `""`로 업데이트할 수 있습니다.
 
 ::: moniker-end
 
@@ -148,7 +142,7 @@ curl -k -X POST https://login.microsoftonline.com/botframework.com/oauth2/v2.0/t
 
 봇이 localhost에서만 실행되는 경우에도 봇의 보안은 Microsoft 서비스를 사용합니다. 봇에 대한 보안을 사용하려면 해당 구성 설정을 편집하여 [2단계](#step-2)에서 확인한 값으로 앱 ID 및 암호를 채웁니다.  또한 패키지, 특히 `System.IdentityModel.Tokens.Jwt` 및 `Microsoft.IdentityModel.Tokens`를 최신 상태로 유지합니다.
 
-.NET용 Bot Framework SDK를 사용 중인 경우 `appsettings.config` 파일에서 다음 설정을 채우거나 `.bot` 파일에서 해당 값을 채웁니다.
+.NET용 Bot Framework SDK를 사용 중인 경우 `appsettings.config` 파일에서 다음 설정을 채우거나 `appsettings.json` 파일에서 해당 값을 채웁니다.
 
 ```xml
 <appSettings>
@@ -200,7 +194,7 @@ var connector = new builder.ChatConnector({
 Bot Framework에서는 봇이 인터넷에서 액세스 가능해야 하므로, 봇을 Azure와 같은 클라우드 호스팅 플랫폼에 배포해야 합니다. [3단계](#step-3)의 설명대로 배포하기 전에 봇에 대한 보안을 사용하도록 설정해야 합니다.
 
 > [!NOTE]
-> 아직 클라우드 호스팅 공급자가 없는 경우, <a href="https://azure.microsoft.com/en-us/free/" target="_blank">체험 계정</a>으로 등록할 수 있습니다. 
+> 아직 클라우드 호스팅 공급자가 없는 경우, <a href="https://azure.microsoft.com/free/" target="_blank">체험 계정</a>으로 등록할 수 있습니다. 
 
 Azure에 봇을 배포하면 애플리케이션에 대한 SSL이 자동으로 구성되므로 Bot Framework에서 요구하는 **HTTPS** 엔드포인트를 사용할 수 있습니다. 다른 클라우드 호스팅 공급자에 배포할 경우에는 봇에 **HTTPS** 엔드포인트가 포함되도록 애플리케이션에 대한 SSL이 구성되어 있는지 확인해야 합니다.
 
@@ -209,7 +203,7 @@ Azure에 봇을 배포하면 애플리케이션에 대한 SSL이 자동으로 �
 보안을 사용하도록 설정하고 클라우드에서 봇을 테스트하려면 다음 단계를 수행합니다.
 
 1. 봇이 성공적으로 배포되었고 실행 중인지 확인합니다. 
-2. <a href="https://dev.botframework.com" target="_blank">Bot Framework 포털</a>에 로그인합니다.
+2. <a href="https://portal.azure.com" target="_blank">Azure Portal</a>에 로그인합니다.
 3. **My Bots**(내 봇)를 클릭합니다.
 4. 테스트할 봇을 선택합니다.
 5. **테스트**를 클릭하여 포함된 웹 채팅 컨트롤에서 봇을 엽니다.
@@ -228,7 +222,7 @@ Azure에 봇을 배포하면 애플리케이션에 대한 SSL이 자동으로 �
 위의 단계를 완료한 후에도 문제가 계속 발생하는 경우, 다음을 수행할 수 있습니다.
 
 * [봇을 디버그하는 방법](bot-service-debug-bot.md) 및 해당 섹션의 다른 디버깅 문서를 검토합니다.
-* Bot Framework Emulator 및 <a href="https://ngrok.com/" target="_blank">ngrok</a>를 사용하여 [클라우드에서 봇을 디버그](~/bot-service-debug-emulator.md)합니다.
+* Bot Framework Emulator 및 <a href="https://ngrok.com/" target="_blank">ngrok</a> 터널링 소프트웨어를 사용하여 [클라우드에서 봇을 디버그](~/bot-service-debug-emulator.md)합니다. *ngrok는 Microsoft 제품이 아닙니다.*
 * [Fiddler](https://www.telerik.com/fiddler) 같은 프록시 도구를 사용하여 봇에서 보내고 받는 HTTPS 트래픽을 검사합니다. *Fiddler는 Microsoft 제품이 아닙니다.*
 * Bot Framework가 사용하는 인증 기술을 알아보려면 [Bot Connector 인증 가이드][BotConnectorAuthGuide]를 검토하세요.
 * Bot Framework [지원][Support] 리소스를 사용하여 다른 사용자에게 도움을 요청합니다. 

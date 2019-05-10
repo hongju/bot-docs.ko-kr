@@ -10,12 +10,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 4/18/2019
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: bf0c5c0bba335c41a268d43014e925f6a9289d75
-ms.sourcegitcommit: aea57820b8a137047d59491b45320cf268043861
+ms.openlocfilehash: 3dac86bbcd98d48c636521b44d107f1e6341a3f7
+ms.sourcegitcommit: f84b56beecd41debe6baf056e98332f20b646bda
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59904976"
+ms.lasthandoff: 05/03/2019
+ms.locfileid: "65033383"
 ---
 # <a name="use-button-for-input"></a>입력에 단추 사용
 
@@ -29,41 +29,23 @@ ms.locfileid: "59904976"
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
-여기서 사용하는 소스 코드는 [GitHub](https://aka.ms/SuggestedActionsCSharp)에서 액세스할 수 있습니다.
+여기에 표시된 소스 코드는 [제안 작업 샘플](https://aka.ms/SuggestedActionsCSharp)을 기반으로 합니다.
 
-```csharp
-using Microsoft.Bot.Builder;
-using Microsoft.Bot.Schema;
-
-var reply = turnContext.Activity.CreateReply("What is your favorite color?");
-
-reply.SuggestedActions = new SuggestedActions()
-{
-    Actions = new List<CardAction>()
-    {
-        new CardAction() { Title = "Red", Type = ActionTypes.ImBack, Value = "Red" },
-        new CardAction() { Title = "Yellow", Type = ActionTypes.ImBack, Value = "Yellow" },
-        new CardAction() { Title = "Blue", Type = ActionTypes.ImBack, Value = "Blue" },
-    },
-
-};
-await turnContext.SendActivityAsync(reply, cancellationToken: cancellationToken);
-```
+[!code-csharp[suggested actions](~/../botbuilder-samples/samples/csharp_dotnetcore/08.suggested-actions/Bots/SuggestedActionsBot.cs?range=87-100)]
 
 # <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
-여기서 사용하는 소스 코드는 [GitHub](https://aka.ms/SuggestActionsJS)에서 액세스할 수 있습니다.
 
-```javascript
-const { ActivityTypes, MessageFactory, TurnContext } = require('botbuilder');
+여기에 표시된 소스 코드는 [제안된 작업 샘플](https://aka.ms/SuggestActionsJS)을 기반으로 합니다.
 
-async sendSuggestedActions(turnContext) {
-    var reply = MessageFactory.suggestedActions(['Red', 'Yellow', 'Blue'], 'What is the best color?');
-    await turnContext.sendActivity(reply);
-}
-```
+[!code-javascript[suggested actions](~/../botbuilder-samples/samples/javascript_nodejs/08.suggested-actions/bots/suggestedActionsBot.js?range=61-64)]
 
 ---
 
 ## <a name="additional-resources"></a>추가 리소스
 
-여기서 보여 주는 전체 소스 코드는 [[C#](https://aka.ms/SuggestedActionsCSharp) | [JS](https://aka.ms/SuggestActionsJS)] GitHub에서 액세스할 수 있습니다.
+[CSharp 샘플](https://aka.ms/SuggestedActionsCSharp) 또는 [JavaScript 샘플](https://aka.ms/SuggestActionsJS)에 표시된 전체 소스 코드에 액세스할 수 있습니다.
+
+## <a name="next-steps"></a>다음 단계
+
+> [!div class="nextstepaction"]
+> [사용자 및 대화 데이터 저장](./bot-builder-howto-v4-state.md)

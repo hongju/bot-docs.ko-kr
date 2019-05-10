@@ -10,12 +10,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 02/11/2019
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 1904bb09d8bd387cc5cec0d85f82df24d1f6ec9d
-ms.sourcegitcommit: 7f418bed4d0d8d398f824e951ac464c7c82b8c3e
+ms.openlocfilehash: ea6b859761a3bc8c1424d50d8bad0b7f1f50e86d
+ms.sourcegitcommit: f84b56beecd41debe6baf056e98332f20b646bda
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56240179"
+ms.lasthandoff: 05/03/2019
+ms.locfileid: "65033458"
 ---
 # <a name="migrate-a-net-sdk-v3-bot-to-v4"></a>.NET SDK v3 봇을 v4로 마이그레이션
 
@@ -111,7 +111,7 @@ namespace ContosoHelpdeskChatBot
 
 ## <a name="update-your-globalasaxcs-file"></a>Global.asax.cs 파일 업데이트
 
-스캐폴딩 중 일부가 변경되었으며 v4에서 [상태 관리](/articles/v4sdk/bot-builder-concept-state.md) 인프라의 일부를 직접 설정해야 합니다. 예를 들어 v4에서는 봇 어댑터를 사용하여 인증을 처리하고, 활동을 봇 코드로 전달하며, 상태 속성을 미리 선언합니다.
+스캐폴딩 중 일부가 변경되었으며 v4에서 [상태 관리](../bot-builder-concept-state.md) 인프라의 일부를 직접 설정해야 합니다. 예를 들어 v4에서는 봇 어댑터를 사용하여 인증을 처리하고, 활동을 봇 코드로 전달하며, 상태 속성을 미리 선언합니다.
 
 이제 v4에서 대화 지원에 필요한 `DialogState`에 대한 상태 속성을 만듭니다. 종속성 주입을 사용하여 컨트롤러와 봇 코드에 필요한 정보를 가져옵니다.
 
@@ -246,7 +246,7 @@ namespace ContosoHelpdeskChatBot
         }
     }
     ```
-1. 봇의 [턴 처리기](/articles/v4sdk/bot-builder-basics.md#the-activity-processing-stack) 코드가 포함된 **OnTurnAsync** 메서드를 추가합니다.
+1. 봇의 [턴 처리기](../bot-builder-basics.md#the-activity-processing-stack) 코드가 포함된 **OnTurnAsync** 메서드를 추가합니다.
     > [!NOTE]
     > v4에는 Scorable이 없습니다. 활성 대화를 계속하기 전에 봇의 턴 처리기에서 사용자로부터 받은 `cancel` 메시지를 확인합니다.
     ```csharp
@@ -353,8 +353,8 @@ v4 코드에 대한 참고 사항:
 
 이 봇에서 루트 대화는 사용자에게 옵션 집합에서 선택하도록 요청하는 메시지를 표시한 다음, 해당 선택 항목에 따라 자식 대화를 시작합니다. 그런 다음, 대화의 수명 동안 반복됩니다.
 
-- 기본 흐름을 v4 SDK의 새로운 개념인 폭포 대화로 설정할 수 있습니다. 고정된 일단의 단계를 순서대로 실행합니다. 자세한 내용은 [순차적 대화 흐름 구현](/articles/v4sdk/bot-builder-dialog-manage-conversation-flow)을 참조하세요.
-- 프롬프트는 이제 프롬프트 클래스를 통해 처리됩니다. 이 클래스는 입력을 요청하고, 최소한의 일부 처리 및 유효성 검사를 수행하며, 값을 반환하는 짧은 자식 대화입니다. 자세한 내용은 [대화 프롬프트를 사용하여 사용자 입력 수집](/articles/v4sdk/bot-builder-prompts.md)을 참조하세요.
+- 기본 흐름을 v4 SDK의 새로운 개념인 폭포 대화로 설정할 수 있습니다. 고정된 일단의 단계를 순서대로 실행합니다. 자세한 내용은 [순차적 대화 흐름 구현](~/v4sdk/bot-builder-dialog-manage-conversation-flow.md)을 참조하세요.
+- 프롬프트는 이제 프롬프트 클래스를 통해 처리됩니다. 이 클래스는 입력을 요청하고, 최소한의 일부 처리 및 유효성 검사를 수행하며, 값을 반환하는 짧은 자식 대화입니다. 자세한 내용은 [대화 프롬프트를 사용하여 사용자 입력 수집](~/v4sdk/bot-builder-prompts.md)을 참조하세요.
 
 **Dialogs/RootDialog.cs** 파일에서,
 
@@ -425,7 +425,7 @@ v4 코드에 대한 참고 사항:
     }
     ```
 1. **OnOptionSelected**를 폭포의 두 번째 단계로 대체할 수 있습니다. 여전히 사용자의 입력에 따라 자식 대화를 시작합니다.
-   - 선택 프롬프트에서 `FoundChoice` 값을 반환합니다. 이 값은 단계 컨텍스트의 `Result` 속성에 표시됩니다. 대화 스택에서는 모든 반환 값을 개체로 처리합니다. 반환 값이 대화 중 하나에서 가져온 것이면 개체의 값 형식을 알 수 있습니다. 각 프롬프트 유형에서 반환하는 목록은 [프롬프트 유형](/articles/v4sdk/bot-builder-concept-dialog.md#prompt-types)을 참조하세요.
+   - 선택 프롬프트에서 `FoundChoice` 값을 반환합니다. 이 값은 단계 컨텍스트의 `Result` 속성에 표시됩니다. 대화 스택에서는 모든 반환 값을 개체로 처리합니다. 반환 값이 대화 중 하나에서 가져온 것이면 개체의 값 형식을 알 수 있습니다. 각 프롬프트 유형에서 반환하는 목록은 [프롬프트 유형](../bot-builder-concept-dialog.md#prompt-types)을 참조하세요.
    - 선택 프롬프트에서 예외를 throw하지 않으므로 try-catch 블록을 제거할 수 있습니다.
    - 이 메서드는 항상 적절한 값을 반환하도록 fall을 반복적으로 추가해야 합니다. 이 코드는 결코 적중되지 않아야 하지만, 해당 코드가 적중되면 대화가 "정상적으로 실패"할 수 있습니다.
     ```csharp

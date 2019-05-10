@@ -10,11 +10,11 @@ ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
 ms.openlocfilehash: 076e460f393c5db524cfade81e5c007484fe2cca
-ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
+ms.sourcegitcommit: 980612a922b8290b2faadaca193496c4117e415a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54225668"
+ms.lasthandoff: 04/26/2019
+ms.locfileid: "64564070"
 ---
 # <a name="activities-overview"></a>활동 개요
 
@@ -38,7 +38,7 @@ ms.locfileid: "54225668"
 | [invoke](#invoke) | IInvokeActivity | 특정 작업을 수행하도록 요청하는 봇에 전송된 통신을 나타냅니다. 이 활동 유형은 Microsoft Bot Framework에 의해 내부 용도로 예약됐습니다. |
 | [messageReaction](#messagereaction) | IMessageReactionActivity | 사용자가 기존 활동에 대응했음을 나타냅니다. 예를 들어 사용자가 메시지에 "좋아요" 단추를 클릭합니다. |
 
-## <a name="message"></a>Message
+## <a name="message"></a>message
 
 봇은 사용자에게 정보를 전달하기 위해 **message** 활동을 전송하고 사용자에게서 **message** 활동을 수신합니다. 일부 메시지는 단순히 일반 텍스트로 구성되는 반면 다른 메시지에는 [음성 텍스트](bot-builder-dotnet-text-to-speech.md), [제안된 동작](bot-builder-dotnet-add-suggested-actions.md), [미디어 첨부 파일](bot-builder-dotnet-add-media-attachments.md), [리치(rich) 카드](bot-builder-dotnet-add-rich-card-attachments.md) 및 [채널 관련 데이터](bot-builder-dotnet-channeldata.md)와 같은 다양한 콘텐츠가 포함될 수 있습니다. 일반적으로 사용되는 메시지 속성에 대한 자세한 내용은 [메시지 만들기](bot-builder-dotnet-create-messages.md)를 참조하세요.
 

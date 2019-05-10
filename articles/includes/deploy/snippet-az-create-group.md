@@ -1,10 +1,10 @@
 ---
 ms.openlocfilehash: 53db401b00e53b964027f08c32ca7a38a4915f60
-ms.sourcegitcommit: bdb981c0b11ee99d128e30ae0462705b2dae8572
+ms.sourcegitcommit: 4ff7a8772124a567f43e2c3e13aded368c4002e3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54360915"
+ms.lasthandoff: 05/03/2019
+ms.locfileid: "65035695"
 ---
 ```cmd
 az group create --name <resource-group-name> --location <geographic-location> --verbose

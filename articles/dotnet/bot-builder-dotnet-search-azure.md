@@ -9,12 +9,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 1/28/2019
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 6169ed28fb765e84aaf31cf9e7d2ca404294bcad
-ms.sourcegitcommit: c7d2e939ec71f46f48383c750fddaf6627b6489d
+ms.openlocfilehash: e0ffb9c24b5e85b0eb1afdd885654e4864e65939
+ms.sourcegitcommit: f84b56beecd41debe6baf056e98332f20b646bda
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55783362"
+ms.lasthandoff: 05/03/2019
+ms.locfileid: "65032931"
 ---
 # <a name="create-data-driven-experiences-with-azure-search"></a>Azure Search를 사용하여 데이터 기반 환경 만들기 
 
@@ -28,18 +28,17 @@ ms.locfileid: "55783362"
 
 Azure Search는 키워드 검색, 기본 제공 언어학, 사용자 지정 스코어링, 패싯 탐색 등을 제공하는 Azure 서비스입니다. Azure Search는 또한 Azure SQL DB, DocumentDB, Blob Storage 및 Table Storage를 비롯한 다양한 소스의 콘텐츠를 인덱싱할 수 있습니다. 다른 데이터 원본에 대한 "푸시" 인덱싱을 지원하며 PDF, Office 문서 및 구조화되지 않은 데이터가 포함된 기타 형식을 열 수 있습니다. 수집된 콘텐츠는 Azure Search 인덱스로 이동한 후 봇에서 쿼리할 수 있습니다.
 
-
 ## <a name="prerequisites"></a>필수 조건
 
-[Microsoft.Azure.Search](https://www.nuget.org/packages/Microsoft.Azure.Search/4.0.0-preview) Nuget 패키지를 봇 프로젝트에 설치합니다. 
+[Microsoft.Azure.Search](https://www.nuget.org/packages/Microsoft.Azure.Search/4.0.0-preview) Nuget 패키지를 봇 프로젝트에 설치합니다.
 
-봇의 솔루션에는 다음 세 가지 C# 프로젝트가 필요합니다. 이러한 프로젝트는 봇과 Azure Search에 대한 추가 기능을 제공합니다. [GitHub](https://github.com/Microsoft/botBuilder-Samples/tree/master/CSharp/demo-Search)에서 프로젝트를 포크하거나 소스 코드를 직접 다운로드합니다.
+봇의 솔루션에는 다음 세 가지 C# 프로젝트가 필요합니다. 이러한 프로젝트는 봇과 Azure Search에 대한 추가 기능을 제공합니다. [GitHub](https://aka.ms/v3-cs-search-demo)에서 프로젝트를 포크하거나 소스 코드를 직접 다운로드합니다.
 
-* [Search.Azure](https://github.com/Microsoft/botBuilder-Samples/tree/master/CSharp/demo-Search/Search.Azure)는 Azure 서비스 호출을 정의합니다. 
-* [Search.Contracts](https://github.com/Microsoft/botBuilder-Samples/tree/master/CSharp/demo-Search/Search.Contracts)는 데이터를 처리하는 제네릭 인터페이스 및 데이터 모델을 정의합니다.
-* [Search.Dialogs](https://github.com/Microsoft/botBuilder-Samples/tree/master/CSharp/demo-Search/Search.Dialogs)에는 Azure Search를 쿼리하는 데 사용되는 다양한 제네릭 Bot Builder 대화 상자가 포함됩니다.
+- **Search.Azure** 프로젝트는 Azure Service 호출을 정의합니다.
+- **Search.Contracts** 프로젝트는 데이터를 처리하는 제네릭 인터페이스 및 데이터 모델을 정의합니다.
+- **Search.Dialogs** 프로젝트에는 Azure Search를 쿼리하는 데 사용되는 다양한 제네릭 Bot Builder 대화 상자가 포함됩니다.
 
-## <a name="configure-azure-search-settings"></a>Azure Search 설정 구성 
+## <a name="configure-azure-search-settings"></a>Azure Search 설정 구성
 
 값 필드에 있는 사용자 고유의 Azure Search 자격 증명을 사용하여 프로젝트의 **Web.config** 파일에서 Azure Search 설정을 구성합니다. `AzureSearchClient` 클래스의 생성자는 이러한 설정을 사용하여 봇을 Azure 서비스에 등록하고 바인딩하게 됩니다.
 
@@ -176,7 +175,8 @@ public class SearchHitStyler : PromptStyler
 .NET용 Bot Framework SDK를 사용하여 봇을 통해 Azure Search를 지원하는 방법을 보여주는 두 개의 전체 샘플은 GitHub에서 [부동산 봇 샘플](https://github.com/Microsoft/BotBuilder-Samples/tree/v3-sdk-samples/CSharp/demo-Search/RealEstateBot) 또는 [작업 나열 봇 샘플](https://github.com/Microsoft/BotBuilder-Samples/tree/v3-sdk-samples/CSharp/demo-Search/JobListingBot)을 참조하세요. 
 
 ## <a name="additional-resources"></a>추가 리소스
-* [Azure Search][search]
-* [대화 상자 개요](bot-builder-dotnet-dialogs.md)
+
+- [Azure Search][search]
+- [대화 상자 개요](bot-builder-dotnet-dialogs.md)
 
 [search]: /azure/search/search-what-is-azure-search

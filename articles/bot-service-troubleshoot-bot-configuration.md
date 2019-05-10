@@ -8,13 +8,13 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
-ms.date: 2/26/2019
-ms.openlocfilehash: 53cb392dea5ee0e355451e7455a16512f22ebbaa
-ms.sourcegitcommit: cf3786c6e092adec5409d852849927dc1428e8a2
+ms.date: 4/30/2019
+ms.openlocfilehash: c208cef52d1850a00b62828ae0ea622a2606ec5b
+ms.sourcegitcommit: f84b56beecd41debe6baf056e98332f20b646bda
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57224851"
+ms.lasthandoff: 05/03/2019
+ms.locfileid: "65033414"
 ---
 # <a name="troubleshoot-bot-configuration-issues"></a>봇 구성 문제 해결
 
@@ -72,7 +72,7 @@ ms.locfileid: "57224851"
 
 ### <a name="channel-specific-behavior"></a>채널 관련 동작
 
-일부 기능의 구현 방식은 채널마다 다를 수 있습니다. 예를 들어 일부 채널은 적응형 카드를 지원하지 않습니다. 대부분의 채널은 단추를 지원하지만 채널 관련 방식으로 렌더링됩니다. 일부 메시지 유형이 채널별로 다르게 작동하는 것이 확인될 경우 [Channel Inspector](https://docs.botframework.com/channel-inspector/channels/Skype)에게 문의하세요.
+일부 기능의 구현 방식은 채널마다 다를 수 있습니다. 예를 들어 일부 채널은 적응형 카드를 지원하지 않습니다. 대부분의 채널은 단추를 지원하지만 채널 관련 방식으로 렌더링됩니다. 일부 메시지 유형이 채널별로 다르게 작동하는 것이 확인될 경우 [채널 참조](bot-service-channels-reference.md)에게 문의하세요.
 
 다음은 개별 채널에 도움이 되는 몇 가지 추가 링크입니다.
 

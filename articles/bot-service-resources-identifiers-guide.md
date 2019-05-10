@@ -8,13 +8,13 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
-ms.date: 12/13/2017
-ms.openlocfilehash: 3c4f8549f40740961feea24f73aa2e4b9b7bc82f
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.date: 04/30/2019
+ms.openlocfilehash: 28932ca45c6faaad2f17ecc03f026ba04352a5a1
+ms.sourcegitcommit: f84b56beecd41debe6baf056e98332f20b646bda
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49998890"
+ms.lasthandoff: 05/03/2019
+ms.locfileid: "65033075"
 ---
 # <a name="id-fields-in-the-bot-framework"></a>Bot Framework의 ID 필드
 
@@ -36,13 +36,13 @@ ms.locfileid: "49998890"
 
 ## <a name="bot-handle"></a>봇 핸들
 
-Bot Framework에 등록된 모든 봇에는 봇 핸들이 있습니다.
+Azure Bot Service에 등록된 모든 봇에는 봇 핸들이 있습니다.
 
 예제: `FooBot`
 
-봇 핸들은 온라인 Bot Framework에 대한 봇 등록을 나타냅니다. 이 등록은 HTTP 웹후크 엔드포인트 및 채널 등록과 연결됩니다.
+봇 핸들은 온라인 Azure Bot Service에 대한 봇 등록을 나타냅니다. 이 등록은 HTTP 웹후크 엔드포인트 및 채널 등록과 연결됩니다.
 
-Bot Framework 개발자 포털은 봇 핸들의 고유성을 보장합니다. 포털은 대소문자를 구분하지 않는 고유성 검사를 수행합니다(봇 핸들의 대소문자 차이가 단일 핸들로 간주됨).이것은 개발자 포털의 특성이며 봇 핸들 자체에 대한 것이 아닙니다.
+Azure Bot Service는 봇 핸들의 고유성을 보장합니다. Azure Portal은 대소문자를 구분하지 않는 고유성 검사를 수행합니다(봇 핸들의 대소문자 차이가 단일 핸들로 간주됨). 이는 개발자 Azure Portal의 특성이며 봇 핸들 자체에 대한 것이 아닙니다.
 
 ### <a name="rules-for-bot-handles"></a>봇 핸들 규칙
 
@@ -50,7 +50,7 @@ Bot Framework 개발자 포털은 봇 핸들의 고유성을 보장합니다. �
 
 ## <a name="app-id"></a>앱 ID
 
-Bot Framework에 등록된 모든 봇에는 앱 ID가 있습니다.
+Azure Bot Service에 등록된 모든 봇에는 앱 ID가 있습니다.
 
 > [!NOTE]
 > 이전에는 앱을 보통 "MSA Apps" 또는 "MSA/AAD Apps"로 지칭했습니다.  이제는 일반적으로 앱을 간단히 "앱"이라 지칭하는 경우가 많지만 일부 프로토콜 요소에서는 앱을 "MSA Apps"로 영구 참조할 수 있습니다.

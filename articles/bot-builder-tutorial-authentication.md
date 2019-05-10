@@ -9,12 +9,12 @@ ms.service: bot-service
 ROBOTS: NOINDEX
 ms.date: 10/04/2018
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: b79aaaa2f85ea3d7d6c4388ebc7051890350e9a8
-ms.sourcegitcommit: aea57820b8a137047d59491b45320cf268043861
+ms.openlocfilehash: 8e2cb944e56271be9ff925e05c48236e94998f1d
+ms.sourcegitcommit: f84b56beecd41debe6baf056e98332f20b646bda
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59904506"
+ms.lasthandoff: 05/03/2019
+ms.locfileid: "65033015"
 ---
 # <a name="add-authentication-to-your-bot-via-azure-bot-service"></a>Azure Bot Service를 통해 봇에 인증 추가
 
@@ -122,7 +122,7 @@ v1 및 v2 엔드포인트 간의 차이점에 대한 정보는 [v1-v2 비교](ht
 
 #### <a name="to-create-an-azure-ad-v2-application"></a>Azure AD v2 애플리케이션을 만들려면
 
-1. [Microsoft 애플리케이션 등록 포털](https://apps.dev.microsoft.com)로 이동합니다.
+1. [Microsoft 애플리케이션 등록 포털](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade)로 이동합니다.
 1. **앱 추가**를 클릭합니다.
 1. Azure AD 앱에 이름을 지정하고, **만들기**를 클릭합니다.
 

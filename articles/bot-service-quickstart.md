@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: bot-service
 ms.subservice: abs
 ms.date: 02/07/2019
-ms.openlocfilehash: 6e0e4bb9e0cecccd10ee1baf14d68a90f02bfa49
-ms.sourcegitcommit: aea57820b8a137047d59491b45320cf268043861
+ms.openlocfilehash: 882dc15bd900667d76eac41049ee88b51ec5c120
+ms.sourcegitcommit: f84b56beecd41debe6baf056e98332f20b646bda
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59904546"
+ms.lasthandoff: 05/03/2019
+ms.locfileid: "65033141"
 ---
 # <a name="create-a-bot-with-azure-bot-service"></a>Azure Bot Service로 봇 만들기
 
@@ -49,7 +49,6 @@ Bot Service는 봇 개발을 위한 Bot Framework SDK 및 채널에 봇을 연�
    | **앱 이름** | 고유한 이름 | 봇의 고유한 URL 이름입니다. 예를 들어, 봇 이름을 *myawesomebot*으로 지정하면 봇 URL은 `http://myawesomebot.azurewebsites.net`입니다. 이름에는 영숫자 및 밑줄 문자만 사용해야 합니다. 이 필드는 35자로 제한됩니다. 봇이 만들어진 후에는 앱 이름을 변경할 수 없습니다. |
    | **봇 템플릿** | Basic | **C#** 또는 **Node.js**를 선택하고, 이 빠른 시작의 **기본** 템플릿을 선택한 다음, **선택**을 클릭합니다. 기본 템플릿은 에코 봇을 만듭니다. 템플릿을 [자세히 알아봅니다](bot-service-concept-templates.md). |
    | **App Service 계획/위치** | App Service 계획  | [App Service 계획](https://azure.microsoft.com/en-us/pricing/details/app-service/plans/) 위치를 선택합니다. 나열된 모든 위치 중에 선택할 수 있지만, 고객에게 가장 가까운 위치를 선택하는 것이 좋습니다. (Functions 봇에 사용할 수 없음) |
-   | **Azure Storage** | Azure Storage 계정 | 새 데이터 저장소 계정을 만들거나 기존 계정을 사용할 수 있습니다. 기본적으로 봇은 [Table Storage](/azure/storage/common/storage-introduction#table-storage)를 사용합니다. |
    | **Application Insights** | 다른 | [Application Insights](/bot-framework/bot-service-manage-analytics)를 **켜기** 또는 **끄기**로 설정할지 결정합니다. **켜기**를 선택하면 지역 위치를 지정해야 합니다. 나열된 모든 위치 중에 선택할 수 있지만, 봇 서비스 위치와 동일한 위치를 선택하는 것이 대체적으로 가장 좋습니다. |
    | **Microsoft 앱 ID 및 암호** | 자동 앱 ID 및 암호 만들기 | Microsoft 앱 ID 및 암호를 수동으로 입력해야 하는 경우 이 옵션을 사용합니다. 그렇지 않으면 봇 만들기 프로세스에서 새 Microsoft 앱 ID 및 암호가 만들어집니다. |
 
@@ -81,6 +80,7 @@ Bot Service는 봇 개발을 위한 Bot Framework SDK 및 채널에 봇을 연�
 
 [!INCLUDE [applies-to-v4](includes/applies-to.md)]
 
+
 Azure Bot Service는 봇 개발을 위한 Bot Framework SDK 및 채널에 봇을 연결하기 위한 Bot Service를 포함하여 봇 만들기의 핵심 구성 요소를 제공합니다. 이 토픽에서 .NET 또는 Node.js 템플릿을 선택하여 Bot Framework SDK v4를 사용하는 봇을 만들 수 있습니다.
 
 [!INCLUDE [Azure vs local development](~/includes/snippet-quickstart-paths.md)]
@@ -111,7 +111,6 @@ Azure Bot Service는 봇 개발을 위한 Bot Framework SDK 및 채널에 봇을
  | **앱 이름** | 고유한 이름 | 봇의 고유한 URL 이름입니다. 예를 들어, 봇 이름을 *myawesomebot*으로 지정하면 봇 URL은 `http://myawesomebot.azurewebsites.net`입니다. 이름에는 영숫자 및 밑줄 문자만 사용해야 합니다. 이 필드는 35자로 제한됩니다. 봇이 만들어진 후에는 앱 이름을 변경할 수 없습니다. |
  | **봇 템플릿** | Echo 봇 | **SDK v4**를 선택합니다. 이 빠른 시작에 대해 C# 또는 Node.js를 선택한 다음, **선택**을 클릭합니다.  
  | **App Service 계획/위치** | App Service 계획  | [App Service 계획](https://azure.microsoft.com/en-us/pricing/details/app-service/plans/) 위치를 선택합니다. 나열된 모든 위치 중에 선택할 수 있지만, 봇 서비스와 동일한 위치를 선택하는 것이 대체적으로 가장 좋습니다. |
- | **Azure Storage** | Azure Storage 계정 | 새 데이터 저장소 계정을 만들거나 기존 계정을 사용할 수 있습니다. 기본적으로 봇은 [Table Storage](/azure/storage/common/storage-introduction#table-storage)를 사용합니다. |
  | **Application Insights** | 다른 | [Application Insights](/bot-framework/bot-service-manage-analytics)를 **켜기** 또는 **끄기**로 설정할지 결정합니다. **켜기**를 선택하면 지역 위치를 지정해야 합니다. 나열된 모든 위치 중에 선택할 수 있지만, 봇 서비스와 동일한 위치를 선택하는 것이 대체적으로 가장 좋습니다. |
  | **Microsoft 앱 ID 및 암호** | 자동 앱 ID 및 암호 만들기 | Microsoft 앱 ID 및 암호를 수동으로 입력해야 하는 경우 이 옵션을 사용합니다. 그렇지 않으면 봇 만들기 프로세스에서 새 Microsoft 앱 ID 및 암호가 만들어집니다. |
 
@@ -136,6 +135,6 @@ Azure Bot Service는 봇 개발을 위한 Bot Framework SDK 및 채널에 봇을
     1. [!INCLUDE [download keys snippet](~/includes/snippet-abs-key-download.md)]
 
 ## <a name="next-steps"></a>다음 단계
-코드가 다운로드되면 머신에서 봇을 로컬로 계속 개발할 수 있습니다. 봇을 테스트하고 봇 코드를 Azure Portal에 업로드할 준비가 되면 배포 항목의 [리포지토리 설정](./bot-builder-deploy-az-cli.md#setup-a-repository) 섹션에 나열된 지침을 따릅니다.
+코드가 다운로드되면 머신에서 봇을 로컬로 계속 개발할 수 있습니다. 봇을 테스트하고 봇 코드를 Azure Portal에 업로드할 준비가 되면 [연속 배포 설정](./bot-service-build-continuous-deployment.md) 항목에 나열된 지침에 따라 변경한 후 자동으로 코드를 업데이트합니다.
 
 ::: moniker-end

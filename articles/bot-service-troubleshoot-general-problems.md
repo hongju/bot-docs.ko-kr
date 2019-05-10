@@ -6,13 +6,13 @@ ms.author: v-demak
 manager: kamrani
 ms.topic: article
 ms.service: bot-service
-ms.date: 02/26/2019
-ms.openlocfilehash: 48a0a42d193b0e561a484330222217c18a611e8d
-ms.sourcegitcommit: cf3786c6e092adec5409d852849927dc1428e8a2
+ms.date: 04/30/2019
+ms.openlocfilehash: 1e0678d869b02d536eb5c3ce39461da94dbd9a57
+ms.sourcegitcommit: f84b56beecd41debe6baf056e98332f20b646bda
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57224951"
+ms.lasthandoff: 05/03/2019
+ms.locfileid: "65033092"
 ---
 # <a name="troubleshooting-general-problems"></a>일반 문제 해결
 이 질문과 대답은 일반 봇 개발 또는 운영 문제를 해결할 수 있습니다.
@@ -21,7 +21,7 @@ ms.locfileid: "57224951"
 
 1. [Visual Studio Code](debug-bots-locally-vscode.md) 또는 [Visual Studio](https://docs.microsoft.com/en-us/visualstudio/debugger/navigating-through-code-with-the-debugger?view=vs-2017)를 사용하여 봇 소스 코드를 디버그합니다.
 1. 클라우드에 배포하기 전에 [에뮬레이터](bot-service-debug-emulator.md)를 사용하여 테스트합니다.
-1. Azure와 같은 플랫폼을 호스팅하는 클라우드에 봇을 배포한 다음, <a href="https://dev.botframework.com" target="_blank">Bot Framework Portal</a>의 봇 대시보드에서 기본 제공 웹 챗 제어를 사용하여 봇 연결을 테스트합니다. Azure에 봇을 배포한 후 문제가 발생하면 블로그 문서 [Azure 문제 해결 및 지원 이해](https://azure.microsoft.com/en-us/blog/understanding-azure-troubleshooting-and-support/)를 사용하는 것이 좋을 수 있습니다.
+1. Azure와 같은 플랫폼을 호스팅하는 클라우드에 봇을 배포한 다음, <a href="https://portal.azure.com" target="_blank">Azure Portal</a>의 봇 대시보드에서 기본 제공 웹 챗 제어를 사용하여 봇 연결을 테스트합니다. Azure에 봇을 배포한 후 문제가 발생하면 블로그 문서 [Azure 문제 해결 및 지원 이해](https://azure.microsoft.com/en-us/blog/understanding-azure-troubleshooting-and-support/)를 사용하는 것이 좋을 수 있습니다.
 1. [인증][TroubleshootingAuth]은 가능한 문제에서 배제합니다.
 1. Skype에서 봇을 테스트합니다. 이렇게 하면 통합형 사용자 환경의 유효성을 검사하는 데 도움이 됩니다.
 1. Direct Line 또는 Web Chat 같은 추가 인증 요구 사항이 있는 채널에서 봇을 테스트하는 것이 좋습니다.
@@ -104,7 +104,7 @@ SMS 및 이메일 메시지가 `from.Id` 속성에서 원시 사용자 ID를 제
 
 ## <a name="why-are-my-facebook-user-names-not-showing-anymore"></a>왜 내 Facebook 사용자 이름이 더 이상 표시되지 않나요?
 
-Facebook 암호를 변경했을 수 있습니다. 이렇게 하면 액세스 토큰이 무효화되며 <a href="https://dev.botframework.com" target="_blank">Bot Framework 포털</a>에서 Facebook Messenger 채널에 대한 봇의 구성 설정을 업데이트해야 합니다.
+Facebook 암호를 변경했을 수 있습니다. 이렇게 하면 액세스 토큰이 무효화되며 <a href="https://portal.azure.com" target="_blank">Azure Portal</a>에서 Facebook Messenger 채널에 대한 봇의 구성 설정을 업데이트해야 합니다.
 
 ## <a name="why-is-my-kik-bot-replying-im-sorry-i-cant-talk-right-now"></a>내 Kik 봇이 "I'm sorry, I can't talk right now"(미안하지만 지금은 대화할 수 없다)라고 답하는 이유는 무엇인가요?
 
@@ -130,7 +130,7 @@ Skype, Facebook, Slack 같은 다른 채널은 봇이 미리 사용자 ID를 예
 이 문제를 해결하려면 Direct Line 클라이언트가 보내는 각 메시지의 `from` 속성을, 메시지를 보내는 사용자를 고유하게 나타내는 안정적인 값으로 설정합니다. 예를 들어 사용자가 이미 웹 페이지나 앱에 로그인한 경우 사용자가 보내는 메시지에서 기존 사용자 ID를 `from` 속성 값으로 사용할 수 있습니다. 또는 페이지 로드 또는 애플리케이션 로드 시 임의의 사용자 ID를 생성하여 쿠키나 장치 상태에 저장하고, 이 ID를 사용자가 보내는 메시지에서 `from` 속성 값으로 사용할 수 있습니다.
 
 ## <a name="what-causes-the-direct-line-30-service-to-respond-with-http-status-code-502-bad-gateway"></a>Direct Line 3.0 서비스가 HTTP 상태 코드 502 "잘못된 게이트웨이"라 답하는 이유는 무엇인가요?
-Direct Line 3.0은 봇 연결을 시도했으나 요청이 성공적으로 완료되지 않으면 HTTP 상태 코드 502를 반환합니다. 이 오류는 봇이 오류를 반환했거나 요청된 시간이 초과되었음을 표시합니다. 봇이 생성하는 오류에 대한 자세한 내용은 <a href="https://dev.botframework.com" target="_blank">Bot Framework 포털</a> 안에서 봇의 대시보드로 이동하고 영향을 받는 채널에 대한 "문제" 링크를 클릭합니다. 봇에 대해 Application Insights를 구성한 경우 거기서도 상세 오류 정보를 제공합니다. 
+Direct Line 3.0은 봇 연결을 시도했으나 요청이 성공적으로 완료되지 않으면 HTTP 상태 코드 502를 반환합니다. 이 오류는 봇이 오류를 반환했거나 요청된 시간이 초과되었음을 표시합니다. 봇이 생성하는 오류에 대한 자세한 내용은 <a href="https://portal.azure.com" target="_blank">Azure Portal</a> 내에서 봇의 대시보드로 이동하고 영향을 받는 채널에 대한 "이슈" 링크를 클릭합니다. 봇에 대해 Application Insights를 구성한 경우 거기서도 상세 오류 정보를 제공합니다. 
 
 ::: moniker range="azure-bot-service-3.0"
 
@@ -216,13 +216,6 @@ builder
     .InstancePerLifetimeScope();
 builder.Update(Conversation.Container);
 ```
-::: moniker-end
-
-## <a name="is-there-a-limit-on-the-amount-of-data-i-can-store-using-the-state-api"></a>State API를 사용하여 저장할 수 있는 데이터의 크기에 제한이 있나요?
-
-예, 각 상태 저장소(즉, 사용자, 대화 및 개인 봇 데이터 모음)는 최대 64KB의 데이터를 포함할 수 있습니다. 자세한 내용은 [상태 데이터 관리][StateAPI]를 참조하세요.
-
-::: moniker range="azure-bot-service-3.0"
 
 ## <a name="how-do-i-version-the-bot-data-stored-through-the-state-api"></a>State API를 통해 저장된 봇 데이터 버전은 어떻게 지정하나요?
 

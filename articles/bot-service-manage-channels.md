@@ -10,11 +10,11 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 09/22/2018
 ms.openlocfilehash: 448bd1acd39445c39e49f27c3b9446523124bf87
-ms.sourcegitcommit: 721bb09f10524b0cb3961d7131966f57501734b8
+ms.sourcegitcommit: 980612a922b8290b2faadaca193496c4117e415a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59540999"
+ms.lasthandoff: 04/26/2019
+ms.locfileid: "64563729"
 ---
 # <a name="connect-a-bot-to-channels"></a>채널에 봇 연결
 

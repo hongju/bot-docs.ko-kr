@@ -1,9 +1,8 @@
-# 엔터프라이즈 템플릿
-## [개요](../v4sdk/bot-builder-enterprise-template-overview.md)
-## [시작](../v4sdk/bot-builder-enterprise-template-getting-started.md)
-## [템플릿 사용자 지정](../v4sdk/bot-builder-enterprise-template-customize.md)
-# 가상 도우미 
+# 가상 도우미
 ## [개요](../v4sdk/bot-builder-virtual-assistant-introduction.md)
+## [템플릿 소개](../v4sdk/bot-builder-virtual-assistant-template.md)
+# 기술 
+## [개요](../v4sdk/bot-builder-skills-overview.md)
 # [FAQ](../bot-service-resources-bot-framework-faq.md)
 # [지원 받기](../bot-service-resources-links-help.md)
 # [채널 참조](../bot-service-channels-reference.md)

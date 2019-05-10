@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
 ms.date: 12/13/2017
-ms.openlocfilehash: 298a827af880223f80cee1876eaea745c6a4a88e
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: 346c522a1e1cd3d5904b74ad6e6092a1457a001c
+ms.sourcegitcommit: f84b56beecd41debe6baf056e98332f20b646bda
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "50000080"
+ms.lasthandoff: 05/03/2019
+ms.locfileid: "65032593"
 ---
 # <a name="add-suggested-actions-to-messages"></a>메시지에 제안된 동작 추가
 > [!div class="op_single_selector"]
@@ -22,9 +22,6 @@ ms.locfileid: "50000080"
 > - [REST (영문)](../rest-api/bot-framework-rest-connector-add-suggested-actions.md)
 
 [!INCLUDE [Introduction to suggested actions](../includes/snippet-suggested-actions-intro.md)]
-
-> [!TIP]
-> 다양한 채널이 제안된 동작을 렌더링하는 방법을 알아보려면 [채널 검사기][channelInspector]를 참조하세요.
 
 ## <a name="send-suggested-actions"></a>제안된 동작 보내기
 

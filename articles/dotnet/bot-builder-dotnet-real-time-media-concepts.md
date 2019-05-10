@@ -1,21 +1,18 @@
 ---
-title: Skype를 사용한 실시간 미디어 호출 | Microsoft Docs
-description: .NET용 Bot Framework SDK를 사용하여 Skype에서 실시간 음성 및 영상 통화를 수행할 수 있는 봇을 빌드할 때 필요한 핵심 개념을 이해합니다.
-author: ssulzer
-ms.author: ssulzer
-manager: kamrani
-ms.topic: article
-ms.service: bot-service
-ms.subservice: sdk
-ms.date: 12/13/2017
-monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 893458a484c0e26545c23016ccbf3049adc61960
-ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
+redirect_url: https://aka.ms/realTimeMediaCalling-repo
+ms.openlocfilehash: f6568ed5d4f98addb19f452142a0a5d6d37e00c8
+ms.sourcegitcommit: f84b56beecd41debe6baf056e98332f20b646bda
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54225258"
+ms.lasthandoff: 05/03/2019
+ms.locfileid: "65032971"
 ---
+<a name="--"></a><!--
+---
+제목: Skype를 사용한 실시간 미디어 호출 | Microsoft Docs 설명: .NET용 Bot Framework SDK를 사용하여 Skype에서 실시간 음성 및 영상 통화를 수행할 수 있는 봇을 빌드할 때 필요한 핵심 개념을 이해합니다.
+작성자: ssulzer ms.author: ssulzer manager: kamrani ms.topic: article ms.service: bot-service ms.subservice: sdk ms.date: 2017년 12월 13일 monikerRange: 'azure-bot-service-3.0'
+---
+
 # <a name="real-time-media-calling-with-skype"></a>Skype를 사용한 실시간 미디어 호출
 
 [!INCLUDE [pre-release-label](../includes/pre-release-label-v3.md)]
@@ -65,3 +62,4 @@ ms.locfileid: "54225258"
 ### <a name="code-samples"></a>코드 샘플
 
 [BotBuilder RealTimeMediaCalling](https://github.com/Microsoft/BotBuilder-RealTimeMediaCalling) GitHub 리포지토리에는 Skype용 실시간 미디어 봇을 빌드하는 방법을 보여 주는 샘플이 포함되어 있습니다.
+-->

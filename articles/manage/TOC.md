@@ -4,7 +4,10 @@
 ## [채널에 봇 연결](../bot-service-manage-channels.md)
 ## [채널 관련 기능 구현](../v4sdk/bot-builder-channeldata.md)
 ## [Cortana](../bot-service-channel-connect-cortana.md) 
-## [Direct Line](../bot-service-channel-connect-directline.md)
+## 직접 회선
+### [Direct Line 정보](../bot-service-channel-directline.md)
+### [Direct Line에 연결](../bot-service-channel-connect-directline.md)
+### [Direct Line Speech에 연결](../bot-service-channel-connect-directlinespeech.md)
 ## [Email](../bot-service-channel-connect-email.md)
 ## [웹 채팅에서 음성 사용](../bot-service-channel-connect-webchat-speech.md)
 ## [Facebook](../bot-service-channel-connect-facebook.md) 

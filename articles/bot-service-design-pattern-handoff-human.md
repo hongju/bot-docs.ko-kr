@@ -6,13 +6,13 @@ ms.author: mateusv
 manager: kamrani
 ms.topic: article
 ms.service: bot-service
-ms.date: 12/13/2017
-ms.openlocfilehash: f18b375a1e4ebcf06d00d045e383db8b05fb5111
-ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
+ms.date: 5/2/2019
+ms.openlocfilehash: a5bb8d8dce1fdb45ab9ab42b247e2697713e51ac
+ms.sourcegitcommit: f84b56beecd41debe6baf056e98332f20b646bda
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54225738"
+ms.lasthandoff: 05/03/2019
+ms.locfileid: "65033048"
 ---
 # <a name="transition-conversations-from-bot-to-human"></a>봇에서 사람으로 대화 전환
 
@@ -71,10 +71,6 @@ ms.locfileid: "54225738"
 
 > [!NOTE]
 > 더 고급 시나리오에서는 봇이 단순히 사용자와 에이전트 간에 메시지를 라우팅하는 것 이상의 역할을 수행할 수 있습니다. 예를 들어, 봇은 적절한 응답을 결정하고 에이전트에게 간단히 진행 승인을 요청할 수 있습니다.
-
-## <a name="sample-code"></a>샘플 코드
-
-Node.js용 Bot Framework SDK를 사용하여 봇에서 사람으로 대화를 전달하는 방법을 보여주는 전체 샘플은 GitHub의 <a href="https://github.com/palindromed/Bot-HandOff" target="_blank">Bot-HandOff 샘플</a>을 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 

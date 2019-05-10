@@ -1,3 +1,11 @@
+---
+ms.openlocfilehash: 8e5677fe59dd9edad6ac1da9d029e5f7c08bf179
+ms.sourcegitcommit: 980612a922b8290b2faadaca193496c4117e415a
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 04/26/2019
+ms.locfileid: "64563966"
+---
 ## <a name="next-steps"></a>다음 단계
 봇을 클라우드에 배포하고 Bot Framework Emulator로 봇을 테스트하여 배포가 성공했는지 확인한 후, 봇 게시 프로세스의 다음 단계는 Bot Framework에 봇을 등록했는지 여부에 따라 달라집니다.
 

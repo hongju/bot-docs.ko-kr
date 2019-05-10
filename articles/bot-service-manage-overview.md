@@ -8,15 +8,17 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: abs
-ms.date: 12/13/2017
-ms.openlocfilehash: fef82d27c6dd4fb61c9a0cf864e76a88128847d7
-ms.sourcegitcommit: 05ddade244874b7d6e2fc91745131b99cc58b0d6
+ms.date: 4/13/2019
+ms.openlocfilehash: 17d80fe4d4730ed294b770fd05bc5d7ea3d114af
+ms.sourcegitcommit: f84b56beecd41debe6baf056e98332f20b646bda
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56591164"
+ms.lasthandoff: 05/03/2019
+ms.locfileid: "65033044"
 ---
 # <a name="manage-a-bot"></a>봇 관리
+
+[!INCLUDE [applies-to-both](includes/applies-to-both.md)]
 
 이 항목에서는 Azure Portal을 사용하여 봇을 관리하는 방법을 설명합니다.
 
@@ -46,17 +48,11 @@ ms.locfileid: "56591164"
 
 ![App Service 설정](~/media/azure-manage-a-bot/app-service-settings.png)
 
-**애플리케이션 설정** 블레이드에는 봇의 환경, 디버그 설정, botFilePath 및 botFileSecret와 같은 애플리케이션 설정 키 등 봇에 대한 자세한 정보가 포함되어 있습니다.
+**애플리케이션 설정** 블레이드에는 봇의 환경, 디버그 설정 및 애플리케이션 설정 키와 같은 봇에 대한 자세한 정보가 포함되어 있습니다.
 
 ### <a name="microsoftappid-and-microsoftapppassword"></a>MicrosoftAppID 및 MicrosoftAppPassword
 
-**MicrosoftAppID** 및 **MicrosoftAppPassword**는 봇의 `.bot` 파일에 보관됩니다. 이를 가져오려면 봇 파일을 다운로드하고 암호를 해독하세요. ID 및 암호를 사용하여 로컬에서 테스트하는 데 필요할 수 있습니다.
-
-### <a name="bot-file-path-and-secret"></a>봇 파일 경로 및 비밀
-
-**애플리케이션 설정** 블레이드에서 봇의 **botFilePath** 및 **botFileSecret**를 찾을 수 있습니다.
-
-![Microsoft 봇 파일 경로 및 비밀](~/media/azure-manage-a-bot/app-settings.png)
+**MicrosoftAppID** 및 **MicrosoftAppPassword**는 봇의 구성 파일 또는 Azure Key Vault 내에 유지됩니다. 검색하려면 봇의 설정 또는 구성 파일을 다운로드하거나 Azure Key Vault에 액세스합니다. ID와 암호를 사용하여 로컬에서 테스트해야 할 수도 있습니다.
 
 > [!NOTE]
 > **봇 채널 등록** 봇 서비스에는 *MicrosoftAppID*가 제공되지만 이 유형의 서비스와 연결된 App Service가 없기 때문에 *MicrosoftAppPassword*를 조회할 수 있는 **애플리케이션 설정** 블레이드가 없습니다. 암호를 가져오려면 암호를 생성해야 합니다. **봇 채널 등록**의 암호를 생성하려면 [봇 채널 등록 암호](bot-service-quickstart-registration.md#bot-channels-registration-password)를 참조하세요.

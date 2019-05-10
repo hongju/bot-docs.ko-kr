@@ -7,19 +7,19 @@ ms.author: kamrani
 manager: kamrani
 ms.topic: article
 ms.service: bot-service
-ms.date: 04/18/2019
-ms.openlocfilehash: 86a75fb315ec303cb8a519bfa02063c4e6780307
-ms.sourcegitcommit: aea57820b8a137047d59491b45320cf268043861
+ms.date: 05/05/2019
+ms.openlocfilehash: 569438e43a64a96239f7d9e490563498e7f6f279
+ms.sourcegitcommit: 3e3c9986b95532197e187b9cc562e6a1452cbd95
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59904816"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65039770"
 ---
 # <a name="about-azure-bot-service"></a>Azure Bot Service 정보
 
 [!INCLUDE [applies-to-both](includes/applies-to-both.md)]
 
-Azure Bot Service는 지능형 봇을 모두 한 번에 빌드, 테스트, 배포 및 관리할 수 있는 도구를 제공합니다. 개발자는 SDK, 도구, 템플릿 및 AI 서비스에서 제공하는 모듈 및 확장 가능한 프레임워크를 사용하여 음성을 사용하고, 자연어를 이해하고, 질문 및 답변 처리 등을 수행하는 봇을 만들 수 있습니다.
+Azure Bot Service 및 Bot Framework는 지능형 봇을 모두 한 곳에서 빌드, 테스트, 배포 및 관리할 수 있는 도구를 제공합니다. 개발자는 SDK, 도구, 템플릿 및 AI 서비스에서 제공하는 모듈 및 확장 가능한 프레임워크를 사용하여 음성을 사용하고, 자연어를 이해하고, 질문 및 답변 처리 등을 수행하는 봇을 만들 수 있습니다.
 
 ## <a name="what-is-a-bot"></a>봇이란?
 봇은 컴퓨터를 사용하는 것보다는 사용자 또는 적어도 지능형 로봇을 다루는 것과 같은 환경을 제공합니다. 직접적인 사용자의 개입을 더 이상 요구할 수 없는 자동화된 시스템으로 저녁 식사를 예약하거나 프로필 정보를 수집하는 등 간단한 반복 작업을 이동할 수 없습니다. 사용자는 텍스트, 대화형 카드 및 음성을 사용하여 봇과 대화합니다. 빠른 질문 및 대답이거나 지능적으로 서비스에 대한 액세스를 제공하는 복잡한 대화를 통해 봇과 상호 작용할 수 있습니다.
@@ -28,7 +28,7 @@ Azure Bot Service는 지능형 봇을 모두 한 번에 빌드, 테스트, 배�
 
 봇은 파일을 읽고 쓰며, 데이터베이스 및 API를 사용하고, 정규 계산 작업을 수행하는 등 다른 형식의 소프트웨어가 수행하는 동일한 작업을 수행할 수 있습니다. 봇이 고유한 이유는 일반적으로 사용자 간 통신에 유보된 메커니즘을 사용한다는 점입니다. 
 
-Azure Bot Service 제안:
+Azure Bot Service와 Bot Framework 제공:
 - 봇 개발용 Bot Framework SDK
 - 엔드투엔드 봇 개발 워크플로를 처리하는 Bot Framework 도구
 - 봇과 채널 간에 메시지 및 이벤트를 주고 받는 BFS(Bot Framework Service)
@@ -40,7 +40,7 @@ Azure Bot Service 제안:
 
 ## <a name="building-a-bot"></a>봇 빌드 
 
-Azure Bot Service는 프로세스를 용이하게 하는 일련의 통합된 도구 및 서비스를 제공합니다. 봇을 만들 때 선호하는 개발 환경 또는 명령줄 도구를 선택합니다. SDK는 C#, JavaScript 및 Typescript를 위해 존재합니다. (Java 및 Python용 SDK는 현재 개발 중입니다.) 봇을 쉽게 디자인하고 빌드할 수 있도록 다양한 봇 개발 단계를 위한 도구를 제공해 드리고 있습니다.
+Azure Bot Service 및 Bot Framewrk는 이 프로세스를 용이하게 하는 통합된 도구 및 서비스 세트를 제공합니다. 봇을 만들 때 선호하는 개발 환경 또는 명령줄 도구를 선택합니다. SDK는 C#, JavaScript 및 Typescript를 위해 존재합니다. (Java 및 Python용 SDK는 현재 개발 중입니다.) 봇을 쉽게 디자인하고 빌드할 수 있도록 다양한 봇 개발 단계를 위한 도구를 제공해 드리고 있습니다.
 
 ![봇 개요](media/bot-service-overview.png) 
 
@@ -48,9 +48,9 @@ Azure Bot Service는 프로세스를 용이하게 하는 일련의 통합된 도
 봇을 성공적으로 만드는 프로세스에서는 소프트웨어의 형식에 관계 없이 목표, 프로세스 및 사용자 요구 사항을 철저하게 파악하는 것이 중요합니다. 코드를 작성하기 전에 모범 사례에 대한 봇 [디자인 지침](bot-service-design-principles.md) 을 검토하고 봇에 필요한 요구 사항을 확인합니다. 간단한 봇을 만들거나 음성, 자연어 이해 또는 질문 답변과 같은 보다 정교한 기능을 포함할 수 있습니다.
 
 ### <a name="build"></a>빌드
-봇은 대화형 인터페이스를 구현하고 Bot Framework Service와 통신하여 메시지 및 이벤트를 주고 받는 웹 서비스입니다. Bot Framework Service는 Azure Bot Service의 구성 요소 중 하나입니다. 다양한 환경 및 언어로 봇을 만들 수 있습니다. [Azure Portal](bot-service-quickstart.md)에서 봇 개발을 시작하거나 로컬 개발을 위한 [[C#](dotnet/bot-builder-dotnet-sdk-quickstart.md) | [JavaScript](javascript/bot-builder-javascript-quickstart.md)] 템플릿을 사용할 수 있습니다.
+봇은 대화형 인터페이스를 구현하고 Bot Framework Service와 통신하여 메시지 및 이벤트를 주고 받는 웹 서비스입니다. Bot Framework Service는 Azure Bot Service 및 Bot Framework의 구성 요소 중 하나입니다. 다양한 환경 및 언어로 봇을 만들 수 있습니다. [Azure Portal](bot-service-quickstart.md)에서 봇 개발을 시작하거나 로컬 개발을 위한 [[C#](dotnet/bot-builder-dotnet-sdk-quickstart.md) | [JavaScript](javascript/bot-builder-javascript-quickstart.md)] 템플릿을 사용할 수 있습니다.
 
-Azure Bot Service의 일부로 봇의 기능을 확장하는 데 사용할 수 있는 추가 구성 요소를 제공합니다.
+Azure Bot Service 및 Bot Framework의 일부로 봇의 기능을 확장하는 데 사용할 수 있는 추가 구성 요소를 제공합니다.
 
 | 기능 | 설명 | 링크 |
 | --- | --- | --- |
@@ -62,7 +62,7 @@ Azure Bot Service의 일부로 봇의 기능을 확장하는 데 사용할 수 �
 > [!NOTE]
 > 위의 표는 포괄적인 목록은 아닙니다. 왼쪽 문서를 [메시지 보내기](~/v4sdk/bot-builder-howto-send-messages.md)부터 탐색하여 더 많은 봇 기능에 대해 알아봅니다.
 
-또한 봇 자산을 생성, 관리 및 테스트할 수 있는 명령줄 도구를 제공합니다. 이러한 도구는 봇 구성 파일을 관리하고, LUIS 앱을 구성하고, QnA 기술 자료를 빌드하고, 대화를 모의할 수 있습니다. 자세한 내용은 명령줄 도구 [추가 정보](https://aka.ms/botbuilder-tools-readme)에서 볼 수 있습니다.
+또한 봇 자산을 생성, 관리 및 테스트할 수 있는 명령줄 도구를 제공합니다. 이러한 도구는 LUIS 앱을 구성하고, QnA 기술 자료를 빌드하고, 구성 요소 간 디스패치를 위한 모델을 빌드하고 대화를 모의하는 등의 작업을 수행할 수 있습니다. 자세한 내용은 명령줄 도구 [추가 정보](https://aka.ms/botbuilder-tools-readme)에서 볼 수 있습니다.
 
 SDK를 통해 사용할 수 있는 다양한 기능을 소개하는 [샘플](https://github.com/microsoft/botbuilder-samples)에 액세스할 수도 있습니다. 다양한 기능 시작점을 찾는 개발자에게 적합합니다.
 

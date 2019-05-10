@@ -1,21 +1,18 @@
 ---
-title: 실시간 미디어 봇의 요구 사항 및 고려 사항 | Microsoft Docs
-description: .NET용 Bot Framework SDK를 사용하여 Skype용 실시간 미디어 봇을 만드는 작업에 관련된 중요한 요구 사항과 고려 사항을 살펴봅니다.
-author: ssulzer
-ms.author: ssulzer
-manager: kamrani
-ms.topic: article
-ms.service: bot-service
-ms.subservice: sdk
-ms.date: 12/13/17
-monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: d8cd326a3027fe5fcb440d9b205ba7d32a8b1640
-ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
+redirect_url: https://aka.ms/realTimeMediaCalling-repo
+ms.openlocfilehash: 8868ee0d72aa0de6480a392368469b6adf18b561
+ms.sourcegitcommit: f84b56beecd41debe6baf056e98332f20b646bda
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54224938"
+ms.lasthandoff: 05/03/2019
+ms.locfileid: "65032911"
 ---
+<a name="--"></a><!--
+---
+제목: 실시간 미디어 봇의 요구 사항 및 고려 사항 | Microsoft Docs 설명: .NET용 Bot Framework SDK를 사용하여 Skype용 실시간 미디어 봇을 만드는 작업에 관련된 중요한 요구 사항과 고려 사항을 살펴봅니다.
+작성자: ssulzer ms.author: ssulzer manager: kamrani ms.topic: article ms.service: bot-service ms.subservice: sdk ms.date: 12/13/17 monikerRange: 'azure-bot-service-3.0'
+---
+
 # <a name="requirements-and-considerations-for-real-time-media-bots"></a>실시간 미디어 봇의 요구 사항 및 고려 사항
 
 [!INCLUDE [pre-release-label](../includes/pre-release-label-v3.md)]
@@ -54,3 +51,4 @@ ms.locfileid: "54224938"
   2. 현재 실시간 미디어 플랫폼은 H.264 비디오 인코딩/디코딩을 오프로드하는 데 VM에서 사용 가능한 GPU(그래픽 처리 장치)를 활용하지 않습니다. 대신에 CPU의 소프트웨어에서 비디오 인코딩 및 디코딩을 수행합니다. GPU를 사용할 수 있는 경우, 봇은 고유한 그래픽 렌더링에 해당 GPU를 활용할 수 있습니다(예: 봇이 3D 그래픽 엔진을 사용하는 경우).
 
 - 실시간 미디어 봇을 호스트하는 VM 인스턴스에는 2개 이상의 CPU 코어가 있어야 합니다. Azure의 경우 Dv2 시리즈 가상 머신이 권장됩니다. Azure VM 형식에 대한 자세한 내용은 <a href="/azure/virtual-machines/windows/sizes-general" target="_blank">Azure 문서</a>를 참조하세요. 
+-->

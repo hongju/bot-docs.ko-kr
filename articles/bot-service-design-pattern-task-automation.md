@@ -8,12 +8,13 @@ ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
 ms.date: 2/13/2018
-ms.openlocfilehash: c14814dc7e2c83f740202db90b7e41efcdfb66a5
-ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
+monikerRange: azure-bot-service-3.0
+ms.openlocfilehash: 21324f68332be6a60f55e6ab55545fc6102bedb9
+ms.sourcegitcommit: f84b56beecd41debe6baf056e98332f20b646bda
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54224408"
+ms.lasthandoff: 05/03/2019
+ms.locfileid: "65033024"
 ---
 # <a name="create-task-automation-bots"></a>태스크 자동화 봇 만들기
 
@@ -28,8 +29,6 @@ ms.locfileid: "54224408"
 Contoso 회사는 매일 직원으로부터 암호를 재설정해야 한다는 몇 번의 지원 센터 전화 문의를 받고 있습니다. Contoso는 지원 센터 상담원이 좀 더 복잡한 문제를 해결하는 데 시간을 투입할 수 있도록 직원 암호를 재설정하는 간단하면서 반복적인 태스크를 자동화하려고 합니다. 
 
 Contoso의 숙련된 개발자인 John은 암호 재설정 태스크를 자동화하는 봇을 만들기로 결정했습니다. 새 앱 또는 웹 사이트를 만들 때와 같이, 먼저 봇의 디자인 사양을 작성했습니다. 
-
-::: moniker range="azure-bot-service-3.0"
 
 ### <a name="navigation-model"></a>탐색 모델
 
@@ -63,10 +62,7 @@ Contoso의 숙련된 개발자인 John은 암호 재설정 태스크를 자동�
 
 #### <a name="resetpassword-dialog"></a>ResetPassword 다이얼로그
 
-사용자가 루트 다이얼로그에서 **암호 재설정**을 선택하면 `ResetPassword` 다이얼로그가 호출됩니다. 
-그러면 `ResetPassword` 다이얼로그는 두 개의 다른 다이얼로그를 호출합니다. 
-먼저 사용자의 전화번호를 수집하는 `PromptStringRegex` 다이얼로그를 호출합니다. 
-그런 후 사용자의 생년월일을 수집하는 `PromptDate` 다이얼로그를 호출합니다. 
+사용자가 루트 다이얼로그에서 **암호 재설정**을 선택하면 `ResetPassword` 다이얼로그가 호출됩니다. 그러면 `ResetPassword` 다이얼로그는 두 개의 다른 다이얼로그를 호출합니다. 먼저 사용자의 전화번호를 수집하는 `PromptStringRegex` 다이얼로그를 호출합니다. 그런 후 사용자의 생년월일을 수집하는 `PromptDate` 다이얼로그를 호출합니다. 
 
 > [!NOTE]
 > 이 예제에서 John은 두 개의 별도 다이얼로그를 사용하여 사용자의 전화번호와 생년월일을 수집하는 논리를 구현하기로 했습니다. 이 접근 방식은 각 다이얼로그에 필요한 코드를 단순화할 뿐만 아니라 앞으로 이러한 다이얼로그가 다른 시나리오에서도 사용될 가능성을 높여줍니다. 
@@ -77,9 +73,7 @@ Contoso의 숙련된 개발자인 John은 암호 재설정 태스크를 자동�
 
 #### <a name="promptstringregex-dialog"></a>PromptStringRegex 다이얼로그
 
-`PromptStringRegex` 다이얼로그는 사용자에게 전화번호를 입력하라는 메시지를 표시하고 사용자가 제공하는 전화번호가 예상되는 형식과 일치하는지 확인합니다. 
-또한 사용자가 잘못된 입력을 반복적으로 제공하는 시나리오도 고려합니다. 
-사양에는 `PromptStringRegex` 다이얼로그가 설명됩니다.
+`PromptStringRegex` 다이얼로그는 사용자에게 전화번호를 입력하라는 메시지를 표시하고 사용자가 제공하는 전화번호가 예상되는 형식과 일치하는지 확인합니다. 또한 사용자가 잘못된 입력을 반복적으로 제공하는 시나리오도 고려합니다. 사양에는 `PromptStringRegex` 다이얼로그가 설명됩니다.
 
 ![다이얼로그 구조](~/media/bot-service-design-pattern-task-automation/simple-task4.png)
 
@@ -89,8 +83,6 @@ Contoso의 숙련된 개발자인 John은 암호 재설정 태스크를 자동�
 
 ![다이얼로그 구조](~/media/bot-service-design-pattern-task-automation/simple-task5.png)
 
-::: moniker-end 
-
 ## <a name="bot-app-or-website"></a>봇, 앱 또는 웹 사이트?
 
 태스크 자동화 봇이 앱이나 웹 사이트와 매우 유사하다면 왜 앱이나 웹 사이트를 빌드하지 않는 것인지 의문이 생길 수 있습니다. 특정 시나리오에 따라, 봇 대신 앱이나 웹 사이트를 빌드하는 것이 훨씬 더 적절할 수 있습니다. [Bot Framework 직접 회선 API][directLineAPI] 또는 <a href="https://aka.ms/BotFramework-WebChat" target="_blank">웹 채팅 컨트롤</a>을 사용하여 앱에 봇을 포함하도록 선택할 수도 있습니다. 앱 컨텍스트에서 봇을 구현하면 풍부한 앱 환경과 대화형 환경이라는 두 가지 장점을 한 곳에서 제공할 수 있습니다. 
@@ -99,7 +91,6 @@ Contoso의 숙련된 개발자인 John은 암호 재설정 태스크를 자동�
 
 또한 봇은 쉽게 확장될 수 있는 유연성도 제공합니다. 예를 들어, 개발자는 암호 재설정 봇에 자연어 및 음성 기능을 추가하여 전화 통화를 통해 액세스하거나 문자 메시지 지원을 추가할 수도 있습니다. 회사는 건물 전체에 키오스크를 설치하고 해당 환경에 암호 재설정 봇을 포함할 수 있습니다.
 
-::: moniker range="azure-bot-service-3.0"
 <!-- TODO: SimpleTaskAutomation no longer exists
 ## Sample code
 
@@ -114,6 +105,5 @@ For a complete sample that shows how to implement simple task automation using t
 - [다이얼로그를 사용하여 대화 흐름 관리(.NET)](~/dotnet/bot-builder-dotnet-manage-conversation-flow.md)
 - [다이얼로그를 사용하여 대화 흐름 관리(Node.js)](~/nodejs/bot-builder-nodejs-manage-conversation-flow.md)
 
-::: moniker-end
 
 [directLineAPI]: https://docs.botframework.com/en-us/restapi/directline3/#navtitle

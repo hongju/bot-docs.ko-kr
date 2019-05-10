@@ -10,11 +10,11 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 12/13/2017
 ms.openlocfilehash: a2004293ff10cfbc7132f58b7c0c834a2012cfd1
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.sourcegitcommit: 980612a922b8290b2faadaca193496c4117e415a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49998570"
+ms.lasthandoff: 04/26/2019
+ms.locfileid: "64563567"
 ---
 # <a name="connect-a-bot-to-groupme"></a>GroupMe에 봇 연결
 
@@ -28,7 +28,7 @@ GroupMe 계정이 없는 경우 [새 계정을 등록](https://web.groupme.com/s
 
 ## <a name="create-a-groupme-application"></a>GroupMe 애플리케이션 만들기
 
-봇에 대한 [GroupMe 응용 프로그램을 만듭니다](https://dev.groupme.com/applications/new).
+봇에 대한 [GroupMe 애플리케이션을 만듭니다](https://dev.groupme.com/applications/new).
 
 콜백 URL `https://groupme.botframework.com/Home/Login`을 사용합니다.
 

@@ -1,3 +1,11 @@
+---
+ms.openlocfilehash: cc7e656d7c8a61e7bf784db579d0065c3bff331a
+ms.sourcegitcommit: 4ff7a8772124a567f43e2c3e13aded368c4002e3
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 05/03/2019
+ms.locfileid: "65035769"
+---
 LUIS와 같은 서비스를 사용하는 경우 `luisAuthoringKey`도 전달해야 합니다. Azure에서 기존 리소스 그룹을 사용하려면 위의 명령에 `groupName` 인수를 사용합니다.
 
 `verbose` 옵션을 사용하여 봇을 배포하는 동안 발생할 수 있는 문제를 해결하는 것이 좋습니다. `msbot clone services` 명령에 사용되는 추가 옵션은 다음과 같습니다.

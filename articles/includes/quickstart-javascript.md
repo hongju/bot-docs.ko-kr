@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: b3f9a0d2c24809c0814baa9bfb8f993a4ba55ef7
-ms.sourcegitcommit: 721bb09f10524b0cb3961d7131966f57501734b8
+ms.openlocfilehash: ee2c261f6b028542b20771801b114d0b23ab21ca
+ms.sourcegitcommit: f84b56beecd41debe6baf056e98332f20b646bda
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59551582"
+ms.lasthandoff: 05/03/2019
+ms.locfileid: "65033214"
 ---
 ## <a name="prerequisites"></a>필수 조건
 
@@ -12,7 +12,7 @@ ms.locfileid: "59551582"
 - [Node.JS](https://nodejs.org/)
 - [Yeoman](http://yeoman.io/) - 생성기를 사용하여 사용자를 위한 봇을 만듭니다.
 - [git](https://git-scm.com/)
-- [Bot Framework Emulator](https://github.com/Microsoft/BotFramework-Emulator)
+- [Bot Framework Emulator](https://aka.ms/bot-framework-emulator-readme)
 - [Restify](http://restify.com/) 및 JavaScript의 비동기 프로그래밍에 대한 정보
 
 > [!NOTE]
@@ -64,7 +64,7 @@ Yeoman은 봇을 만드는 데 사용할 일부 정보에 대한 메시지를 �
 템플릿 덕분에 프로젝트에는 이 빠른 시작에서 봇을 만드는 데 필요한 모든 코드가 포함되어 있습니다. 실제로 추가 코드를 작성할 필요가 없습니다.
 
 > [!NOTE]
-> `Basic` 봇을 만들려면 LUIS 언어 모델이 필요합니다. [luis.ai](https://www.luis.ai)에서 만들 수 있습니다. 모델을 만든 후 .bot 파일을 업데이트합니다. 봇 파일은 [이것](../v4sdk/bot-builder-service-file.md)과 비슷합니다.
+> `Basic` 봇을 만들려면 LUIS 언어 모델이 필요합니다. [luis.ai](https://www.luis.ai)에서 만들 수 있습니다. 모델을 만든 후 구성 파일을 업데이트합니다.
 
 ## <a name="start-your-bot"></a>봇 시작
 
@@ -73,8 +73,8 @@ Yeoman은 봇을 만드는 데 사용할 일부 정보에 대한 메시지를 �
 ## <a name="start-the-emulator-and-connect-your-bot"></a>Emulator 시작 및 봇 연결
 
 1. Bot Framework Emulator를 시작합니다.
-2. 에뮬레이터 "시작" 탭에서 **봇 열기** 링크를 클릭합니다.
-3. 프로젝트를 만든 디렉터리에 있는 .bot 파일을 선택합니다.
+2. 에뮬레이터 "시작" 탭에서 **새 봇 구성 만들기** 링크를 클릭합니다. 
+3. 봇에 대한 필드를 입력한 다음, **저장 및 연결**을 클릭합니다.
 
-봇에 메시지를 보내면 봇이 메시지를 통해 다시 응답하게 됩니다.
+봇에 메시지를 보내면 봇이 메시지를 통해 응답합니다.
 ![에뮬레이터 실행](../media/emulator-v4/js-quickstart.png)

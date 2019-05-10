@@ -1,13 +1,21 @@
+---
+ms.openlocfilehash: 04f9101d0cf29618fb7d50e126c008190064a831
+ms.sourcegitcommit: 3e3c9986b95532197e187b9cc562e6a1452cbd95
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65199253"
+---
 ## <a name="prerequisites"></a>필수 조건
-- Visual Studio [2017](https://www.visualstudio.com/downloads)
-- [C#](https://aka.ms/bot-vsix)용 Bot Framework SDK v4 템플릿
-- Bot Framework [Emulator](https://aka.ms/Emulator-wiki-getting-started)
-- [ASP.Net Core](https://docs.microsoft.com/aspnet/core/) 및 [C#](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/async/index)의 비동기 프로그래밍에 대한 정보
+- Visual Studio [2017 이상](https://www.visualstudio.com/downloads)
+- Bot Framework SDK v4 [C#용 템플릿](https://aka.ms/bot-vsix)
+- [Bot Framework Emulator](https://aka.ms/bot-framework-emulator-readme)
+- [ASP.Net Core](https://docs.microsoft.com/aspnet/core/) 및 [C#의 비동기 프로그래밍](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/async/index)에 대한 지식
 
 ## <a name="create-a-bot"></a>봇 만들기
 필수 조건 섹션에서 다운로드한 BotBuilderVSIX.vsix 템플릿을 설치합니다.
 
-Visual Studio에서 **Bot Framework Echo Bot** V4 템플릿을 사용하여 새 봇 프로젝트를 만듭니다.
+Visual Studio에서 **Echo Bot(Bot Framework v4)** 템플릿을 사용하여 새 봇 프로젝트를 만듭니다.
 
 ![Visual Studio 프로젝트](~/media/azure-bot-quickstarts/bot-builder-dotnet-project.png)
 
@@ -24,8 +32,8 @@ Visual Studio에서 **Bot Framework Echo Bot** V4 템플릿을 사용하여 새 
 
 에뮬레이터를 시작한 다음, 에뮬레이터에서 봇에 연결합니다.
 
-1. 에뮬레이터 "시작" 탭에서 **봇 열기** 링크를 클릭합니다. 
-2. Visual Studio 솔루션을 만든 디렉터리에서 .bot 파일을 선택합니다.
+1. 에뮬레이터 "시작" 탭에서 **새 봇 구성 만들기** 링크를 클릭합니다. 
+2. 봇에 대한 필드를 입력한 다음, **저장 및 연결**을 클릭합니다.
 
 ## <a name="interact-with-your-bot"></a>봇과의 상호 작용
 

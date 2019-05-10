@@ -10,11 +10,11 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 12/13/2017
 ms.openlocfilehash: efe38392117fb871b2b98e3f1d8d798bfaef0c41
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.sourcegitcommit: 980612a922b8290b2faadaca193496c4117e415a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49996510"
+ms.lasthandoff: 04/26/2019
+ms.locfileid: "64563763"
 ---
 # <a name="connect-a-bot-to-telegram"></a>Telegram에 봇 연결
 

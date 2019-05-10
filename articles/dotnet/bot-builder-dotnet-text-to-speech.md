@@ -9,12 +9,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 3eef1ec583764449554a223ec9dc339ff505ace6
-ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
+ms.openlocfilehash: f93ab91281cf0f19be10898436dc41a6a1583c9a
+ms.sourcegitcommit: f84b56beecd41debe6baf056e98332f20b646bda
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54225598"
+ms.lasthandoff: 05/03/2019
+ms.locfileid: "65032981"
 ---
 # <a name="add-speech-to-messages"></a>메시지에 음성 추가
 
@@ -51,7 +51,9 @@ Cortana와 같은 음성 지원 채널을 위한 봇을 빌드하는 경우 봇�
 
 ## <a id="ssml"></a>SSML(Speech Synthesis Markup Language)
 
-봇의 음성 텍스트를 지정하기 위해 일반 텍스트 문자열 또는 SSML(Speech Synthesis Markup Language) 형식의 문자열을 사용할 수 있습니다. SSML은 목소리, 속도, 음량, 발음, 음색 등과 같은 봇의 음성에 대한 다양한 특징을 제어할 수 있는 XML 기반 마크업 언어입니다. SSML에 대한 자세한 내용은 <a href="https://msdn.microsoft.com/en-us/library/hh378377(v=office.14).aspx" target="_blank">Speech Synthesis Markup Language 참조</a>를 참조하세요.
+봇에서 사용할 텍스트를 지정하려면 SSML(Speech Synthesis Markup Language)로 서식이 지정된 문자열을 지정하면 됩니다. SSML은 음성, 속도, 볼륨, 발음, 피치 등과 같은 봇 음성의 다양한 특성을 제어할 수 있는 XML 기반 태그 언어입니다(따라서 올바른 XML이어야 함). SSML에 대한 자세한 내용은 <a href="https://msdn.microsoft.com/en-us/library/hh378377(v=office.14).aspx" target="_blank">Speech Synthesis Markup Language 참조</a>를 참조하세요.
+
+SSML 서식 지정 문자열을 제공할 때 외부 SSML 래퍼 요소를 생략할 수 있습니다.
 
 ## <a name="input-hints"></a>입력 힌트
 
@@ -66,7 +68,7 @@ Cortana와 같은 음성 지원 채널을 위한 봇을 빌드하는 경우 봇�
 - [메시지 만들기](bot-builder-dotnet-create-messages.md)
 - [메시지에 입력 힌트 추가](bot-builder-dotnet-add-input-hints.md)
 - <a href="https://msdn.microsoft.com/en-us/library/hh378377(v=office.14).aspx" target="_blank">SSML(Speech Synthesis Markup Language)</a>
-- <a href="https://github.com/Microsoft/BotBuilder-Samples/tree/master/CSharp/demo-RollerSkill" target="_blank">롤러 스킬 샘플(GitHub)</a>
+- <a href="https://github.com/Microsoft/BotBuilder-Samples/tree/v3-sdk-samples/CSharp/demo-RollerSkill" target="_blank">롤러 스킬 샘플(GitHub)</a>
 - <a href="https://docs.botframework.com/en-us/csharp/builder/sdkreference/dc/d2f/class_microsoft_1_1_bot_1_1_connector_1_1_activity.html" target="_blank">활동 클래스</a>
 - <a href="/dotnet/api/microsoft.bot.connector.imessageactivity" target="_blank">IMessageActivity 인터페이스</a>
 - <a href="/dotnet/api/microsoft.bot.builder.dialogs.internals.dialogcontext" target="_blank">DialogContext 클래스</a>

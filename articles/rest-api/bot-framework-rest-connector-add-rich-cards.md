@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
 ms.date: 12/13/2017
-ms.openlocfilehash: e38bb7ca93c5fc4174d67d1c5ebb0655eef68653
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: a662bb24f384d072a162242a4634fe4fe3a4b395
+ms.sourcegitcommit: f84b56beecd41debe6baf056e98332f20b646bda
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49997923"
+ms.lasthandoff: 05/03/2019
+ms.locfileid: "65033453"
 ---
 # <a name="add-rich-card-attachments-to-messages"></a>메시지에 서식 있는 카드 첨부 파일 추가
 > [!div class="op_single_selector"]
@@ -49,7 +49,7 @@ Bot Framework는 현재 8가지 형식의 서식 있는 카드를 지원합니�
 
 서식 있는 카드 내에서 이벤트를 처리하려면 [CardAction][CardAction] 개체를 사용하여 사용자가 단추를 클릭하거나 카드의 섹션을 탭할 때 수행되어야 하는 작업을 지정합니다. 각 [CardAction][CardAction] 개체는 다음 속성을 포함합니다.
 
-| 자산 | type | 설명 | 
+| 자산 | Type | 설명 | 
 |----|----|----|
 | 형식 | string | 작업 형식(아래 표에 지정된 값 중 하나) |
 | title | string | 단추 제목 |
@@ -117,7 +117,7 @@ Content-Type: application/json
                 "text": "descriptive text goes here",
                 "images": [
                     {
-                        "url": "http://aka.ms/Fo983c",
+                        "url": "https://aka.ms/DuckOnARock",
                         "alt": "picture of a duck",
                         "tap": {
                             "type": "playAudio",
@@ -134,7 +134,7 @@ Content-Type: application/json
                     {
                         "type": "openUrl",
                         "title": "Watch Video",
-                        "image": "http://aka.ms/Fo983c",
+                        "image": "https://aka.ms/DuckOnARock",
                         "value": "url goes here of the duck in flight"
                     }
                 ]

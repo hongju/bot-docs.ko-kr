@@ -9,16 +9,16 @@ ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
 ms.date: 2/26/2019
-ms.openlocfilehash: 1e806358ffdba90848f0c8124c8315fd4e2dec76
-ms.sourcegitcommit: cf3786c6e092adec5409d852849927dc1428e8a2
+ms.openlocfilehash: aa16bc839a96a49615ed127aaf56f686f50a5397
+ms.sourcegitcommit: f84b56beecd41debe6baf056e98332f20b646bda
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57224841"
+ms.lasthandoff: 05/03/2019
+ms.locfileid: "65033002"
 ---
 # <a name="debug-a-bot"></a>봇 디버그
 
-이 문서에서는 Visual Studio 또는 Visual Studio Code 및 Bot Framework Emulator 같은 통합 개발 환경(IDE)를 사용하여 봇을 디버그하는 방법을 설명합니다. 이러한 메서드를 사용하여 봇을 로컬로 디버그할 수 있지만 이 문서에서는 빠른 시작에서 만든 [ C# ](~/dotnet/bot-builder-dotnet-sdk-quickstart.md) 및 [JS](~/javascript/bot-builder-javascript-quickstart.md) 봇을 사용합니다.
+이 문서에서는 Visual Studio 또는 Visual Studio Code 및 Bot Framework Emulator 같은 통합 개발 환경(IDE)를 사용하여 봇을 디버그하는 방법을 설명합니다. 이러한 메서드를 사용하여 봇을 로컬로 디버깅할 수 있지만 이 문서에서는 빠른 시작에서 만든 [C# 봇](~/dotnet/bot-builder-dotnet-sdk-quickstart.md) 또는 [Javascript 봇](~/javascript/bot-builder-javascript-quickstart.md)을 사용합니다.
 
 ## <a name="prerequisites"></a>필수 조건 
 - [Bot Framework Emulator](https://aka.ms/Emulator-wiki-getting-started)를 다운로드하고 설치합니다.
@@ -29,7 +29,7 @@ ms.locfileid: "57224841"
 명령줄을 사용하고 봇을 에뮬레이터로 테스트하여 JavaScript 봇을 실행하려면 다음을 수행합니다.
 1. 명령줄에서 디렉터리를 봇 프로젝트 디렉터리로 변경합니다.
 1. **node app.js** 명령을 실행하여 봇을 시작합니다.
-1. 에뮬레이터를 시작하고 봇의 엔드포인트에 연결합니다(예: **http://localhost:3978/api/messages**). 처음으로 봇을 실행하는 경우라면 **파일 > 새 봇**을 클릭하고 화면에 표시된 지시를 따릅니다. 그렇지 않은 경우 **파일 > 봇 열기**를 클릭하여 기존 봇을 엽니다. 이 봇이 컴퓨터에서 로컬로 실행되므로 **MSA 앱 ID** 및 **MSA 앱 암호** 필드를 빈 공간으로 내버려둘 수 있습니다. 자세한 내용은 [에뮬레이터를 사용하여 디버그](bot-service-debug-emulator.md)를 참조합니다.
+1. 에뮬레이터를 시작하고 봇의 엔드포인트에 연결합니다(예: **http://localhost:3978/api/messages**). 처음으로 봇을 실행하는 경우라면 **파일 > 새 봇**을 클릭하고 화면에 표시된 지시를 따릅니다. 그렇지 않은 경우 **파일 > 봇 열기**를 클릭하여 기존 봇을 엽니다. 이 봇이 컴퓨터에서 로컬로 실행되므로 **MicrosoftAppId** 및 **MicrosoftAppPassword** 필드를 비워 둘 수 있습니다. 자세한 내용은 [에뮬레이터를 사용하여 디버그](bot-service-debug-emulator.md)를 참조합니다.
 1. 에뮬레이터에서 봇에게 메시지를 보냅니다(예: "Hi" 메시지 보내기). 
 1. 에뮬레이터 창의 오른쪽에 있는 **검사기** 및 **로그** 패널을 사용하여 봇을 디버그합니다. 예를 들어 메시지 풍선 중 하나를 클릭하면(예: 아래 스크린샷의 "Hi" 메시지 풍선) **검사기** 패널에 해당 메시지의 세부 정보가 표시됩니다. 메시지가 에뮬레이터와 봇 간에 교환될 때 말풍선을 사용하여 요청 및 응답을 볼 수 있습니다. 또는 **로그** 패널에서 연결된 텍스트 중 하나를 클릭하여 **검사기** 패널에서 세부 정보를 볼 수 있습니다.
 
@@ -132,7 +132,7 @@ Visual Studio 2017에서 중단점을 사용하여 코드를 디버그할 수 �
 ## <a name="additional-resources"></a>추가 리소스
 
 - [일반 문제 해결](bot-service-troubleshoot-bot-configuration.md) 및 해당 섹션의 다른 문제 해결 문서를 참조하세요.
-- [ngrok를 사용하여 채널을 로컬로 디버그하는 방법](https://blog.botframework.com/2017/10/19/debug-channel-locally-using-ngrok/) 블로그 게시물을 참조하세요.
+- [에뮬레이터를 사용하여 디버그](bot-service-debug-emulator.md)하는 방법을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

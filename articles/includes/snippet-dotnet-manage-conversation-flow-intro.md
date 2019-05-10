@@ -1,3 +1,11 @@
+---
+ms.openlocfilehash: 7eed8c8328456bad43f3bdfe0029df09efa062d6
+ms.sourcegitcommit: 980612a922b8290b2faadaca193496c4117e415a
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 04/26/2019
+ms.locfileid: "64563505"
+---
 이 다이어그램에서는 기존 애플리케이션의 화면 흐름을 봇의 대화 상자 흐름과 비교해서 보여 줍니다. 
 
 ![봇](~/media/designing-bots/core/dialogs-screens.png)

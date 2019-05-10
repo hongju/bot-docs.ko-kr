@@ -10,11 +10,11 @@ ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
 ms.openlocfilehash: e01473a06a0cdbef635de33e5734b02351e36cea
-ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
+ms.sourcegitcommit: 980612a922b8290b2faadaca193496c4117e415a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54223808"
+ms.lasthandoff: 04/26/2019
+ms.locfileid: "64563443"
 ---
 # <a name="key-concepts-in-the-bot-framework-sdk-for-net"></a>.NET용 Bot Framework SDK의 주요 개념
 
