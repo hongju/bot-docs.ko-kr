@@ -8,232 +8,114 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
-ms.date: 4/18/2019
+ms.date: 04/18/2019
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: a5f3fe4fbec5a44a68bd6dcb7a2d6e2770052923
-ms.sourcegitcommit: aea57820b8a137047d59491b45320cf268043861
+ms.openlocfilehash: ad374ea8c404693836d7e90bb899669726366fcc
+ms.sourcegitcommit: f84b56beecd41debe6baf056e98332f20b646bda
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59905026"
+ms.lasthandoff: 05/03/2019
+ms.locfileid: "65033491"
 ---
 # <a name="create-advanced-conversation-flow-using-branches-and-loops"></a>분기 및 루프를 사용하여 고급 대화 흐름 만들기
 
 [!INCLUDE[applies-to](../includes/applies-to.md)]
 
-이 문서에서는 분기하고 반복되는 복잡한 대화를 관리하는 방법에 대해 설명합니다. 또한 대화의 다른 부분 간에 인수를 전달하는 방법도 보여 줍니다.
+대화 상자 라이브러리를 사용하여 단순 및 복합 대화 흐름을 관리할 수 있습니다.
+이 문서에서는 분기하고 반복되는 복잡한 대화를 관리하는 방법에 대해 설명합니다.
+또한 대화의 다른 부분 간에 인수를 전달하는 방법도 보여 줍니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-- [Bot Framework Emulator](https://github.com/Microsoft/BotFramework-Emulator/blob/master/README.md#download)
-- 이 문서의 코드는 **복잡한 대화** 샘플을 기반으로 합니다. [C#](https://aka.ms/cs-complex-dialog-sample) 또는 [JS](https://aka.ms/js-complex-dialog-sample)로 작성된 샘플의 복사본이 필요합니다.
-- [봇 기본 사항](bot-builder-basics.md), [대화 라이브러리](bot-builder-concept-dialog.md), [대화 상태](bot-builder-dialog-state.md) 및 [.bot](bot-file-basics.md) 파일에 대한 지식이 필요합니다.
+- [봇 기본 사항][concept-basics], [상태 관리][concept-state], [대화 상자 라이브러리][concept-dialogs] 및 [순차적인 대화 흐름을 구현하는 방법][simple-dialog]에 대한 지식
+- [**CSharp**][cs-sample] 또는 [**JavaScript**][js-sample]로 작성된 복잡한 대화 상자 샘플의 복사본
 
-## <a name="about-the-sample"></a>샘플 정보
+## <a name="about-this-sample"></a>이 샘플 정보
 
 이 샘플은 목록에서 최대 2개의 회사를 검토하기 위해 사용자가 가입할 수 있는 봇을 나타냅니다.
 
-- 사용자의 이름과 나이를 요청한 다음, 사용자의 나이에 따라 _분기_합니다.
-  - 사용자의 나이가 너무 적은 경우 회사를 검토하도록 사용자에게 요청하지 않습니다.
-  - 사용자의 나이가 충분히 많은 경우 사용자의 검토 기본 설정에 대한 수집을 시작합니다.
-    - 사용자가 검토할 회사를 선택할 수 있도록 허용합니다.
-    - 한 회사가 선택되면 두 번째 회사를 선택할 수 있도록 허용하는 루프를 _반복_합니다.
-- 마지막으로, 사용자의 참여에 대한 감사 인사를 보냅니다.
+`DialogAndWelcomeBot`은 다양한 작업에 대한 처리기 및 봇의 턴 처리기를 정의하는 `DialogBot`의 확장입니다. `DialogBot`은 대화 상자를 실행합니다.
 
-복잡한 대화를 관리하기 위해 두 개의 폭포 대화와 몇 개의 프롬프트를 사용합니다.
+- _실행_ 메서드는 `DialogBot`이 대화 상자를 시작하기 위해 사용합니다.
+- `MainDialog`는 대화의 특정 시기에 호출되는 다른 두 대화 상자의 부모입니다. 해당 대화 상자에 대한 세부 정보는 이 문서 전체에서 제공됩니다.
 
-## <a name="configure-state-for-your-bot"></a>봇 상태 구성
+대화 상자는 `MainDialog`, `TopLevelDialog` 및 `ReviewSelectionDialog` 구성 요소로 분할되며, 이들이 함께 다음을 수행합니다.
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+- 이들은 사용자의 이름과 나이를 요청한 다음, 사용자의 나이에 따라 _분기_합니다.
+  - 사용자의 나이가 너무 적은 경우 사용자에게 회사를 검토하도록 요청하지 않습니다.
+  - 사용자의 나이가 충분히 많은 경우 사용자의 검토 기본 설정을 수집하기 시작합니다.
+    - 사용자는 이 과정을 통해 검토할 회사를 선택할 수 있습니다.
+    - 사용자가 회사를 선택하는 경우 두 번째 회사를 선택할 수 있도록 이 과정이 _순환_됩니다.
+- 끝으로, 사용자에게 참여에 대한 감사 인사를 보냅니다.
 
-수집할 사용자 정보를 정의합니다.
-
-```csharp
-public class UserProfile
-{
-    public string Name { get; set; }
-    public int Age { get; set; }
-
-    //The list of companies the user wants to review.
-    public List<string> CompaniesToReview { get; set; } = new List<string>();
-}
-```
-
-봇에 대한 상태 관리 개체 및 상태 속성 접근자를 보관하는 클래스를 정의합니다.
-
-```csharp
-public class ComplexDialogBotAccessors
-{
-    public ComplexDialogBotAccessors(ConversationState conversationState, UserState userState)
-    {
-        ConversationState = conversationState ?? throw new ArgumentNullException(nameof(conversationState));
-        UserState = userState ?? throw new ArgumentNullException(nameof(userState));
-    }
-
-    public IStatePropertyAccessor<DialogState> DialogStateAccessor { get; set; }
-    public IStatePropertyAccessor<UserProfile> UserProfileAccessor { get; set; }
-
-    public ConversationState ConversationState { get; }
-    public UserState UserState { get; }
-}
-```
-
-상태 관리 개체를 만들고, `Statup` 클래스의 `ConfigureServices` 메서드에 접근자 클래스를 등록합니다.
-
-```csharp
-public void ConfigureServices(IServiceCollection services)
-{
-    // Register the bot.
-
-    // Create conversation and user state management objects, using memory storage.
-    IStorage dataStore = new MemoryStorage();
-    var conversationState = new ConversationState(dataStore);
-    var userState = new UserState(dataStore);
-
-    // Create and register state accessors.
-    // Accessors created here are passed into the IBot-derived class on every turn.
-    services.AddSingleton<ComplexDialogBotAccessors>(sp =>
-    {
-        // Create the custom state accessor.
-        // State accessors enable other components to read and write individual properties of state.
-        var accessors = new ComplexDialogBotAccessors(conversationState, userState)
-        {
-            DialogStateAccessor = conversationState.CreateProperty<DialogState>("DialogState"),
-            UserProfileAccessor = userState.CreateProperty<UserProfile>("UserProfile"),
-        };
-
-        return accessors;
-    });
-}
-```
-
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
-
-**index.js** 파일에서 상태 관리 개체를 정의합니다.
-
-```javascript
-const { BotFrameworkAdapter, MemoryStorage, UserState, ConversationState } = require('botbuilder');
-
-// ...
-
-// Define state store for your bot.
-const memoryStorage = new MemoryStorage();
-
-// Create user and conversation state with in-memory storage provider.
-const userState = new UserState(memoryStorage);
-const conversationState = new ConversationState(memoryStorage);
-
-// Create the bot.
-const myBot = new MyBot(conversationState, userState);
-```
-
-봇의 생성자에서 봇에 대한 상태 속성 접근자를 만듭니다.
-
----
-
-## <a name="initialize-your-bot"></a>봇 초기화
-
-이 예제에 대한 모든 대화를 추가할 봇의 _대화 세트_를 만듭니다.
+이 과정에서 복잡한 대화를 관리하기 위해 폭포 대화 상자와 몇 개의 프롬프트를 사용합니다.
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
-봇의 생성자 내에 대화 세트를 만들고, 이 세트에 프롬프트 및 두 개의 폭포 대화를 추가합니다.
+![복잡한 봇 흐름](./media/complex-conversation-flow.png)
 
-여기서 각 단계를 별도의 메서드로 정의합니다. 다음 섹션에서는 이러한 단계를 구현합니다.
+대화 상자를 사용하려면 프로젝트에서 **Microsoft.Bot.Builder.Dialogs** NuGet 패키지를 설치해야 합니다.
 
-```csharp
-public class ComplexDialogBot : IBot
-{
-    // Define constants for the bot...
+**Startup.cs**
 
-    // Define properties for the bot's accessors and dialog set.
-    private readonly ComplexDialogBotAccessors _accessors;
-    private readonly DialogSet _dialogs;
+여기서는 봇 서비스를 `Startup`에 등록합니다. 해당 서비스는 종속성 주입을 통해 코드의 다른 부분에 사용할 수 있습니다.
 
-    // Initialize the bot and add dialogs and prompts to the dialog set.
-    public ComplexDialogBot(ComplexDialogBotAccessors accessors)
-    {
-        _accessors = accessors ?? throw new ArgumentNullException(nameof(accessors));
+- 봇 기본 서비스: 자격 증명 공급자, 어댑터 및 봇 구현
+- 상태 관리 서비스: 스토리지, 사용자 상태 및 대화 상태
+- 봇이 사용할 대화 상자
 
-        // Create a dialog set for the bot. It requires a DialogState accessor, with which
-        // to retrieve the dialog state from the turn context.
-        _dialogs = new DialogSet(accessors.DialogStateAccessor);
-
-        // Add the prompts we need to the dialog set.
-        _dialogs
-            .Add(new TextPrompt(NamePrompt))
-            .Add(new NumberPrompt<int>(AgePrompt))
-            .Add(new ChoicePrompt(SelectionPrompt));
-
-        // Add the dialogs we need to the dialog set.
-        _dialogs.Add(new WaterfallDialog(TopLevelDialog)
-            .AddStep(NameStepAsync)
-            .AddStep(AgeStepAsync)
-            .AddStep(StartSelectionStepAsync)
-            .AddStep(AcknowledgementStepAsync));
-
-        _dialogs.Add(new WaterfallDialog(ReviewSelectionDialog)
-            .AddStep(SelectionStepAsync)
-            .AddStep(LoopStepAsync));
-    }
-
-    // Turn handler and other supporting methods...
-}
-```
+[!code-csharp[ConfigureServices](~/../botbuilder-samples/samples/csharp_dotnetcore/43.complex-dialog/Startup.cs?range=22-39)]
 
 # <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
-**bot.js** 파일에서 봇의 생성자에 대화 세트를 정의하고, 만들고, 이 세트에 프롬프트 및 폭포 대화를 추가합니다.
+![복잡한 봇 흐름](./media/complex-conversation-flow-js.png)
 
-여기서 각 단계를 별도의 메서드로 정의합니다. 다음 섹션에서는 이러한 단계를 구현합니다.
+대화 상자를 사용하려면 프로젝트에서 **botbuilder-dialogs** npm 패키지를 설치해야 합니다.
 
-```javascript
-const { ActivityTypes } = require('botbuilder');
-const { DialogSet, WaterfallDialog, TextPrompt, NumberPrompt, ChoicePrompt, DialogTurnStatus } = require('botbuilder-dialogs');
+**index.js**
 
-// Define constants for the bot...
+코드의 다른 부분에 필요한 봇 서비스를 만듭니다.
 
-class MyBot {
-    constructor(conversationState, userState) {
-        // Create the state property accessors and save the state management objects.
-        this.dialogStateAccessor = conversationState.createProperty(DIALOG_STATE_PROPERTY);
-        this.userProfileAccessor = userState.createProperty(USER_PROFILE_PROPERTY);
-        this.conversationState = conversationState;
-        this.userState = userState;
+- 봇 기본 서비스: 어댑터 및 봇 구현
+- 상태 관리 서비스: 스토리지, 사용자 상태 및 대화 상태
+- 봇이 사용할 대화 상자
 
-        // Create a dialog set for the bot. It requires a DialogState accessor, with which
-        // to retrieve the dialog state from the turn context.
-        this.dialogs = new DialogSet(this.dialogStateAccessor);
-
-        // Add the prompts we need to the dialog set.
-        this.dialogs
-            .add(new TextPrompt(NAME_PROMPT))
-            .add(new NumberPrompt(AGE_PROMPT))
-            .add(new ChoicePrompt(SELECTION_PROMPT));
-
-        // Add the dialogs we need to the dialog set.
-        this.dialogs.add(new WaterfallDialog(TOP_LEVEL_DIALOG)
-            .addStep(this.nameStep.bind(this))
-            .addStep(this.ageStep.bind(this))
-            .addStep(this.startSelectionStep.bind(this))
-            .addStep(this.acknowledgementStep.bind(this)));
-
-        this.dialogs.add(new WaterfallDialog(REVIEW_SELECTION_DIALOG)
-            .addStep(this.selectionStep.bind(this))
-            .addStep(this.loopStep.bind(this)));
-    }
-
-    // Turn handler and other supporting methods...
-}
-```
+[!code-javascript[ConfigureServices](~/../botbuilder-samples/samples/javascript_nodejs/43.complex-dialog/index.js?range=25-38)]
+[!code-javascript[ConfigureServices](~/../botbuilder-samples/samples/javascript_nodejs/43.complex-dialog/index.js?range=43-45)]
 
 ---
 
-## <a name="implement-the-steps-for-the-waterfall-dialogs"></a>폭포 대화의 단계 구현
+> [!NOTE]
+> 메모리 저장소는 테스트 목적으로만 사용되며 프로덕션용이 아닙니다.
+> 프로덕션 봇에는 영구 스토리지 형식을 사용해야 합니다.
 
-이제 두 개의 대화에 대한 단계를 구현해 보겠습니다.
+## <a name="define-a-class-in-which-to-store-the-collected-information"></a>수집된 정보를 저장할 클래스를 정의합니다.
 
-### <a name="the-top-level-dialog"></a>최상위 대화
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+
+**UserProfile.cs**
+
+[!code-csharp[UserProfile class](~/../botbuilder-samples/samples/csharp_dotnetcore/43.complex-dialog/UserProfile.cs?range=8-16)]
+
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+**userProfile.js**
+
+[!code-javascript[UserProfile class](~/../botbuilder-samples/samples/javascript_nodejs/43.complex-dialog/userProfile.js?range=4-12)]
+
+---
+
+## <a name="create-the-dialogs-to-use"></a>사용할 대화 상자를 만듭니다.
+
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+
+**Dialogs\MainDialog.cs**
+
+여기서는 두 개의 주 단계를 포함하고 대화 상자 및 프롬프트를 지시하는 구성 요소 대화 상자 `MainDialog`를 정의했습니다. 초기 단계에서는 아래에 설명하는 `TopLevelDialog`를 호출합니다.
+
+[!code-csharp[step implementations](~/../botbuilder-samples/samples/csharp_dotnetcore/43.complex-dialog/Dialogs/MainDialog.cs?range=31-50&highlight=3)]
+
+**Dialogs\TopLevelDialog.cs**
 
 초기의 최상위 대화에는 다음 네 가지 단계가 있습니다.
 
@@ -242,261 +124,56 @@ class MyBot {
 1. 사용자의 나이에 따라 분기합니다.
 1. 마지막으로 사용자의 참여에 대한 감사 인사를 보내고, 수집된 정보를 반환합니다.
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+첫 번째 단계에서는 대화 상자가 매번 빈 프로필로 시작하도록 사용자의 프로필을 지웁니다. 마지막 단계는 종료할 때 정보를 반환하므로 `AcknowledgementStepAsync`는 정보를 사용자 상태에 저장하고 해당 정보를 마지막 단계에 사용하기 위해 주 대화 상자에 반환하는 작업으로 종료합니다.
 
-```csharp
-// The first step of the top-level dialog.
-private static async Task<DialogTurnResult> NameStepAsync(WaterfallStepContext stepContext, CancellationToken cancellationToken)
-{
-    // Create an object in which to collect the user's information within the dialog.
-    stepContext.Values[UserInfo] = new UserProfile();
+[!code-csharp[step implementations](~/../botbuilder-samples/samples/csharp_dotnetcore/43.complex-dialog/Dialogs/TopLevelDialog.cs?range=39-96&highlight=3-4,47-49,56-57)]
 
-    // Ask the user to enter their name.
-    return await stepContext.PromptAsync(
-        NamePrompt,
-        new PromptOptions { Prompt = MessageFactory.Text("Please enter your name.") },
-        cancellationToken);
-}
+**Dialogs\ReviewSelectionDialog.cs**
 
-// The second step of the top-level dialog.
-private async Task<DialogTurnResult> AgeStepAsync(
-    WaterfallStepContext stepContext,
-    CancellationToken cancellationToken)
-{
-    // Set the user's name to what they entered in response to the name prompt.
-    ((UserProfile)stepContext.Values[UserInfo]).Name = (string)stepContext.Result;
-
-    // Ask the user to enter their age.
-    return await stepContext.PromptAsync(
-        AgePrompt,
-        new PromptOptions { Prompt = MessageFactory.Text("Please enter your age.") },
-        cancellationToken);
-}
-
-// The third step of the top-level dialog.
-private async Task<DialogTurnResult> StartSelectionStepAsync(
-    WaterfallStepContext stepContext,
-    CancellationToken cancellationToken)
-{
-    // Set the user's age to what they entered in response to the age prompt.
-    int age = (int)stepContext.Result;
-    ((UserProfile)stepContext.Values[UserInfo]).Age = age;
-
-    if (age < 25)
-    {
-        // If they are too young, skip the review-selection dialog, and pass an empty list to the next step.
-        await stepContext.Context.SendActivityAsync(
-            MessageFactory.Text("You must be 25 or older to participate."),
-            cancellationToken);
-        return await stepContext.NextAsync(new List<string>(), cancellationToken);
-    }
-    else
-    {
-        // Otherwise, start the review-selection dialog.
-        return await stepContext.BeginDialogAsync(ReviewSelectionDialog, null, cancellationToken);
-    }
-}
-
-// The final step of the top-level dialog.
-private async Task<DialogTurnResult> AcknowledgementStepAsync(
-    WaterfallStepContext stepContext,
-    CancellationToken cancellationToken)
-{
-    // Set the user's company selection to what they entered in the review-selection dialog.
-    List<string> list = stepContext.Result as List<string>;
-    ((UserProfile)stepContext.Values[UserInfo]).CompaniesToReview = list ?? new List<string>();
-
-    // Thank them for participating.
-    await stepContext.Context.SendActivityAsync(
-        MessageFactory.Text($"Thanks for participating, {((UserProfile)stepContext.Values[UserInfo]).Name}."),
-        cancellationToken);
-
-    // Exit the dialog, returning the collected user information.
-    return await stepContext.EndDialogAsync(stepContext.Values[UserInfo], cancellationToken);
-}
-```
-
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
-
-```javascript
-async nameStep(stepContext) {
-    // Create an object in which to collect the user's information within the dialog.
-    stepContext.values[USER_INFO] = {};
-
-    // Ask the user to enter their name.
-    return await stepContext.prompt(NAME_PROMPT, 'Please enter your name.');
-}
-
-async ageStep(stepContext) {
-    // Set the user's name to what they entered in response to the name prompt.
-    stepContext.values[USER_INFO].name = stepContext.result;
-
-    // Ask the user to enter their age.
-    return await stepContext.prompt(AGE_PROMPT, 'Please enter your age.');
-}
-
-async startSelectionStep(stepContext) {
-    // Set the user's age to what they entered in response to the age prompt.
-    stepContext.values[USER_INFO].age = stepContext.result;
-
-    if (stepContext.result < 25) {
-        // If they are too young, skip the review-selection dialog, and pass an empty list to the next step.
-        await stepContext.context.sendActivity('You must be 25 or older to participate.');
-        return await stepContext.next([]);
-    } else {
-        // Otherwise, start the review-selection dialog.
-        return await stepContext.beginDialog(REVIEW_SELECTION_DIALOG);
-    }
-}
-
-async acknowledgementStep(stepContext) {
-    // Set the user's company selection to what they entered in the review-selection dialog.
-    const list = stepContext.result || [];
-    stepContext.values[USER_INFO].companiesToReview = list;
-
-    // Thank them for participating.
-    await stepContext.context.sendActivity(`Thanks for participating, ${stepContext.values[USER_INFO].name}.`);
-
-    // Exit the dialog, returning the collected user information.
-    return await stepContext.endDialog(stepContext.values[USER_INFO]);
-}
-```
-
----
-
-### <a name="the-review-selection-dialog"></a>검토 선택 대화
-
-검토 선택 대화에는 다음 두 가지 단계가 있습니다.
+검토-선택 대화 상자는 최상위 대화 상자의 `StartSelectionStepAsync`에서 시작하며, 다음 두 단계로 이루어져 있습니다.
 
 1. 사용자에게 검토할 회사를 선택하도록 요청하거나 `done`을 선택하여 완료합니다.
 1. 이 대화를 반복하거나 적절하게 종료합니다.
 
-이 디자인에서는 최상위 대화가 항상 스택의 검토 선택 대화 앞에 배치되며, 검토 선택 대화는 최상위 대화의 자식으로 간주할 수 있습니다.
+이 디자인에서는 최상위 대화 상자가 항상 스택의 검토-선택 대화 상자 앞에 배치되며, 검토-선택 대화 상자는 최상위 대화 상자의 자식으로 간주할 수 있습니다.
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
-
-```csharp
-// The first step of the review-selection dialog.
-private async Task<DialogTurnResult> SelectionStepAsync(WaterfallStepContext stepContext, CancellationToken cancellationToken)
-{
-    // Continue using the same selection list, if any, from the previous iteration of this dialog.
-    List<string> list = stepContext.Options as List<string> ?? new List<string>();
-    stepContext.Values[CompaniesSelected] = list;
-
-    // Create a prompt message.
-    string message;
-    if (list.Count is 0)
-    {
-        message = $"Please choose a company to review, or `{DoneOption}` to finish.";
-    }
-    else
-    {
-        message = $"You have selected **{list[0]}**. You can review an additional company, " +
-            $"or choose `{DoneOption}` to finish.";
-    }
-
-    // Create the list of options to choose from.
-    List<string> options = _companyOptions.ToList();
-    options.Add(DoneOption);
-    if (list.Count > 0)
-    {
-        options.Remove(list[0]);
-    }
-
-    // Prompt the user for a choice.
-    return await stepContext.PromptAsync(
-        SelectionPrompt,
-        new PromptOptions
-        {
-            Prompt = MessageFactory.Text(message),
-            RetryPrompt = MessageFactory.Text("Please choose an option from the list."),
-            Choices = ChoiceFactory.ToChoices(options),
-        },
-        cancellationToken);
-}
-
-// The final step of the review-selection dialog.
-private async Task<DialogTurnResult> LoopStepAsync(WaterfallStepContext stepContext, CancellationToken cancellationToken)
-{
-    // Retrieve their selection list, the choice they made, and whether they chose to finish.
-    List<string> list = stepContext.Values[CompaniesSelected] as List<string>;
-    FoundChoice choice = (FoundChoice)stepContext.Result;
-    bool done = choice.Value == DoneOption;
-
-    if (!done)
-    {
-        // If they chose a company, add it to the list.
-        list.Add(choice.Value);
-    }
-
-    if (done || list.Count is 2)
-    {
-        // If they're done, exit and return their list.
-        return await stepContext.EndDialogAsync(list, cancellationToken);
-    }
-    else
-    {
-        // Otherwise, repeat this dialog, passing in the list from this iteration.
-        return await stepContext.ReplaceDialogAsync(ReviewSelectionDialog, list, cancellationToken);
-    }
-}
-```
+[!code-csharp[step implementations](~/../botbuilder-samples/samples/csharp_dotnetcore/43.complex-dialog/Dialogs/ReviewSelectionDialog.cs?range=42-106)]
 
 # <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
-```javascript
-async selectionStep(stepContext) {
-    // Continue using the same selection list, if any, from the previous iteration of this dialog.
-    const list = Array.isArray(stepContext.options) ? stepContext.options : [];
-    stepContext.values[COMPANIES_SELECTED] = list;
+**dialogs/mainDialog.js**
 
-    // Create a prompt message.
-    let message;
-    if (list.length === 0) {
-        message = 'Please choose a company to review, or `' + DONE_OPTION + '` to finish.';
-    } else {
-        message = `You have selected **${list[0]}**. You can review an addition company, ` +
-            'or choose `' + DONE_OPTION + '` to finish.';
-    }
+여기서는 두 개의 주 단계를 포함하고 대화 상자 및 프롬프트를 지시하는 구성 요소 대화 상자 `MainDialog`를 정의했습니다. 초기 단계에서는 아래에 설명하는 `TopLevelDialog`를 호출합니다.
 
-    // Create the list of options to choose from.
-    const options = list.length > 0
-        ? COMPANY_OPTIONS.filter(function (item) { return item !== list[0] })
-        : COMPANY_OPTIONS.slice();
-    options.push(DONE_OPTION);
+[!code-javascript[step implementations](~/../botbuilder-samples/samples/javascript_nodejs/43.complex-dialog/dialogs/mainDialog.js?range=43-55&highlight=2)]
 
-    // Prompt the user for a choice.
-    return await stepContext.prompt(SELECTION_PROMPT, {
-        prompt: message,
-        retryPrompt: 'Please choose an option from the list.',
-        choices: options
-    });
-}
+**dialogs/topLevelDialog.js**
 
-async loopStep(stepContext) {
-    // Retrieve their selection list, the choice they made, and whether they chose to finish.
-    const list = stepContext.values[COMPANIES_SELECTED];
-    const choice = stepContext.result;
-    const done = choice.value === DONE_OPTION;
+초기의 최상위 대화에는 다음 네 가지 단계가 있습니다.
 
-    if (!done) {
-        // If they chose a company, add it to the list.
-        list.push(choice.value);
-    }
+1. 사용자의 이름을 요청합니다.
+1. 사용자의 나이를 요청합니다.
+1. 사용자의 나이에 따라 분기합니다.
+1. 마지막으로 사용자의 참여에 대한 감사 인사를 보내고, 수집된 정보를 반환합니다.
 
-    if (done || list.length > 1) {
-        // If they're done, exit and return their list.
-        return await stepContext.endDialog(list);
-    } else {
-        // Otherwise, repeat this dialog, passing in the list from this iteration.
-        return await stepContext.replaceDialog(REVIEW_SELECTION_DIALOG, list);
-    }
-}
-```
+첫 번째 단계에서는 대화 상자가 매번 빈 프로필로 시작하도록 사용자의 프로필을 지웁니다. 마지막 단계는 종료할 때 정보를 반환하므로 `acknowledgementStep`는 정보를 사용자 상태에 저장하고 해당 정보를 마지막 단계에 사용하기 위해 주 대화 상자에 반환하는 작업으로 종료합니다.
+
+[!code-javascript[step implementations](~/../botbuilder-samples/samples/javascript_nodejs/43.complex-dialog/dialogs/topLevelDialog.js?range=32-76&highlight=2-3,37-39,43-44)]
+
+**dialogs/reviewSelectionDialog.js**
+
+검토-선택 대화 상자는 최상위 대화 상자의 `startSelectionStep`에서 시작하며, 다음 두 단계로 이루어져 있습니다.
+
+1. 사용자에게 검토할 회사를 선택하도록 요청하거나 `done`을 선택하여 완료합니다.
+1. 이 대화를 반복하거나 적절하게 종료합니다.
+
+이 디자인에서는 최상위 대화 상자가 항상 스택의 검토-선택 대화 상자 앞에 배치되며, 검토-선택 대화 상자는 최상위 대화 상자의 자식으로 간주할 수 있습니다.
+
+[!code-javascript[step implementations](~/../botbuilder-samples/samples/javascript_nodejs/43.complex-dialog/dialogs/reviewSelectionDialog.js?range=33-78)]
 
 ---
 
-## <a name="update-the-bots-turn-handler"></a>봇의 턴 처리기 업데이트
+## <a name="implement-the-code-to-manage-the-dialog"></a>대화 상자를 관리하는 코드를 구현 합니다.
 
 봇의 턴 처리기는 이러한 대화에서 정의된 하나의 대화 흐름을 반복합니다.
 사용자로부터 메시지를 받은 경우,
@@ -509,124 +186,117 @@ async loopStep(stepContext) {
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
-```csharp
-public async Task OnTurnAsync(ITurnContext turnContext, CancellationToken cancellationToken = default(CancellationToken))
-{
-    if (turnContext == null)
-    {
-        throw new ArgumentNullException(nameof(turnContext));
-    }
+**DialogExtensions.cs**
 
-    if (turnContext.Activity.Type == ActivityTypes.Message)
-    {
-        // Run the DialogSet - let the framework identify the current state of the dialog from
-        // the dialog stack and figure out what (if any) is the active dialog.
-        DialogContext dialogContext = await _dialogs.CreateContextAsync(turnContext, cancellationToken);
-        DialogTurnResult results = await dialogContext.ContinueDialogAsync(cancellationToken);
-        switch (results.Status)
-        {
-            case DialogTurnStatus.Cancelled:
-            case DialogTurnStatus.Empty:
-                // If there is no active dialog, we should clear the user info and start a new dialog.
-                await _accessors.UserProfileAccessor.SetAsync(turnContext, new UserProfile(), cancellationToken);
-                await _accessors.UserState.SaveChangesAsync(turnContext, false, cancellationToken);
-                await dialogContext.BeginDialogAsync(TopLevelDialog, null, cancellationToken);
-                break;
+이 샘플에서는 대화 상자 컨텍스트에서 만들고 액세스하는 데 사용할 `Run` 도우미 메서드를 정의했습니다.
+구성 요소 대화 상자는 내부 대화 상자 세트를 정의하므로 메시지 처리기 코드에서 볼 수 있는 외부 대화 상자 세트를 만들어야 하며, 대화 상자 컨텍스트를 만들 때 해당 세트를 사용합니다.
 
-            case DialogTurnStatus.Complete:
-                // If we just finished the dialog, capture and display the results.
-                UserProfile userInfo = results.Result as UserProfile;
-                string status = "You are signed up to review "
-                    + (userInfo.CompaniesToReview.Count is 0
-                        ? "no companies"
-                        : string.Join(" and ", userInfo.CompaniesToReview))
-                    + ".";
-                await turnContext.SendActivityAsync(status);
-                await _accessors.UserProfileAccessor.SetAsync(turnContext, userInfo, cancellationToken);
-                await _accessors.UserState.SaveChangesAsync(turnContext, false, cancellationToken);
-                break;
+- `dialog`는 봇에 대한 주 구성 요소 대화 상자입니다.
+- `turnContext`는 봇에 대한 현재 턴 컨텍스트입니다.
 
-            case DialogTurnStatus.Waiting:
-                // If there is an active dialog, we don't need to do anything here.
-                break;
-        }
+[!code-csharp[Run method](~/../botbuilder-samples/samples/csharp_dotnetcore/43.complex-dialog/DialogExtensions.cs?range=13-24)]
 
-        await _accessors.ConversationState.SaveChangesAsync(turnContext, false, cancellationToken);
-    }
+**Bots\DialogBot.cs**
 
-    // Processes ConversationUpdate Activities to welcome the user.
-    else if (turnContext.Activity.Type == ActivityTypes.ConversationUpdate)
-    {
-        // Welcome new users...
-    }
-    else
-    {
-        // Give a default reply for all other activity types...
-    }
-}
-```
+메시지 처리기는 `Run` 도우미 메서드를 호출하여 대화 상자를 관리하며, 여기서는 턴 중에 발생했을 수 있는 대화 및 사용자 상태의 변경 내용을 저장하도록 턴 처리기를 재정의했습니다. 기본 `OnTurnAsync`는 `OnMessageActivityAsync` 메서드를 호출하여 해당 턴의 끝에서 저장 호출이 발생하는지 확인합니다.
+
+[!code-csharp[Overrides](~/../botbuilder-samples/samples/csharp_dotnetcore/43.complex-dialog/Bots/DialogBot.cs?range=33-48&highlight=5-7)]
+
+**Bots\DialogAndWelcome.cs**
+
+`DialogAndWelcomeBot`은 위의 `DialogBot`을 사용자가 대화에 참가할 때 환영 메시지를 제공하도록 확장하며, `Startup.cs`에서 이 메서드를 호출합니다.
+
+[!code-csharp[On members added](~/../botbuilder-samples/samples/csharp_dotnetcore/43.complex-dialog/Bots/DialogAndWelcome.cs?range=21-38)]
 
 # <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
-```javascript
-async onTurn(turnContext) {
-    if (turnContext.activity.type === ActivityTypes.Message) {
-        // Run the DialogSet - let the framework identify the current state of the dialog from
-        // the dialog stack and figure out what (if any) is the active dialog.
-        const dialogContext = await this.dialogs.createContext(turnContext);
-        const results = await dialogContext.continueDialog();
-        switch (results.status) {
-            case DialogTurnStatus.cancelled:
-            case DialogTurnStatus.empty:
-                // If there is no active dialog, we should clear the user info and start a new dialog.
-                await this.userProfileAccessor.set(turnContext, {});
-                await this.userState.saveChanges(turnContext);
-                await dialogContext.beginDialog(TOP_LEVEL_DIALOG);
-                break;
-            case DialogTurnStatus.complete:
-                // If we just finished the dialog, capture and display the results.
-                const userInfo = results.result;
-                const status = 'You are signed up to review '
-                    + (userInfo.companiesToReview.length === 0 ? 'no companies' : userInfo.companiesToReview.join(' and '))
-                    + '.';
-                await turnContext.sendActivity(status);
-                await this.userProfileAccessor.set(turnContext, userInfo);
-                await this.userState.saveChanges(turnContext);
-                break;
-            case DialogTurnStatus.waiting:
-                // If there is an active dialog, we don't need to do anything here.
-                break;
-        }
-        await this.conversationState.saveChanges(turnContext);
-    } else if (turnContext.activity.type === ActivityTypes.ConversationUpdate) {
-        // Welcome new users...
-    } else {
-        // Give a default reply for all other activity types...
-    }
-}
-```
+**dialogs/mainDialog.js**
+
+이 샘플에서는 대화 상자 컨텍스트를 만들고 액세스하는 데 사용할 `run` 메서드를 정의했습니다.
+구성 요소 대화 상자는 내부 대화 상자 세트를 정의하므로 메시지 처리기 코드에서 볼 수 있는 외부 대화 상자 세트를 만들어야 하며, 대화 상자 컨텍스트를 만들 때 해당 세트를 사용합니다.
+
+- `turnContext`는 봇에 대한 현재 턴 컨텍스트입니다.
+- `accessor`는 대화 상태를 관리하기 위해 만든 접근자입니다.
+
+[!code-javascript[run method](~/../botbuilder-samples/samples/javascript_nodejs/43.complex-dialog/dialogs/mainDialog.js?range=32-41)]
+
+**bots/dialogBot.js**
+
+메시지 처리기는 `run` 도우미 메서드를 호출하여 대화 상자를 관리하며, 여기서는 턴 중에 발생했을 수 있는 대화 및 사용자 상태의 변경 내용을 저장하는 턴 처리기를 구현합니다. `next`를 호출하면 기본 구현이 `onDialog` 메서드를 호출하여 해당 턴의 끝에서 저장 호출이 발생하는지 확인하게 합니다.
+
+[!code-javascript[Overrides](~/../botbuilder-samples/samples/javascript_nodejs/43.complex-dialog/bots/dialogBot.js?range=30-47)]
+
+**bots/dialogWandWelcomeBot.js**
+
+`DialogAndWelcomeBot`은 위의 `DialogBot`을 사용자가 대화에 참가할 때 환영 메시지를 제공하도록 확장하며, `Startup.cs`에서 이 메서드를 호출합니다.
+
+[!code-javascript[On members added](~/../botbuilder-samples/samples/javascript_nodejs/43.complex-dialog/bots/dialogAndWelcomeBot.js?range=10-21)]
 
 ---
 
-## <a name="test-your-dialog"></a>대화 상자 테스트
+## <a name="branch-and-loop"></a>분기 및 루프
 
-1. 샘플을 머신에서 로컬로 실행합니다. 지침이 필요한 경우 [C#](https://aka.ms/cs-complex-dialog-sample) 또는 [JS](https://aka.ms/js-complex-dialog-sample) 샘플에 대한 README 파일을 참조하세요.
-1. 아래와 같이 에뮬레이터를 사용하여 봇을 테스트합니다.
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+
+**Dialogs\TopLevelDialog.cs**
+
+다음은 _최상위_ 대화 상자의 단계에서 나온 샘플 분기 논리입니다.
+
+[!code-csharp[branching logic](~/../botbuilder-samples/samples/csharp_dotnetcore/43.complex-dialog/Dialogs/TopLevelDialog.cs?range=68-80)]
+
+**Dialogs\ReviewSelectionDialog.cs**
+
+다음은 _검토-선택_ 대화 상자의 단계에서 나온 샘플 루프 논리입니다.
+
+[!code-csharp[looping logic](~/../botbuilder-samples/samples/csharp_dotnetcore/43.complex-dialog/Dialogs/ReviewSelectionDialog.cs?range=96-105)]
+
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+**dialogs/topLevelDialog.js**
+
+다음은 _최상위_ 대화 상자의 단계에서 나온 샘플 분기 논리입니다.
+
+[!code-javascript[branching logic](~/../botbuilder-samples/samples/javascript_nodejs/43.complex-dialog/dialogs/topLevelDialog.js?range=56-64)]
+
+**dialogs/reviewSelectionDialog.js**
+
+다음은 _검토-선택_ 대화 상자의 단계에서 나온 샘플 루프 논리입니다.
+
+[!code-javascript[looping logic](~/../botbuilder-samples/samples/javascript_nodejs/43.complex-dialog/dialogs/reviewSelectionDialog.js?range=71-77)]
+
+---
+
+## <a name="to-test-the-bot"></a>봇 테스트
+
+1. 아직 설치하지 않은 경우 [Bot Framework Emulator](https://aka.ms/bot-framework-emulator-readme)를 설치합니다.
+1. 샘플을 머신에서 로컬로 실행합니다.
+1. 에뮬레이터를 시작하고 봇에 연결한 다음, 아래와 같은 메시지를 보냅니다.
 
 ![복잡한 대화 샘플 테스트](~/media/emulator-v4/test-complex-dialog.png)
 
 ## <a name="additional-resources"></a>추가 리소스
 
-대화를 구현하는 방법에 대한 소개는 [순차적 대화 흐름 구현](bot-builder-dialog-manage-conversation-flow.md)을 참조하세요. 여기에서는 단일 폭포 대화와 몇 가지 프롬프트를 사용하여 사용자에게 일련의 질문을 하는 간단한 상호 작용을 만듭니다.
+대화 상자를 구현하는 방법에 대한 소개는 [순차적 대화 흐름 구현][simple-dialog]을 참조하세요. 여기서는 단일 폭포 대화 상자와 몇 가지 프롬프트를 사용하여 사용자에게 일련의 질문을 하는 간단한 상호 작용을 만듭니다.
 
-Dialogs 라이브러리에는 프롬프트에 대한 기본 유효성 검사가 포함되어 있습니다. 사용자 지정 유효성 검사를 추가할 수도 있습니다. 자세한 내용은 [대화 프롬프트를 사용하여 사용자 입력 수집](bot-builder-prompts.md)을 참조하세요.
+Dialogs 라이브러리에는 프롬프트에 대한 기본 유효성 검사가 포함되어 있습니다. 사용자 지정 유효성 검사를 추가할 수도 있습니다. 자세한 내용은 [대화 상자 프롬프트를 사용하여 사용자 입력 수집][dialog-prompts]을 참조하세요.
 
 대화 코드를 단순화하고 여러 봇을 다시 사용하기 위해 대화 세트의 일부를 별도의 클래스로 정의할 수 있습니다.
-자세한 내용은 [대화 재사용](bot-builder-compositcontrol.md)을 참조하세요.
+자세한 내용은 [대화 상자 재사용][component-dialogs]을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-대화의 정상적인 흐름을 중단할 수 있는 "도움말" 또는 "취소"와 같은 추가 입력에 반응하도록 봇을 향상시킬 수 있습니다.
-
 > [!div class="nextstepaction"]
-> [사용자 작업 중단 처리](bot-builder-howto-handle-user-interrupt.md)
+> [대화 상자 재사용](bot-builder-compositcontrol.md)
+
+<!-- Footnote-style links -->
+
+[concept-basics]: bot-builder-basics.md
+[concept-state]: bot-builder-concept-state.md
+[concept-dialogs]: bot-builder-concept-dialog.md
+
+[simple-dialog]: bot-builder-dialog-manage-conversation-flow.md
+[dialog-prompts]: bot-builder-prompts.md
+[component-dialogs]: bot-builder-compositcontrol.md
+
+[cs-sample]: https://aka.ms/cs-complex-dialog-sample
+[js-sample]: https://aka.ms/js-complex-dialog-sample

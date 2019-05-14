@@ -8,14 +8,14 @@ manager: kamrani
 ms.topic: tutorial
 ms.service: bot-service
 ms.subservice: sdk
-ms.date: 04/18/2019
+ms.date: 04/30/2019
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: bd29aa1ee56ebf64dc5db2edc47adc3ab250e7d5
-ms.sourcegitcommit: aea57820b8a137047d59491b45320cf268043861
+ms.openlocfilehash: deafe148310dd214ab857d60595edb1abef9e46d
+ms.sourcegitcommit: 3e3c9986b95532197e187b9cc562e6a1452cbd95
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59904946"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65039727"
 ---
 # <a name="tutorial-use-qna-maker-in-your-bot-to-answer-questions"></a>자습서: 봇에서 QnA Maker를 사용하여 질문에 대답
 
@@ -27,20 +27,19 @@ QnA Maker 서비스 및 기술 자료를 사용하여 봇에 질문과 대답 �
 
 > [!div class="checklist"]
 > * QnA Maker 서비스 및 기술 자료 만들기
-> * .bot 파일에 기술 자료 정보 추가
+> * 구성 파일에 기술 자료 정보 추가
 > * 기술 자료를 쿼리하도록 봇 업데이트
-> * 봇 다시 게시
+> * 앱 다시 게시
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
 * [이전 자습서](bot-builder-tutorial-basic-deploy.md)에서 만든 봇. 봇에 질문과 대답 기능을 추가할 것입니다.
-* QnA Maker에 익숙하면 도움이 됩니다. QnA Maker 포털을 사용하여 봇에 사용할 기술 자료를 만들고, 교육하고, 게시할 것입니다.
+* [QnA Maker](https://qnamaker.ai/)에 익숙하면 도움이 됩니다. QnA Maker 포털을 사용하여 봇에 사용할 기술 자료를 만들고, 교육하고, 게시할 것입니다.
+* Azure Bot Service를 사용한 [QnA 봇 만들기](https://aka.ms/azure-create-qna) 친숙도.
 
-또한 이전 자습서의 다음 필수 조건을 이미 완료했어야 합니다.
-
-[!INCLUDE [deployment prerequisites snippet](~/includes/deploy/snippet-prerequisite.md)]
+또한 이전 자습서의 다음 필수 구성 요소를 이미 완료했어야 합니다.
 
 ## <a name="sign-in-to-qna-maker-portal"></a>QnA Maker 포털에 로그인
 
@@ -62,10 +61,10 @@ Azure 자격 증명을 사용하여 [QnA Maker 포털](https://qnamaker.ai/)에 
 1. 기술 자료를 **저장 및 학습**합니다.
 1. 기술 자료를 **게시**합니다.
 
-   봇에서 사용할 기술 자료가 준비되었습니다. 기술 자료 ID, 엔드포인트 키 및 호스트 이름을 기록해 둡니다. 다음 단계에서 필요합니다.
+봇에서 사용할 기술 자료가 준비되었습니다. 기술 자료 ID, 엔드포인트 키 및 호스트 이름을 기록해 둡니다. 다음 단계에서 필요합니다.
 
 ## <a name="add-knowledge-base-information-to-your-bot"></a>봇에 기술 자료 정보 추가
-봇 프레임워크 v4.3부터 Azure는 다운로드한 봇 소스 코드의 일부로 .bot 파일을 더 이상 제공하지 않습니다. 다음 지침을 사용하여 CSharp 또는 JavaScript 봇을 기술 자료에 연결합니다.
+Bot Framework v4.3부터 Azure는 다운로드한 봇 소스 코드의 일부로 .bot 파일을 더 이상 제공하지 않습니다. 다음 지침을 사용하여 CSharp 또는 JavaScript 봇을 기술 자료에 연결합니다.
 
 ## <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
@@ -76,10 +75,10 @@ Azure 자격 증명을 사용하여 [QnA Maker 포털](https://qnamaker.ai/)에 
    "MicrosoftAppId": "",
   "MicrosoftAppPassword": "",
   "ScmType": "None",
-
-  "kbId": "<your-knowledge-base-id>",
-  "endpointKey": "<your-knowledge-base-endpoint-key>",
-  "hostname": "<your-qna-service-hostname>" // This is a URL
+  
+  "QnAKnowledgebaseId": "<your-knowledge-base-id>",
+  "QnAAuthKey": "<your-knowledge-base-endpoint-key>",
+  "QnAEndpointHostName": "<your-qna-service-hostname>" // This is a URL
 }
 ```
 
@@ -87,24 +86,23 @@ Azure 자격 증명을 사용하여 [QnA Maker 포털](https://qnamaker.ai/)에 
 
 다음 값을 .env 파일에 추가합니다.
 
-```javascript
+```
 MicrosoftAppId=""
 MicrosoftAppPassword=""
 ScmType=None
 
-kbId="<your-knowledge-base-id>"
-endpointKey="<your-knowledge-base-endpoint-key>"
-hostname="<your-qna-service-hostname>" // This is a URL
-
+QnAKnowledgebaseId="<your-knowledge-base-id>"
+QnAAuthKey="<your-knowledge-base-endpoint-key>"
+QnAEndpointHostName="<your-qna-service-hostname>" // This is a URL
 ```
 
 ---
 
-    | 필드 | 값 |
-    |:----|:----|
-    | kbId | QnA Maker 포털에서 자동으로 생성한 기술 자료 ID입니다. |
-    | endpointKey | QnA Maker 포털에서 자동으로 생성한 엔드포인트 키입니다. |
-    | hostname | QnA Maker 포털에서 생성한 호스트 URL입니다. `https://`로 시작하고 `/qnamaker`로 끝나는 완전한 URL을 사용하세요. |
+| 필드 | 값 |
+|:----|:----|
+| kbId | QnA Maker 포털에서 자동으로 생성한 기술 자료 ID입니다. |
+| endpointKey | QnA Maker 포털에서 자동으로 생성한 엔드포인트 키입니다. |
+| hostname | QnA Maker 포털에서 생성한 호스트 URL입니다. `https://`로 시작하고 `/qnamaker`로 끝나는 완전한 URL을 사용하세요. 전체 URL 문자열은 "https://< >.azure.net/qnamaker"와 유사할 것입니다. |
 
 이제 편집 내용을 저장합니다.
 
@@ -116,23 +114,23 @@ hostname="<your-qna-service-hostname>" // This is a URL
 
 1. **Microsoft.Bot.Builder.AI.QnA** NuGet 패키지를 프로젝트에 추가합니다.
 1. **Microsoft.Extensions.Configuration** NuGet 패키지를 프로젝트에 추가합니다.
-1. **startup.cs** 파일에서 다음 네임스페이스 참조를 추가합니다.
+1. **Startup.cs** 파일에서 다음 네임스페이스 참조를 추가합니다.
 
-   **startup.cs**
+   **Startup.cs**
    ```csharp
-       using Microsoft.Bot.Builder.AI.QnA;
-       using Microsoft.Extensions.Configuration;
+   using Microsoft.Bot.Builder.AI.QnA;
+   using Microsoft.Extensions.Configuration;
    ```
-1. 그리고 _ConfigureServices_ 메서드를 수정하여 **appsettings.json** 파일에 정의된 기술 자료에 연결하는 QnAMkaerEndpoint를 만듭니다.
+1. 그리고 _ConfigureServices_ 메서드를 수정하여 **appsettings.json** 파일에 정의된 기술 자료에 연결하는 QnAMakerEndpoint를 만듭니다.
 
-   **startup.cs**
+   **Startup.cs**
    ```csharp
    // Create QnAMaker endpoint as a singleton
    services.AddSingleton(new QnAMakerEndpoint
    {
-      KnowledgeBaseId = Configuration.GetValue<string>($"kbId"),
-      EndpointKey = Configuration.GetValue<string>($"endpointKey"),
-      Host = Configuration.GetValue<string>($"hostname")
+      KnowledgeBaseId = Configuration.GetValue<string>($"QnAKnowledgebaseId"),
+      EndpointKey = Configuration.GetValue<string>($"QnAAuthKey"),
+      Host = Configuration.GetValue<string>($"QnAEndpointHostName")
     });
 
    ```
@@ -198,9 +196,9 @@ hostname="<your-qna-service-hostname>" // This is a URL
    ```javascript
    // Map knowledgebase endpoint values from .env file into the required format for `QnAMaker`.
    const configuration = {
-      knowledgeBaseId: process.env.kbId,
-      endpointKey: process.env.endpointKey,
-      host: process.env.hostname
+      knowledgeBaseId: process.env.QnAKnowledgebaseId,
+      endpointKey: process.env.QnAAuthKey,
+      host: process.env.QnAEndpointHostName
    };
 
    ```
@@ -210,7 +208,7 @@ hostname="<your-qna-service-hostname>" // This is a URL
    **index.js**
    ```javascript
    // Create the main dialog.
-   const myBot = new MyBot(configuration, {}, logger);
+   const myBot = new MyBot(configuration, {});
    ```
 
 1. **bot.js** 파일에서 QnAMaker에 대한 다음 require를 추가합니다.
@@ -232,7 +230,7 @@ hostname="<your-qna-service-hostname>" // This is a URL
             this.qnaMaker = new QnAMaker(configuration, qnaOptions);
    ```
 
-1. 마지막으로, 각 사용자 입력을 QnA Maker 기술 자료에 전달하고 사용자에게 QnA Maker 응답을 다시 반환하는 onMessage( ) 호출에 다음 코드를 추가합니다.  기술 자료를 쿼리하여 답변을 얻습니다.
+1. 마지막으로, 각 사용자 입력을 QnA Maker 기술 자료에 전달하고 사용자에게 QnA Maker 응답을 다시 반환하는 onMessage( ) 호출에 다음 코드를 추가하여 응답에 대한 기술 자료를 쿼리합니다.
  
     **bot.js**
     ```javascript
@@ -258,13 +256,14 @@ hostname="<your-qna-service-hostname>" // This is a URL
 
 ![qna 샘플 테스트](./media/qna-test-bot.png)
 
-## <a name="re-publish-your-bot"></a>봇 다시 게시
+## <a name="republish-your-bot"></a>앱 다시 게시
 
 이제 봇을 Azure에 다시 게시할 수 있습니다.
 
 ## <a name="ctabcsharp"></a>[C#](#tab/csharp)
-
-[!INCLUDE [publish snippet](~/includes/deploy/snippet-publish.md)]
+```cmd
+az webapp deployment source config-zip --resource-group <resource-group-name> --name <bot-name-in-azure> --src "c:\bot\mybot.zip"
+```
 
 ## <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
@@ -276,9 +275,8 @@ hostname="<your-qna-service-hostname>" // This is a URL
 
 봇을 게시한 후 Azure가 봇을 업데이트하고 시작할 때까지 1~2분 정도 기다립니다.
 
-1. 에뮬레이터를 사용하여 봇의 프로덕션 엔드포인트를 테스트하거나, Azure Portal을 사용하여 웹 채팅에서 봇을 테스트합니다.
-
-   어떤 방법을 사용하든, 로컬로 테스트할 때와 동일한 동작이 발생합니다.
+에뮬레이터를 사용하여 봇의 프로덕션 엔드포인트를 테스트하거나, Azure Portal을 사용하여 웹 채팅에서 봇을 테스트합니다.
+어떤 방법을 사용하든, 로컬로 테스트할 때와 동일한 동작이 발생합니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
@@ -292,6 +290,6 @@ hostname="<your-qna-service-hostname>" // This is a URL
 
 ## <a name="next-steps"></a>다음 단계
 
-봇에 기능을 추가하는 방법에 대한 자세한 내용은 방법 개발 섹션의 문서를 참조하세요.
+봇에 기능을 추가하는 방법에 대한 자세한 내용은 **문자 메시지 보내기 및 받기**와 다른 개발 방법 섹션 문서를 참조하세요.
 > [!div class="nextstepaction"]
-> [다음 단계 단추](bot-builder-howto-send-messages.md)
+> [텍스트 메시지 보내기 및 받기](bot-builder-howto-send-messages.md)

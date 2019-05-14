@@ -10,12 +10,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 04/17/2019
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: cef8c3eba77e2cf42cf63e698f4dcca9beaa41dd
-ms.sourcegitcommit: aea57820b8a137047d59491b45320cf268043861
+ms.openlocfilehash: 7093f13d1958c741b497a50535eb70a255dfcbe8
+ms.sourcegitcommit: f84b56beecd41debe6baf056e98332f20b646bda
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59905096"
+ms.lasthandoff: 05/03/2019
+ms.locfileid: "65032583"
 ---
 # <a name="add-media-to-messages"></a>메시지에 미디어 추가
 
@@ -33,53 +33,50 @@ ms.locfileid: "59905096"
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
-`Activity` 개체의 `Attachments` 속성에는 메시지에 첨부된 미디어 첨부 파일과 서식 있는 카드를 나타내는 `Attachment` 개체의 배열이 포함되어 있습니다. 메시지에 미디어 첨부 파일을 추가하려면 `message` 작업에 대한 `Attachment` 개체를 만들고 `ContentType`, `ContentUrl` 및 `Name` 속성을 설정합니다.
-여기서 보여 주는 소스 코드는 [첨부 파일 처리](https://aka.ms/bot-attachments-sample-code) 샘플을 기반으로 합니다. 
+`Activity` 개체의 `Attachments` 속성에는 메시지에 첨부된 미디어 첨부 파일과 서식 있는 카드를 나타내는 `Attachment` 개체의 배열이 포함되어 있습니다. 메시지에 미디어 첨부 파일을 추가하려면 `reply` 작업(`CreateReply()` 작업을 통해 만들어짐)에 대한 `Attachment` 개체를 만들고 `ContentType`, `ContentUrl` 및 `Name` 속성을 설정합니다.
 
-```csharp
-using Microsoft.Bot.Builder;
-using Microsoft.Bot.Schema;
+여기서 보여 주는 소스 코드는 [첨부 파일 처리](https://aka.ms/bot-attachments-sample-code) 샘플을 기반으로 합니다.
 
-var reply = turnContext.Activity.CreateReply();
+회신 메시지를 만들려면 텍스트를 정의한 다음, 첨부 파일을 설정합니다. 첨부 파일을 회신에 할당하는 작업은 첨부 파일 유형마다 같지만 여러 첨부 파일은 다음 코드 조각에서 볼 수 있듯이 서로 다르게 설정 및 정의됩니다. 아래 코드는 인라인 첨부 파일에 대한 회신을 설정합니다.
 
-// Create an attachment.
-var attachment = new Attachment
-    {
-        ContentUrl = "imageUrl.png",
-        ContentType = "image/png",
-        Name = "imageName",
-    };
+**Bots/AttachmentsBot.cs** [!code-csharp[inline attachment](~/../botbuilder-samples/samples/csharp_dotnetcore/15.handling-attachments/Bots/AttachmentsBot.cs?range=108-109)]
 
-// Add the attachment to our reply.
-reply.Attachments = new List<Attachment>() { attachment };
+다음으로, 첨부 파일의 유형을 살펴봅니다. 먼저 인라인 첨부 파일입니다.
 
-// Send the activity to the user.
-await turnContext.SendActivityAsync(reply, cancellationToken: cancellationToken);
-```
+**Bots/AttachmentsBot.cs** [!code-csharp[inline attachment](~/../botbuilder-samples/samples/csharp_dotnetcore/15.handling-attachments/Bots/AttachmentsBot.cs?range=165-176)]
+
+다음으로 업로드된 첨부 파일입니다.
+
+**Bots/AttachmentsBot.cs** [!code-csharp[uploaded attachment](~/../botbuilder-samples/samples/csharp_dotnetcore/15.handling-attachments/Bots/AttachmentsBot.cs?range=179-215)]
+
+마지막으로, 인터넷 첨부 파일입니다.
+
+**Bots/AttachmentsBot.cs** [!code-csharp[online attachment](~/../botbuilder-samples/samples/csharp_dotnetcore/15.handling-attachments/Bots/AttachmentsBot.cs?range=218-227)]
+
 
 # <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 여기서 보여 주는 소스 코드는 [JS 첨부 파일 처리](https://aka.ms/bot-attachments-sample-code-js) 샘플을 기반으로 합니다.
-사용자에게 이미지 또는 비디오와 같은 콘텐츠의 한 조각을 보내려면 URL에 포함된 미디어를 보내면 됩니다.
 
-```javascript
-const { ActionTypes, ActivityTypes, CardFactory } = require('botbuilder');
+첨부 파일을 사용하려면 다음 라이브러리를 봇에 포함합니다.
 
-// Call function to get an attachment.
-const reply = { type: ActivityTypes.Message };
-reply.attachments = [this.getInternetAttachment()];
-reply.text = 'This is an internet attachment.';
-// Send the activity to the user.
-await turnContext.sendActivity(reply);
+**bots/attachmentsBot.js** [!code-javascript[attachments libraries](~/../botbuilder-samples/samples/javascript_nodejs/15.handling-attachments/bots/attachmentsBot.js?range=4)]
 
-/* function getInternetAttachment - Returns an attachment to be sent to the user from a HTTPS URL */
-getInternetAttachment() {
-        return {
-            name: 'imageName.png',
-            contentType: 'image/png',
-            contentUrl: 'imageUrl.png'}
-}
-```
+회신 메시지를 만들려면 텍스트를 정의한 다음, 첨부 파일을 설정합니다. 첨부 파일을 회신에 할당하는 작업은 첨부 파일 유형마다 같지만 여러 첨부 파일은 다음 코드 조각에서 볼 수 있듯이 서로 다르게 설정 및 정의됩니다. 아래 코드는 인라인 첨부 파일에 대한 회신을 설정합니다.
+
+**bots/attachmentsBot.js** [!code-javascript[attachments](~/../botbuilder-samples/samples/javascript_nodejs/15.handling-attachments/bots/attachmentsBot.js?range=119,128-129)]
+
+사용자에게 이미지 또는 비디오와 같은 콘텐츠의 한 조각을 보내려면 몇 가지 다른 방법으로 미디어를 보내면 됩니다. 먼저 인라인 첨부 파일입니다.
+
+**bots/attachmentsBot.js** [!code-javascript[inline attachments](~/../botbuilder-samples/samples/javascript_nodejs/15.handling-attachments/bots/attachmentsBot.js?range=170-179)]
+
+다음으로 업로드된 첨부 파일입니다.
+
+**bots/attachmentsBot.js** [!code-javascript[uploaded attachments](~/../botbuilder-samples/samples/javascript_nodejs/15.handling-attachments/bots/attachmentsBot.js?range=197-215)]
+
+마지막으로, 다음 URL에 포함된 인터넷 첨부 파일은 다음과 같습니다.
+
+**bots/attachmentsBot.js** [!code-javascript[internet attachments](~/../botbuilder-samples/samples/javascript_nodejs/15.handling-attachments/bots/attachmentsBot.js?range=184-191)]
 
 ---
 
@@ -91,56 +88,19 @@ getInternetAttachment() {
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
-영웅 카드와 단추가 있는 메시지를 작성하려면 `HeroCard`를 메시지에 첨부할 수 있습니다. 여기서 보여 주는 소스 코드는 [첨부 파일 처리](https://aka.ms/bot-attachments-sample-code) 샘플을 기반으로 합니다.
+영웅 카드와 단추가 있는 메시지를 작성하려면 `HeroCard`를 메시지에 첨부할 수 있습니다. 
 
-```csharp
-using Microsoft.Bot.Builder;
-using Microsoft.Bot.Schema;
+여기서 보여 주는 소스 코드는 [첨부 파일 처리](https://aka.ms/bot-attachments-sample-code) 샘플을 기반으로 합니다.
 
-var reply = turnContext.Activity.CreateReply();
-
-// Create a HeroCard with options for the user to choose to interact with the bot.
-var card = new HeroCard
-{
-    Text = "You can upload an image or select one of the following choices",
-    Buttons = new List<CardAction>()
-    {
-        new CardAction(ActionTypes.ImBack, title: "1. Inline Attachment", value: "1"),
-        new CardAction(ActionTypes.ImBack, title: "2. Internet Attachment", value: "2"),
-        new CardAction(ActionTypes.ImBack, title: "3. Uploaded Attachment", value: "3"),
-    },
-};
-
-// Add the card to our reply.
-reply.Attachments = new List<Attachment>() { card.ToAttachment() };
-
-await turnContext.SendActivityAsync(reply, cancellationToken: cancellationToken);
-```
+**Bots/AttachmentsBot.cs** [!code-csharp[Hero card](~/../botbuilder-samples/samples/csharp_dotnetcore/15.handling-attachments/Bots/AttachmentsBot.cs?range=39-62)]
 
 # <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
-영웅 카드와 단추가 있는 메시지를 작성하려면 `HeroCard`를 메시지에 첨부할 수 있습니다. 여기서 보여 주는 소스 코드는 [JS 첨부 파일 처리](https://aka.ms/bot-attachments-sample-code-js) 샘플을 기반으로 합니다.
+영웅 카드와 단추가 있는 메시지를 작성하려면 `HeroCard`를 메시지에 첨부할 수 있습니다. 
 
-```javascript
-const { ActionTypes, ActivityTypes, CardFactory } = require('botbuilder');
-// build buttons to display.
-const buttons = [
-            { type: ActionTypes.ImBack, title: '1. Inline Attachment', value: '1' },
-            { type: ActionTypes.ImBack, title: '2. Internet Attachment', value: '2' },
-            { type: ActionTypes.ImBack, title: '3. Uploaded Attachment', value: '3' }
-];
+여기서 보여 주는 소스 코드는 [JS 첨부 파일 처리](https://aka.ms/bot-attachments-sample-code-js) 샘플을 기반으로 합니다.
 
-// construct hero card.
-const card = CardFactory.heroCard('', undefined,
-buttons, { text: 'You can upload an image or select one of the following choices.' });
-
-// add card to Activity.
-const reply = { type: ActivityTypes.Message };
-reply.attachments = [card];
-
-// Send hero card to the user.
-await turnContext.sendActivity(reply);
-```
+**bots/attachmentsBot.js** [!code-javascript[hero card](~/../botbuilder-samples/samples/javascript_nodejs/15.handling-attachments/bots/attachmentsBot.js?range=148-164)]
 
 ---
 
@@ -168,53 +128,19 @@ await turnContext.sendActivity(reply);
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
-```csharp
-using Microsoft.Bot.Builder;
-using Microsoft.Bot.Schema;
+사용 가능한 모든 카드의 예는 [C# 카드 샘플](https://aka.ms/bot-cards-sample-code)을 참조하세요.
 
-var reply = turnContext.Activity.CreateReply();
+**Cards.cs** [!code-csharp[hero cards](~/../botbuilder-samples/samples/csharp_dotnetcore/06.using-cards/Cards.cs?range=27-40)]
 
-var card = new HeroCard
-{
-    Buttons = new List<CardAction>()
-    {
-        new CardAction(title: "Much Quieter", type: ActionTypes.PostBack, value: "Shh! My Bot friend hears me."),
-        new CardAction(ActionTypes.OpenUrl, title: "Azure Bot Service", value: "https://azure.microsoft.com/en-us/services/bot-service/"),
-    },
-};
-
-```
+**Cards.cs** [!code-csharp[cards](~/../botbuilder-samples/samples/csharp_dotnetcore/06.using-cards/Cards.cs?range=91-100)]
 
 # <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
-```javascript
-const {ActionTypes} = require("botbuilder");
+사용 가능한 모든 카드의 예는 [JS 카드 샘플](https://aka.ms/bot-cards-js-sample-code)을 참조하세요.
 
-const hero = MessageFactory.attachment(
-    CardFactory.heroCard(
-        'Holler Back Buttons',
-        ['https://example.com/whiteShirt.jpg'],
-        [{
-            type: ActionTypes.ImBack,
-            title: 'ImBack',
-            value: 'You can ALL hear me! Shout Out Loud'
-        },
-        {
-            type: ActionTypes.PostBack,
-            title: 'PostBack',
-            value: 'Shh! My Bot friend hears me. Much Quieter'
-        },
-        {
-            type: ActionTypes.OpenUrl,
-            title: 'OpenUrl',
-            value: 'https://en.wikipedia.org/wiki/{cardContent.Key}'
-        }]
-    )
-);
+**dialogs/mainDialog.js** [!code-javascript[hero cards](~/../botbuilder-samples/samples/javascript_nodejs/06.using-cards/dialogs/mainDialog.js?range=213-225)]
 
-await context.sendActivity(hero);
-
-```
+**dialogs/mainDialog.js** [!code-javascript[sign in cards](~/../botbuilder-samples/samples/javascript_nodejs/06.using-cards/dialogs/mainDialog.js?range=266-272)]
 
 ---
 
@@ -227,73 +153,30 @@ await context.sendActivity(hero);
 
 적응형 카드 채널 지원에 대한 최신 정보는 <a href="http://adaptivecards.io/designer/">적응형 카드 디자이너</a>를 참조하세요.
 
-적응형 카드를 사용하려면 `AdaptiveCards` NuGet 패키지를 추가해야 합니다. 
-
-
 > [!NOTE]
 > 해당 채널이 적응형 카드를 지원하는지 여부를 확인하려면 봇이 사용할 채널을 통해 이 기능을 테스트해야 합니다.
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
-여기서 보여 주는 소스 코드는 [적응형 카드 사용](https://aka.ms/bot-adaptive-cards-sample-code) 샘플을 기반으로 합니다.
+적응형 카드를 사용하려면 `AdaptiveCards` NuGet 패키지를 추가해야 합니다.
 
-```csharp
-using AdaptiveCards;
-using Microsoft.Bot.Builder;
-using Microsoft.Bot.Schema;
-using Newtonsoft.Json;
+여기서 보여 주는 소스 코드는 [카드 사용](https://aka.ms/bot-cards-sample-code) 샘플을 기반으로 합니다.
 
-// Creates an attachment that contains an adaptive card
-// filePath is the path to JSON file
-private static Attachment CreateAdaptiveCardAttachment(string filePath)
-{
-    var adaptiveCardJson = File.ReadAllText(filePath);
-    var adaptiveCardAttachment = new Attachment()
-    {
-        ContentType = "application/vnd.microsoft.card.adaptive",
-        Content = JsonConvert.DeserializeObject(adaptiveCardJson),
-    };
-    return adaptiveCardAttachment;
-}
-
-// Create adaptive card and attach it to the message 
-var cardAttachment = CreateAdaptiveCardAttachment(adaptiveCardJsonFilePath);
-var reply = turnContext.Activity.CreateReply();
-reply.Attachments = new List<Attachment>() { cardAttachment };
-
-await turnContext.SendActivityAsync(reply, cancellationToken: cancellationToken);
-```
+**Cards.cs** [!code-csharp[adaptive cards](~/../botbuilder-samples/samples/csharp_dotnetcore/06.using-cards/Cards.cs?range=13-25)]
 
 # <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
-여기서 보여 주는 소스 코드는 [JS 적응형 카드 사용](https://aka.ms/bot-adaptive-cards-js-sample-code) 샘플을 기반으로 합니다.
+적응형 카드를 사용하려면 `adaptivecards` npm 패키지를 추가해야 합니다.
 
-```javascript
-const { BotFrameworkAdapter } = require('botbuilder');
+여기서 보여 주는 소스 코드는 [카드 사용 JS](https://aka.ms/bot-cards-js-sample-code) 샘플을 기반으로 합니다. 
 
-// Import AdaptiveCard content.
-const FlightItineraryCard = require('./resources/FlightItineraryCard.json');
-const ImageGalleryCard = require('./resources/ImageGalleryCard.json');
-const LargeWeatherCard = require('./resources/LargeWeatherCard.json');
-const RestaurantCard = require('./resources/RestaurantCard.json');
-const SolitaireCard = require('./resources/SolitaireCard.json');
+여기서 적응형 카드는 자체 파일에 저장되며 봇에 포함됩니다.
 
-// Create array of AdaptiveCard content, this will be used to send a random card to the user.
-const CARDS = [
-    FlightItineraryCard,
-    ImageGalleryCard,
-    LargeWeatherCard,
-    RestaurantCard,
-    SolitaireCard
-];
-// Select a random card to send.
-const randomlySelectedCard = CARDS[Math.floor((Math.random() * CARDS.length - 1) + 1)];
-// Send adaptive card.
-await context.sendActivity({
-      text: 'Here is an Adaptive Card:',
-       attachments: [CardFactory.adaptiveCard(randomlySelectedCard)]
-});
-```
+**resources/adaptiveCard.json** [!code-json[adaptive cards](~/../botbuilder-samples/samples/javascript_nodejs/06.using-cards/resources/adaptiveCard.json)]
+
+그런 다음, CardFactory를 통해 만들어집니다.
+
+**dialogs/mainDialog.js** [!code-javascript[adaptive cards](~/../botbuilder-samples/samples/javascript_nodejs/06.using-cards/dialogs/mainDialog.js?range=177-179)]
 
 ---
 
@@ -303,59 +186,27 @@ await context.sendActivity({
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
-```csharp
-using Microsoft.Bot.Builder;
-using Microsoft.Bot.Schema;
+여기서 보여 주는 소스 코드는 [카드 샘플](https://aka.ms/bot-cards-sample-code)을 기반으로 합니다.
 
-// Create the activity and attach a set of Hero cards.
-var activity = MessageFactory.Carousel(
-    new Attachment[]
-    {
-        new HeroCard(
-            title: "title1",
-            images: new CardImage[] { new CardImage(url: "imageUrl1.png") },
-            buttons: new CardAction[]
-            {
-                new CardAction(title: "button1", type: ActionTypes.ImBack, value: "item1")
-            })
-        .ToAttachment(),
-        new HeroCard(
-            title: "title2",
-            images: new CardImage[] { new CardImage(url: "imageUrl2.png") },
-            buttons: new CardAction[]
-            {
-                new CardAction(title: "button2", type: ActionTypes.ImBack, value: "item2")
-            })
-        .ToAttachment(),
-        new HeroCard(
-            title: "title3",
-            images: new CardImage[] { new CardImage(url: "imageUrl3.png") },
-            buttons: new CardAction[]
-            {
-                new CardAction(title: "button3", type: ActionTypes.ImBack, value: "item3")
-            })
-        .ToAttachment()
-    });
+먼저 회신을 만들고 첨부 파일을 목록으로 정의합니다.
 
-// Send the activity as a reply to the user.
-await turnContext.SendActivityAsync(reply, cancellationToken: cancellationToken);
-```
+**Dialogs/MainDialog.cs** [!code-csharp[carousel of cards](~/../botbuilder-samples/samples/csharp_dotnetcore/06.using-cards/Dialogs/MainDialog.cs?range=61-66)]
+
+그런 다음, 첨부 파일을 추가합니다. 여기서는 한 번에 하나를 추가하지만 목록을 조작하여 원하는 만큼 카드를 추가할 수 있습니다.
+
+**Dialogs/MainDialog.cs** [!code-csharp[carousel of cards](~/../botbuilder-samples/samples/csharp_dotnetcore/06.using-cards/Dialogs/MainDialog.cs?range=105-113)]
+
+첨부 파일이 추가되면 다른 것과 마찬가지로 회신을 보낼 수 있습니다.
+
+**Dialogs/MainDialog.cs** [!code-csharp[carousel of cards](~/../botbuilder-samples/samples/csharp_dotnetcore/06.using-cards/Dialogs/MainDialog.cs?range=117-118)]
 
 # <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
-```javascript
-// require MessageFactory and CardFactory from botbuilder.
-const {MessageFactory, CardFactory} = require('botbuilder');
+여기서 보여 주는 소스 코드는 [JS 카드 샘플](https://aka.ms/bot-cards-js-sample-code)을 기반으로 합니다.
 
-//  init message object
-let messageWithCarouselOfCards = MessageFactory.carousel([
-    CardFactory.heroCard('title1', ['imageUrl1'], ['button1']),
-    CardFactory.heroCard('title2', ['imageUrl2'], ['button2']),
-    CardFactory.heroCard('title3', ['imageUrl3'], ['button3'])
-]);
+회전식 카드를 보내려면 첨부 파일을 `Carousel`로 정의된 레이아웃 유형 및 배열로 회신합니다.
 
-await context.sendActivity(messageWithCarouselOfCards);
-```
+**dialogs/mainDialog.js** [!code-javascript[carousel of cards](~/../botbuilder-samples/samples/javascript_nodejs/06.using-cards/dialogs/mainDialog.js?range=104-116)]
 
 ---
 
@@ -367,5 +218,15 @@ await context.sendActivity(messageWithCarouselOfCards);
 
 스키마에 대한 자세한 내용은 Bot Framework 작업 스키마의 [Bot Framework 카드 스키마](https://aka.ms/botSpecs-cardSchema) 및 [메시지 작업 섹션](https://aka.ms/botSpecs-activitySchema#message-activity)을 참조하세요.
 
-카드의 샘플 코드는 여기에서 확인할 수 있습니다. [C#](https://aka.ms/bot-cards-sample-code)/[JS](https://aka.ms/bot-cards-js-sample-code), 적응형 카드: [C#](https://aka.ms/bot-adaptive-cards-sample-code)/[JS](https://aka.ms/bot-adaptive-cards-js-sample-code), 첨부 파일: [C#](https://aka.ms/bot-attachments-sample-code)/[JS](https://aka.ms/bot-attachments-sample-code-js) 및 제안된 작업: [C#](https://aka.ms/SuggestedActionsCSharp)/[JS](https://aka.ms/SuggestedActionsJS).
+| 샘플 코드 | C# | JS |
+| :------ | :----- | :---|
+| 카드 | [C# 샘플](https://aka.ms/bot-cards-sample-code) | [JS 샘플](https://aka.ms/bot-cards-js-sample-code) |
+| 첨부 파일 | [C# 샘플](https://aka.ms/bot-attachments-sample-code) | [JS 샘플](https://aka.ms/bot-attachments-sample-code-js) |
+| 제안된 작업 | [C# 샘플](https://aka.ms/SuggestedActionsCSharp) | [JS 샘플](https://aka.ms/SuggestedActionsJS) |
+
 추가 샘플은 [GitHub](https://aka.ms/bot-samples-readme)의 Bot Builder 샘플 리포지토리를 참조하세요.
+
+## <a name="next-steps"></a>다음 단계
+
+> [!div class="nextstepaction"]
+> [사용자 작업을 안내하는 단추 추가](./bot-builder-howto-add-suggested-actions.md)

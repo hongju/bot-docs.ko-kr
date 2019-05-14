@@ -10,12 +10,12 @@ ms.service: bot-service
 ms.subservices: sdk
 ms.date: 4/18/2019
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 5f8ce42cdc110a81719313db6f02e63639fcad1f
-ms.sourcegitcommit: aea57820b8a137047d59491b45320cf268043861
+ms.openlocfilehash: 6660026cddd0543266a33603685a7d30cabfe706
+ms.sourcegitcommit: f84b56beecd41debe6baf056e98332f20b646bda
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59904916"
+ms.lasthandoff: 05/03/2019
+ms.locfileid: "65032763"
 ---
 # <a name="debug-your-bot-using-transcript-files"></a>기록 파일을 사용하여 봇 디버그
 
@@ -27,13 +27,13 @@ ms.locfileid: "59904916"
 봇 기록 파일은 사용자와 봇 간의 상호 작용을 유지하는 특수 JSON 파일입니다. 기록 파일은 메시지의 콘텐츠뿐만 아니라 사용자 id, 채널 id, 채널 형식, 채널 기능, 상호 작용 시간 등의 상호 작용 세부 정보를 유지합니다. 이 모든 정보는 봇을 테스트 또는 디버깅할 때 문제를 찾아서 해결하는 데 사용할 수 있습니다. 
 
 ## <a name="creatingstoring-a-bot-transcript-file"></a>봇 기록 파일 만들기/저장
-이 문서에서는 Microsoft의 [Bot Framework Emulator](https://github.com/Microsoft/BotFramework-Emulator)를 사용하여 봇 기록 파일을 만드는 방법을 보여줍니다. 기록 파일을 프로그래밍 방식으로 만들 수도 있습니다. 이 방법에 대한 자세한 내용은 [여기](./bot-builder-howto-v4-storage.md#blob-transcript-storage)서 확인할 수 있습니다. 이 문서에서는 사용자의 이름 및 전화 번호를 요청하도록 수정된 [EchoBot with Counter](https://aka.ms/EchoBot-With-Counter)용 Bot Framework 샘플 코드를 사용하지만, Microsoft의 Bot Framework Emulator를 사용하여 액세스할 수 있는 아무 코드를 사용하여 기록 파일을 만들 수 있습니다.
+이 문서에서는 Microsoft의 [Bot Framework Emulator](https://github.com/Microsoft/BotFramework-Emulator)를 사용하여 봇 기록 파일을 만드는 방법을 보여줍니다. 기록 파일을 프로그래밍 방식으로 만들 수도 있습니다. 이 방법에 대한 자세한 내용은 [여기](./bot-builder-howto-v4-storage.md#blob-transcript-storage)서 확인할 수 있습니다. 이 문서에서는 사용자의 교통 수단, 이름 및 연령을 요청하는 [Multi Turn Prompt Bot](https://aka.ms/cs-multi-prompts-sample)에 Bot Framework 샘플 코드를 사용하지만 Microsoft의 Bot Framework Emulator로 액세스할 수 있는 모든 코드를 통해 대본 파일을 만들 수 있습니다.
 
-이 프로세스를 시작하려면 테스트하려는 봇 코드가 개발 환경 내에서 실행되고 있는지 확인해야 합니다. Bot Framework Emulator를 시작하고, _Bot 열기_ 단추를 선택하고, 아래 이미지처럼 에뮬레이터를 코드의 _봇 구성_ 파일에 연결합니다.
+이 프로세스를 시작하려면 테스트하려는 봇 코드가 개발 환경 내에서 실행되고 있는지 확인해야 합니다. Bot Framework Emulator를 시작하고, _봇 열기_ 단추를 선택한 다음, 브라우저에서 아래 이미지와 같이 "/api/messages" 앞에 오는 _localhost:port_의 주소를 입력합니다. 이제 _연결_ 단추를 클릭하여 봇에 에뮬레이터를 연결합니다.
 
 ![코드에 에뮬레이터 연결](./media/emulator_open_bot_configuration.png)
 
-에뮬레이터를 실행 중인 코드에 연결한 후에는 시뮬레이션된 사용자 상호 작용을 봇에 전송하여 코드를 테스트합니다. 이 예제에서는 사용자 이름과 전화 번호를 전달했습니다. 유지하려는 사용자 상호 작용을 모두 입력한 후에는 Bot Framework Emulator를 사용하여 이 대화를 포함하는 기록 파일을 만들고 저장합니다. 
+에뮬레이터를 실행 중인 코드에 연결한 후에는 시뮬레이션된 사용자 상호 작용을 봇에 전송하여 코드를 테스트합니다. 이 예제에서는 사용자의 교통 수단, 이름, 연령을 전달했습니다. 유지하려는 사용자 상호 작용을 모두 입력한 후에는 Bot Framework Emulator를 사용하여 이 대화를 포함하는 기록 파일을 만들고 저장합니다. 
 
 아래처럼 _실시간 채팅_ 탭 내에서 _기록 저장_ 단추를 선택합니다. 
 
@@ -46,7 +46,9 @@ ms.locfileid: "59904916"
 에뮬레이터로 코드를 테스트하기 위해 입력한 모든 사용자 상호 작용 및 봇 응답이 기록 파일에 저장되었으며, 나중에 이 기록 파일을 다시 로드하여 사용자와 봇 간의 상호 작용을 디버그하는 데 사용할 수 있습니다.
 
 ## <a name="retrieving-a-bot-transcript-file"></a>봇 기록 파일 검색
-Bot Framework Emulator를 사용하여 봇 기록 파일을 검색하려면 아래와 같이 에뮬레이터의 왼쪽 위 모서리에 있는 _리소스_ 섹션의 _기록_ 목록 컨트롤을 선택합니다. 다음으로, 검색하려는 기록 파일을 선택합니다. 이 예제에서는 "Ursula_User_transcript"라는 기록 파일을 검색합니다. 기록 파일을 선택하면 유지된 전체 대화가 자동으로 _기록_이라는 제목이 새 탭에 로드됩니다.
+Bot Framework Emulator를 사용하여 봇 대본 파일을 검색하려면 아래와 같이 에뮬레이터의 왼쪽 위 모서리에 있는 _파일_, _대본 열기..._ 를 차례로 선택합니다. 다음으로, 검색하려는 기록 파일을 선택합니다. 대본은 에뮬레이터의 _리소스_ 섹션에서 _대본_ 목록 제어를 통해서도 액세스할 수 있습니다. 
+
+이 예제에서는 "ursula_user.transcript"라는 대본 파일을 검색합니다. 기록 파일을 선택하면 유지된 전체 대화가 자동으로 _기록_이라는 제목이 새 탭에 로드됩니다.
 
 ![저장된 기록 검색](./media/emulator_transcript_retrieve.png)
 
@@ -54,7 +56,7 @@ Bot Framework Emulator를 사용하여 봇 기록 파일을 검색하려면 아�
 기록 파일이 로드되었으니, 사용자와 봇 간에 캡처한 상호 작용을 디버그할 준비가 완료되었습니다. 상호 작용을 디버그하려면 에뮬레이터의 오른쪽 아래 영역에 보이는 것처럼 _로그_ 섹션에 기록된 이벤트 또는 작업을 클릭합니다. 아래 예에서는 사용자가 "Hello" 메시지를 보낼 때의 첫 번째 상호 작용을 선택했습니다. 이렇게 할 때 이 상호 작용을 포함하는 기록 파일의 모든 정보가 에뮬레이터의 _검사기_ 창에 JSON 형식으로 표시됩니다. 아래에서 위쪽 방향으로 이러한 값 중 일부를 살펴보면, 다음과 같은 정보가 보입니다.
 * 상호 작용 유형은 _message_였습니다.
 * 메시지가 전송된 시간.
-* 일반 텍스트로 전송되었으며 "Hello"가 포함되었습니다.
+* 일반 텍스트로 전송되었으며 "Yes"가 포함되었습니다.
 * 메시지가 봇으로 전송되었습니다.
 * 사용자 id 및 정보.
 * 채널 id, 기능 및 정보.
@@ -65,7 +67,7 @@ Bot Framework Emulator를 사용하여 봇 기록 파일을 검색하려면 아�
 
 Bot Framework Emulator와 함께 기록 파일을 사용하는 것은 봇의 코드 및 사용자 상호 작용을 테스트하고 디버그하는 데 사용할 수 있는 여러 도구 중 하나일 뿐입니다. 봇을 테스트 및 디버그하는 방법을 더 보려면 아래에 나열된 추가 리소스를 참조하세요.
 
-## <a name="additional-resources"></a>추가 리소스
+## <a name="additional-information"></a>추가 정보
 
 테스트 및 디버깅에 대한 추가 정보는 다음 항목을 참조하세요.
 

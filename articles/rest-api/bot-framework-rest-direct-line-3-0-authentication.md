@@ -7,13 +7,13 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
-ms.date: 12/13/2017
-ms.openlocfilehash: 96f2963604d12c9c9e235288ad4df25924f45af4
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.date: 04/10/2019
+ms.openlocfilehash: 717a95d580bad218ade9a884522724f1c6b96ad7
+ms.sourcegitcommit: f84b56beecd41debe6baf056e98332f20b646bda
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49998012"
+ms.lasthandoff: 05/03/2019
+ms.locfileid: "65032644"
 ---
 # <a name="authentication"></a>인증
 
@@ -59,6 +59,26 @@ Authorization: Bearer SECRET
 POST https://directline.botframework.com/v3/directline/tokens/generate
 Authorization: Bearer RCurR_XV9ZA.cwA.BKA.iaJrC8xpy8qbOF5xnR2vtCX7CZj0LdjAPGfiCpg4Fv0
 ```
+
+토큰 매개 변수를 포함하는 요청 페이로드는 선택 사항이지만 권장됩니다. Direct Line 서비스에 돌려 보낼 수 있는 토큰을 생성할 때는 더 안전한 연결을 위해 다음 페이로드를 제공합니다. 이 값을 포함하면 Direct Line이 사용자 ID와 이름의 추가적인 보안 유효성 검사를 수행하여 악의적 클라이언트에 의한 값 변조를 방지할 수 있습니다. 또한 이 값을 통해 Direct Line의 _대화 업데이트_ 작업 보내기 기능을 개선하여 사용자가 대화에 참가하는 즉시 대화 업데이트를 생성하도록 할 수 있습니다. 이 정보를 제공하지 않은 경우 사용자가 콘텐츠를 보내야 Direct Line이 대화 업데이트를 보낼 수 있습니다.
+
+```json
+{
+  "user": {
+    "id": "string",
+    "name": "string"
+  },
+  "trustedOrigins": [
+    "string"
+  ]
+}
+```
+
+| 매개 변수 | Type | 설명 |
+| :--- | :--- | :--- |
+| `user.id` | string | 선택 사항입니다. 토큰 안에 인코딩할 사용자의 채널 특정 ID입니다. Direct Line 사용자의 경우 이 값이 `dl_`로 시작되어야 합니다. 각 대화마다 고유한 사용자 ID를 만들 수 있고 보안을 강화하기 위해 이 ID는 추측할 수 없어야 합니다. |
+| `user.name` | string | 선택 사항입니다. 토큰 안에 인코딩할 사용자의 친숙한 표시 이름입니다. |
+| `trustedOrigins` | 문자열 배열 | 선택 사항입니다. 토큰 안에 포함할 신뢰할 수 있는 도메인 목록입니다. 봇의 웹 채팅 클라이언트를 호스팅할 수 있는 도메인입니다. 봇에 대한 Direct Line 구성 페이지의 목록과 일치해야 합니다. |
 
 ### <a name="response"></a>response
 

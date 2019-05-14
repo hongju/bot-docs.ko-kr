@@ -8,14 +8,14 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
-ms.date: 1/10/2019
+ms.date: 04/25/2019
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: a7f6c22f35719eacf66598e79df5fe52ff19dd43
-ms.sourcegitcommit: 103aa3316f9ff658cf2b0d341c5e76c3efc581ee
+ms.openlocfilehash: 53dd51c871b3d386caaa01bd2e652092e7477e09
+ms.sourcegitcommit: f84b56beecd41debe6baf056e98332f20b646bda
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59540367"
+ms.lasthandoff: 05/03/2019
+ms.locfileid: "65033518"
 ---
 # <a name="how-bots-work"></a>봇 작동 방식
 
@@ -55,171 +55,65 @@ ms.locfileid: "59540367"
 
 위의 예제에서 봇은 동일한 텍스트 메시지를 포함하는 다른 메시지 활동을 사용하여 메시지 활동에 응답했습니다. HTTP POST 요청부터 처리되며, 활동 정보는 JSON 페이로드로 전달되고, 웹 서버에 도착합니다. C#에서 이는 일반적으로 ASP.NET 프로젝트가 되며, JavaScript Node.js 프로젝트에서 이는 Express 또는 Restify처럼 인기 있는 프레임워크 중 하나일 가능성이 높습니다.
 
-SDK의 통합 구성 요소인 *어댑터*는 SDK 런타임의 핵심입니다. 작업은 HTTP POST 본문에서 JSON으로 전달됩니다. 이 JSON을 역직렬화하여 작업 개체를 만듭니다. 그런 다음, *처리 작업* 메서드에 대한 호출을 사용하여 어댑터에 전달됩니다. 어댑터가 작업을 수신하면 *순서 컨텍스트*를 만들고 미들웨어를 호출합니다. 이름 *순서 컨텍스트*는 "순서"라는 단어를 사용하여 작업의 도착과 연결된 모든 처리를 설명합니다. 순서 컨텍스는 SDK에서 중요한 추상화 중 하나입니다. 모든 미들웨어 구성 요소 및 애플리케이션 논리에 인바운드 작업을 전달할 뿐만 아니라 미들웨어 구성 요소 및 애플리케이션 논리가 아웃바운드 작업을 전송하는 메커니즘도 제공합니다. 순서 컨텍스트는 코드가 작업에 응답하는 _send, update, and delete activity_ 응답 메서드를 제공합니다. 각 응답 메서드는 비동기 프로세스에서 실행됩니다. 
+SDK의 통합 구성 요소인 *어댑터*는 SDK 런타임의 핵심입니다. 작업은 HTTP POST 본문에서 JSON으로 전달됩니다. 이 JSON을 역직렬화하여 작업 개체를 만듭니다. 그런 다음, *처리 작업* 메서드에 대한 호출을 사용하여 어댑터에 전달됩니다. 어댑터가 작업을 수신하면 *순서 컨텍스트*를 만들고 미들웨어를 호출합니다. 
+
+위에서 말했듯이, 순서 컨텍스트는 봇이 주로 인바운드 작업에 대한 응답으로 아웃바운드 작업을 보내는 데 사용하는 메커니즘입니다. 이를 위해 순서 컨텍스트는 _작업 보내기, 업데이트 및 삭제_ 응답 메서드를 제공합니다. 각 응답 메서드는 비동기 프로세스에서 실행됩니다. 
 
 [!INCLUDE [alert-await-send-activity](../includes/alert-await-send-activity.md)]
 
+## <a name="activity-handlers"></a>작업 처리기
+
+봇은 작업을 수신하면 *작업 처리기*로 전달합니다. 내부적으로 *순서 처리기*라는 기본 처리기가 하나 있습니다. 모든 작업은 이곳을 거쳐 라우팅됩니다. 이때 순서 처리기는 어떤 유형의 작업이 수신되든 개별 작업 처리기를 호출합니다.
+
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+
+예를 들어 봇이 메시지 작업을 수신하면 순서 처리기가 수신 작업을 확인하고 `OnMessageActivityAsync` 작업 처리기로 보냅니다. 
+
+봇을 빌드할 때 메시지 처리 및 응답용 봇 논리는 이 `OnMessageActivityAsync` 처리기로 들어갑니다. 마찬가지로, 대화에 추가되는 멤버를 처리하는 논리는 `OnMembersAddedAsync` 처리기로 들어가고, 대화에 멤버가 추가될 때마다 이 처리기가 호출됩니다.
+
+이러한 처리기의 논리를 구현하려면 아래의 [봇 논리](#bot-logic) 섹션에 나와 있는 것처럼 봇의 이러한 메서드를 재정의합니다. 이러한 각 처리기에 대한 기본 구현은 없으므로 재정의할 때 원하는 논리를 추가하기만 하면 됩니다.
+
+순서 종료 시 [상태 저장](bot-builder-concept-state.md) 같은 논리를 추가하여 기본 순서 처리기를 재정의하려는 경우가 있습니다. 이 경우에는 먼저 `await base.OnTurnAsync(turnContext, cancellationToken);`를 호출하여 `OnTurnAsync`의 기본 구현이 추가 코드 전에 실행되도록 하세요. 기본 구현은 `OnMessageActivityAsync`와 같은 나머지 작업 처리기를 호출하는 역할도 합니다.
+
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+예를 들어 봇이 메시지 작업을 수신하면 순서 처리기가 수신 작업을 확인하고 `onMessage` 작업 처리기로 보냅니다.
+
+봇을 빌드할 때 메시지 처리 및 응답용 봇 논리는 이 `onMessage` 처리기로 들어갑니다. 마찬가지로, 대화에 추가되는 멤버를 처리하는 논리는 `onMembersAdded` 처리기로 들어가고, 대화에 멤버가 추가될 때마다 이 처리기가 호출됩니다.
+
+이러한 처리기의 논리를 구현하려면 아래의 [봇 논리](#bot-logic) 섹션에 나와 있는 것처럼 봇의 이러한 메서드를 재정의합니다. 이러한 각 처리기의 봇 논리를 정의한 후 **마지막에 `next()`를 호출**해야 합니다. `next()`를 호출하면 다음 처리기가 실행되도록 보장할 수 있습니다.
+
+기본 순서 처리기를 재정의하는 상황은 자주 없으므로 그렇게 하려는 경우에는 조심하세요. 순서 종료 시 [상태 저장](bot-builder-concept-state.md)과 같은 기능을 수행할 수 있게 `onDialog`라는 특수한 처리기가 있습니다. `onDialog` 처리기는 다른 모든 처리기가 실행된 후 마지막에 실행되며, 특정 작업 유형에 얽매이지 않습니다. 위의 모든 처리기와 마찬가지로 `next()`를 호출하여 나머지 프로세스가 마무리되도록 하세요.
+
+---
 
 ## <a name="middleware"></a>미들웨어
-미들웨어는 다른 메시징 미들웨어와 유사하게 순서대로 각각 실행되는 선형 구성 요소 집합을 구성하고 각 작업에서 작동할 수 있는 기회를 제공합니다. 미들웨어 파이프라인의 최종 단계는 애플리케이션이 어댑터에 등록한 봇 클래스의 순서 처리기 함수(C#의 `OnTurnAsync` 및 JS의 `onTurn`)를 호출하는 콜백입니다. 순서 처리기는 순서 컨텍스트를 해당 인수로 설정하고, 순서 처리기 함수 내에서 실행 중인 애플리케이션 논리는 일반적으로 인바운드 작업의 콘텐츠를 처리하고, 응답에서 하나 이상의 작업을 생성하여 순서 컨텍스트에서 *send activity* 함수를 사용하여 이러한 항목을 보냅니다. 순서 컨텍스트에서 *send activity*를 호출하면 미들웨어 구성 요소를 아웃바운드 작업에서 호출하게 됩니다. 미들웨어 구성 요소는 봇의 순서 처리기 함수 전후에서 실행됩니다. 실행은 본질적으로 중첩되며 러시아 인형과 같다고도 합니다. 미들웨어에 대한 자세한 내용은 [미들웨어 항목](~/v4sdk/bot-builder-concept-middleware.md)을 참조하세요.
+
+미들웨어는 다른 메시징 미들웨어와 유사하게 순서대로 각각 실행되는 선형 구성 요소 집합을 구성하고 각 작업에서 작동할 수 있는 기회를 제공합니다. 미들웨어 파이프라인의 최종 단계는 애플리케이션이 어댑터의 *작업 처리* 메서드에 등록한 봇 클래스의 순서 처리기 함수를 호출하는 콜백입니다. 작업 처리기는 일반적으로 C#의 `OnTurnAsync` 및 JavaScript의 `onTurn`입니다.
+
+순서 처리기는 순서 컨텍스트를 해당 인수로 설정하고, 순서 처리기 함수 내에서 실행 중인 애플리케이션 논리는 일반적으로 인바운드 작업의 콘텐츠를 처리하고, 응답에서 하나 이상의 작업을 생성하여 순서 컨텍스트에서 *send activity* 함수를 사용하여 이러한 항목을 보냅니다. 순서 컨텍스트에서 *send activity*를 호출하면 미들웨어 구성 요소를 아웃바운드 작업에서 호출하게 됩니다. 미들웨어 구성 요소는 봇의 순서 처리기 함수 전후에서 실행됩니다. 실행은 본질적으로 중첩되며 러시아 인형과 같다고도 합니다. 미들웨어에 대한 자세한 내용은 [미들웨어 항목](~/v4sdk/bot-builder-concept-middleware.md)을 참조하세요.
 
 ## <a name="bot-structure"></a>봇 구조체
-다음 섹션에서는 봇의 주요 부분을 살펴봅니다.
 
-### <a name="prerequisites"></a>필수 조건
-- **[C#](https://aka.ms/EchoBotWithStateCSharp) 또는 [JS](https://aka.ms/EchoBotWithStateJS)** 의 **EchoBotWithCounter** 샘플 복사본입니다. 여기서는 관련 코드만 표시되지만, 완전한 소스 코드는 샘플에서 참조할 수 있습니다.
+다음 섹션에서는 [**CSharp**](../dotnet/bot-builder-dotnet-sdk-quickstart.md) 또는 [**JavaScript**](../javascript/bot-builder-javascript-quickstart.md)용으로 제공되는 템플릿을 사용하여 손쉽게 만들 수 있는 EchoBot의 _핵심 부분_을 살펴봅니다.
 
-# <a name="ctabcs"></a>[C#](#tab/cs)
+<!--Need to add section calling out the controller in code, and explaining it further-->
 
-봇은 [ASP.NET Core 웹](https://docs.microsoft.com/aspnet/core/?view=aspnetcore-2.1) 애플리케이션의 한 유형입니다. [ASP.NET](https://docs.microsoft.com/aspnet/core/fundamentals/index?view=aspnetcore-2.1&tabs=aspnetcore2x) 기본 사항을 보면 **Program.cs** 및 **Startup.cs**와 같은 파일에서 유사한 코드를 확인할 수 있습니다. 이러한 파일은 모든 웹앱에 필요하며 봇 전용이 아닙니다. 
+봇은 웹 애플리케이션이며, 각 언어용 템플릿이 제공됩니다.
 
-### <a name="bot-logic"></a>봇 논리
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
-기본 봇 논리는 `IBot` 인터페이스에서 파생되는 `EchoWithCounterBot` 클래스에 정의됩니다. `IBot`은 단일 메서드 `OnTurnAsync`를 정의합니다. 애플리케이션은 이 메서드를 구현해야 합니다. `OnTurnAsync`에는 수신 활동에 대한 정보를 제공하는 turnContext가 있습니다. 수신 활동은 인바운드 HTTP 요청에 해당합니다. 수신 활동은 형식이 다양할 수 있으므로 먼저 봇이 메시지를 받았는지 확인합니다. 메시지라면 순서 컨텍스트에서 대화 상태를 가져오고, 순서 카운터를 구현한 다음, 대화 상태에 새로운 순서 카운터 값을 보존합니다. 그런 다음, SendActivityAsync 호출을 사용하여 사용자에게 메시지를 다시 전송합니다. 송신 활동은 아웃바운드 HTTP 요청에 해당합니다.
+VSIX 템플릿은 [ASP.NET MVC Core](https://dotnet.microsoft.com/apps/aspnet/mvc) 웹앱을 생성합니다. [ASP.NET](https://docs.microsoft.com/aspnet/core/fundamentals/index?view=aspnetcore-2.1&tabs=aspnetcore2x) 기본 사항을 보면 **Program.cs** 및 **Startup.cs**와 같은 파일에서 유사한 코드를 확인할 수 있습니다. 이러한 파일은 모든 웹앱에 필요하며 봇 전용이 아닙니다.
 
-```cs
-public async Task OnTurnAsync(ITurnContext turnContext, CancellationToken cancellationToken = default(CancellationToken))
-{
-    if (turnContext.Activity.Type == ActivityTypes.Message)
-    {
-        // Get the conversation state from the turn context.
-        var oldState = await _accessors.CounterState.GetAsync(turnContext, () => new CounterState());
+### <a name="appsettingsjson-file"></a>appsettings.json 파일
 
-        // Bump the turn count for this conversation.
-        var newState = new CounterState { TurnCount = oldState.TurnCount + 1 };
+**appsettings.json** 파일은 앱 ID 및 암호 등과 같은 봇의 구성 정보를 지정합니다. 특정 기술을 사용하거나 프로덕션 환경에서 이 봇을 사용하는 경우, 이 구성에 특정 키 또는 URL을 추가해야 합니다. 그러나 이 Echo 봇의 경우에는 이 시점에 아무 작업도 수행할 필요가 없습니다. 이 때 앱 ID와 암호는 정의되지 않은 상태로 남겨둘 수 있습니다.
 
-        // Set the property using the accessor.
-        await _accessors.CounterState.SetAsync(turnContext, newState);
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
-        // Save the new turn count into the conversation state.
-        await _accessors.ConversationState.SaveChangesAsync(turnContext);
+<!-- TODO: Update this aka link to point to samples/javascript_nodejs/02.echobot (instead of samples/javascript_nodejs/02.a.echobot) once work-in-progress is merged into master. -->
 
-        // Echo back to the user whatever they typed.
-        var responseMessage = $"Turn {newState.TurnCount}: You sent '{turnContext.Activity.Text}'\n";
-        await turnContext.SendActivityAsync(responseMessage);
-    }
-    else
-    {
-        await turnContext.SendActivityAsync($"{turnContext.Activity.Type} event detected");
-    }
-}
-```
-
-### <a name="set-up-services"></a>서비스 설정
-
-startup.cs 파일의 `ConfigureServices` 메서드는 [.bot](bot-builder-basics.md#the-bot-file) 파일에서 연결된 서비스를 로드하고, 대화 턴 중에 발생하는 오류를 포착하여 기록하고, 자격 증명 공급 기업을 설정하고, 대화 상태 개체를 만들어 대화 데이터를 메모리에 저장합니다.
-
-```csharp
-services.AddBot<EchoWithCounterBot>(options =>
-{
-    // Creates a logger for the application to use.
-    ILogger logger = _loggerFactory.CreateLogger<EchoWithCounterBot>();
-
-    var secretKey = Configuration.GetSection("botFileSecret")?.Value;
-    var botFilePath = Configuration.GetSection("botFilePath")?.Value;
-
-    // Loads .bot configuration file and adds a singleton that your Bot can access through dependency injection.
-    BotConfiguration botConfig = null;
-    try
-    {
-        botConfig = BotConfiguration.Load(botFilePath ?? @".\BotConfiguration.bot", secretKey);
-    }
-    catch
-    {
-        //...
-    }
-
-    services.AddSingleton(sp => botConfig);
-
-    // Retrieve current endpoint.
-    var environment = _isProduction ? "production" : "development";
-    var service = botConfig.Services.Where(s => s.Type == "endpoint" && s.Name == environment).FirstOrDefault();
-    if (!(service is EndpointService endpointService))
-    {
-        throw new InvalidOperationException($"The .bot file does not contain an endpoint with name '{environment}'.");
-    }
-
-    options.CredentialProvider = new SimpleCredentialProvider(endpointService.AppId, endpointService.AppPassword);
-
-    // Catches any errors that occur during a conversation turn and logs them.
-    options.OnTurnError = async (context, exception) =>
-    {
-        logger.LogError($"Exception caught : {exception}");
-        await context.SendActivityAsync("Sorry, it looks like something went wrong.");
-    };
-
-    // The Memory Storage used here is for local bot debugging only. When the bot
-    // is restarted, everything stored in memory will be gone.
-    IStorage dataStore = new MemoryStorage();
-
-    // ...
-
-    // Create Conversation State object.
-    // The Conversation State object is where we persist anything at the conversation-scope.
-    var conversationState = new ConversationState(dataStore);
-
-    options.State.Add(conversationState);
-});
-```
-
-또한 `ConfigureServices` 메서드는 **EchoBotStateAccessors.cs** 파일에 정의되고 ASP.NET Core의 종속성 주입 프레임워크를 사용하여 공용 `EchoWithCounterBot` 생성자로 전달되는 `EchoBotAccessors`를 만들고 등록합니다.
-
-```csharp
-// Accessors created here are passed into the IBot-derived class on every turn.
-services.AddSingleton<EchoBotAccessors>(sp =>
-{
-    var options = sp.GetRequiredService<IOptions<BotFrameworkOptions>>().Value;
-    // ...
-    var conversationState = options.State.OfType<ConversationState>().FirstOrDefault();
-    // ...
-
-    // Create the custom state accessor.
-    // State accessors enable other components to read and write individual properties of state.
-    var accessors = new EchoBotAccessors(conversationState)
-    {
-        CounterState = conversationState.CreateProperty<CounterState>(EchoBotAccessors.CounterStateName),
-    };
-
-    return accessors;
-});
-```
-
-`Configure` 메서드는 Bot Framework 및 몇 가지 다른 파일을 사용하도록 지정하여 앱의 구성을 완료합니다. Bot Framework를 사용하는 모든 봇은 해당 구성 호출이 필요합니다. `ConfigureServices` 및 `Configure`는 앱이 시작될 때 런타임에서 호출합니다.
-
-### <a name="manage-state"></a>상태 관리
-
-이 파일에는 봇이 현재 상태를 유지하기 위해 사용하는 간단한 클래스가 포함됩니다. 카운터를 증분시키기 위해 사용하는 `int`만 포함됩니다.
-
-```cs
-public class CounterState
-{
-    public int TurnCount { get; set; } = 0;
-}
-```
-
-### <a name="accessor-class"></a>접근자 클래스
-
-`EchoBotAccessors` 클래스는 `Startup` 클래스에 싱글톤으로 생성되어 IBot 파생 클래스로 전달됩니다. 이 예제의 경우 `public class EchoWithCounterBot : IBot`입니다. 이 봇은 접근자를 사용하여 대화 데이터를 보존합니다. `EchoBotAccessors`의 생성자는 Startup.cs 파일에 생성되는 대화 개체에 전달됩니다.
-
-```cs
-public class EchoBotAccessors
-{
-    public EchoBotAccessors(ConversationState conversationState)
-    {
-        ConversationState = conversationState ?? throw new ArgumentNullException(nameof(conversationState));
-    }
-
-    public static string CounterStateName { get; } = $"{nameof(EchoBotAccessors)}.CounterState";
-
-    public IStatePropertyAccessor<CounterState> CounterState { get; set; }
-
-    public ConversationState ConversationState { get; }
-}
-```
-
-# <a name="javascripttabjs"></a>[JavaScript](#tab/js)
-
-Yeoman 생성기는 [restify](http://restify.com/) 웹 애플리케이션 형식을 만듭니다. 해당 문서에서 Restify 빠른 시작을 보면 생성된 **index.js** 파일과 유사한 앱이 표시됩니다. 이 섹션에서는 주로 **package.json**, **.env** , **index.js**, **bot.js** 및 **echobot-with-counter.bot** 파일을 설명합니다. 일부 파일의 코드는 여기에서 복사되지 않지만 봇를 실행할 때 표시되고 [Node.js echobot-with-counter](https://aka.ms/js-echobot-with-counter) 샘플을 참조할 수 있습니다.
+Yeoman 생성기는 [restify](http://restify.com/) 웹 애플리케이션 형식을 만듭니다. 해당 문서에서 Restify 빠른 시작을 보면 생성된 **index.js** 파일과 유사한 앱이 표시됩니다. 템플릿이 생성하는 주요 파일 몇 가지가 설명되어 있습니다. 일부 파일의 코드는 복사되지 않지만 봇를 실행할 때 표시되고 [Node.js echobot](https://aka.ms/js-echobot-sample) 샘플을 참조할 수 있습니다.
 
 ### <a name="packagejson"></a>package.json
 
@@ -233,7 +127,169 @@ Yeoman 생성기는 [restify](http://restify.com/) 웹 애플리케이션 형식
 
 `npm install dotenv`
 
-### <a name="indexjs"></a>index.js
+---
+
+### <a name="bot-logic"></a>봇 논리
+
+봇 논리는 하나 이상의 채널에서 들어오는 작업을 처리하고, 이에 대한 응답으로 나가는 작업을 생성합니다.
+
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+
+주 봇 논리는 봇 코드에 정의됩니다(여기서는 `Bots/EchoBot.cs`라고 함). `EchoBot`은 `AcitivityHandler`에서 파생되며, 이는 `IBot` 인터페이스에서 파생됩니다. `ActivityHandler`는 각종 작업을 위한 다양한 처리기(예: 여기에 정의된 `OnMessageActivityAsync` 및 `OnMembersAddedAsync`)를 정의합니다. 이러한 메서드는 보호되지만 `ActivityHandler`에서 파생되므로 덮어쓸 수 있습니다.
+
+`ActivityHandler`에 정의된 처리기는 다음과 같습니다.
+
+| 행사 | Handler | 설명 |
+| :-- | :-- | :-- |
+| 작업 유형이 수신됨 | `OnTurnAsync` | 수신된 작업의 유형에 따라 다른 처리기 중 하나를 호출합니다. |
+| 메시지 작업이 수신됨 | `OnMessageActivityAsync` | `Message` 작업을 처리하도록 재정의합니다. |
+| 대화 업데이트 작업이 수신됨 | `OnConversationUpdateActivityAsync` | `ConversationUpdate` 작업에서 봇 이외 멤버가 대화에 참가하거나 대화를 나간 경우 처리기를 호출합니다. |
+| 봇 이외 멤버가 대화에 참가함 | `OnMembersAddedAsync` | 대화에 참가한 멤버를 처리하도록 재정의합니다. |
+| 봇 이외 멤버가 대화를 나감 | `OnMembersRemovedAsync` | 대화를 나간 멤버를 처리하도록 재정의합니다. |
+| 이벤트 작업이 수신됨 | `OnEventActivityAsync` | `Event` 작업에서 이벤트 유형과 관련된 처리기를 호출합니다. |
+| 토큰-응답 이벤트 작업이 수신됨 | `OnTokenResponseEventAsync` | 토큰 응답 이벤트를 처리하도록 재정의합니다. |
+| 토큰-응답 이외 이벤트 작업이 수신됨 | `OnEventAsync` | 다른 유형의 이벤트를 처리하도록 재정의합니다. |
+| 다른 작업 유형이 수신됨 | `OnUnrecognizedActivityTypeAsync` | 달리 처리되지 않은 작업 유형을 처리하도록 재정의합니다. |
+
+이러한 여러 처리기에는 수신 작업에 대한 정보를 제공하는 `turnContext`가 있습니다(인바운드 HTTP 요청에 해당). 다양한 작업 유형이 있을 수 있으므로 각 처리기는 순서 컨텍스트 매개 변수에 강력한 형식의 작업을 제공합니다. 대부분의 경우 `OnMessageActivityAsync`는 항상 처리되고, 일반적으로 가장 많이 사용됩니다.
+
+이 프레임워크의 이전 4.x 버전에는 공용 메서드 `OnTurnAsync`를 구현하는 옵션도 있습니다. 현재 이 메서드의 기본 구현은 오류 검사를 처리한 후 수신 작업 유형에 따라 특정 처리기(예: 이 샘플에 정의된 두 처리기)를 각각 호출합니다. 대부분의 경우 해당 메서드를 그대로 두고 개별 처리기를 사용할 수 있지만 `OnTurnAsync`의 사용자 지정 구현이 필요한 상황에서는 그렇게 할 수 있습니다.
+
+> [!IMPORTANT]
+> `OnTurnAsync` 메서드를 재정의하는 경우에는 `base.OnTurnAsync`를 호출하여 기본 구현을 가져와서 다른 `On<activity>Async` 처리기를 모두 호출하거나 이러한 처리기를 직접 호출해야 합니다. 그렇지 않을 경우 이러한 처리기가 처리되지 않으며, 해당 코드가 실행되지 않습니다.
+
+이 샘플에서는 `SendActivityAsync` 호출을 사용하여 새 사용자를 환영하거나 사용자가 보낸 메시지를 출력합니다. 아웃바운드 작업은 아웃바운드 HTTP POST 요청에 해당합니다.
+
+```cs
+public class MyBot : ActivityHandler
+{
+    protected override async Task OnMessageActivityAsync(ITurnContext<IMessageActivity> turnContext, CancellationToken cancellationToken)
+    {
+        await turnContext.SendActivityAsync(MessageFactory.Text($"Echo: {turnContext.Activity.Text}"), cancellationToken);
+    }
+
+    protected override async Task OnMembersAddedAsync(IList<ChannelAccount> membersAdded, ITurnContext<IConversationUpdateActivity> turnContext, CancellationToken cancellationToken)
+    {
+        foreach (var member in membersAdded)
+        {
+            await turnContext.SendActivityAsync(MessageFactory.Text($"welcome {member.Name}"), cancellationToken);
+        }
+    }
+}
+```
+
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+주 봇 논리는 봇 코드에 정의됩니다(여기서는 `bots\echoBot.js`라고 함). `EchoBot`은 `AcitivityHandler`에서 파생됩니다. `ActivityHandler`는 각종 작업을 위한 다양한 처리기를 정의하며, 여기에 나와 있는 `onMessage` 및 `onConversationUpdate`를 통해 추가 논리를 제공하면 봇의 동작을 수정할 수 있습니다.
+
+`ActivityHandler`에 정의된 처리기는 다음과 같습니다.
+
+| 행사 | Handler | 설명 |
+| :-- | :-- | :-- |
+| 작업 유형이 수신됨 | `onTurn` | 수신된 작업의 유형에 따라 다른 처리기 중 하나를 호출합니다. |
+| 메시지 작업이 수신됨 | `onMessage` | `Message` 작업을 처리할 수 있는 함수를 제공합니다. |
+| 대화 업데이트 작업이 수신됨 | `onConversationUpdate` | `ConversationUpdate` 작업에서 봇 이외 멤버가 대화에 참가하거나 대화를 나간 경우 처리기를 호출합니다. |
+| 봇 이외 멤버가 대화에 참가함 | `onMembersAdded` | 대화에 참가한 멤버를 처리할 수 있는 함수를 제공합니다. |
+| 봇 이외 멤버가 대화를 나감 | `onMembersRemoved` | 대화를 나간 멤버를 처리할 수 있는 함수를 제공합니다. |
+| 이벤트 작업이 수신됨 | `onEvent` | `Event` 작업에서 이벤트 유형과 관련된 처리기를 호출합니다. |
+| 토큰-응답 이벤트 작업이 수신됨 | `onTokenResponseEvent` | 토큰 응답 이벤트를 처리할 수 있는 함수를 제공합니다. |
+| 다른 작업 유형이 수신됨 | `onUnrecognizedActivityType` | 달리 처리되지 않은 작업 유형을 처리할 수 있는 함수를 제공합니다. |
+| 작업 처리기가 완료됨 | `onDialog` | 나머지 작업 처리기가 완료된 후 순서 종료 시 수행해야 하는 과정을 처리할 수 있는 함수를 제공합니다. |
+
+각 순서에서는 먼저 봇 메시지를 받았는지 확인합니다. 사용자로부터 메시지가 수신되면 사용자가 보낸 메시지를 출력합니다.
+
+```javascript
+const { ActivityHandler } = require('botbuilder');
+
+class MyBot extends ActivityHandler {
+    constructor() {
+        super();
+        // See https://aka.ms/about-bot-activity-message to learn more about the message and other activity types.
+        this.onMessage(async (context, next) => {
+            await context.sendActivity(`You said '${ context.activity.text }'`);
+            // By calling next() you ensure that the next BotHandler is run.
+            await next();
+        });
+        this.onConversationUpdate(async (context, next) => {
+            await context.sendActivity('[conversationUpdate event detected]');
+            // By calling next() you ensure that the next BotHandler is run.
+            await next();
+        });
+    }
+}
+
+module.exports.MyBot = MyBot;
+```
+
+---
+
+### <a name="access-the-bot-from-your-app"></a>앱에서 봇에 액세스
+
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+
+#### <a name="set-up-services"></a>서비스 설정
+
+`Startup.cs` 파일의 `ConfigureServices` 메서드는 `appsettings.json` 또는 Azure Key Vault(있는 경우)에서 연결된 서비스와 키를 로드하고, 상태를 연결하는 등의 역할을 합니다. 여기에서는 MVC를 추가하고, 서비스의 호환성 버전을 설정한 후 봇 컨트롤러에 종속성을 주입하여 사용할 수 있게 어댑터와 봇을 설정합니다.
+
+<!-- want to explain the singleton vs transient here?-->
+
+```csharp
+// This method gets called by the runtime. Use this method to add services to the container.
+public void ConfigureServices(IServiceCollection services)
+{
+    services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+    // Create the credential provider to be used with the Bot Framework Adapter.
+    services.AddSingleton<ICredentialProvider, ConfigurationCredentialProvider>();
+
+    // Create the Bot Framework Adapter.
+    services.AddSingleton<IBotFrameworkHttpAdapter, BotFrameworkHttpAdapter>();
+
+    // Create the bot as a transient. In this case the ASP Controller is expecting an IBot.
+    services.AddTransient<IBot, EchoBot>();
+}
+```
+
+`Configure` 메서드는 MVC 및 몇 가지 다른 파일을 사용하도록 지정하여 앱의 구성을 완료합니다. Bot Framework를 사용하는 다른 봇은 이러한 구성 호출이 필요하지만 봇을 빌드할 때 샘플이나 VSIX 템플릿에 이미 정의되어 있을 것입니다. `ConfigureServices` 및 `Configure`는 앱이 시작될 때 런타임에서 호출합니다.
+
+#### <a name="bot-controller"></a>봇 컨트롤러
+
+표준 MVC 구조를 따르는 이 컨트롤러를 사용하여 메시지 및 HTTP POST 요청의 라우팅을 결정할 수 있습니다. 봇의 경우 위의 [작업 처리 스택](#the-activity-processing-stack) 섹션에 설명된 것처럼 어댑터의 *비동기 작업 처리* 메서드에 수신 요청이 전달됩니다. 이러한 호출에는 봇 및 기타 필요할 수 있는 권한 부여 정보를 지정합니다.
+
+이 컨트롤러는 `ControllerBase`를 구현하고, 설정된 어댑터 및 봇을 `Startup.cs`에 저장하며(종속성 주입을 통해 여기서 사용 가능), HTTP POST를 수신하면 필요한 정보를 봇에 전달합니다.
+
+여기에서는 경로 및 컨트롤러 특성이 처리하는 클래스를 살펴봅니다. 이는 프레임워크가 메시지를 적절히 라우팅하고, 어떤 컨트롤러를 사용해야 할지 파악하도록 도와줍니다. 경로 특정의 값을 변경하면 에뮬레이터 또는 다른 채널이 봇에 액세스할 때 사용하는 엔드포인트가 변경됩니다.
+
+```cs
+// This ASP Controller is created to handle a request. Dependency Injection will provide the Adapter and IBot
+// implementation at runtime. Multiple different IBot implementations running at different endpoints can be
+// achieved by specifying a more specific type for the bot constructor argument.
+[Route("api/messages")]
+[ApiController]
+public class BotController : ControllerBase
+{
+    private readonly IBotFrameworkHttpAdapter Adapter;
+    private readonly IBot Bot;
+
+    public BotController(IBotFrameworkHttpAdapter adapter, IBot bot)
+    {
+        Adapter = adapter;
+        Bot = bot;
+    }
+
+    [HttpPost]
+    public async Task PostAsync()
+    {
+        // Delegate the processing of the HTTP POST to the adapter.
+        // The adapter will invoke the bot.
+        await Adapter.ProcessAsync(Request, Response, Bot);
+    }
+}
+```
+
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+#### <a name="indexjs"></a>index.js
 
 `index.js`는 봇 논리로 활동을 전달하는 호스팅 서비스와 봇을 설정합니다.
 
@@ -242,188 +298,75 @@ Yeoman 생성기는 [restify](http://restify.com/) 웹 애플리케이션 형식
 `index.js` 파일의 맨 위쪽에는 필요한 일련의 모듈 또는 라이브러리가 있습니다. 이러한 모듈은 사용자가 애플리케이션에 포함하는 함수 집합에 액세스할 수 있습니다.
 
 ```javascript
-// Import required packages
+const dotenv = require('dotenv');
 const path = require('path');
 const restify = require('restify');
 
-// Import required bot services. See https://aka.ms/bot-services to learn more about the different parts of a bot.
-const { BotFrameworkAdapter, ConversationState, MemoryStorage } = require('botbuilder');
+// Import required bot services.
+// See https://aka.ms/bot-services to learn more about the different parts of a bot.
+const { BotFrameworkAdapter } = require('botbuilder');
+
+// This bot's main dialog.
+const { MyBot } = require('./bot');
+
 // Import required bot configuration.
-const { BotConfiguration } = require('botframework-config');
-
-const { EchoBot } = require('./bot');
-
-// Read botFilePath and botFileSecret from .env file
-// Note: Ensure you have a .env file and include botFilePath and botFileSecret.
 const ENV_FILE = path.join(__dirname, '.env');
-const env = require('dotenv').config({ path: ENV_FILE });
+dotenv.config({ path: ENV_FILE });
 ```
 
-#### <a name="bot-configuration"></a>봇 구성
+#### <a name="set-up-services"></a>서비스 설정
 
-다음 부분에서는 봇 구성 파일에서 정보를 로드합니다.
-
-```javascript
-// Get the .bot file path
-// See https://aka.ms/about-bot-file to learn more about .bot file its use and bot configuration.
-const BOT_FILE = path.join(__dirname, (process.env.botFilePath || ''));
-let botConfig;
-try {
-    // Read bot configuration from .bot file.
-    botConfig = BotConfiguration.loadSync(BOT_FILE, process.env.botFileSecret);
-} catch (err) {
-    console.error(`\nError reading bot file. Please ensure you have valid botFilePath and botFileSecret set for your environment.`);
-    console.error(`\n - The botFileSecret is available under appsettings for your Azure Bot Service bot.`);
-    console.error(`\n - If you are running this bot locally, consider adding a .env file with botFilePath and botFileSecret.`);
-    console.error(`\n - See https://aka.ms/about-bot-file to learn more about .bot file its use and bot configuration.\n\n`);
-    process.exit();
-}
-
-// For local development configuration as defined in .bot file
-const DEV_ENVIRONMENT = 'development';
-
-// Define name of the endpoint configuration section from the .bot file
-const BOT_CONFIGURATION = (process.env.NODE_ENV || DEV_ENVIRONMENT);
-
-// Get bot endpoint configuration by service name
-// Bot configuration as defined in .bot file
-const endpointConfig = botConfig.findServiceByNameOrId(BOT_CONFIGURATION);
-```
-
-#### <a name="bot-adapter-http-server-and-bot-state"></a>봇 어댑터, HTTP 서버 및 봇 상태
-
-새로운 부분에서는 봇이 사용자와 통신하고 응답을 보낼 수 있게 해주는 서버와 어댑터를 설정합니다. 서버는 **BotConfiguration.bot** 구성 파일의 지정된 포트에서 수신 대기하거나, 에뮬레이터와의 연결을 위해 _3978_로 폴백합니다. 어댑터는 봇의 지휘자 역할을 하며 들어오고 나가는 통신, 인증 등을 지시합니다.
-
-또한 `MemoryStorage`를 저장소 공급자로 사용하는 상태 개체를 만듭니다. 이 상태는 `ConversationState`로 정의됩니다. 이는 대화의 상태를 유지한다는 것을 의미합니다. `ConversationState`는 사용자가 관심 있어 하는 정보를 메모리에 저장합니다(이 경우에는 턴 카운터만 메모리에 저장됨).
+새로운 부분에서는 봇이 사용자와 통신하고 응답을 보낼 수 있게 해주는 서버와 어댑터를 설정합니다. 서버는 구성 파일의 지정된 포트에서 수신 대기하거나, 에뮬레이터와의 연결을 위해 _3978_로 폴백합니다. 어댑터는 봇의 지휘자 역할을 하며 들어오고 나가는 통신, 인증 등을 지시합니다.
 
 ```javascript
-// Create bot adapter.
-// See https://aka.ms/about-bot-adapter to learn more about bot adapter.
-const adapter = new BotFrameworkAdapter({
-    appId: endpointConfig.appId || process.env.microsoftAppID,
-    appPassword: endpointConfig.appPassword || process.env.microsoftAppPassword
+// Create HTTP server
+const server = restify.createServer();
+server.listen(process.env.port || process.env.PORT || 3978, () => {
+    console.log(`\n${ server.name } listening to ${ server.url }`);
+    console.log(`\nGet Bot Framework Emulator: https://aka.ms/botframework-emulator`);
+    console.log(`\nTo talk to your bot, open the emulator select "Open Bot"`);
 });
 
-// Catch-all for any unhandled errors in your bot.
+// Create adapter.
+// See https://aka.ms/about-bot-adapter to learn more about how bots work.
+const adapter = new BotFrameworkAdapter({
+    appId: process.env.MicrosoftAppId,
+    appPassword: process.env.MicrosoftAppPassword
+});
+
+// Catch-all for errors.
 adapter.onTurnError = async (context, error) => {
     // This check writes out errors to console log .vs. app insights.
     console.error(`\n [onTurnError]: ${ error }`);
     // Send a message to the user
-    context.sendActivity(`Oops. Something went wrong!`);
-    // Clear out state
-    await conversationState.clear(context);
-    // Save state changes.
-    await conversationState.saveChanges(context);
+    await context.sendActivity(`Oops. Something went wrong!`);
 };
 
-// Define a state store for your bot. See https://aka.ms/about-bot-state to learn more about using MemoryStorage.
-// A bot requires a state store to persist the dialog and user state between messages.
-let conversationState;
-
-// For local development, in-memory storage is used.
-// CAUTION: The Memory Storage used here is for local bot debugging only. When the bot
-// is restarted, anything stored in memory will be gone.
-const memoryStorage = new MemoryStorage();
-conversationState = new ConversationState(memoryStorage);
-
 // Create the main dialog.
-const bot = new EchoBot(conversationState);
-
-// Create HTTP server
-let server = restify.createServer();
-server.listen(process.env.port || process.env.PORT || 3978, function() {
-    console.log(`\n${ server.name } listening to ${ server.url }`);
-    console.log(`\nGet Bot Framework Emulator: https://aka.ms/botframework-emulator`);
-    console.log(`\nTo talk to your bot, open echoBot-with-counter.bot file in the Emulator`);
-});
+const myBot = new MyBot();
 ```
 
-#### <a name="bot-logic"></a>봇 논리
+#### <a name="forwarding-requests-to-the-bot-logic"></a>봇 논리로 요청 전달
 
 어댑터의 `processActivity`는 수신 활동을 봇 논리로 보냅니다.
-`processActivity` 내의 세 번째 매개 변수는 수신된 [활동](#the-activity-processing-stack)이 어댑터에 의해 사전 처리되고 모든 미들웨어를 통해 라우팅된 후 봇의 논리를 수행하기 위해 호출되는 함수 처리기입니다. 함수 처리기에 인수로 전달된 순서 컨텍스트 변수는 수신 활동, 보낸 사람 및 받는 사람, 채널, 대화 등에 대한 정보를 제공하는 데 사용될 수 있습니다. 활동 처리가 EchoBot의 `onTurn`으로 라우팅됩니다.
+`processActivity` 내의 세 번째 매개 변수는 수신된 [작업](#the-activity-processing-stack)이 어댑터에 의해 사전 처리되고 모든 미들웨어를 통해 라우팅된 후 봇의 논리를 수행하기 위해 호출되는 함수 처리기입니다. 함수 처리기에 인수로 전달된 순서 컨텍스트 변수는 수신 활동, 보낸 사람 및 받는 사람, 채널, 대화 등에 대한 정보를 제공하는 데 사용될 수 있습니다. 작업 처리가 봇의 `run` 메서드로 라우팅됩니다. `run`은 `ActivityHandler`에 정의되며, 몇 가지 오류 검사를 수행한 후, 수신된 작업 유형에 따라 봇의 이벤트 처리기를 호출합니다.
 
 ```javascript
 // Listen for incoming requests.
 server.post('/api/messages', (req, res) => {
-    // Route received request to adapter for processing
-    adapter.processActivity(req, res, (context) => {
+    adapter.processActivity(req, res, async (context) => {
         // Route to main dialog.
-        await bot.onTurn(context);
+        await myBot.run(context);
     });
 });
 ```
 
-### <a name="echobot"></a>EchoBot
-
-모든 활동 처리가 이 클래스의 `onTurn` 처리기로 라우팅됩니다. 클래스가 생성되면 상태 개체가 전달됩니다. 생성자는 이 상태 개체를 사용하여 이 봇의 순서 카운터를 보존하는 `this.countProperty` 접근자를 만듭니다.
-
-각 순서에서는 먼저 봇 메시지를 받았는지 확인합니다. 봇이 메시지를 받지 못하면 수신된 활동 유형을 다시 반환합니다. 다음으로, 봇 대화의 정보를 포함하는 상태 변수를 만듭니다. 카운트 변수가 `undefined`일 경우 1로 설정되거나(봇이 먼저 시작될 경우) 새 메시지가 있을 때마다 1씩 증분됩니다. 사용자에게 보낸 메시지와 함께 카운트를 다시 반환합니다. 마지막으로, 카운트를 설정하고 변경 내용을 상태에 저장합니다.
-
-```javascript
-const { ActivityTypes } = require('botbuilder');
-
-// Turn counter property
-const TURN_COUNTER_PROPERTY = 'turnCounterProperty';
-
-class EchoBot {
-
-    constructor(conversationState) {
-        // Creates a new state accessor property.
-        // See https://aka.ms/about-bot-state-accessors to learn more about the bot state and state accessors
-        this.countProperty = conversationState.createProperty(TURN_COUNTER_PROPERTY);
-        this.conversationState = conversationState;
-    }
-
-    async onTurn(turnContext) {
-        // Handle message activity type. User's responses via text or speech or card interactions flow back to the bot as Message activity.
-        // Message activities may contain text, speech, interactive cards, and binary or unknown attachments.
-        // see https://aka.ms/about-bot-activity-message to learn more about the message and other activity types
-        if (turnContext.activity.type === ActivityTypes.Message) {
-            // read from state.
-            let count = await this.countProperty.get(turnContext);
-            count = count === undefined ? 1 : ++count;
-            await turnContext.sendActivity(`${ count }: You said "${ turnContext.activity.text }"`);
-            // increment and set turn counter.
-            await this.countProperty.set(turnContext, count);
-        } else {
-            // Generic handler for all other activity types.
-            await turnContext.sendActivity(`[${ turnContext.activity.type } event detected]`);
-        }
-        // Save state changes
-        await this.conversationState.saveChanges(turnContext);
-    }
-}
-
-exports.EchoBot = EchoBot;
-```
-
 ---
 
-## <a name="the-bot-file"></a>봇 파일
+## <a name="manage-bot-resources"></a>봇 리소스 관리
 
-**.bot** 파일에는 엔드포인트, 앱 ID, 암호 및 봇에서 사용하는 서비스에 대한 참조를 비롯한 정보가 포함됩니다. 이 파일은 템플릿에서 봇을 빌드할 때 생성되지만 에뮬레이터 또는 다른 도구를 통해 직접 만들 수 있습니다. [에뮬레이터](../bot-service-debug-emulator.md)로 봇을 테스트할 때 사용할 .bot 파일을 지정할 수 있습니다.
-
-```json
-{
-    "name": "echobot-with-counter",
-    "services": [
-        {
-            "type": "endpoint",
-            "name": "development",
-            "endpoint": "http://localhost:3978/api/messages",
-            "appId": "",
-            "appPassword": "",
-            "id": "1"
-        }
-    ],
-    "padlock": "",
-    "version": "2.0"
-}
-```
+앱 ID, 암호, 연결된 서비스의 키 또는 비밀과 같은 봇 리소스는 적절히 관리해야 합니다. 이를 수행하는 방법에 대한 자세한 내용은 [봇 리소스 관리](bot-file-basics.md)를 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 
 - 봇 상태의 역할을 이해하려면 [상태 관리](bot-builder-concept-state.md)를 참조하세요.
-- 리소스를 관리할 때 .bot 파일이 수행하는 역할을 이해하려면 [.bot 파일을 사용하여 리소스 관리](bot-file-basics.md)를 참조하세요.
-- 첫 번째 봇을 만들려면 [Azure Bot Service 사용](../bot-service-quickstart.md), [C# 사용](../dotnet/bot-builder-dotnet-sdk-quickstart.md) 또는 [JavaScript 사용](../javascript/bot-builder-javascript-quickstart.md) 빠른 시작 중 하나를 참조하세요.

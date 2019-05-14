@@ -8,14 +8,14 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
-ms.date: 02/19/2019
+ms.date: 03/13/2019
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 19b96b860f0faa98a484f17f7814324a5f62f0eb
-ms.sourcegitcommit: aea57820b8a137047d59491b45320cf268043861
+ms.openlocfilehash: 0858cf73c1a744100c2f7106013fd963cff84454
+ms.sourcegitcommit: f84b56beecd41debe6baf056e98332f20b646bda
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59904936"
+ms.lasthandoff: 05/03/2019
+ms.locfileid: "65032534"
 ---
 # <a name="send-welcome-message-to-users"></a>사용자에게 환영 메시지 보내기
 
@@ -24,445 +24,140 @@ ms.locfileid: "59904936"
 봇을 만들 때 가장 중요한 목표는 사용자를 의미 있는 대화에 참여시키는 것입니다. 이 목표를 달성하는 가장 좋은 방법 중 하나는 사용자가 처음 연결하는 순간부터 봇의 주요 목적과 기능, 즉 봇이 만들어진 이유를 이해하는 것입니다. 이 문서에서는 봇의 사용자를 환영하는 데 유용한 코드 예제를 제공합니다.
 
 ## <a name="prerequisites"></a>필수 조건
-
 - [봇 기본 사항](bot-builder-basics.md)을 이해합니다. 
-- [C#](https://aka.ms/bot-welcome-sample-cs) 또는 [JS](https://aka.ms/bot-welcome-sample-js)의 **환영 사용자 샘플** 복사본입니다. 샘플의 코드는 환영 메시지를 보내는 방법을 설명하는 데 사용됩니다.
+- [C# 샘플](https://aka.ms/welcome-user-mvc) 또는 [JS 샘플](https://aka.ms/bot-welcome-sample-js)의 **환영 사용자 샘플** 복사본입니다. 샘플의 코드는 환영 메시지를 보내는 방법을 설명하는 데 사용됩니다.
 
-## <a name="same-welcome-for-different-channels"></a>다른 채널에서의 동일한 환영
+## <a name="about-this-sample-code"></a>이 샘플 코드 정보
+이 샘플 코드는 새로운 사용자가 봇에 처음 연결되었을 때 이를 감지하고 환영 메시지를 표시하는 방법을 보여줍니다. 다음 다이어그램은 이 봇의 논리적 흐름을 보여줍니다. 
 
-사용자가 봇과 처음으로 상호 작용할 때마다 환영 메시지가 생성되어야 합니다. 이를 위해 봇의 작업 형식을 모니터링하고 새 연결을 감시할 수 있습니다. 새 연결마다 채널에 따라 최대 두 개의 대화 업데이트 작업을 생성할 수 있습니다.
+### <a name="ctabcsharp"></a>[C#](#tab/csharp)
+봇에서 발생하는 두 가지 주요 이벤트는 다음과 같습니다.
+- `OnMembersAddedAsync` - 봇에 새 사용자가 연결될 때마다 호출됩니다.
+- `OnMessageActivityAsync` - 새 사용자 입력이 수신될 때마다 호출됩니다.
 
-- 하나는 사용자의 봇이 대화에 연결된 경우이며,
-- 또 하나는 사용자가 대화에 조인한 경우입니다.
+![사용자 환영 논리 흐름](media/welcome-user-flow.png)
 
-새 대화 업데이트가 감지될 때마다 환영 메시지를 생성하기 쉽지만, 다양한 채널에서 봇에 액세스할 때 예기치 않은 결과가 발생할 수 있습니다.
+새 사용자가 연결될 때마다 봇이 사용자에게 `WelcomeMessage`, `InfoMessage`, `PatternMessage`를 표시합니다. 새 사용자 입력이 수신되면 봇이 WelcomeUserState의 `DidBotWelcomeUser`가 _true_로 설정되어 있는지 확인합니다. 그렇지 않을 경우 초기 사용자 환영 메시지가 사용자에게 반환됩니다.
 
-일부 채널에서는 사용자가 해당 채널에 처음 연결할 때 하나의 대화 업데이트를 만들고, 사용자로부터 초기 입력 메시지를 받은 후에만 별도의 대화 업데이트를 만듭니다. 다른 채널에서는 사용자가 채널에 처음 연결할 때 이러한 활동을 모두 생성합니다. 대화 업데이트 이벤트를 보고 단순히 두 개의 대화 업데이트 활동이 있는 채널에 환영 메시지를 표시하기만 하면 사용자가 다음과 같은 메시지를 받을 수 있습니다.
+### <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+봇에서 발생하는 두 가지 주요 이벤트는 다음과 같습니다.
+- `onMembersAdded` - 봇에 새 사용자가 연결될 때마다 호출됩니다.
+- `onMessage` - 새 사용자 입력이 수신될 때마다 호출됩니다.
 
-![중복 환영 메시지](./media/double_welcome_message.png)
+![사용자 환영 논리 흐름](media/welcome-user-flow-js.png)
 
-이 중복 메시지는 두 번째 대화 업데이트 이벤트에 대해서만 초기 환영 메시지를 생성함으로써 방지할 수 있습니다. 두 번째 이벤트는 다음과 같은 경우에 모두 감지될 수 있습니다.
-
-- 대화 업데이트 이벤트가 발생했습니다.
-- 새 멤버(사용자)가 대화에 추가되었습니다.
-
-아래의 코드 샘플에서는 새 *대화 업데이트 작업*을 감시하고 대화에 참여하는 새 사용자마다 하나의 환영 메시지만 보냅니다. 봇의 첫 번째 _conversationUpdate_ 이벤트가 발생하면 봇 자체가 채널에 대한 _Recipient_(수신자) 작업으로 추가됩니다. 이 코드는 추가된 멤버가 Member == _turnContext.Activity.Recipient.Id_인지 확인합니다. true이면 초기 대화 업데이트 이벤트를 감지하고 새로 연결된 사용자를 찾는 코드를 건너뜁니다.
-
-[!INCLUDE [alert-await-send-activity](../includes/alert-await-send-activity.md)]
-
-## <a name="ctabcsharp"></a>[C#](#tab/csharp)
-
-C# 샘플 코드에서 **Startup.cs**는 'WelcomeUserStateAccessors'를 서비스/싱글톤으로 정의하고 'UserState'를 애플리케이션 상태에 추가합니다. 이제 이들을 사용하여 대화의 주어진 사용자 및 해당 접근자에 대한 상태 개체를 생성합니다.
-
-```csharp
-/// The state object is used to keep track of various state related to a user in a conversation.
-/// In this example, we are tracking if the bot has replied to customer first interaction.
-public class WelcomeUserState
-{
-    public bool DidBotWelcomeUser { get; set; } = false;
-}
-
-/// Initializes a new instance of the <see cref="WelcomeUserStateAccessors"/> class.
-public class WelcomeUserStateAccessors
-{
-    public WelcomeUserStateAccessors(UserState userState)
-    {
-        UserState = userState ?? throw new ArgumentNullException(nameof(userState));
-    }
-
-    public static string WelcomeUserName { get; } = $"{nameof(WelcomeUserStateAccessors)}.WelcomeUserState";
-
-    public IStatePropertyAccessor<WelcomeUserState> WelcomeUserState { get; set; }
-
-    public UserState UserState { get; }
-}
-```
-
-**WelcomeUserBot**에서 활동 업데이트를 확인하여 새 사용자가 대화에 추가되었는지 본 다음, 환영 메시지를 전송하면 됩니다.
-
-```csharp
-// Messages sent to the user.
-private const string WelcomeMessage = @"This is a simple Welcome Bot sample.This bot will introduce you
-                                        to welcoming and greeting users. You can say 'intro' to see the
-                                        introduction card. If you are running this bot in the Bot Framework
-                                        Emulator, press the 'Start Over' button to simulate user joining
-                                        a bot or a channel";
-
-private const string InfoMessage = @"You are seeing this message because the bot received at least one
-                                    'ConversationUpdate' event, indicating you (and possibly others)
-                                    joined the conversation. If you are using the emulator, pressing
-                                    the 'Start Over' button to trigger this event again. The specifics
-                                    of the 'ConversationUpdate' event depends on the channel. You can
-                                    read more information at:
-                                        https://aka.ms/about-botframework-welcome-user";
-
-private const string PatternMessage = @"It is a good pattern to use this event to send general greeting
-                                        to user, explaining what your bot can do. In this example, the bot
-                                        handles 'hello', 'hi', 'help' and 'intro. Try it now, type 'hi'";
-
-// The bot state accessor object. Use this to access specific state properties.
-private readonly WelcomeUserStateAccessors _welcomeUserStateAccessors;
-
-// Initializes a new instance of the <see cref="WelcomeUserBot"/> class.
-public WelcomeUserBot(WelcomeUserStateAccessors statePropertyAccessor)
-{
-    _welcomeUserStateAccessors = statePropertyAccessor ?? throw new System.ArgumentNullException("state accessor can't be null");
-}
-
-// Every conversation turn for our WelcomeUser Bot will call this method, including
-// any type of activities such as ConversationUpdate or ContactRelationUpdate which
-// are sent when a user joins a conversation.
-// This bot doesn't use any dialogs; it's "single turn" processing, meaning a single
-// request and response.
-// This bot uses UserState to keep track of first message a user sends.
-public async Task OnTurnAsync(ITurnContext turnContext, CancellationToken cancellationToken = new CancellationToken())
-{
-    // use state accessor to extract the didBotWelcomeUser flag
-    var didBotWelcomeUser = await _welcomeUserStateAccessors.WelcomeUserState.GetAsync(turnContext, () => new WelcomeUserState());
-
-    if (turnContext.Activity.Type == ActivityTypes.Message)
-    {
-        // Your bot should proactively send a welcome message to a personal chat the first time
-        // (and only the first time) a user initiates a personal chat with your bot.
-        if (didBotWelcomeUser.DidBotWelcomeUser == false)
-        {
-            didBotWelcomeUser.DidBotWelcomeUser = true;
-            // Update user state flag to reflect bot handled first user interaction.
-            await _welcomeUserStateAccessors.WelcomeUserState.SetAsync(turnContext, didBotWelcomeUser);
-            await _welcomeUserStateAccessors.UserState.SaveChangesAsync(turnContext);
-
-            // the channel should sends the user name in the 'From' object
-            var userName = turnContext.Activity.From.Name;
-
-            await turnContext.SendActivityAsync(
-                $"You are seeing this message because this was your first message ever to this bot.",
-                cancellationToken: cancellationToken);
-            await turnContext.SendActivityAsync(
-                $"It is a good practice to welcome the user and provide personal greeting. For example, welcome {userName}.",
-                cancellationToken: cancellationToken);
-        }
-    }
-
-    // Greet when users are added to the conversation.
-    else if (turnContext.Activity.Type == ActivityTypes.ConversationUpdate)
-    {
-        if (turnContext.Activity.MembersAdded != null)
-        {
-            // Iterate over all new members added to the conversation
-            foreach (var member in turnContext.Activity.MembersAdded)
-            {
-                // Greet anyone that was not the target (recipient) of this message
-                // the 'bot' is the recipient for events from the channel,
-                // turnContext.Activity.MembersAdded == turnContext.Activity.Recipient.Id indicates the
-                // bot was added to the conversation.
-                if (member.Id != turnContext.Activity.Recipient.Id)
-                {
-                    await turnContext.SendActivityAsync($"Hi there - {member.Name}. {WelcomeMessage}", cancellationToken: cancellationToken);
-                    await turnContext.SendActivityAsync(InfoMessage, cancellationToken: cancellationToken);
-                    await turnContext.SendActivityAsync(PatternMessage, cancellationToken: cancellationToken);
-                }
-            }
-        }
-    }
-    else
-    {
-        // Default behavior for all other type of activities.
-        await turnContext.SendActivityAsync($"{turnContext.Activity.Type} activity detected");
-    }
-
-    // save any state changes made to your state objects.
-    await _welcomeUserStateAccessors.UserState.SaveChangesAsync(turnContext);
-}
-```
-
-## <a name="javascripttabjs"></a>[JavaScript](#tab/js)
-
-이 JavaScript 코드는 사용자가 추가되면 환영 메시지를 보냅니다. 이는 대화 활동을 확인하고 대화에 새 멤버가 추가되었는지 확인하여 수행됩니다.
-
-```javascript
-// Copyright (c) Microsoft Corporation. All rights reserved.
-// Licensed under the MIT License.
-
-// Import required Bot Framework classes.
-const { ActivityTypes } = require('botbuilder');
-const { CardFactory } = require('botbuilder');
-
-// Adaptive Card content
-const IntroCard = require('./resources/IntroCard.json');
-
-// Welcomed User property name
-const WELCOMED_USER = 'welcomedUserProperty';
-
-class WelcomeBot {
-    /**
-     *
-     * @param {UserState} User state to persist boolean flag to indicate
-     *                    if the bot had already welcomed the user
-     */
-    constructor(userState) {
-        // Creates a new user property accessor.
-        // See https://aka.ms/about-bot-state-accessors to learn more about the bot state and state accessors.
-        this.welcomedUserProperty = userState.createProperty(WELCOMED_USER);
-
-        this.userState = userState;
-    }
-    /**
-     *
-     * @param {TurnContext} context on turn context object.
-     */
-    async onTurn(turnContext) {
-        // See https://aka.ms/about-bot-activity-message to learn more about the message and other activity types.
-        if (turnContext.activity.type === ActivityTypes.Message) {
-            // Read UserState. If the 'DidBotWelcomedUser' does not exist (first time ever for a user)
-            // set the default to false.
-            const didBotWelcomedUser = await this.welcomedUserProperty.get(turnContext, false);
-
-            // Your bot should proactively send a welcome message to a personal chat the first time
-            // (and only the first time) a user initiates a personal chat with your bot.
-            if (didBotWelcomedUser === false) {
-                // The channel should send the user name in the 'From' object
-                let userName = turnContext.activity.from.name;
-                await turnContext.sendActivity('You are seeing this message because this was your first message ever sent to this bot.');
-                await turnContext.sendActivity(`It is a good practice to welcome the user and provide personal greeting. For example, welcome ${ userName }.`);
-
-                // Set the flag indicating the bot handled the user's first message.
-                await this.welcomedUserProperty.set(turnContext, true);
-            } else {
-                // ...
-            }
-            // Save state changes
-            await this.userState.saveChanges(turnContext);
-        } else if (turnContext.activity.type === ActivityTypes.ConversationUpdate) {
-            // Send greeting when users are added to the conversation.
-            await this.sendWelcomeMessage(turnContext);
-        } else {
-            // Generic message for all other activities
-            await turnContext.sendActivity(`[${ turnContext.activity.type } event detected]`);
-        }
-    }
-
-    /**
-     * Sends welcome messages to conversation members when they join the conversation.
-     * Messages are only sent to conversation members who aren't the bot.
-     * @param {TurnContext} turnContext
-     */
-    async sendWelcomeMessage(turnContext) {
-        // Do we have any new members added to the conversation?
-        if (turnContext.activity.membersAdded.length !== 0) {
-            // Iterate over all new members added to the conversation
-            for (let idx in turnContext.activity.membersAdded) {
-                // Greet anyone that was not the target (recipient) of this message.
-                // Since the bot is the recipient for events from the channel,
-                // context.activity.membersAdded === context.activity.recipient.Id indicates the
-                // bot was added to the conversation, and the opposite indicates this is a user.
-                if (turnContext.activity.membersAdded[idx].id !== turnContext.activity.recipient.id) {
-                    await turnContext.sendActivity(`Welcome to the 'Welcome User' Bot. This bot will introduce you to welcoming and greeting users.`);
-                    await turnContext.sendActivity("You are seeing this message because the bot received at least one 'ConversationUpdate'" +
-                                            'event,indicating you (and possibly others) joined the conversation. If you are using the emulator, ' +
-                                            "pressing the 'Start Over' button to trigger this event again. The specifics of the 'ConversationUpdate' " +
-                                            'event depends on the channel. You can read more information at https://aka.ms/about-botframework-welcome-user');
-                    await turnContext.sendActivity(`It is a good pattern to use this event to send general greeting to user, explaining what your bot can do. ` +
-                                            `In this example, the bot handles 'hello', 'hi', 'help' and 'intro. ` +
-                                            `Try it now, type 'hi'`);
-                }
-            }
-        }
-    }
-}
-
-module.exports.WelcomeBot = WelcomeBot;
-```
+새 사용자가 연결될 때마다 봇이 사용자에게 `welcomeMessage`, `infoMessage`, `patternMessage`를 표시합니다. 새 사용자 입력이 수신되면 봇이 `welcomedUserProperty`의 `didBotWelcomeUser`가 _true_로 설정되어 있는지 확인합니다. 그렇지 않을 경우 초기 사용자 환영 메시지가 사용자에게 반환됩니다.
 
 ---
 
-## <a name="discard-initial-user-input"></a>초기 사용자 입력 취소
+ DidBotWelcomeUser가 _true_일 경우 사용자 입력이 평가됩니다. 이 봇은 사용자 입력의 내용에 따라 다음 중 하나를 수행합니다.
+- 사용자로부터 수신한 인사말을 그대로 출력합니다.
+- 봇에 대한 추가 정보를 제공하는 영웅 카드를 표시합니다.
+- 이 봇의 올바른 입력을 설명하는 `WelcomeMessage`를 다시 보냅니다.
 
-사용자 입력에 실제로 유용한 정보가 포함될 수 있는 시점을 고려하는 것도 중요하며, 이 또한 채널별로 다를 수 있습니다. 사용자가 모든 가능한 채널에 대해 우수한 환경을 갖출 수 있도록 _didBotWelcomeUser_ 상태 플래그를 확인하여 "false"인 경우 이 초기 사용자 입력을 처리하지 않습니다. 대신 사용자에게 응답에 대한 초기 프롬프트를 제공합니다. 그런 다음, _didBotWelcomeUser_ 변수가 "true"로 설정되고, 코드에서 모든 추가 메시지 작업의 사용자 입력을 처리합니다.
+## <a name="create-user-object"></a>사용자 개체 만들기
+### <a name="ctabcsharp"></a>[C#](#tab/csharp)
+사용자 상태 개체는 시작 시 만들어지며 종속성이 봇 생성자에 주입됩니다.
 
-## <a name="ctabcsharp"></a>[C#](#tab/csharp)
+**Startup.cs** [!code-csharp[ConfigureServices](~/../botBuilder-samples/samples/csharp_dotnetcore/03.welcome-user/Startup.cs?range=29-33)]
 
-```csharp
-public async Task OnTurnAsync(ITurnContext turnContext, CancellationToken cancellationToken = new CancellationToken())
-{
-    // use state accessor to extract the didBotWelcomeUser flag
-    var didBotWelcomeUser = await _welcomeUserStateAccessors.WelcomeUserState.GetAsync(turnContext, () => new WelcomeUserState());
+**WelcomeUserBot.cs** [!code-csharp[Class](~/../BotBuilder-Samples/samples/csharp_dotnetcore/03.welcome-user/bots/WelcomeUserBot.cs?range=41-47)]
 
-    if (turnContext.Activity.Type == ActivityTypes.Message)
-    {
-        if (didBotWelcomeUser.DidBotWelcomeUser == false)
-        {
-            // See previous code sample.
-        }
-        else
-        {
-            // This example hard-codes specific utterances. You should use LUIS or QnA for more advanced language understanding.
-            var text = turnContext.Activity.Text.ToLowerInvariant();
-            switch (text)
-            {
-                case "hello":
-                case "hi":
-                    await turnContext.SendActivityAsync($"You said {text}.", cancellationToken: cancellationToken);
-                    break;
-                case "intro":
-                case "help":
-                default:
-                    await turnContext.SendActivityAsync(WelcomeMessage, cancellationToken: cancellationToken);
-                    break;
-            }
-        }
-    }
+### <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+시작 시 메모리 스토리지 및 사용자 상태가 모두 index.js에 정의됩니다.
 
-    // Greet when users are added to the conversation.
-    // Note that all channels do not send the conversation update activity.
-    // If you find that this bot works in the emulator, but does not in
-    // another channel the reason is most likely that the channel does not
-    // send this activity.
-    else if (turnContext.Activity.Type == ActivityTypes.ConversationUpdate)
-    {
-        // See previous code sample.
-    }
-
-    // save any state changes made to your state objects.
-    await _welcomeUserStateAccessors.UserState.SaveChangesAsync(turnContext);
-}
-```
-
-## <a name="javascripttabjs"></a>[JavaScript](#tab/js)
-
-```javascript
-class MainDialog
-{
-    // Previous Code Sample
-    async onTurn(turnContext)
-    {
-        // See https://aka.ms/about-bot-activity-message to learn more about the message and other activity types.
-        if (turnContext.activity.type === ActivityTypes.Message) {
-            // Previous Code Sample
-            if (didBotWelcomeUser === false) {
-                // Previous Code Sample
-            } else  {
-                // This example uses an exact match on user's input utterance.
-                // Consider using LUIS or QnA for Natural Language Processing.
-                let text = turnContext.activity.text.toLowerCase();
-                switch (text) {
-                case 'hello':
-                case 'hi':
-                    await turnContext.sendActivity(`You said "${ turnContext.activity.text }"`);
-                    break;
-                case 'intro':
-                case 'help':
-                    await turnContext.sendActivity({
-                        text: 'Intro Adaptive Card',
-                        attachments: [CardFactory.adaptiveCard(IntroCard)]
-                    });
-                    break;
-                default :
-                    await turnContext.sendActivity(`This is a simple Welcome Bot sample. You can say 'intro' to
-                                                        see the introduction card. If you are running this bot in the Bot
-                                                        Framework Emulator, press the 'Start Over' button to simulate user joining a bot or a channel`);
-                }
-            }
-        }
-       // Previous Sample Code
-    }
-}
-```
+**Index.js** [!code-javascript[DefineUserState](~/../BotBuilder-Samples/samples/javascript_nodejs/03.welcome-users/Index.js?range=8-10,33-41)]
 
 ---
 
-## <a name="using-adaptive-card-greeting"></a>적응형 카드 인사말 사용
+## <a name="create-property-accessors"></a>속성 접근자 만들기
+### <a name="ctabcsharp"></a>[C#](#tab/csharp)
+이제 OnMessageActivityAsync 메서드 내에서 WelcomeUserState에 대한 핸들을 제공하는 속성 접근자를 만듭니다.
+그런 다음, GetAsync 메서드를 호출하여 올바르게 범위가 지정된 키를 가져옵니다. 그리고 `SaveChangesAsync` 메서드를 사용한 각 사용자 입력 반복 후 사용자 상태 데이터를 저장합니다.
 
-사용자에게 인사를 건네는 또 다른 방법은 적응형 카드 인사말을 사용하는 것입니다. 여기 [적응형 카드 보내기](./bot-builder-howto-add-media-attachments.md)에서 적응형 카드 인사말에 대해 자세히 알아볼 수 있습니다.
+**WelcomeUserBot.cs** [!code-csharp[OnMessageActivityAsync](~/../BotBuilder-Samples/samples/csharp_dotnetcore/03.welcome-user/bots/WelcomeUserBot.cs?range=68-71, 102-105)]
 
-## <a name="ctabcsharp"></a>[C#](#tab/csharp)
+### <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+이제 UserState 내에 지속되는 WelcomedUserProperty에 대한 핸들을 제공하는 속성 접근자를 만듭니다.
 
-```csharp
-// Sends an adaptive card greeting.
-private static async Task SendIntroCardAsync(ITurnContext turnContext, CancellationToken cancellationToken)
-{
-    var response = turnContext.Activity.CreateReply();
+**WelcomeBot.js** [!code-javascript[DefineUserState](~/../BotBuilder-Samples/samples/javascript_nodejs/03.welcome-users/bots/welcomebot.js?range=7-10,16-22)]
 
-    var card = new HeroCard();
-    card.Title = "Welcome to Bot Framework!";
-    card.Text = @"Welcome to Welcome Users bot sample! This Introduction card
-                    is a great way to introduce your Bot to the user and suggest
-                    some things to get them started. We use this opportunity to
-                    recommend a few next steps for learning more creating and deploying bots.";
-    card.Images = new List<CardImage>() { new CardImage("https://aka.ms/bf-welcome-card-image") };
-    card.Buttons = new List<CardAction>()
-    {
-        new CardAction(ActionTypes.OpenUrl,
-            "Get an overview", null, "Get an overview", "Get an overview",
-            "https://docs.microsoft.com/en-us/azure/bot-service/?view=azure-bot-service-4.0"),
-        new CardAction(ActionTypes.OpenUrl,
-            "Ask a question", null, "Ask a question", "Ask a question",
-            "https://stackoverflow.com/questions/tagged/botframework"),
-        new CardAction(ActionTypes.OpenUrl,
-            "Learn how to deploy", null, "Learn how to deploy", "Learn how to deploy",
-            "https://docs.microsoft.com/en-us/azure/bot-service/bot-builder-howto-deploy-azure?view=azure-bot-service-4.0"),
-    };
+---
 
-    response.Attachments = new List<Attachment>() { card.ToAttachment() };
-    await turnContext.SendActivityAsync(response, cancellationToken);
-}
-```
+## <a name="detect-and-greet-newly-connected-users"></a>새로 연결된 사용자 감지 및 인사말 표시
 
-다음으로, 다음 await 명령을 사용하여 카드를 보낼 수 있습니다. 봇 _switch (text) case "help"_ 에 배치해보겠습니다.
+### <a name="ctabcsharp"></a>[C#](#tab/csharp)
+**WelcomeUserBot**에서 `OnMembersAddedAsync()`를 통해 활동 업데이트를 확인하여 새 사용자가 대화에 추가되었는지 본 다음, 일련의 초기 환영 메시지 3개(`WelcomeMessage`, `InfoMessage`, `PatternMessage`)를 전송합니다. 이 상호 작용의 전체 코드는 다음과 같습니다.
 
-```csharp
-switch (text)
-{
-    case "hello":
-    case "hi":
-        await turnContext.SendActivityAsync($"You said {text}.", cancellationToken: cancellationToken);
-        break;
-    case "intro":
-    case "help":
-        await SendIntroCardAsync(turnContext, cancellationToken);
-        break;
-    default:
-        await turnContext.SendActivityAsync(WelcomeMessage, cancellationToken: cancellationToken);
-        break;
-}
-```
+**WelcomeUserBot.cs** [!code-csharp[WelcomeMessages](~/../BotBuilder-Samples/samples/csharp_dotnetcore/03.welcome-user/bots/WelcomeUserBot.cs?range=20-40, 55-66)]
 
-## <a name="javascripttabjs"></a>[JavaScript](#tab/js)
+### <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+이 JavaScript 코드는 사용자가 추가되면 초기 환영 메시지를 보냅니다. 이는 대화 활동을 확인하고 대화에 새 멤버가 추가되었는지 확인하는 방식으로 수행됩니다.
 
-먼저 가져오기 오른쪽 아래에 있는 _index.js_ 위에 있는 봇에 적응형 카드를 추가하려고 합니다.
+**WelcomeBot.js** [!code-javascript[DefineUserState](~/../BotBuilder-Samples/samples/javascript_nodejs/03.welcome-users/bots/welcomebot.js?range=65-87)]
 
-```javascript
-// Adaptive Card content
-const IntroCard = require('./Resources/IntroCard.json');
-```
+---
 
-다음으로 봇의 _switch (text)_ _case "help"_ 섹션에서 간단히 아래 코드를 사용하여 적응형 카드를 이용한 사용자 프롬프트에 응답할 수 있습니다.
+## <a name="welcome-new-user-and-discard-initial-input"></a>새 사용자를 환영하고 초기 입력 무시
 
-```javascript
-switch (text)
-{
-    case "hello":
-    case "hi":
-        await turnContext.sendActivity(`You said "${turnContext.activity.text}"`);
-        break;
-    case "intro":
-    case "help":
-        await turnContext.sendActivity({
-            text: 'Intro Adaptive Card',
-            attachments: [CardFactory.adaptiveCard(IntroCard)]
-        });
-        break;
-    default :
-        await turnContext.sendActivity(`This is a simple Welcome Bot sample. You can say 'intro' to 
-                                        see the introduction card. If you are running this bot in the Bot 
-                                        Framework Emulator, press the 'Start Over' button to simulate user joining a bot or a channel`);
-}
-```
+### <a name="ctabcsharp"></a>[C#](#tab/csharp)
+사용자 입력에 실제로 유용한 정보가 포함될 수 있는 시점을 고려하는 것도 중요하며, 이 또한 채널별로 다를 수 있습니다. 사용자가 모든 가능한 채널에 대해 우수한 환경을 갖출 수 있도록 _didBotWelcomeUser_ 상태 플래그를 확인하여 "false"인 경우 이 초기 사용자 입력을 처리하지 않습니다. 대신 사용자에게 초기 환영 메시지를 제공합니다. 그런 다음, _welcomedUserProperty_ 부울이 "true"로 설정되고, UserState에 저장되며, 이제 코드에서 모든 추가 메시지 작업의 이 사용자 입력을 처리합니다.
+
+**WelcomeUserBot.cs** [!code-csharp[DidBotWelcomeUser](~/../BotBuilder-Samples/samples/csharp_dotnetcore/03.welcome-user/bots/WelcomeUserBot.cs?range=68-82)]
+
+### <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+사용자 입력에 실제로 유용한 정보가 포함될 수 있는 시점을 고려하는 것도 중요하며, 이 또한 채널별로 다를 수 있습니다. 사용자가 모든 가능한 채널에서 높은 만족도를 느낄 수 있도록 didBotWelcomedUser 속성을 확인하여 이 속성이 없는 경우 "false"로 설정하고 이 초기 사용자 입력을 처리하지 않습니다. 대신 사용자에게 초기 환영 메시지를 제공합니다. 그런 다음, _didBotWelcomeUser_ 부울이 "true"로 설정되고, 코드에서 모든 추가 메시지 작업의 사용자 입력을 처리합니다.
+
+**WelcomeBot.js** [!code-javascript[DidBotWelcomeUser](~/../BotBuilder-Samples/samples/javascript_nodejs/03.welcome-users/bots/welcomebot.js?range=24-38,57-59,63)]
+
+---
+
+## <a name="process-additional-input"></a>추가 입력 처리
+
+새 사용자에게 환영 메시지가 표시된 후에는 각 메시지 순서의 사용자 입력 정보가 평가되고, 봇이 해당 사용자 입력의 컨텍스트에 따라 응답을 제공합니다. 다음 코드는 해당 응답을 생성하는 데 사용되는 결정 논리를 보여줍니다. 
+
+### <a name="ctabcsharp"></a>[C#](#tab/csharp)
+'intro' 또는 'help'를 입력하면 `SendIntroCardAsync` 함수가 호출되고 사용자에게 정보 제공용 영웅 카드가 제공됩니다. 해당 코드는 이 문서의 다음 섹션에 나옵니다.
+
+**WelcomeUserBot.cs** [!code-csharp[SwitchOnUtterance](~/../BotBuilder-Samples/samples/csharp_dotnetcore/03.welcome-user/bots/WelcomeUserBot.cs?range=85-100)]
+
+### <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+'intro' 또는 'help'를 입력하면 CardFactory가 사용되고 사용자에게 시작 적응형 카드가 제공됩니다. 해당 코드는 이 문서의 다음 섹션에 나옵니다.
+
+**WelcomeBot.js** [!code-javascript[SwitchOnUtterance](~/../BotBuilder-Samples/samples/javascript_nodejs/03.welcome-users/bots/welcomebot.js?range=40-56)]
+
+---
+
+## <a name="using-hero-card-greeting"></a>영웅 카드 인사말 사용
+
+앞서 말했듯이, 일부 사용자 입력은 요청에 대한 응답으로 _영웅 카드_를 생성합니다. [시작 카드 보내기](./bot-builder-howto-add-media-attachments.md)에서 영웅 카드 인사말에 대해 자세히 알아볼 수 있습니다. 이 봇의 영웅 카드 응답을 만드는 데 필요한 코드는 다음과 같습니다.
+
+### <a name="ctabcsharp"></a>[C#](#tab/csharp)
+
+**WelcomeUserBot.cs** [!code-csharp[SendHeroCardGreeting](~/../BotBuilder-Samples/samples/csharp_dotnetcore/03.welcome-user/bots/WelcomeUserBot.cs?range=107-127)]
+
+### <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+**WelcomeBot.js** [!code-javascript[SendIntroCard](~/../BotBuilder-Samples/samples/javascript_nodejs/03.welcome-users/bots/welcomebot.js?range=91-116)]
 
 ---
 
 ## <a name="test-the-bot"></a>봇 테스트
 
-봇 실행 및 테스트에 대한 지침은 [README](https://aka.ms/bot-welcome-sample-cs) 파일을 참조하세요.
+최신 [Bot Framework Emulator](https://aka.ms/bot-framework-emulator-readme)를 다운로드하고 설치합니다.
+
+1. 샘플을 머신에서 로컬로 실행합니다. 지침이 필요한 경우 [C# 샘플](https://aka.ms/welcome-user-mvc) 또는 [JS 샘플](https://aka.ms/bot-welcome-sample-js)에 대한 추가 정보 파일을 참조하세요.
+1. 아래와 같이 에뮬레이터를 사용하여 봇을 테스트합니다.
+
+![환영 봇 샘플 테스트](media/welcome-user-emulator-1.png)
+
+영웅 카드 인사말을 테스트합니다.
+
+![환영 봇 카드 테스트](media/welcome-user-emulator-2.png)
+
+## <a name="additional-resources"></a>추가 리소스
+
+[메시지에 미디어 추가](./bot-builder-howto-add-media-attachments.md)에서 다양한 미디어 응답에 대해 자세히 알아봅니다.
 
 ## <a name="next-steps"></a>다음 단계
 

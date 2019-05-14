@@ -11,561 +11,193 @@ ms.subservice: sdk
 ms.date: 04/18/2019
 ms.reviewer: ''
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 9089334823c1c57c8ace48531c767c3f966b3355
-ms.sourcegitcommit: aea57820b8a137047d59491b45320cf268043861
+ms.openlocfilehash: bd8682966dbb2e33a536a72a4016ef23e9c1fc75
+ms.sourcegitcommit: f84b56beecd41debe6baf056e98332f20b646bda
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59905016"
+ms.lasthandoff: 05/03/2019
+ms.locfileid: "65032623"
 ---
 # <a name="handle-user-interruptions"></a>사용자 중단 처리
 
 [!INCLUDE[applies-to](../includes/applies-to.md)]
 
-중단을 처리하는 작업은 강력한 봇의 중요한 측면입니다.
+중단을 처리하는 작업은 강력한 봇의 중요한 측면입니다. 사용자가 항상 정의된 대화 흐름을 단계별로 따르는 것은 아닙니다. 사용자가 프로세스 중간에 질문을 하거나 프로세스를 완료하지 않고 취소하려는 경우가 있을 수 있습니다. 이 항목에서는 봇에서 사용자 중단을 처리하는 몇 가지 방법을 살펴봅니다.
 
-사용자가 정의된 대화 흐름을 단계별로 따를 것이라고 생각할 수 있지만 마음을 바꾸거나, 질문에 답변하는 대신 프로세스 중간에 질문을 던질 가능성이 얼마든지 있습니다. 이러한 상황이라면 봇은 사용자 입력을 어떻게 처리할까요? 사용자 환경은 어떻게 될까요? 사용자 상태 데이터는 어떻게 유지할 수 있나요? 중단을 처리하는 작업은 봇이 다음과 같은 상황을 처리하도록 준비하는 것입니다.
+## <a name="prerequisites"></a>필수 조건
 
-각 상황이 봇이 처리하도록 디자인된 시나리오에 고유하므로 이러한 질문에 대한 정답은 없습니다. 이 항목에서는 사용자 중단을 처리하는 몇 가지 일반적인 방법을 알아보고 봇에서 중단 처리를 구현하는 몇 가지 방법을 제안합니다.
+- [봇 기본 사항][concept-basics], [상태 관리][concept-state], [대화 라이브러리][concept-dialogs] 및 [대화 재사용][component-dialogs] 방법에 대한 지식
+- [**CSharp**][cs-sample] 또는 [**JavaScript**][js-sample]로 작성된 샘플의 복사본
 
-## <a name="handle-expected-interruptions"></a>예상된 중단 처리
+## <a name="about-this-sample"></a>이 샘플 정보
 
-절차적 대화 흐름에는 사용자를 안내하려는 핵심적인 단계 집합이 있으며 이러한 단계를 벗어하는 사용자 작업은 중단을 가져올 수 있습니다. 일반적인 흐름에는 예상할 수 있는 중단이 있습니다.
+이 문서에 사용된 샘플은 대화를 통해 사용자의 항공편 정보를 확인하는 항공편 예약 봇을 모델링합니다. 사용자는 봇과 대화 중에 언제든지 _help_ 또는 _cancel_ 명령을 실행하여 대화를 중단할 수 있습니다. 여기서 처리하는 대화 유형은 두 가지가 있습니다.
 
-**테이블 예약** 테이블 예약 봇에서 핵심 단계는 사용자에게 날짜와 시간, 파티 규모 및 예약 이름을 물어보는 것일 수 있습니다. 해당 프로세스에서 예상할 수 있는 몇 가지 예상되는 중단에는 다음이 포함될 수 있습니다.
+- **순서 수준**: 순서 수준에서 처리를 무시하되, 스택의 대화에 제공된 정보를 남겨놓습니다. 다음 순서에 중단된 부분부터 계속합니다. 
+- **대화 수준**: 봇이 완전히 다시 시작될 수 있도록 처리를 완전히 취소합니다.
 
-* `cancel`: 프로세스를 종료합니다.
-* `help`: 이 프로세스에 대한 추가 지침을 제공합니다.
-* `more info`: 힌트 및 제안을 제공하거나 테이블을 예약하는 다른 방법(예: 연락할 이메일 주소 또는 전화 번호)을 제공합니다.
-* `show list of available tables`: 옵션으로 제공되는 경우 사용자가 원하는 날짜 및 시간에 사용 가능한 테이블 목록이 표시됩니다.
+## <a name="define-and-implement-the-interruption-logic"></a>중단 논리 정의 및 구현
 
-**저녁 주문** 저녁 주문 봇에서 핵심 단계는 메뉴 항목 목록을 제공하고 사용자가 장바구니에 항목을 추가할 수 있도록 하는 것입니다. 이 프로세스에서 예상할 수 있는 몇 가지 예상되는 중단에는 다음이 포함될 수 있습니다.
+먼저 _help_ 및 _cancel_ 중단을 정의하고 구현합니다.
 
-* `cancel`: 주문 프로세스를 종료합니다.
-* `more info`: 각 메뉴 항목에 대한 음식 세부 정보를 제공합니다.
-* `help`: 시스템 사용 방법에 대한 도움말을 제공합니다.
-* `process order`: 주문을 처리합니다.
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
-사용자가 보낼 수 있는 봇 인식 가능 명령을 적어도 알 수 있도록 이러한 내용은 **제안된 작업** 목록 또는 힌트로 제공할 수 있습니다.
+대화를 사용하려면 **Microsoft.Bot.Builder.Dialogs** NuGet 패키지를 설치합니다.
 
-예를 들어 저녁 주문 흐름에서 메뉴 항목과 함께 예상되는 중단을 제공할 수 있습니다. 이 경우 메뉴 항목은 `choices`의 배열로 전송됩니다.
+**Dialogs\CancelAndHelpDialog.cs**
 
-# <a name="ctabcsharptab"></a>[C#](#tab/csharptab)
+먼저 사용자 중단을 처리하는 `CancelAndHelpDialog` 클래스를 구현합니다.
 
-**DialogSet**의 하위 클래스로 설정된 대화 상자를 정의하겠습니다.
+[!code-csharp[Class signature](~/../botbuilder-samples/samples/csharp_dotnetcore/13.core-bot/Dialogs/CancelAndHelpDialog.cs?range=11)]
 
-```csharp
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.Bot.Builder;
-using Microsoft.Bot.Builder.Dialogs;
-using Microsoft.Bot.Builder.Dialogs.Choices;
+`CancelAndHelpDialog` 클래스에서 `OnBeginDialogAsync` 및 `OnContinueDialogAsync` 메서드는 `InerruptAsync` 메서드를 호출하여 사용자가 정상적인 흐름을 중단했는지 여부를 확인합니다. 흐름이 중단된 경우 기본 클래스 메서드가 호출되며, 그렇지 않은 경우에는 `InterruptAsync`의 반환 값이 반환됩니다.
 
-public class OrderDinnerDialogs : DialogSet
-{
-    public OrderDinnerDialogs(IStatePropertyAccessor<DialogState> dialogStateAccessor)
-        : base(dialogStateAccessor)
-    {
-    }
-}
-```
+[!code-csharp[Overrides](~/../botbuilder-samples/samples/csharp_dotnetcore/13.core-bot/Dialogs/CancelAndHelpDialog.cs?range=18-27)]
 
-메뉴를 설명하는 몇 가지 내부 클래스를 정의하겠습니다.
+사용자가 "help"를 입력하면 `InterrupAsync` 메서드가 메시지를 보낸 후 `DialogTurnResult (DialogTurnStatus.Waiting)`를 호출하여 맨 위에 있는 대화가 사용자의 응답을 기다리고 있음을 나타냅니다. 이러한 방식으로 대화 흐름이 한 순서 동안만 중단되고, 다음 순서에는 중단된 부분부터 계속됩니다.
 
-```cs
-/// <summary>
-/// Contains information about an item on the menu.
-/// </summary>
-public class DinnerItem
-{
-    public string Description { get; set; }
+사용자가 "cancel"을 입력하면 내부 대화 컨텍스트의 `CancelAllDialogsAsync`가 호출되어 대화 스택이 삭제되며 취소된 상태로 아무런 결과 값 없이 종료됩니다. 뒷부분에 표시되는 `MainDialog`에는 사용자가 예약을 확인하지 않도록 선택한 경우와 마찬가지로 예약 대화가 종료되고 null이 반환된 것으로 나타납니다.
 
-    public double Price { get; set; }
-}
+[!code-csharp[Interrupt](~/../botbuilder-samples/samples/csharp_dotnetcore/13.core-bot/Dialogs/CancelAndHelpDialog.cs?range=40-61&highlight=11-12,16-17)]
 
-/// <summary>
-/// Describes the dinner menu, including the items on the menu and options for
-/// interrupting the ordering process.
-/// </summary>
-public class DinnerMenu
-{
-    /// <summary>Gets the items on the menu.</summary>
-    public static Dictionary<string, DinnerItem> MenuItems { get; } = new Dictionary<string, DinnerItem>
-    {
-        ["Potato salad"] = new DinnerItem { Description = "Potato Salad", Price = 5.99 },
-        ["Tuna sandwich"] = new DinnerItem { Description = "Tuna Sandwich", Price = 6.89 },
-        ["Clam chowder"] = new DinnerItem { Description = "Clam Chowder", Price = 4.50 },
-    };
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
-    /// <summary>Gets all the "interruptions" the bot knows how to process.</summary>
-    public static List<string> Interrupts { get; } = new List<string>
-    {
-        "More info", "Process order", "Help", "Cancel",
-    };
+대화를 사용하려면 **botbuilder-dialogs** npm 패키지를 설치하세요.
 
-    /// <summary>Gets all of the valid inputs a user can make.</summary>
-    public static List<string> Choices { get; }
-        = MenuItems.Select(c => c.Key).Concat(Interrupts).ToList();
-}
-```
+**dialogs/cancelAndHelpDialog.js**
 
-# <a name="javascripttabjstab"></a>[JavaScript](#tab/jstab)
+먼저 사용자 중단을 처리하는 `CancelAndHelpDialog` 클래스를 구현합니다.
 
-기본 EchoBot 템플릿에서 시작하겠습니다. 지침은 [JavaScript용 빠른 시작](~/javascript/bot-builder-javascript-quickstart.md)을 참조하세요.
+[!code-javascript[Class signature](~/../botbuilder-samples/samples/javascript_nodejs/13.core-bot/dialogs/cancelAndHelpDialog.js?range=10)]
 
-`botbuilder-dialogs` 라이브러리는 NPM에서 다운로드할 수 있습니다. `botbuilder-dialogs` 라이브러리를 설치하려면 다음 npm 명령을 실행합니다.
+`CancelAndHelpDialog` 클래스에서 `onBeginDialog` 및 `onContinueDialog` 메서드는 `interrupt` 메서드를 호출하여 사용자가 정상적인 흐름을 중단했는지 여부를 확인합니다. 흐름이 중단된 경우 기본 클래스 메서드가 호출되며, 그렇지 않은 경우에는 `interrupt`의 반환 값이 반환됩니다.
 
-```cmd
-npm install --save botbuilder-dialogs
-```
+[!code-javascript[Overrides](~/../botbuilder-samples/samples/javascript_nodejs/13.core-bot/dialogs/cancelAndHelpDialog.js?range=11-25)]
 
-**bot.js** 파일에서 참조할 클래스를 참조하고 대화 상자에 사용할 식별자를 정의하겠습니다.
+사용자가 "help"를 입력하면 `interrupt` 메서드가 메시지를 보낸 후 `{ status: DialogTurnStatus.waiting }` 개체를 반환하여 맨 위에 있는 대화가 사용자의 응답을 기다리고 있음을 나타냅니다. 이러한 방식으로 대화 흐름이 한 순서 동안만 중단되고, 다음 순서에는 중단된 부분부터 계속됩니다.
 
-```javascript
-const { ActivityTypes } = require('botbuilder');
-const { DialogSet, ChoicePrompt, WaterfallDialog, DialogTurnStatus } = require('botbuilder-dialogs');
+사용자가 "cancel"을 입력하면 내부 대화 컨텍스트의 `cancelAllDialogs`가 호출되어 대화 스택이 삭제되며 취소된 상태로 아무런 결과 값 없이 종료됩니다. 뒷부분에 표시되는 `MainDialog`에는 사용자가 예약을 확인하지 않도록 선택한 경우와 마찬가지로 예약 대화가 종료되고 null이 반환된 것으로 나타납니다.
 
-// Name for the dialog state property accessor.
-const DIALOG_STATE_PROPERTY = 'dialogStateProperty';
-
-// Name of the order-prompt dialog.
-const ORDER_PROMPT = 'orderingDialog';
-
-// Name for the choice prompt for use in the dialog.
-const CHOICE_PROMPT = 'choicePrompt';
-```
-
-순서 지정 대화 상자에 표시할 옵션을 정의합니다.
-
-```javascript
-// The options on the dinner menu, including commands for the bot.
-const dinnerMenu = {
-    choices: ["Potato Salad - $5.99", "Tuna Sandwich - $6.89", "Clam Chowder - $4.50",
-        "Process order", "Cancel", "More info", "Help"],
-    "Potato Salad - $5.99": {
-        description: "Potato Salad",
-        price: 5.99
-    },
-    "Tuna Sandwich - $6.89": {
-        description: "Tuna Sandwich",
-        price: 6.89
-    },
-    "Clam Chowder - $4.50": {
-        description: "Clam Chowder",
-        price: 4.50
-    }
-}
-```
+[!code-javascript[Interrupt](~/../botbuilder-samples/samples/javascript_nodejs/13.core-bot/dialogs/cancelAndHelpDialog.js?range=27-40&highlight=7-8,11-12)]
 
 ---
 
-주문 논리에서 문자열 일치 또는 정규식을 사용하여 이러한 메뉴 항목을 확인할 수 있습니다.
+## <a name="check-for-interruptions-each-turn"></a>각 순서의 중단 확인
 
-# <a name="ctabcsharptab"></a>[C#](#tab/csharptab)
+중단 처리 클래스의 작동 방식을 살펴보았으므로 본론으로 돌아가서 봇이 사용자로부터 새 메시지를 수신하면 어떤 일이 일어나는지 살펴보도록 하겠습니다.
 
-먼저 주문을 추적하는 도우미를 정의해야 합니다.
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
-```cs
-/// <summary>Helper class for storing the order.</summary>
-public class Order
-{
-    public double Total { get; set; } = 0.0;
+**Dialogs\MainDialog.cs**
 
-    public List<DinnerItem> Items { get; set; } = new List<DinnerItem>();
+새 메시지 작업이 도착하면 봇이 `MainDialog`를 실행합니다. `MainDialog`가 사용자에게 어떤 도움이 필요한지 묻는 메시지를 표시합니다. 그런 다음, 아래 표시된 것처럼 `BeginDialogAsync`를 호출하여 `MainDialog.ActStepAsync` 메서드에서 `BookingDialog`를 시작합니다.
 
-    public bool ReadyToProcess { get; set; } = false;
+[!code-csharp[ActStepAsync](~/../botbuilder-samples/samples/csharp_dotnetcore/13.core-bot/Dialogs/MainDialog.cs?range=54-68&highlight=13-14)]
 
-    public bool OrderProcessed { get; set; } = false;
-}
-```
+다음으로, `MainDialog` 클래스의 `FinalStepAsync` 메서드에서 예약 대화가 종료되고, 예약이 완료되거나 취소된 것으로 간주됩니다.
 
-필요한 ID를 추적하는 일부 상수를 추가합니다.
+[!code-csharp[FinalStepAsync](~/../botbuilder-samples/samples/csharp_dotnetcore/13.core-bot/Dialogs/MainDialog.cs?range=70-91)]
 
-```csharp
-/// <summary>The ID of the top-level dialog.</summary>
-public const string MainDialogId = "mainMenu";
+`BookingDialog`의 코드는 중단 처리와 직접적인 관련이 없으므로 여기에 표시하지 않았습니다. 이는 사용자에게 예약 세부 정보를 묻는 데 사용됩니다. 이 코드는 **Dialogs\BookingDialogs.cs**에서 확인할 수 있습니다.
 
-/// <summary>The ID of the choice prompt.</summary>
-public const string ChoicePromptId = "choicePrompt";
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
-/// <summary>The ID of the order card value, tracked inside the dialog.</summary>
-public const string OrderCartId = "orderCart";
-```
+**dialogs/mainDialog.js**
 
-선택 프롬프트 및 폭포 대화 상자를 추가하는 생성자를 업데이트합니다. 또한 폭포 단계를 구현하는 방법을 정의하겠습니다.
+새 메시지 작업이 도착하면 봇이 `MainDialog`를 실행합니다. `MainDialog`가 사용자에게 어떤 도움이 필요한지 묻는 메시지를 표시합니다. 그런 다음, 아래 표시된 것처럼 `beginDialog`를 호출하여 `MainDialog.actStep` 메서드에서 `bookingDialog`를 시작합니다.
 
-```cs
-public OrderDinnerDialogs(IStatePropertyAccessor<DialogState> dialogStateAccessor)
-    : base(dialogStateAccessor)
-{
-    // Add a choice prompt for the dialog.
-    Add(new ChoicePrompt(ChoicePromptId));
+[!code-javascript[Act step](~/../botbuilder-samples/samples/javascript_nodejs/13.core-bot/dialogs/mainDialog.js?range=71-88&highlight=16-17)]
 
-    // Define and add the main waterfall dialog.
-    WaterfallStep[] steps = new WaterfallStep[]
-    {
-        PromptUserAsync,
-        ProcessInputAsync,
-    };
+다음으로, `MainDialog` 클래스의 `finalStep` 메서드에서 예약 대화가 종료되고, 예약이 완료되거나 취소된 것으로 간주됩니다.
 
-    Add(new WaterfallDialog(MainDialogId, steps));
-}
+[!code-javascript[Final step](~/../botbuilder-samples/samples/javascript_nodejs/13.core-bot/dialogs/mainDialog.js?range=93-110)]
 
-/// <summary>
-/// Defines the first step of the main dialog, which is to ask for input from the user.
-/// </summary>
-/// <param name="stepContext">The current waterfall step context.</param>
-/// <param name="cancellationToken">The cancellation token.</param>
-/// <returns>The task to perform.</returns>
-private async Task<DialogTurnResult> PromptUserAsync(WaterfallStepContext stepContext, CancellationToken cancellationToken)
-{
-    // Initialize order, continuing any order that was passed in.
-    Order order = (stepContext.Options is Order oldCart && oldCart != null)
-        ? new Order
-        {
-            Items = new List<DinnerItem>(oldCart.Items),
-            Total = oldCart.Total,
-            ReadyToProcess = oldCart.ReadyToProcess,
-            OrderProcessed = oldCart.OrderProcessed,
-        }
-        : new Order();
-
-    // Set the order cart in dialog state.
-    stepContext.Values[OrderCartId] = order;
-
-    // Prompt the user.
-    return await stepContext.PromptAsync(
-        "choicePrompt",
-        new PromptOptions
-        {
-            Prompt = MessageFactory.Text("What would you like for dinner?"),
-            RetryPrompt = MessageFactory.Text(
-                "I'm sorry, I didn't understand that. What would you like for dinner?"),
-            Choices = ChoiceFactory.ToChoices(DinnerMenu.Choices),
-        },
-        cancellationToken);
-}
-
-/// <summary>
-/// Defines the second step of the main dialog, which is to process the user's input, and
-/// repeat or exit as appropriate.
-/// </summary>
-/// <param name="stepContext">The current waterfall step context.</param>
-/// <param name="cancellationToken">The cancellation token.</param>
-/// <returns>The task to perform.</returns>
-private async Task<DialogTurnResult> ProcessInputAsync(WaterfallStepContext stepContext, CancellationToken cancellationToken)
-{
-    // Get the order cart from dialog state.
-    Order order = stepContext.Values[OrderCartId] as Order;
-
-    // Get the user's choice from the previous prompt.
-    string response = (stepContext.Result as FoundChoice).Value;
-
-    if (response.Equals("process order", StringComparison.InvariantCultureIgnoreCase))
-    {
-        order.ReadyToProcess = true;
-
-        await stepContext.Context.SendActivityAsync(
-            "Your order is on it's way!",
-            cancellationToken: cancellationToken);
-
-        // In production, you may want to store something more helpful.
-        // "Process" the order and exit.
-        order.OrderProcessed = true;
-        return await stepContext.EndDialogAsync(null, cancellationToken);
-    }
-    else if (response.Equals("cancel", StringComparison.InvariantCultureIgnoreCase))
-    {
-        // Cancel the order.
-        await stepContext.Context.SendActivityAsync(
-            "Your order has been canceled",
-            cancellationToken: cancellationToken);
-
-        // Exit without processing the order.
-        return await stepContext.EndDialogAsync(null, cancellationToken);
-    }
-    else if (response.Equals("more info", StringComparison.InvariantCultureIgnoreCase))
-    {
-        // Send more information about the options.
-        string message = "More info: <br/>" +
-            "Potato Salad: contains 330 calories per serving. Cost: 5.99 <br/>"
-            + "Tuna Sandwich: contains 700 calories per serving. Cost: 6.89 <br/>"
-            + "Clam Chowder: contains 650 calories per serving. Cost: 4.50";
-        await stepContext.Context.SendActivityAsync(
-            message,
-            cancellationToken: cancellationToken);
-
-        // Continue the ordering process, passing in the current order cart.
-        return await stepContext.ReplaceDialogAsync(MainDialogId, order, cancellationToken);
-    }
-    else if (response.Equals("help", StringComparison.InvariantCultureIgnoreCase))
-    {
-        // Provide help information.
-        string message = "To make an order, add as many items to your cart as " +
-            "you like. Choose the `Process order` to check out. " +
-            "Choose `Cancel` to cancel your order and exit.";
-        await stepContext.Context.SendActivityAsync(
-            message,
-            cancellationToken: cancellationToken);
-
-        // Continue the ordering process, passing in the current order cart.
-        return await stepContext.ReplaceDialogAsync(MainDialogId, order, cancellationToken);
-    }
-
-    // We've checked for expected interruptions. Check for a valid item choice.
-    if (!DinnerMenu.MenuItems.ContainsKey(response))
-    {
-        await stepContext.Context.SendActivityAsync("Sorry, that is not a valid item. " +
-            "Please pick one from the menu.");
-
-        // Continue the ordering process, passing in the current order cart.
-        return await stepContext.ReplaceDialogAsync(MainDialogId, order, cancellationToken);
-    }
-    else
-    {
-        // Add the item to cart.
-        DinnerItem item = DinnerMenu.MenuItems[response];
-        order.Items.Add(item);
-        order.Total += item.Price;
-
-        // Acknowledge the input.
-        await stepContext.Context.SendActivityAsync(
-            $"Added `{response}` to your order; your total is ${order.Total:0.00}.",
-            cancellationToken: cancellationToken);
-
-        // Continue the ordering process, passing in the current order cart.
-        return await stepContext.ReplaceDialogAsync(MainDialogId, order, cancellationToken);
-    }
-}
-```
-
-# <a name="javascripttabjstab"></a>[JavaScript](#tab/jstab)
-
-봇 생성자에서 대화 상자를 정의합니다. 코드는 _먼저_ 중단을 확인하고 처리한 다음, 다음 논리적 단계를 진행합니다.
-
-```javascript
-constructor(conversationState) {
-    this.dialogStateAccessor = conversationState.createProperty(DIALOG_STATE_PROPERTY);
-    this.conversationState = conversationState;
-
-    this.dialogs = new DialogSet(this.dialogStateAccessor)
-        .add(new ChoicePrompt(CHOICE_PROMPT))
-        .add(new WaterfallDialog(ORDER_PROMPT, [
-            async (step) => {
-                if (step.options && step.options.orders) {
-                    // If an order cart was passed in, continue to use it.
-                    step.values.orderCart = step.options;
-                } else {
-                    // Otherwise, start a new cart.
-                    step.values.orderCart = {
-                        orders: [],
-                        total: 0
-                    };
-                }
-                return await step.prompt(CHOICE_PROMPT, "What would you like?", dinnerMenu.choices);
-            },
-            async (step) => {
-                const choice = step.result;
-                if (choice.value.match(/process order/ig)) {
-                    if (step.values.orderCart.orders.length > 0) {
-                        // If the cart is not empty, process the order by returning the order to the parent context.
-                        await step.context.sendActivity("Your order has been processed.");
-                        return await step.endDialog(step.values.orderCart);
-                    } else {
-                        // Otherwise, prompt again.
-                        await step.context.sendActivity("Your cart was empty. Please add at least one item to the cart.");
-                        return await step.replaceDialog(ORDER_PROMPT);
-                    }
-                } else if (choice.value.match(/cancel/ig)) {
-                    // Cancel the order, and return "cancel" to the parent context.
-                    await step.context.sendActivity("Your order has been canceled.");
-                    return await step.endDialog("cancelled");
-                } else if (choice.value.match(/more info/ig)) {
-                    // Provide more information, and then continue the ordering process.
-                    var msg = "More info: <br/>Potato Salad: contains 330 calories per serving. <br/>"
-                        + "Tuna Sandwich: contains 700 calories per serving. <br/>"
-                        + "Clam Chowder: contains 650 calories per serving."
-                    await step.context.sendActivity(msg);
-                    return await step.replaceDialog(ORDER_PROMPT, step.values.orderCart);
-                } else if (choice.value.match(/help/ig)) {
-                    // Provide help information, and then continue the ordering process.
-                    var msg = `Help: <br/>`
-                        + `To make an order, add as many items to your cart as you like then choose `
-                        + `the "Process order" option to check out.`
-                    await step.context.sendActivity(msg);
-                    return await step.replaceDialog(ORDER_PROMPT, step.values.orderCart);
-                } else {
-                    // The user has chosen a food item from the menu. Add the item to cart.
-                    var item = dinnerMenu[choice.value];
-                    step.values.orderCart.orders.push(item.description);
-                    step.values.orderCart.total += item.price;
-
-                    await step.context.sendActivity(`Added ${item.description} to your cart. <br/>`
-                        + `Current total: $${step.values.orderCart.total}`);
-
-                    // Continue the ordering process.
-                    return await step.replaceDialog(ORDER_PROMPT, step.values.orderCart);
-                }
-            }
-        ]));
-}
-```
-
-대화 상자를 호출하고 순서 지정 프로세스의 결과를 표시하는 처리기를 차례로 업데이트합니다.
-
-```javascript
-async onTurn(turnContext) {
-    if (turnContext.activity.type === ActivityTypes.Message) {
-        let dc = await this.dialogs.createContext(turnContext);
-        let dialogTurnResult = await dc.continueDialog();
-        if (dialogTurnResult.status === DialogTurnStatus.complete) {
-            // The dialog completed this turn.
-            const result = dialogTurnResult.result;
-            if (!result || result === "cancelled") {
-                await turnContext.sendActivity('You cancelled your order.');
-            } else {
-                await turnContext.sendActivity(`Your order came to $${result.total}`);
-            }
-        } else if (!turnContext.responded) {
-            // No dialog was active.
-            await turnContext.sendActivity("Let's order dinner...");
-            await dc.cancelAllDialogs();
-            await dc.beginDialog(ORDER_PROMPT);
-        } else {
-            // The dialog is active.
-        }
-    } else {
-        await turnContext.sendActivity(`[${turnContext.activity.type} event detected]`);
-    }
-    // Save state changes
-    await this.conversationState.saveChanges(turnContext);
-}
-```
+`BookingDialog`의 코드는 중단 처리와 직접적인 관련이 없으므로 여기에 표시하지 않았습니다. 이는 사용자에게 예약 세부 정보를 묻는 데 사용됩니다. 이 코드는 **dialogs/bookingDialogs.js**에서 확인할 수 있습니다.
 
 ---
 
-## <a name="handle-unexpected-interruptions"></a>예기치 않은 중단 처리
+## <a name="handle-unexpected-errors"></a>예기치 않은 오류 처리
 
-디자인된 봇 작업 범위를 벗어나는 중단이 있습니다.
-모든 중단을 예상할 수는 없지만 봇이 처리하도록 프로그래밍할 수 있는 중단 패턴이 있습니다.
+다음으로, 발생 가능한 처리되지 않은 예외를 살펴보겠습니다.
 
-### <a name="switching-topic-of-conversations"></a>대화의 주제 전환
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
-하나의 대화가 진행되는 중간에 다른 대화로 전환하려면 어떻게 할까요? 예를 들어, 봇으로 테이블을 예약하고 저녁을 주문할 수 있습니다.
-사용자는 _테이블 예약_ 흐름에 있는 동안, "How many people are in your party?" 질문에 답변하는 대신, “order dinner” 메시지를 보냅니다. 이 경우 사용자는 마음이 바뀌었으며 대신, 저녁 주문 대화에 참여하고 싶어진 것입니다. 이러한 중단은 어떻게 처리하나요?
+**AdapterWithErrorHandler.cs**
 
-저녁 주문 흐름으로 주제를 전환하거나, 숫자를 입력해야 한다는 사실을 사용자에게 알려서 스티커를 지정하고 다시 프롬프트할 수 있습니다. 주제를 전환할 수 있도록 허용할 경우 사용자가 중단했던 위치에서 선택할 수 있도록 진행 상태를 저장할지 여부를 선택해야 합니다. 그렇지 않으면 사용자가 다음 번에 테이블을 예약하고 싶을 때 해당 프로세스를 완전히 다시 시작해야 하도록 수집한 정보를 모두 삭제할 수 있습니다. 사용자 상태 데이터를 관리하는 방법에 대한 자세한 내용은 [대화 및 사용자 속성을 사용하여 상태 저장](bot-builder-howto-v4-state.md)을 참조하세요.
+이 샘플에서 어댑터의 `OnTurnError` 처리기는 봇의 순서 논리가 throw한 예외를 수신합니다. throw된 예외가 있으면 봇이 비정상 상태로 인해 오류 루프에 갇히지 않도록 처리기가 현재 대화의 대화 상태를 삭제합니다.
 
-### <a name="apply-artificial-intelligence"></a>인공 지능 적용
+[!code-csharp[AdapterWithErrorHandler](~/../botbuilder-samples/samples/csharp_dotnetcore/13.core-bot/AdapterWithErrorHandler.cs?range=12-41)]
 
-범위를 벗어난 중단의 경우, 사용자 의도를 추측해볼 수 있습니다. QnA Maker, LUIS 또는 사용자 지정 논리와 같은 AI 서비스를 사용하여 사용자 의도를 추측한 다음, 사용자가 원할 것으로 봇이 생각하는 작업에 대한 제안을 제공할 수 있습니다.
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
-예를 들어, 예약 테이블 흐름의 중간에 사용자는 "I want to order a burger"라고 말할 수 있습니다. 봇은 이 대화 흐름에서 처리 방법을 알지 못합니다. 현재 흐름은 주문과 관련이 없으며 봇의 다른 대화 명령은 “order dinner”이므로 봇은 이 입력에 대해 어떻게 할지 알지 못합니다. 예를 들어, LUIS를 적용하는 경우 모델을 학습하여 음식을 주문하려고 한다는 사실을 인식할 수 있습니다(예: LUIS에서 "orderFood" 의도를 반환할 수 있음). 따라서 봇은 "It seems you want to order food. Would you like to switch to our order dinner process instead?"로 응답할 수 있습니다. LUIS를 학습하고 사용자 의도를 검색하는 방법에 대한 자세한 내용은 [언어 이해를 위한 LUIS 사용](bot-builder-howto-v4-luis.md)을 참조하세요.
+**index.js**
 
-### <a name="default-response"></a>기본 응답
+이 샘플에서 어댑터의 `onTurnError` 처리기는 봇의 순서 논리가 throw한 예외를 수신합니다. throw된 예외가 있으면 봇이 비정상 상태로 인해 오류 루프에 갇히지 않도록 처리기가 현재 대화의 대화 상태를 삭제합니다.
 
-모든 작업이 실패할 경우 아무 작업도 수행하지 않고 사용자가 무엇을 해야 할지 고민하는 상황을 만들지 말고, 기본 응답을 전송해야 합니다. 기본 응답은 사용자가 다시 정상적인 프로세스를 진행할 수 있도록 봇이 이해하는 명령을 사용자에게 알려주어야 합니다.
-
-봇 논리 끝에서 컨텍스트 **responded** 플래그를 확인하여 봇이 해당 차례 동안 사용자로 응답을 다시 전송했는지 검토할 수 있습니다. 봇이 사용자 입력을 처리하지만 응답하지 않은 경우, 입력으로 무슨 작업을 해야 할지 잘 모를 확률이 높습니다. 이러한 경우 해당 상황인지 파악하고 사용자에게 기본 메시지를 보낼 수 있습니다.
-
-사용자에게 `mainMenu` 대화를 제공하는 것이 봇의 기본값일 경우 이 상황에서 사용자가 경험하게 될 봇 환경을 결정해야 합니다.
-
-# <a name="ctabcsharptab"></a>[C#](#tab/csharptab)
-
-```cs
-// Check whether we replied. If not then clear the dialog stack and present the main menu.
-if (!turnContext.Responded)
-{
-    await dc.CancelAllDialogsAsync(cancellationToken);
-    await dc.BeginDialogAsync(OrderDinnerDialogs.MainDialogId, null, cancellationToken);
-}
-```
-
-# <a name="javascripttabjstab"></a>[JavaScript](#tab/jstab)
-
-```javascript
-// Check to see if anyone replied. If not then clear all the stack and present the main menu
-if (!context.responded) {
-    await dc.cancelAllDialogs();
-    await step.beginDialog('mainMenu');
-}
-```
+[!code-javascript[AdapterWithErrorHandler](~/../botbuilder-samples/samples/javascript_nodejs/13.core-bot/index.js?range=28-38)]
 
 ---
 
-## <a name="handling-global-interruptions"></a>글로벌 중단 처리
+## <a name="register-services"></a>서비스 등록
 
-위의 예제에서는 특정 대화 상자에서 특정 순서로 발생할 수 있는 중단을 처리합니다. 언제든지 발생할 수 있는 글로벌 중단을 처리하려고 합니다.
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
-봇의 기본 처리기에서 들어오는 `turnContext`를 처리하는 중단 처리 함수를 배치하여 수행하고 수행할 작업을 결정할 수 있습니다.
+**Startup.cs**
 
-아래 예제에서 봇이 _먼저 수행할 작업_은 사용자가 도움이 필요하거나 취소하려는 기호에 대해 들어오는 메시지 텍스트를 확인하는 것입니다. 이 두 가지는 봇에서 발생할 수 있는 매우 일반적인 중단입니다. 이 검사를 완료하면 봇은 `dc.continueDialog()`를 호출하여 보류 중인 활성 대화 상자를 처리합니다.
+마지막으로, `Startup.cs`에서 봇이 일시적으로 생성되고, 매 순서에 봇의 새 인스턴스가 생성됩니다.
 
-# <a name="ctabcsharptab"></a>[C#](#tab/csharptab)
+[!code-csharp[Add transient bot](~/../botbuilder-samples/samples/csharp_dotnetcore/13.core-bot/Startup.cs?range=46-47)]
 
-```cs
-// Check for top-level interruptions.
-string utterance = turnContext.Activity.Text.Trim().ToLowerInvariant();
+참고로, 위의 봇을 만드는 호출에서 사용되는 클래스 정의는 다음과 같습니다.
 
-if (utterance == "help")
-{
-    // Start a general help dialog. Dialogs already on the stack remain and will continue
-    // normally if the help dialog exits normally.
-    await dc.BeginDialogAsync(OrderDinnerDialogs.HelpDialogId, null, cancellationToken);
-}
-else if (utterance == "cancel")
-{
-    // Cancel any dialog on the stack.
-    await turnContext.SendActivityAsync("Canceled.", cancellationToken: cancellationToken);
-    await dc.CancelAllDialogsAsync(cancellationToken);
-}
-else
-{
-    await dc.ContinueDialogAsync(cancellationToken);
+[!code-csharp[MainDialog signature](~/../botbuilder-samples/samples/csharp_dotnetcore/13.core-bot/Dialogs/MainDialog.cs?range=15)]
+[!code-csharp[DialogAndWelcomeBot signature](~/../botbuilder-samples/samples/csharp_dotnetcore/13.core-bot/Bots/DialogAndWelcomeBot.cs?range=16)]
+[!code-csharp[DialogBot signature](~/../botbuilder-samples/samples/csharp_dotnetcore/13.core-bot/Bots/DialogBot.cs?range=18)]
 
-    // Check whether we replied. If not then clear the dialog stack and present the main menu.
-    if (!turnContext.Responded)
-    {
-        await dc.CancelAllDialogsAsync(cancellationToken);
-        await dc.BeginDialogAsync(OrderDinnerDialogs.MainDialogId, null, cancellationToken);
-    }
-}
-```
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
-# <a name="javascripttabjstab"></a>[JavaScript](#tab/jstab)
+**index.js**
 
-대화 상자에 사용자 응답을 보내기 전에 중단을 처리할 수 있습니다.
+마지막으로, `index.js`에서 봇이 생성됩니다.
 
-이 코드 조각은 대화 상자에 `helpDialog` 및 `mainMenu`가 설정되었다고 가정합니다.
+[!code-javascript[Create bot](~/../botbuilder-samples/samples/javascript_nodejs/13.core-bot/index.js?range=55-56)]
 
-```javascript
-const utterance = (context.activity.text || '').trim();
+참고로, 위의 봇을 만드는 호출에서 사용되는 클래스 정의는 다음과 같습니다.
 
-// Let's look for some interruptions first!
-if (utterance.match(/help/ig)) {
-    // Launch a new help dialog if the user asked for help
-    await dc.beginDialog('helpDialog');
-} else if (utterance.match(/cancel/ig)) {
-    // Cancel any active dialogs if the user says cancel
-    await dc.context.sendActivity('Canceled.');
-    await dc.cancelAllDialogs();
-}
-
-// If the bot hasn't yet responded...
-if (!context.responded) {
-    // Continue any active dialog, which might send a response...
-    await dc.continueDialog();
-
-    // Finally, if the bot still hasn't sent a response, send instructions.
-    if (!context.responded) {
-        await dc.cancelAllDialogs();
-        await context.sendActivity("Starting the main menu...");
-        await dc.beginDialog('mainMenu');
-    }
-}
-```
+[!code-javascript[MainDialog signature](~/../botbuilder-samples/samples/javascript_nodejs/13.core-bot/dialogs/mainDialog.js?range=12)]
+[!code-javascript[DialogAndWelcomeBot signature](~/../botbuilder-samples/samples/javascript_nodejs/13.core-bot/bots/dialogAndWelcomeBot.js?range=8)]
+[!code-javascript[DialogBot signature](~/../botbuilder-samples/samples/javascript_nodejs/13.core-bot/bots/dialogBot.js?range=6)]
 
 ---
+
+## <a name="to-test-the-bot"></a>봇 테스트
+
+1. 아직 설치하지 않은 경우 [Bot Framework Emulator](https://aka.ms/bot-framework-emulator-readme)를 설치합니다.
+1. 샘플을 머신에서 로컬로 실행합니다.
+1. 에뮬레이터를 시작하고 봇에 연결한 다음, 아래와 같은 메시지를 보냅니다.
+
+<!--![test dialog prompt sample](~/media/emulator-v4/test-dialog-prompt.png)-->
+
+## <a name="additional-information"></a>추가 정보
+
+- [인증 샘플](https://aka.ms/logout)은 여기에 표시된 것과 비슷한 패턴을 사용하여 중단을 처리하는 로그아웃 처리 방법을 보여줍니다.
+
+- 아무 작업도 수행하지 않고 사용자가 무엇을 해야 할지 고민하는 상황을 만들지 말고, 기본 응답을 전송해야 합니다. 기본 응답은 사용자가 다시 정상적인 프로세스를 진행할 수 있도록 봇이 이해하는 명령을 사용자에게 알려주어야 합니다.
+
+- 순서 진행 중에 순서 컨텍스트의 _responded_ 속성은 봇이 이번 순서에 사용자에게 메시지를 보냈는지 여부를 나타냅니다. 봇은 순서가 종료되기 전에 사용자에게 메시지를 보내야 합니다(사용자 입력에 대한 간단한 수신 확인이라도 보내야 함).
+
+<!-- Footnote-style links -->
+
+[concept-basics]: bot-builder-basics.md
+[concept-state]: bot-builder-concept-state.md
+[concept-dialogs]: bot-builder-concept-dialog.md
+
+[using-luis]: bot-builder-howto-v4-luis.md
+[using-qna]: bot-builder-howto-qna.md
+
+[simple-flow]: bot-builder-dialog-manage-conversation-flow.md
+[prompting]: bot-builder-prompts.md
+[component-dialogs]: bot-builder-compositcontrol.md
+
+[cs-sample]: https://aka.ms/cs-core-sample
+[js-sample]: https://aka.ms/js-core-sample
