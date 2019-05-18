@@ -1,8 +1,10 @@
 # 가상 도우미
 ## [개요](../v4sdk/bot-builder-virtual-assistant-introduction.md)
 ## [템플릿 소개](../v4sdk/bot-builder-virtual-assistant-template.md)
+## [시작](../v4sdk/bot-builder-virtual-assistant-gettingstarted.md)
 # 기술 
 ## [개요](../v4sdk/bot-builder-skills-overview.md)
+## [시작](../v4sdk/bot-builder-skills-gettingstarted.md)
 # [FAQ](../bot-service-resources-bot-framework-faq.md)
 # [지원 받기](../bot-service-resources-links-help.md)
 # [채널 참조](../bot-service-channels-reference.md)
