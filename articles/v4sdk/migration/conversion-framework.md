@@ -10,12 +10,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 02/11/2019
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: ea6b859761a3bc8c1424d50d8bad0b7f1f50e86d
-ms.sourcegitcommit: f84b56beecd41debe6baf056e98332f20b646bda
+ms.openlocfilehash: c486970a3880c95ff10e9d4bb59b50a5600c7343
+ms.sourcegitcommit: 178140eb060d71803f1c6357dd5afebd7f44fe1d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2019
-ms.locfileid: "65033458"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65855884"
 ---
 # <a name="migrate-a-net-sdk-v3-bot-to-v4"></a>.NET SDK v3 봇을 v4로 마이그레이션
 
@@ -1001,9 +1001,3 @@ v4 방법 항목:
 - [문자 메시지 보내기 및 받기](../bot-builder-howto-send-messages.md)
 - [사용자 및 대화 데이터 저장](../bot-builder-howto-v4-state.md)
 - [순차적 대화 흐름 구현](../bot-builder-dialog-manage-conversation-flow.md)
-- [대화 상자 프롬프트를 사용하여 사용자 입력 수집](../bot-builder-prompts.md)
-
-<!-- TODO:
-- The conceptual piece
-- The migration to a .NET Core project
--->

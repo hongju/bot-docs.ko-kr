@@ -8,14 +8,14 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
-ms.date: 03/25/2019
+ms.date: 05/08/2019
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 74c3af688a8f35b4583aa7b195348a6b205292a2
-ms.sourcegitcommit: f84b56beecd41debe6baf056e98332f20b646bda
+ms.openlocfilehash: 3470b1c8f3fbcfb7fecbb060a54b1a356ad41b61
+ms.sourcegitcommit: 4086189a9c856fbdc832eb1a1d205e5f1b4e3acd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2019
-ms.locfileid: "65033170"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65733317"
 ---
 # <a name="create-your-own-prompts-to-gather-user-input"></a>사용자 입력을 수집하도록 고유한 메시지 만들기
 
@@ -70,9 +70,9 @@ ms.locfileid: "65033170"
 
 **index.js**에서 상태 속성과 봇을 만든 다음, `run` 봇 메서드를 `processActivity` 안에서 호출합니다.
 
-[!code-javascript[custom prompt bot](~/../botbuilder-samples/samples//javascript_nodejs/44.prompt-for-user-input/index.js?range=32-35)]
+[!code-javascript[custom prompt bot](~/../botbuilder-samples/samples/javascript_nodejs/44.prompt-for-user-input/index.js?range=32-35)]
 
-[!code-javascript[custom prompt bot](~/../botbuilder-samples/samples//javascript_nodejs/44.prompt-for-user-input/index.js?range=55-58)]
+[!code-javascript[custom prompt bot](~/../botbuilder-samples/samples/javascript_nodejs/44.prompt-for-user-input/index.js?range=55-58)]
 
 ---
 
@@ -92,11 +92,11 @@ ms.locfileid: "65033170"
 
 생성자에서 상태 속성 접근자를 만들고, 대화를 위한 상태 관리 개체(위에서 만듦)를 설정합니다.
 
-**bots/customPromptBot.js** [!code-javascript[custom prompt bot](~/../botbuilder-samples/samples//javascript_nodejs/44.prompt-for-user-input/bots/customPromptBot.js?range=23-29)]
+**bots/customPromptBot.js** [!code-javascript[custom prompt bot](~/../botbuilder-samples/samples/javascript_nodejs/44.prompt-for-user-input/bots/customPromptBot.js?range=23-29)]
 
 그런 다음, 기본 메시지 처리기 이후에 실행할 두 번째 처리기 `onDialog`(다음 섹션에서 설명)를 정의합니다. 이 두 번째 처리기는 턴마다 상태를 저장했는지 확인합니다.
 
-[!code-javascript[custom prompt bot](~/../botbuilder-samples/samples//javascript_nodejs/44.prompt-for-user-input/bots/customPromptBot.js?range=41-48)]
+[!code-javascript[custom prompt bot](~/../botbuilder-samples/samples/javascript_nodejs/44.prompt-for-user-input/bots/customPromptBot.js?range=41-48)]
 
 ---
 
@@ -112,7 +112,7 @@ ms.locfileid: "65033170"
 
 메시지 활동을 처리하기 위해, 대화와 사용자 데이터를 설정한 다음, 도우미 메서드 `fillOutUserProfile()`을 사용합니다. 턴 처리기에 대한 전체 코드는 다음과 같습니다.
 
-**bots/customPromptBot.js** [!code-javascript[custom prompt bot](~/../botbuilder-samples/samples//javascript_nodejs/44.prompt-for-user-input/bots/customPromptBot.js?range=31-39)]
+**bots/customPromptBot.js** [!code-javascript[custom prompt bot](~/../botbuilder-samples/samples/javascript_nodejs/44.prompt-for-user-input/bots/customPromptBot.js?range=31-39)]
 ---
 
 ## <a name="filling-out-the-user-profile"></a>사용자 프로필 작성
@@ -131,7 +131,7 @@ ms.locfileid: "65033170"
 
 ## <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
-**bots/customPromptBot.js** [!code-javascript[custom prompt bot](~/../botbuilder-samples/samples//javascript_nodejs/44.prompt-for-user-input/bots/customPromptBot.js?range=52-116)]
+**bots/customPromptBot.js** [!code-javascript[custom prompt bot](~/../botbuilder-samples/samples/javascript_nodejs/44.prompt-for-user-input/bots/customPromptBot.js?range=52-116)]
 
 ---
 
@@ -157,7 +157,7 @@ ms.locfileid: "65033170"
 
 ## <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
-**bots/customPromptBot.cs** [!code-javascript[custom prompt bot](~/../botbuilder-samples/samples//javascript_nodejs/44.prompt-for-user-input/bots/customPromptBot.js?range=118-189)]
+**bots/customPromptBot.cs** [!code-javascript[custom prompt bot](~/../botbuilder-samples/samples/javascript_nodejs/44.prompt-for-user-input/bots/customPromptBot.js?range=118-189)]
 
 ---
 
