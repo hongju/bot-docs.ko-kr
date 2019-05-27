@@ -10,12 +10,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 04/30/2019
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 7f2c31ab0a7f97917be83334c39bdc4750547614
-ms.sourcegitcommit: f84b56beecd41debe6baf056e98332f20b646bda
+ms.openlocfilehash: bb6346d8364e0323c1e5f12329e8cdea97bad0ac
+ms.sourcegitcommit: 4086189a9c856fbdc832eb1a1d205e5f1b4e3acd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2019
-ms.locfileid: "65033203"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65733358"
 ---
 # <a name="tutorial-create-and-deploy-a-basic-bot"></a>자습서: 기본 봇 만들기 및 배포
 
@@ -99,7 +99,7 @@ az deployment create --name "<name-of-deployment>" --template-file "template-wit
 
 | 옵션   | 설명 |
 |:---------|:------------|
-| 이름 | 배포에 대한 식별 이름입니다. |
+| 이름 | 배포의 식별 이름입니다. |
 | template-file | ARM 템플릿의 경로입니다. 프로젝트의 `deploymentTemplates` 폴더에서 제공하는 `template-with-new-rg.json` 파일을 사용할 수 있습니다. |
 | location |위치입니다. 값 출처: `az account list-locations`. `az configure --defaults location=<location>`을 사용하여 기본 위치를 구성할 수 있습니다. |
 | 매개 변수 | 배포 매개 변수 값을 제공합니다. `az ad app create` 명령 실행에서 가져온 `appId` 값입니다. `appSecret`은 이전 단계에서 제공한 암호입니다. `botId` 매개 변수는 전역적으로 고유해야 하며 변경이 불가능한 봇 ID로 사용됩니다. 또한 변경 가능한 봇의 표시 이름을 구성하는 데도 사용됩니다. `botSku`는 가격 책정 계층으로, F0(무료) 또는 S1(표준)일 수 있습니다. `newAppServicePlanName`은 App Service 계획의 이름입니다. `newWebAppName`은 만들고 있는 웹앱의 이름입니다. `groupName`은 만들고 있는 Azure 리소스 그룹의 이름입니다. `groupLocation`은 Azure 리소스 그룹의 위치입니다. `newAppServicePlanLocation`은 App Service 계획의 위치입니다. |
@@ -117,7 +117,7 @@ az deployment create --name "<name-of-deployment>" --template-file "template-wit
 _참고: botId 매개 변수는 전역적으로 고유해야 하며 변경이 불가능한 봇 ID로 사용됩니다. 또한 변경 가능한 봇의 표시 이름을 구성하는 데도 사용됩니다._
 
 ```cmd
-az group deployment create --name "<name-of-deployment>" --resource-group "<name-of-resource-group>" --template-file "template-with-preexisting-rg.json" --parameters appId="<msa-app-guid>" appSecret="<msa-app-password>" botId="<id-or-name-of-bot>" newWebAppName="<name-of-web-app>" existingAppServicePlan="<name-of-app-service-plan>" appServicePlanLocation=<location>"
+az group deployment create --name "<name-of-deployment>" --resource-group "<name-of-resource-group>" --template-file "template-with-preexisting-rg.json" --parameters appId="<msa-app-guid>" appSecret="<msa-app-password>" botId="<id-or-name-of-bot>" newWebAppName="<name-of-web-app>" existingAppServicePlan="<name-of-app-service-plan>" appServicePlanLocation="<location>"
 ```
 
 **옵션 2: 새 App Service 계획** 
@@ -130,7 +130,7 @@ az group deployment create --name "<name-of-deployment>" --resource-group "<name
 
 | 옵션   | 설명 |
 |:---------|:------------|
-| 이름 | 배포에 대한 식별 이름입니다. |
+| 이름 | 배포의 식별 이름입니다. |
 | resource-group | Azure 리소스 그룹의 이름입니다. |
 | template-file | ARM 템플릿의 경로입니다. 프로젝트의 `deploymentTemplates` 폴더에서 제공하는 `template-with-preexisting-rg.json` 파일을 사용할 수 있습니다. |
 | location |위치입니다. 값 출처: `az account list-locations`. `az configure --defaults location=<location>`을 사용하여 기본 위치를 구성할 수 있습니다. |
@@ -146,7 +146,7 @@ az group deployment create --name "<name-of-deployment>" --resource-group "<name
 az bot prepare-deploy --lang Csharp --code-dir "." --proj-file-path "MyBot.csproj"
 ```
 
---code-dir에 상대적인 .csproj 파일 경로를 제공해야 합니다. 이것은 --proj-file-path 인수를 사용하여 수행할 수 있습니다. 이 명령은 --code-dir 및 --proj-file-path를 "./MyBot.csproj"에 대해 확인합니다.
+--code-dir에 상대적인 .csproj 파일 경로를 제공해야 합니다. --proj-file-path 인수를 사용하면 됩니다. 이 명령은 --code-dir 및 --proj-file-path를 "./MyBot.csproj"로 확인합니다.
 
 **JavaScript 봇의 경우**
 
@@ -169,7 +169,9 @@ _Kudu는 기본적으로 Zip 파일을 통한 배포가 실행 준비되었으�
 > - C# 봇의 경우 .csproj 파일이 있는 폴더입니다. 
 > - JS 봇의 경우 app.js 또는 index.js 파일이 있는 폴더입니다. 
 >
-> 루트 폴더 위치에 올바르지 않은 경우 **봇이 Azure Portal에서 실행되지 않은 것입니다**.
+> 해당 폴더에 있는 동안 모든 파일을 선택하고 압축한 다음, 여전히 해당 폴더에 있는 동안 명령을 실행합니다.
+>
+> 루트 폴더 위치가 올바르지 않을 경우 **봇이 Azure Portal에서 실행되지 못하게 됩니다**.
 
 ### <a name="2-deploy-code-to-azure"></a>2. Azure에 코드 배포
 이제 Azure Web App에 코드를 배포할 준비가 되었습니다. 명령줄에서 다음 명령을 실행하여 웹앱에 대해 kudu zip 푸시 배포를 사용하는 배포를 수행합니다.

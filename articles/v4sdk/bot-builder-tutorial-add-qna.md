@@ -8,14 +8,14 @@ manager: kamrani
 ms.topic: tutorial
 ms.service: bot-service
 ms.subservice: sdk
-ms.date: 04/30/2019
+ms.date: 05/20/2019
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: deafe148310dd214ab857d60595edb1abef9e46d
-ms.sourcegitcommit: 3e3c9986b95532197e187b9cc562e6a1452cbd95
+ms.openlocfilehash: e51683a5dbae29879d73ee322586272d49708b22
+ms.sourcegitcommit: 72cc9134bf50f335cbb33265b048bf6b76252ce4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65039727"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65973872"
 ---
 # <a name="tutorial-use-qna-maker-in-your-bot-to-answer-questions"></a>자습서: 봇에서 QnA Maker를 사용하여 질문에 대답
 
@@ -61,7 +61,19 @@ Azure 자격 증명을 사용하여 [QnA Maker 포털](https://qnamaker.ai/)에 
 1. 기술 자료를 **저장 및 학습**합니다.
 1. 기술 자료를 **게시**합니다.
 
-봇에서 사용할 기술 자료가 준비되었습니다. 기술 자료 ID, 엔드포인트 키 및 호스트 이름을 기록해 둡니다. 다음 단계에서 필요합니다.
+QnA Maker 앱이 게시되면 _설정_ 탭을 선택하고 '배포 세부 정보'가 나올 때까지 아래로 스크롤합니다. _Postman_ 샘플 HTTP 요청의 다음 값을 기록합니다.
+
+```text
+POST /knowledgebases/<knowledge-base-id>/generateAnswer
+Host: <your-hostname>  // NOTE - this is a URL ending in /qnamaker.
+Authorization: EndpointKey <qna-maker-resource-key>
+```
+
+호스트 이름에 대한 전체 URL 문자열은 "https://< >.azure.net/qnamaker"와 같습니다.
+
+이러한 값은 다음 단계에서 `appsettings.json` 또는 `.env` 파일 내에서 사용됩니다.
+
+봇에서 사용할 기술 자료가 준비되었습니다.
 
 ## <a name="add-knowledge-base-information-to-your-bot"></a>봇에 기술 자료 정보 추가
 Bot Framework v4.3부터 Azure는 다운로드한 봇 소스 코드의 일부로 .bot 파일을 더 이상 제공하지 않습니다. 다음 지침을 사용하여 CSharp 또는 JavaScript 봇을 기술 자료에 연결합니다.
@@ -76,9 +88,9 @@ Bot Framework v4.3부터 Azure는 다운로드한 봇 소스 코드의 일부로
   "MicrosoftAppPassword": "",
   "ScmType": "None",
   
-  "QnAKnowledgebaseId": "<your-knowledge-base-id>",
-  "QnAAuthKey": "<your-knowledge-base-endpoint-key>",
-  "QnAEndpointHostName": "<your-qna-service-hostname>" // This is a URL
+  "QnAKnowledgebaseId": "<knowledge-base-id>",
+  "QnAAuthKey": "<qna-maker-resource-key>",
+  "QnAEndpointHostName": "<your-hostname>" // This is a URL ending in /qnamaker
 }
 ```
 
@@ -91,18 +103,18 @@ MicrosoftAppId=""
 MicrosoftAppPassword=""
 ScmType=None
 
-QnAKnowledgebaseId="<your-knowledge-base-id>"
-QnAAuthKey="<your-knowledge-base-endpoint-key>"
-QnAEndpointHostName="<your-qna-service-hostname>" // This is a URL
+QnAKnowledgebaseId="<knowledge-base-id>"
+QnAAuthKey="<qna-maker-resource-key>"
+QnAEndpointHostName="<your-hostname>" // This is a URL ending in /qnamaker
 ```
 
 ---
 
 | 필드 | 값 |
 |:----|:----|
-| kbId | QnA Maker 포털에서 자동으로 생성한 기술 자료 ID입니다. |
-| endpointKey | QnA Maker 포털에서 자동으로 생성한 엔드포인트 키입니다. |
-| hostname | QnA Maker 포털에서 생성한 호스트 URL입니다. `https://`로 시작하고 `/qnamaker`로 끝나는 완전한 URL을 사용하세요. 전체 URL 문자열은 "https://< >.azure.net/qnamaker"와 유사할 것입니다. |
+| QnAKnowledgebaseId | QnA Maker 포털에서 자동으로 생성한 기술 자료 ID입니다. |
+| QnAAuthKey | QnA Maker 포털에서 자동으로 생성한 엔드포인트 키입니다. |
+| QnAEndpointHostName | QnA Maker 포털에서 생성한 호스트 URL입니다. `https://`로 시작하고 `/qnamaker`로 끝나는 완전한 URL을 사용하세요. 전체 URL 문자열은 "https://< >.azure.net/qnamaker"와 유사할 것입니다. |
 
 이제 편집 내용을 저장합니다.
 
@@ -259,6 +271,15 @@ QnAEndpointHostName="<your-qna-service-hostname>" // This is a URL
 ## <a name="republish-your-bot"></a>앱 다시 게시
 
 이제 봇을 Azure에 다시 게시할 수 있습니다.
+
+> [!IMPORTANT]
+> 프로젝트 파일의 zip을 만들기 전에 올바른 폴더 _안_에 있는지 확인합니다. 
+> - C# 봇의 경우 .csproj 파일이 있는 폴더입니다. 
+> - JS 봇의 경우 app.js 또는 index.js 파일이 있는 폴더입니다. 
+>
+> 해당 폴더에 있는 동안 모든 파일을 선택하고 압축한 다음, 여전히 해당 폴더에 있는 동안 명령을 실행합니다.
+>
+> 루트 폴더 위치가 올바르지 않을 경우 **봇이 Azure Portal에서 실행되지 못하게 됩니다**.
 
 ## <a name="ctabcsharp"></a>[C#](#tab/csharp)
 ```cmd

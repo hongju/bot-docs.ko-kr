@@ -1,4 +1,4 @@
-# [Azure Bot Service 설명서](index.md)
+# [Azure Bot Service 설명서](index.yml)
 # 개요
 ## [Azure Bot Service 정보](bot-service-overview-introduction.md)
 ## [새로운 기능](what-is-new.md)

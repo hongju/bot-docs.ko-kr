@@ -448,7 +448,7 @@ Azure Blob Storage는 클라우드를 위한 Microsoft의 개체 스토리지 �
 ### <a name="create-blob-storage-container"></a>Blob Storage 컨테이너 만들기
 Blob Storage 계정이 생성되면 다음과 같은 방법으로 이 계정을 엽니다. 
 1. 리소스 선택
-2. 이제 Storage 탐색기(미리 보기)를 사용하여 "열기"
+2. 이제 Storage Explorer(미리 보기)를 사용하여 "열기"
 
 ![Blob Storage 컨테이너 만들기](./media/create-blob-container.png)
 
@@ -555,7 +555,7 @@ var storage = new BlobStorage({
 ![에뮬레이터 테스트 스토리지 봇](./media/emulator-direct-storage-test.png)
 
 ### <a name="view-your-data"></a>데이터 보기
-봇을 실행하고 정보를 저장한 후 Azure Portal의 **Storage 탐색기** 탭 아래에서 볼 수 있습니다.
+봇을 실행하고 정보를 저장한 후 Azure Portal의 **Storage Explorer** 탭 아래에서 볼 수 있습니다.
 
 ## <a name="blob-transcript-storage"></a>Blob 기록 저장소
 Azure Blob 기록 저장소는 기록된 기록의 형태로 사용자 대화를 쉽게 저장하고 검색할 수 있는 특수 저장소 옵션을 제공합니다. Azure Blob 음성 텍스트 스토리지는 봇의 성능을 디버깅할 때 검사할 사용자 입력을 자동으로 캡처하는 데 특히 유용합니다.

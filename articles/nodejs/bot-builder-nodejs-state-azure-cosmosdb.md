@@ -106,7 +106,7 @@ node app.js
 
 1. 에뮬레이터의 주소 표시줄에 <strong>http://localhost:port-number/api/messages</strong>를 입력합니다. 여기서 port-number는 애플리케이션이 실행 중인 브라우저에 표시되는 포트 번호와 일치합니다. 지금은 <strong>Microsoft 앱 ID</strong> 및 <strong>Microsoft 앱 암호</strong> 필드를 비워 둘 수 있습니다. 나중에 [봇을 등록](~/bot-service-quickstart-registration.md)할 때 이 정보를 가져올 수 있습니다.
 2. **Connect**를 클릭합니다.
-3. 봇에 메시지를 전송하여 봇을 테스트합니다. 평소와 같이 봇과 상호 작용합니다. 완료되면 **Storage 탐색기**로 이동한 후 저장된 상태 데이터를 확인합니다.
+3. 봇에 메시지를 전송하여 봇을 테스트합니다. 평소와 같이 봇과 상호 작용합니다. 완료되면 **Storage Explorer**로 이동한 후 저장된 상태 데이터를 확인합니다.
 
 ## <a name="view-state-data-on-azure-portal"></a>Azure Portal에서 상태 데이터 보기
 

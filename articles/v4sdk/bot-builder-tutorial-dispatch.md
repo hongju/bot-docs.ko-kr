@@ -8,14 +8,14 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
-ms.date: 04/15/2019
+ms.date: 05/20/2019
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: b3e488615f318529935d35dbebbed2dd3b734f62
-ms.sourcegitcommit: 3e3c9986b95532197e187b9cc562e6a1452cbd95
+ms.openlocfilehash: c81e463c221c64250684827a4e0ed059e7f98a02
+ms.sourcegitcommit: 72cc9134bf50f335cbb33265b048bf6b76252ce4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65039739"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65973888"
 ---
 # <a name="use-multiple-luis-and-qna-models"></a>다중 LUIS 및 QnA 모델 사용
 
@@ -90,9 +90,25 @@ ms.locfileid: "65039739"
 
 ### <a name="create-qna-maker-kb"></a>QnA Maker KB 만들기
 
-QnA Maker KB를 설정하는 첫 번째 단계는 Azure에서 QnA Maker 서비스를 설정하는 것입니다. 이렇게 하려면 [여기](https://aka.ms/create-qna-maker)에 나와 있는 단계별 지침을 따르세요. 이제 [QnAMaker 웹 포털](https://qnamaker.ai)에 로그인합니다. 아래의 2단계로 이동합니다.
+QnA Maker KB를 설정하는 첫 번째 단계는 Azure에서 QnA Maker 서비스를 설정하는 것입니다. 이렇게 하려면 [여기](https://aka.ms/create-qna-maker)에 나와 있는 단계별 지침을 따르세요.
 
-![QnA 2단계 만들기](./media/tutorial-dispatch/create-qna-step-2.png)
+Azure에서 QnA Maker 서비스가 만들어지면 QnA Maker 서비스에 제공된 Cognitive Services _키 1_을 기록해야 합니다. 이 키는 qna를 디스패치 애플리케이션에 추가할 때 \<azure-qna-service-key1>로 사용됩니다. 다음 단계에서는 이 키를 제공합니다.
+    
+![Cognitive Service 선택](./media/tutorial-dispatch/select-qna-cognitive-service.png)
+
+1. Azure Portal에서 QnA Maker Cognitive Service를 선택합니다.
+
+![Cognitive Service 키 선택](./media/tutorial-dispatch/select-cognitive-service-keys.png)
+
+2. 왼쪽 메뉴의 _리소스 관리_ 섹션 아래에 있는 [키] 아이콘을 선택합니다.
+
+![Cognitive Service 키 1 선택](./media/tutorial-dispatch/select-cognitive-service-key1.png)
+
+3. _키 1_ 값을 클립보드에 복사하고 로컬로 저장합니다. 이 키는 qna를 디스패치 애플리케이션에 추가할 때 (-k) 키 값인 \<azure-qna-service-key1>로 사용됩니다.
+
+이제 [QnAMaker 웹 포털](https://qnamaker.ai)에 로그인합니다. 아래의 2단계로 이동합니다.
+
+![QnA 2단계 만들기](./media/tutorial-dispatch/create-qna-step-2.png) 
 
 다음을 선택합니다.
 1. Azure AD 계정.
@@ -124,7 +140,7 @@ QnA Maker 앱이 게시되면 _설정_ 탭을 선택하고 '배포 세부 정보
 ```text
 POST /knowledgebases/<knowledge-base-id>/generateAnswer
 Host: <your-hostname>  // NOTE - this is a URL.
-Authorization: EndpointKey <your-endpoint-key>
+Authorization: EndpointKey <qna-maker-resource-key>
 ```
 
 호스트 이름에 대한 전체 URL 문자열은 "https://< >.azure.net/qnamaker"와 같습니다.
@@ -156,7 +172,7 @@ LUIS 앱 및 QnA Maker 기술 자료 이름과 ID를 메모해 두세요. 또한
     ```cmd
     dispatch add -t luis -i "<app-id-for-weather-app>" -n "<name-of-weather-app>" -v <app-version-number> -k "<your-luis-authoring-key>" --intentName l_Weather
     dispatch add -t luis -i "<app-id-for-home-automation-app>" -n "<name-of-home-automation-app>" -v <app-version-number> -k "<your-luis-authoring-key>" --intentName l_HomeAutomation
-    dispatch add -t qna -i "<knowledge-base-id>" -n "<knowledge-base-name>" -k "<your-cognitive-services-subscription-id>" --intentName q_sample-qna
+    dispatch add -t qna -i "<knowledge-base-id>" -n "<knowledge-base-name>" -k "<azure-qna-service-key1>" --intentName q_sample-qna
     ```
 
 1. `dispatch create`를 사용하여 .dispatch 파일에서 디스패치 모델을 생성합니다.
@@ -206,7 +222,7 @@ LUIS 앱 및 QnA Maker 기술 자료 이름과 ID를 메모해 두세요. 또한
 "MicrosoftAppPassword": "",
   
 "QnAKnowledgebaseId": "<knowledge-base-id>",
-"QnAAuthKey": "<your-endpoint-key>",
+"QnAAuthKey": "<qna-maker-resource-key>",
 "QnAEndpointHostName": "<your-hostname>",
 
 "LuisAppId": "<app-id-for-dispatch-app>",
@@ -245,7 +261,7 @@ MicrosoftAppId=""
 MicrosoftAppPassword=""
 
 QnAKnowledgebaseId="<knowledge-base-id>"
-QnAAuthKey="<your-endpoint-key>"
+QnAAuthKey="<qna-maker-resource-key>"
 QnAEndpointHostName="<your-hostname>"
 
 LuisAppId=<app-id-for-dispatch-app>

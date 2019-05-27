@@ -81,7 +81,7 @@ ms.locfileid: "59904856"
 
 Azure Blob 기록 저장소는 사용자 및 봇 간의 상호 작용을 포함하는 [기록을 저장 및 검색](bot-builder-howto-v4-storage.md)을 모두 할 수 있는 특수화된 리소스를 제공합니다.  
 
-또한 사용자 입력 상호 작용이 저장되면 Azure의 "_저장소 탐색기_"를 사용하여 Blob 기록 저장소 내에 저장된 기록에 포함된 데이터를 수동으로 확인할 수 있습니다. 다음 예제에서는 "_mynewtestblobstorage_"에 대한 설정에서 "_스토리지 탐색기_"를 엽니다. 저장된 사용자 입력을 열려면    Blob 컨테이너 > ChannelId > TranscriptId > ConversationId를 차례로 선택합니다.
+또한 사용자 입력 상호 작용이 저장되면 Azure의 "_Storage Explorer_"를 사용하여 Blob 기록 저장소 내에 저장된 기록에 포함된 데이터를 수동으로 확인할 수 있습니다. 다음 예제에서는 "_mynewtestblobstorage_"에 대한 설정에서 "_스토리지 탐색기_"를 엽니다. 저장된 사용자 입력을 열려면    Blob 컨테이너 > ChannelId > TranscriptId > ConversationId를 차례로 선택합니다.
 
 ![Examine_stored_transcript_text](./media/examine_transcript_text_in_azure.png)
 

@@ -10,12 +10,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 04/18/2019
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: d896584b2048c8d2b330a1e6e63bc47122102532
-ms.sourcegitcommit: f84b56beecd41debe6baf056e98332f20b646bda
+ms.openlocfilehash: caa1938abd6ca2b79f9b42f28f3965413d24d81b
+ms.sourcegitcommit: 4086189a9c856fbdc832eb1a1d205e5f1b4e3acd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2019
-ms.locfileid: "65033401"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65733379"
 ---
 # <a name="dialogs-library"></a>대화 상자 라이브러리
 
@@ -164,7 +164,7 @@ _options_ 매개 변수를 사용하여 대화 상자의 새 인스턴스로 정
 
 ### <a name="repeating-a-dialog"></a>대화 상자 반복
 
-대화 상자를 직접 대체하여 루프를 만들 수 있습니다.
+*대화 바꾸기* 메서드를 사용하여 대화를 자체적으로 바꿔 루프를 만들 수 있습니다.
 이는 [복잡한 반복](~/v4sdk/bot-builder-dialog-manage-complex-conversation-flow.md)을 처리하는 좋은 방법이며, 메뉴를 관리하는 데 유용한 기술입니다.
 
 > [!NOTE]

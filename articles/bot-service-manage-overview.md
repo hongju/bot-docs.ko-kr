@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: bot-service
 ms.subservice: abs
 ms.date: 4/13/2019
-ms.openlocfilehash: 17d80fe4d4730ed294b770fd05bc5d7ea3d114af
-ms.sourcegitcommit: f84b56beecd41debe6baf056e98332f20b646bda
+ms.openlocfilehash: f3e0ac52a3bfe5759202af6c704626acafef617b
+ms.sourcegitcommit: 4086189a9c856fbdc832eb1a1d205e5f1b4e3acd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2019
-ms.locfileid: "65033044"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65733309"
 ---
 # <a name="manage-a-bot"></a>봇 관리
 
@@ -52,7 +52,7 @@ ms.locfileid: "65033044"
 
 ### <a name="microsoftappid-and-microsoftapppassword"></a>MicrosoftAppID 및 MicrosoftAppPassword
 
-**MicrosoftAppID** 및 **MicrosoftAppPassword**는 봇의 구성 파일 또는 Azure Key Vault 내에 유지됩니다. 검색하려면 봇의 설정 또는 구성 파일을 다운로드하거나 Azure Key Vault에 액세스합니다. ID와 암호를 사용하여 로컬에서 테스트해야 할 수도 있습니다.
+**MicrosoftAppID** 및 **MicrosoftAppPassword**는 봇의 설정 파일(`appsettings.json` 또는 `.env`) 또는 Azure Key Vault 내에 유지됩니다. 이러한 정보를 검색하려면 봇의 설정 또는 구성 파일(이전 봇에 대한 구성 파일이 있는 경우)을 다운로드하거나 Azure Key Vault에 액세스합니다. ID와 암호를 사용하여 로컬에서 테스트해야 할 수도 있습니다.
 
 > [!NOTE]
 > **봇 채널 등록** 봇 서비스에는 *MicrosoftAppID*가 제공되지만 이 유형의 서비스와 연결된 App Service가 없기 때문에 *MicrosoftAppPassword*를 조회할 수 있는 **애플리케이션 설정** 블레이드가 없습니다. 암호를 가져오려면 암호를 생성해야 합니다. **봇 채널 등록**의 암호를 생성하려면 [봇 채널 등록 암호](bot-service-quickstart-registration.md#bot-channels-registration-password)를 참조하세요.

@@ -106,7 +106,7 @@ Visual Studio에서 봇을 실행하면 추가한 코드가 Azure에서 사용�
 3. 에뮬레이터에서 몇몇 메시지를 입력하여 봇을 테스트합니다. 
 
 ## <a name="view-data-in-azure-table-storage"></a>Azure Table Storage의 데이터 보기
-상태 데이터를 보려면 **Storage 탐색기**를 열고 Azure Portal 자격 증명을 사용하여 Azure에 연결하거나 스토리지 이름과 스토리지 키를 사용하여 테이블에 직접 연결한 다음, 테이블 이름으로 이동합니다.  
+상태 데이터를 보려면 **Storage Explorer**를 열고 Azure Portal 자격 증명을 사용하여 Azure에 연결하거나 스토리지 이름과 스토리지 키를 사용하여 테이블에 직접 연결한 다음, 테이블 이름으로 이동합니다.  
 
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 봇 데이터를 저장하고 관리하는 Azure Table Storage를 구현했습니다. 다음으로 대화 상자를 사용하여 대화 흐름을 모델링하는 방법을 알아봅니다.

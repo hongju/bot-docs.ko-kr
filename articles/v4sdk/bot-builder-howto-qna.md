@@ -8,14 +8,14 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: cognitive-services
-ms.date: 04/17/2019
+ms.date: 05/20/2019
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: f24fc4e0aa4ccb9d99275360df693c8465e5a4ad
-ms.sourcegitcommit: 3e3c9986b95532197e187b9cc562e6a1452cbd95
+ms.openlocfilehash: 10ae35f51a072a1af6cf7d4bdf2fd2f4cb3d66ee
+ms.sourcegitcommit: 72cc9134bf50f335cbb33265b048bf6b76252ce4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65039760"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65973850"
 ---
 # <a name="use-qna-maker-to-answer-questions"></a>QnA Maker를 사용하여 질문에 답변
 
@@ -58,10 +58,10 @@ QnA Maker는 사용자의 데이터에 대한 대화형 질문 및 답변 레이
 ## <a name="obtain-values-to-connect-your-bot-to-the-knowledge-base"></a>봇을 기술 자료에 연결하는 데 필요한 값 가져오기
 1. [QnA Maker](https://www.qnamaker.ai/) 사이트에서 기술 자료를 선택합니다.
 1. 기술 자료를 연 후 **설정**을 선택합니다. _서비스 이름_에 표시되는 값을 기록합니다. 이 값은 QnA Maker 포털 인터페이스를 사용하는 경우 관심 있는 기술 자료를 찾는 데 유용합니다. 기술 자료에 봇 앱을 연결하는 데 사용되지 않습니다. 
-1. 아래로 스크롤하여 **배포 세부 정보**를 찾아 다음 값을 기록합니다.
-   - POST /knowledgebases/<Your_Knowledge_Base_Id>/getAnswers
-   - Host: <Your_Hostname>/qnamaker
-   - 권한 부여: EndpointKey <Your_Endpoint_Key>
+1. 아래로 스크롤하여 **배포 세부 정보**를 찾아 Postman HTTP 요청 샘플에서 다음 값을 적어 둡니다.
+   - POST /knowledgebases/\<knowledge-base-id>/generateAnswer
+   - Host: \<your-hostname> // Full URL ending with /qnamaker
+   - 권한 부여: EndpointKey \<your-endpoint-key>
    
 호스트 이름에 대한 전체 URL 문자열은 "https://< >.azure.net/qnamaker"와 같습니다. 다음 세 값은 Azure QnA 서비스를 통해 앱을 QnA Maker 기술 자료에 연결하는 데 필요한 정보를 제공합니다.  
 

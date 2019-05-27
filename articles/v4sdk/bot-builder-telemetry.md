@@ -10,94 +10,115 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 02/06/2019
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 414417e3722e2d9063e1d177b534b6caa814c0db
-ms.sourcegitcommit: f84b56beecd41debe6baf056e98332f20b646bda
+ms.openlocfilehash: 95b56ec8e278c3d94430dc3c870803e8672fb053
+ms.sourcegitcommit: 4086189a9c856fbdc832eb1a1d205e5f1b4e3acd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2019
-ms.locfileid: "65032437"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65733335"
 ---
 # <a name="add-telemetry-to-your-bot"></a>봇에 원격 분석 추가
 
 [!INCLUDE[applies-to](../includes/applies-to.md)]
 
-Bot Framework SDK 버전 4.2에서 원격 분석 로깅이 제품에 추가되었습니다.  이렇게 하면 봇 애플리케이션은 Application Insights와 같은 서비스에 이벤트 데이터를 보낼 수 있습니다. 첫 번째 섹션에서는 이러한 두 가지 방법을 살펴본 후 보다 광범위한 원격 분석 기능을 살펴봅니다.
+Bot Framework SDK 버전 4.2에서 원격 분석 로깅이 제품에 추가되었습니다.  이렇게 하면 봇 애플리케이션은 Application Insights와 같은 서비스에 이벤트 데이터를 보낼 수 있습니다. 첫 번째 섹션에서는 이러한 메서드를 살펴본 후에 더 광범위한 원격 분석 기능도 살펴봅니다.
 
-이 문서에서는 새로운 원격 분석 기능과 봇을 통합하는 방법에 대해 알아봅니다.
+이 문서에서는 새로운 원격 분석 기능과 봇을 통합하는 방법에 대해 알아봅니다. 
 
 ## <a name="basic-telemetry-options"></a>기본 원격 분석 옵션
 
 ### <a name="basic-application-insights"></a>기본 Application Insights
-봇을 구성하는 방법에는 두 가지가 있습니다.  첫 번째는 Application Insights와 통합하는 것을 가정합니다.
 
-설정 파일에는 봇이 실행 중에 사용하는 외부 서비스에 대한 메타데이터가 포함되어 있습니다.  예를 들어, CosmosDB, Application Insights 및 LUIS(Language Understanding) 서비스 연결 및 메타데이터는 여기에 저장됩니다.   
+먼저 Application Insights를 사용하여 기본 원격 분석을 봇에 추가해 보겠습니다. 설정에 대한 자세한 내용은 [Application Insights 시작](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Getting-Started-with-Application-Insights-for-ASP.NET-Core)의 처음 몇 개의 섹션을 참조하세요.   
 
-"스톡" Application Insights를 원하는 경우 Application Insights 관련 추가 구성(예: 원격 분석 이니셜라이저)이 필요 없이 초기화하는 동안 구성 개체(일반적으로 `IConfiguration`)를 전달합니다.   이는 Application Insights를 초기화하고 구성하여 요청, 다른 서비스에 대한 외부 호출 및 서비스 간 이벤트 상관 관계 설정을 추적하기 시작하는 가장 쉬운 방법입니다.
+추가 Application Insights 특정 구성(예: 원격 분석 이니셜라이저)이 필요하지 않은 "stock" Application Insights를 원하는 경우 다음을 `ConfigureServices()` 메서드에 추가합니다.   이는 Application Insights를 초기화하고 구성하여 요청, 다른 서비스에 대한 외부 호출 및 서비스 간 이벤트 상관 관계 설정을 추적하기 시작하는 가장 쉬운 방법입니다.
 
-**Microsoft.Bot.Builder.Integration.ApplicationInsights.Core** NuGet 패키지를 추가해야 합니다.
-
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+아래 코드 조각에 포함된 NuGet 패키지를 추가해야 합니다.
 
 **Startup.cs**
 ```csharp
+using Microsoft.ApplicationInsights.Extensibility;
+using Microsoft.Bot.Builder.ApplicationInsights;
+using Microsoft.Bot.Builder.Integration.ApplicationInsights.Core;
+using Microsoft.Bot.Builder.Integration.AspNet.Core;
+ 
+// This method gets called by the runtime. Use this method to add services to the container.
 public void ConfigureServices(IServiceCollection services)
 {
-     ...
-     // Add Application Insights - pass in the bot configuration
-     services.AddBotApplicationInsights(<your IConfiguration variable name - likely "config">);
-     ...
+    ...
+    // Add Application Insights services into service collection
+    services.AddApplicationInsightsTelemetry();
+
+    // Add the standard telemetry client
+    services.AddSingleton<IBotTelemetryClient, BotTelemetryClient>();
+
+    // Add ASP middleware to store the HTTP body, mapped with bot activity key, in the httpcontext.items
+    // This will be picked by the TelemetryBotIdInitializer
+    services.AddTransient<TelemetrySaveBodyASPMiddleware>();
+
+    // Add telemetry initializer that will set the correlation context for all telemetry items
+    services.AddSingleton<ITelemetryInitializer, OperationCorrelationTelemetryInitializer>();
+
+    // Add telemetry initializer that sets the user ID and session ID (in addition to other 
+    // bot-specific properties, such as activity ID)
+    services.AddSingleton<ITelemetryInitializer, TelemetryBotIdInitializer>();
+    ...
 }
 
+// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
 public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 {
-     app.UseBotApplicationInsights()
-                 ...
-                .UseDefaultFiles()
-                .UseStaticFiles()
-                .UseBotFramework();
-                ...
+    ...
+    app.UseBotApplicationInsights();
 }
 ```
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+그런 다음, Application Insights 계측 키를 `appsettings.json` 파일에 저장하거나 환경 변수로 저장해야 합니다. `appsettings.json` 파일에는 봇에서 실행 중에 사용하는 외부 서비스에 대한 메타데이터가 포함되어 있습니다.  예를 들어, CosmosDB, Application Insights 및 LUIS(Language Understanding) 서비스 연결 및 메타데이터는 여기에 저장됩니다. 계측 키는 Azure Portal의 **개요** 섹션(접혀 있는 경우 해당 페이지에 있는 서비스의 `Essentials` 드롭다운 아래)에서 찾을 수 있습니다. 키 가져오기에 대한 자세한 내용은 [여기서](~/bot-service-resources-app-insights-keys.md) 확인할 수 있습니다.
 
-```JavaScript
-const appInsightsClient = new ApplicationInsightsTelemetryClient(<your configuration variable name - likely "config">);
+프레임워크에서 올바른 형식으로 지정된 키를 찾습니다. `appsettings.json` 항목의 형식은 다음과 같습니다.
+
+```json
+    "ApplicationInsights": {
+        "InstrumentationKey": "putinstrumentationkeyhere"
+    },
+    "Logging": {
+        "LogLevel": {
+            "Default": "Warning"
+        }
+    }
 ```
 
----
+Application Insights를 ASP.NET Core 애플리케이션에 추가하는 방법에 대한 자세한 내용은 [이 문서](https://docs.microsoft.com/en-us/azure/azure-monitor/app/asp-net-core-no-visualstudio)를 참조하세요. 
 
-### <a name="overriding-the-telemetry-client"></a>원격 분석 클라이언트 재정의
+### <a name="customize-your-telemetry-client"></a>원격 분석 클라이언트 사용자 지정
 
-Application Insights 클라이언트를 사용자 지정하거나 완전히 별도의 서비스에 로그인하려는 경우 시스템을 다르게 구성해야 합니다. nuget를 통해 `Microsoft.Bot.Builder.ApplicationInsights` 패키지를 다운로드하거나 npm을 사용하여 `botbuilder-applicationinsights`를 설치합니다. 계측 키는 Azure Portal에서 확인할 수 있습니다.
+Application Insights 클라이언트를 사용자 지정하거나 완전히 별도의 서비스에 로그인하려는 경우 시스템을 다르게 구성해야 합니다. nuget를 통해 `Microsoft.Bot.Builder.ApplicationInsights` 패키지를 다운로드하거나 npm을 사용하여 `botbuilder-applicationinsights`를 설치합니다. Application Insights 키를 가져오는 방법에 대한 자세한 내용은 [여기서](~/bot-service-resources-app-insights-keys.md) 확인할 수 있습니다.
 
 **Application Insights 구성 수정**
 
-```csharp
+구성을 수정하려면 Application Insights를 추가할 때 `options`를 포함시킵니다. 그렇지 않으면 모두 위와 동일합니다.
 
+```csharp
 public void ConfigureServices(IServiceCollection services)
 {
-     ...
-     // Create Application Insight Telemetry Client
-     // with custom configuration.
-     var telemetryClient = TelemetryClient(myCustomConfiguration)
-     
-     // Add Application Insights
-     services.AddBotApplicationInsights(new BotTelemetryClient(telemetryClient), "InstrumentationKey");
+    ...
+    // Add Application Insights services into service collection
+    services.AddApplicationInsightsTelemetry(options);
+    ...
+}
 ```
 
-**사용자 지정 원격 분석 사용** Bot Framework에서 생성된 원격 분석 이벤트를 완전히 별도의 시스템에 로깅하려는 경우 기본 인터페이스에서 파생된 새 클래스를 만들고 구성합니다.  
+`options` 개체는 `ApplicationInsightsServiceOptions` 형식입니다. 이러한 옵션에 대한 자세한 내용은 [여기서 확인할 수 있습니다]().
+
+**사용자 지정 원격 분석 사용** Bot Framework에서 생성된 원격 분석 이벤트를 완전히 별도의 시스템에 로깅하려면 기본 `IBotTelemetryClient` 인터페이스에서 파생되는 새 클래스를 만들고 구성합니다. 그런 다음, 위와 같이 원격 분석 클라이언트를 추가할 때 사용자 지정 클라이언트를 삽입하기만 하면 됩니다. 
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
 {
-     ...
-     // Create my IBotTelemetryClient-based logger
-     var myTelemetryClient = MyTelemetryLogger();
-     
-     // Add Application Insights
-     services.AddSingleton(myTelemetryClient);
-     ...
+    ...
+    // Add the telemetry client.
+    services.AddSingleton<IBotTelemetryClient, CustomTelemetryClient>();
+    ...
 }
 ```
 
@@ -140,9 +161,11 @@ SDK 버전 4.4에 추가된 새 구성 요소 세 가지가 있습니다.  모�
 TelemetryLoggerMiddleware는 수정하지 않고 추가할 수 있는 Bot Framework 구성 요소이며, 로깅을 수행하여 Bot Framework SDK에 기본 제공되는 보고서를 사용하도록 설정합니다. 
 
 ```csharp
-var telemetryClient = sp.GetService<IBotTelemetryClient>();
-var telemetryLogger = new TelemetryLoggerMiddleware(telemetryClient, logPersonalInformation: true);
-options.Middleware.Add(telemetryLogger);  // Add to the middleware collection
+// Create the telemetry middleware to track conversation events
+services.AddSingleton<IMiddleware, TelemetryLoggerMiddleware>();
+
+// Create the Bot Framework Adapter with error handling enabled.
+services.AddSingleton<IBotFrameworkHttpAdapter, AdapterWithErrorHandler>();
 ```
 
 #### <a name="adding-properties"></a>속성 추가
@@ -174,8 +197,8 @@ class MyTelemetryMiddleware : TelemetryLoggerMiddleware
 그리고 Startup에서 새 클래스를 추가합니다.
 
 ```csharp
-var telemetryLogger = new TelemetryLuisRecognizer(telemetryClient, logPersonalInformation: true);
-options.Middleware.Add(telemetryLogger);  // Add to the middleware collection
+// Create the telemetry middleware to track conversation events
+services.AddSingleton<IMiddleware, MyTelemetryMiddleware>();
 ```
 
 #### <a name="completely-replacing-properties--additional-events"></a>속성을 완전히 바꾸기/추가 이벤트
@@ -430,11 +453,11 @@ class MyLuisRecognizer : TelemetryQnAMaker
 
 사용자 고유의 이벤트를 생성하는 것 외에도 SDK 내의 `WaterfallDialog` 개체는 이제 이벤트를 생성합니다. 다음 섹션에서는 Bot Framework 내에서 생성된 이벤트에 대해 설명합니다. `WaterfallDialog`에 `TelemetryClient` 속성을 설정하면 이러한 이벤트가 저장됩니다.
 
-다음은 원격 분석 이벤트를 기록하기 위해 `WaterfallDialog`를 사용하는 샘플(BasicBot)을 수정하는 예제입니다.  BasicBot은 `WaterfallDialog`가 `ComponentDialog`(`GreetingDialog`) 내에 배치되는 일반적인 패턴을 사용합니다.
+다음은 원격 분석 이벤트를 기록하기 위해 `WaterfallDialog`를 사용하는 샘플(CoreBot)을 수정하는 예제입니다.  CoreBot은 `ComponentDialog`(`GreetingDialog`) 내에 `WaterfallDialog`가 배치되는 경우 사용되는 일반적인 패턴을 사용합니다.
 
 ```csharp
 // IBotTelemetryClient is direct injected into our Bot
-public BasicBot(BotServices services, UserState userState, ConversationState conversationState, IBotTelemetryClient telemetryClient)
+public CoreBot(BotServices services, UserState userState, ConversationState conversationState, IBotTelemetryClient telemetryClient)
 ...
 
 // The IBotTelemetryClient passed to the GreetingDialog
