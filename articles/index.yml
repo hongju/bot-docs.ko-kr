@@ -1,0 +1,63 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure Bot Service 설명서
+metadata:
+  document_id: 1d934240-28c7-635f-d41b-3e43ae02970c
+  title: 'Azure Bot Service 설명서 - 자습서, API 참조'
+  meta.description: 'Learn how to create bots. Documentation helps you create, deploy, and manage bots in the cloud.'
+  author: ivorb
+  manager: kamrani
+  ms.service: bot-service
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 05/23/2019
+  ms.author: ivorb
+abstract:
+  description: 'Azure Bot Service는 봇 개발에 특화된 통합 환경을 제공하여 지능형 봇을 한 곳에서 빌드하고, 연결하고, 테스트하고, 배포하고, 관리할 수 있습니다. Azure Bot Service는 C# 및 JavaScript에 대한 지원에서 Bot Framework SDK를 활용합니다. 빠른 시작, 자습서 및 샘플을 통해 Bot Service를 사용하는 방법을 알아봅니다.'
+  aside:
+    image:
+      alt: null
+      height: 110
+      src: media/video/satya-video.png
+      width: 250
+    title: '2019 키 노트 빌드: Satya Nadella  (1:25:09)'
+    href: 'https://mybuild.techcommunity.microsoft.com/sessions/77571?source=%7B%7B%20ctrl.source#top-anchor'
+    width: 250
+sections:
+  - title: 5분 빠른 시작
+    items:
+      - type: paragraph
+        text: 다음과 같은 첫 번째 봇을 만드는 방법을 알아봅니다.
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: media/index/azure_portal.png
+            text: Azure Portal
+            href: 'https://docs.microsoft.com/en-us/bot-framework/bot-service-quickstart'
+          - image:
+              src: v4sdk/media/logo_csharp.svg
+            text: 'C#'
+            href: 'https://docs.microsoft.com/en-us/azure/bot-service/dotnet/bot-builder-dotnet-sdk-quickstart'
+          - image:
+              src: v4sdk/media/logo_js.svg
+            text: JavaScript
+            href: 'https://docs.microsoft.com/en-us/azure/bot-service/javascript/bot-builder-javascript-quickstart'
+  - title: 단계별 자습서
+    items:
+      - type: paragraph
+        text: Azure에서 봇을 만들고 배포하는 방법을 알아봅니다.
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="/bot-framework/bot-builder-tutorial-basic-deploy">간단한 봇 만들기 및 배포</a>
+          - html: <a href="/bot-framework/bot-builder-tutorial-add-qna">QnA Maker를 추가하고 봇 재배포</a>
+  - title: 참고 자료
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Languages
+            html: '<p><a href="/dotnet/api/?view=botbuilder-dotnet-stable">.NET</a></p><p><a href="https://docs.microsoft.com/en-us/javascript/api/botbuilder/index?view=botbuilder-ts-latest">JavaScript</a></p>'
