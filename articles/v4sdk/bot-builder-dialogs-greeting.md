@@ -8,14 +8,14 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
-ms.date: 03/12/2019
+ms.date: 05/23/2019
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 451906a6187f88bd80bef7519d6cdc1aa7bd6177
-ms.sourcegitcommit: f84b56beecd41debe6baf056e98332f20b646bda
+ms.openlocfilehash: 82e6273b8d6dc984e29bef891f3e8f67b1c53eed
+ms.sourcegitcommit: ea64a56acfabc6a9c1576ebf9f17ac81e7e2a6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2019
-ms.locfileid: "65033877"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66215411"
 ---
 # <a name="implement-a-greeting-dialog"></a>인사말 대화 상자 구현
 
@@ -50,7 +50,7 @@ ms.locfileid: "65033877"
 
 ## <a name="to-test-the-bot"></a>봇을 테스트하려면
 
-1. [Bot Framework Emulator](https://aka.ms/bot-framework-emulator-readme)를 설치하지 않은 경우 설치합니다.
+1. 아직 설치하지 않은 경우 [Bot Framework Emulator](https://aka.ms/bot-framework-emulator-readme)를 설치합니다.
 1. 샘플을 머신에서 로컬로 실행합니다.
 1. 에뮬레이터를 시작하고, 봇에 연결한 다음, 아래와 같이 메시지를 보냅니다.
 

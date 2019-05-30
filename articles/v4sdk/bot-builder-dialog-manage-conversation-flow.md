@@ -8,14 +8,14 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
-ms.date: 04/24/2019
+ms.date: 05/23/2019
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: ad1209481691e1c1ed4e00b42086b8996aeea6a5
-ms.sourcegitcommit: f84b56beecd41debe6baf056e98332f20b646bda
+ms.openlocfilehash: 680d9148b463bbb5d10f4a6a06cc7b32b824b66e
+ms.sourcegitcommit: ea64a56acfabc6a9c1576ebf9f17ac81e7e2a6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2019
-ms.locfileid: "65032676"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66215427"
 ---
 # <a name="implement-sequential-conversation-flow"></a>순차적 대화 흐름 구현
 
@@ -32,15 +32,15 @@ ms.locfileid: "65032676"
 
 ## <a name="about-this-sample"></a>이 샘플 정보
 
-다중 순서 프롬프트 샘플에서는 폭포 대화, 몇 가지 프롬프트 및 구성 요소 대화를 사용하여 사용자에게 일련의 질문을 하는 간단한 상호 작용을 만듭니다. 코드는 대화를 사용하여 다음 단계를 순환합니다.
+다중 순서 프롬프트 샘플에서는 폭포 대화, 몇 가지 프롬프트 및 구성 요소 대화를 사용하여 사용자에게 일련의 질문을 하는 간단한 상호 작용을 만듭니다. 코드는 대화 상자를 사용하여 다음 단계를 순환합니다.
 
-| 단계        | 프롬프트 유형  |
+| 단계        | 프롬프트 형식  |
 |:-------------|:-------------| 
-| 사용자에게 교통 수단 질문 | 선택 프롬프트 |
-| 사용자에게 이름 질문 | 텍스트 프롬프트 |
-| 사용자에게 나이를 입력하기를 원하는지 질문 | 확인 프롬프트 |
-| 사용자가 예로 답하면 나이 질문  | 0보다 크고 150보다 작은 나이만 허용하는 유효성 검사를 포함한 숫자 프롬프트 |
-| 수집된 정보가 "올바른지" 질문 | 재사용 확인 프롬프트 |
+| 사용자에게 사용자의 전송 모드 요청 | 선택 항목 프롬프트 |
+| 사용자에게 사용자의 이름 요청 | 텍스트 프롬프트 |
+| 사용자에게 자신의 나이 제공을 원하는지 여부 질문 | 확인 프롬프트 |
+| 사용자가 예로 답하면 나이 요청  | 0보다 크고 150보다 작은 나이만 허용하는 유효성 검사를 포함한 숫자 프롬프트 |
+| 수집된 정보가 "올바른지" 질문 | 확인 프롬프트 재사용 |
 
 끝으로, 사용자가 예로 답하면 수집된 정보를 표시합니다. 그렇지 않으면 사용자에게 해당 사용자의 정보가 보관되지 않을 것임을 알려줍니다.
 
@@ -204,7 +204,7 @@ ms.locfileid: "65032676"
 1. 샘플을 머신에서 로컬로 실행합니다.
 1. 에뮬레이터를 시작하고 봇에 연결한 다음, 아래와 같은 메시지를 보냅니다.
 
-![다중 순서 프롬프트 대화의 샘플 실행](../media/emulator-v4/multi-turn-prompt.png)
+![다중 턴 프롬프트 대화 상자의 샘플 실행](../media/emulator-v4/multi-turn-prompt.png)
 
 ## <a name="additional-information"></a>추가 정보
 

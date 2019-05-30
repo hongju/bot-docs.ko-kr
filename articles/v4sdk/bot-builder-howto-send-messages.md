@@ -8,14 +8,14 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
-ms.date: 04/16/2019
+ms.date: 05/23/2019
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 0d4279df31aba6cecb12b7d8d7262069aed8836b
-ms.sourcegitcommit: f84b56beecd41debe6baf056e98332f20b646bda
+ms.openlocfilehash: 4b2cd49d84ea90f0ac6449ce4da61495100d45c4
+ms.sourcegitcommit: ea64a56acfabc6a9c1576ebf9f17ac81e7e2a6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2019
-ms.locfileid: "65033392"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66215360"
 ---
 # <a name="send-and-receive-text-message"></a>문자 메시지 보내기 및 받기
 

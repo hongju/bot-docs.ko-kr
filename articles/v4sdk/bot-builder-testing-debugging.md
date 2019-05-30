@@ -7,14 +7,14 @@ ms.author: v-ivorb
 manager: kamrani
 ms.topic: article
 ms.service: bot-service
-ms.date: 2/26/2019
+ms.date: 05/23/2019
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 618d438a384fa6a91ba919265519397cac555fda
-ms.sourcegitcommit: aea57820b8a137047d59491b45320cf268043861
+ms.openlocfilehash: 3e1ebc07c73dcd7033a6b9a22c94379593c5890e
+ms.sourcegitcommit: ea64a56acfabc6a9c1576ebf9f17ac81e7e2a6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59904856"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66215258"
 ---
 # <a name="testing-and-debugging-guidelines"></a>테스트 및 디버깅 지침
 
@@ -75,7 +75,7 @@ ms.locfileid: "59904856"
 
 ### <a name="understanding-bot-activities-with-the-emulator"></a>에뮬레이터를 사용하여 봇 활동 이해
 
-봇은 일반 ‘메시지’ 활동 외에도 다양한 유형의 [활동](bot-builder-basics.md#the-activity-processing-stack)을 처리합니다. [에뮬레이터](../bot-service-debug-emulator.md)를 사용하면 해당 활동이 무엇이고, 언제 수행되고, 어떤 정보를 포함하는지 확인할 수 있습니다. 해당 활동을 파악하면 봇을 효율적으로 코딩할 수 있고 봇이 보내고 받는 활동이 예상한 활동인지 확인할 수 있습니다.
+봇은 일반 ‘메시지’ 활동 외에도 다양한 유형의 [활동](bot-builder-basics.md#the-activity-processing-stack)을 처리합니다.  [에뮬레이터](../bot-service-debug-emulator.md)를 사용하면 해당 활동이 무엇이고, 언제 수행되고, 어떤 정보를 포함하는지 확인할 수 있습니다. 해당 활동을 파악하면 봇을 효율적으로 코딩할 수 있고 봇이 보내고 받는 활동이 예상한 활동인지 확인할 수 있습니다.
 
 ### <a name="saving-and-retrieving-user-interactions-with-transcripts"></a>대본을 통해 사용자 상호 작용 저장 및 검색
 
@@ -85,7 +85,7 @@ Azure Blob 기록 저장소는 사용자 및 봇 간의 상호 작용을 포함�
 
 ![Examine_stored_transcript_text](./media/examine_transcript_text_in_azure.png)
 
-이는 저장된 사용자 대화 입력을 JSON 형식으로 엽니다. 사용자 입력은 "_텍스트:_" 키와 함께 유지됩니다.
+이는 저장된 사용자 대화 입력을 JSON 형식으로 엽니다. 사용자 입력은 "_텍스트:_ " 키와 함께 유지됩니다.
 
 ### <a name="how-middleware-works"></a>미들웨어의 작동 방식
 

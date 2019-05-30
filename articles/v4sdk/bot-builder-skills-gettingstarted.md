@@ -6,14 +6,14 @@ ms.author: darrenj
 manager: kamrani
 ms.topic: article
 ms.service: bot-service
-ms.date: 05/06/2019
+ms.date: 05/23/2019
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 5d5f22351592db4548ad1db35ecfea1d08e98b20
-ms.sourcegitcommit: 178140eb060d71803f1c6357dd5afebd7f44fe1d
+ms.openlocfilehash: 454e5589fb12483833017c7dadecfca834abda37
+ms.sourcegitcommit: ea64a56acfabc6a9c1576ebf9f17ac81e7e2a6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65856692"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66215281"
 ---
 # <a name="bot-framework-skills---getting-started"></a>Bot Framework 기술 - 시작
 

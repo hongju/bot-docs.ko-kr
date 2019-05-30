@@ -8,14 +8,14 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
-ms.date: 03/28/2019
+ms.date: 05/23/2019
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 55b5a4073340bb29074af5b2ee74dd952ea40f0c
-ms.sourcegitcommit: f84b56beecd41debe6baf056e98332f20b646bda
+ms.openlocfilehash: 862fbf59cf33406e35e9051c0814489fdfdaa8f3
+ms.sourcegitcommit: ea64a56acfabc6a9c1576ebf9f17ac81e7e2a6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2019
-ms.locfileid: "65032243"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66215586"
 ---
 # <a name="differences-between-the-v3-and-v4-net-sdk"></a>v3 및 v4 .NET SDK 간의 차이점
 

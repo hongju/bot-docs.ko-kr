@@ -6,14 +6,14 @@ ms.author: darrenj
 manager: kamrani
 ms.topic: article
 ms.service: bot-service
-ms.date: 13/12/2018
+ms.date: 05/23/2019
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 99c37812a5c13fe2409a68cbb8614cf8144d0711
-ms.sourcegitcommit: b94c4286f6f64955fd51ccf4a68109c43db0e47d
+ms.openlocfilehash: 9bab3e3df6bb32607773da261698d785b1f261f7
+ms.sourcegitcommit: ea64a56acfabc6a9c1576ebf9f17ac81e7e2a6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65083702"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66214227"
 ---
 # <a name="virtual-assistant-overview"></a>가상 도우미 개요
 

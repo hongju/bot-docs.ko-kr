@@ -7,14 +7,14 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
-ms.date: 09/13/2018
+ms.date: 05/23/2019
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 7c8f49644f38c0621937a74fda8e470495e11e01
-ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
+ms.openlocfilehash: 8892bdf0f4a0e5dad765610d30e67fce4296e810
+ms.sourcegitcommit: ea64a56acfabc6a9c1576ebf9f17ac81e7e2a6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54224029"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66214338"
 ---
 # <a name="javascript-samples-for-bot-framework-sdk"></a>Bot Framework SDK의 JavaScript 샘플
 [!INCLUDE [pre-release-label](../includes/pre-release-label.md)]

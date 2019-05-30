@@ -8,14 +8,14 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
-ms.date: 05/01/2019
+ms.date: 05/23/2019
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 20b434c4fe5106ffe953c1a9ba9a282254511c9c
-ms.sourcegitcommit: f84b56beecd41debe6baf056e98332f20b646bda
+ms.openlocfilehash: b4a5e3f0271d6b80a4245294e520ebc5abaede4e
+ms.sourcegitcommit: ea64a56acfabc6a9c1576ebf9f17ac81e7e2a6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2019
-ms.locfileid: "65032325"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66214143"
 ---
 # <a name="manage-bot-resources"></a>봇 리소스 관리
 

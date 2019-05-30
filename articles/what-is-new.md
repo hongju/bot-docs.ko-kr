@@ -8,21 +8,21 @@ manager: kamrani
 ms.topic: get-started-article
 ms.service: bot-service
 ms.subservice: abs
-ms.date: 05/05/2019
+ms.date: 05/23/2019
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: ded465802ff3e16563dd56998e4114d6bd98ad5f
-ms.sourcegitcommit: 3e3c9986b95532197e187b9cc562e6a1452cbd95
+ms.openlocfilehash: de497fa5ad694081258486dd5c6e9fd37b107879
+ms.sourcegitcommit: ea64a56acfabc6a9c1576ebf9f17ac81e7e2a6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65047890"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66215567"
 ---
 # <a name="whats-new-in-bot-framework"></a>Bot Framework의 새로운 기능
 Bot Framework SDK v4는 개발자가 원하는 프로그래밍 언어를 사용하여 복잡한 대화를 모델링하고 빌드할 수 있게 해주는 [오픈 소스 SDK][1a]입니다.
 
 이 문서에는 Bot Framework 및 Azure Bot Service의 주요 새 기능과 향상 기능이 요약되어 있습니다.
 
-|   | C#  | JS  | Python |  자바 | 
+|   | C#  | JS  | Python |  Java | 
 |---|:---:|:---:|:------:|:-----:|
 |SDK) |[4.4.3][1] | [4.4.0][2] | [4.4.0b1(미리 보기)][3] | [4.0.0a6(미리 보기)][3a]|
 |Docs | [문서][5] |[문서][5] |  | |

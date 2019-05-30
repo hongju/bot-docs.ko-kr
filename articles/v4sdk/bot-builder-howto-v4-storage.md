@@ -8,14 +8,14 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
-ms.date: 4/13/19
+ms.date: 05/23/2019
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 417833b380e80788e26682ce3abd9cc98199eee5
-ms.sourcegitcommit: f84b56beecd41debe6baf056e98332f20b646bda
+ms.openlocfilehash: 07a66eb468bc456fb463c9c215a2c941e4fafe0a
+ms.sourcegitcommit: ea64a56acfabc6a9c1576ebf9f17ac81e7e2a6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2019
-ms.locfileid: "65032779"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66215331"
 ---
 # <a name="write-directly-to-storage"></a>저장소에 직접 작성
 
@@ -566,7 +566,7 @@ Azure Blob 기록 스토리지는 위의 섹션 &quot;_Blob Storage 계정 만�
 ![음성 텍스트 컨테이너 만들기](./media/create-blob-transcript-container.png)
 
 1. Azure Blob Storage 계정을 엽니다.
-1. _Storage 탐색기_를 클릭합니다.
+1. _Storage Explorer_를 클릭합니다.
 1. _Blob 컨테이너_를 마우스 오른쪽 단추로 클릭하고 _Blob 컨테이너 만들기_를 선택합니다.
 1. 음성 텍스트 컨테이너의 이름을 입력한 후 _확인_을 선택합니다. (여기서는 mybottranscripts 입력)
 

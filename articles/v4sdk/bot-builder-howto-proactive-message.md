@@ -8,14 +8,14 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
-ms.date: 4/15/2019
+ms.date: 05/23/2019
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: e40a5c0e5cfa020f62c122e3aea134e0dd131372
-ms.sourcegitcommit: f84b56beecd41debe6baf056e98332f20b646bda
+ms.openlocfilehash: 9389f97cbba2e8766bf29b2502d36e9ec03077cf
+ms.sourcegitcommit: ea64a56acfabc6a9c1576ebf9f17ac81e7e2a6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2019
-ms.locfileid: "65033441"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66215379"
 ---
 # <a name="send-proactive-notifications-to-users"></a>사용자에게 자동 관리 알림 보내기
 

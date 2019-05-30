@@ -8,14 +8,14 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
-ms.date: 4/18/2019
+ms.date: 05/23/2019
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 3dac86bbcd98d48c636521b44d107f1e6341a3f7
-ms.sourcegitcommit: f84b56beecd41debe6baf056e98332f20b646bda
+ms.openlocfilehash: c756de5c1c7371ce418160561d53bfe2e5c7d0c0
+ms.sourcegitcommit: ea64a56acfabc6a9c1576ebf9f17ac81e7e2a6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2019
-ms.locfileid: "65033383"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66215388"
 ---
 # <a name="use-button-for-input"></a>입력에 단추 사용
 

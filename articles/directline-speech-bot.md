@@ -8,14 +8,14 @@ manager: kamrani
 ms.topic: get-started-article
 ms.service: bot-service
 ms.subservice: abs
-ms.date: 05/02/2019
+ms.date: 05/23/2019
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: d2536d244d12b8d9785fa42eddede83bd2a456ad
-ms.sourcegitcommit: a4181f35dbe6a8b107eea28122372f524e19880a
+ms.openlocfilehash: 966e1b6e884486ddc3d57bea0a52ee07ac982346
+ms.sourcegitcommit: ea64a56acfabc6a9c1576ebf9f17ac81e7e2a6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65030206"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66214320"
 ---
 ## <a name="use-direct-line-speech-in-your-bot"></a>봇에서 Direct Line Speech 사용 
 

@@ -8,14 +8,14 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
-ms.date: 02/06/2019
+ms.date: 05/23/2019
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 95b56ec8e278c3d94430dc3c870803e8672fb053
-ms.sourcegitcommit: 4086189a9c856fbdc832eb1a1d205e5f1b4e3acd
+ms.openlocfilehash: b6b4d30aea493180fddaee4a7f74bef72c1992ae
+ms.sourcegitcommit: ea64a56acfabc6a9c1576ebf9f17ac81e7e2a6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65733335"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66215270"
 ---
 # <a name="add-telemetry-to-your-bot"></a>봇에 원격 분석 추가
 

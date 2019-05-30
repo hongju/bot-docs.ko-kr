@@ -8,14 +8,14 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
-ms.date: 04/18/2019
+ms.date: 05/23/2019
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: caa1938abd6ca2b79f9b42f28f3965413d24d81b
-ms.sourcegitcommit: 4086189a9c856fbdc832eb1a1d205e5f1b4e3acd
+ms.openlocfilehash: 3f726587c02315a1d2c0d7910fafabbd4577c73d
+ms.sourcegitcommit: ea64a56acfabc6a9c1576ebf9f17ac81e7e2a6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65733379"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66215513"
 ---
 # <a name="dialogs-library"></a>대화 상자 라이브러리
 

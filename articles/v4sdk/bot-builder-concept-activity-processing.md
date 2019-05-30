@@ -8,14 +8,14 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
-ms.date: 04/13/2019
+ms.date: 05/23/2019
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: d72c374978f509bec0a17ba99c585578757ded61
-ms.sourcegitcommit: aea57820b8a137047d59491b45320cf268043861
+ms.openlocfilehash: 69ce362f35054c5ee42035d8bffefb17c6fa7f71
+ms.sourcegitcommit: ea64a56acfabc6a9c1576ebf9f17ac81e7e2a6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59904476"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66215502"
 ---
 # <a name="activity-processing"></a>작업 처리
 
@@ -29,7 +29,7 @@ ms.locfileid: "59904476"
 
 봇 어댑터는 인증 프로세스를 캡슐화하고 Bot Connector Service와 작업을 주고받습니다. 봇이 작업을 받으면 어댑터는 해당 작업에 대한 모든 항목을 래핑하고, 턴에 대한 [컨텍스트 개체](#turn-context)를 만들어서 봇의 애플리케이션 논리에 전달하고, 봇이 생성한 응답을 다시 사용자의 채널로 보냅니다.
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>인증
 
 어댑터는 작업의 정보 및 REST 요청의 `Authentication` 헤더를 사용하여 애플리케이션에서 수신하는 각 들어오는 작업을 인증합니다. 어댑터는 커넥터 개체 및 애플리케이션의 자격 증명을 사용하여 사용자에 대한 아웃바운드 작업을 인증합니다.
 

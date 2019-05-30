@@ -8,14 +8,14 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
-ms.date: 04/01/2019
+ms.date: 05/23/2019
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 7f35b8a135cdde6ffaf11798a5c0e4a3688d5b4f
-ms.sourcegitcommit: aea57820b8a137047d59491b45320cf268043861
+ms.openlocfilehash: 167e496fa510cdf755be13f71cf3a596b0183ec1
+ms.sourcegitcommit: ea64a56acfabc6a9c1576ebf9f17ac81e7e2a6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59904826"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66215473"
 ---
 # <a name="conversation-flow"></a>대화 흐름
 [!INCLUDE[applies-to](../includes/applies-to.md)]

@@ -8,14 +8,14 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservices: sdk
-ms.date: 4/18/2019
+ms.date: 05/23/2019
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 6660026cddd0543266a33603685a7d30cabfe706
-ms.sourcegitcommit: f84b56beecd41debe6baf056e98332f20b646bda
+ms.openlocfilehash: c10e6cda084f22cd4d97fd4ddce942941015733b
+ms.sourcegitcommit: ea64a56acfabc6a9c1576ebf9f17ac81e7e2a6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2019
-ms.locfileid: "65032763"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66215438"
 ---
 # <a name="debug-your-bot-using-transcript-files"></a>기록 파일을 사용하여 봇 디버그
 
