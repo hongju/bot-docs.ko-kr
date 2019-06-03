@@ -1,21 +1,21 @@
 ---
 title: 기존 v3 JavaScript 봇을 새 v4 프로젝트로 마이그레이션 | Microsoft Docs
 description: 기존 v3 JavaScript 봇을 가져오고, 새 프로젝트를 사용하여 v4 SDK로 마이그레이션합니다.
-keywords: JavaScript, 봇 마이그레이션, Formflow, 대화, v3 봇
+keywords: JavaScript, 봇 마이그레이션, 대화 상자, v3 봇
 author: JonathanFingold
 ms.author: v-jofing
 manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
-ms.date: 05/13/2019
+ms.date: 05/23/2019
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 3692c723bf2ac4d2275176bb0f7c5f8103225808
-ms.sourcegitcommit: 178140eb060d71803f1c6357dd5afebd7f44fe1d
+ms.openlocfilehash: 591f58e1cefca576e2e3e4a486ecc6fbe0a6b0e4
+ms.sourcegitcommit: ea64a56acfabc6a9c1576ebf9f17ac81e7e2a6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65856662"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66215600"
 ---
 # <a name="migrate-a-sdk-v3-javascript-bot-to-v4"></a>SDK v3 Javascript 봇을 v4로 마이그레이션
 
