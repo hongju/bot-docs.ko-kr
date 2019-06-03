@@ -77,7 +77,7 @@ Bot Builder가 C# 기능을 사용하여 비동기 통신을 처리하므로, `P
 
 ### <a name="implementation-details"></a>구현 세부 정보
 
-첫 번째 예제와 같이 새 메시지가 수신되면 `MessageReceivedAsync` 메서드가 호출됩니다. 그러나 이 경우 `MessageReceivedAsync` 메서드는 응답하기 전에 사용자의 메시지를 평가합니다. 사용자의 메시지가 "다시 설정"되면 기본 제공 `PromptDialog.Confirm` 프롬프트는 사용자에게 카운트 재설정을 확인하도록 요청하는 하위 대화 상자를 생성합니다. 하위 대화 상자에는 부모 대화 상자의 상태를 방해하지 않는 고유한 개인 상태가 있습니다. 사용자가 프롬프트에 응답하면 하위 대화 상자의 결과가 `AfterResetAsync` 메서드로 전달됩니다. 이 메서드는 카운트가 재설정되었는지 여부를 나타내는 메시지를 사용자에게 보낸 후 다음 메시지에서 `MessageReceivedAsync`로 다시 이어지는 `IDialogContext.Wait`를 호출합니다.
+첫 번째 예제와 같이 새 메시지가 수신되면 `MessageReceivedAsync` 메서드가 호출됩니다. 그러나 이 경우 `MessageReceivedAsync` 메서드는 응답하기 전에 사용자의 메시지를 평가합니다. 사용자의 메시지가 "다시 설정"되면 기본 제공 `PromptDialog.Confirm` 프롬프트는 사용자에게 카운트 재설정을 확인하도록 요청하는 하위 대화 상자를 생성합니다. 하위 대화 상자에는 부모 대화 상자의 상태를 방해하지 않는 고유한 프라이빗 상태가 있습니다. 사용자가 프롬프트에 응답하면 하위 대화 상자의 결과가 `AfterResetAsync` 메서드로 전달됩니다. 이 메서드는 카운트가 재설정되었는지 여부를 나타내는 메시지를 사용자에게 보낸 후 다음 메시지에서 `MessageReceivedAsync`로 다시 이어지는 `IDialogContext.Wait`를 호출합니다.
 
 ## <a name="dialog-context"></a>대화 상자 컨텍스트
 
@@ -85,7 +85,7 @@ Bot Builder가 C# 기능을 사용하여 비동기 통신을 처리하므로, `P
 
 ### <a name="internalsibotdata"></a>Internals.IBotData
 
-`Internals.IBotData` 인터페이스는 커넥터에서 유지 관리되는 사용자별, 대화별 및 개인 대화 상태 데이터에 대한 액세스를 제공합니다. 사용자별 상태 데이터는 특정 대화와 관련이 없는 사용자 데이터를 저장하는 데 유용하고, 대화별 데이터는 대화에 대한 일반 데이터를 저장하는 데 유용하며, 개인 대화 데이터는 특정 대화와 관련된 사용자 데이터를 저장하는 데 유용합니다. 
+`Internals.IBotData` 인터페이스는 커넥터에서 유지 관리되는 사용자별, 대화별 및 개인 대화 상태 데이터에 대한 액세스를 제공합니다. 사용자별 상태 데이터는 특정 대화와 관련이 없는 사용자 데이터를 저장하는 데 유용하고, 대화별 데이터는 대화에 대한 일반 데이터를 저장하는 데 유용하며, 프라이빗 대화 데이터는 특정 대화와 관련된 사용자 데이터를 저장하는 데 유용합니다. 
 
 ### <a name="internalsibottouser"></a>Internals.IBotToUser
 

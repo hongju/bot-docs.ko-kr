@@ -138,7 +138,7 @@ Bot Framework API v3에서 사용자에게 보내는 모든 회신은 봇으로 
 
 ### <a name="starting-conversations"></a>대화 시작
 
-Bot Framework API v3에서는 새 메서드 `CreateDirectConversation`을 사용하여 단일 사용자와 비공개 대화를 시작하거나, 새 메서드 `CreateConversation`을 사용하여 여러 사용자와 그룹 대화를 시작할 수 있습니다. 대화를 시작 하는 방법에 대한 자세한 내용은 [활동 보내기 및 받기](~/dotnet/bot-builder-dotnet-connector.md#start-a-conversation)를 참조하세요.
+Bot Framework API v3에서는 새 메서드 `CreateDirectConversation`을 사용하여 단일 사용자와 프라이빗 대화를 시작하거나, 새 메서드 `CreateConversation`을 사용하여 여러 사용자와 그룹 대화를 시작할 수 있습니다. 대화를 시작 하는 방법에 대한 자세한 내용은 [활동 보내기 및 받기](~/dotnet/bot-builder-dotnet-connector.md#start-a-conversation)를 참조하세요.
 
 ### <a name="attachments-and-options"></a>첨부 파일 및 옵션
 

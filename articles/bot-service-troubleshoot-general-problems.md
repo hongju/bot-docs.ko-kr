@@ -138,7 +138,7 @@ Direct Line 3.0은 봇 연결을 시도했으나 요청이 성공적으로 완�
 
 `IDialogStack.Forward`의 주 목적은 자식 대화(`IDialog.StartAsync`)가 일부 `ResumeAfter` 처리기가 있는 `T` 개체를 대기하는 "사후"인 경우가 많은 기존 자식 대화를 재사용하는 것입니다. 특히 `IMessageActivity` `T`를 대기하는 자식 대화가 있는 경우 `IDialogStack.Forward` 메서드를 사용하여 들어오는 `IMessageActivity`(이미 일부 부모 대화에서 받음)를 전달할 수 있습니다. 예를 들어 들어오는 `IMessageActivity`를 `LuisDialog`에 전달하려면 `IDialogStack.Forward`를 호출하여 대화 스택에 `LuisDialog`를 푸시하고 다음 메시지 대기를 예약할 때까지 `LuisDialog.StartAsync`에서 코드를 실행한 다음, 즉시 전달된 `IMessageActivity`를 통해 해당 대기를 만족합니다.
 
-`IDialog.StartAsync`이 보통 이러한 작업 유형을 대기하도록 생성되기 때문에 `T`는 일반적으로 `IMessageActivity`를 사용합니다. `IDialogStack.Forward`를 `LuisDialog`에 메커니즘으로 사용하여 메시지를 기존 `LuisDialog`에 전달하기 전에 일부 처리를 위해 사용자로부터 메시지를 가로챌 수 있습니다.  이 목적으로 `DispatchDialog`와 `ContinueToNextGroup`을 사용할 수도 있습니다.
+`IDialog.StartAsync`이 보통 이러한 작업 유형을 대기하도록 생성되기 때문에 `T`는 일반적으로 `IMessageActivity`를 사용합니다. `IDialogStack.Forward`를 `LuisDialog`에 메커니즘으로 사용하여 메시지를 기존 `LuisDialog`에 전달하기 전에 일부 처리를 위해 사용자로부터 메시지를 가로챌 수 있습니다. 이 목적으로 `DispatchDialog`와 `ContinueToNextGroup`을 사용할 수도 있습니다.
 
 `StartAsync`에서 예약한 첫 번째 `ResumeAfter` 처리기(예: `LuisDialog.MessageReceived`)에서 전달된 항목을 찾게 됩니다.
 
@@ -165,9 +165,9 @@ Direct Line 3.0은 봇 연결을 시도했으나 요청이 성공적으로 완�
 
 ## <a name="where-is-conversation-state-stored"></a>대화 상태는 어디에 저장되나요?
 
-사용자, 대화 및 개인 대화 속성 모음의 데이터는 Connector의 `IBotState` 인터페이스를 통해 저장됩니다. 각 속성 모음은 봇의 ID로 범위가 지정됩니다. 사용자 속성 모음은 사용자 ID로, 대화 속성 모음은 대화 ID로, 개인 대화 속성 모음은 사용자 ID 및 대화 ID로 키가 지정됩니다. 
+사용자, 대화 및 프라이빗 대화 속성 모음의 데이터는 Connector의 `IBotState` 인터페이스를 통해 저장됩니다. 각 속성 모음은 봇의 ID로 범위가 지정됩니다. 사용자 속성 모음은 사용자 ID로, 대화 속성 모음은 대화 ID로, 프라이빗 대화 속성 모음은 사용자 ID 및 대화 ID로 키가 지정됩니다. 
 
-.NET용 Bot Framework SDK 또는 Node.js용 Bot Framework SDK로 봇을 빌드하는 경우 대화 스택 및 대화 데이터는 모두 개인 대화 속성 모음의 항목으로 자동 저장됩니다. C# 구현에서는 이진 직렬화를, Node.js 구현에서는 JSON 직렬화를 사용합니다.
+.NET용 Bot Framework SDK 또는 Node.js용 Bot Framework SDK로 봇을 빌드하는 경우 대화 스택 및 대화 데이터는 모두 프라이빗 대화 속성 모음의 항목으로 자동 저장됩니다. C# 구현에서는 이진 직렬화를, Node.js 구현에서는 JSON 직렬화를 사용합니다.
 
 `IBotState` REST 인터페이스는 두 서비스로 구현됩니다.
 
@@ -192,7 +192,7 @@ Direct Line 3.0은 봇 연결을 시도했으나 요청이 성공적으로 완�
 
 ## <a name="what-causes-an-error-with-http-status-code-412-precondition-failed-or-http-status-code-409-conflict"></a>HTTP 상태 코드 412 "전제 조건 실패" 또는 HTTP 상태 코드 409 "충돌"이 발생하는 이유는 무엇인가요?
 
-커넥터의 `IBotState` 서비스는 봇 데이터 모음(즉, 개인 봇 데이터 모음이 대화 스택 "제어 흐름" 상태를 포함하는 경우 사용자, 대화, 개인 봇 데이터 모음)을 저장하는 데 사용됩니다. `IBotState` 서비스의 동시성 제어는 ETag를 통해 낙관적 동시성으로 관리됩니다. "읽기-수정-쓰기" 시퀀스 중에 (단일 봇 데이터 백에 대한 동시 업데이트로 인해) 업데이트 충돌이 발생할 경우
+커넥터의 `IBotState` 서비스는 봇 데이터 모음(즉, 프라이빗 봇 데이터 모음이 대화 스택 "제어 흐름" 상태를 포함하는 경우 사용자, 대화, 프라이빗 봇 데이터 모음)을 저장하는 데 사용됩니다. `IBotState` 서비스의 동시성 제어는 ETag를 통해 낙관적 동시성으로 관리됩니다. "읽기-수정-쓰기" 시퀀스 중에 (단일 봇 데이터 백에 대한 동시 업데이트로 인해) 업데이트 충돌이 발생할 경우
 
 * Etag가 유지될 경우 `IBotState` 서비스에서 HTTP 상태 코드 412 "전제 조건 실패" 오류가 Throw됩니다. 이것이 .NET용 Bot Framework SDK의 기본 동작입니다.
 * Etag가 유지되지 않는 경우(즉, ETag가 `\*`로 설정됨) "전제 조건 실패" 오류는 방지하지만 데이터 손실의 위험이 있는 "마지막 쓰기 우선" 정책이 적용됩니다. 이것이 Node.js용 Bot Framework SDK의 기본 동작입니다.
@@ -222,7 +222,7 @@ builder.Update(Conversation.Container);
 > [!IMPORTANT]
 > Bot Framework 상태 서비스 API는 프로덕션 환경 또는 v4 봇에는 권장되지 않으며 이후 릴리스에서 전혀 사용되지 않을 수 있습니다. 테스트 용도로 메모리 내 저장소를 사용하거나 프로덕션 봇용으로 **Azure 확장**을 사용하도록 봇 코드를 업데이트하는 것이 좋습니다. 자세한 내용은 [상태 데이터 관리](v4sdk/bot-builder-howto-v4-state.md) 항목을 참조하세요.
 
-상태 서비스를 사용하면 사용자가 나중에 위치를 잃지 않고 대화로 돌아올 수 있게 대화의 대화 상자에서 진행 상황을 유지할 수 있습니다. 이렇게 유지하기 위해, 봇의 코드를 수정할 때 State API를 통해 저장된 봇 데이터 속성 모음이 자동으로 지워지지 않습니다.  수정된 코드가 이전 데이터 버전과 호환 가능한지 여부에 따라 봇 데이터를 지울지 여부를 결정해야 합니다. 
+상태 서비스를 사용하면 사용자가 나중에 위치를 잃지 않고 대화로 돌아올 수 있게 대화의 대화 상자에서 진행 상황을 유지할 수 있습니다. 이렇게 유지하기 위해, 봇의 코드를 수정할 때 State API를 통해 저장된 봇 데이터 속성 모음이 자동으로 지워지지 않습니다. 수정된 코드가 이전 데이터 버전과 호환 가능한지 여부에 따라 봇 데이터를 지울지 여부를 결정해야 합니다. 
 
 * 봇 개발 중에 수동으로 대화의 대화 스택과 상태를 재설정하려면 ` /deleteprofile` 명령을 사용하여 상태 데이터를 삭제할 수 있습니다. 채널이 해석하지 않도록 명령에 선행 공백을 포함해야 합니다.
 * 봇을 프로덕션에 배포한 후에는 버전을 범프하면 연결된 상태 데이터가 지워지도록 봇 데이터 버전을 지정할 수 있습니다. Node.js용 Bot Framework SDK에서는 미들웨어를 통해, .NET용 Bot Framework SDK에서는 `IPostToBot` 구현을 통해 이를 수행할 수 있습니다.

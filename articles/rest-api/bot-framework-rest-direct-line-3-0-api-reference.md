@@ -212,7 +212,7 @@ POST /v3/directline/conversations/{conversationId}/upload?userId={userId}
 클라이언트가 직접 회선을 통해 봇에서 수신하는 각 [활동](bot-framework-rest-connector-api-reference.md#activity-object)에 대해 다음을 수행됩니다.
 
 - 첨부 파일 카드가 유지됩니다.
-- 업로드된 첨부 파일의 URL은 전용 연결을 사용하여 숨겨져 있습니다.
+- 업로드된 첨부 파일의 URL은 프라이빗 링크를 사용하여 숨겨져 있습니다.
 - `channelData` 속성은 수정 없이 그대로 보존됩니다. 
 
 클라이언트는 봇에서 [ActivitySet](#activityset-object)의 일부로 여러 활동을 [수신](bot-framework-rest-direct-line-3-0-receive-activities.md)할 수 있습니다. 

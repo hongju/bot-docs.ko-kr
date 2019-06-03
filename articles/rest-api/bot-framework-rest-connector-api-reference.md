@@ -300,7 +300,7 @@ POST /v3/botstate/{channelId}/conversations/{conversationId}
 | **요청 본문** | [BotData](#botdata-object) 개체 |
 | **반환** | [BotData](#botdata-object) 개체 | 
 
-### <a name="set-private-conversation-data"></a>개인 대화 데이터 설정
+### <a name="set-private-conversation-data"></a>프라이빗 대화 데이터 설정
 지정한 채널의 지정한 대화 컨텍스트 내에 있는 지정한 사용자에 대한 상태 데이터를 저장합니다.
 ```http
 POST /v3/botstate/{channelId}/conversations/{conversationId}/users/{userId} 
@@ -333,7 +333,7 @@ GET /v3/botstate/{channelId}/conversations/{conversationId}
 | **요청 본문** | 해당 없음 |
 | **반환** | [BotData](#botdata-object) 개체 | 
 
-### <a name="get-private-conversation-data"></a>개인 대화 데이터 가져오기
+### <a name="get-private-conversation-data"></a>프라이빗 대화 데이터 가져오기
 이전에 저장된 지정한 채널의 지정한 대화 컨텍스트 내에 있는 지정한 사용자에 대한 상태 데이터를 검색합니다.
 ```http
 GET /v3/botstate/{channelId}/conversations/{conversationId}/users/{userId} 
@@ -554,7 +554,7 @@ Bot State 서비스를 사용하여 저장된 사용자, 대화 또는 특정 �
 | **image** | string | 표시할 이미지에 대한 URL입니다. | 
 | **text** | string | 작업에 대한 텍스트입니다. |
 | **title** | string | 단추에 대한 텍스트입니다. 단추의 작업에만 적용됩니다. |
- 단추를 선택합니다. 단추의 작업에만 적용됩니다. |
+단추를 선택합니다. 단추의 작업에만 적용됩니다. |
 | **type** | string | 수행할 작업의 유형입니다. 유효한 값 목록은 [메시지에 서식 있는 카드 첨부 파일 추가](bot-framework-rest-connector-add-rich-cards.md)를 참조하세요. |
 | **값** | object | 작업에 대한 보조 매개 변수입니다. 이 속성의 값은 **type** 작업에 따라 다릅니다. 자세한 내용은 [메시지에 서식 있는 카드 첨부 파일 추가](bot-framework-rest-connector-add-rich-cards.md)를 참조하세요. |
 

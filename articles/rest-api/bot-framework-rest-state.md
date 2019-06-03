@@ -158,7 +158,7 @@ GET /v3/botstate/{channelId}/conversations/{conversationId}
 
 응답에는 [BotData][BotData] 개체가 새 `eTag` 값과 함께 포함됩니다.
 
-## <a name="save-private-conversation-data"></a>개인 대화 데이터 저장
+## <a name="save-private-conversation-data"></a>프라이빗 대화 데이터 저장
 
 특정 대화의 컨텍스트 내에서 사용자의 상태 데이터를 저장하려면 다음 요청을 실행합니다.
 
@@ -174,7 +174,7 @@ POST /v3/botstate/{channelId}/conversations/{conversationId}/users/{userId}
 
 응답에는 [BotData][BotData] 개체가 새 `eTag` 값과 함께 포함됩니다.
 
-## <a name="get-private-conversation-data"></a>개인 대화 데이터 가져오기
+## <a name="get-private-conversation-data"></a>프라이빗 대화 데이터 가져오기
 
 특정 채널의 컨텍스트 내에서 사용자에 대한 이전에 저장된 상태 데이터를 가져오려면 다음 요청을 실행합니다. 
 
@@ -198,7 +198,7 @@ DELETE /v3/botstate/{channelId}/users/{userId}
 이 요청 URI에서 **{channelId}** 를 채널 ID로 바꾸고 **{userId}** 를 채널의 사용자 ID로 바꿉니다. 봇이 이전에 사용자로부터 받은 모든 메시지 내의 `channelId` 및 `from` 속성에 이러한 ID가 포함됩니다. 메시지에서 사용자 데이터를 추출할 필요 없이 나중에 사용자 데이터에 액세스할 수 있도록 안전한 위치에 이러한 값을 캐시할 수 있습니다.
 
 > [!IMPORTANT]
-> 이 작업은 [사용자 데이터 저장](#save-user-data) 작업 또는 [개인 대화 데이터 저장](#save-private-conversation-data) 작업을 사용하여 이전에 저장된 사용자에 대한 데이터를 삭제합니다. [대화 데이터 저장](#save-conversation-data) 작업을 사용하여 이전에 저장된 데이터는 삭제되지 않습니다. 따라서 사용자의 PII(개인 식별 정보)를 저장하는 데는 **대화 데이터 저장** 작업을 사용하면 안 됩니다.
+> 이 작업은 [사용자 데이터 저장](#save-user-data) 작업 또는 [프라이빗 대화 데이터 저장](#save-private-conversation-data) 작업을 사용하여 이전에 저장된 사용자에 대한 데이터를 삭제합니다. [대화 데이터 저장](#save-conversation-data) 작업을 사용하여 이전에 저장된 데이터는 삭제되지 않습니다. 따라서 사용자의 PII(개인 식별 정보)를 저장하는 데는 **대화 데이터 저장** 작업을 사용하면 안 됩니다.
 
 봇은 [deleteUserData](bot-framework-rest-connector-activities.md#deleteuserdata) 형식의 [활동][Activity]이나 사용자의 연락처 목록에서 봇이 제거되었음을 나타내는 [contactRelationUpdate](bot-framework-rest-connector-activities.md#contactrelationupdate) 형식의 활동을 수신할 경우 **사용자 데이터 삭제** 작업을 실행해야 합니다.
 

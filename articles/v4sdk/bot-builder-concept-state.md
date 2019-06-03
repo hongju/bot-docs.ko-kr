@@ -55,7 +55,7 @@ Bot Framework SDK에는 스토리지 계층에 대한 몇 가지 구현이 포�
 
 - 사용자 상태
 - 대화 상태
-- 개인 대화 상태
+- 프라이빗 대화 상태
 
 이러한 모든 버킷은 서로 다른 범위에 속한 다른 유형의 버킷을 정의하기 위해 파생될 수 있는 *봇 상태* 클래스의 하위 클래스입니다.
 
@@ -63,7 +63,7 @@ Bot Framework SDK에는 스토리지 계층에 대한 몇 가지 구현이 포�
 
 - 사용자 상태는 대화와 관계없이 봇이 해당 채널에서 해당 사용자와 대화하는 모든 턴에서 사용할 수 있습니다.
 - 대화 상태는 사용자(예: 그룹 대화)와 관계없이 특정 대화의 모든 턴에서 사용할 수 있습니다.
-- 개인 대화 상태는 특정 대화와 특정 사용자 모두에 대한 범위로 지정됩니다.
+- 프라이빗 대화 상태는 특정 대화와 특정 사용자 모두에 대한 범위로 지정됩니다.
 
 > [!TIP]
 > 사용자 및 대화 상태는 모두 채널별로 범위가 지정됩니다.
@@ -73,7 +73,7 @@ Bot Framework SDK에는 스토리지 계층에 대한 몇 가지 구현이 포�
 
 - 사용자 상태는 *채널 ID* 및 *원본 ID*를 사용하여 키를 만듭니다. 예: _{Activity.ChannelId}/users/{Activity.From.Id}#YourPropertyName_
 - 대화 상태는 *채널 ID* 및 *대화 ID*를 사용하여 키를 만듭니다. 예: _{Activity.ChannelId}/conversations/{Activity.Conversation.Id}#YourPropertyName_
-- 개인 대화 상태는 *채널 ID*, *원본 ID* 및 *대화 ID*를 사용하여 키를 만듭니다. 예: _{Activity.ChannelId}/conversations/{Activity.Conversation.Id}/users/{Activity.From.Id}#YourPropertyName_
+- 프라이빗 대화 상태는 *채널 ID*, *원본 ID* 및 *대화 ID*를 사용하여 키를 만듭니다. 예: _{Activity.ChannelId}/conversations/{Activity.Conversation.Id}/users/{Activity.From.Id}#YourPropertyName_
 
 ### <a name="when-to-use-each-type-of-state"></a>각 유형의 상태를 사용하는 경우
 
@@ -88,7 +88,7 @@ Bot Framework SDK에는 스토리지 계층에 대한 몇 가지 구현이 포�
 - 봇과의 마지막 대화에 대한 정보
   - 예를 들어 제품 지원 봇에서는 사용자가 질문한 제품을 추적할 수 있습니다.
 
-개인 대화 상태는 그룹 대화를 지원하지만 사용자와 대화 특정 정보를 모두 추적하려는 채널에 적합합니다. 예를 들어 클래스룸 원격 제어 봇이 있는 경우 다음과 같습니다.
+프라이빗 대화 상태는 그룹 대화를 지원하지만 사용자와 대화 특정 정보를 모두 추적하려는 채널에 적합합니다. 예를 들어 클래스룸 원격 제어 봇이 있는 경우 다음과 같습니다.
 
 - 봇에서 지정된 질문에 대한 학생의 응답을 집계하고 표시할 수 있습니다.
 - 봇에서 각 학생의 성적을 집계하고, 세션이 끝날 때 개인적으로 다시 전달할 수 있습니다.

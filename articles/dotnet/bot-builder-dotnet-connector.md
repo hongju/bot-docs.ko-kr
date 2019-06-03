@@ -75,7 +75,7 @@ Bot Framework Connector는 봇이 Skype, 이메일, Slack 등과 같은 여러 �
 > [!NOTE]
 > 일부 채널은 그룹 대화를 지원하지 않습니다. 채널이 그룹 대화를 지원하는지 여부를 확인하려면 채널의 설명서를 참조하세요.
 
-이 코드 예제에서는 `CreateDirectConversation` 메서드를 사용하여 단일 사용자와의 개인적인 대화를 만듭니다.
+이 코드 예제에서는 `CreateDirectConversation` 메서드를 사용하여 단일 사용자와의 프라이빗 대화를 만듭니다.
 
 [!code-csharp[Start private conversation](../includes/code/dotnet-send-and-receive.cs#startPrivateConversation)]
 

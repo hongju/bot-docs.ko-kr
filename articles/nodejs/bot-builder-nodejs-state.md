@@ -54,14 +54,14 @@ var bot = new builder.UniversalBot(connector, [..waterfall steps..])
 
 이러한 [Azure 확장](https://www.npmjs.com/package/botbuilder-azure) 옵션 중 하나를 사용하면 Node.js용 Bot Framework SDK를 통해 데이터를 설정 및 유지하는 메커니즘을 메모리 내 데이터 저장소와 동일하게 유지됩니다.
 
-## <a name="storage-containers"></a>저장소 컨테이너 
+## <a name="storage-containers"></a>저장소 컨테이너
 
 Node.js용 Bot Framework SDK에서는 `session` 개체가 상태 데이터 저장을 위해 다음 속성을 노출합니다.
 
 | 자산 | 범위 | 설명 |
 | ---- | ---- | ---- |
 | [`userData`][userDataURL] | 사용자 | 지정된 채널에서 사용자에 대해 저장되는 데이터를 포함합니다. 이 데이터는 여러 대화에서 유지됩니다. |
-| [`privateConversationData`][privateConversationDataURL] | 대화 | 특정 채널의 특정 대화의 컨텍스트에서 사용자에 대해 저장된 데이터를 포함합니다. 이 데이터는 현재 사용자에게 개인적인 것이며 현재 대화에 대해서만 유지됩니다. 대화가 종료되거나 `endConversation`이 명시적으로 호출되면 속성이 지워집니다. |
+| [`privateConversationData`][privateConversationDataURL] | 대화 | 특정 채널의 특정 대화의 컨텍스트에서 사용자에 대해 저장된 데이터를 포함합니다. 이 데이터는 현재 사용자에게 프라이빗이며 현재 대화에 대해서만 유지됩니다. 대화가 종료되거나 `endConversation`이 명시적으로 호출되면 속성이 지워집니다. |
 | [`conversationData`][conversationDataURL] | 대화 | 특정 채널의 특정 대화의 컨텍스트에서 저장된 데이터를 포함합니다. 이 데이터는 대화에 참여하는 모든 사용자와 공유하며 현재 대화에 대해서만 유지됩니다. 대화가 종료되거나 `endConversation`이 명시적으로 호출되면 속성이 지워집니다. |
 | [`dialogData`][dialogDataURL] | 대화 상자 | 현재 대화 상자에 대해 저장된 데이터만 포함합니다. 각 대화 상자는 이 속성의 자체 사본이 있습니다. 대화 스택에서 대화 상자가 제거되면 속성이 지워집니다. |
 
