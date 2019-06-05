@@ -56,7 +56,7 @@ Node.js용 Bot Framework SDK를 사용하여 결제 요청을 보내기 전에 �
 <a href="https://github.com/Microsoft/BotBuilder-Samples/tree/master/Node/sample-payments" target="_blank">결제 봇</a> 샘플은 Node.js를 사용하여 결제 요청을 전송하는 봇의 예제를 제공합니다. 작업에서 이 샘플 봇을 확인하려면 <a href="https://webchat.botframework.com/embed/paymentsample?s=d39Bk7JOMzQ.cwA.Rig.dumLki9bs3uqfWFMjXPn5PFnQVmT2VAVR1Zl1iPi07k" target="_blank">웹 채팅에서 시도</a>하거나, <a href="https://join.skype.com/bot/9fbc0f17-43eb-40fe-bf3b-af151e6ce45e" target="_blank">Skype 연락처로 추가</a>하거나, 결제 봇 샘플을 다운로드하고 Bot Framework Emulator를 사용하여 로컬로 실행합니다. 
 
 > [!NOTE]
-> 웹 채팅 또는 Skype에서 **결제 봇** 샘플을 사용하여 통합형 결제 프로세스를 완료하려면 Microsoft 계정 내에서 유효한 신용 카드 또는 직불 카드를 지정해야 합니다(예: 미국 카드 발급자로부터 유효한 카드). **결제 봇** 샘플은 테스트 모드에서 실행되므로(즉, `PAYMENTS_LIVEMODE`가 **.env**에서 `false`로 설정되어 있음) 카드에 요금이 청구되지 않으며, 카드의 CVV를 확인하지 않습니다.
+> 웹 채팅 또는 Skype에서 **결제 봇** 샘플을 사용하여 엔드투엔드 결제 프로세스를 완료하려면 Microsoft 계정 내에서 유효한 신용 카드 또는 직불 카드를 지정해야 합니다(예: 미국 카드 발급자로부터 유효한 카드). **결제 봇** 샘플은 테스트 모드에서 실행되므로(즉, `PAYMENTS_LIVEMODE`가 **.env**에서 `false`로 설정되어 있음) 카드에 요금이 청구되지 않으며, 카드의 CVV를 확인하지 않습니다.
 
 이 문서의 다음 몇 개 섹션에서는 **결제 봇** 샘플과 관련하여 결제 프로세스의 세 가지 부분에 대해 설명합니다.
 

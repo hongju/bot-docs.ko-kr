@@ -19,7 +19,7 @@ ms.locfileid: "54225948"
 
 Build 2016 Microsoft은 Microsoft Bot Framework와 Bot Connector API의 초기 버전, Bot Builder 및 Bot Connector SDK를 발표했습니다. 이때부터 사용자의 의견을 수집하면서 REST API 및 SDK 개선을 위해 노력해왔습니다.
 
-2016년 7월에는 Bot Framework API v3가 릴리스되었으며 Bot Framework API v1이 지원이 중단되었습니다. API v1을 사용하는 봇은 2016년 12월에는 Skype에서, 2017년 2월 23일에는 나머지 모든 채널에서 작동이 중단되었습니다. API v1을 사용하여 봇을 만들었으며 다시 작동하고 싶은 경우 이 문서의 지침에 따라 API v3로 업그레이드해야 합니다. 업그레이드 프로세스를 전체적으로 이해하려면 시작하기 전에 이 문서 전체를 읽어보세요. 
+2016년 7월에는 Bot Framework API v3가 릴리스되었으며 Bot Framework API v1이 지원이 중단되었습니다. API v1을 사용하는 봇은 2016년 12월에는 Skype에서, 2017년 2월 23일에는 나머지 모든 채널에서 작동이 중단되었습니다. API v1을 사용하여 봇을 만들었으며 다시 작동하고 싶은 경우 이 문서의 지침에 따라 API v3로 업그레이드해야 합니다. 업그레이드 프로세스를 엔드투엔드로 이해하려면 시작하기 전에 이 문서 전체를 읽어보세요. 
 
 ## <a name="step-1-get-your-app-id-and-password-from-the-bot-framework-portal"></a>1단계: Bot Framework 포털에서 앱 ID 및 암호 가져오기
 
