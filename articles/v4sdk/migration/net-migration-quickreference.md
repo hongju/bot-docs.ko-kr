@@ -8,14 +8,14 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
-ms.date: 05/23/2019
+ms.date: 05/31/2019
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 93f660820407d6caf4c29efb3c128851059f3b02
-ms.sourcegitcommit: ea64a56acfabc6a9c1576ebf9f17ac81e7e2a6b7
+ms.openlocfilehash: b4226e842384caf1315170354c763a44c15b0c70
+ms.sourcegitcommit: 18ff5705d15b8edc85fb43001969b173625eb387
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66215570"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66453213"
 ---
 # <a name="net-migration-quick-reference"></a>.NET 마이그레이션 빠른 참조
 
@@ -454,3 +454,112 @@ protected override Task OnEventActivityAsync(ITurnContext<IEventActivity> turnCo
     // Handle event activities in general here.
 }
 ```
+
+## <a name="to-log-all-activities"></a>모든 활동 기록
+
+### <a name="v3"></a>v3
+
+[IActivityLogger](https://docs.microsoft.com/en-us/dotnet/api/microsoft.bot.builder.history.iactivitylogger)가 사용되었습니다.
+
+```csharp
+builder.RegisterType<ActivityLoggerImplementation>().AsImplementedInterfaces().InstancePerDependency(); 
+
+public class ActivityLoggerImplementation : IActivityLogger
+{
+    async Task IActivityLogger.LogAsync(IActivity activity)
+    {
+        // Store the activity.
+    }
+}
+```
+
+### <a name="v4"></a>v4
+
+[ITranscriptLogger](https://docs.microsoft.com/en-us/dotnet/api/microsoft.bot.builder.itranscriptlogger)를 사용하세요.
+
+```csharp
+var transcriptMiddleware = new TranscriptLoggerMiddleware(new TranscriptLoggerImplementation(Configuration.GetSection("StorageConnectionString").Value));
+adapter.Use(transcriptMiddleware);
+
+public class TranscriptLoggerImplementation : ITranscriptLogger
+{
+    async Task ITranscriptLogger.LogActivityAsync(IActivity activity)
+    {
+        // Store the activity.
+    }
+}
+```
+
+## <a name="to-add-bot-state-storage"></a>봇 상태 스토리지 추가
+
+_사용자 데이터_, _대화 데이터_, _프라이빗 대화 데이터_를 저장하는 데 사용되는 인터페이스가 변경되었습니다.
+
+### <a name="v3"></a>v3
+
+`IBotDataStore` 구현을 사용하고, Autofac을 통해 SDK의 대화 상태 시스템에 주입하는 방식으로 상태가 유지되었습니다.  Microsoft는 [Microsoft.Bot.Builder.Azure](https://github.com/Microsoft/BotBuilder-Azure/)에 `MemoryStorage`, `DocumentDbBotDataStore`, `TableBotDataStore` 및 `SqlBotDataStore` 클래스를 제공했습니다.
+
+[IBotDataStore<BotData>](https://docs.microsoft.com/en-us/dotnet/api/microsoft.bot.builder.dialogs.internals.ibotdatastore-1?view=botbuilder-dotnet-3.0)를 사용하여 데이터가 유지되었습니다.
+
+```csharp
+Task<bool> FlushAsync(IAddress key, CancellationToken cancellationToken);
+Task<T> LoadAsync(IAddress key, BotStoreType botStoreType, CancellationToken cancellationToken);
+Task SaveAsync(IAddress key, BotStoreType botStoreType, T data, CancellationToken cancellationToken);
+```
+
+```csharp
+var dbPath = ConfigurationManager.AppSettings["DocDbPath"];
+var dbKey = ConfigurationManager.AppSettings["DocDbKey"];
+var docDbUri = new Uri(dbPath);
+var storage = new DocumentDbBotDataStore(docDbUri, dbKey);
+builder.Register(c => storage)
+                .Keyed<IBotDataStore<BotData>>(AzureModule.Key_DataStore)
+                .AsSelf()
+                .SingleInstance();
+```
+
+### <a name="v4"></a>v4
+
+스토리지 레이어는 `IStorage` 인터페이스를 사용하며, 봇의 각 상태 관리 개체(예: `UserState`, `ConversationState` 또는 `PrivateConversationState`)를 만들 때 스토리지 레이어 개체를 지정합니다. 상태 관리 개체는 기본 스토리지 레이어에 키를 제공하며, 속성 관리자 역할도 합니다. 예를 들어 상태 속성 접근자를 만들려면 `IPropertyManager.CreateProperty<T>(string name)`를 사용하세요.  이러한 속성 접근자는 봇의 기본 스토리지에서 값을 검색하고 저장하는 데 사용됩니다.
+
+데이터를 유지하려면 [IStorage](https://docs.microsoft.com/en-us/dotnet/api/microsoft.bot.builder.istorage?view=botbuilder-dotnet-stable)를 사용하세요.
+
+```csharp
+Task DeleteAsync(string[] keys, CancellationToken cancellationToken = default(CancellationToken));
+Task<IDictionary<string, object>> ReadAsync(string[] keys, CancellationToken cancellationToken = default(CancellationToken));
+Task WriteAsync(IDictionary<string, object> changes, CancellationToken cancellationToken = default(CancellationToken));
+```
+
+```csharp
+var storageOptions = new CosmosDbStorageOptions()
+{
+    AuthKey = configuration["cosmosKey"],
+    CollectionId = configuration["cosmosCollection"],
+    CosmosDBEndpoint = new Uri(configuration["cosmosPath"]),
+    DatabaseId = configuration["cosmosDatabase"]
+};
+
+IStorage dataStore = new CosmosDbStorage(storageOptions);
+var conversationState = new ConversationState(dataStore);
+services.AddSingleton(conversationState);
+
+```
+
+## <a name="to-use-form-flow"></a>흐름 양식 사용
+
+### <a name="v3"></a>v3
+
+핵심 Bot Builder SDK 내에 [Microsoft.Bot.Builder.FormFlow](https://docs.microsoft.com/en-us/dotnet/api/microsoft.bot.builder.formflow?view=botbuilder-dotnet-3.0)가 포함되었습니다.
+
+### <a name="v4"></a>v4
+
+[Bot.Builder.Community.Dialogs.FormFlow](https://www.nuget.org/packages/Bot.Builder.Community.Dialogs.FormFlow/)는 이제 Bot Builder Community 라이브러리입니다.  커뮤니티 [리포지토리](https://github.com/BotBuilderCommunity/botbuilder-community-dotnet/tree/develop/libraries/Bot.Builder.Community.Dialogs.FormFlow)에서 원본을 볼 수 있습니다.
+
+## <a name="to-use-luisdialog"></a>LuisDialog 사용
+
+### <a name="v3"></a>v3
+
+핵심 Bot Builder SDK 내에 [Microsoft.Bot.Builder.Dialogs.LuisDialog](https://docs.microsoft.com/en-us/dotnet/api/microsoft.bot.builder.dialogs.luisdialog-1?view=botbuilder-dotnet-3.0)가 포함되었습니다.
+
+### <a name="v4"></a>v4
+
+[Bot.Builder.Community.Dialogs.Luis](https://www.nuget.org/packages/Bot.Builder.Community.Dialogs.Luis/)는 이제 Bot Builder Community 라이브러리입니다.  커뮤니티 [리포지토리](https://github.com/BotBuilderCommunity/botbuilder-community-dotnet/tree/develop/libraries/Bot.Builder.Community.Dialogs.Luis)에서 원본을 볼 수 있습니다.

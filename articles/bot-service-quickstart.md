@@ -8,27 +8,25 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: abs
-ms.date: 02/07/2019
-ms.openlocfilehash: 882dc15bd900667d76eac41049ee88b51ec5c120
-ms.sourcegitcommit: f84b56beecd41debe6baf056e98332f20b646bda
+ms.date: 05/31/2019
+ms.openlocfilehash: 721a64fab578f6c49b1dbebe5fee28045a198153
+ms.sourcegitcommit: 0eb7ac64c4eb28944a9957a0cd2f65b046232244
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2019
-ms.locfileid: "65033141"
+ms.lasthandoff: 06/01/2019
+ms.locfileid: "66455449"
 ---
 # <a name="create-a-bot-with-azure-bot-service"></a>Azure Bot Service로 봇 만들기
 
 ::: moniker range="azure-bot-service-3.0"
 
-[!INCLUDE [pre-release-label](includes/pre-release-label-v3.md)]
+> [!NOTE]
+> **2019년 6월 10일부터 Azure Portal에서 V3 SDK 봇을 만들 수 없습니다. 고객은 앞으로 [V4 SDK](https://docs.microsoft.com/azure/bot-service/bot-service-quickstart?view=azure-bot-service-4.0) 봇을 만드는 것이 좋습니다. V3 SDK 장기 지원에 대한 자세한 내용은 [여기](https://docs.microsoft.com/azure/bot-service/bot-service-resources-bot-framework-faq?view=azure-bot-service-3.0#bot-framework-sdk-version-3-lifetime-support)** 에서 볼 수 있습니다. 
 
 Bot Service는 봇 개발을 위한 Bot Framework SDK 및 채널에 봇을 연결하기 위한 Bot Framework를 포함하여 봇 만들기의 핵심 구성 요소를 제공합니다. Bot Service는 .NET 및 Node.js를 지원하는 봇을 만들 때 선택할 수 있는 5가지 템플릿을 제공합니다. 이 토픽에서는 Bot Service를 통해 Bot Framework SDK를 사용하는 새 봇 만드는 방법을 알아봅니다.
 
 ## <a name="log-in-to-azure"></a>Azure에 로그인
 [Azure Portal](http://portal.azure.com)에 로그인합니다.
-
-> [!TIP]
-> 아직 구독이 없는 경우 <a href="https://azure.microsoft.com/en-us/free/" target="_blank">체험 계정</a>으로 등록할 수 있습니다.
 
 ## <a name="create-a-new-bot-service"></a>새 봇 서비스 만들기
 
@@ -54,7 +52,7 @@ Bot Service는 봇 개발을 위한 Bot Framework SDK 및 채널에 봇을 연�
 
    > [!NOTE]
    > 
-   > **Functions 봇**을 만들 경우 **App Service 계획/위치** 필드가 표시되지 않습니다. 대신에 ‘호스팅 플랜’ 필드가 표시됩니다. 이 경우 [호스팅 플랜](bot-service-overview-readme.md#hosting-plans)을 선택합니다.
+   > **Functions 봇**을 만들 경우 **App Service 계획/위치** 필드가 표시되지 않습니다. 대신에 ‘호스팅 플랜’ 필드가 표시됩니다.  이 경우 [호스팅 플랜](bot-service-overview-readme.md#hosting-plans)을 선택합니다.
 
 4. **만들기**를 클릭하여 서비스를 만들고 봇을 클라우드에 배포합니다. 이 프로세스에는 몇 분 정도 걸릴 수 있습니다.
 
