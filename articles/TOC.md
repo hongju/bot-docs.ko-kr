@@ -18,6 +18,7 @@
 ## [상태 관리](v4sdk/bot-builder-concept-state.md)
 ## [다이얼로그 라이브러리](v4sdk/bot-builder-concept-dialog.md)
 ## [미들웨어](v4sdk/bot-builder-concept-middleware.md)
+## [사용자 인증](v4sdk/bot-builder-concept-authentication.md)
 ## [봇 리소스 관리](v4sdk/bot-file-basics.md)
 <!-- [Language understanding](v4sdk/bot-builder-concept-luis.md) -->
 ## [Bot Service 템플릿](bot-service-concept-templates.md)
