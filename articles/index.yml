@@ -31,12 +31,17 @@ sections:
         className: cardsM
         columns: 3
         items:
-          - href: 'https://docs.microsoft.com/en-us/azure/bot-service/bot-service-overview-introduction'
+          - href: 'https://docs.microsoft.com/azure/bot-service/what-is-new'
+            html: <p>Azure Bot Service의 새 기능.</p>
+            image:
+              src: media/index/i_guidelines.png
+            title: 새로운 기능
+          - href: 'https://docs.microsoft.com/azure/bot-service/bot-service-overview-introduction'
             html: <p>Azure Bot Service에 대해 알아봅니다.</p>
             image:
               src: media/index/i_overview.png
             title: Azure Bot Service란 무엇입니까?
-          - href: 'https://docs.microsoft.com/en-us/azure/bot-service/bot-builder-basics'
+          - href: 'https://docs.microsoft.com/azure/bot-service/bot-builder-basics'
             html: <p>봇 작동 방식을 이해합니다.</p>
             image:
               src: media/index/i_guidelines.png
