@@ -10,12 +10,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 05/23/2019
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: a98110f15277ba9e2a4658d307dc7ec09b711d1a
-ms.sourcegitcommit: ea64a56acfabc6a9c1576ebf9f17ac81e7e2a6b7
+ms.openlocfilehash: 82bc8ae5ca0e6787a4c730edebdb7ca193aa663d
+ms.sourcegitcommit: e276008fb5dd7a37554e202ba5c37948954301f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66215591"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66693631"
 ---
 # <a name="javascript-migration-quick-reference"></a>JavaScript 마이그레이션 빠른 참조
 
@@ -124,7 +124,7 @@ async run(turnContext, accessor) {
     }
 }
 
-// Pass conversation state management and a main dialog objects to the bot (inindex.js).
+// Pass conversation state management and a main dialog objects to the bot (in index.js).
 const bot = new MyBot(conversationState, dialog);
 
 // Inside the bot's constructor, add the dialog as a member property and define a DialogState property accessor.

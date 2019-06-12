@@ -10,14 +10,17 @@ ms.service: bot-service
 ms.subservice: abs
 ms.date: 05/23/2019
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: de497fa5ad694081258486dd5c6e9fd37b107879
-ms.sourcegitcommit: ea64a56acfabc6a9c1576ebf9f17ac81e7e2a6b7
+ms.openlocfilehash: 2c8284bf1a78c4f8dd9fb5cc3dcb346ac99ad936
+ms.sourcegitcommit: 710d279898db587abb1e81d13628177a4e182293
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66215567"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66751294"
 ---
 # <a name="whats-new-in-bot-framework"></a>Bot Framework의 새로운 기능
+
+[!INCLUDE[applies-to](includes/applies-to.md)]
+
 Bot Framework SDK v4는 개발자가 원하는 프로그래밍 언어를 사용하여 복잡한 대화를 모델링하고 빌드할 수 있게 해주는 [오픈 소스 SDK][1a]입니다.
 
 이 문서에는 Bot Framework 및 Azure Bot Service의 주요 새 기능과 향상 기능이 요약되어 있습니다.
@@ -82,7 +85,7 @@ Botkit은 Microsoft Bot Framework의 일부이며 [MIT 오픈 소스 라이선�
 
 [Bot Framework Solutions 리포지토리](https://github.com/Microsoft/AI#readme)에는 템플릿 세트, 솔루션 가속기 및 도우미 같은 고급 대화 환경을 구축하는 데 도움이 되는 기술이 제공됩니다.
 
-| Name | 설명 |  
+| 이름 | 설명 |  
 |:------------|:------------| 
 |[**가상 도우미**](https://github.com/Microsoft/AI/tree/master/docs#virtual-assistant) | 고객은 자신의 브랜드에 맞고 사용자 개개인에게 맞춤형으로 제공되며 광범위한 캔버스 및 디바이스에서 사용 가능한 대화형 도우미를 제공할 필요성을 크게 느끼고 있습니다. <br/><br/> 엔터프라이즈 템플릿은 기본 대화 의도, 디스패치 통합, QnA Maker, Application Insights 및 자동 배포 기능을 포함하고 있어 새로운 봇 프로젝트 생성 과정을 크게 간소화합니다.|
 |[**기술**](https://github.com/Microsoft/AI/blob/master/docs/overview/skills.md)| 개발자는 다시 사용할 수 있는 대화형 기능, 즉 기술을 연결하여 대화형 환경을 구성할 수 있습니다. 기술은 그 자체로 봇이며 원격으로 호출됩니다. 기술 개발자 템플릿(.NET, TS)을 활용하면 새 기술을 용이하게 만들 수 있습니다. 
