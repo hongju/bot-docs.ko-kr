@@ -10,12 +10,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 05/23/2019
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: f7709d6273739be6d2b3e9e3174f24ea2734f22d
-ms.sourcegitcommit: ea64a56acfabc6a9c1576ebf9f17ac81e7e2a6b7
+ms.openlocfilehash: 1a502e949ce1f4f9851facae39c4aa030b4ae4a8
+ms.sourcegitcommit: e276008fb5dd7a37554e202ba5c37948954301f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66215315"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66693664"
 ---
 # <a name="send-welcome-message-to-users"></a>사용자에게 환영 메시지 보내기
 
@@ -59,14 +59,17 @@ ms.locfileid: "66215315"
 ### <a name="ctabcsharp"></a>[C#](#tab/csharp)
 사용자 상태 개체는 시작 시 만들어지며 종속성이 봇 생성자에 주입됩니다.
 
-**Startup.cs** [!code-csharp[ConfigureServices](~/../botBuilder-samples/samples/csharp_dotnetcore/03.welcome-user/Startup.cs?range=29-33)]
+**Startup.cs**  
+[!code-csharp[ConfigureServices](~/../botBuilder-samples/samples/csharp_dotnetcore/03.welcome-user/Startup.cs?range=29-33)]
 
-**WelcomeUserBot.cs** [!code-csharp[Class](~/../BotBuilder-Samples/samples/csharp_dotnetcore/03.welcome-user/bots/WelcomeUserBot.cs?range=41-47)]
+**WelcomeUserBot.cs**  
+[!code-csharp[Class](~/../BotBuilder-Samples/samples/csharp_dotnetcore/03.welcome-user/bots/WelcomeUserBot.cs?range=41-47)]
 
 ### <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 시작 시 메모리 스토리지 및 사용자 상태가 모두 index.js에 정의됩니다.
 
-**Index.js** [!code-javascript[DefineUserState](~/../BotBuilder-Samples/samples/javascript_nodejs/03.welcome-users/Index.js?range=8-10,33-41)]
+**Index.js**  
+[!code-javascript[DefineUserState](~/../BotBuilder-Samples/samples/javascript_nodejs/03.welcome-users/Index.js?range=8-10,33-41)]
 
 ---
 
@@ -75,12 +78,14 @@ ms.locfileid: "66215315"
 이제 OnMessageActivityAsync 메서드 내에서 WelcomeUserState에 대한 핸들을 제공하는 속성 접근자를 만듭니다.
 그런 다음, GetAsync 메서드를 호출하여 올바르게 범위가 지정된 키를 가져옵니다. 그리고 `SaveChangesAsync` 메서드를 사용한 각 사용자 입력 반복 후 사용자 상태 데이터를 저장합니다.
 
-**WelcomeUserBot.cs** [!code-csharp[OnMessageActivityAsync](~/../BotBuilder-Samples/samples/csharp_dotnetcore/03.welcome-user/bots/WelcomeUserBot.cs?range=68-71, 102-105)]
+**WelcomeUserBot.cs**  
+[!code-csharp[OnMessageActivityAsync](~/../BotBuilder-Samples/samples/csharp_dotnetcore/03.welcome-user/bots/WelcomeUserBot.cs?range=68-71, 102-105)]
 
 ### <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 이제 UserState 내에 지속되는 WelcomedUserProperty에 대한 핸들을 제공하는 속성 접근자를 만듭니다.
 
-**WelcomeBot.js** [!code-javascript[DefineUserState](~/../BotBuilder-Samples/samples/javascript_nodejs/03.welcome-users/bots/welcomebot.js?range=7-10,16-22)]
+**WelcomeBot.js**  
+[!code-javascript[DefineUserState](~/../BotBuilder-Samples/samples/javascript_nodejs/03.welcome-users/bots/welcomebot.js?range=7-10,16-22)]
 
 ---
 
@@ -89,12 +94,14 @@ ms.locfileid: "66215315"
 ### <a name="ctabcsharp"></a>[C#](#tab/csharp)
 **WelcomeUserBot**에서 `OnMembersAddedAsync()`를 통해 활동 업데이트를 확인하여 새 사용자가 대화에 추가되었는지 본 다음, 일련의 초기 환영 메시지 3개(`WelcomeMessage`, `InfoMessage`, `PatternMessage`)를 전송합니다. 이 상호 작용의 전체 코드는 다음과 같습니다.
 
-**WelcomeUserBot.cs** [!code-csharp[WelcomeMessages](~/../BotBuilder-Samples/samples/csharp_dotnetcore/03.welcome-user/bots/WelcomeUserBot.cs?range=20-40, 55-66)]
+**WelcomeUserBot.cs**  
+[!code-csharp[WelcomeMessages](~/../BotBuilder-Samples/samples/csharp_dotnetcore/03.welcome-user/bots/WelcomeUserBot.cs?range=20-40, 55-66)]
 
 ### <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 이 JavaScript 코드는 사용자가 추가되면 초기 환영 메시지를 보냅니다. 이는 대화 활동을 확인하고 대화에 새 멤버가 추가되었는지 확인하는 방식으로 수행됩니다.
 
-**WelcomeBot.js** [!code-javascript[DefineUserState](~/../BotBuilder-Samples/samples/javascript_nodejs/03.welcome-users/bots/welcomebot.js?range=65-87)]
+**WelcomeBot.js**  
+[!code-javascript[DefineUserState](~/../BotBuilder-Samples/samples/javascript_nodejs/03.welcome-users/bots/welcomebot.js?range=65-87)]
 
 ---
 
@@ -103,12 +110,14 @@ ms.locfileid: "66215315"
 ### <a name="ctabcsharp"></a>[C#](#tab/csharp)
 사용자 입력에 실제로 유용한 정보가 포함될 수 있는 시점을 고려하는 것도 중요하며, 이 또한 채널별로 다를 수 있습니다. 사용자가 모든 가능한 채널에 대해 우수한 환경을 갖출 수 있도록 _didBotWelcomeUser_ 상태 플래그를 확인하여 "false"인 경우 이 초기 사용자 입력을 처리하지 않습니다. 대신 사용자에게 초기 환영 메시지를 제공합니다. 그런 다음, _welcomedUserProperty_ 부울이 "true"로 설정되고, UserState에 저장되며, 이제 코드에서 모든 추가 메시지 작업의 이 사용자 입력을 처리합니다.
 
-**WelcomeUserBot.cs** [!code-csharp[DidBotWelcomeUser](~/../BotBuilder-Samples/samples/csharp_dotnetcore/03.welcome-user/bots/WelcomeUserBot.cs?range=68-82)]
+**WelcomeUserBot.cs**  
+[!code-csharp[DidBotWelcomeUser](~/../BotBuilder-Samples/samples/csharp_dotnetcore/03.welcome-user/bots/WelcomeUserBot.cs?range=68-82)]
 
 ### <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 사용자 입력에 실제로 유용한 정보가 포함될 수 있는 시점을 고려하는 것도 중요하며, 이 또한 채널별로 다를 수 있습니다. 사용자가 모든 가능한 채널에서 높은 만족도를 느낄 수 있도록 didBotWelcomedUser 속성을 확인하여 이 속성이 없는 경우 "false"로 설정하고 이 초기 사용자 입력을 처리하지 않습니다. 대신 사용자에게 초기 환영 메시지를 제공합니다. 그런 다음, _didBotWelcomeUser_ 부울이 "true"로 설정되고, 코드에서 모든 추가 메시지 작업의 사용자 입력을 처리합니다.
 
-**WelcomeBot.js** [!code-javascript[DidBotWelcomeUser](~/../BotBuilder-Samples/samples/javascript_nodejs/03.welcome-users/bots/welcomebot.js?range=24-38,57-59,63)]
+**WelcomeBot.js**  
+[!code-javascript[DidBotWelcomeUser](~/../BotBuilder-Samples/samples/javascript_nodejs/03.welcome-users/bots/welcomebot.js?range=24-38,57-59,63)]
 
 ---
 
@@ -119,12 +128,14 @@ ms.locfileid: "66215315"
 ### <a name="ctabcsharp"></a>[C#](#tab/csharp)
 'intro' 또는 'help'를 입력하면 `SendIntroCardAsync` 함수가 호출되고 사용자에게 정보 제공용 영웅 카드가 제공됩니다. 해당 코드는 이 문서의 다음 섹션에 나옵니다.
 
-**WelcomeUserBot.cs** [!code-csharp[SwitchOnUtterance](~/../BotBuilder-Samples/samples/csharp_dotnetcore/03.welcome-user/bots/WelcomeUserBot.cs?range=85-100)]
+**WelcomeUserBot.cs**  
+[!code-csharp[SwitchOnUtterance](~/../BotBuilder-Samples/samples/csharp_dotnetcore/03.welcome-user/bots/WelcomeUserBot.cs?range=85-100)]
 
 ### <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 'intro' 또는 'help'를 입력하면 CardFactory가 사용되고 사용자에게 시작 적응형 카드가 제공됩니다. 해당 코드는 이 문서의 다음 섹션에 나옵니다.
 
-**WelcomeBot.js** [!code-javascript[SwitchOnUtterance](~/../BotBuilder-Samples/samples/javascript_nodejs/03.welcome-users/bots/welcomebot.js?range=40-56)]
+**WelcomeBot.js**  
+[!code-javascript[SwitchOnUtterance](~/../BotBuilder-Samples/samples/javascript_nodejs/03.welcome-users/bots/welcomebot.js?range=40-56)]
 
 ---
 
@@ -134,11 +145,13 @@ ms.locfileid: "66215315"
 
 ### <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
-**WelcomeUserBot.cs** [!code-csharp[SendHeroCardGreeting](~/../BotBuilder-Samples/samples/csharp_dotnetcore/03.welcome-user/bots/WelcomeUserBot.cs?range=107-127)]
+**WelcomeUserBot.cs**  
+[!code-csharp[SendHeroCardGreeting](~/../BotBuilder-Samples/samples/csharp_dotnetcore/03.welcome-user/bots/WelcomeUserBot.cs?range=107-127)]
 
 ### <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
-**WelcomeBot.js** [!code-javascript[SendIntroCard](~/../BotBuilder-Samples/samples/javascript_nodejs/03.welcome-users/bots/welcomebot.js?range=91-116)]
+**WelcomeBot.js**  
+[!code-javascript[SendIntroCard](~/../BotBuilder-Samples/samples/javascript_nodejs/03.welcome-users/bots/welcomebot.js?range=91-116)]
 
 ---
 

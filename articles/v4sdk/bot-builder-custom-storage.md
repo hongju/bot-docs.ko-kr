@@ -10,12 +10,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 05/23/2019
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 9109808c786e3992d8bae6cd68b4272201a9b4f8
-ms.sourcegitcommit: ea64a56acfabc6a9c1576ebf9f17ac81e7e2a6b7
+ms.openlocfilehash: 2b77b19a3b2d0fbd8e545e563f154124af894ffa
+ms.sourcegitcommit: e276008fb5dd7a37554e202ba5c37948954301f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66215455"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66693731"
 ---
 # <a name="implement-custom-storage-for-your-bot"></a>봇에 사용자 지정 스토리지 구현
 
@@ -93,11 +93,13 @@ Bot Framework에는 기본 구현이 포함되어 있습니다. 이 구현은 �
 
 결과 인터페이스는 다음과 같습니다.
 
-**IStore.cs** [!code-csharp[IStore](~/../botbuilder-samples/samples/csharp_dotnetcore/42.scaleout/IStore.cs?range=14-19)]
+**IStore.cs**  
+[!code-csharp[IStore](~/../botbuilder-samples/samples/csharp_dotnetcore/42.scaleout/IStore.cs?range=14-19)]
 
 Azure Blob Storage에 대해 이를 구현하는 것은 간단합니다.
 
-**BlobStore.cs** [!code-csharp[BlobStore](~/../botbuilder-samples/samples/csharp_dotnetcore/42.scaleout/BlobStore.cs?range=18-101)]
+**BlobStore.cs**  
+[!code-csharp[BlobStore](~/../botbuilder-samples/samples/csharp_dotnetcore/42.scaleout/BlobStore.cs?range=18-101)]
 
 알 수 있듯이 Azure Blob Storage는 여기서 실제 작업을 수행합니다. 특정 예외를 catch하고 호출 코드의 기대치를 충족하기 위해 해당 예외가 변환되는 방법에 주의합니다. 즉, Load의 '찾을 수 없음' 예외에서 null을 반환하고, Save의 '사전 조건 실패' 예외에서 부울을 반환해야 합니다.
 

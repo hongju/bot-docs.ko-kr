@@ -10,12 +10,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 05/23/2019
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 7c9bdbbf0ad41bc678476237ef6b6d1d0f872426
-ms.sourcegitcommit: ea64a56acfabc6a9c1576ebf9f17ac81e7e2a6b7
+ms.openlocfilehash: 305e89f5bef4b50e99b24780b0e31580e3b38fb9
+ms.sourcegitcommit: e276008fb5dd7a37554e202ba5c37948954301f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66214240"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66693697"
 ---
 # <a name="tutorial-create-and-deploy-a-basic-bot"></a>자습서: 기본 봇 만들기 및 배포
 
@@ -169,7 +169,7 @@ _Kudu는 기본적으로 Zip 파일을 통한 배포가 실행 준비되었으�
 > - C# 봇의 경우 .csproj 파일이 있는 폴더입니다. 
 > - JS 봇의 경우 app.js 또는 index.js 파일이 있는 폴더입니다. 
 >
-> 해당 폴더에 있는 동안 모든 파일을 선택하고 압축한 다음, 여전히 해당 폴더에 있는 동안 명령을 실행합니다.
+> **해당 폴더에 있는 동안** 모든 파일을 선택하고 압축한 다음, 여전히 해당 폴더에 있는 동안 명령을 실행합니다.
 >
 > 루트 폴더 위치가 올바르지 않을 경우 **봇이 Azure Portal에서 실행되지 못하게 됩니다**.
 

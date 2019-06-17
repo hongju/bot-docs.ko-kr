@@ -10,12 +10,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 05/23/2019
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 942ab2d5b3a43ca071c877b5cc18e8141838d604
-ms.sourcegitcommit: ea64a56acfabc6a9c1576ebf9f17ac81e7e2a6b7
+ms.openlocfilehash: 290b06b28e590b01335694a621cc71c189ff6296
+ms.sourcegitcommit: e276008fb5dd7a37554e202ba5c37948954301f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66214268"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66693641"
 ---
 # <a name="use-multiple-luis-and-qna-models"></a>다중 LUIS 및 QnA 모델 사용
 
@@ -61,7 +61,7 @@ ms.locfileid: "66214268"
 ## <a name="create-luis-apps-and-qna-kb"></a>LUIS 앱 및 QnA KB 만들기
 디스패치 모델을 만들려면 LUIS 앱 및 QnA KB를 만들고 게시해야 합니다. 이 문서에서는 `\CognitiveModels` 폴더의 _NLP With Dispatch_ 샘플에 포함된 다음 모델을 게시합니다. 
 
-| Name | 설명 |
+| 이름 | 설명 |
 |------|------|
 | HomeAutomation | 연결된 엔터티 데이터를 사용하여 홈 자동화 의도를 인식하는 LUIS 앱입니다.|
 | Weather | 위치 데이터를 사용하여 날씨 관련 의도를 인식하는 LUIS 앱입니다.|
@@ -212,7 +212,8 @@ LUIS 앱 및 QnA Maker 기술 자료 이름과 ID를 메모해 두세요. 또한
 
 모든 서비스 앱이 생성되면 각 앱에 대한 정보를 'appsettings.json' 파일에 추가해야 합니다. 초기 [C# 샘플][cs-sample] 코드에는 빈 appsettings.json 파일이 포함되어 있습니다.
 
-**appsettings.json** [!code-json[AppSettings](~/../botbuilder-samples/samples/csharp_dotnetcore/14.nlp-with-dispatch/AppSettings.json?range=8-17)]
+**appsettings.json**  
+[!code-json[AppSettings](~/../botbuilder-samples/samples/csharp_dotnetcore/14.nlp-with-dispatch/AppSettings.json?range=8-17)]
 
 다음 지침에 따라 아래에 표시된 각 엔터티에 앞서 기록한 값을 추가합니다.
 
@@ -251,7 +252,8 @@ npm install --save dotenv
 
 모든 서비스 앱이 생성되면 각 앱에 대한 정보를 '.env' 파일에 추가해야 합니다. 초기 [JavaScript 샘플][js-sample] 코드에는 빈 .env 파일이 포함되어 있습니다. 
 
-**.env** [!code-file[EmptyEnv](~/../botbuilder-samples/samples/javascript_nodejs/14.nlp-with-dispatch/.env?range=1-10)]
+**.env**  
+[!code-file[EmptyEnv](~/../botbuilder-samples/samples/javascript_nodejs/14.nlp-with-dispatch/.env?range=1-10)]
 
 아래에 나와 있는 것처럼 서비스 연결 값을 추가합니다.
 
@@ -281,13 +283,15 @@ LuisAPIHostName=<your-dispatch-app-region>
 
 **BotServices.cs**에서 구성 파일 _appsettings.json_에 포함된 정보는 디스패치 봇을 `Dispatch` 및 `SampleQnA` 서비스에 연결하는 데 사용됩니다. 생성자는 개발자가 지정한 값을 사용하여 이러한 서비스에 연결합니다.
 
-**BotServices.cs** [!code-csharp[ReadConfigurationInfo](~/../botbuilder-samples/samples/csharp_dotnetcore/14.nlp-with-dispatch/BotServices.cs?range=14-30)]
+**BotServices.cs**  
+[!code-csharp[ReadConfigurationInfo](~/../botbuilder-samples/samples/csharp_dotnetcore/14.nlp-with-dispatch/BotServices.cs?range=14-30)]
 
 ## <a name="javascripttabjs"></a>[JavaScript](#tab/js)
 
 **dispatchBot.js**에서 구성 파일 _.env_에 포함된 정보는 디스패치 봇을 _LuisRecognizer(디스패치)_ 및 _QnAMaker_ 서비스에 연결하는 데 사용됩니다. 생성자는 개발자가 지정한 값을 사용하여 이러한 서비스에 연결합니다.
 
-**dispatchBot.js** [!code-javascript[ReadConfigurationInfo](~/../botbuilder-samples/samples/javascript_nodejs/14.nlp-with-dispatch/bots/dispatchBot.js?range=18-31)]
+**dispatchBot.js**  
+[!code-javascript[ReadConfigurationInfo](~/../botbuilder-samples/samples/javascript_nodejs/14.nlp-with-dispatch/bots/dispatchBot.js?range=18-31)]
 
 ---
 
@@ -299,13 +303,14 @@ LuisAPIHostName=<your-dispatch-app-region>
 
 **DispatchBot.cs** 파일에서 `OnMessageActivityAsync` 메서드가 호출될 때마다 디스패치 모델을 기준으로 수신 사용자 메시지를 검사합니다. 그런 다음, 디스패치 모델의 `topIntent` 및 `recognizerResult`를 올바른 메서드에 전달하여 서비스를 호출하고 결과를 반환합니다.
 
-**DispatchBot.cs** [!code-csharp[OnMessageActivity](~/../botbuilder-samples/samples/csharp_dotnetcore/14.nlp-with-dispatch/bots/DispatchBot.cs?range=26-36)]
+**DispatchBot.cs**  
+[!code-csharp[OnMessageActivity](~/../botbuilder-samples/samples/csharp_dotnetcore/14.nlp-with-dispatch/bots/DispatchBot.cs?range=26-36)]
 
 ## <a name="javascripttabjs"></a>[JavaScript](#tab/js)
 
 **dispatchBot.js** `onMessage` 메서드에서 디스패치 모델을 기준으로 사용자 입력 메시지를 검사하고, _topIntent_를 확인한 후, _dispatchToTopIntentAsync_를 호출하여 이를 전달합니다.
 
-**dispatchBot.js**
+**dispatchBot.js**  
 
 [!code-javascript[OnMessageActivity](~/../botbuilder-samples/samples/javascript_nodejs/14.nlp-with-dispatch/bots/dispatchBot.js?range=37-50)]
 
@@ -317,7 +322,8 @@ LuisAPIHostName=<your-dispatch-app-region>
 
 모델에서 생성하는 결과에 발언을 가장 적절하게 처리할 수 있는 서비스가 나타납니다. 이 봇의 코드는 해당 서비스에 요청을 라우팅한 후 호출된 서비스에의 응답을 요약합니다. 이 코드는 디스패치에서 반환된 _의도_에 따라 올바른 LUIS 모델 또는 QnA 서비스로 라우팅합니다.
 
-**DispatchBot.cs** [!code-csharp[DispatchToTop](~/../botbuilder-samples/samples/csharp_dotnetcore/14.nlp-with-dispatch/bots/DispatchBot.cs?range=51-69)]
+**DispatchBot.cs**  
+[!code-csharp[DispatchToTop](~/../botbuilder-samples/samples/csharp_dotnetcore/14.nlp-with-dispatch/bots/DispatchBot.cs?range=51-69)]
 
 `ProcessHomeAutomationAsync` 또는 `ProcessWeatherAsync` 메서드가 호출되면 _luisResult.ConnectedServiceResult_ 내에 디스패치 모델의 결과가 전달됩니다. 그러면 지정된 메서드가 디스패치 모델의 상위 의도와 검색된 모든 의도 및 엔터티의 순위 목록을 보여주는 사용자 피드백을 제공합니다.
 
@@ -327,7 +333,8 @@ LuisAPIHostName=<your-dispatch-app-region>
 
 모델에서 생성하는 결과에 발언을 가장 적절하게 처리할 수 있는 서비스가 나타납니다. 이 샘플의 코드는 인식된 _topIntent_를 사용하여 요청을 해당 서비스로 라우팅하는 방법을 보여줍니다.
 
-**DispatchBot.cs** [!code-javascript[DispatchToTop](~/../botbuilder-samples/samples/javascript_nodejs/14.nlp-with-dispatch/bots/dispatchBot.js?range=67-83)]
+**DispatchBot.cs**  
+[!code-javascript[DispatchToTop](~/../botbuilder-samples/samples/javascript_nodejs/14.nlp-with-dispatch/bots/dispatchBot.js?range=67-83)]
 
 `processHomeAutomation` 또는 `processWeather` 메서드가 호출되면 _recognizerResult.luisResult_ 내에 디스패치 모델의 결과가 전달됩니다. 그러면 지정된 메서드가 디스패치 모델의 상위 의도와 검색된 모든 의도 및 엔터티의 순위 목록을 보여주는 사용자 피드백을 제공합니다.
 

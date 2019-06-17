@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
 ms.date: 10/12/2018
-ms.openlocfilehash: 57a3efd36ddae5c52a2d791b87ed4fa6a96d5e8a
-ms.sourcegitcommit: 152760771214865b9c7d0ed481acfba05bdc44dc
+ms.openlocfilehash: 36d98c6eeb368399ee11ef9a048bb42922103f16
+ms.sourcegitcommit: e276008fb5dd7a37554e202ba5c37948954301f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58655523"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66693608"
 ---
 # <a name="connect-a-bot-to-facebook"></a>Facebook에 봇 연결
 
@@ -160,3 +160,7 @@ Facebook으로부터 Graph API 특정 버전의 사용 중단에 대한 알림�
 ## <a name="sample-code"></a>샘플 코드
 
 <a href="https://aka.ms/facebook-events" target="_blank">Facebook 이벤트</a> 샘플 봇을 사용하여 Facebook Messenger와의 봇 통신을 살펴볼 수 있습니다.
+
+## <a name="also-available-as-an-adapter"></a>어댑터로도 사용 가능
+
+이 채널은 [어댑터로도 사용할 수 있습니다](https://botkit.ai/docs/v4/platforms/facebook.html). 어댑터와 채널 중 하나를 선택할 때는 [현재 사용 가능한 어댑터](bot-service-channel-additional-channels.md#currently-available-adapters)를 참조하세요.

@@ -10,12 +10,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 05/23/2019
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: bfd37b703a43e056142ad161eb3308fd2b754e25
-ms.sourcegitcommit: ea64a56acfabc6a9c1576ebf9f17ac81e7e2a6b7
+ms.openlocfilehash: 9b1ffd73b4b68e6ff6349110e1485eb7cbda9e25
+ms.sourcegitcommit: e276008fb5dd7a37554e202ba5c37948954301f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66215321"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66693712"
 ---
 # <a name="create-your-own-prompts-to-gather-user-input"></a>사용자 입력을 수집하도록 고유한 메시지 만들기
 
@@ -62,9 +62,11 @@ ms.locfileid: "66215321"
 
 사용자 및 대화 상태 개체는 시작 시 만들어지며 종속성이 봇 생성자에 주입됩니다. 
 
-**Startup.cs** [!code-csharp[Startup](~/../botbuilder-samples/samples/csharp_dotnetcore/44.prompt-users-for-input/Startup.cs?range=27-34)]
+**Startup.cs**  
+[!code-csharp[Startup](~/../botbuilder-samples/samples/csharp_dotnetcore/44.prompt-users-for-input/Startup.cs?range=27-34)]
 
-**Bots/CustomPromptBot.cs** [!code-csharp[custom prompt bot](~/../botbuilder-samples/samples/csharp_dotnetcore/44.prompt-users-for-input/Bots/CustomPromptBot.cs?range=21-28)]
+**Bots/CustomPromptBot.cs**  
+[!code-csharp[custom prompt bot](~/../botbuilder-samples/samples/csharp_dotnetcore/44.prompt-users-for-input/Bots/CustomPromptBot.cs?range=21-28)]
 
 ## <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
@@ -82,7 +84,8 @@ ms.locfileid: "66215321"
 
 `OnMessageActivityAsync` 메서드 내부의 `BotState` 안에 핸들을 제공하는 속성 접근자부터 만듭니다. 그런 다음, `GetAsync` 메서드를 호출하여 올바르게 범위가 지정된 키를 가져옵니다.
 
-**Bots/CustomPromptBot.cs** [!code-csharp[custom prompt bot](~/../botbuilder-samples/samples/csharp_dotnetcore/44.prompt-users-for-input/Bots/CustomPromptBot.cs?range=30-37)]
+**Bots/CustomPromptBot.cs**  
+[!code-csharp[custom prompt bot](~/../botbuilder-samples/samples/csharp_dotnetcore/44.prompt-users-for-input/Bots/CustomPromptBot.cs?range=30-37)]
 
 마지막으로 `SaveChangesAsync` 메서드를 사용하여 데이터를 저장합니다.
 
@@ -92,7 +95,8 @@ ms.locfileid: "66215321"
 
 생성자에서 상태 속성 접근자를 만들고, 대화를 위한 상태 관리 개체(위에서 만듦)를 설정합니다.
 
-**bots/customPromptBot.js** [!code-javascript[custom prompt bot](~/../botbuilder-samples/samples/javascript_nodejs/44.prompt-for-user-input/bots/customPromptBot.js?range=23-29)]
+**bots/customPromptBot.js**  
+[!code-javascript[custom prompt bot](~/../botbuilder-samples/samples/javascript_nodejs/44.prompt-for-user-input/bots/customPromptBot.js?range=23-29)]
 
 그런 다음, 기본 메시지 처리기 이후에 실행할 두 번째 처리기 `onDialog`(다음 섹션에서 설명)를 정의합니다. 이 두 번째 처리기는 턴마다 상태를 저장했는지 확인합니다.
 
@@ -106,13 +110,15 @@ ms.locfileid: "66215321"
 
 메시지 활동을 처리하기 위해, _SaveChangesAsync()_ 를 사용하여 상태를 저장하기 전에 도우미 메서드 _FillOutUserProfileAsync()_ 를 사용합니다. 다음은 완료된 코드입니다.
 
-**Bots/CustomPromptBot.cs** [!code-csharp[custom prompt bot](~/../botbuilder-samples/samples/csharp_dotnetcore/44.prompt-users-for-input/Bots/CustomPromptBot.cs?range=30-44)]
+**Bots/CustomPromptBot.cs**  
+[!code-csharp[custom prompt bot](~/../botbuilder-samples/samples/csharp_dotnetcore/44.prompt-users-for-input/Bots/CustomPromptBot.cs?range=30-44)]
 
 ## <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 메시지 활동을 처리하기 위해, 대화와 사용자 데이터를 설정한 다음, 도우미 메서드 `fillOutUserProfile()`을 사용합니다. 턴 처리기에 대한 전체 코드는 다음과 같습니다.
 
-**bots/customPromptBot.js** [!code-javascript[custom prompt bot](~/../botbuilder-samples/samples/javascript_nodejs/44.prompt-for-user-input/bots/customPromptBot.js?range=31-39)]
+**bots/customPromptBot.js**  
+[!code-javascript[custom prompt bot](~/../botbuilder-samples/samples/javascript_nodejs/44.prompt-for-user-input/bots/customPromptBot.js?range=31-39)]
 ---
 
 ## <a name="filling-out-the-user-profile"></a>사용자 프로필 작성
@@ -127,11 +133,13 @@ ms.locfileid: "66215321"
 
 ## <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
-**Bots/CustomPromptBot.cs** [!code-csharp[custom prompt bot](~/../botbuilder-samples/samples/csharp_dotnetcore/44.prompt-users-for-input/Bots/CustomPromptBot.cs?range=46-103)]
+**Bots/CustomPromptBot.cs**  
+[!code-csharp[custom prompt bot](~/../botbuilder-samples/samples/csharp_dotnetcore/44.prompt-users-for-input/Bots/CustomPromptBot.cs?range=46-103)]
 
 ## <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
-**bots/customPromptBot.js** [!code-javascript[custom prompt bot](~/../botbuilder-samples/samples/javascript_nodejs/44.prompt-for-user-input/bots/customPromptBot.js?range=52-116)]
+**bots/customPromptBot.js**  
+[!code-javascript[custom prompt bot](~/../botbuilder-samples/samples/javascript_nodejs/44.prompt-for-user-input/bots/customPromptBot.js?range=52-116)]
 
 ---
 
@@ -153,11 +161,13 @@ ms.locfileid: "66215321"
 
 다음 유효성 검사 메서드를 봇에 추가합니다.
 
-**Bots/CustomPromptBot.cs** [!code-csharp[custom prompt bot](~/../botbuilder-samples/samples/csharp_dotnetcore/44.prompt-users-for-input/Bots/CustomPromptBot.cs?range=105-203)]
+**Bots/CustomPromptBot.cs**  
+[!code-csharp[custom prompt bot](~/../botbuilder-samples/samples/csharp_dotnetcore/44.prompt-users-for-input/Bots/CustomPromptBot.cs?range=105-203)]
 
 ## <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
-**bots/customPromptBot.cs** [!code-javascript[custom prompt bot](~/../botbuilder-samples/samples/javascript_nodejs/44.prompt-for-user-input/bots/customPromptBot.js?range=118-189)]
+**bots/customPromptBot.cs**  
+[!code-javascript[custom prompt bot](~/../botbuilder-samples/samples/javascript_nodejs/44.prompt-for-user-input/bots/customPromptBot.js?range=118-189)]
 
 ---
 

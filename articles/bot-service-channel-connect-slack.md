@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
 ms.date: 01/09/2019
-ms.openlocfilehash: 3573103e1d1c55e3ad648ad68d84674a98b397f7
-ms.sourcegitcommit: 8161753641368567f239e24a35ad61768acccd8e
+ms.openlocfilehash: 58416147a057bce8947943521a1226e1d9acbdf1
+ms.sourcegitcommit: e276008fb5dd7a37554e202ba5c37948954301f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54202565"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66693602"
 ---
 # <a name="connect-a-bot-to-slack"></a>Slack에 봇 연결
 
@@ -40,7 +40,7 @@ Slack 메시징 앱을 사용하여 사용자와 통신하도록 봇을 구성�
 
 1. **OAuth 및 권한** 탭을 선택합니다.
 2. **새 리디렉션 URL 추가**를 클릭합니다.
-3. [https://slack.botframework.com](https://slack.botframework.com) 을 입력합니다.
+3. [https://slack.botframework.com](https://slack.botframework.com ) 을 입력합니다.
 4. **추가**를 클릭합니다.
 5. **URL 저장**을 클릭합니다.
 
@@ -134,3 +134,7 @@ Slack은 [이 페이지](https://api.slack.com/docs/slack-button)의 *Slack에 �
 3. 클립보드의 이 URL을 Slack 단추에 제공되는 HTML에 붙여넣습니다. 이 URL은 이 봇을 위해 Slack이 제공하는 href 값을 대신합니다.
 
 권한 있는 사용자는 수정된 이 HTML에서 제공하는 **Slack에 추가** 단추를 클릭하여 Slack에서 해당 봇에 연결할 수 있습니다.
+
+## <a name="also-available-as-an-adapter"></a>어댑터로도 사용 가능
+
+이 채널은 [어댑터로도 사용할 수 있습니다](https://botkit.ai/docs/v4/platforms/slack.html). 어댑터와 채널 중 하나를 선택할 때는 [현재 사용 가능한 어댑터](bot-service-channel-additional-channels.md#currently-available-adapters)를 참조하세요.

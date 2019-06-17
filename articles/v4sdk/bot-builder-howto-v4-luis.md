@@ -10,12 +10,12 @@ ms.service: bot-service
 ms.subservice: cognitive-services
 ms.date: 05/23/2019
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 7b06d99ae1265d2519b5c1aa8fe838a4e3e4d43a
-ms.sourcegitcommit: ea64a56acfabc6a9c1576ebf9f17ac81e7e2a6b7
+ms.openlocfilehash: 4fc8ebd1eff03c2b6ac994ff80cb85b341bb7231
+ms.sourcegitcommit: e276008fb5dd7a37554e202ba5c37948954301f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66215357"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66693674"
 ---
 # <a name="add-natural-language-understanding-to-your-bot"></a>봇에 자연어 해석 추가
 
@@ -76,6 +76,8 @@ LUIS 포털에 로그인하여 사용자 고유 버전의 LUIS 샘플 앱을 만
 ### <a name="why-use-entities"></a>엔터티를 사용하는 이유
 LUIS 엔터티를 사용하면 표준 의도와 다른 특정 사물이나 이벤트를 지능적으로 인식할 수 있습니다. 이렇게 하면 사용자로부터 추가 정보를 수집할 수 있으므로 봇이 더 지능적으로 응답하거나 사용자에게 해당 정보를 요청하는 특정 질문을 건너뛸 수 있습니다. FlightBooking.json 파일에는 'Book Flight', 'Cancel' 및 'None'이라는 세 가지 LUIS 의도에 대한 정의와 함께 'From.Airport' 및 'To.Airport'와 같은 엔터티 세트도 포함되어 있습니다. 이러한 엔터티는 LUIS가 새로운 여행 예약 요청 시 사용자의 원래 입력 내에 포함된 추가 정보를 감지하고 반환할 수 있게 해줍니다.
 
+엔티티 정보가 LUIS 결과에 표시되는 방식에 대한 정보는, [의도 및 엔터티를 사용하여 발언 텍스트에서 데이터 추출](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-data-extraction)을 참조하세요.
+
 ## <a name="obtain-values-to-connect-to-your-luis-app"></a>LUIS 앱에 연결할 값 가져오기
 LUIS 앱이 게시되면 봇에서 액세스할 수 있습니다. 봇 내에서 LUIS 앱에 액세스하려면 여러 값을 기록해야 합니다. LUIS 포털을 사용하여 해당 정보를 검색할 수 있습니다.
 
@@ -93,7 +95,8 @@ LUIS 앱이 게시되면 봇에서 액세스할 수 있습니다. 봇 내에서 
 
 애플리케이션 ID, 제작 키 및 지역을 포함하여 LUIS 앱에 액세스하는 데 필요한 정보를 `appsettings.json` 파일에 추가합니다. 이는 이전에 게시된 LUIS 앱에서 저장한 값입니다. API 호스트 이름은 `<your region>.api.cognitive.microsoft.com` 형식이어야 합니다.
 
-**appsetting.json** [!code-json[appsettings](~/../botbuilder-samples/samples/csharp_dotnetcore/13.core-bot/appsettings.json?range=1-7)]
+**appsetting.json**  
+[!code-json[appsettings](~/../botbuilder-samples/samples/csharp_dotnetcore/13.core-bot/appsettings.json?range=1-7)]
 
 # <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
@@ -112,7 +115,8 @@ LUIS 앱이 게시되면 봇에서 액세스할 수 있습니다. 봇 내에서 
 
 LUIS 서비스에 연결할 때 봇은 위에 추가된 정보를 appsetting.json 파일에서 끌어옵니다. `LuisHelper` 클래스에는 appsetting.json 파일에서 설정을 가져오고 `RecognizeAsync` 메서드를 호출하여 LUIS 서비스를 쿼리하는 코드가 포함되어 있습니다. 반환되는 상위 의도는 'Book_Flight'이며, 이는 예약의 To, From 및 TravelDate 정보가 포함된 엔터티를 검사합니다.
 
-**LuisHelper.cs** [!code-csharp[luis helper](~/../botbuilder-samples/samples/csharp_dotnetcore/13.core-bot/LuisHelper.cs?range=15-54)]
+**LuisHelper.cs**  
+[!code-csharp[luis helper](~/../botbuilder-samples/samples/csharp_dotnetcore/13.core-bot/LuisHelper.cs?range=15-54)]
 
 # <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 

@@ -10,12 +10,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 05/23/2019
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: b198408a800feaedff3c13dbab965ae63307eeb0
-ms.sourcegitcommit: ea64a56acfabc6a9c1576ebf9f17ac81e7e2a6b7
+ms.openlocfilehash: 3e844a254f1aee709d7dd0b0866ee4ae14737f65
+ms.sourcegitcommit: e276008fb5dd7a37554e202ba5c37948954301f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66215347"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66693719"
 ---
 # <a name="save-user-and-conversation-data"></a>사용자 및 대화 데이터 저장
 
@@ -49,13 +49,15 @@ ms.locfileid: "66215347"
 
 다음 코드 예제에서는 UserProfile 클래스에 대한 정의를 만드는 과정을 보여줍니다.
 
-**UserProfile.cs** [!code-csharp[UserProfile](~/../BotBuilder-Samples/samples/csharp_dotnetcore/45.state-management/UserProfile.cs?range=7-11)]
+**UserProfile.cs**  
+[!code-csharp[UserProfile](~/../BotBuilder-Samples/samples/csharp_dotnetcore/45.state-management/UserProfile.cs?range=7-11)]
 
 ## <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 첫 번째 단계에서는 `UserState` 및 `ConversationState`에 대한 정의를 포함하는 botbuilder 서비스를 요구합니다.
 
-**index.js** [!code-javascript[BotService](~/../BotBuilder-Samples/samples/javascript_nodejs/45.state-management/index.js?range=7-9)]
+**index.js**  
+[!code-javascript[BotService](~/../BotBuilder-Samples/samples/javascript_nodejs/45.state-management/index.js?range=7-9)]
 
 ---
 
@@ -65,15 +67,18 @@ ms.locfileid: "66215347"
 
 다음으로, `UserState` 및 `ConversationState` 개체를 만드는 데 사용한 `MemoryStorage`를 등록합니다. 사용자 및 대화 상태 개체는 `Startup`에 만들어지며 종속성은 봇 생성자에 주입됩니다. 등록된 봇에 대한 다른 서비스는 자격 증명 공급자, 어댑터 및 봇 구현입니다.
 
-**Startup.cs** [!code-csharp[ConfigureServices](~/../BotBuilder-Samples/samples/csharp_dotnetcore/45.state-management/Startup.cs?range=16-38)]
+**Startup.cs**  
+[!code-csharp[ConfigureServices](~/../BotBuilder-Samples/samples/csharp_dotnetcore/45.state-management/Startup.cs?range=16-38)]
 
-**StateManagementBot.cs** [!code-csharp[StateManagement](~/../BotBuilder-Samples/samples/csharp_dotnetcore/45.state-management/bots/StateManagementBot.cs?range=15-22)]
+**StateManagementBot.cs**  
+[!code-csharp[StateManagement](~/../BotBuilder-Samples/samples/csharp_dotnetcore/45.state-management/bots/StateManagementBot.cs?range=15-22)]
 
 ## <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 다음으로, `UserState` 및 `ConversationState` 개체를 만드는 데 사용한 `MemoryStorage`를 등록합니다.
 
-**index.js** [!code-javascript[DefineMemoryStore](~/../BotBuilder-Samples/samples/javascript_nodejs/45.state-management/index.js?range=32-38)]
+**index.js**  
+[!code-javascript[DefineMemoryStore](~/../BotBuilder-Samples/samples/javascript_nodejs/45.state-management/index.js?range=32-38)]
 
 ---
 
@@ -83,13 +88,14 @@ ms.locfileid: "66215347"
 
 이제 `BotState` 개체에 대한 핸들을 제공하는 `CreateProperty` 메서드를 사용하여 속성 접근자를 만듭니다. 각 상태 속성 접근자를 사용하면 연결된 상태 속성의 값을 가져오거나 설정할 수 있습니다. 상태 속성을 사용하기 전에 각 접근자를 사용하여 스토리지에서 속성을 로드하고 상태 캐시에서 이를 가져옵니다. 상태 속성과 연결된 올바른 범위의 키를 가져오기 위해 `GetAsync` 메서드를 호출합니다.
 
-**StateManagementBot.cs** [!code-csharp[StateAccessors](~/../BotBuilder-Samples/samples/csharp_dotnetcore/45.state-management/bots/StateManagementBot.cs?range=38-46)]
+**StateManagementBot.cs**  
+[!code-csharp[StateAccessors](~/../BotBuilder-Samples/samples/csharp_dotnetcore/45.state-management/bots/StateManagementBot.cs?range=38-46)]
 
 ## <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 이제 `UserState` 및 `ConversationState`에 대한 속성 접근자를 만듭니다. 각 상태 속성 접근자를 사용하면 연결된 상태 속성의 값을 가져오거나 설정할 수 있습니다. 각 접근자를 사용하여 상태에서 연결된 속성을 로드하고 캐시에서 해당 현재 상태를 검색합니다.
 
-**StateManagementBot.js**.
+**StateManagementBot.js**.  
 [!code-javascript[BotService](~/../BotBuilder-Samples/samples/javascript_nodejs/45.state-management/bots/stateManagementBot.js?range=6-19)]
 
 ---
@@ -102,19 +108,23 @@ ms.locfileid: "66215347"
 
 ## <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
-**StateManagementBot.cs** [!code-csharp[OnMessageActivityAsync](~/../BotBuilder-Samples/samples/csharp_dotnetcore/45.state-management/bots/StateManagementBot.cs?range=38-85)]
+**StateManagementBot.cs**  
+[!code-csharp[OnMessageActivityAsync](~/../BotBuilder-Samples/samples/csharp_dotnetcore/45.state-management/bots/StateManagementBot.cs?range=38-85)]
 
 턴 처리기를 종료하기 전에 상태 관리 개체의 _SaveChangesAsync()_ 메서드를 사용하여 모든 상태 변경 내용을 스토리지에 다시 씁니다.
 
-**StateManagementBot.cs** [!code-csharp[OnTurnAsync](~/../BotBuilder-Samples/samples/csharp_dotnetcore/45.state-management/bots/StateManagementBot.cs?range=24-31)]
+**StateManagementBot.cs**  
+[!code-csharp[OnTurnAsync](~/../BotBuilder-Samples/samples/csharp_dotnetcore/45.state-management/bots/StateManagementBot.cs?range=24-31)]
 
 ## <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
-**StateManagementBot.js** [!code-javascript[OnMessage](~/../BotBuilder-Samples/samples/javascript_nodejs/45.state-management/bots/stateManagementBot.js?range=21-54)]
+**StateManagementBot.js**  
+[!code-javascript[OnMessage](~/../BotBuilder-Samples/samples/javascript_nodejs/45.state-management/bots/stateManagementBot.js?range=21-54)]
 
 각 대화 상자 턴을 종료하기 전에 상태 관리 개체의 _saveChanges()_ 메서드를 호출하여 상태를 스토리지에 다시 써서 모든 변경 내용을 유지합니다.
 
-**StateManagementBot.js** [!code-javascript[OnDialog](~/../BotBuilder-Samples/samples/javascript_nodejs/45.state-management/bots/stateManagementBot.js?range=60-67)]
+**StateManagementBot.js**  
+[!code-javascript[OnDialog](~/../BotBuilder-Samples/samples/javascript_nodejs/45.state-management/bots/stateManagementBot.js?range=60-67)]
 
 ---
 

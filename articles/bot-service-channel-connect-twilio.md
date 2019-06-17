@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
 ms.date: 10/9/2018
-ms.openlocfilehash: 7d7416940ccad4e62c98f4a386dac43189301b56
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: 817623dd04612cd07d8877c8e9a199c05a2fd9e8
+ms.sourcegitcommit: e276008fb5dd7a37554e202ba5c37948954301f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49998314"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66693624"
 ---
 # <a name="connect-a-bot-to-twilio"></a>Twilio에 봇 연결
 
@@ -26,7 +26,7 @@ Twilio 계정이 없는 경우 <a href="https://www.twilio.com/try-twilio" targe
 
 ## <a name="create-a-twiml-application"></a>TwiML 애플리케이션 만들기
 
-지침을 따라 <a href="https://support.twilio.com/hc/en-us/articles/223180928-How-Do-I-Create-a-TwiML-App-" target="_blank">TwiML 응용 프로그램을 만듭니다</a>.
+지침을 따라 <a href="https://support.twilio.com/hc/en-us/articles/223180928-How-Do-I-Create-a-TwiML-App-" target="_blank">TwiML 애플리케이션을 만듭니다</a>.
 
 ![앱 만들기](~/media/channels/twi-StepTwiml.png)
 
@@ -57,7 +57,7 @@ Twilio 계정이 없는 경우 <a href="https://www.twilio.com/try-twilio" targe
 
 ## <a name="submit-credentials"></a>자격 증명 제출
 
-별도의 창에서 https://dev.botframework.com/의 Bot Framework 사이트로 돌아갑니다. 
+별도의 창에서 https://dev.botframework.com/ 의 Bot Framework 사이트로 돌아갑니다. 
 
 - **내 봇**을 선택하고 Twilio에 연결하려는 봇을 선택합니다. 그러면 Azure Portal로 이동됩니다.
 - **봇 관리** 아래에서 **채널**을 선택합니다. Twilio(SMS) 아이콘을 클릭합니다.
@@ -66,3 +66,7 @@ Twilio 계정이 없는 경우 <a href="https://www.twilio.com/try-twilio" targe
 ![자격 증명 제출](~/media/channels/twi-StepSubmit.png)
 
 이러한 단계를 완료한 경우, 봇은 Twilio를 사용하여 사용자와 통신하도록 성공적으로 구성됩니다.
+
+## <a name="also-available-as-an-adapter"></a>어댑터로도 사용 가능
+
+이 채널은 [어댑터로도 사용할 수 있습니다](https://botkit.ai/docs/v4/platforms/twilio-sms.html). 어댑터와 채널 중 하나를 선택할 때는 [현재 사용 가능한 어댑터](bot-service-channel-additional-channels.md#currently-available-adapters)를 참조하세요.
