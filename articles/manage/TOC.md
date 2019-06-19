@@ -21,6 +21,7 @@
 ## [Telegram](../bot-service-channel-connect-telegram.md) 
 ## [Twilio](../bot-service-channel-connect-twilio.md)
 ## [웹 채팅](../bot-service-channel-connect-webchat.md)
+## [추가 채널](../bot-service-channel-additional-channels.md)
 # [봇 설정 구성](../bot-service-manage-settings.md)
 # [음성 초기화 구성](../bot-service-manage-speech-priming.md)
 # [Azure Bot Service에 봇 등록](../bot-service-quickstart-registration.md)
