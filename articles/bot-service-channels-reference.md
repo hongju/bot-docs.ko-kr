@@ -10,10 +10,10 @@ ms.service: bot-service
 ms.subservice: tools
 ms.date: 03/01/2019
 ms.openlocfilehash: 28f284e4d69cbef7a1741d298b3ae9e6e127e9dd
-ms.sourcegitcommit: 710d279898db587abb1e81d13628177a4e182293
+ms.sourcegitcommit: a47183f5d1c2b2454c4a06c0f292d7c075612cdd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2019
+ms.lasthandoff: 06/21/2019
 ms.locfileid: "59541089"
 ---
 # <a name="categorized-activities-by-channel"></a>분류된 채널별 활동
