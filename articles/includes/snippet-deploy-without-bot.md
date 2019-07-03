@@ -1,12 +1,12 @@
 ---
-ms.openlocfilehash: 4b5181babf728861107a0c7bc28f844491761a7a
-ms.sourcegitcommit: f84b56beecd41debe6baf056e98332f20b646bda
+ms.openlocfilehash: 117f95799df0abbe957000d4979b10f05baf262c
+ms.sourcegitcommit: a295a90eac461f8b96770dd902ba44919acf33fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2019
-ms.locfileid: "65033887"
+ms.lasthandoff: 06/26/2019
+ms.locfileid: "67405529"
 ---
-배포를 시작하기 전에 [Azure cli](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) 및 [dotnet cli](https://dotnet.microsoft.com/download)의 최신 버전이 있는지 확인합니다. dotnet cli가 없으면 위에서 제공하는 링크에서 .Net Core 런타임 옵션을 사용하여 설치합니다. 
+배포를 시작하기 전에 [Azure cli](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) 및 [dotnet cli](https://dotnet.microsoft.com/download)의 최신 버전이 있는지 확인합니다. dotnet cli가 없으면 위에서 제공하는 링크에서 .Net Core 런타임 옵션을 사용하여 설치합니다. 
 
 ### <a name="login-to-azure-cli-and-set-your-subscription"></a>Azure CLI에 로그인하여 구독을 설정합니다.
 이미 로컬에서 봇을 만들고 테스트했고, 이제는 이 봇을 Azure에 배포하려고 합니다. 명령 프롬프트를 열어 Azure Portal에 로그인합니다.
@@ -92,7 +92,7 @@ az bot create --kind webapp --name <bot-name-in-azure> --location <geographic-lo
 }
 ```
 
-`appId` 및 `appPassword` 값을 복사하여 appsettings.json 또는 .env 파일에 붙여넣어야 합니다. 예: 
+`appId` 및 `appPassword` 값을 복사하여 appsettings.json 또는 .env 파일에 붙여넣어야 합니다. 예:
 
 ```JSON
 {

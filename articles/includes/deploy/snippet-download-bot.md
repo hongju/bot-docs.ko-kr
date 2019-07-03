@@ -1,10 +1,10 @@
 ---
 ms.openlocfilehash: 867e65b25878f810e3247eb3cace95f4d31e11db
-ms.sourcegitcommit: 4ff7a8772124a567f43e2c3e13aded368c4002e3
+ms.sourcegitcommit: a47183f5d1c2b2454c4a06c0f292d7c075612cdd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2019
-ms.locfileid: "65035724"
+ms.lasthandoff: 06/19/2019
+ms.locfileid: "67252622"
 ---
 현재 프로젝트 디렉터리에 포함되지 않는 임시 디렉터리를 사용합니다. 
 

@@ -9,12 +9,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 92672e9d9ca9949da1ce4741bdc71bc809d982f7
-ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
+ms.openlocfilehash: 67e86455aefd000c8a6956a71adcfdb821266196
+ms.sourcegitcommit: a295a90eac461f8b96770dd902ba44919acf33fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54224518"
+ms.lasthandoff: 06/26/2019
+ms.locfileid: "67404329"
 ---
 # <a name="manage-custom-state-data-with-azure-cosmos-db-for-nodejs"></a>Node.js용 Azure Cosmos DB를 사용하여 사용자 지정 상태 데이터 관리
 
@@ -36,7 +36,7 @@ ms.locfileid: "54224518"
 - Node.js 봇이 있어야 합니다. 아직 없는 경우 [봇을 하나 만듭니다](bot-builder-nodejs-quickstart.md). 
 
 ## <a name="create-azure-account"></a>Azure 계정 만들기
-Azure 계정이 없으면 [여기](https://azure.microsoft.com/en-us/free/)를 클릭하여 체험 계정으로 등록하세요.
+Azure 계정이 없으면 [여기](https://azure.microsoft.com/free/)를 클릭하여 체험 계정으로 등록하세요.
 
 ## <a name="set-up-the-azure-cosmos-db-database"></a>Azure Cosmos DB 데이터베이스 설정
 1. Azure Portal에 로그인한 후 **새로 만들기**를 클릭하여 새 *Azure Cosmos DB* 데이터베이스를 만듭니다. 
@@ -74,14 +74,14 @@ npm install --save botbuilder-azure
    ```
    `host` 및 `masterKey` 값은 테이블의 **키** 메뉴에서 찾을 수 있습니다. `database` 및 `collection` 항목이 Azure 데이터베이스에 존재하지 않으면 새로 만듭니다.
 
-3. `botbuilder-azure` 모듈을 사용하여 Azure 데이터베이스에 연결할 두 개의 개체를 새로 만듭니다. 먼저 연결 구성 설정을 전달하는 `DocumentDBClient`의 인스턴스를 만듭니다(위에서 `documentDbOptions`로 정의됨). 다음으로, `DocumentDBClient` 개체를 전달하는 `AzureBotStorage`의 인스턴스를 만듭니다. 예를 들면 다음과 같습니다.
+3. `botbuilder-azure` 모듈을 사용하여 Azure 데이터베이스에 연결할 두 개의 개체를 새로 만듭니다. 먼저 연결 구성 설정을 전달하는 `DocumentDBClient`의 인스턴스를 만듭니다(위에서 `documentDbOptions`로 정의됨). 다음으로, `DocumentDBClient` 개체를 전달하는 `AzureBotStorage`의 인스턴스를 만듭니다. 예:
    ```javascript
    var docDbClient = new azure.DocumentDbClient(documentDbOptions);
 
    var cosmosStorage = new azure.AzureBotStorage({ gzipData: false }, docDbClient);
    ```
 
-4. 메모리 내 저장소 대신 사용자 지정 데이터베이스를 사용하도록 지정합니다. 예를 들면 다음과 같습니다.
+4. 메모리 내 저장소 대신 사용자 지정 데이터베이스를 사용하도록 지정합니다. 예:
 
    ```javascript
    var bot = new builder.UniversalBot(connector, function (session) {
@@ -105,7 +105,7 @@ node app.js
 이 시점에서 봇이 로컬로 실행됩니다. 에뮬레이터를 시작한 다음, 에뮬레이터에서 봇에 연결합니다.
 
 1. 에뮬레이터의 주소 표시줄에 <strong>http://localhost:port-number/api/messages</strong>를 입력합니다. 여기서 port-number는 애플리케이션이 실행 중인 브라우저에 표시되는 포트 번호와 일치합니다. 지금은 <strong>Microsoft 앱 ID</strong> 및 <strong>Microsoft 앱 암호</strong> 필드를 비워 둘 수 있습니다. 나중에 [봇을 등록](~/bot-service-quickstart-registration.md)할 때 이 정보를 가져올 수 있습니다.
-2. **Connect**를 클릭합니다.
+2. **연결**을 클릭합니다.
 3. 봇에 메시지를 전송하여 봇을 테스트합니다. 평소와 같이 봇과 상호 작용합니다. 완료되면 **Storage Explorer**로 이동한 후 저장된 상태 데이터를 확인합니다.
 
 ## <a name="view-state-data-on-azure-portal"></a>Azure Portal에서 상태 데이터 보기

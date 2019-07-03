@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: bot-service
 ms.date: 05/23/2019
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 3e1ebc07c73dcd7033a6b9a22c94379593c5890e
-ms.sourcegitcommit: ea64a56acfabc6a9c1576ebf9f17ac81e7e2a6b7
+ms.openlocfilehash: 7b3380a409641bd7d406c877ebcbf83ddf15431c
+ms.sourcegitcommit: a295a90eac461f8b96770dd902ba44919acf33fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66215258"
+ms.lasthandoff: 06/26/2019
+ms.locfileid: "67404445"
 ---
 # <a name="testing-and-debugging-guidelines"></a>테스트 및 디버깅 지침
 
@@ -65,7 +65,7 @@ ms.locfileid: "66215258"
 
 ### <a name="other-testing"></a>기타 테스트
 
-다양한 유형의 테스트를 위의 수준과 함께 수행하거나 스트레스 테스트, 성능 테스트 또는 봇 활동 프로파일링과 같은 여러 가지 측면에서 수행할 수 있습니다. Visual Studio는 이 작업을 로컬에서 수행할 수 있는 메서드와 앱 테스트를 위한 [도구 모음](https://azure.microsoft.com/en-us/solutions/dev-test/)을 제공하고 [Azure Portal](https://portal.azure.com)은 봇의 작동 방식에 대한 인사이트를 제공합니다.
+다양한 유형의 테스트를 위의 수준과 함께 수행하거나 스트레스 테스트, 성능 테스트 또는 봇 활동 프로파일링과 같은 여러 가지 측면에서 수행할 수 있습니다. Visual Studio는 이 작업을 로컬에서 수행할 수 있는 메서드와 앱 테스트를 위한 [도구 모음](https://azure.microsoft.com/solutions/dev-test/)을 제공하고 [Azure Portal](https://portal.azure.com)은 봇의 작동 방식에 대한 인사이트를 제공합니다.
 
 ## <a name="debugging"></a>디버그
 
@@ -105,7 +105,7 @@ For example [QnA maker](bot-builder-howto-qna.md) is designed to handle certain 
 
 상태 추적은, 특히 복잡한 작업의 경우, 봇의 중요한 부분입니다. 일반적으로 가능한 한 빨리 활동을 처리하고 해당 상태가 지속되도록 처리를 완료하는 것이 좋습니다. 활동이 거의 동시에 봇에 전송될 수 있고, 이 경우 비동기 아키텍처 때문에 매우 혼란스러운 버그가 도입될 수 있습니다.
 
-가장 중요한 것은 상태가 예상대로 지속되는지 확인하는 것입니다. 지속된 상태의 위치에 따라 [Cosmos DB](https://docs.microsoft.com/en-us/azure/cosmos-db/local-emulator) 및 [Azure Table Storage](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-emulator)용 스토리지 에뮬레이터를 사용하면 프로덕션 스토리지를 사용하기 전에 해당 상태를 확인할 수 있습니다.
+가장 중요한 것은 상태가 예상대로 지속되는지 확인하는 것입니다. 지속된 상태의 위치에 따라 [Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/local-emulator) 및 [Azure Table Storage](https://docs.microsoft.com/azure/storage/common/storage-use-emulator)용 스토리지 에뮬레이터를 사용하면 프로덕션 스토리지를 사용하기 전에 해당 상태를 확인할 수 있습니다.
 
 ### <a name="how-to-use-activity-handlers"></a>활동 처리기를 사용하는 방법
 
@@ -117,9 +117,9 @@ _활동 보내기_ 메서드와 해당 처리기에는 고유한 문제를 일�
 
 ## <a name="additional-resources"></a>추가 리소스
 
-* [Visual Studio의 디버깅](https://docs.microsoft.com/en-us/visualstudio/debugger/index)
-* Bot Framework에 대한 [디버깅, 추적 및 프로파일링](https://docs.microsoft.com/en-us/dotnet/framework/debug-trace-profile/)
-* 프로덕션 코드에 포함하지 않을 메서드에 [ConditionalAttribute](https://docs.microsoft.com/en-us/dotnet/api/system.diagnostics.conditionalattribute?view=netcore-2.0) 사용
+* [Visual Studio의 디버깅](https://docs.microsoft.com/visualstudio/debugger/index)
+* Bot Framework에 대한 [디버깅, 추적 및 프로파일링](https://docs.microsoft.com/dotnet/framework/debug-trace-profile/)
+* 프로덕션 코드에 포함하지 않을 메서드에 [ConditionalAttribute](https://docs.microsoft.com/dotnet/api/system.diagnostics.conditionalattribute?view=netcore-2.0) 사용
 * [Fiddler](https://www.telerik.com/fiddler) 같은 도구를 사용하여 네트워크 트래픽 확인
 * [봇 도구 리포지토리](https://github.com/Microsoft/botbuilder-tools)
 * 테스트에 [Moq](https://github.com/moq/moq4)와 같은 유용한 프레임워크 사용

@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: bot-service
 ms.date: 05/23/2019
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: ce3ab86d5716250e24a44268f5e5fc39fbdd3398
-ms.sourcegitcommit: ea64a56acfabc6a9c1576ebf9f17ac81e7e2a6b7
+ms.openlocfilehash: 503ec19444c51120bf46838e14edb891ec5c3bb5
+ms.sourcegitcommit: dbbfcf45a8d0ba66bd4fb5620d093abfa3b2f725
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66214168"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67464658"
 ---
 # <a name="virtual-assistant---template-outline"></a>가상 도우미 - 템플릿 개요
 
@@ -30,11 +30,11 @@ ms.locfileid: "66214168"
 기본 대화 | 기본 사용자 정보 및 취소/도움말 의도에 대한 중단 논리를 캡처하는 대화 흐름입니다.
 기본 응답  | 기본 의도 및 대화에 대한 텍스트 및 음성 응답입니다.
 FAQ | [QnA Maker](https://www.qnamaker.ai)와 통합하여 기술 자료에서 일반적인 질문에 답변합니다. 
-잡담 | 일반적인 쿼리에 대한 표준 답변을 제공하는 전문가 잡담 모델입니다([자세한 정보](https://docs.microsoft.com/en-us/azure/cognitive-services/qnamaker/how-to/chit-chat-knowledge-base)).
-디스패처 | LUIS 또는 QnA Maker에서 지정된 발화를 처리해야 하는지 여부를 식별하는 통합 [Dispatch](https://docs.microsoft.com/en-us/azure/bot-service/bot-builder-tutorial-dispatch?view=azure-bot-service-4.0&tabs=csaddref%2Ccsbotconfig) 모델입니다.
+잡담 | 일반적인 쿼리에 대한 표준 답변을 제공하는 전문가 잡담 모델입니다([자세한 정보](https://docs.microsoft.com/azure/cognitive-services/qnamaker/how-to/chit-chat-knowledge-base)).
+디스패처 | LUIS 또는 QnA Maker에서 지정된 발화를 처리해야 하는지 여부를 식별하는 통합 [Dispatch](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-dispatch?view=azure-bot-service-4.0&tabs=csaddref%2Ccsbotconfig) 모델입니다.
 언어 지원 | 영어, 프랑스어, 이탈리아어, 독일어, 스페인어 및 중국어로 사용할 수 있습니다.
 스크립트(Transcript) | Azure Storage에 저장된 모든 대화에 대한 음성 텍스트입니다.
-원격 분석  | [Application Insights](https://azure.microsoft.com/en-gb/services/application-insights/)와 통합하여 모든 대화에 대한 원격 분석을 수집합니다.
+원격 분석  | [Application Insights](https://azure.microsoft.com/services/application-insights/)와 통합하여 모든 대화에 대한 원격 분석을 수집합니다.
 분석 | 대화 환경에 대한 인사이트를 시작할 수 있는 Power BI 대시보드 예제입니다.
 자동화된 배포 | Azure ARM 템플릿을 사용하여 앞에서 언급한 모든 서비스를 쉽게 배포합니다.
 
@@ -95,7 +95,7 @@ QnA Maker 및 LuisRecognizer SDK 클래스의 래퍼 클래스와 결합된 미�
 - 종종 LUIS 모델과 QnA Maker의 발화가 약간 겹치는 경우 LUIS에서 QnA Maker에 전달해야 할 때 질문을 처리하려고 시도하는 이상한 동작이 발생할 수 있었습니다.
 - 둘 이상의 LUIS 모델이 있을 때 봇에서 각각을 호출하고 특정 형태의 의도 평가 비교를 수행하여 지정된 발화를 보내는 위치를 식별해야 했습니다. 공통 기준이 없어 모델 간의 점수 비교가 효과적으로 작동하지 않았으므로 사용자 환경이 좋지 않았습니다.
 
-[Dispatcher](https://docs.microsoft.com/en-us/azure/bot-service/bot-builder-tutorial-dispatch?view=azure-bot-service-4.0&tabs=csaddref%2Ccsbotconfig)는 구성된 각 LUIS 모델에서 발화를 추출하고, QnA Maker에서 질문을 추출하고, 중앙의 디스패치 LUIS 모델을 만들어 이러한 사용자 환경에 대한 세련된 솔루션을 제공합니다.
+[Dispatcher](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-dispatch?view=azure-bot-service-4.0&tabs=csaddref%2Ccsbotconfig)는 구성된 각 LUIS 모델에서 발화를 추출하고, QnA Maker에서 질문을 추출하고, 중앙의 디스패치 LUIS 모델을 만들어 이러한 사용자 환경에 대한 세련된 솔루션을 제공합니다.
 
 이렇게 하면 봇에서 발화를 처리해야 하는 LUIS 모델 또는 구성 요소를 빠르게 식별할 수 있으며, 이전과 같이 [없음] 의도뿐만 아니라 QnA Maker 데이터도 의도 처리의 최상위 수준에서 고려되도록 할 수 있습니다.
 

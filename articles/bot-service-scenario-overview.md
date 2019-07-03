@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: bot-service
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: e195f83eefd5f162b74f8891f3b174efc8934700
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: f8b64e5705085af5b00de6a3c00059dbdea24cb9
+ms.sourcegitcommit: a295a90eac461f8b96770dd902ba44919acf33fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49997970"
+ms.lasthandoff: 06/26/2019
+ms.locfileid: "67405763"
 ---
 # <a name="bot-scenarios"></a>봇 시나리오
 
@@ -44,7 +44,7 @@ ms.locfileid: "49997970"
 ## <a name="iot-bot-scenario"></a>IoT 봇 시나리오
 이 [IoT(사물 인터넷) 봇](bot-service-scenario-internet-things.md)을 통해 대화형 채팅 명령을 사용하여 Philips Hue 조명과 같은 집 주변의 디바이스를 쉽게 제어할 수 있습니다.
 
-이 간단한 봇을 사용하여 무료 IFTTT(If This Then That) 서비스와 함께 Philips Hue 조명을 제어할 수 있습니다. IoT 디바이스로 Philips Hue는 노출된 API를 통해 로컬로 제어될 수 있습니다. 그러나 이 API는 로컬 네트워크 외부에서 일반 액세스에 대해 노출되지 않습니다. 그러나 IFTTT는 "[Friend of Hue](http://www2.meethue.com/en-us/friends-of-hue/ifttt/)"이므로 조명을 끄고 켜고, 조명 색 또는 조명 강도를 변경하는 등을 발급할 수 있는 여러 컨트롤 명령을 노출했습니다.
+이 간단한 봇을 사용하여 무료 IFTTT(If This Then That) 서비스와 함께 Philips Hue 조명을 제어할 수 있습니다. IoT 디바이스로 Philips Hue는 노출된 API를 통해 로컬로 제어될 수 있습니다. 그러나 이 API는 로컬 네트워크 외부에서 일반 액세스에 대해 노출되지 않습니다. 그러나 IFTTT는 "[Friend of Hue](http://www2.meethue.com/friends-of-hue/ifttt/)"이므로 조명을 끄고 켜고, 조명 색 또는 조명 강도를 변경하는 등을 발급할 수 있는 여러 컨트롤 명령을 노출했습니다.
 
 ## <a name="next-steps"></a>다음 단계
 이제 시나리오의 개요가 있으므로 각 시나리오를 자세히 알아봅니다.

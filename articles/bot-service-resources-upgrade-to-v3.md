@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
 ms.date: 12/13/2017
-ms.openlocfilehash: 8d9b2ea2e2133c86428b537427433f9dd15216ee
-ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
+ms.openlocfilehash: dbd7d437b7a1cdffd446337192e77a8c3d93e4a0
+ms.sourcegitcommit: a295a90eac461f8b96770dd902ba44919acf33fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54225948"
+ms.lasthandoff: 06/26/2019
+ms.locfileid: "67405777"
 ---
 # <a name="upgrade-your-bot-to-bot-framework-api-v3"></a>봇을 Bot Framework API v3로 업그레이드
 
@@ -71,15 +71,15 @@ If the **App ID** field is empty, complete these steps:
 
 V1 봇은 더 이상 호환되지 않습니다. 봇을 업데이트하려면 V3에서 새 봇을 만들어야 합니다. 이전 코드를 유지하려면 코드를 수동으로 마이그레이션해야 합니다.
 
-가장 쉬운 방법은 새 [SDK](https://docs.microsoft.com/en-us/azure/bot-service/?view=azure-bot-service-4.0)를 사용하여 봇을 다시 만들어 배포하는 것입니다. 
+가장 쉬운 방법은 새 [SDK](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-4.0)를 사용하여 봇을 다시 만들어 배포하는 것입니다. 
 
 이전 코드를 유지하려면 아래 단계를 따릅니다.
 
 1. 새 봇 애플리케이션을 만듭니다.
 2. 이전 코드를 새 봇 애플리케이션에 복사합니다.
 3. Nuget 패키지 관리자를 통해 SDK를 최신 버전으로 업그레이드합니다.
-4. 발생하는 오류를 모두 수정하고, 새 [SDK](https://docs.microsoft.com/en-us/azure/bot-service/?view=azure-bot-service-4.0)를 참조합니다.
-5. 다음 [지침](https://docs.microsoft.com/en-us/azure/bot-service/bot-builder-howto-deploy-azure?view=azure-bot-service-4.0)에 따라 Azure에 봇을 배포합니다.
+4. 발생하는 오류를 모두 수정하고, 새 [SDK](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-4.0)를 참조합니다.
+5. 다음 [지침](https://docs.microsoft.com/azure/bot-service/bot-builder-howto-deploy-azure?view=azure-bot-service-4.0)에 따라 Azure에 봇을 배포합니다.
 
 <!-- TODO: Remove outdated code 
 To update your bot code to version 3.0, complete these steps:
@@ -165,7 +165,7 @@ Bot Framework API v3에서는 이러한 키와 함께 인증 속성을 **Web.Con
 
 ## <a id="step-3"></a> 3단계: Azure에 업데이트 봇을 배포합니다.
 
-봇 코드를 API v3로 업그레이드한 후에는 다음 [지침](https://docs.microsoft.com/en-us/azure/bot-service/bot-builder-howto-deploy-azure?view=azure-bot-service-4.0)에 따라 Azure에 봇을 배포합니다. V1이 더 이상 지원되지 않으므로 모든 봇은 Azure 서비스에 배포되면 자동으로 V3 API를 사용합니다.
+봇 코드를 API v3로 업그레이드한 후에는 다음 [지침](https://docs.microsoft.com/azure/bot-service/bot-builder-howto-deploy-azure?view=azure-bot-service-4.0)에 따라 Azure에 봇을 배포합니다. V1이 더 이상 지원되지 않으므로 모든 봇은 Azure 서비스에 배포되면 자동으로 V3 API를 사용합니다.
 
 <!-- TODO: Documentation set for removal 
 1. Sign in to the [Bot Framework Portal](https://dev.botframework.com/).

@@ -7,14 +7,14 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
-ms.date: 12/13/17
+ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: f9e693d8bd5aad03930259422939f5572a22ff0a
-ms.sourcegitcommit: 980612a922b8290b2faadaca193496c4117e415a
+ms.openlocfilehash: 1b27cbc9a901318a4e1b050720fb9f8b230f9e75
+ms.sourcegitcommit: 697a577d72aaf91a0834d4b4c2ef5aa11291f28f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64563674"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67496654"
 ---
 # <a name="request-payment"></a>결제 요청
 
@@ -41,7 +41,7 @@ ms.locfileid: "64563674"
 
 1. <a href="https://dashboard.stripe.com/register" target="_blank">Stripe 계정이 아직 없는 경우 하나 만들고 활성화합니다.</a>
 
-2. <a href="https://seller.microsoft.com/en-us/dashboard/registration/seller/?accountprogram=botframework" target="_blank">Microsoft 계정을 사용하여 판매자 센터에 로그인합니다.</a>
+2. <a href="https://seller.microsoft.com/dashboard/registration/seller/?accountprogram=botframework" target="_blank">Microsoft 계정을 사용하여 판매자 센터에 로그인합니다.</a>
 
 3. 판매자 센터 내에서 Stripe를 사용하여 계정에 연결합니다.
 

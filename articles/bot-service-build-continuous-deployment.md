@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: bot-service
 ms.date: 05/23/2019
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: dc4b524659df3fb0b91b54fca65b4b7dd36378cd
-ms.sourcegitcommit: ea64a56acfabc6a9c1576ebf9f17ac81e7e2a6b7
+ms.openlocfilehash: 8d324138db60c2b34f9bebd3ff53c30a12c3cefa
+ms.sourcegitcommit: a295a90eac461f8b96770dd902ba44919acf33fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66214256"
+ms.lasthandoff: 06/26/2019
+ms.locfileid: "67405952"
 ---
 # <a name="set-up-continuous-deployment"></a>연속 배포 설정
 
@@ -69,6 +69,6 @@ GitHub를 통해 지속적인 배포를 사용하도록 설정하려면 Azure Po
 1. **연결 끊기**를 클릭하여 연속 배포를 사용하지 않도록 설정합니다. 연속 배포를 다시 사용하도록 설정하려면 위에서 해당 섹션의 단계를 반복합니다.
 
 ## <a name="additional-resources"></a>추가 리소스
-- BitBucket 및 Azure DevOps Services에서 지속적인 배포를 사용하려면 [Azure App Service를 사용한 지속적인 배포](https://docs.microsoft.com/en-us/azure/app-service/deploy-continuous-deployment)를 참조하세요.
+- BitBucket 및 Azure DevOps Services에서 지속적인 배포를 사용하려면 [Azure App Service를 사용한 지속적인 배포](https://docs.microsoft.com/azure/app-service/deploy-continuous-deployment)를 참조하세요.
 
 

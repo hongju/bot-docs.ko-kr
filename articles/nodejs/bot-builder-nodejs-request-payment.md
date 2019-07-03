@@ -9,12 +9,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 296004c654cfd59de6c245bf9702a80024526140
-ms.sourcegitcommit: 980612a922b8290b2faadaca193496c4117e415a
+ms.openlocfilehash: 88fd1ee1eb46fa056ecadae1f0cc1b19eb7c908f
+ms.sourcegitcommit: a295a90eac461f8b96770dd902ba44919acf33fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64563766"
+ms.lasthandoff: 06/26/2019
+ms.locfileid: "67404847"
 ---
 # <a name="request-payment"></a>결제 요청
 
@@ -41,7 +41,7 @@ Node.js용 Bot Framework SDK를 사용하여 결제 요청을 보내기 전에 �
 
 1. <a href="https://dashboard.stripe.com/register" target="_blank">Stripe 계정이 아직 없는 경우 하나 만들고 활성화합니다.</a>
 
-2. <a href="https://seller.microsoft.com/en-us/dashboard/registration/seller/?accountprogram=botframework" target="_blank">Microsoft 계정을 사용하여 판매자 센터에 로그인합니다.</a>
+2. <a href="https://seller.microsoft.com/dashboard/registration/seller/?accountprogram=botframework" target="_blank">Microsoft 계정을 사용하여 판매자 센터에 로그인합니다.</a>
 
 3. 판매자 센터 내에서 Stripe를 사용하여 계정에 연결합니다.
 

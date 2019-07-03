@@ -9,12 +9,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 5c2b8832401ccc9260c9aa872c0848b3a3e8445b
-ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
+ms.openlocfilehash: 34f2cb79d4dcef9ddb68c6de0333a94b4128b301
+ms.sourcegitcommit: a295a90eac461f8b96770dd902ba44919acf33fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54225718"
+ms.lasthandoff: 06/26/2019
+ms.locfileid: "67404698"
 ---
 # <a name="manage-custom-state-data-with-azure-table-storage-for-nodejs"></a>Node.js용 Azure Table Storage를 사용하여 사용자 지정 상태 데이터 관리
 
@@ -34,10 +34,10 @@ ms.locfileid: "54225718"
 - [Node.js](https://nodejs.org/en/).
 - [Bot Framework Emulator](~/bot-service-debug-emulator.md)
 - Node.js 봇이 있어야 합니다. 아직 없는 경우 [봇을 하나 만듭니다](bot-builder-nodejs-quickstart.md). 
-- [Storage 탐색기](http://storageexplorer.com/)
+- [Storage Explorer](http://storageexplorer.com/).
 
 ## <a name="create-azure-account"></a>Azure 계정 만들기
-Azure 계정이 없으면 [여기](https://azure.microsoft.com/en-us/free/)를 클릭하여 체험 계정으로 등록하세요.
+Azure 계정이 없으면 [여기](https://azure.microsoft.com/free/)를 클릭하여 체험 계정으로 등록하세요.
 
 ## <a name="set-up-the-azure-table-storage-service"></a>Azure Table Storage 서비스 설정
 1. Azure Portal에 로그인한 후 **새로 만들기**를 클릭하여 새 Azure Table Storage 서비스를 만듭니다. 
@@ -73,7 +73,7 @@ npm install --save botbuilder-azure
    ```
    `storageName` 및 `storageKay` 값은 Azure 테이블의 **액세스 키** 메뉴에서 찾을 수 있습니다. `tableName`이 Azure 테이블에 존재하지 않으면 만들어집니다.
 
-3. `botbuilder-azure` 모듈을 사용하여 Azure 테이블에 연결할 두 개의 개체를 새로 만듭니다. 먼저 연결 구성 설정을 전달하는 `AzureTableClient`의 인스턴스를 만듭니다. 다음으로, `AzureTableClient` 개체를 전달하는 `AzureBotStorage`의 인스턴스를 만듭니다. 예를 들면 다음과 같습니다.
+3. `botbuilder-azure` 모듈을 사용하여 Azure 테이블에 연결할 두 개의 개체를 새로 만듭니다. 먼저 연결 구성 설정을 전달하는 `AzureTableClient`의 인스턴스를 만듭니다. 다음으로, `AzureTableClient` 개체를 전달하는 `AzureBotStorage`의 인스턴스를 만듭니다. 예:
 
    ```javascript
    var azureTableClient = new azure.AzureTableClient(tableName, storageName, storageKey);
@@ -81,7 +81,7 @@ npm install --save botbuilder-azure
    var tableStorage = new azure.AzureBotStorage({gzipData: false}, azureTableClient);
    ```
 
-4. 메모리 내 저장소 대신 사용자 지정 데이터베이스를 사용하고 데이터베이스에 세션 정보를 추가하도록 지정합니다. 예를 들면 다음과 같습니다.
+4. 메모리 내 저장소 대신 사용자 지정 데이터베이스를 사용하고 데이터베이스에 세션 정보를 추가하도록 지정합니다. 예:
 
    ```javascript
    var bot = new builder.UniversalBot(connector, function (session) {
@@ -113,7 +113,7 @@ node app.js
 이 시점에서 봇이 로컬로 실행됩니다. 에뮬레이터를 시작한 다음, 에뮬레이터에서 봇에 연결합니다.
 
 1. 에뮬레이터의 주소 표시줄에 <strong>http://localhost:port-number/api/messages</strong>를 입력합니다. 여기서 port-number는 애플리케이션이 실행 중인 브라우저에 표시되는 포트 번호와 일치합니다. 지금은 <strong>Microsoft 앱 ID</strong> 및 <strong>Microsoft 앱 암호</strong> 필드를 비워 둘 수 있습니다. 나중에 [봇을 등록](~/bot-service-quickstart-registration.md)할 때 이 정보를 가져올 수 있습니다.
-2. **Connect**를 클릭합니다.
+2. **연결**을 클릭합니다.
 3. 봇에 메시지를 전송하여 봇을 테스트합니다. 평소와 같이 봇과 상호 작용합니다. 완료되면 **Storage Explorer**로 이동한 후 저장된 상태 데이터를 확인합니다.
 
 ## <a name="view-data-in-storage-explorer"></a>Storage Explorer에서 데이터 보기

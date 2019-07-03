@@ -9,12 +9,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 72b2c42acb4743c67c63f158fa37c2bdd0e09ab9
-ms.sourcegitcommit: 980612a922b8290b2faadaca193496c4117e415a
+ms.openlocfilehash: 621be0d3fe785cfdd51e9bd5c864b9bc4f60d8ad
+ms.sourcegitcommit: dbbfcf45a8d0ba66bd4fb5620d093abfa3b2f725
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64563927"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67464431"
 ---
 # <a name="conduct-audio-calls-with-skype"></a>Skype를 사용하여 음성 통화 수행
 
@@ -55,7 +55,7 @@ public class CallingController : ApiController
 > [!NOTE]
 > 음성 통화를 지원하는 `CallingController` 외에 봇도 메시지 지원을 위해 `MessagesController`를 포함할 수 있습니다. 두 옵션을 모두 제공하면 사용자가 자신이 원하는 방식으로 봇과 상호 작용할 수 있습니다. <!-- docs on MessagesController are where? -->
 
-##  <a name="answer-the-call"></a>통화 받기
+## <a name="answer-the-call"></a>통화 받기
 
 `ProcessIncomingCallAsync` 작업은 사용자가 Skype에서 이 봇 호출을 시작할 때마다 실행됩니다.
 생성자가 `incomingCallEvent`에 대해 미리 정의된 처리기인 `IVRBot` 클래스를 등록합니다.

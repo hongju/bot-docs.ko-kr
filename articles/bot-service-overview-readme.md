@@ -8,19 +8,19 @@ ms.topic: article
 ms.service: bot-service
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 85ef0fde39980bab1b891518e338fddbd56b275a
-ms.sourcegitcommit: 980612a922b8290b2faadaca193496c4117e415a
+ms.openlocfilehash: 74c48c779a41a6a2cbdf4f1c559c7136e7a94ca1
+ms.sourcegitcommit: a295a90eac461f8b96770dd902ba44919acf33fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64563867"
+ms.lasthandoff: 06/26/2019
+ms.locfileid: "67405817"
 ---
 # <a name="how-bot-service-works"></a>Bot Service 작동 방법
 
 Bot Service는 봇 개발을 위한 Bot Framework SDK 및 채널에 봇을 연결하기 위한 Bot Framework를 포함하여 봇 만들기의 핵심 구성 요소를 제공합니다. Bot Service는 .NET 및 Node.js를 지원하는 봇을 만들 때 선택할 수 있는 5가지 템플릿을 제공합니다.
 
 > [!IMPORTANT]
-> Bot Service를 사용하려면 Microsoft Azure 구독이 있어야 합니다. 아직 구독이 없는 경우 <a href="https://azure.microsoft.com/en-us/free/" target="_blank">체험 계정</a>으로 등록할 수 있습니다.
+> Bot Service를 사용하려면 Microsoft Azure 구독이 있어야 합니다. 아직 구독이 없는 경우 <a href="https://azure.microsoft.com/free/" target="_blank">체험 계정</a>으로 등록할 수 있습니다.
 
 ## <a name="hosting-plans"></a>호스팅 계획
 Bot Service는 봇에 대해 두 가지 호스팅 계획을 제공합니다. 요구에 적합한 호스팅 계획을 선택할 수 있습니다.

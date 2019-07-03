@@ -9,12 +9,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: dfa52914b3f0a2e81f4ff3a2f90c7404bfe53d4a
-ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
+ms.openlocfilehash: f0b933a5bdcea5090ede1b2f589cd69f9e681757
+ms.sourcegitcommit: a295a90eac461f8b96770dd902ba44919acf33fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54225998"
+ms.lasthandoff: 06/26/2019
+ms.locfileid: "67405016"
 ---
 # <a name="dialogs-in-the-bot-framework-sdk-for-nodejs"></a>Node.js용 Bot Framework SDK의 대화 상자
 
@@ -53,7 +53,7 @@ Node.js용 Bot Framework SDK는 하나 이상의 다이얼로그를 통한 봇�
 Bot Framework 버전 3.5 이전에서는 `/`라는 다이얼로그를 추가하고 URL과 비슷한 명명 규칙을 따라 *루트* 다이얼로그가 정의됩니다. 이 명명 규칙은 다이얼로그 명명에 적절하지 않았습니다. 
 
 > [!NOTE]
-> Bot Framework 버전 3.5부터 *기본 다이얼로그*가 [`UniversalBot`](https://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.universalbot.html#constructor)의 구문에 보조 매개 변수로 등록됩니다.  
+> Bot Framework 버전 3.5부터 *기본 다이얼로그*가 [`UniversalBot`](https://docs.botframework.com/node/builder/chat-reference/classes/_botbuilder_d_.universalbot.html#constructor)의 구문에 보조 매개 변수로 등록됩니다.  
 
 다음 코드 조각은 `UniversalBot` 개체를 만들 때 기본 다이얼로그를 정의하는 방법을 보여 줍니다.
 
@@ -71,7 +71,7 @@ var bot = new builder.UniversalBot(connector, [
 
 ## <a name="starting-and-ending-dialogs"></a>다이얼로그 시작 및 종료
 
-새 다이얼로그를 시작(및 스택으로 푸시)하려면 [`session.beginDialog()`](http://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.session#begindialog)를 사용합니다. 다이얼로그를 종료(및 스택에서 제거하고 호출 대화 상자로 제어권 반환)하려면 [`session.endDialog()`](http://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.session#enddialog) 또는 [`session.endDialogWithResult()`](http://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.session#enddialogwithresult)를 사용합니다. 
+새 다이얼로그를 시작(및 스택으로 푸시)하려면 [`session.beginDialog()`](http://docs.botframework.com/node/builder/chat-reference/classes/_botbuilder_d_.session#begindialog)를 사용합니다. 다이얼로그를 종료(및 스택에서 제거하고 호출 대화 상자로 제어권 반환)하려면 [`session.endDialog()`](http://docs.botframework.com/node/builder/chat-reference/classes/_botbuilder_d_.session#enddialog) 또는 [`session.endDialogWithResult()`](http://docs.botframework.com/node/builder/chat-reference/classes/_botbuilder_d_.session#enddialogwithresult)를 사용합니다. 
 
 ## <a name="using-waterfalls-and-prompts"></a>폭포형 및 프롬프트 사용
 

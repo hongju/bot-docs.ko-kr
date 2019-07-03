@@ -10,12 +10,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 05/23/2019
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 69ce362f35054c5ee42035d8bffefb17c6fa7f71
-ms.sourcegitcommit: ea64a56acfabc6a9c1576ebf9f17ac81e7e2a6b7
+ms.openlocfilehash: 0e0fe51e33e99bbb35ef1d731b611ff9ca12a138
+ms.sourcegitcommit: a295a90eac461f8b96770dd902ba44919acf33fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66215502"
+ms.lasthandoff: 06/26/2019
+ms.locfileid: "67404312"
 ---
 # <a name="activity-processing"></a>작업 처리
 
@@ -23,7 +23,7 @@ ms.locfileid: "66215502"
 
 봇과 사용자는 작업을 통해 상호 작용하고 정보를 교환합니다. 봇 애플리케이션이 받은 각 작업은 봇 어댑터로 전달되고, 봇 어댑터는 작업 정보를 봇 논리로 전달하고 궁극적으로 사용자에게 응답을 보냅니다. 작업 받기 및 이후의 봇을 통한 처리를 순서라고 하며, 봇의 전체 주기 하나를 나타냅니다. 순서는 모든 실행이 수행되고, 작업이 완전히 처리되고 봇의 모든 계층이 완료된 경우 종료합니다.
 
-작업, 특히 봇 턴 동안 [봇에서 보낸](#generating-responses) 작업은 비동기적으로 처리됩니다. 봇 빌드에서 필수적인 부분입니다. 작동 원리를 다시 살펴보려면 선택한 언어에 따라 [.NET용 비동기](https://docs.microsoft.com/en-us/dotnet/csharp/async) 또는 [JavaScript용 비동기](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function)를 확인하세요.
+작업, 특히 봇 턴 동안 [봇에서 보낸](#generating-responses) 작업은 비동기적으로 처리됩니다. 봇 빌드에서 필수적인 부분입니다. 작동 원리를 다시 살펴보려면 선택한 언어에 따라 [.NET용 비동기](https://docs.microsoft.com/dotnet/csharp/async) 또는 [JavaScript용 비동기](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/async_function)를 확인하세요.
 
 ## <a name="the-bot-adapter"></a>봇 어댑터
 

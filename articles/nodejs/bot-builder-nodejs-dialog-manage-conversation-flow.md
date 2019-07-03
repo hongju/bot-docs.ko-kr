@@ -9,12 +9,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 96c28101c3ea72c70c6ad53b06306f4ea00b2929
-ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
+ms.openlocfilehash: 497a00dd9327d3b4c26c1468bba04f18e2244ca1
+ms.sourcegitcommit: a295a90eac461f8b96770dd902ba44919acf33fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54225608"
+ms.lasthandoff: 06/26/2019
+ms.locfileid: "67405033"
 ---
 # <a name="manage-conversation-flow-with-dialogs"></a>다이얼로그를 사용하여 대화 흐름 관리
 
@@ -95,7 +95,7 @@ var bot = new builder.UniversalBot(connector, [..waterfall steps..]).set('storag
 
 이 예제의 각 단계에는 사용자에게 입력을 요구하는 프롬프트가 사용됩니다. 프롬프트는 사용자에게 입력을 요청하고, 응답을 기다리고, 응답을 waterfall의 다음 단계에 반환하는 특별한 형식의 dialog입니다. 봇에서 사용할 수 있는 다양한 형식의 프롬프트에 대한 정보는 [사용자에게 입력 요청](bot-builder-nodejs-dialog-prompt.md)을 참조하세요.
 
-이 예제에서 봇은 `Prompts.text()`를 사용하여 사용자에게 텍스트 형식의 자유형 응답을 요청합니다. 사용자는 원하는 텍스트로 응답할 수 있고 봇은 이 응답을 어떻게 처리할지 결정해야 합니다. `Prompts.time()`은 [Chrono](https://github.com/wanasit/chrono) 라이브러리를 사용하여 문자열에서 날짜와 시간 정보를 구문 분석합니다. 따라서 날짜와 시간을 지정하는 자연어를 봇이 더 잘 이해할 수 있습니다. 예를 들면 다음과 같습니다. "2017년 6월 6일 오후 9시", "오늘 오후 7시 30분", "다음 주 월요일 오후 6시" 등
+이 예제에서 봇은 `Prompts.text()`를 사용하여 사용자에게 텍스트 형식의 자유형 응답을 요청합니다. 사용자는 원하는 텍스트로 응답할 수 있고 봇은 이 응답을 어떻게 처리할지 결정해야 합니다. `Prompts.time()`은 [Chrono](https://github.com/wanasit/chrono) 라이브러리를 사용하여 문자열에서 날짜와 시간 정보를 구문 분석합니다. 따라서 날짜와 시간을 지정하는 자연어를 봇이 더 잘 이해할 수 있습니다. 예:  "2017년 6월 6일 오후 9시", "오늘 오후 7시 30분", "다음 주 월요일 오후 6시" 등
 
 > [!TIP] 
 > 사용자가 입력하는 시간은 봇을 호스트하는 서버의 표준 시간대에 따라 UTC 시간으로 변환됩니다. 서버가 사용자와 다른 표준 시간대에 있을 수 있으므로 표준 시간대를 고려해야 합니다. 날짜 및 시간을 사용자의 현지 시간으로 변환하려면 사용자에게 사용자의 표준 시간대를 요청하는 것이 좋습니다.
@@ -343,7 +343,7 @@ bot.dialog('orderDinner', [
 
 위의 예제에서 dialog는 `session.endDialog`나 `session.endDialogWithResult`를 사용하여 닫히고, 두 가지 모두 dialog를 끝내고, dialog를 스택에서 제거하고, 컨트롤을 호출한 dialog로 반환합니다. 사용자가 대화의 끝에 도달하면 `session.endConversation`을 사용하여 대화가 완료되었음을 나타내야 합니다.
 
-[`session.endConversation`](https://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.session#endconversation) 메서드는 대화를 끝내고 선택적으로 사용자에게 메시지를 보냅니다. 예를 들어, 앞의 예제에서 `orderDinner` dialog는 다음 코드 샘플처럼 `session.endConversation`을 사용하여 대화를 끝낼 수 있습니다.
+[`session.endConversation`](https://docs.botframework.com/node/builder/chat-reference/classes/_botbuilder_d_.session#endconversation) 메서드는 대화를 끝내고 선택적으로 사용자에게 메시지를 보냅니다. 예를 들어, 앞의 예제에서 `orderDinner` dialog는 다음 코드 샘플처럼 `session.endConversation`을 사용하여 대화를 끝낼 수 있습니다.
 
 ```javascript
 bot.dialog('orderDinner', [
@@ -359,7 +359,7 @@ bot.dialog('orderDinner', [
 ]);
 ```
 
-`session.endConversation`을 호출하면 dialog 스택을 지우고 [`session.conversationData`](https://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.session#conversationdata) 저장소를 재설정하여 대화를 종료합니다. 데이터 저장소에 대한 자세한 내용은 [상태 데이터 관리](bot-builder-nodejs-state.md)를 참조하세요.
+`session.endConversation`을 호출하면 dialog 스택을 지우고 [`session.conversationData`](https://docs.botframework.com/node/builder/chat-reference/classes/_botbuilder_d_.session#conversationdata) 저장소를 재설정하여 대화를 종료합니다. 데이터 저장소에 대한 자세한 내용은 [상태 데이터 관리](bot-builder-nodejs-state.md)를 참조하세요.
 
 `session.endConversation` 호출은 봇이 설계된 대화 흐름을 사용자가 완료하면 수행해야 하는 논리적인 작업입니다. 사용자가 대화 중에 "cancel(취소)" 또는 "goodbye(안녕)"를 입력하는 상황에 `session.endConversation`을 사용하여 대화를 끝낼 수도 있습니다. 이렇게 하려면 dialog에 `endConversationAction`을 연결하고 이 트리거가 "cancel(취소)" 또는 "goodbye(안녕)"와 일치하는 입력을 수신 대기하도록 설정합니다.
 

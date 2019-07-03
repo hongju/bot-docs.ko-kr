@@ -9,12 +9,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 6dcfe6595f1c5961151a90783dd8ceee9c7684dd
-ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
+ms.openlocfilehash: a719ae4b3aa3fbf61503b4a6f055ec5cc3f5104a
+ms.sourcegitcommit: dbbfcf45a8d0ba66bd4fb5620d093abfa3b2f725
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54224338"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67464589"
 ---
 # <a name="add-media-attachments-to-messages"></a>메시지에 미디어 첨부 파일 추가
 
@@ -25,7 +25,9 @@ ms.locfileid: "54224338"
 > - [Node.JS](../nodejs/bot-builder-nodejs-send-receive-attachments.md)
 > - [REST (영문)](../rest-api/bot-framework-rest-connector-add-media-attachments.md)
 
-사용자와 봇 간의 메시지 교환에는 미디어 첨부 파일(예: 이미지, 비디오, 오디오, 파일)이 포함될 수 있습니다. <a href="https://docs.botframework.com/en-us/csharp/builder/sdkreference/dc/d2f/class_microsoft_1_1_bot_1_1_connector_1_1_activity.html" target="_blank">작업</a> 개체의 `Attachments` 속성에는 메시지 내의 미디어 첨부 파일과 서식 있는 카드를 나타내는 <a href="https://docs.microsoft.com/en-us/dotnet/api/microsoft.bot.connector.attachments?view=botconnector-3.12.2.4" target="_blank">첨부 파일</a> 개체의 배열이 포함되어 있습니다. 
+사용자와 봇 간의 메시지 교환에는 미디어 첨부 파일(예: 이미지, 비디오, 오디오, 파일)이 포함될 수 있습니다. 
+
+<a href="https://docs.botframework.com/csharp/builder/sdkreference/dc/d2f/class_microsoft_1_1_bot_1_1_connector_1_1_activity.html" target="_blank">작업</a> 개체의 `Attachments` 속성에는 메시지 내의 미디어 첨부 파일과 서식 있는 카드를 나타내는 <a href="https://docs.microsoft.com/dotnet/api/microsoft.bot.connector.attachments?view=botconnector-3.12.2.4" target="_blank">첨부 파일</a> 개체의 배열이 포함되어 있습니다. 
 
 > [!NOTE]
 > [메시지에 서식 있는 카드 추가](bot-builder-dotnet-add-rich-card-attachments.md).
@@ -44,8 +46,8 @@ ms.locfileid: "54224338"
 - [작업 개요](bot-builder-dotnet-activities.md)
 - [메시지 만들기](bot-builder-dotnet-create-messages.md)
 - [메시지에 서식 있는 카드 추가](bot-builder-dotnet-add-rich-card-attachments.md)
-- <a href="https://docs.botframework.com/en-us/csharp/builder/sdkreference/dc/d2f/class_microsoft_1_1_bot_1_1_connector_1_1_activity.html" target="_blank">작업 클래스</a>
-- <a href="https://docs.microsoft.com/en-us/dotnet/api/microsoft.bot.connector.attachments?view=botconnector-3.12.2.4" target="_blank">첨부 파일 클래스</a>
+- <a href="https://docs.botframework.com/csharp/builder/sdkreference/dc/d2f/class_microsoft_1_1_bot_1_1_connector_1_1_activity.html" target="_blank">작업 클래스</a>
+- <a href="https://docs.microsoft.com/dotnet/api/microsoft.bot.connector.attachments?view=botconnector-3.12.2.4" target="_blank">첨부 파일 클래스</a>
 
 [inspector]: ../bot-service-channel-inspector.md
 

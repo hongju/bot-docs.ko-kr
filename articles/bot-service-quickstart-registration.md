@@ -9,12 +9,12 @@ ms.service: bot-service
 ms.subservice: abs
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: a5cb6431988e65a4fa4a889f3095404622d51626
-ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
+ms.openlocfilehash: 0d13a27ef81660c6702f5a09487b731bc891c750
+ms.sourcegitcommit: a295a90eac461f8b96770dd902ba44919acf33fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54224448"
+ms.lasthandoff: 06/26/2019
+ms.locfileid: "67405798"
 ---
 # <a name="register-a-bot-with-bot-service"></a>Bot Service를 사용하여 봇 등록
 
@@ -29,7 +29,7 @@ ms.locfileid: "54224448"
 [Azure Portal](http://portal.azure.com)에 로그인합니다.
 
 > [!TIP]
-> 아직 구독이 없는 경우 <a href="https://azure.microsoft.com/en-us/free/" target="_blank">체험 계정</a>으로 등록할 수 있습니다.
+> 아직 구독이 없는 경우 <a href="https://azure.microsoft.com/free/" target="_blank">체험 계정</a>으로 등록할 수 있습니다.
 
 ## <a name="create-a-bot-channels-registration"></a>봇 채널 등록 만들기
 Bot Service 기능을 사용할 수 있으려면 **봇 채널 등록** Bot Service가 필요합니다. 등록 봇ㅇ르 사용하여 채널에 봇을 연결할 수 있습니다.
@@ -50,7 +50,7 @@ Bot Service 기능을 사용할 수 있으려면 **봇 채널 등록** Bot Servi
    |         <strong>구독</strong>          |        사용자의 구독        |                                                                                사용할 Azure 구독을 선택합니다.                                                                                 |
    |        <strong>리소스 그룹</strong>         |         myResourceGroup         |                                 새 [리소스 그룹](/azure/azure-resource-manager/resource-group-overview#resource-groups)을 만들거나 기존 리소스 그룹을 선택할 수 있습니다.                                  |
    |                    위치                    |             미국 서부             |                                                        봇이 배포된 위치에 가까운 위치나 봇이 액세스할 기타 서비스에 가까운 위치를 선택합니다.                                                         |
-   |         <strong>가격 책정 계층</strong>          |               F0                |             가격 책정 계층을 선택합니다. 언제든지 가격 책정 계층을 업데이트할 수 있습니다. 자세한 내용은 [Bot Service 가격](https://azure.microsoft.com/en-us/pricing/details/bot-service/)을 참조하세요.              |
+   |         <strong>가격 책정 계층</strong>          |               F0                |             가격 책정 계층을 선택합니다. 언제든지 가격 책정 계층을 업데이트할 수 있습니다. 자세한 내용은 [Bot Service 가격](https://azure.microsoft.com/pricing/details/bot-service/)을 참조하세요.              |
    |      <strong>메시징 끝점</strong>       |               URL               |                                                                               봇 메시징 끝점의 URL을 입력합니다.                                                                                |
    |     <strong>Application Insights</strong>      |               다른                | [Application Insights](bot-service-manage-analytics.md)를 <strong>켜기</strong> 또는 <strong>끄기</strong>로 설정할지 결정합니다. <strong>켜기</strong>를 선택하면 지역 위치를 지정해야 합니다. |
    | <strong>Microsoft 앱 ID 및 암호</strong> | 자동 앱 ID 및 암호 만들기 |              Microsoft 앱 ID 및 암호를 수동으로 입력해야 하는 경우 이 옵션을 사용합니다. 그렇지 않으면 봇 만들기 프로세스에서 새 Microsoft 앱 ID 및 암호가 만들어집니다.               |

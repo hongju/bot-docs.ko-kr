@@ -10,12 +10,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 05/23/2019
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 94a3459760c8f0f14886a068d082dafeb9530b19
-ms.sourcegitcommit: ea64a56acfabc6a9c1576ebf9f17ac81e7e2a6b7
+ms.openlocfilehash: 187a8427fd8627b0ce6b812ce8ee857e62b0394d
+ms.sourcegitcommit: a47183f5d1c2b2454c4a06c0f292d7c075612cdd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66215539"
+ms.lasthandoff: 06/19/2019
+ms.locfileid: "67252683"
 ---
 # <a name="how-bots-work"></a>봇 작동 방식
 
@@ -135,7 +135,7 @@ Yeoman 생성기는 [restify](http://restify.com/) 웹 애플리케이션 형식
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
-주 봇 논리는 봇 코드에 정의됩니다(여기서는 `Bots/EchoBot.cs`라고 함). `EchoBot`은 `AcitivityHandler`에서 파생되며, 이는 `IBot` 인터페이스에서 파생됩니다. `ActivityHandler`는 각종 작업을 위한 다양한 처리기(예: 여기에 정의된 `OnMessageActivityAsync` 및 `OnMembersAddedAsync`)를 정의합니다. 이러한 메서드는 보호되지만 `ActivityHandler`에서 파생되므로 덮어쓸 수 있습니다.
+주 봇 논리는 봇 코드에 정의됩니다(여기서는 `Bots/EchoBot.cs`라고 함). `EchoBot`은 `ActivityHandler`에서 파생되며, 이는 `IBot` 인터페이스에서 파생됩니다. `ActivityHandler`는 각종 작업을 위한 다양한 처리기(예: 여기에 정의된 `OnMessageActivityAsync` 및 `OnMembersAddedAsync`)를 정의합니다. 이러한 메서드는 보호되지만 `ActivityHandler`에서 파생되므로 덮어쓸 수 있습니다.
 
 `ActivityHandler`에 정의된 처리기는 다음과 같습니다.
 
@@ -180,7 +180,7 @@ public class MyBot : ActivityHandler
 
 # <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
-주 봇 논리는 봇 코드에 정의됩니다(여기서는 `bots\echoBot.js`라고 함). `EchoBot`은 `AcitivityHandler`에서 파생됩니다. `ActivityHandler`는 각종 작업을 위한 다양한 처리기를 정의하며, 여기에 나와 있는 `onMessage` 및 `onConversationUpdate`를 통해 추가 논리를 제공하면 봇의 동작을 수정할 수 있습니다.
+주 봇 논리는 봇 코드에 정의됩니다(여기서는 `bots\echoBot.js`라고 함). `EchoBot`은 `ActivityHandler`에서 파생됩니다. `ActivityHandler`는 각종 작업을 위한 다양한 처리기를 정의하며, 여기에 나와 있는 `onMessage` 및 `onConversationUpdate`를 통해 추가 논리를 제공하면 봇의 동작을 수정할 수 있습니다.
 
 `ActivityHandler`에 정의된 처리기는 다음과 같습니다.
 

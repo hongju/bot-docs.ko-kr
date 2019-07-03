@@ -10,12 +10,12 @@ ms.service: bot-service
 ms.subservice: cognitive-services
 ms.date: 05/23/2019
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 4fc8ebd1eff03c2b6ac994ff80cb85b341bb7231
-ms.sourcegitcommit: e276008fb5dd7a37554e202ba5c37948954301f1
+ms.openlocfilehash: e019d2d04d843cc0efd5a39135d65fe4cfc022f3
+ms.sourcegitcommit: a295a90eac461f8b96770dd902ba44919acf33fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66693674"
+ms.lasthandoff: 06/26/2019
+ms.locfileid: "67404500"
 ---
 # <a name="add-natural-language-understanding-to-your-bot"></a>봇에 자연어 해석 추가
 
@@ -26,7 +26,7 @@ ms.locfileid: "66693674"
 ## <a name="prerequisites"></a>필수 조건
 - [LUIS](https://www.luis.ai) 계정
 - 이 문서의 코드는 **Core Bot** 샘플을 기반으로 합니다. **[CSharp](https://aka.ms/cs-core-sample) 또는 [JavaScript](https://aka.ms/js-core-sample)** 로 작성된 샘플의 복사본이 필요합니다. 
-- [봇 기본 ](bot-builder-basics.md), [자연어 처리](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/what-is-luis) 및 [봇 리소스 관리 처리](bot-file-basics.md)에 대한 지식이 필요합니다.
+- [봇 기본 ](bot-builder-basics.md), [자연어 처리](https://docs.microsoft.com/azure/cognitive-services/luis/what-is-luis) 및 [봇 리소스 관리 처리](bot-file-basics.md)에 대한 지식이 필요합니다.
 
 ## <a name="about-this-sample"></a>이 샘플 정보
 
@@ -70,8 +70,8 @@ LUIS 포털에 로그인하여 사용자 고유 버전의 LUIS 샘플 앱을 만
 1. **새 앱 가져오기**를 선택합니다. 
 1. **앱 파일 선택(JSON 형식)...** 을 클릭합니다. 
 1. 샘플의 `CognitiveModels` 폴더에 있는 `FlightBooking.json` 파일을 선택합니다. **옵션 이름**에서 **FlightBooking**을 입력합니다. 이 파일에는 세 가지 의도 'Book Flight', 'Cancel' 및 'None'이 포함되어 있습니다. 이러한 의도를 사용하여 사용자가 봇에 메시지를 보낼 때 의미하는 바를 이해합니다.
-1. 앱을 [학습](https://docs.microsoft.com/en-us/azure/cognitive-services/LUIS/luis-how-to-train)합니다.
-1. 앱을 *프로덕션* 환경에 [게시](https://docs.microsoft.com/en-us/azure/cognitive-services/LUIS/publishapp)합니다.
+1. 앱을 [학습](https://docs.microsoft.com/azure/cognitive-services/LUIS/luis-how-to-train)합니다.
+1. 앱을 *프로덕션* 환경에 [게시](https://docs.microsoft.com/azure/cognitive-services/LUIS/publishapp)합니다.
 
 ### <a name="why-use-entities"></a>엔터티를 사용하는 이유
 LUIS 엔터티를 사용하면 표준 의도와 다른 특정 사물이나 이벤트를 지능적으로 인식할 수 있습니다. 이렇게 하면 사용자로부터 추가 정보를 수집할 수 있으므로 봇이 더 지능적으로 응답하거나 사용자에게 해당 정보를 요청하는 특정 질문을 건너뛸 수 있습니다. FlightBooking.json 파일에는 'Book Flight', 'Cancel' 및 'None'이라는 세 가지 LUIS 의도에 대한 정의와 함께 'From.Airport' 및 'To.Airport'와 같은 엔터티 세트도 포함되어 있습니다. 이러한 엔터티는 LUIS가 새로운 여행 예약 요청 시 사용자의 원래 입력 내에 포함된 추가 정보를 감지하고 반환할 수 있게 해줍니다.
@@ -102,7 +102,7 @@ LUIS 앱이 게시되면 봇에서 액세스할 수 있습니다. 봇 내에서 
 
 애플리케이션 ID, 제작 키 및 지역을 포함하여 LUIS 앱에 액세스하는 데 필요한 정보를 `.env` 파일에 추가합니다. 이는 이전에 게시된 LUIS 앱에서 저장한 값입니다. API 호스트 이름은 `<your region>.api.cognitive.microsoft.com` 형식이어야 합니다.
 
-**.env**
+**.env**  
 [!code[env](~/../botbuilder-samples/samples/javascript_nodejs/13.core-bot/.env?range=1-5)]
 
 ---

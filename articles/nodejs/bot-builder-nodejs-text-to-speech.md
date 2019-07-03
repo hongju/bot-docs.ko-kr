@@ -9,12 +9,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 5ae3acded991411156d3e69f4ed9360df9bdccb1
-ms.sourcegitcommit: 4c5c08e7c7eaa5f74c6ac35d8478954b998625f9
+ms.openlocfilehash: 14b8bf7aa4e99e3ca97442c2ba57dc8c57138d99
+ms.sourcegitcommit: a295a90eac461f8b96770dd902ba44919acf33fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64906305"
+ms.lasthandoff: 06/26/2019
+ms.locfileid: "67404691"
 ---
 # <a name="add-speech-to-messages"></a>메시지에 음성 추가
 
@@ -46,7 +46,7 @@ Node.js용 Bot Framework SDK를 사용하면 음성 지원 채널에서 봇의 �
 | 매개 변수 | 설명 |
 |----|----|
 | `displayText` | 표시될 텍스트입니다. |
-| `speechText` | 이야기할 텍스트(일반 텍스트 또는 <a href="https://msdn.microsoft.com/en-us/library/hh378377(v=office.14).aspx" target="_blank">SSML</a> 형식)입니다. |
+| `speechText` | 이야기할 텍스트(일반 텍스트 또는 <a href="https://msdn.microsoft.com/library/hh378377(v=office.14).aspx" target="_blank">SSML</a> 형식)입니다. |
 | `options` | 첨부 파일이나 [입력 힌트](bot-builder-nodejs-send-input-hints.md)를 포함할 수 있는 `IMessage` 개체입니다. |
 
 다음 코드 예제는 표시할 텍스트와 이야기할 텍스트를 지정하고 봇이 [사용자 입력을 무시](bot-builder-nodejs-send-input-hints.md)하는 것을 나타내는 메시지를 만듭니다.
@@ -61,7 +61,7 @@ Node.js용 Bot Framework SDK를 사용하면 음성 지원 채널에서 봇의 �
 
 ## <a id="ssml"></a>SSML(Speech Synthesis Markup Language)
 
-봇의 음성 텍스트를 지정하기 위해 일반 텍스트 문자열 또는 SSML(Speech Synthesis Markup Language) 형식의 문자열을 사용할 수 있습니다. SSML은 목소리, 속도, 음량, 발음, 음색 등과 같은 봇의 음성에 대한 다양한 특징을 제어할 수 있는 XML 기반 마크업 언어입니다. SSML에 대한 자세한 내용은 <a href="https://msdn.microsoft.com/en-us/library/hh378377(v=office.14).aspx" target="_blank">Speech Synthesis Markup Language 참조</a>를 참조하세요.
+봇의 음성 텍스트를 지정하기 위해 일반 텍스트 문자열 또는 SSML(Speech Synthesis Markup Language) 형식의 문자열을 사용할 수 있습니다. SSML은 목소리, 속도, 음량, 발음, 음색 등과 같은 봇의 음성에 대한 다양한 특징을 제어할 수 있는 XML 기반 마크업 언어입니다. SSML에 대한 자세한 내용은 <a href="https://msdn.microsoft.com/library/hh378377(v=office.14).aspx" target="_blank">Speech Synthesis Markup Language 참조</a>를 참조하세요.
 
 > [!TIP]
 > <a href="https://www.npmjs.com/search?q=ssml" target="_blank">SSML 라이브러리</a>를 사용하여 형식이 올바르게 지정된 SSML을 만듭니다.
@@ -76,5 +76,5 @@ Node.js용 Bot Framework SDK를 사용하면 음성 지원 채널에서 봇의 �
 
 ## <a name="additional-resources"></a>추가 리소스
 
-- <a href="https://msdn.microsoft.com/en-us/library/hh378377(v=office.14).aspx" target="_blank">SSML(Speech Synthesis Markup Language)</a>
+- <a href="https://msdn.microsoft.com/library/hh378377(v=office.14).aspx" target="_blank">SSML(Speech Synthesis Markup Language)</a>
 - <a href="https://github.com/Microsoft/BotBuilder-Samples/tree/master/Node/demo-RollerSkill" target="_blank">롤러 샘플(GitHub)</a>

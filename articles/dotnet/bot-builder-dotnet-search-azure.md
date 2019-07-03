@@ -9,12 +9,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 1/28/2019
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: e0ffb9c24b5e85b0eb1afdd885654e4864e65939
-ms.sourcegitcommit: f84b56beecd41debe6baf056e98332f20b646bda
+ms.openlocfilehash: ee1e8c660eae27efae5c18b1392ff68d716f73da
+ms.sourcegitcommit: a295a90eac461f8b96770dd902ba44919acf33fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2019
-ms.locfileid: "65032931"
+ms.lasthandoff: 06/26/2019
+ms.locfileid: "67405646"
 ---
 # <a name="create-data-driven-experiences-with-azure-search"></a>Azure Search를 사용하여 데이터 기반 환경 만들기 
 
@@ -24,7 +24,7 @@ ms.locfileid: "65032931"
 > - [.NET](../dotnet/bot-builder-dotnet-search-azure.md)
 > - [Node.JS](../nodejs/bot-builder-nodejs-search-azure.md)
 
-봇에 [Azure Search](https://azure.microsoft.com/en-us/services/search/)를 추가하여 사용자가 많은 양의 콘텐츠를 이동하고 데이터 기반 탐색 환경을 만들 수 있습니다.
+봇에 [Azure Search](https://azure.microsoft.com/services/search/)를 추가하여 사용자가 많은 양의 콘텐츠를 이동하고 데이터 기반 탐색 환경을 만들 수 있습니다.
 
 Azure Search는 키워드 검색, 기본 제공 언어학, 사용자 지정 스코어링, 패싯 탐색 등을 제공하는 Azure 서비스입니다. Azure Search는 또한 Azure SQL DB, DocumentDB, Blob Storage 및 Table Storage를 비롯한 다양한 소스의 콘텐츠를 인덱싱할 수 있습니다. 다른 데이터 원본에 대한 "푸시" 인덱싱을 지원하며 PDF, Office 문서 및 구조화되지 않은 데이터가 포함된 기타 형식을 열 수 있습니다. 수집된 콘텐츠는 Azure Search 인덱스로 이동한 후 봇에서 쿼리할 수 있습니다.
 

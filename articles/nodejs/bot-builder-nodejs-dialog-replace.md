@@ -9,18 +9,18 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 58d2c3fc4a1fb266b74402541fc937f0b52fa189
-ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
+ms.openlocfilehash: 7417e105ab20c3aca2c2a4e525248728ac49bf18
+ms.sourcegitcommit: a295a90eac461f8b96770dd902ba44919acf33fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54224988"
+ms.lasthandoff: 06/26/2019
+ms.locfileid: "67404918"
 ---
 # <a name="replace-dialogs"></a>다이얼로그 바꾸기
 
 [!INCLUDE [pre-release-label](../includes/pre-release-label-v3.md)]
 
-다이얼로그를 바꾸는 기능은 대화 과정 중에 사용자 입력이 유효한지 검사하거나 작업을 반복적으로 수행해야 할 경우에 유용할 수 있습니다. Node.js용 Bot Framework SDK를 사용하면 [`session.replaceDialog`](http://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.session#replacedialog) 메서드를 사용하여 다이얼로그를 바꿀 수 있습니다. 이 메서드를 사용하면 호출자로 돌아가지 않고도 현재 다이얼로그를 종료한 후 새 다이얼로그로 바꿀 수 있습니다. 
+다이얼로그를 바꾸는 기능은 대화 과정 중에 사용자 입력이 유효한지 검사하거나 작업을 반복적으로 수행해야 할 경우에 유용할 수 있습니다. Node.js용 Bot Framework SDK를 사용하면 [`session.replaceDialog`](http://docs.botframework.com/node/builder/chat-reference/classes/_botbuilder_d_.session#replacedialog) 메서드를 사용하여 다이얼로그를 바꿀 수 있습니다. 이 메서드를 사용하면 호출자로 돌아가지 않고도 현재 다이얼로그를 종료한 후 새 다이얼로그로 바꿀 수 있습니다. 
 
 ## <a name="create-custom-prompts-to-validate-input"></a>입력 유효성 검사를 수행하는 사용자 지정 프롬프트 만들기
 
@@ -61,7 +61,7 @@ bot.dialog('phonePrompt', [
 
 ## <a name="repeat-an-action"></a>작업 반복
 
-대화 과정에서 사용자에게 특정 작업을 여러 번 반복할 수 있도록 하는 다이얼로그를 반복하려는 경우가 여러 번 있을 수 있습니다. 예를 들어, 봇이 다양한 서비스를 제공하는 경우, 처음에는 서비스 메뉴를 표시하고, 서비스 요청 프로세스를 안내한 후, 서비스 메뉴를 다시 표시하여 사용자가 다른 서비스를 요청할 수 있도록 할 수 있습니다. 이렇게 하려면 ['session.endConversation'](https://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.session#endconversation) 메서드를 사용하여 대화를 종료하는 대신 [`session.replaceDialog`](https://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.session#replacedialog) 메서드를 사용하여 서비스 메뉴를 다시 표시할 수 있습니다. 
+대화 과정에서 사용자에게 특정 작업을 여러 번 반복할 수 있도록 하는 다이얼로그를 반복하려는 경우가 여러 번 있을 수 있습니다. 예를 들어, 봇이 다양한 서비스를 제공하는 경우, 처음에는 서비스 메뉴를 표시하고, 서비스 요청 프로세스를 안내한 후, 서비스 메뉴를 다시 표시하여 사용자가 다른 서비스를 요청할 수 있도록 할 수 있습니다. 이렇게 하려면 ['session.endConversation'](https://docs.botframework.com/node/builder/chat-reference/classes/_botbuilder_d_.session#endconversation) 메서드를 사용하여 대화를 종료하는 대신 [`session.replaceDialog`](https://docs.botframework.com/node/builder/chat-reference/classes/_botbuilder_d_.session#replacedialog) 메서드를 사용하여 서비스 메뉴를 다시 표시할 수 있습니다. 
 
 다음 예제에서는 `session.replaceDialog` 메서드를 사용하여 이러한 유형의 시나리오를 구현하는 방법을 보여 줍니다. 먼저 서비스의 메뉴가 정의됩니다.
 
@@ -83,7 +83,7 @@ var menuItems = {
 }
 ```
 
-기본 다이얼로그에 의해 `mainMenu` 다이얼로그가 호출되므로, 대화를 시작할 때 사용자에게 메뉴가 제공됩니다. 또한 메뉴가 사용자가 “main menu”를 입력할 때마다 제공되도록 [`triggerAction`](https://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.dialog.html#triggeraction)가 `mainMenu`에 추가됩니다. 사용자에게 메뉴가 제공되고 사용자가 옵션을 선택하면 사용자의 선택에 해당하는 다이얼로그가 `session.beginDialog` 메서드를 사용하여 호출됩니다.
+기본 다이얼로그에 의해 `mainMenu` 다이얼로그가 호출되므로, 대화를 시작할 때 사용자에게 메뉴가 제공됩니다. 또한 메뉴가 사용자가 “main menu”를 입력할 때마다 제공되도록 [`triggerAction`](https://docs.botframework.com/node/builder/chat-reference/classes/_botbuilder_d_.dialog.html#triggeraction)가 `mainMenu`에 추가됩니다. 사용자에게 메뉴가 제공되고 사용자가 옵션을 선택하면 사용자의 선택에 해당하는 다이얼로그가 `session.beginDialog` 메서드를 사용하여 호출됩니다.
 
 ```javascript
 var inMemoryStorage = new builder.MemoryBotStorage();
@@ -160,9 +160,9 @@ bot.dialog('orderDinner', [
 
 2개의 트리거가 `orderDinner` 다이얼로그에 연결되어 사용자가 주문 프로세스 중 언제든지 주문을 "다시 시작" 또는 "취소"할 수 있도록 합니다. 
 
-첫 번째 트리거는 사용자가 입력 “start over”를 보내서 주문 프로세스를 다시 시작할 수 있도록 하는 [`reloadAction`](https://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.dialog.html#reloadaction)입니다. 이 트리거가 발언 "start over"와 일치하면 `reloadAction`은 다이얼로그를 처음부터 다시 시작합니다. 
+첫 번째 트리거는 사용자가 입력 “start over”를 보내서 주문 프로세스를 다시 시작할 수 있도록 하는 [`reloadAction`](https://docs.botframework.com/node/builder/chat-reference/classes/_botbuilder_d_.dialog.html#reloadaction)입니다. 이 트리거가 발언 "start over"와 일치하면 `reloadAction`은 다이얼로그를 처음부터 다시 시작합니다. 
 
-두 번째 트리거는 사용자가 입력 “cancel”을 보내서 주문 프로세스를 중단할 수 있도록 하는 [`cancelAction`](https://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.dialog.html#cancelaction)입니다. 이 트리거는 기본 메뉴를 자동으로 다시 표시하지 않고, 대신 “Type ‘Main Menu’ to continue”라고 말하여 다음에 수행할 작업을 사용자에게 알려 주는 메시지를 전송합니다.
+두 번째 트리거는 사용자가 입력 “cancel”을 보내서 주문 프로세스를 중단할 수 있도록 하는 [`cancelAction`](https://docs.botframework.com/node/builder/chat-reference/classes/_botbuilder_d_.dialog.html#cancelaction)입니다. 이 트리거는 기본 메뉴를 자동으로 다시 표시하지 않고, 대신 “Type ‘Main Menu’ to continue”라고 말하여 다음에 수행할 작업을 사용자에게 알려 주는 메시지를 전송합니다.
 
 ### <a name="dialog-loops"></a>다이얼로그 루프
 
@@ -269,7 +269,7 @@ bot.dialog('orderDinner', [
 
 ## <a name="cancel-a-dialog"></a>다이얼로그 취소
 
-`session.replaceDialog` 메서드를 사용하여 *현재* 다이얼로그를 새 다이얼로그로 바꿀 수 있지만, 다이얼로그 스택에서 더 아래에 있는 다이이얼로그와 바꿀 수는 없습니다. 다이얼로그 스택 내에서 *현재* 다이얼로그가 아닌 다이얼로그를 바꾸려면 [`session.cancelDialog`](http://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.session#canceldialog) 메서드를 대신 사용합니다. 
+`session.replaceDialog` 메서드를 사용하여 *현재* 다이얼로그를 새 다이얼로그로 바꿀 수 있지만, 다이얼로그 스택에서 더 아래에 있는 다이이얼로그와 바꿀 수는 없습니다. 다이얼로그 스택 내에서 *현재* 다이얼로그가 아닌 다이얼로그를 바꾸려면 [`session.cancelDialog`](http://docs.botframework.com/node/builder/chat-reference/classes/_botbuilder_d_.session#canceldialog) 메서드를 대신 사용합니다. 
 
 다이얼로그 스택에서의 위치에 관계없이 다이얼로그를 종료하고, 필요에 따라 해당 위치에서 새 다이얼로그를 호출하려면 `session.cancelDialog` 메서드를 사용할 수 있습니다. `session.cancelDialog` 메서드를 호출하려면 취소할 다이얼로그의 ID를 지정하고, 필요에 따라 해당 위치에서 호출할 다이얼로그의 ID를 지정합니다. 예를 들어, 이 코드 조각은 `orderDinner` 다이얼로그를 취소하고 `mainMenu` 다이얼로그와 바꿉니다.
 
@@ -277,7 +277,7 @@ bot.dialog('orderDinner', [
 session.cancelDialog('orderDinner', 'mainMenu'); 
 ```
 
-`session.cancelDialog` 메서드가 호출되면 다이얼로그 스택이 거꾸로 검색되고, 해당 다이얼로그가 처음 나오는 경우는 취소되므로 해당 다이얼로그와 자식 다이얼로그(있는 경우)는 다이얼로그 스택에서 제거됩니다. 그런 후에 호출 다이얼로그로 제어 권한이 반환됩니다. 그러면 이 다이얼로그는 [`ResumeReason.notCompleted`](http://docs.botframework.com/en-us/node/builder/chat-reference/enums/_botbuilder_d_.resumereason.html#notcompleted)와 같은 [`results.resumed`](http://docs.botframework.com/en-us/node/builder/chat-reference/interfaces/_botbuilder_d_.ipromptresult.html#resumed) 코드를 확인하여 취소를 감지할 수 있습니다.
+`session.cancelDialog` 메서드가 호출되면 다이얼로그 스택이 거꾸로 검색되고, 해당 다이얼로그가 처음 나오는 경우는 취소되므로 해당 다이얼로그와 자식 다이얼로그(있는 경우)는 다이얼로그 스택에서 제거됩니다. 그런 후에 호출 다이얼로그로 제어 권한이 반환됩니다. 그러면 이 다이얼로그는 [`ResumeReason.notCompleted`](http://docs.botframework.com/node/builder/chat-reference/enums/_botbuilder_d_.resumereason.html#notcompleted)와 같은 [`results.resumed`](http://docs.botframework.com/node/builder/chat-reference/interfaces/_botbuilder_d_.ipromptresult.html#resumed) 코드를 확인하여 취소를 감지할 수 있습니다.
 
 `session.cancelDialog` 메서드를 호출할 때 취소할 다이얼로그의 ID를 지정하는 대신, 취소할 다이얼로그의 0부터 시작되는 인덱스를 지정할 수 있습니다. 이 인덱스는 다이얼로그 스택에서 다이얼로그의 위치를 나타냅니다. 예를 들어, 다음 코드 조각은 현재 활성 상태인 다이얼로그(인덱스 = 0)를 종료하고 해당 위치에서 `mainMenu` 다이얼로그를 시작합니다. `mainMenu` 다이얼로그는 다이얼로그 스택의 0 위치에서 호출되므로 새로운 기본 다이얼로그가 됩니다.
 

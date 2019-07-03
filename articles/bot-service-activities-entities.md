@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
 ms.date: 03/01/2018
-ms.openlocfilehash: 9fa9a23f4d14667aeb97d304498b415f2c8041d1
-ms.sourcegitcommit: f84b56beecd41debe6baf056e98332f20b646bda
+ms.openlocfilehash: e38d9887e50455e66ac7fdcd5c4e7bb309a3e3e9
+ms.sourcegitcommit: a295a90eac461f8b96770dd902ba44919acf33fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2019
-ms.locfileid: "65033063"
+ms.lasthandoff: 06/26/2019
+ms.locfileid: "67405939"
 ---
 # <a name="entities-and-activity-types"></a>엔터티 및 작업 형식
 
@@ -76,14 +76,14 @@ entity = [mention];
 | 주소 | 설명 또는 우편 주소 개체(이후) |
 | 지역 | GeoCoordinates |
 | HasMap | 맵 또는 맵 개체에 대한 URL(이후) |
-| Name | 장소의 이름 |
+| 이름 | 장소의 이름 |
 
 geoCoordinates 개체는 다음 속성을 포함합니다.
 
 | 자산 | 설명 |
 |----|----|
 | Type | 엔터티의 형식("GeoCoordinates") |
-| Name | 장소의 이름 |
+| 이름 | 장소의 이름 |
 | 경도 | 위치의 경도(<a href="https://en.wikipedia.org/wiki/World_Geodetic_System" target="_blank">WGS 84</a>) |
 | 경도 | 위치의 위도(<a href="https://en.wikipedia.org/wiki/World_Geodetic_System" target="_blank">WGS 84</a>) |
 | 상승 | 위치의 상승(<a href="https://en.wikipedia.org/wiki/World_Geodetic_System" target="_blank">WGS 84</a>) |
@@ -165,5 +165,5 @@ if(context.activity.type === 'message'){
 
 ## <a name="additional-resources"></a>추가 리소스
 
-- <a href="https://docs.botframework.com/en-us/csharp/builder/sdkreference/dc/d2f/class_microsoft_1_1_bot_1_1_connector_1_1_activity.html" target="_blank">활동 클래스</a>
+- <a href="https://docs.botframework.com/csharp/builder/sdkreference/dc/d2f/class_microsoft_1_1_bot_1_1_connector_1_1_activity.html" target="_blank">활동 클래스</a>
 ::: moniker-end

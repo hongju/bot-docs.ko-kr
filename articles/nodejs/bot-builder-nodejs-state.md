@@ -9,12 +9,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 6d653e47d2e906c6306134804c7731b374d830ba
-ms.sourcegitcommit: 980612a922b8290b2faadaca193496c4117e415a
+ms.openlocfilehash: 779411235bfef24719044b0fbad26574a373a34f
+ms.sourcegitcommit: a295a90eac461f8b96770dd902ba44919acf33fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64563975"
+ms.lasthandoff: 06/26/2019
+ms.locfileid: "67404292"
 ---
 # <a name="manage-state-data"></a>상태 데이터 관리
 
@@ -129,7 +129,7 @@ session.userdata.start = startDate.toISOString();
 
 ### <a name="saving-data"></a>데이터 저장
 
-각 저장소 컨테이너에서 만들어진 데이터는 컨테이너를 저장할 때까지 메모리에 유지됩니다. Node.js용 Bot Framework SDK는 보낼 메시지가 있을 때 저장될 수 있게 `ChatConnector` 서비스에 일괄 처리로 데이터를 보냅니다. 메시지를 보내지 않고 저장소 컨테이너에 있는 데이터를 저장하려면 수동으로 [`save`](https://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.session.html#save) 메서드를 호출할 수 있습니다. `save` 메서드를 호출하지 않을 경우 저장소 컨테이너에 있는 데이터가 일괄 처리의 일부로 유지됩니다.
+각 저장소 컨테이너에서 만들어진 데이터는 컨테이너를 저장할 때까지 메모리에 유지됩니다. Node.js용 Bot Framework SDK는 보낼 메시지가 있을 때 저장될 수 있게 `ChatConnector` 서비스에 일괄 처리로 데이터를 보냅니다. 메시지를 보내지 않고 저장소 컨테이너에 있는 데이터를 저장하려면 수동으로 [`save`](https://docs.botframework.com/node/builder/chat-reference/classes/_botbuilder_d_.session.html#save) 메서드를 호출할 수 있습니다. `save` 메서드를 호출하지 않을 경우 저장소 컨테이너에 있는 데이터가 일괄 처리의 일부로 유지됩니다.
 
 ```javascript
 session.userData.favoriteColor = "Red";
@@ -203,9 +203,9 @@ session.dialogData = {};
 ## <a name="additional-resources"></a>추가 리소스
 - [사용자에게 입력 프롬프트](bot-builder-nodejs-dialog-prompt.md)
 
-[userDataURL]: https://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.session.html#userdata
-[conversationDataURL]: https://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.session.html#conversationdata
-[privateConversationDataURL]: https://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.session.html#privateconversationdata
-[dialogDataURL]: https://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.session.html#dialogdata
+[userDataURL]: https://docs.botframework.com/node/builder/chat-reference/classes/_botbuilder_d_.session.html#userdata
+[conversationDataURL]: https://docs.botframework.com/node/builder/chat-reference/classes/_botbuilder_d_.session.html#conversationdata
+[privateConversationDataURL]: https://docs.botframework.com/node/builder/chat-reference/classes/_botbuilder_d_.session.html#privateconversationdata
+[dialogDataURL]: https://docs.botframework.com/node/builder/chat-reference/classes/_botbuilder_d_.session.html#dialogdata
 
-[ChatConnector]: https://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.chatconnector.html
+[ChatConnector]: https://docs.botframework.com/node/builder/chat-reference/classes/_botbuilder_d_.chatconnector.html

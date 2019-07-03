@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: bot-service
 ms.date: 05/23/2019
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: f4b8243580ee678390177881b136a9016be4a786
-ms.sourcegitcommit: ea64a56acfabc6a9c1576ebf9f17ac81e7e2a6b7
+ms.openlocfilehash: eba4ad9ba2fae85fbc2488e5fef8d5a7dac593ee
+ms.sourcegitcommit: dbbfcf45a8d0ba66bd4fb5620d093abfa3b2f725
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66215460"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67464759"
 ---
 ## <a name="custom-assistant-overview"></a>사용자 지정 도우미 개요
 
@@ -35,17 +35,17 @@ ms.locfileid: "66215460"
 
 ## <a name="complete-ownership-and-control-of-data"></a>완전한 소유권 및 데이터 제어
 
-사용자 지정 도우미는 사용자의 Azure 구독 내에서 배포됩니다. 따라서 도우미에서 생성된 모든 데이터(질문, 사용자 동작 등)은 사용자의 Azure 구독 내에 전적으로 포함됩니다. [Cognitive Services Azure Trusted Cloud](https://www.microsoft.com/en-us/trustcenter/cloudservices/cognitiveservices) 및 [보안 센터의 Azure 섹션](https://www.microsoft.com/en-us/TrustCenter/CloudServices/Azure)에서 자세한 내용을 더 구체적으로 확인하세요.
+사용자 지정 도우미는 사용자의 Azure 구독 내에서 배포됩니다. 따라서 도우미에서 생성된 모든 데이터(질문, 사용자 동작 등)은 사용자의 Azure 구독 내에 전적으로 포함됩니다. [Cognitive Services Azure Trusted Cloud](https://www.microsoft.com/trustcenter/cloudservices/cognitiveservices) 및 [보안 센터의 Azure 섹션](https://www.microsoft.com/TrustCenter/CloudServices/Azure)에서 자세한 내용을 더 구체적으로 확인하세요.
 
 ## <a name="your-assistant-anywhere"></a>어디서든 사용 가능한 당신의 도우미
 
-사용자 지정 도우미는 Microsoft 대화형 AI 플랫폼을 활용하므로 웹 채팅, FaceBook Messenger, Skype 등 모든 Bot Framework [채널](https://docs.microsoft.com/en-us/azure/bot-service/bot-service-manage-channels?view=azure-bot-service-4.0)을 통해 표시될 수 있습니다. 또한 [직접 회선](https://docs.microsoft.com/en-us/azure/bot-service/rest-api/bot-framework-rest-direct-line-3-0-concepts?view=azure-bot-service-4.0) 채널을 통해 자동차, 스피커, 알람 시계 등의 디바이스를 포함한 모바일 디바이스 및 데스크톱으로 환경을 임베딩할 수 있습니다.
+사용자 지정 도우미는 Microsoft 대화형 AI 플랫폼을 활용하므로 웹 채팅, FaceBook Messenger, Skype 등 모든 Bot Framework [채널](https://docs.microsoft.com/azure/bot-service/bot-service-manage-channels?view=azure-bot-service-4.0)을 통해 표시될 수 있습니다. 또한 [직접 회선](https://docs.microsoft.com/azure/bot-service/rest-api/bot-framework-rest-direct-line-3-0-concepts?view=azure-bot-service-4.0) 채널을 통해 자동차, 스피커, 알람 시계 등의 디바이스를 포함한 모바일 디바이스 및 데스크톱으로 환경을 임베딩할 수 있습니다.
 
 ## <a name="built-on-enterprise-grade-technology"></a>엔터프라이즈급 기술로 빌드
 
-사용자 지정 도우미 솔루션은 지원되는 Azure 구성 요소의 광범위한 집합과 함께 Azure Bot Service, Language Understanding Cognitive Service, 통합 음성을 기반으로 하여 [Azure 글로벌 인프라](https://azure.microsoft.com/en-gb/global-infrastructure/)의 혜택을 누릴 수 있습니다.
+사용자 지정 도우미 솔루션은 지원되는 Azure 구성 요소의 광범위한 집합과 함께 Azure Bot Service, Language Understanding Cognitive Service, 통합 음성을 기반으로 하여 [Azure 글로벌 인프라](https://azure.microsoft.com/global-infrastructure/)의 혜택을 누릴 수 있습니다.
 
-또한, Language Understanding 지원은 [여기에 나열된](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-supported-languages) 광범위한 언어 집합을 지원하는 LUIS Cognitive Service에서 제공됩니다. [Translator Cognitive Service](https://azure.microsoft.com/en-us/services/cognitive-services/translator-text-api/)는 사용자 지정 도우미의 도달 범위를 더욱 확장하도록 추가 기계 번역 기능을 제공합니다.
+또한, Language Understanding 지원은 [여기에 나열된](https://docs.microsoft.com/azure/cognitive-services/luis/luis-supported-languages) 광범위한 언어 집합을 지원하는 LUIS Cognitive Service에서 제공됩니다. [Translator Cognitive Service](https://azure.microsoft.com/services/cognitive-services/translator-text-api/)는 사용자 지정 도우미의 도달 범위를 더욱 확장하도록 추가 기계 번역 기능을 제공합니다.
 
 ## <a name="integrated-and-context-aware"></a>통합 및 컨텍스트 인식
 
@@ -61,7 +61,7 @@ ms.locfileid: "66215460"
 
 ## <a name="adaptive-cards"></a>Adaptive Cards
 
-[적응형 카드](https://adaptivecards.io/)는 사용자 지정 도우미가 텍스트 기반 응답과 함께 사용자 환경 요소(예: 카드, 이미지, 단추)를 반환하는 기능을 제공합니다. 디바이스 또는 대화 캔버스에 화면이 있는 경우 이러한 적응형 카드를 광범위한 디바이스 및 플랫폼에 렌더링하여 적절한 사용자 환경 지원을 제공할 수 있습니다. 적응형 카드의 예제는 [여기](https://docs.microsoft.com/en-us/adaptive-cards/rendering-cards/getting-started) 문서의 렌더링 옵션에 관한 정보와 함께 [여기](https://adaptivecards.io/samples/)에서 확인할 수 있습니다.
+[적응형 카드](https://adaptivecards.io/)는 사용자 지정 도우미가 텍스트 기반 응답과 함께 사용자 환경 요소(예: 카드, 이미지, 단추)를 반환하는 기능을 제공합니다. 디바이스 또는 대화 캔버스에 화면이 있는 경우 이러한 적응형 카드를 광범위한 디바이스 및 플랫폼에 렌더링하여 적절한 사용자 환경 지원을 제공할 수 있습니다. 적응형 카드의 예제는 [여기](https://docs.microsoft.com/adaptive-cards/rendering-cards/getting-started) 문서의 렌더링 옵션에 관한 정보와 함께 [여기](https://adaptivecards.io/samples/)에서 확인할 수 있습니다.
 
 
 ## <a name="skills"></a>기술

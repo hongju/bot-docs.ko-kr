@@ -1,10 +1,10 @@
 ---
 ms.openlocfilehash: a478100d1dca58a2dd9d80c87c3a02fe94600ce6
-ms.sourcegitcommit: 4ff7a8772124a567f43e2c3e13aded368c4002e3
+ms.sourcegitcommit: a47183f5d1c2b2454c4a06c0f292d7c075612cdd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2019
-ms.locfileid: "65035722"
+ms.lasthandoff: 06/19/2019
+ms.locfileid: "67252659"
 ---
 암호화 키 설정을 지웁니다.
 

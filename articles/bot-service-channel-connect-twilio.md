@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
 ms.date: 10/9/2018
-ms.openlocfilehash: 817623dd04612cd07d8877c8e9a199c05a2fd9e8
-ms.sourcegitcommit: e276008fb5dd7a37554e202ba5c37948954301f1
+ms.openlocfilehash: 4de93d821c6b652021a9f695536350610776f5b4
+ms.sourcegitcommit: a295a90eac461f8b96770dd902ba44919acf33fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66693624"
+ms.lasthandoff: 06/26/2019
+ms.locfileid: "67405899"
 ---
 # <a name="connect-a-bot-to-twilio"></a>Twilio에 봇 연결
 
@@ -26,7 +26,7 @@ Twilio 계정이 없는 경우 <a href="https://www.twilio.com/try-twilio" targe
 
 ## <a name="create-a-twiml-application"></a>TwiML 애플리케이션 만들기
 
-지침을 따라 <a href="https://support.twilio.com/hc/en-us/articles/223180928-How-Do-I-Create-a-TwiML-App-" target="_blank">TwiML 애플리케이션을 만듭니다</a>.
+지침을 따라 <a href="https://support.twilio.com/hc/articles/223180928-How-Do-I-Create-a-TwiML-App-" target="_blank">TwiML 애플리케이션을 만듭니다</a>.
 
 ![앱 만들기](~/media/channels/twi-StepTwiml.png)
 
@@ -34,7 +34,7 @@ Twilio 계정이 없는 경우 <a href="https://www.twilio.com/try-twilio" targe
 
 ## <a name="select-or-add-a-phone-number"></a>전화 번호 선택 또는 추가
 
-콘솔 사이트를 통해 인증된 호출자 ID를 추가하려면 <a href = "https://support.twilio.com/hc/en-us/articles/223180048-Adding-a-Verified-Phone-Number-or-Caller-ID-with-Twilio" target="_blank">여기</a>의 지침을 따르세요. 완료되면 **번호 관리**의 **활성 번호**에서 인증된 번호를 확인할 수 있습니다.
+콘솔 사이트를 통해 인증된 호출자 ID를 추가하려면 <a href = "https://support.twilio.com/hc/articles/223180048-Adding-a-Verified-Phone-Number-or-Caller-ID-with-Twilio" target="_blank">여기</a>의 지침을 따르세요. 완료되면 **번호 관리**의 **활성 번호**에서 인증된 번호를 확인할 수 있습니다.
 
 ![전화 번호 설정](~/media/channels/twi-StepPhone.png)
 

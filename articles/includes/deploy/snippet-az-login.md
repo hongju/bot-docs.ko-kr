@@ -1,10 +1,10 @@
 ---
 ms.openlocfilehash: f8aad539a2d1e415833609f66cd5b398c88206f1
-ms.sourcegitcommit: 4ff7a8772124a567f43e2c3e13aded368c4002e3
+ms.sourcegitcommit: a47183f5d1c2b2454c4a06c0f292d7c075612cdd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2019
-ms.locfileid: "65035782"
+ms.lasthandoff: 06/19/2019
+ms.locfileid: "67252671"
 ---
 명령 프롬프트를 열어 Azure Portal에 로그인합니다.
 

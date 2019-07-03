@@ -8,12 +8,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 19b44fbb09af69bde803b9b884d58108c248ebe5
-ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
+ms.openlocfilehash: 7c00c17eaa8d4e84ffbeff1e318cbc403de2038a
+ms.sourcegitcommit: a295a90eac461f8b96770dd902ba44919acf33fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54224836"
+ms.lasthandoff: 06/26/2019
+ms.locfileid: "67405631"
 ---
 # <a name="manage-custom-state-data-with-azure-cosmos-db-for-net"></a>.NET용 Azure Cosmos DB를 사용하여 사용자 지정 상태 데이터 관리
 
@@ -28,14 +28,14 @@ ms.locfileid: "54224836"
  
 ## <a name="prerequisites"></a>필수 조건
 필요한 사항:
- - [Microsoft Azure 계정](https://azure.microsoft.com/en-us/free/)
+ - [Microsoft Azure 계정](https://azure.microsoft.com/free/)
  - [Visual Studio 2015 이상](https://www.visualstudio.com/)
  - [Bot Builder Azure NuGet 패키지](https://www.nuget.org/packages/Microsoft.Bot.Builder.Azure/)
  - [Autofac Web Api2 NuGet 패키지](https://www.nuget.org/packages/Autofac.WebApi2/)
  - [Bot Framework Emulator](~/bot-service-debug-emulator.md)
  
 ## <a name="create-azure-account"></a>Azure 계정 만들기
-Azure 계정이 없으면 [여기](https://azure.microsoft.com/en-us/free/)를 클릭하여 체험 계정으로 등록하세요.
+Azure 계정이 없으면 [여기](https://azure.microsoft.com/free/)를 클릭하여 체험 계정으로 등록하세요.
 
 ## <a name="set-up-the-azure-cosmos-db-database"></a>Azure Cosmos DB 데이터베이스 설정
 1. Azure Portal에 로그인한 후 **새로 만들기**를 클릭하여 새 *Azure Cosmos DB* 데이터베이스를 만듭니다. 
@@ -109,8 +109,8 @@ Visual Studio에서 봇을 실행하면 추가한 코드가 Azure에서 사용�
 
 ## <a name="connect-your-bot-to-the-emulator"></a>에뮬레이터에 봇 연결
 이때 봇은 로컬에서 실행됩니다. 에뮬레이터를 시작한 다음, 에뮬레이터에서 봇에 연결합니다.
-1. 주소 표시줄에 http://localhost:port-number/api/messages를 입력합니다. 여기서 port-number는 애플리케이션이 실행 중인 브라우저에 표시되는 포트 번호와 일치합니다. 지금은 <strong>Microsoft App ID</strong> 및 <strong>Microsoft App Password</strong> 필드를 비워 둘 수 있습니다. 나중에 [봇을 등록](~/bot-service-quickstart-registration.md)할 때 이 정보를 가져올 수 있습니다.
-2. **Connect**를 클릭합니다. 
+1. 주소 표시줄에 http://localhost:port-number/api/messages 를 입력합니다. 여기서 port-number는 애플리케이션이 실행 중인 브라우저에 표시되는 포트 번호와 일치합니다. 지금은 <strong>Microsoft App ID</strong> 및 <strong>Microsoft App Password</strong> 필드를 비워 둘 수 있습니다. 나중에 [봇을 등록](~/bot-service-quickstart-registration.md)할 때 이 정보를 가져올 수 있습니다.
+2. **연결**을 클릭합니다. 
 3. 에뮬레이터에서 몇몇 메시지를 입력하여 봇을 테스트합니다. 
 
 ## <a name="view-state-data-on-azure-portal"></a>Azure Portal에서 상태 데이터 보기

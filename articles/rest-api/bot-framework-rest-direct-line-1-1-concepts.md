@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
 ms.date: 12/13/2017
-ms.openlocfilehash: a049d77d506fa3fa678a079de52aa424264847c9
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: 288fde1d8c4333256b956b270fe37a56217632ca
+ms.sourcegitcommit: a295a90eac461f8b96770dd902ba44919acf33fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49997050"
+ms.lasthandoff: 06/26/2019
+ms.locfileid: "67404653"
 ---
 # <a name="key-concepts-in-direct-line-api-11"></a>직접 회선 API 1.1의 주요 개념
 
@@ -44,7 +44,7 @@ ms.locfileid: "49997050"
 
 Bot Framework는 C#을 통해 직접 회선 API 1.1에 쉽게 액세스할 수 있는 클라이언트 라이브러리를 제공합니다. Visual Studio 프로젝트 내에서 클라이언트 라이브러리를 사용하려면 `Microsoft.Bot.Connector.DirectLine` <a href="https://www.nuget.org/packages/Microsoft.Bot.Connector.DirectLine/1.1.1" target="_blank">v1.x NuGet 패키지</a>를 설치합니다. 
 
-C# 클라이언트 라이브러리를 사용하는 대신, <a href="https://docs.botframework.com/en-us/restapi/directline/swagger.json" target="_blank">직접 회선 API 1.1 Swagger 파일</a>을 사용하여 선택한 언어로 고유한 클라이언트 라이브러리를 생성할 수 있습니다.
+C# 클라이언트 라이브러리를 사용하는 대신, <a href="https://docs.botframework.com/restapi/directline/swagger.json" target="_blank">직접 회선 API 1.1 Swagger 파일</a>을 사용하여 선택한 언어로 고유한 클라이언트 라이브러리를 생성할 수 있습니다.
 
 ### <a name="web-chat-control"></a>웹 채팅 컨트롤 
 

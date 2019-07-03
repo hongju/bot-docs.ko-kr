@@ -10,12 +10,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 05/23/2019
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: b4a5e3f0271d6b80a4245294e520ebc5abaede4e
-ms.sourcegitcommit: ea64a56acfabc6a9c1576ebf9f17ac81e7e2a6b7
+ms.openlocfilehash: a550de06be6584c5d9ba5eca4ffffffd49a518d2
+ms.sourcegitcommit: a295a90eac461f8b96770dd902ba44919acf33fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66214143"
+ms.lasthandoff: 06/26/2019
+ms.locfileid: "67404298"
 ---
 # <a name="manage-bot-resources"></a>봇 리소스 관리
 
@@ -137,4 +137,4 @@ const adapter = new BotFrameworkAdapter({
 
 ## <a name="additional-resources"></a>추가 리소스
 - 봇을 배포하는 단계는 [배포](../bot-builder-deploy-az-cli.md) 문서를 참조하세요.
-- [Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-overview)를 사용하여 클라우드 애플리케이션 및 서비스에서 사용하는 암호화 키 및 비밀을 보호하고 관리하는 방법에 대해 알아봅니다.
+- [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)를 사용하여 클라우드 애플리케이션 및 서비스에서 사용하는 암호화 키 및 비밀을 보호하고 관리하는 방법에 대해 알아봅니다.

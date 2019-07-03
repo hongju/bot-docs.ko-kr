@@ -9,12 +9,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 96a0c63575b1e77418262a22050013413f39141f
-ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
+ms.openlocfilehash: eaebb40e7b0e57966f0eb06c6d0108f6db1b62ff
+ms.sourcegitcommit: a295a90eac461f8b96770dd902ba44919acf33fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54225918"
+ms.lasthandoff: 06/26/2019
+ms.locfileid: "67405670"
 ---
 # <a name="create-messages"></a>메시지 만들기
 
@@ -26,7 +26,7 @@ ms.locfileid: "54225918"
 
 ## <a name="customizing-a-message"></a>메시지 사용자 지정
 
-메시지의 텍스트 서식에 대한 제어를 강화하려면 [Activity](https://docs.botframework.com/en-us/csharp/builder/sdkreference/dc/d2f/class_microsoft_1_1_bot_1_1_connector_1_1_activity.html) 개체를 사용하여 사용자 지정 메시지를 만들고 사용자에게 보내기 전에 필요한 속성을 설정할 수 있습니다.
+메시지의 텍스트 서식에 대한 제어를 강화하려면 [Activity](https://docs.botframework.com/csharp/builder/sdkreference/dc/d2f/class_microsoft_1_1_bot_1_1_connector_1_1_activity.html) 개체를 사용하여 사용자 지정 메시지를 만들고 사용자에게 보내기 전에 필요한 속성을 설정할 수 있습니다.
 
 이 샘플에서는 사용자 지정 `message` 개체를 만들고 `Text`, `TextFormat` 및 `Local` 속성을 설정하는 방법을 보여줍니다.
 
@@ -48,7 +48,7 @@ ms.locfileid: "54225918"
 
 | 자산 | 설명 | 
 |----|----|
-| type | 엔터티의 형식("멘션") | 
+| Type | 엔터티의 형식("멘션") | 
 | 멘션됨 | 멘션된 사용자를 나타내는 `ChannelAccount` 개체 | 
 | 텍스트 | 멘션 자체를 나타내는 `Activity.Text` 속성 내의 텍스트(비어 있거나 Null일 수 있음) |
 
@@ -67,7 +67,7 @@ ms.locfileid: "54225918"
 
 | 자산 | 설명 | 
 |----|----|
-| type | 엔터티의 형식("Place") |
+| Type | 엔터티의 형식("Place") |
 | 주소 | 설명 또는 `PostalAddress` 개체(이후) | 
 | 지역 | GeoCoordinates | 
 | HasMap | 맵 또는 `Map` 개체에 대한 URL(이후) |
@@ -77,7 +77,7 @@ ms.locfileid: "54225918"
 
 | 자산 | 설명 | 
 |----|----|
-| type | 엔터티의 형식("GeoCoordinates") |
+| Type | 엔터티의 형식("GeoCoordinates") |
 | 이름 | 장소의 이름 |
 | 경도 | 위치의 경도(<a href="https://en.wikipedia.org/wiki/World_Geodetic_System" target="_blank">WGS 84</a>) | 
 | 위도 | 위치의 위도(<a href="https://en.wikipedia.org/wiki/World_Geodetic_System" target="_blank">WGS 84</a>) | 
@@ -127,6 +127,6 @@ ms.locfileid: "54225918"
 - [메시지에 음성 추가](bot-builder-dotnet-text-to-speech.md)
 - [메시지에 제안된 작업 추가](bot-builder-dotnet-add-suggested-actions.md)
 - [채널 관련 기능 구현](bot-builder-dotnet-channeldata.md)
-- <a href="https://docs.botframework.com/en-us/csharp/builder/sdkreference/dc/d2f/class_microsoft_1_1_bot_1_1_connector_1_1_activity.html" target="_blank">작업 클래스</a>
+- <a href="https://docs.botframework.com/csharp/builder/sdkreference/dc/d2f/class_microsoft_1_1_bot_1_1_connector_1_1_activity.html" target="_blank">작업 클래스</a>
 - <a href="/dotnet/api/microsoft.bot.connector.imessageactivity" target="_blank">IMessageActivity 인터페이스</a>
 

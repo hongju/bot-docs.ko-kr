@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: travisw
 ms.custom: ''
-ms.openlocfilehash: 8e0d2939078e1e27162c7056373e95790a03eb88
-ms.sourcegitcommit: 5042e31bc6b2762d7a6636e98c8f496b90ea33c1
+ms.openlocfilehash: 114274a66492d421a7b3d6294d77ee83d336d3ca
+ms.sourcegitcommit: a295a90eac461f8b96770dd902ba44919acf33fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65240437"
+ms.lasthandoff: 06/26/2019
+ms.locfileid: "67405926"
 ---
 # <a name="connect-a-bot-to-direct-line-speech-preview"></a>Direct Line Speech에 봇 연결(미리 보기)
 
@@ -84,10 +84,10 @@ Direct Line Speech 채널을 연결하고 Bot Framework 프로토콜 스트리�
 
 이 서비스는 미리 보기 상태이며 봇 개발 및 전반적인 성능에 영향을 줄 수 있는 변경 사항이 생길 수 있습니다. 다음은 알려진 문제의 목록입니다. 
 
-1. 이 서비스는 현재 [Azure 지역](https://azure.microsoft.com/en-us/global-infrastructure/regions/) 미국 서부 2에 배포되어 있습니다. 모든 고객이 봇과 대기 시간이 짧은 음성 상호 작용의 이점을 누릴 수 있도록 다른 지역에도 곧 배포될 예정입니다.
+1. 이 서비스는 현재 [Azure 지역](https://azure.microsoft.com/global-infrastructure/regions/) 미국 서부 2에 배포되어 있습니다. 모든 고객이 봇과 대기 시간이 짧은 음성 상호 작용의 이점을 누릴 수 있도록 다른 지역에도 곧 배포될 예정입니다.
 
 1. 제어 필드(예: [serviceUrl](https://github.com/Microsoft/BotBuilder/blob/master/specs/botframework-activity/botframework-activity.md#service-url))에 대한 사소한 변경 사항이 있을 예정입니다.
 
 1. 환영 메시지를 생성할 때 일반적으로 사용되며, 대화의 시작과 끝을 알리는 [conversationUpdate](https://github.com/Microsoft/BotBuilder/blob/master/specs/botframework-activity/botframework-activity.md#conversation-update-activity) 및 [endOfCoversation](https://github.com/Microsoft/BotBuilder/blob/master/specs/botframework-activity/botframework-activity.md#end-of-conversation-activity) 작업이 다른 채널과의 일관성을 위해 업데이트될 예정입니다.
 
-1. [SigninCard](https://docs.microsoft.com/en-us/azure/bot-service/rest-api/bot-framework-rest-connector-add-rich-cards?view=azure-bot-service-4.0)는 채널에서 아직 지원되지 않습니다. 
+1. [SigninCard](https://docs.microsoft.com/azure/bot-service/rest-api/bot-framework-rest-connector-add-rich-cards?view=azure-bot-service-4.0)는 채널에서 아직 지원되지 않습니다. 

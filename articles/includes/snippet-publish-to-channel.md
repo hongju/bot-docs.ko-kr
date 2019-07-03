@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 88fe2e3dca0559c101c55edb4353f3b57096a8d4
-ms.sourcegitcommit: 980612a922b8290b2faadaca193496c4117e415a
+ms.openlocfilehash: 8484df6b140447d175805b396a81832c059c3b76
+ms.sourcegitcommit: a295a90eac461f8b96770dd902ba44919acf33fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64563721"
+ms.lasthandoff: 06/26/2019
+ms.locfileid: "67405199"
 ---
 ### <a name="cortana"></a>Cortana
 봇은 [대시보드](https://aka.ms/cortana-publish)의 Cortana에 게시되고 Cortana 기술을 구동하는 데 사용됩니다. 봇을 게시하면 봇이 검토를 위해 제출됩니다. Cortana 기술을 직접 사용할 용도로 배포할 수도 있고, 소규모 그룹에 배포할 수도 있고, 전 세계에 게시할 수도 있습니다.
@@ -13,7 +13,7 @@ ms.locfileid: "64563721"
 봇은 [구성 페이지](~/bot-service-channel-connect-skype.md)의 Skype에 게시됩니다. 봇을 게시하면 봇이 검토를 위해 제출됩니다. 검토 전에는 봇이 연락처 100개로 제한됩니다. 승인된 봇은 연락처 제한이 없으며 Skype 봇 디렉터리에 봇을 포함하도록 선택할 수 있습니다.
 
 ### <a name="skype-for-business"></a>비즈니스용 Skype
-비즈니스용 Skype 봇은 테넌트 관리자를 통해 [비즈니스 온라인용 Skype 테넌트](https://msdn.microsoft.com/en-us/skype/Skype-For-Business-Bot-Framework/docs/overview)에 등록됩니다.
+비즈니스용 Skype 봇은 테넌트 관리자를 통해 [비즈니스 온라인용 Skype 테넌트](https://msdn.microsoft.com/skype/Skype-For-Business-Bot-Framework/docs/overview)에 등록됩니다.
 
 > [!TIP]
 > 검토 상태를 보려면 [Bot Framework 포털](https://dev.botframework.com/)에서 봇을 열고 **채널**을 클릭합니다.

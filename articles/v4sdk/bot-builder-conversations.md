@@ -10,17 +10,17 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 05/23/2019
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 167e496fa510cdf755be13f71cf3a596b0183ec1
-ms.sourcegitcommit: ea64a56acfabc6a9c1576ebf9f17ac81e7e2a6b7
+ms.openlocfilehash: 3138b591519ff76865f007ae091c6c33cd0da79c
+ms.sourcegitcommit: a295a90eac461f8b96770dd902ba44919acf33fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66215473"
+ms.lasthandoff: 06/26/2019
+ms.locfileid: "67404144"
 ---
 # <a name="conversation-flow"></a>대화 흐름
 [!INCLUDE[applies-to](../includes/applies-to.md)]
 
-봇의 대화 흐름을 디자인하려면 사용자가 무엇인가를 말할 때 봇이 응답하는 방법을 결정해야 합니다. 봇은 먼저 사용자의 메시지를 기반으로 작업 또는 대화 항목을 인식합니다. 사용자의 메시지와 관련된 작업 또는 항목(*의도*로 알려짐)을 결정하기 위해 봇은 사용자 메시지의 텍스트에서 단어 또는 패턴을 검색하거나 [Language Understanding](bot-builder-concept-luis.md) 및 [QnA Maker](https://docs.microsoft.com/en-us/azure/cognitive-services/qnamaker/overview/overview)와 같은 서비스를 활용할 수 있습니다.
+봇의 대화 흐름을 디자인하려면 사용자가 무엇인가를 말할 때 봇이 응답하는 방법을 결정해야 합니다. 봇은 먼저 사용자의 메시지를 기반으로 작업 또는 대화 항목을 인식합니다. 사용자의 메시지와 관련된 작업 또는 항목(*의도*로 알려짐)을 결정하기 위해 봇은 사용자 메시지의 텍스트에서 단어 또는 패턴을 검색하거나 [Language Understanding](bot-builder-concept-luis.md) 및 [QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/overview/overview)와 같은 서비스를 활용할 수 있습니다.
 
 봇이 사용자의 의도를 인식하면 시나리오에 따라 봇은 하나의 턴에서 대화를 완료하여 단일 회신으로 사용자의 요청을 충족할 수 있거나 일련의 턴이 필요할 수 있습니다. 다중 턴 대화 흐름의 경우 Bot Framework SDK는 대화를 추적하기 위한 [상태 관리](./bot-builder-howto-v4-state.md)와 정보 요청을 위한 [프롬프트](bot-builder-prompts.md), 대화 흐름 캡슐화를 위한 [대화 상자](bot-builder-dialog-manage-conversation-flow.md)를 제공합니다.
 

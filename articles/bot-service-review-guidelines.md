@@ -1,9 +1,17 @@
+---
+ms.openlocfilehash: bbdad5f0cb51d99cf886070dd8400acae0ed24bb
+ms.sourcegitcommit: dbbfcf45a8d0ba66bd4fb5620d093abfa3b2f725
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67464569"
+---
 # <a name="bot-review-guidelines"></a>봇 검토 지침
 
 Microsoft 채널에 대한 봇, 봇렛, 웹앱, 추가 기능 또는 기술을 구축("앱 통합")하는 데 재능과 시간을 투자해 주셔서 감사합니다. Skype 또는 Microsoft Teams 같은 Microsoft 채널에 게시하기 전에 앱 통합이 만족해야 하는 최소한의 요구 사항은 다음과 같습니다. 각 채널에는 아래 설명한 요구 사항 외에도 특정 요구 사항이 있습니다. 해당하는 경우 각 채널의 구성 페이지에서 채널 특정 용어를 제공하며 봇을 해당 채널에 게시하려면 먼저 채널 서비스에 가입해야 할 수 있습니다.
 
 ## <a name="app-integration-policies"></a>앱 통합 정책
-###  <a name="1-value-representation-security-and-usability"></a>1. 값, 표현, 보안 및 사용 편의성.
+### <a name="1-value-representation-security-and-usability"></a>1. 값, 표현, 보안 및 사용 편의성.
 
 앱 통합 및 관련된 메타데이터는 다음에 부합해야 합니다.
 
@@ -56,4 +64,4 @@ Iubenda – [개인 정보 보호 방침 생성기](http://www.iubenda.com/en)
   - (a) 환자 상태, 치료 또는 치료비 납부 관련 정보 (b) 개인 식별 또는 환자, 건강보험 가입자 또는 수익자와의 커뮤니케이션 또는 (c) 다른 식으로 개정된 HIPAA(Health Insurance Portability and Accountability Act)에서 '보호되는 건강 정보'를 처리하거나, HIPAA에서 정한 '대상 기관' 또는 '비즈니스 거래처'인 경우 HIPAA에서 규제하는 활동 수행
   - 앱의 대상 국가/지역에서 불쾌감을 주는 경우. 현지 법률 또는 문화적 기준에 따라 특정 국가/지역에서 콘텐츠가 불쾌감을 줄 수 있습니다.
   - 다른 사용자가 이러한 규칙을 깰 수 있게 지원. 
-- 앱 통합에 중요한 변경 내용이 있는 경우 게시한 특정 채널에 이메일을 보내 미리 Microsoft에 알려야 합니다.   봇 등록에 대한 변경을 위해서는 여기서 설명한 요구 사항에 지속적으로 부합하기 위해 봇을 다시 검토해야 할 수 있습니다.  Microsoft는 재량에 따라 채널에서 앱 통합을 비정기적으로 검토하고 고지 없이 제거할 권리가 있습니다.
+- 앱 통합에 중요한 변경 내용이 있는 경우 게시한 특정 채널에 이메일을 보내 미리 Microsoft에 알려야 합니다.  봇 등록에 대한 변경을 위해서는 여기서 설명한 요구 사항에 지속적으로 부합하기 위해 봇을 다시 검토해야 할 수 있습니다.  Microsoft는 재량에 따라 채널에서 앱 통합을 비정기적으로 검토하고 고지 없이 제거할 권리가 있습니다.
