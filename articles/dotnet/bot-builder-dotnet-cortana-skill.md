@@ -9,12 +9,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: fd7d20b71c8f6c3013e7af5c7c80623089f0dce0
-ms.sourcegitcommit: f84b56beecd41debe6baf056e98332f20b646bda
+ms.openlocfilehash: 9dd84e9e5e39e1e1b801e08fbee101dbfa8b0c49
+ms.sourcegitcommit: a295a90eac461f8b96770dd902ba44919acf33fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2019
-ms.locfileid: "65032900"
+ms.lasthandoff: 06/26/2019
+ms.locfileid: "67405686"
 ---
 # <a name="build-a-speech-enabled-bot-with-cortana-skills"></a>Cortana Skill을 사용하여 음성 지원 봇 빌드
 
@@ -29,12 +29,12 @@ ms.locfileid: "65032900"
 
 
 > [!TIP]
-> 기술 정의 및 수행할 수 있는 작업에 대한 자세한 내용은 [Cortana Skill 키트][CortanaGetStarted]를 참조하세요.
+> 기술 정의 및 수행할 수 있는 작업에 대한 자세한 내용은 [Cortana 기술 키트][CortanaGetStarted]를 참조하세요.
 
-Bot Framework를 사용하여 Cortana 기술을 만드는 경우 Cortana 관련 지식이 거의 필요하지 않으며, 주로 봇 빌드로 이루어집니다. 이전에 만든 다른 봇과의 주요 차이점 중 하나는 Cortana에는 시각적 구성 요소와 오디오 구성 요소가 둘 다 포함된다는 것입니다. 시각적 구성 요소의 경우, Cortana는 카드 등의 콘텐츠 렌더링을 위한 캔버스 영역을 제공합니다. 오디오 구성 요소의 경우, 봇 메시지에 텍스트 또는 SSML을 제공하면 Cortana가 사용자에게 읽어주므로 봇에 음성을 제공합니다. 
+Bot Framework를 사용하여 Cortana Skill을 만드는 경우 Cortana 관련 지식이 거의 필요하지 않으며, 주로 봇 빌드로 이루어집니다. 이전에 만든 다른 봇과의 주요 차이점 중 하나는 Cortana에는 시각적 구성 요소와 오디오 구성 요소가 둘 다 포함된다는 것입니다. 시각적 구성 요소의 경우, Cortana는 카드 등의 콘텐츠 렌더링을 위한 캔버스 영역을 제공합니다. 오디오 구성 요소의 경우, 봇 메시지에 텍스트 또는 SSML을 제공하면 Cortana가 사용자에게 읽어주므로 봇에 음성을 제공합니다. 
 
 > [!NOTE]
-> Cortana는 다양한 디바이스에서 사용할 수 있습니다. 일부 장치에는 화면이 있고, 독립 실행형 스피커와 같은 장치에는 화면이 없을 수 있습니다. 봇이 두 시나리오를 모두 처리할 수 있도록 해야 합니다. 디바이스 정보를 확인하는 방법을 알아보려면 참조 [Cortana 관련 엔터티][CortanaSpecificEntities]를 참조하세요.
+> Cortana는 다양한 디바이스에서 사용할 수 있습니다. 일부 장치에는 화면이 있고, 독립 실행형 스피커와 같은 장치에는 화면이 없을 수 있습니다. 봇이 두 시나리오를 모두 처리할 수 있도록 해야 합니다. 디바이스 정보를 확인하는 방법을 알아보려면 [Cortana 특정 엔터티][CortanaSpecificEntities]를 참조하세요.
 
 ## <a name="adding-speech-to-your-bot"></a>봇에 음성 추가
 
@@ -84,12 +84,12 @@ reply.InputHint = InputHints.ExpectingInput;
 | 카드 형식 | 설명 |
 |----|----|
 | [HeroCard][heroCard] | 일반적으로 하나의 큰 이미지, 하나 이상의 단추 및 텍스트를 포함하는 카드입니다. |
-| [ThumbnailCard][thumbnailCard] | 일반적으로 하나의 미리 보기 이미지, 하나 이상의 단추 및 텍스트를 포함하는 카드입니다. |
-| [ReceiptCard][receiptCard] | 봇이 사용자에게 확인 메일을 제공할 수 있는 카드입니다. 일반적으로 확인 메일, 세금 및 총 정보에 포함할 항목 목록과 기타 텍스트를 포함합니다. |
-| [SignInCard][signinCard] | 봇이 사용자가 로그인하도록 요청할 수 있는 카드입니다. 일반적으로 사용자가 로그인 프로세스를 시작하기 위해 클릭할 수 있는 하나 이상의 단추와 텍스트를 포함합니다. |
+| [ThumbnailCard][thumbnailCard] | 일반적으로 하나의 썸네일 이미지, 하나 이상의 단추 및 텍스트를 포함하는 카드입니다. |
+| [ReceiptCard][receiptCard] | 봇이 사용자에게 수신 확인을 제공할 수 있는 카드입니다. 일반적으로 수신 확인, 세금 및 합계 정보에 포함할 항목 목록과 기타 텍스트를 포함합니다. |
+| [SignInCard][signinCard] | 봇이 사용자 로그인을 요청하는 데 사용되는 카드입니다. 일반적으로 사용자가 로그인 프로세스를 시작하기 위해 클릭할 수 있는 하나 이상의 단추와 텍스트를 포함합니다. |
 
 
-이러한 카드가 Cortana 내에서 어떻게 표시되는지 확인하려면 [카드 디자인 모범 사례][CardDesign]를 참조하세요. 봇에서 서식 있는 카드를 사용하는 방법의 예는 [메시지에 서식 있는 카드 첨부 파일 추가](bot-builder-dotnet-add-rich-card-attachments.md)를 참조하세요. 
+카드가 Cortana 내에서 어떻게 표시되는지 확인하려면 [카드 디자인 모범 사례][CardDesign]를 참조하세요. 봇에서 서식 있는 카드를 사용하는 방법의 예는 [메시지에 서식 있는 카드 첨부 파일 추가](bot-builder-dotnet-add-rich-card-attachments.md)를 참조하세요. 
 
 <!--
 The following code demonstrates how to add the `Speak` and `InputHint` properties to a message containing a `HeroCard`.
@@ -99,7 +99,7 @@ The following code demonstrates how to add the `Speak` and `InputHint` propertie
 ## <a name="sample-rollerskill"></a>샘플: RollerSkill
 다음 섹션의 코드는 주사위 굴리기에 대한 샘플 Cortana Skill에서 가져온 것입니다. [BotBuilder 샘플 리포지토리](https://github.com/Microsoft/BotBuilder-Samples/)에서 봇의 전체 코드를 다운로드합니다.
 
-Cortana에 해당 [호출 이름][InvocationNameGuidelines]을 말하여 기술을 호출합니다. 롤러 기술의 경우, [Cortana 채널에 봇을 추가][CortanaChannel]하고 Cortana Skill로 등록한 후 Cortana에 “Ask Roller” 또는 “Ask Roller to roll dice”라고 말해 기술을 호출할 수 있습니다.
+[호출 이름][InvocationNameGuidelines]을 to Cortana. For the roller skill, after you [add the bot to the Cortana channel][CortanaChannel]하고 Cortana 기술로 등록한 후 Cortana에 “Ask Roller” 또는 “Ask Roller to roll dice”라고 말해 기술을 호출할 수 있습니다.
 
 ### <a name="explore-the-code"></a>코드 탐색
 
@@ -328,7 +328,7 @@ Cortana에 해당 [호출 이름][InvocationNameGuidelines]을 말하여 기술�
 
 
 ## <a name="additional-resources"></a>추가 리소스
-* [Cortana Skill 키트][CortanaGetStarted]
+* [Cortana 기술 키트][CortanaGetStarted]
 * [메시지에 음성 추가](bot-builder-dotnet-text-to-speech.md)
 * [SSML 참조][SSMLRef]
 * [Cortana 음성 디자인 모범 사례][VoiceDesign]
@@ -341,7 +341,7 @@ Cortana에 해당 [호출 이름][InvocationNameGuidelines]을 말하여 기술�
 [BFPortal]: https://dev.botframework.com/
 
 [SSMLRef]: https://aka.ms/cortana-ssml
-[CortanaDevCenter]: https://developer.microsoft.com/en-us/cortana
+[CortanaDevCenter]: https://developer.microsoft.com/cortana
 
 [CortanaSpecificEntities]: https://aka.ms/lgvcto
 [CortanaAuth]: https://aka.ms/vsdqcj

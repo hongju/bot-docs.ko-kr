@@ -10,25 +10,29 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 05/23/2019
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 680d9148b463bbb5d10f4a6a06cc7b32b824b66e
-ms.sourcegitcommit: ea64a56acfabc6a9c1576ebf9f17ac81e7e2a6b7
+ms.openlocfilehash: 0f29520b993d12ce01c65cd29517b3a4b2aada84
+ms.sourcegitcommit: a295a90eac461f8b96770dd902ba44919acf33fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66215427"
+ms.lasthandoff: 06/26/2019
+ms.locfileid: "67404549"
 ---
 # <a name="implement-sequential-conversation-flow"></a>순차적 대화 흐름 구현
 
 [!INCLUDE[applies-to](../includes/applies-to.md)]
 
-질문을 제시하여 정보를 수집하는 것은 봇에서 사용자와 상호 작용하는 주요 방법 중 하나입니다. 대화 라이브러리를 사용하면 질문을 쉽게 할 수 있을 뿐만 아니라 특정 데이터 형식과 일치하거나 사용자 지정 유효성 검사 규칙을 충족하는지 확인하기 위해 응답의 유효성도 검사할 수 있습니다.
+질문을 제시하여 정보를 수집하는 것은 봇에서 사용자와 상호 작용하는 주요 방법 중 하나입니다. 대화 상자 라이브러리는 쉽게 질문하고 응답의 유효성을 검사하여 특정 데이터 형식과 일치하거나 사용자 지정 유효성 검사 규칙을 충족하는지 확인할 수 있는 ‘프롬프트’ 클래스 등의 유용한 기본 제공 기능을 제공합니다.  
 
 대화 상자 라이브러리를 사용하여 단순 및 복합 대화 흐름을 관리할 수 있습니다. 간단한 상호 작용에서 봇은 고정된 일련의 단계를 통해 실행되고 대화가 완료됩니다. 일반적으로 대화는 봇이 사용자로부터 정보를 수집해야 할 때 유용합니다. 이 항목에서는 프롬프트를 만들고 폭포 대화에서 호출하는 방식으로 간단한 대화 흐름을 구현하는 방법을 자세히 설명합니다. 
 
+> [!TIP]
+> 대화 상자 라이브러리를 사용하지 않고 사용자 고유의 프롬프트를 작성하는 방법의 예제는 [사용자 입력을 수집하기 위해 고유한 프롬프트 만들기](bot-builder-primitive-prompts.md)를 참조하세요. 
+
+
 ## <a name="prerequisites"></a>필수 조건
 
-- [봇 기본 사항][concept-basics], [상태 관리][concept-state] 및 [대화 라이브러리][concept-dialogs]에 대한 지식
-- [**CSharp**][cs-sample] 또는 [**JavaScript**][js-sample]로 작성된 **다중 순서 프롬프트** 샘플의 복사본
+- [봇 기본 사항][concept-basics], [managing state][concept-state] 및 [대화 상자 라이브러리][concept-dialogs]에 대한 지식
+- [**CSharp**][cs-sample] or [**JavaScript**][js-sample]로 작성된 **다중 순서 프롬프트** 샘플의 복사본
 
 ## <a name="about-this-sample"></a>이 샘플 정보
 
@@ -63,6 +67,8 @@ ms.locfileid: "66215427"
 [!code-csharp[Constructor snippet](~/../botbuilder-samples/samples/csharp_dotnetcore/05.multi-turn-prompt/Dialogs/UserProfileDialog.cs?range=22-41)]
 
 그런 다음, 대화가 사용하는 단계를 구현합니다. 프롬프트를 사용하려면 대화의 단계에서 호출하고 다음 단계에서 `stepContext.Result`를 사용하여 프롬프트 결과를 검색합니다. 프롬프트는 내부적으로 두 가지 단계로 수행되는 대화입니다. 먼저 프롬프트에서 입력을 요청하며, 다음으로 유효한 값을 반환하거나 유효한 입력을 수신할 때까지 다시 프롬프트를 사용하여 처음부터 다시 시작합니다.
+
+
 
 항상 폭포 단계에서 null이 아닌 `DialogTurnResult`를 반환해야 합니다. 그렇지 않으면 대화가 올바르게 작동하지 않을 수 있습니다. 다음은 폭포 대화의 `NameStepAsync` 구현입니다.
 

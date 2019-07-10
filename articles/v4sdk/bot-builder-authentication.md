@@ -7,18 +7,18 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: abs
-ms.date: 05/31/2019
+ms.date: 06/07/2019
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 89df62255c9ea6fbf55b2c7aed2d6f334d69c571
-ms.sourcegitcommit: e276008fb5dd7a37554e202ba5c37948954301f1
+ms.openlocfilehash: e708f6b556c832ed7f8858a893cc5fb0a8406ab2
+ms.sourcegitcommit: a295a90eac461f8b96770dd902ba44919acf33fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66693691"
+ms.lasthandoff: 06/26/2019
+ms.locfileid: "67404320"
 ---
 <!-- Related TODO:
-- Check code in [Web Chat channel](https://docs.microsoft.com/en-us/azure/bot-service/bot-service-channel-connect-webchat?view=azure-bot-service-4.0)
-- Check guidance in [DirectLine authentication](https://docs.microsoft.com/en-us/azure/bot-service/rest-api/bot-framework-rest-direct-line-3-0-authentication?view=azure-bot-service-4.0)
+- Check code in [Web Chat channel](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-webchat?view=azure-bot-service-4.0)
+- Check guidance in [DirectLine authentication](https://docs.microsoft.com/azure/bot-service/rest-api/bot-framework-rest-direct-line-3-0-authentication?view=azure-bot-service-4.0)
 -->
 
 <!-- General TODO: (Feedback from CSE (Nafis))
@@ -98,15 +98,15 @@ Azure 봇 리소스를 만들어야 하고 다음이 필요합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-- [봇 기본 사항][concept-basics], [상태 관리][concept-state], [대화 상자 라이브러리][concept-dialogs] 및 [순차적인 대화 흐름을 구현][simple-dialog]하는 방법 및 [대화 상자를 재사용][component-dialogs]하는 방법에 대한 지식이 필요합니다.
+- [봇 기본 사항][concept-basics], [managing state][concept-state], [대화 상자 라이브러리][concept-dialogs], [순차적인 대화 흐름을 구현][simple-dialog]하는 방법 , and how to [reuse dialogs][component-dialogs]에 대한 지식
 - Azure 및 OAuth 2.0 개발에 대한 지식
 - Visual Studio 2017 이상, Node.js, npm 및 git
 - 다음 샘플 중 하나
 
 | 샘플 | BotBuilder 버전 | 데모 |
 |:---|:---:|:---|
-| [**CSharp**][cs-auth-sample] 또는 [**JavaScript**][js-auth-sample]로 **봇 인증** | v4 | OAuthCard 지원 |
-| [**CSharp**][cs-msgraph-sample] 또는 [**JavaScript**][js-msgraph-sample]로 작성된 **봇 인증 MSGraph** | v4 |  Microsoft Graph API 지원과 OAuth 2 |
+| [**CSharp**][cs-auth-sample] or [**JavaScript**][js-auth-sample]의 **봇 인증** | v4 | OAuthCard 지원 |
+| [**CSharp**][cs-msgraph-sample] or [**JavaScript**][js-msgraph-sample]의 **봇 인증 MSGraph** | v4 |  Microsoft Graph API 지원과 OAuth 2 |
 
 ## <a name="create-your-bot-resource-on-azure"></a>Azure에서 봇 리소스 만들기
 
@@ -126,10 +126,10 @@ v1 및 v2 엔드포인트 간의 차이점에 대한 정보는 [v1-v2 비교](ht
 다음 단계에 따라 새 Azure AD 애플리케이션을 만듭니다. 만드는 앱에 v1 또는 v2 엔드포인트를 사용할 수 있습니다.
 
 > [!TIP]
-> Azure AD 애플리케이션을 만든 후 관리자 권한을 갖고 있는 테넌트에 등록해야 합니다.
+> 애플리케이션이 요청한 대리자 권한에 동의할 수 있는 테넌트에 Azure AD 애플리케이션을 만들고 등록해야 합니다.
 
-1. Azure Portal에서 [Azure Active Directory][azure-aad-blade] 채널을 엽니다.
-    올바른 테넌트에 있지 않은 경우 **디렉터리 전환**을 클릭하여 올바른 테넌트로 전환합니다. (테넌트를 만드는 방법에 대한 지침은 [포털에 액세스 및 테넌트 만들기](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)를 참조하세요.)
+1. Azure Portal에서 [Azure Active Directory][azure-aad-blade] 패널을 엽니다.
+    올바른 테넌트에 있지 않은 경우 **디렉터리 전환**을 클릭하여 올바른 테넌트로 전환합니다. (테넌트를 만드는 방법에 대한 지침은 [포털에 액세스 및 테넌트 만들기](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)를 참조하세요.)
 1. **앱 등록** 패널을 엽니다.
 1. **앱 등록** 패널에서 **새 등록**을 클릭합니다.
 1. 필수 필드를 입력하고 앱 등록을 만듭니다.
@@ -247,7 +247,7 @@ v1 및 v2 엔드포인트 간의 차이점에 대한 정보는 [v1-v2 비교](ht
 
 <!-- TODO: Add guidance (once we have it) on how not to hard-code IDs and ABS auth. -->
 
-1. GitHub 리포지토리에서 사용할 샘플을 복제합니다. [**봇 인증**][cs-auth-sample] 또는 [**봇 인증 MSGraph**][cs-msgraph-sample]를 복제합니다.
+1. GitHub 리포지토리에서 사용할 샘플을 복제합니다. [**봇 인증**][cs-auth-sample] or [**Bot authentication MSGraph**][cs-msgraph-sample].
 1. **appsettings.json** 업데이트:
 
     - `ConnectionName`을 봇에 추가한 OAuth 연결 설정의 이름으로 설정합니다.
@@ -259,7 +259,7 @@ v1 및 v2 엔드포인트 간의 차이점에 대한 정보는 [v1-v2 비교](ht
 
 # <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
-1. Github에서 작업할 리포지토리: [**봇 인증**][js-auth-sample] 또는 [**봇 인증 MSGraph**][js-msgraph-sample]를 복제합니다.
+1. Github에서 작업할 리포지토리: [**봇 인증**][js-auth-sample] or [**Bot authentication MSGraph**][js-msgraph-sample].
 1. **.env** 업데이트:
 
     - `connectionName`을 봇에 추가한 OAuth 연결 설정의 이름으로 설정합니다.

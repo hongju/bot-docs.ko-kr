@@ -10,12 +10,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 05/23/2019
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 4b2cd49d84ea90f0ac6449ce4da61495100d45c4
-ms.sourcegitcommit: ea64a56acfabc6a9c1576ebf9f17ac81e7e2a6b7
+ms.openlocfilehash: a72c103204384188d509777639c2c90e63431dd8
+ms.sourcegitcommit: 697a577d72aaf91a0834d4b4c2ef5aa11291f28f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66215360"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67496688"
 ---
 # <a name="send-and-receive-text-message"></a>문자 메시지 보내기 및 받기
 
@@ -24,6 +24,8 @@ ms.locfileid: "66215360"
 봇이 사용자와 커뮤니케이션하고 마찬가지로 커뮤니케이션을 수신하는 기본 방법은 **메시지** 활동입니다. 일부 메시지는 단순히 일반 텍스트로 구성되지만 다른 메시지는 카드나 첨부 파일 같이 서식이 더 많은 콘텐츠를 포함할 수 있습니다. 봇의 전환 처리기는 사용자로부터 메시지를 수신하고 거기서부터 사용자에게 응답을 보낼 수 있습니다. 전환 컨텍스트 개체는 메시지를 다시 사용자에게 보내기 위한 메서드를 제공합니다. 이 문서에서는 단문 메시지를 보내는 방법을 설명합니다.
 
 Markdown은 대부분의 텍스트 필드에 지원되지만 채널별로 지원이 다를 수 있습니다.
+
+실행 중인 봇 전송 및 수신 메시지의 경우, 목차 맨 위에 있는 빠른 시작을 따르거나 [봇 작동 방식에 대한 문서](bot-builder-basics.md#bot-structure)를 확인합니다. 이 문서에는 사용자가 직접 실행할 수 있는 간단한 샘플의 링크도 있습니다.
 
 ## <a name="send-a-text-message"></a>텍스트 메시지 보내기
 

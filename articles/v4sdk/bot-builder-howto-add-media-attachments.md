@@ -10,12 +10,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 05/23/2019
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: fd74dedcb048a7872a518618f8a9382e0585dbb5
-ms.sourcegitcommit: e276008fb5dd7a37554e202ba5c37948954301f1
+ms.openlocfilehash: 9478a3861b24746b4081ab2176486e59ccc7d4bc
+ms.sourcegitcommit: dbbfcf45a8d0ba66bd4fb5620d093abfa3b2f725
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66693683"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67464708"
 ---
 # <a name="add-media-to-messages"></a>메시지에 미디어 추가
 
@@ -31,7 +31,7 @@ ms.locfileid: "66693683"
 
 사용 가능한 카드의 예는 [사용자 환경 디자인](../bot-service-design-user-experience.md)을 참조하세요.
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+### <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 `Activity` 개체의 `Attachments` 속성에는 메시지에 첨부된 미디어 첨부 파일과 서식 있는 카드를 나타내는 `Attachment` 개체의 배열이 포함되어 있습니다. 메시지에 미디어 첨부 파일을 추가하려면 `reply` 작업(`CreateReply()` 작업을 통해 만들어짐)에 대한 `Attachment` 개체를 만들고 `ContentType`, `ContentUrl` 및 `Name` 속성을 설정합니다.
 
@@ -40,25 +40,24 @@ ms.locfileid: "66693683"
 회신 메시지를 만들려면 텍스트를 정의한 다음, 첨부 파일을 설정합니다. 첨부 파일을 회신에 할당하는 작업은 첨부 파일 유형마다 같지만 여러 첨부 파일은 다음 코드 조각에서 볼 수 있듯이 서로 다르게 설정 및 정의됩니다. 아래 코드는 인라인 첨부 파일에 대한 회신을 설정합니다.
 
 **Bots/AttachmentsBot.cs**  
-[!code-csharp[inline attachment](~/../botbuilder-samples/samples/csharp_dotnetcore/15.handling-attachments/Bots/AttachmentsBot.cs?range=108-109)]
+[!code-csharp[inline attachment](~/../botbuilder-samples/samples/csharp_dotnetcore/15.handling-attachments/Bots/AttachmentsBot.cs?range=105-106)]
 
 다음으로, 첨부 파일의 유형을 살펴봅니다. 먼저 인라인 첨부 파일입니다.
 
 **Bots/AttachmentsBot.cs**  
-[!code-csharp[inline attachment](~/../botbuilder-samples/samples/csharp_dotnetcore/15.handling-attachments/Bots/AttachmentsBot.cs?range=165-176)]
+[!code-csharp[inline attachment](~/../botbuilder-samples/samples/csharp_dotnetcore/15.handling-attachments/Bots/AttachmentsBot.cs?range=167-178)]
 
 다음으로 업로드된 첨부 파일입니다.
 
 **Bots/AttachmentsBot.cs**  
-[!code-csharp[uploaded attachment](~/../botbuilder-samples/samples/csharp_dotnetcore/15.handling-attachments/Bots/AttachmentsBot.cs?range=179-215)]
+[!code-csharp[uploaded attachment](~/../botbuilder-samples/samples/csharp_dotnetcore/15.handling-attachments/Bots/AttachmentsBot.cs?range=181-214)]
 
 마지막으로, 인터넷 첨부 파일입니다.
 
 **Bots/AttachmentsBot.cs**  
-[!code-csharp[online attachment](~/../botbuilder-samples/samples/csharp_dotnetcore/15.handling-attachments/Bots/AttachmentsBot.cs?range=218-227)]
+[!code-csharp[online attachment](~/../botbuilder-samples/samples/csharp_dotnetcore/15.handling-attachments/Bots/AttachmentsBot.cs?range=217-226)]
 
-
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+### <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 여기서 보여 주는 소스 코드는 [JS 첨부 파일 처리](https://aka.ms/bot-attachments-sample-code-js) 샘플을 기반으로 합니다.
 
@@ -95,16 +94,16 @@ ms.locfileid: "66693683"
 
 단순 이미지 또는 비디오 첨부 파일 외에도 **영웅 카드**를 첨부할 수 있습니다. 이 카드를 사용하면 이미지 및 단추를 하나의 개체로 결합하여 사용자에게 보낼 수 있습니다. Markdown은 대부분의 텍스트 필드에 지원되지만 채널별로 지원이 다를 수 있습니다.
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+### <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 영웅 카드와 단추가 있는 메시지를 작성하려면 `HeroCard`를 메시지에 첨부할 수 있습니다. 
 
 여기서 보여 주는 소스 코드는 [첨부 파일 처리](https://aka.ms/bot-attachments-sample-code) 샘플을 기반으로 합니다.
 
 **Bots/AttachmentsBot.cs**  
-[!code-csharp[Hero card](~/../botbuilder-samples/samples/csharp_dotnetcore/15.handling-attachments/Bots/AttachmentsBot.cs?range=39-62)]
+[!code-csharp[Hero card](~/../botbuilder-samples/samples/csharp_dotnetcore/15.handling-attachments/Bots/AttachmentsBot.cs?range=39-58)]
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+### <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 영웅 카드와 단추가 있는 메시지를 작성하려면 `HeroCard`를 메시지에 첨부할 수 있습니다. 
 
@@ -137,7 +136,7 @@ ms.locfileid: "66693683"
 
 다음 코드에서는 다양한 서식이 있는 카드 이벤트를 사용하는 예제를 보여 줍니다.
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+### <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 사용 가능한 모든 카드의 예는 [C# 카드 샘플](https://aka.ms/bot-cards-sample-code)을 참조하세요.
 
@@ -147,7 +146,7 @@ ms.locfileid: "66693683"
 **Cards.cs**  
 [!code-csharp[cards](~/../botbuilder-samples/samples/csharp_dotnetcore/06.using-cards/Cards.cs?range=91-100)]
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+### <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 사용 가능한 모든 카드의 예는 [JS 카드 샘플](https://aka.ms/bot-cards-js-sample-code)을 참조하세요.
 
@@ -168,10 +167,13 @@ ms.locfileid: "66693683"
 
 적응형 카드 채널 지원에 대한 최신 정보는 <a href="http://adaptivecards.io/designer/">적응형 카드 디자이너</a>를 참조하세요.
 
+적응형 카드를 사용하려면 `AdaptiveCards` NuGet 패키지를 추가해야 합니다. 
+
+
 > [!NOTE]
 > 해당 채널이 적응형 카드를 지원하는지 여부를 확인하려면 봇이 사용할 채널을 통해 이 기능을 테스트해야 합니다.
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+### <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 적응형 카드를 사용하려면 `AdaptiveCards` NuGet 패키지를 추가해야 합니다.
 
@@ -180,7 +182,7 @@ ms.locfileid: "66693683"
 **Cards.cs**  
 [!code-csharp[adaptive cards](~/../botbuilder-samples/samples/csharp_dotnetcore/06.using-cards/Cards.cs?range=13-25)]
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+### <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 적응형 카드를 사용하려면 `adaptivecards` npm 패키지를 추가해야 합니다.
 
@@ -202,7 +204,7 @@ ms.locfileid: "66693683"
 
 메시지는 첨부 파일을 나란히 배치하고 사용자가 스크롤할 수 있도록 하는 회전식 레이아웃에 여러 첨부 파일을 포함할 수도 있습니다.
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+### <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 여기서 보여 주는 소스 코드는 [카드 샘플](https://aka.ms/bot-cards-sample-code)을 기반으로 합니다.
 
@@ -214,14 +216,14 @@ ms.locfileid: "66693683"
 그런 다음, 첨부 파일을 추가합니다. 여기서는 한 번에 하나를 추가하지만 목록을 조작하여 원하는 만큼 카드를 추가할 수 있습니다.
 
 **Dialogs/MainDialog.cs**  
-[!code-csharp[carousel of cards](~/../botbuilder-samples/samples/csharp_dotnetcore/06.using-cards/Dialogs/MainDialog.cs?range=105-113)]
+[!code-csharp[carousel of cards](~/../botbuilder-samples/samples/csharp_dotnetcore/06.using-cards/Dialogs/MainDialog.cs?range=104-113)]
 
 첨부 파일이 추가되면 다른 것과 마찬가지로 회신을 보낼 수 있습니다.
 
 **Dialogs/MainDialog.cs**  
 [!code-csharp[carousel of cards](~/../botbuilder-samples/samples/csharp_dotnetcore/06.using-cards/Dialogs/MainDialog.cs?range=117-118)]
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+### <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 여기서 보여 주는 소스 코드는 [JS 카드 샘플](https://aka.ms/bot-cards-js-sample-code)을 기반으로 합니다.
 
@@ -247,6 +249,120 @@ ms.locfileid: "66693683"
 | 제안된 작업 | [C# 샘플](https://aka.ms/SuggestedActionsCSharp) | [JS 샘플](https://aka.ms/SuggestedActionsJS) |
 
 추가 샘플은 [GitHub](https://aka.ms/bot-samples-readme)의 Bot Builder 샘플 리포지토리를 참조하세요.
+
+### <a name="code-sample-for-processing-adaptive-card-input"></a>적응형 카드 입력 처리를 위한 코드 샘플
+
+이 샘플 코드는 봇 대화 상자 클래스 내에서 적응형 카드 입력을 사용하는 한 가지 방법을 보여 줍니다.
+응답 클라이언트에서 텍스트 필드를 통해 받은 입력의 유효성을 검사하여 현재 샘플 06.using-cards를 확장합니다.
+먼저 리소스 폴더에 있는 adaptiveCard.json의 최종 대괄호 바로 앞에 다음 코드를 추가하여 기존 적응형 카드에 텍스트 입력 및 단추 기능을 추가했습니다.
+
+```json
+  ,
+  "actions": [
+    {
+      "type": "Action.ShowCard",
+      "title": "Text",
+      "card": {
+      "type": "AdaptiveCard",
+      "body": [
+        {
+          "type": "Input.Text",
+          "id": "text",
+          "isMultiline": true,
+          "placeholder": "Enter your comment"
+        }
+      ],
+      "actions": [
+        {
+          "type": "Action.Submit",
+          "title": "OK"
+        }
+      ]
+    }
+  }
+]
+
+```
+
+입력 필드에 “텍스트” 레이블이 지정되었으므로, 적응형 카드에서 주석 텍스트 데이터를 Value.[text]로 첨부합니다.
+
+### <a name="ctabcsharp"></a>[C#](#tab/csharp)
+유효성 검사기에서 Newtonsoft.json을 사용하여 이 데이터를 JObject로 변환한 다음, 비교를 위해 잘린 텍스트 문자열을 만듭니다. 따라서 MainDialog.cs에 다음을 추가합니다.
+  ```csharp
+  using Newtonsoft.Json.Linq;
+  ```
+Newtonsoft.Json의 안정적인 최신 NuGet 패키지를 설치합니다.
+유효성 검사기 코드에서, 코드 주석에 논리 흐름을 추가했습니다. 06.using-cards 샘플에서 MainDialog 선언의 닫힌 중괄호 public 바로 뒤에 다음 ChoiceValidator() 코드가 배치되었습니다.
+
+```csharp
+private async Task ChoiceValidator(
+  PromptValidatorContext promptContext,
+  CancellationToken cancellationToken)
+  {
+    // Retrieves Adaptive Card comment text as JObject.
+    // looks for JObject field "text" and converts that input into a trimmed text string.
+    var jobject = promptContext.Context.Activity.Value as JObject;
+    var jtoken = jobject?["text"];
+    var text = jtoken?.Value().Trim();
+    // Logic: 1. if succeeded = true, just return promptContext
+    //        2. if false, see if JObject contained Adaptive Card input.
+    //               No = (bad input) return promptContext
+    //               Yes = update Value field with JObject text string, return "true".
+    if (!promptContext.Recognized.Succeeded && text != null)
+    {
+       var choice = promptContext.Options.Choices.FirstOrDefault(
+       c => c.Value.Equals(text, StringComparison.InvariantCultureIgnoreCase));
+       if (choice != null)
+       {
+           promptContext.Recognized.Value = new FoundChoice
+            {
+               Value = choice.Value,
+             };
+            return true;
+       }
+    }
+    return promptContext.Recognized.Succeeded;
+  }
+```
+
+이제 위의 MainDialog 선언에 있는 다음 코드가 아래와 같이 변경됩니다.
+  ```csharp
+  // Define the main dialog and its related components.
+  AddDialog(new ChoicePrompt(nameof(ChoicePrompt)));
+  ```
+to:
+  ```csharp
+  // Define the main dialog and its related components.
+  AddDialog(new ChoicePrompt(nameof(ChoicePrompt), ChoiceValidator));
+  ```
+그러면 새 ChoicePrompt가 생성될 때마다 유효성 검사기가 적응형 카드 입력을 찾습니다.
+
+### <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+mainDialog.js를 열고 실행 메서드 _async run(turnContext, accessor)_ 를 찾습니다. 이 메서드는 들어오는 활동을 처리합니다.
+_dialogSet.add(this);_ 호출 바로 뒤에 다음을 추가합니다.
+```JavaScript
+  // The following check looks for a non-existant text input
+  // plus Adaptive Card input in _activity.value.text
+  // If both conditions exist, the Activity Card text 
+  // is copied into the text input field.
+  if(turnContext._activity.text == null
+      && turnContext._activity.value.text != null)
+   {
+      this.logger.log('replacing null text with Activity Card text input');
+      turnContext._activity.text = turnContext._activity.value.text;
+   }
+```
+이 검사는 클라이언트의 텍스트 입력이 없는 것을 발견할 경우 적응형 카드의 입력이 있는지 확인합니다.
+\_activity.value.text에 적응형 카드 입력이 있으면 이 입력을 일반 텍스트 입력 필드에 복사합니다.
+
+---
+
+코드를 테스트하려면 적응형 카드가 표시된 후 “텍스트” 단추를 클릭하고 “영웅 카드” 등의 유효한 선택 항목을 입력한 다음, “확인” 단추를 클릭합니다.
+
+![적응형 카드 테스트](media/adaptive-card-input.png)
+
+1. 첫 번째 입력은 새 대화 상자를 시작하는 데 사용됩니다.
+2. “확인” 단추를 다시 클릭하면 이 입력이 새 카드를 선택하는 데 사용됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

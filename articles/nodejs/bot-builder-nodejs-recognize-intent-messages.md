@@ -9,12 +9,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 211800211b422bb9c90c00705585be89737c77a9
-ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
+ms.openlocfilehash: e308445a43507db94fe54735432790dabdb88731
+ms.sourcegitcommit: a295a90eac461f8b96770dd902ba44919acf33fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54225558"
+ms.lasthandoff: 06/26/2019
+ms.locfileid: "67404856"
 ---
 # <a name="recognize-user-intent-from-message-content"></a>메시지 콘텐츠에서 사용자 의도 인식
 
@@ -36,7 +36,7 @@ ms.locfileid: "54225558"
 
 [!code-js[Add a regular expression recognizer (JavaScript)](../includes/code/node-regex-recognizer.js#addRegexRecognizer)]
 
-인식기가 봇에 추가되면 인식기가 의도를 검색할 때 봇이 호출하도록 하려는 대화 상자에 [triggerAction][triggerAction]을 연결합니다. [일치][matches] 옵션을 사용하여 다음 코드에 표시된 대로 의도 이름을 지정합니다.
+봇에 인식기가 추가되면 [triggerAction][triggerAction]을 to the dialog that you want the bot to invoke when the recognizer detects the intent. Use the [matches][matches] 옵션을 사용하여 다음 코드와 같이 의도 이름을 지정할 수 있습니다.
 
 [!code-js[Map the CancelIntent recognizer to a cancel dialog (JavaScript)](../includes/code/node-regex-recognizer.js#bindCancelDialogToRegexRecognizer)]
 
@@ -59,12 +59,12 @@ ms.locfileid: "54225558"
 
 봇은 둘 이상의 인식기를 등록할 수 있습니다. 사용자 지정 인식기 예제에는 각 의도에 숫자 점수를 할당하는 것이 포함됩니다. 이는 봇에 둘 이상의 인식기가 있을 수도 있기 때문에 수행되며, Bot Framework SDK는 여러 인식기에서 반환되는 의도들을 명확히 구분하는 기본 제공 논리를 제공합니다. 의도에 할당된 점수는 일반적으로 0.0과 1.0 사이지만, 의도가 항상 Bot Framework SDK의 명확성 논리에 의해 선택되도록 사용자 지정 인식기가 1.1보다 큰 수를 의도에 할당할 수도 있습니다. 
 
-기본적으로 인식기는 병렬로 실행되나, [IIntentRecognizerSetOptions][IntentRecognizerSetOptions]에서 recognizeOrder를 1.0의 점수를 주는 인식기를 발견하는 즉시 프로세스가 종료되도록 설정할 수 있습니다.
+기본적으로 인식기는 병렬로 실행되나, 봇이 1.0의 점수를 주는 인식기를 발견하는 즉시 프로세스가 종료되도록 [IIntentRecognizerSetOptions][IntentRecognizerSetOptions]의 recognizeOrder를 설정할 수 있습니다.
 
-Bot Framework SDK에는 [IDisambiguateRouteHandler][IDisambiguateRouteHandler] 구현으로 봇에 사용자 지정 명확성 논리를 제공하는 방법을 설명하는 [샘플][DisambiguationSample]이 포함되어 있습니다.
+Bot Framework SDK에는 that demonstrates how to provide custom disambiguation logic in your bot by implementing [IDisambiguateRouteHandler][IDisambiguateRouteHandler] [샘플][DisambiguationSample]이 포함되어 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-정규식을 사용하고 메시지 콘텐츠를 검사하기 위한 논리는 특히 봇의 대화형 흐름이 개방형일 경우 복잡해질 수 있습니다. 봇이 사용자의 텍스트 및 음성 입력을 더 광범위하게 처리하도록 하려면 [LUIS][LUIS]와 같은 의도 인식 서비스를 사용하여 자연어 인식을 봇에 추가할 수 있습니다.
+정규식을 사용하고 메시지 콘텐츠를 검사하기 위한 논리는 특히 봇의 대화형 흐름이 개방형일 경우 복잡해질 수 있습니다. 봇이 사용자의 텍스트 및 음성 입력을 더 광범위하게 처리하도록 하려면 [LUIS][LUIS]와 같은 의도 인식 서비스를 사용하여 자연어 해석을 봇에 추가할 수 있습니다.
 
 > [!div class="nextstepaction"]
 > [LUIS를 사용한 의도 및 엔터티 인식](bot-builder-nodejs-recognize-intent-luis.md)
@@ -72,28 +72,28 @@ Bot Framework SDK에는 [IDisambiguateRouteHandler][IDisambiguateRouteHandler] �
 
 [LUIS]: https://www.luis.ai/
 
-[triggerAction]: https://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.dialog.html#triggeraction
+[triggerAction]: https://docs.botframework.com/node/builder/chat-reference/classes/_botbuilder_d_.dialog.html#triggeraction
 
-[matches]: https://docs.botframework.com/en-us/node/builder/chat-reference/interfaces/_botbuilder_d_.itriggeractionoptions.html#matches
+[matches]: https://docs.botframework.com/node/builder/chat-reference/interfaces/_botbuilder_d_.itriggeractionoptions.html#matches
 
 [node-js-bot-how-to]: bot-builder-nodejs-recognize-intent-luis.md
 
 [LUISAzureDocs]: /azure/cognitive-services/LUIS/Home
 
-[IMessage]: http://docs.botframework.com/en-us/node/builder/chat-reference/interfaces/_botbuilder_d_.imessage
+[IMessage]: http://docs.botframework.com/node/builder/chat-reference/interfaces/_botbuilder_d_.imessage
 
-[IntentRecognizerSetOptions]: https://docs.botframework.com/en-us/node/builder/chat-reference/interfaces/_botbuilder_d_.iintentrecognizersetoptions.html
+[IntentRecognizerSetOptions]: https://docs.botframework.com/node/builder/chat-reference/interfaces/_botbuilder_d_.iintentrecognizersetoptions.html
 
-[LuisRecognizer]: https://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.luisrecognizer
+[LuisRecognizer]: https://docs.botframework.com/node/builder/chat-reference/classes/_botbuilder_d_.luisrecognizer
 
 [LUISSample]: https://aka.ms/v3-js-luisSample
 
-[LUISConcepts]: https://docs.botframework.com/en-us/node/builder/guides/understanding-natural-language/
+[LUISConcepts]: https://docs.botframework.com/node/builder/guides/understanding-natural-language/
 
 [DisambiguationSample]: https://aka.ms/v3-js-onDisambiguateRoute
 
-[IDisambiguateRouteHandler]: https://docs.botframework.com/en-us/node/builder/chat-reference/interfaces/_botbuilder_d_.idisambiguateroutehandler.html
+[IDisambiguateRouteHandler]: https://docs.botframework.com/node/builder/chat-reference/interfaces/_botbuilder_d_.idisambiguateroutehandler.html
 
-[RegExpRecognizer]: https://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.regexprecognizer.html
+[RegExpRecognizer]: https://docs.botframework.com/node/builder/chat-reference/classes/_botbuilder_d_.regexprecognizer.html
 
 [AlarmBot]: https://aka.ms/v3-js-luisSample

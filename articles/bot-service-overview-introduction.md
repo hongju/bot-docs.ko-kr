@@ -8,12 +8,12 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.date: 05/05/2019
-ms.openlocfilehash: 569438e43a64a96239f7d9e490563498e7f6f279
-ms.sourcegitcommit: 3e3c9986b95532197e187b9cc562e6a1452cbd95
+ms.openlocfilehash: b3c0efb243cc5b039034f908a46557e960adb7b0
+ms.sourcegitcommit: dbbfcf45a8d0ba66bd4fb5620d093abfa3b2f725
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65039770"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67464560"
 ---
 # <a name="about-azure-bot-service"></a>Azure Bot Service 정보
 

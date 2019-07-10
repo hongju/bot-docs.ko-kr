@@ -10,12 +10,12 @@ ms.service: bot-service
 ms.subservice: abs
 ms.date: 05/23/2019
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 966e1b6e884486ddc3d57bea0a52ee07ac982346
-ms.sourcegitcommit: ea64a56acfabc6a9c1576ebf9f17ac81e7e2a6b7
+ms.openlocfilehash: 73a675c6e54d676f74dad2df24b3668d5e4e98be
+ms.sourcegitcommit: a47183f5d1c2b2454c4a06c0f292d7c075612cdd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66214320"
+ms.lasthandoff: 06/19/2019
+ms.locfileid: "67252373"
 ---
 ## <a name="use-direct-line-speech-in-your-bot"></a>봇에서 Direct Line Speech 사용 
 
@@ -74,7 +74,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-7. 여전히 Startup.cs에 있으면서 ConfigureServices 메서드의 아래쪽으로 이동합니다. app.UseMvc(); 호출의 앞에 app.UseWebSockets();를 추가합니다(이는 Use 호출의 순서에 관한 사항이므로 중요함). 메서드의 끝이 아래와 같아야 합니다.
+7. 여전히 Startup.cs에서 Configure 메서드의 맨 아래로 이동합니다. app.UseMvc(); 호출의 앞에 app.UseWebSockets();를 추가합니다(이는 Use 호출의 순서에 관한 사항이므로 중요함). 메서드의 끝이 아래와 같아야 합니다.
 
 ```cs
 public void Configure(IApplicationBuilder app, IHostingEnvironment env)

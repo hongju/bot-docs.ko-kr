@@ -8,12 +8,12 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.date: 2/26/2019
-ms.openlocfilehash: 307a6bf697e274391336a0d216c64da85232616d
-ms.sourcegitcommit: f84b56beecd41debe6baf056e98332f20b646bda
+ms.openlocfilehash: 0e548700e81fff5029031fd1e349cc75d9d0bc7a
+ms.sourcegitcommit: dbbfcf45a8d0ba66bd4fb5620d093abfa3b2f725
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2019
-ms.locfileid: "65033310"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67464637"
 ---
 # <a name="debug-with-the-emulator"></a>에뮬레이터를 사용하여 디버그
 
@@ -26,9 +26,13 @@ Bot Framework Emulator는 봇 개발자가 로컬 또는 원격으로 봇을 테
 
 ![에뮬레이터 UI](media/emulator-v4/emulator-welcome.png)
 
-로컬로 실행되는 봇에 연결하려면 **봇 열기**를 클릭하거나 미리 구성한 구성 파일(.bot 파일)을 선택합니다. 봇 연결에 구성 파일이 필요한 것은 아니지만 구성 파일이 있다면 에뮬레이터가 해당 파일에서 작동합니다. 봇이 MSA(Microsoft 계정) 자격 증명으로 실행 중이라면 이 자격 증명도 입력합니다.
+로컬로 실행되는 봇에 연결하려면 **봇 열기**를 클릭하거나 미리 구성한 구성 파일(.bot 파일)을 선택합니다. 봇 연결에 구성 파일이 필요한 것은 아니지만 구성 파일이 있다면 에뮬레이터가 해당 파일에서 작동합니다. [MSA(Microsoft 계정) 자격 증명](#use-bot-credentials)을 사용하여 봇을 실행하는 경우 이 자격 증명도 입력합니다.
 
 ![에뮬레이터 UI](media/emulator-v4/emulator-open-bot.png)
+
+### <a name="use-bot-credentials"></a>봇 자격 증명 사용
+
+봇을 열 때, 자격 증명을 사용하여 봇을 실행하는 경우 **Microsoft 앱 ID**와 **Microsoft 앱 암호**를 설정합니다. Azure Bot Service를 사용하여 봇을 만든 경우에는 봇 App Service의 **설정 -> 구성** 섹션에서 자격 증명을 확인할 수 있습니다. 값을 모르는 경우 로컬에서 실행 중인 봇의 구성 파일을 제거한 다음, 에뮬레이터에서 봇을 실행할 수 있습니다. 이러한 설정에서 봇이 실행되지 않으면, 해당 설정으로 에뮬레이터를 실행할 필요도 없습니다. 
 
 ## <a name="view-detailed-message-activity-with-the-inspector"></a>검사기를 사용 하여 자세한 메시지 활동 보기
 
@@ -38,11 +42,11 @@ Bot Framework Emulator는 봇 개발자가 로컬 또는 원격으로 봇을 테
 
 ## <a name="save-and-load-conversations-with-bot-transcripts"></a>봇 기록으로 대화 저장 및 로드
 
-에뮬레이터의 활동은 기록으로 저장할 수 있습니다. 열려 있는 라이브 채팅 창에서 기록 파일에 **기록으로 저장**을 선택합니다. 언제든 **다시 시작** 단추를 사용하여 대화를 지우고 봇 연결을 다시 시작할 수 있습니다.  
+에뮬레이터의 활동은 기록으로 저장할 수 있습니다. 열려 있는 라이브 채팅 창에서 기록 파일에 **다른 이름으로 기록 저장**을 선택합니다. 언제든 **다시 시작** 단추를 사용하여 대화를 지우고 봇 연결을 다시 시작할 수 있습니다.  
 
-![에뮬레이터 - 기록 저장 ](media/emulator-v4/emulator-save-transcript.png)
+![에뮬레이터 - 기록 저장](media/emulator-v4/emulator-save-transcript.png)
 
-기록을 로드하려면 **파일 > 기록 파일 열기**를 선택하고 기록을 선택하면 됩니다. 새 기록 창이 열리고 메시지 활동을 출력 창에 렌더링합니다. 
+기록을 로드하려면 **파일 > 기록 파일 열기**를 선택하고 해당 기록을 선택하면 됩니다. 새 기록 창이 열리고 메시지 활동을 출력 창에 렌더링합니다. 
 
 ![에뮬레이터 - 기록 로드](media/emulator-v4/emulator-load-transcript.png)
 
@@ -118,7 +122,7 @@ Azure 계정에 로그인하는 데 에뮬레이터를 사용할 수 있습니�
 
 ## <a name="additional-resources"></a>추가 리소스
 
-Bot Framework Emulator는 오픈 소스입니다. [버그 및 제안을 제출][EmulatorGithubBugs]하여 개발에 [기여][EmulatorGithubContribute]할 수 있습니다.
+Bot Framework Emulator는 오픈 소스입니다. 개발에 [기여][EmulatorGithubContribute]하고 to the development and [submit bugs and suggestions][EmulatorGithubBugs]할 수 있습니다.
 
 문제를 해결하려면 [일반 문제 해결](bot-service-troubleshoot-bot-configuration.md) 및 해당 섹션의 다른 문제 해결 문서를 참조하세요.
 

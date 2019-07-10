@@ -9,12 +9,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: e3bf4a6868702f24af08e69d5f07c036082ec3b6
-ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
+ms.openlocfilehash: cba67dc4da5a0b505b4f91f9cbf7fbc0a47b8974
+ms.sourcegitcommit: a295a90eac461f8b96770dd902ba44919acf33fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54225238"
+ms.lasthandoff: 06/26/2019
+ms.locfileid: "67404799"
 ---
 # <a name="add-rich-card-attachments-to-messages"></a>메시지에 서식 있는 카드 첨부 파일 추가
 
@@ -38,8 +38,8 @@ Bot Framework는 현재 8가지 형식의 서식 있는 카드를 지원합니�
 | [오디오 카드][audioCard] | 오디오 파일을 재생할 수 있는 카드입니다. |
 | [영웅 카드][heroCard] | 일반적으로 하나의 큰 이미지, 하나 이상의 단추 및 텍스트를 포함하는 카드입니다. |
 | [썸네일 카드][thumbnailCard] | 일반적으로 하나의 썸네일 이미지, 하나 이상의 단추 및 텍스트를 포함하는 카드입니다.|
-| [수신 확인 카드][receiptCard] | 봇이 사용자에게 수신 확인을 제공할 수 있는 카드입니다. 일반적으로 확인 메일, 세금 및 총 정보에 포함할 항목 목록과 기타 텍스트를 포함합니다. |
-| [로그인 카드][signinCard] | 봇이 사용자가 로그인하도록 요청할 수 있는 카드입니다. 일반적으로 사용자가 로그인 프로세스를 시작하기 위해 클릭할 수 있는 하나 이상의 단추와 텍스트를 포함합니다. |
+| [수신 확인 카드][receiptCard] | 봇이 사용자에게 수신 확인을 제공할 수 있는 카드입니다. 일반적으로 수신 확인, 세금 및 합계 정보에 포함할 항목 목록과 기타 텍스트를 포함합니다. |
+| [로그인 카드][signinCard] | 봇이 사용자 로그인을 요청하는 데 사용되는 카드입니다. 일반적으로 사용자가 로그인 프로세스를 시작하기 위해 클릭할 수 있는 하나 이상의 단추와 텍스트를 포함합니다. |
 | [비디오 카드][videoCard] | 비디오를 재생할 수 있는 카드입니다. |
 
 ## <a name="send-a-carousel-of-hero-cards"></a>회전식 Hero 카드 보내기
@@ -78,7 +78,7 @@ bot.dialog('showShirts', function (session) {
 }).triggerAction({ matches: /^(show|list)/i });
 ```
 이 예제에서는 [Message][Message] 클래스를 사용하여 회전식 보기를 빌드합니다.  
-회전식 보기는 품목 구매를 트리거하는 이미지, 텍스트 및 단일 단추가 포함된 [HeroCard][heroCard] 목록으로 구성됩니다.  
+회전식 보기는 항목 구매를 유도하는 이미지, 텍스트 및 단일 단추가 포함된 [HeroCard][heroCard] 목록으로 구성됩니다.  
 **Buy** 단추를 클릭하면 메시지 전송이 트리거되므로 단추 클릭을 가져오는 두 번째 다이얼로그를 추가해야 합니다. 
 
 ## <a name="handle-button-input"></a>단추 입력 처리
@@ -149,7 +149,7 @@ bot.dialog('buyButtonClick', [
 To learn more about sending a typing indicator, see [How to send a typing indicator](bot-builder-nodejs-send-typing-indicator.md).
 -->
 
-Bot Framework는 봇의 여러 메시지가 뒤죽박죽 표시되는 경우를 방지하기 위해 일괄 처리를 구현합니다. <!-- Unfortunately, not all channels can guarantee this. --> 봇이 사용자에게 여러 응답을 보내면 개별 메시지가 자동으로 일괄 처리로 그룹화되어 사용자에게 집합으로 전달되므로 메시지의 원래 순서가 유지될 수 있습니다. 이러한 자동 일괄 처리는 **session.send()** 를 호출할 때마다 기본적으로 250ms 동안 대기했다가 다음 **send()** 호출을 시작합니다.
+Bot Framework는 봇의 여러 메시지가 뒤죽박죽 표시되는 경우를 방지하기 위해 일괄 처리를 구현합니다. <!-- Unfortunately, not all channels can guarantee this. --> 봇이 사용자에게 여러 응답을 보내면 개별 메시지가 자동으로 일괄 처리로 그룹화되어 사용자에게 세트로 전달되므로 메시지의 원래 순서를 유지할 수 있습니다. 이러한 자동 일괄 처리는 **session.send()** 를 호출할 때마다 기본적으로 250ms 동안 대기했다가 다음 **send()** 호출을 시작합니다.
 
 메시지 일괄 처리 지연은 구성할 수 있습니다. SDK의 자동 일괄 처리 논리를 사용하지 않도록 설정하려면 기본 지연을 큰 수로 설정하고, 콜백으로 **sendBatch()** 를 수동으로 호출하여 일괄 처리가 전달된 후에 호출되도록 합니다.
 
@@ -178,25 +178,25 @@ Node.js를 사용하여 적응형 카드를 만들려면 <a href="http://adaptiv
 * [ReceiptCard][receiptCard]
 * [SigninCard][signinCard]
 * [VideoCard][videoCard]
-* [Message][Message]
+* [메시지][Message]
 * [첨부 파일을 보내는 방법](bot-builder-nodejs-send-receive-attachments.md)
 
 [MessageOrder]: bot-builder-nodejs-manage-conversation-flow.md#message-ordering
-[Message]: https://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.message
-[IMessage]: http://docs.botframework.com/en-us/node/builder/chat-reference/interfaces/_botbuilder_d_.imessage
+[Message]: https://docs.botframework.com/node/builder/chat-reference/classes/_botbuilder_d_.message
+[IMessage]: http://docs.botframework.com/node/builder/chat-reference/interfaces/_botbuilder_d_.imessage
 
-[animationCard]: https://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.animationcard.html 
+[animationCard]: https://docs.botframework.com/node/builder/chat-reference/classes/_botbuilder_d_.animationcard.html 
 
-[audioCard]: https://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.audiocard.html 
+[audioCard]: https://docs.botframework.com/node/builder/chat-reference/classes/_botbuilder_d_.audiocard.html 
 
-[heroCard]: https://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.herocard.html
+[heroCard]: https://docs.botframework.com/node/builder/chat-reference/classes/_botbuilder_d_.herocard.html
 
-[thumbnailCard]: https://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.thumbnailcard.html 
+[thumbnailCard]: https://docs.botframework.com/node/builder/chat-reference/classes/_botbuilder_d_.thumbnailcard.html 
 
-[receiptCard]: https://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.receiptcard.html 
+[receiptCard]: https://docs.botframework.com/node/builder/chat-reference/classes/_botbuilder_d_.receiptcard.html 
 
-[signinCard]: https://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.signincard.html 
+[signinCard]: https://docs.botframework.com/node/builder/chat-reference/classes/_botbuilder_d_.signincard.html 
 
-[videoCard]: https://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.videocard.html
+[videoCard]: https://docs.botframework.com/node/builder/chat-reference/classes/_botbuilder_d_.videocard.html
 
 [inspector]: ../bot-service-channel-inspector.md

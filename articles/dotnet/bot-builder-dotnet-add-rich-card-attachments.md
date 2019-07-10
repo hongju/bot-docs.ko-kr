@@ -9,12 +9,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 5a6fc63005797a1c645de7506a8f15df2dcd0557
-ms.sourcegitcommit: b94361234816e6b95459f142add936732fc40344
+ms.openlocfilehash: 51bdc5e52bd147747e9d068fc4721ca4b782ef27
+ms.sourcegitcommit: dbbfcf45a8d0ba66bd4fb5620d093abfa3b2f725
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54317678"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67464514"
 ---
 # <a name="add-rich-card-attachments-to-messages"></a>메시지에 서식 있는 카드 첨부 파일 추가
 
@@ -25,7 +25,9 @@ ms.locfileid: "54317678"
 > - [Node.JS](../nodejs/bot-builder-nodejs-send-rich-cards.md)
 > - [REST (영문)](../rest-api/bot-framework-rest-connector-add-rich-cards.md)
 
-사용자와 봇 간의 메시지 교환에는 목록 또는 회전식으로 렌더링되는 하나 이상의 서식 있는 카드가 포함될 수 있습니다. <a href="https://docs.botframework.com/en-us/csharp/builder/sdkreference/dc/d2f/class_microsoft_1_1_bot_1_1_connector_1_1_activity.html" target="_blank">작업</a> 개체의 `Attachments` 속성에는 메시지 내의 서식 있는 카드 및 미디어 첨부 파일을 나타내는 <a href="https://docs.microsoft.com/en-us/dotnet/api/microsoft.bot.connector.attachments?view=botconnector-3.12.2.4" target="_blank">첨부 파일</a> 개체의 배열이 포함되어 있습니다. 
+사용자와 봇 간의 메시지 교환에는 목록 또는 회전식으로 렌더링되는 하나 이상의 서식 있는 카드가 포함될 수 있습니다. 
+
+<a href="https://docs.botframework.com/csharp/builder/sdkreference/dc/d2f/class_microsoft_1_1_bot_1_1_connector_1_1_activity.html" target="_blank">작업</a> 개체의 `Attachments` 속성에는 메시지 내의 서식 있는 카드 및 미디어 첨부 파일을 나타내는 <a href="https://docs.microsoft.com/dotnet/api/microsoft.bot.connector.attachments?view=botconnector-3.12.2.4" target="_blank">첨부 파일</a> 개체의 배열이 포함되어 있습니다. 
 
 > [!NOTE]
 > 미디어 첨부 파일을 메시지에 추가하는 방법에 대한 자세한 내용은 [메시지에 미디어 첨부 파일 추가](bot-builder-dotnet-add-media-attachments.md)를 참조하세요.
@@ -52,12 +54,12 @@ Bot Framework는 현재 8가지 형식의 서식 있는 카드를 지원합니�
 
 서식 있는 카드 내에서 이벤트를 처리하려면 `CardAction` 개체를 정의하여 사용자가 단추를 클릭하거나 카드의 섹션을 탭할 때 수행되어야 하는 작업을 지정합니다. 각 `CardAction` 개체는 다음 속성을 포함합니다.
 
-| 자산 | type | 설명 | 
+| 자산 | Type | 설명 | 
 |----|----|----|
-| type | string | 작업 형식(아래 표에 지정된 값 중 하나) |
-| 제목 | string | 단추 제목 |
-| 이미지 | string | 단추의 이미지 URL |
-| 값 | string | 지정된 형식의 작업을 수행하는 데 필요한 값 |
+| Type | 문자열 | 작업 형식(아래 표에 지정된 값 중 하나) |
+| 제목 | 문자열 | 단추 제목 |
+| 이미지 | 문자열 | 단추의 이미지 URL |
+| 값 | 문자열 | 지정된 형식의 작업을 수행하는 데 필요한 값 |
 
 > [!NOTE]
 > 적응형 카드 내의 단추를 만들 때는 `CardAction` 개체를 사용하는 대신, <a href="http://adaptivecards.io" target="_blank">적응형 카드</a>에서 정의한 스키마를 사용합니다. 적응형 카드에 단추를 추가하는 방법을 보여 주는 예제는 [메시지에 적응형 카드 추가](#adaptive-card)를 참조하세요.
@@ -129,8 +131,8 @@ Bot Framework는 현재 8가지 형식의 서식 있는 카드를 지원합니�
 - [작업 개요](bot-builder-dotnet-activities.md)
 - [메시지 만들기](bot-builder-dotnet-create-messages.md)
 - [메시지에 미디어 첨부 파일 추가](bot-builder-dotnet-add-media-attachments.md)
-- <a href="https://docs.botframework.com/en-us/csharp/builder/sdkreference/dc/d2f/class_microsoft_1_1_bot_1_1_connector_1_1_activity.html" target="_blank">작업 클래스</a>
-- <a href="https://docs.microsoft.com/en-us/dotnet/api/microsoft.bot.connector.attachments?view=botconnector-3.12.2.4" target="_blank">첨부 파일 클래스</a>
+- <a href="https://docs.botframework.com/csharp/builder/sdkreference/dc/d2f/class_microsoft_1_1_bot_1_1_connector_1_1_activity.html" target="_blank">작업 클래스</a>
+- <a href="https://docs.microsoft.com/dotnet/api/microsoft.bot.connector.attachments?view=botconnector-3.12.2.4" target="_blank">첨부 파일 클래스</a>
 
 [animationCard]: /dotnet/api/microsoft.bot.connector.animationcard
 

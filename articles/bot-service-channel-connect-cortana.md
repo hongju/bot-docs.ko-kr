@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
 ms.date: 04/30/2018
-ms.openlocfilehash: 6bb4945801ee127cfa954289792987a57eae7fd5
-ms.sourcegitcommit: f84b56beecd41debe6baf056e98332f20b646bda
+ms.openlocfilehash: 3df9d22b486e56547452cc5bce4add3946f670f5
+ms.sourcegitcommit: a295a90eac461f8b96770dd902ba44919acf33fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2019
-ms.locfileid: "65032993"
+ms.lasthandoff: 06/26/2019
+ms.locfileid: "67405931"
 ---
 # <a name="connect-a-bot-to-cortana"></a>Cortana에 봇 연결
 
@@ -32,9 +32,11 @@ Cortana 채널에 봇을 연결할 때 봇에 대한 일부 기본 정보가 등
 |------|------|
 | **스킬 아이콘** | 스킬이 호출될 때 Cortana 캔버스에 표시되는 아이콘입니다. 스킬을 검색 가능한 위치(예: Microsoft 스토어)에서도 사용됩니다. (최대 32KB, PNG만 해당)|
 | **표시 이름** | Cortana 스킬의 이름은 시각적 UI의 맨 위에 표시됩니다. (30자 제한) |
-| **호출 이름** | 스킬을 호출할 때 사용자가 말하는 이름입니다. 3단어 이하이며 발음하기 쉬워야 합니다. 이 이름의 선택 방법에 대한 자세한 내용은 [호출 이름 지침][invocation]을 참조하세요.|
+| **호출 이름** | 스킬을 호출할 때 사용자가 말하는 이름입니다. 3단어 이하이며 발음하기 쉬워야 합니다. 이 이름을 선택하는 방법에 대한 자세한 내용은 [호출 이름 지침][invocation]을 참조하세요.|
 
 ![기본 설정](~/media/channels/cortana-defaultsettings.png)
+
+>!참고: 현재 Cortana는 AAD(Azure Active Directory) 계정 인증 사용을 지원하지 않습니다. 봇을 Cortana에 게시하려면 MSA(Microsoft 계정)를 사용해야 합니다.
 
 ## <a name="general-bot-information"></a>일반 봇 정보
 
@@ -107,8 +109,8 @@ Cortana 스킬에 대한 등록 양식을 다 채운 후에는 **Cortana에 배�
 
 * [Cortana 스킬 키트](https://aka.ms/CortanaSkillsKitOverview)
 * [디버깅 사용](bot-service-debug-cortana-skill.md)
-* [Cortana 스킬 게시][publish]
+* [Cortana 기술 게시][publish]
 
-[invocation]: https://docs.microsoft.com/en-us/cortana/skills/cortana-invocation-guidelines
-[publish]: https://docs.microsoft.com/en-us/cortana/skills/publish-skill
+[invocation]: https://docs.microsoft.com/cortana/skills/cortana-invocation-guidelines
+[publish]: https://docs.microsoft.com/cortana/skills/publish-skill
 [CortanaEntity]: https://aka.ms/lgvcto

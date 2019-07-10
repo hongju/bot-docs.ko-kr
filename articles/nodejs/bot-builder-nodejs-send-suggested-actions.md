@@ -9,12 +9,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 02/19/2019
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 73193b82c8f03a1a49df1927ced15684bd7af955
-ms.sourcegitcommit: 980612a922b8290b2faadaca193496c4117e415a
+ms.openlocfilehash: 04be50ce490f81f27df9190561d8a4174089357c
+ms.sourcegitcommit: a295a90eac461f8b96770dd902ba44919acf33fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64564156"
+ms.lasthandoff: 06/26/2019
+ms.locfileid: "67404778"
 ---
 # <a name="add-suggested-actions-to-messages"></a>메시지에 제안된 동작 추가
 
@@ -29,7 +29,7 @@ ms.locfileid: "64564156"
 
 ## <a name="suggested-actions-example"></a>제안된 작업 예제
 
-제안된 작업을 메시지를 추가하려면 메시지의 `suggestedActions` 속성을 사용자에게 제공될 단추를 나타내는 [작업 카드][ICardAction] 목록으로 설정합니다.
+제안된 작업을 메시지에 추가하려면 메시지의 `suggestedActions` 속성을 사용자에게 제공될 단추를 나타내는 [카드 작업][ICardAction] 목록으로 설정합니다.
 
 이 코드 예제에서는 세 가지 제안된 작업을 사용자에게 제공하는 메시지 전송 방법을 보여 줍니다.
 
@@ -46,11 +46,11 @@ ms.locfileid: "64564156"
 - [ICardAction][ICardAction]
 - [session.send][SessionSend]
 
-[IMessage]: http://docs.botframework.com/en-us/node/builder/chat-reference/interfaces/_botbuilder_d_.imessage
+[IMessage]: http://docs.botframework.com/node/builder/chat-reference/interfaces/_botbuilder_d_.imessage
 
-[SessionSend]: https://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.session.html#send
+[SessionSend]: https://docs.botframework.com/node/builder/chat-reference/classes/_botbuilder_d_.session.html#send
 
-[ICardAction]: https://docs.botframework.com/en-us/node/builder/chat-reference/interfaces/_botbuilder_d_.icardaction.html
+[ICardAction]: https://docs.botframework.com/node/builder/chat-reference/interfaces/_botbuilder_d_.icardaction.html
 
 <!-- The inspector is no longer supported: we're redirecting to the samples for now. -->
 [samples]: https://github.com/Microsoft/BotBuilder-Samples/tree/v3-sdk-samples

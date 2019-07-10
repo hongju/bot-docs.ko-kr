@@ -9,12 +9,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 3852c0b25ea385301be11edd0a46ed5984510820
-ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
+ms.openlocfilehash: 1b2d3f9f04601bd4e01dddd08f09f7191b59204e
+ms.sourcegitcommit: a295a90eac461f8b96770dd902ba44919acf33fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54224868"
+ms.lasthandoff: 06/26/2019
+ms.locfileid: "67404714"
 ---
 # <a name="send-a-typing-indicator"></a>타이핑 표시기 보내기 
 
@@ -26,7 +26,7 @@ ms.locfileid: "54224868"
 
 ## <a name="typing-indicator-example"></a>타이핑 표시기 예제
 
-다음 예제는 [session.sendTyping()][SendTyping]을 사용하여 타이핑 표시를 보내는 방법을 보여줍니다.  Bot Framework Emulator를 사용하여 이 기능을 테스트할 수 있습니다.
+다음 예제에서는 [session.sendTyping()][SendTyping]을 사용하여 입력 표시를 보내는 방법을 보여 줍니다.  Bot Framework Emulator를 사용하여 이 기능을 테스트할 수 있습니다.
 
 
 ```javascript
@@ -50,5 +50,5 @@ var bot = new builder.UniversalBot(connector, function (session) {
 * [sendTyping][SendTyping]
 
 
-[SendTyping]: https://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.session#sendtyping
-[IMessage]: http://docs.botframework.com/en-us/node/builder/chat-reference/interfaces/_botbuilder_d_.imessage
+[SendTyping]: https://docs.botframework.com/node/builder/chat-reference/classes/_botbuilder_d_.session#sendtyping
+[IMessage]: http://docs.botframework.com/node/builder/chat-reference/interfaces/_botbuilder_d_.imessage

@@ -7,12 +7,12 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.date: 02/21/2019
-ms.openlocfilehash: 54be82eb263c2189fd6bb7a0dc4018b9ecf5c2f2
-ms.sourcegitcommit: e41dabe407fdd7e6b1d6b6bf19bef5f7aae36e61
+ms.openlocfilehash: 57efc2f1d137988792d9484d7f1f857bd193ecfa
+ms.sourcegitcommit: a295a90eac461f8b96770dd902ba44919acf33fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56893503"
+ms.lasthandoff: 06/26/2019
+ms.locfileid: "67405780"
 ---
 # <a name="bot-framework-frequently-asked-questions"></a>Bot Framework 질문과 대답
 
@@ -61,6 +61,10 @@ SDK V3 봇은 계속 실행되고, Azure Bot Service의 지원을 받습니다. 
 - 프로덕션 환경에 Bot Framework SDK V3 봇이 이미 있는 경우 당분간 그대로 계속 작동할 것이니 걱정하지 마세요.
 - Azure Portal 및 Azure 명령줄을 통해 Bot Framework SDK V4 및 이전 버전의 V3 봇을 만들 수 있습니다. 
 
+### <a name="how-can-i-migrate-azure-bot-service-from-one-region-to-another"></a>Azure Bot Service를 한 지역에서 다른 지역으로 마이그레이션하려면 어떻게 하나요?
+
+Azure Bot Service는 지역 이동을 지원하지 않습니다. 특정 지역에 연결되지 않은 글로벌 서비스입니다.
+
 ## <a name="channels"></a>채널
 ### <a name="when-will-you-add-more-conversation-experiences-to-the-bot-framework"></a>언제 Bot Framework에 더 많은 대화 환경을 추가할 예정인가요?
 
@@ -69,13 +73,39 @@ SDK V3 봇은 계속 실행되고, Azure Bot Service의 지원을 받습니다. 
 
 ### <a name="i-have-a-communication-channel-id-like-to-be-configurable-with-bot-framework-can-i-work-with-microsoft-to-do-that"></a>Bot Framework를 사용하여 구성하려는 통신 채널이 있습니다. Microsoft와 함께 이 작업을 수행할 수 있나요?
 
-개발자가 Bot Framework에 새 채널을 추가할 수 있도록 하는 일반적인 메커니즘을 제공하고 있지는는 않지만 [직접 회선 API][DirectLineAPI]를 통해 앱에 봇을 연결할 수 있습니다. 통신 채널의 개발자이며 Microsoft와 협력하여 Bot Framework에서 채널을 사용하도록 설정하려는 경우 [의견을 알려주세요][Support].
+개발자가 Bot Framework에 새 채널을 추가할 수 있는 일반적인 메커니즘은 없지만 [Direct Line API][DirectLineAPI] 통해 봇을 앱에 연결할 수 있습니다. If you are a developer of a communication channel and would like to work with us to enable your channel in the Bot Framework [we’d love to hear from you][Support].
 
-### <a name="if-i-want-to-create-a-bot-for-skype-what-tools-and-services-should-i-use"></a>Skype용 봇을 만들려고 하는 경우 어떤 도구와 서비스를 사용해야 하나요?
+### <a name="if-i-want-to-create-a-bot-for-microsoft-teams-what-tools-and-services-should-i-use"></a>Microsoft Teams용 봇을 만들려는 경우 어떤 도구와 서비스를 사용해야 하나요?
 
-Bot Framework는 Skype 및 기타 다양한 채널을 위한 응답성과 성능이 뛰어나고 확장이 가능한 고품질 봇을 빌드, 연결 및 배포하도록 디자인되었습니다. 이 SDK를 사용하여 풍부한 오디오 및 비디오 환경과 같은 Skype 관련 봇 상호 작용 뿐만 아니라 텍스트/sms, 이미지, 단추 및 카드 사용 가능 봇(오늘날 대화 환경에서 봇 상호 작용의 대부분을 구성)을 만들 수 있습니다.
+Bot Framework는 Teams 및 기타 다양한 채널을 위해 응답성과 성능이 뛰어나고 확장성 있는 고품질 봇을 빌드, 연결 및 배포하도록 설계되었습니다. 이 SDK를 사용하여 풍부한 오디오 및 동영상 환경과 같은 Teams 특정 봇 상호 작용뿐만 아니라 오늘날 대화 환경에서 봇 상호 작용의 대부분을 구성하는 텍스트/SMS, 이미지, 단추 및 카드 지원 봇을 만들 수 있습니다.
 
-유용한 봇이 이미 있고 대상 사용자를 Skype 사용자로 확장하려는 경우 REST API용 Bot Framework를 통해(인터넷에 액세스할 수 있는 REST 엔드포인트가 있는 경우) 간단하게 Skype(또는 지원되는 기타 채널)에 연결할 수 있습니다.
+유용한 봇이 이미 있고 대상 사용자를 Teams 사용자로 확장하려는 경우, 인터넷에 액세스할 수 있는 REST 엔드포인트가 있으면 REST API용 Bot Framework를 통해 간단하게 Teams(또는 지원되는 기타 채널)에 연결할 수 있습니다.
+
+### <a name="how-do-i-create-a-bot-that-uses-the-us-government-data-center"></a>US Government 데이터 센터를 사용하는 봇을 만들려면 어떻게 하나요?
+
+US Government 데이터 센터를 사용하는 봇을 만드는 데 필요한 두 가지 주요 단계가 있습니다.
+1. appsettings.json(또는 App Service 설정)에 “채널 공급자” 설정을 추가합니다. 구체적으로 다음 이름/값 상수로 설정해야 합니다. ChannelService = “https://botframework.azure.us ”. 아래에는 appsetting.json을 사용한 예제가 나와 있습니다.
+
+```json
+{
+  "MicrosoftAppId": "", 
+  "MicrosoftAppPassword": "",
+  "ChannelService": "https://botframework.azure.us"
+}
+```
+2. .NET Core를 사용하는 경우 startup.cs 파일에 ConfigurationChannelProvider를 추가해야 합니다. 이 작업을 수행하는 방법은 사용 중인 SDK 버전에 따라 다릅니다.
+
+- 버전 4.3 이상의 경우 ConfigureServices 메서드에 ConfigurationChannelProvider 인스턴스를 만들어야 합니다. BotFrameworkHttpAdapter 클래스를 사용하는 경우 다음과 같이 서비스 컬렉션에 싱글톤으로 삽입합니다.
+
+```csharp  
+services.AddSingleton<IChannelProvider, ConfigurationChannelProvider>();
+```
+- 4\.3 이전 버전의 경우 ConfigureServices 메서드에서 AddBot 메서드를 찾습니다. 옵션을 설정할 때 다음을 추가해야 합니다.
+
+```csharp
+options.ChannelProvider = new ConfigurationChannelProvider();
+```
+Govenment Services에 대한 자세한 내용은 [여기](https://docs.microsoft.com/en-us/azure/azure-government/documentation-government-services-aiandcognitiveservices#azure-bot-service)에서 확인할 수 있습니다.
 
 ## <a name="security-and-privacy"></a>보안 및 개인 정보
 ### <a name="do-the-bots-registered-with-the-bot-framework-collect-personal-information-if-yes-how-can-i-be-sure-the-data-is-safe-and-secure-what-about-privacy"></a>Bot Framework에 등록된 봇이 개인 정보를 수집하나요? 그렇다면 데이터가 안전하고 보안이 유지되는지 어떻게 확신할 수 있나요? 개인 정보 보호의 경우는 어떤가요?
@@ -105,7 +135,7 @@ I/O 서비스를 제공하기 위해 Bot Framework는 사용자가 사용한 채
 아니요. 이러한 종류의 IP 주소 또는 DNS 허용 목록은 허용되지 않습니다. Bot Framework Connector Service는 전 세계 Azure 데이터 센터에서 호스팅되고 Azure IP 목록은 지속적으로 변경됩니다. 허용 목록에 추가한 특정 Azure IP 주소가 다음 날 Azure IP 주소가 변경되면서 차단될 수도 있습니다.
  
 ### <a name="what-keeps-my-bot-secure-from-clients-impersonating-the-bot-framework-connector-service"></a>Bot Framework Connector Service를 가장하는 클라이언트로부터 내 봇을 보호하기 위해 필요한 것은 무엇인가요?
-1. 봇에 대한 모든 요청에 첨부되는 보안 토큰에는 ServiceUrl이 인코딩되어 있으므로, 공격자가 토큰에 액세스하더라도 대화를 새 ServiceUrl로 리디렉션할 수 없습니다. 이는 SDK의 모든 구현에 의해 적용되며 인증 [참조](https://docs.microsoft.com/en-us/azure/bot-service/rest-api/bot-framework-rest-connector-authentication?view=azure-bot-service-3.0#bot-to-connector) 자료에 문서화되어 있습니다.
+1. 봇에 대한 모든 요청에 첨부되는 보안 토큰에는 ServiceUrl이 인코딩되어 있으므로, 공격자가 토큰에 액세스하더라도 대화를 새 ServiceUrl로 리디렉션할 수 없습니다. 이는 SDK의 모든 구현에 의해 적용되며 인증 [참조](https://docs.microsoft.com/azure/bot-service/rest-api/bot-framework-rest-connector-authentication?view=azure-bot-service-3.0#bot-to-connector) 자료에 문서화되어 있습니다.
 
 2. 들어오는 토큰이 없거나 형식이 잘못된 경우 Bot Framework SDK는 응답에서 토큰을 생성하지 않습니다. 이렇게 하면 봇이 잘못 구성된 경우 피해를 줄일 수 있습니다.
 3. 봇 내부에서 토큰에 제공된 ServiceUrl을 수동으로 확인할 수 있습니다. 이 방법은 가능하기는 하지만 서비스 토폴로지가 변경될 경우 봇이 더 취약해지므로 권장하지는 않습니다.
@@ -149,7 +179,7 @@ Microsoft는 Cortana Intelligence를 사용하여 엔터프라이즈 고객이 �
 
 직접 회선은 봇을 서비스, 모바일 앱 또는 웹 페이지에 추가할 수 있는 REST API입니다.
 
-모든 언어에서 직접 회선 API용 클라이언트를 작성할 수 있습니다. 간단히 [직접 회선 프로토콜][DirectLineAPI]을 코딩하고, 직접 회선 구성 페이지에서 암호를 생성하고, 코드가 있는 어디에서든지 봇과 통신합니다.
+모든 언어에서 직접 회선 API용 클라이언트를 작성할 수 있습니다. 간단히 [Direct Line 프로토콜][DirectLineAPI]에 코딩하고, Direct Line 구성 페이지에서 비밀을 생성한 다음, 코드가 있는 곳이면 어디서든 봇과 통신합니다.
 
 직접 회선은 다음에 적합합니다.
 
@@ -158,7 +188,55 @@ Microsoft는 Cortana Intelligence를 사용하여 엔터프라이즈 고객이 �
 * [포함 가능한 웹 채팅 채널][WebChat]이 제공하는 것 이상의 사용자 지정이 필요한 웹 페이지
 * 서비스 간 애플리케이션
 
-[DirectLineAPI]: https://docs.microsoft.com/en-us/azure/bot-service/rest-api/bot-framework-rest-direct-line-3-0-concepts
+
+## <a name="app-registration"></a>앱 등록
+
+### <a name="i-need-to-manually-create-my-app-registration-how-do-i-create-my-own-app-registration"></a>수동으로 앱 등록을 만들어야 합니다. 고유한 앱 등록을 만들려면 어떻게 하나요?
+
+사용자 고유의 앱 등록을 만들어야 하는 상황은 다음과 같습니다.
+
+- Bot Framework 포털(예: https://dev.botframework.com/bots/new) )에서 봇을 만들었습니다. 
+- 조직에 앱 등록을 만들 수 없으며, 빌드 중인 봇의 앱 ID를 다른 당사자가 만들도록 해야 합니다.
+- 고유한 앱 ID(및 암호)를 수동으로 만들어야 합니다.
+
+고유한 앱 ID를 만들려면 아래 단계를 따르세요.
+
+1. [Azure 계정](https://portal.azure.com)에 로그인합니다. Azure 계정이 없으면 [체험 계정을 등록](https://azure.microsoft.com/free/)할 수 있습니다.
+2. [앱 등록 블레이드](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade)로 이동한 다음, 맨 위의 작업 모음에서 **새 등록**을 클릭합니다.
+
+    ![앱 등록](media/app-registration/new-registration.png)
+
+3. ‘이름’ 필드에 애플리케이션 등록의 표시 이름을 입력하고 지원되는 계정 유형을 선택합니다.  이름이 봇 ID와 일치할 필요는 없습니다.
+
+    > [!IMPORTANT]
+    > ‘지원되는 계정 유형’에서 ‘모든 조직 디렉터리의 계정 및 개인 Microsoft 계정(예: Skype, Xbox, Outlook.com)’ 라디오 단추를 선택합니다.   다른 옵션을 선택하면 **봇 작성이 실패**합니다.
+
+    ![등록 정보](media/app-registration/registration-details.png)
+
+4. **등록**을 클릭합니다.
+
+    잠시 후에 새로 만든 앱 등록의 블레이드가 열립니다. 개요 블레이드에서 ‘애플리케이션(클라이언트) ID’를 복사하여 앱 ID 필드에 붙여넣습니다. 
+
+    ![애플리케이션 ID](media/app-registration/app-id.png)
+
+Bot Framework 포털을 통해 봇을 만드는 경우 앱 등록 설정을 완료했습니다. 비밀이 자동으로 생성됩니다. 
+
+Azure Portal에서 봇을 만드는 경우 앱 등록의 비밀을 생성해야 합니다. 
+
+1. 앱 등록 블레이드의 왼쪽 탐색 열에서 **인증서 및 비밀**을 클릭합니다.
+2. 해당 블레이드에서 **새 클라이언트 암호** 단추를 클릭합니다. 팝업되는 대화 상자에서 비밀에 대한 선택적 설명을 입력하고, 만료 라디오 단추 그룹에서 **안 함**을 선택합니다. 
+
+    ![새 비밀](media/app-registration/new-secret.png)
+
+3. ‘클라이언트 암호’ 아래의 테이블에서 비밀 값을 복사하여 애플리케이션의 ‘암호’ 필드에 붙여넣고, 해당 블레이드의 맨 아래에 있는 **확인**을 클릭합니다.   그런 다음, 봇 생성을 계속 진행합니다. 
+
+    > [!NOTE]
+    > 비밀은 이 블레이드에 있는 동안에만 표시되며, 해당 페이지를 나가면 검색할 수 없습니다. 안전한 곳에 복사해야 합니다.
+
+    ![새 앱 ID](media/app-registration/create-app-id.png)
+
+
+[DirectLineAPI]: https://docs.microsoft.com/azure/bot-service/rest-api/bot-framework-rest-direct-line-3-0-concepts
 [Support]: bot-service-resources-links-help.md
 [WebChat]: bot-service-channel-connect-webchat.md
 

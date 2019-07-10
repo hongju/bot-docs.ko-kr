@@ -9,12 +9,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 91fd349173dfe469c7b71bc84b8adf9c19e07277
-ms.sourcegitcommit: 980612a922b8290b2faadaca193496c4117e415a
+ms.openlocfilehash: a6149b750a4432f00268571df6d12b611114181f
+ms.sourcegitcommit: a295a90eac461f8b96770dd902ba44919acf33fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64564032"
+ms.lasthandoff: 06/26/2019
+ms.locfileid: "67404916"
 ---
 # <a name="handle-user-and-conversation-events"></a>사용자 및 대화 이벤트 처리
 
@@ -32,7 +32,7 @@ Bot Framework는 멤버가 대화에 참여하거나 대화에서 나갈 때마�
 
 ## <a name="acknowledge-add-to-contacts-list"></a>연락처 목록에 대한 추가 승인
 
-[contactRelationUpdate][contactRelationUpdate] 이벤트는 사용자가 여러분을 연락처 목록에 추가했을 때 봇에게 알립니다.
+[contactRelationUpdate][contactRelationUpdate] 이벤트는 다른 사용자가 자신의 연락처 목록에 사용자를 추가했음을 봇에 알립니다.
 
 [!INCLUDE [contactRelationUpdate sample Node.js](../includes/snippet-code-node-contactrelationupdate-1.md)]
 
@@ -40,25 +40,25 @@ Bot Framework는 멤버가 대화에 참여하거나 대화에서 나갈 때마�
 
 **conversationUpdate** 및 **contactRelationUpdate** 이벤트가 모든 채널에서 지원되는 것은 아니므로, 대화에 참여하는 사용자에게 인사말을 하는 범용 방법은 처음 실행 다이얼로그를 추가하는 것입니다.
 
-다음 예제에서는 이전에 본 적이 없는 사용자를 만날 때마다 다이얼로그를 트리거하는 함수를 추가했습니다. 작업에 대해 [onFindAction][onFindAction] 처리기를 제공하여 작업이 트리거되는 방식을 사용자 지정할 수 있습니다. 
+다음 예제에서는 이전에 본 적이 없는 사용자를 만날 때마다 다이얼로그를 트리거하는 함수를 추가했습니다. 작업에 대해 [onFindAction][onFindAction] 처리기를 제공하여 작업이 실행되는 방식을 사용자 지정할 수 있습니다. 
 
 [!INCLUDE [first-run sample Node.js](../includes/snippet-code-node-first-run-dialog-1.md)]
 
-[onSelectAction][onSelectAction] 처리기를 제공하여 트리거된 후에 작업이 수행하는 동작을 사용자 지정할 수도 있습니다. 트리거 작업에 대해 [onInterrupted][onInterrupted] 처리기를 제공하여 중단이 발생하기 전에 가로챌 수 있습니다. 자세한 내용은 [사용자 작업 처리](bot-builder-nodejs-dialog-actions.md)를 참조하세요.
+[onSelectAction][onSelectAction] 처리기를 제공하여 작업이 실행된 후에 수행하는 동작을 사용자 지정할 수도 있습니다. handler. For trigger actions you can provide an [onInterrupted][onInterrupted] 처리기를 제공하여 중단이 발생하기 전에 가로챌 수 있습니다. 자세한 내용은 [사용자 작업 처리](bot-builder-nodejs-dialog-actions.md)를 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 
 * [conversationUpdate][conversationUpdate]
 * [contactRelationUpdate][contactRelationUpdate]
 
-[conversationUpdate]: https://docs.botframework.com/en-us/node/builder/chat-reference/interfaces/_botbuilder_d_.iconversationupdate.html
-[contactRelationUpdate]: https://docs.botframework.com/en-us/node/builder/chat-reference/interfaces/_botbuilder_d_.icontactrelationupdate.html
+[conversationUpdate]: https://docs.botframework.com/node/builder/chat-reference/interfaces/_botbuilder_d_.iconversationupdate.html
+[contactRelationUpdate]: https://docs.botframework.com/node/builder/chat-reference/interfaces/_botbuilder_d_.icontactrelationupdate.html
 
-[onFindAction]: https://docs.botframework.com/en-us/node/builder/chat-reference/interfaces/_botbuilder_d_.itriggeractionoptions#onfindaction
-[onSelectAction]: https://docs.botframework.com/en-us/node/builder/chat-reference/interfaces/_botbuilder_d_.itriggeractionoptions#onselectaction
-[onInterrupted]: https://docs.botframework.com/en-us/node/builder/chat-reference/interfaces/_botbuilder_d_.itriggeractionoptions#oninterrupted
+[onFindAction]: https://docs.botframework.com/node/builder/chat-reference/interfaces/_botbuilder_d_.itriggeractionoptions#onfindaction
+[onSelectAction]: https://docs.botframework.com/node/builder/chat-reference/interfaces/_botbuilder_d_.itriggeractionoptions#onselectaction
+[onInterrupted]: https://docs.botframework.com/node/builder/chat-reference/interfaces/_botbuilder_d_.itriggeractionoptions#oninterrupted
 
-[SendTyping]: https://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.session#sendtyping
-[IMessage]: http://docs.botframework.com/en-us/node/builder/chat-reference/interfaces/_botbuilder_d_.imessage
-[ChatConnector]: https://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.chatconnector.html
-[session_userData]: https://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.session.html#userdata
+[SendTyping]: https://docs.botframework.com/node/builder/chat-reference/classes/_botbuilder_d_.session#sendtyping
+[IMessage]: http://docs.botframework.com/node/builder/chat-reference/interfaces/_botbuilder_d_.imessage
+[ChatConnector]: https://docs.botframework.com/node/builder/chat-reference/classes/_botbuilder_d_.chatconnector.html
+[session_userData]: https://docs.botframework.com/node/builder/chat-reference/classes/_botbuilder_d_.session.html#userdata

@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
 ms.date: 08/15/2018
-ms.openlocfilehash: e68358ed65b9300ed8595496b88c5d0736819671
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: 5a0ded9af5f624398df764f16e6dd2db0105255c
+ms.sourcegitcommit: a295a90eac461f8b96770dd902ba44919acf33fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49998220"
+ms.lasthandoff: 06/26/2019
+ms.locfileid: "67405871"
 ---
 # <a name="embed-a-bot-in-an-app"></a>앱에 봇 포함
 
@@ -25,7 +25,7 @@ ms.locfileid: "49998220"
 
 ### <a name="native-mobile-app"></a>네이티브 모바일 앱
 
-네이티브 코드로 작성된 앱은 REST 또는 websocket을 통해 [직접 회선 API][directLineAPI]을 사용하여 Bot Framework와 통신할 수 있습니다.
+네이티브 코드로 작성된 앱은 REST 또는 WebSocket을 통해 [Direct Line API][directLineAPI]를 사용하여 Bot Framework와 통신할 수 있습니다.
 
 ### <a name="web-based-mobile-app"></a>웹 기반 모바일 앱
 
@@ -33,11 +33,11 @@ ms.locfileid: "49998220"
 
 ### <a name="iot-app"></a>IoT 앱
 
-IoT 앱은 [직접 회선 API][directLineAPI]를 사용하여 Bot Framework와 통신할 수 있습니다. 일부 시나리오에서는 <a href="https://www.microsoft.com/cognitive-services/" target="_blank">Microsoft Cognitive Services</a>를 사용하여 이미지 인식 및 음성과 같은 기능을 사용하도록 설정할 수도 있습니다.
+IoT 앱은 [Direct Line API][directLineAPI]를 사용하여 Bot Framework와 통신할 수 있습니다. 일부 시나리오에서는 <a href="https://www.microsoft.com/cognitive-services/" target="_blank">Microsoft Cognitive Services</a>를 사용하여 이미지 인식 및 음성과 같은 기능을 사용하도록 설정할 수도 있습니다.
 
 ### <a name="other-types-of-apps-and-games"></a>다른 유형의 앱 및 게임
 
-다른 유형의 앱 및 게임은 [직접 회선 API][directLineAPI]를 사용하여 Bot Framework와 통신할 수 있습니다. 
+다른 유형의 앱과 게임은 [Direct Line API][directLineAPI]를 사용하여 Bot Framework와 통신할 수 있습니다. 
 
 ## <a name="creating-a-cross-platform-mobile-app-that-runs-a-bot"></a>봇을 실행하는 플랫폼 간 모바일 앱 만들기
 
@@ -71,7 +71,7 @@ For a complete sample that shows how to create a cross-platform mobile app that 
 
 ## <a name="additional-resources"></a>추가 리소스
 
-- [직접 회선 API][directLineAPI]
+- [Direct Line API][directLineAPI]
 - <a href="https://www.microsoft.com/cognitive-services/" target="_blank">Microsoft Cognitive Services</a>
 
-[directLineAPI]: https://docs.botframework.com/en-us/restapi/directline3/#navtitle
+[directLineAPI]: https://docs.botframework.com/restapi/directline3/#navtitle

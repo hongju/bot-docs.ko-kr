@@ -7,21 +7,21 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.date: 04/30/2019
-ms.openlocfilehash: 1e0678d869b02d536eb5c3ce39461da94dbd9a57
-ms.sourcegitcommit: f84b56beecd41debe6baf056e98332f20b646bda
+ms.openlocfilehash: 7a018855b11aa638cbad1b70b53505395ae7f5f9
+ms.sourcegitcommit: dbbfcf45a8d0ba66bd4fb5620d093abfa3b2f725
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2019
-ms.locfileid: "65033092"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67464578"
 ---
 # <a name="troubleshooting-general-problems"></a>일반 문제 해결
 이 질문과 대답은 일반 봇 개발 또는 운영 문제를 해결할 수 있습니다.
 
 ## <a name="how-can-i-troubleshoot-issues-with-my-bot"></a>봇과 관련된 문제는 어떻게 해결할 수 있나요?
 
-1. [Visual Studio Code](debug-bots-locally-vscode.md) 또는 [Visual Studio](https://docs.microsoft.com/en-us/visualstudio/debugger/navigating-through-code-with-the-debugger?view=vs-2017)를 사용하여 봇 소스 코드를 디버그합니다.
+1. [Visual Studio Code](debug-bots-locally-vscode.md) 또는 [Visual Studio](https://docs.microsoft.com/visualstudio/debugger/navigating-through-code-with-the-debugger?view=vs-2017)를 사용하여 봇 소스 코드를 디버그합니다.
 1. 클라우드에 배포하기 전에 [에뮬레이터](bot-service-debug-emulator.md)를 사용하여 테스트합니다.
-1. Azure와 같은 플랫폼을 호스팅하는 클라우드에 봇을 배포한 다음, <a href="https://portal.azure.com" target="_blank">Azure Portal</a>의 봇 대시보드에서 기본 제공 웹 챗 제어를 사용하여 봇 연결을 테스트합니다. Azure에 봇을 배포한 후 문제가 발생하면 블로그 문서 [Azure 문제 해결 및 지원 이해](https://azure.microsoft.com/en-us/blog/understanding-azure-troubleshooting-and-support/)를 사용하는 것이 좋을 수 있습니다.
+1. Azure와 같은 플랫폼을 호스팅하는 클라우드에 봇을 배포한 다음, <a href="https://portal.azure.com" target="_blank">Azure Portal</a>의 봇 대시보드에서 기본 제공 웹 챗 제어를 사용하여 봇 연결을 테스트합니다. Azure에 봇을 배포한 후 문제가 발생하면 블로그 문서 [Azure 문제 해결 및 지원 이해](https://azure.microsoft.com/blog/understanding-azure-troubleshooting-and-support/)를 사용하는 것이 좋을 수 있습니다.
 1. [인증][TroubleshootingAuth]은 가능한 문제에서 배제합니다.
 1. Skype에서 봇을 테스트합니다. 이렇게 하면 엔드투엔드 사용자 환경의 유효성을 검사하는 데 도움이 됩니다.
 1. Direct Line 또는 Web Chat 같은 추가 인증 요구 사항이 있는 채널에서 봇을 테스트하는 것이 좋습니다.
@@ -29,7 +29,7 @@ ms.locfileid: "65033092"
 
 ## <a name="how-can-i-troubleshoot-authentication-issues"></a>인증 문제는 어떻게 해결하나요?
 
-봇을 사용한 인증 문제 해결에 대한 자세한 내용은 Bot Framework 인증 [문제 해결][TroubleshootingAuth]을 참조하세요.
+봇 인증 문제를 해결하는 방법에 대한 자세한 내용은 Bot Framework 인증 [문제 해결][TroubleshootingAuth]을 참조하세요.
 
 ## <a name="im-using-the-bot-framework-sdk-for-net-how-can-i-troubleshoot-issues-with-my-bot"></a>.NET용 Bot Framework SDK를 사용하고 있습니다. 봇과 관련된 문제는 어떻게 해결할 수 있나요?
 
@@ -37,7 +37,7 @@ ms.locfileid: "65033092"
 Visual Studio 2017에서 **디버그** > **Windows** > **예외 설정**으로 이동합니다. **예외 설정** 창에서 **공용 언어 런타임 예외** 옆의 **Break When Thrown**을 선택합니다. Throw되었거나 처리되지 않은 예외가 있으면 출력 창에도 진단 출력이 표시될 수 있습니다.
 
 **호출 스택을 확인합니다.**  
-Visual Studio에서 [내 코드만](https://msdn.microsoft.com/en-us/library/dn457346.aspx) 디버그할지 여부를 선택할 수 있습니다. 전체 호출 스택을 검사하면 문제에 대한 추가 정보를 제공할 수 있습니다.
+Visual Studio에서 [내 코드만](https://msdn.microsoft.com/library/dn457346.aspx) 디버그할지 여부를 선택할 수 있습니다. 전체 호출 스택을 검사하면 문제에 대한 추가 정보를 제공할 수 있습니다.
 
 **모든 대화 메서드가 다음 메시지 처리를 위한 계획으로 종료되는지 확인합니다.**  
 모든 대화 상자 단계는 폭포의 다음 단계로 제공되거나 현재 대화 상자를 종료하고 스택에 팝업 메시지로 표시되어야 합니다. 단계가 올바르게 처리되지 않으면 대화가 예상대로 진행되지 않습니다. 대화 상자에 대한 자세한 내용을 보려면 [대화 상자](v4sdk/bot-builder-concept-dialog.md)에 대한 개념 문서를 살펴보세요.
@@ -63,7 +63,7 @@ HTTP 상태 코드 429가 있는 오류 응답은 일정 시간 동안 실행된
 
 ## <a name="how-can-i-run-background-tasks-in-aspnet"></a>ASP.NET에서 백그라운드 작업은 어떻게 실행하나요? 
 
-일부 경우 몇 초 동안 대기한 다음, 특정 코드를 실행하여 사용자 프로필을 지우거나 대화/대화 상태를 재설정하는 비동기 작업을 시작하고자 할 수 있습니다. 이 작업을 수행하는 자세한 방법은 [ASP.NET에서 백그라운드 작업을 실행하는 방법](https://www.hanselman.com/blog/HowToRunBackgroundTasksInASPNET.aspx)을 참조하세요. 특히 [HostingEnvironment.QueueBackgroundWorkItem](https://msdn.microsoft.com/en-us/library/dn636893(v=vs.110).aspx)을 사용하는 것이 좋습니다. 
+일부 경우 몇 초 동안 대기한 다음, 특정 코드를 실행하여 사용자 프로필을 지우거나 대화/대화 상태를 재설정하는 비동기 작업을 시작하고자 할 수 있습니다. 이 작업을 수행하는 자세한 방법은 [ASP.NET에서 백그라운드 작업을 실행하는 방법](https://www.hanselman.com/blog/HowToRunBackgroundTasksInASPNET.aspx)을 참조하세요. 특히 [HostingEnvironment.QueueBackgroundWorkItem](https://msdn.microsoft.com/library/dn636893(v=vs.110).aspx)을 사용하는 것이 좋습니다. 
 
 
 ## <a name="how-do-user-messages-relate-to-https-method-calls"></a>HTTPS 메서드 호출과 사용자의 메시지는 어떤 관계가 있나요?
@@ -108,11 +108,11 @@ Facebook 암호를 변경했을 수 있습니다. 이렇게 하면 액세스 토
 
 ## <a name="why-is-my-kik-bot-replying-im-sorry-i-cant-talk-right-now"></a>내 Kik 봇이 "I'm sorry, I can't talk right now"(미안하지만 지금은 대화할 수 없다)라고 답하는 이유는 무엇인가요?
 
-Kik 개발에서는 봇에 50명의 구독자가 허용됩니다. 고유 사용자 50명이 봇과 상호 작용한 후에는 해당 봇과의 채팅을 시도하는 모든 새 사용자가 "I'm sorry, I can't talk right now"(미안하지만 지금은 대화할 수 없다)라는 메시지를 받게 됩니다. 자세한 내용은 [Kik 설명서](https://botsupport.kik.com/hc/en-us/articles/225764648-How-can-I-share-my-bot-with-Kik-users-while-in-development-)를 참조하세요.
+Kik 개발에서는 봇에 50명의 구독자가 허용됩니다. 고유 사용자 50명이 봇과 상호 작용한 후에는 해당 봇과의 채팅을 시도하는 모든 새 사용자가 "I'm sorry, I can't talk right now"(미안하지만 지금은 대화할 수 없다)라는 메시지를 받게 됩니다. 자세한 내용은 [Kik 설명서](https://botsupport.kik.com/hc/articles/225764648-How-can-I-share-my-bot-with-Kik-users-while-in-development-)를 참조하세요.
 
 ## <a name="how-can-i-use-authenticated-services-from-my-bot"></a>봇에서 인증된 서비스는 어떻게 사용하나요?
 
-Azure Active Directory 인증은 [V3](https://docs.microsoft.com/en-us/azure/bot-service/bot-builder-tutorial-authentication?view=azure-bot-service-3.0&tabs=csharp) | [V4](https://docs.microsoft.com/en-us/azure/bot-service/bot-builder-tutorial-authentication?view=azure-bot-service-4.0&tabs=csharp) 인증 추가를 참조하세요. 
+Azure Active Directory 인증은 [V3](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-authentication?view=azure-bot-service-3.0&tabs=csharp) | [V4](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-authentication?view=azure-bot-service-4.0&tabs=csharp) 인증 추가를 참조하세요. 
 
 > [!NOTE] 
 > 봇에 인증 및 보안 기능을 추가할 경우 코드에서 구현한 패턴이 애플리케이션에 적합한 보안 표준을 준수해야 합니다.
@@ -157,7 +157,7 @@ Direct Line 3.0은 봇 연결을 시도했으나 요청이 성공적으로 완�
 다음과 같은 몇 가지 옵션이 있습니다.
 
 * `Autofac` 및 `FiberModule.Key_DoNotSerialize`를 통해 종속성을 해결합니다. 이것이 가장 깔끔한 솔루션입니다.
-* [NonSerialized](https://msdn.microsoft.com/en-us/library/system.nonserializedattribute(v=vs.110).aspx) 및 [OnDeserialized](https://msdn.microsoft.com/en-us/library/system.runtime.serialization.ondeserializedattribute(v=vs.110).aspx) 특성을 사용하여 역직렬화의 종속성을 복원합니다. 이것이 가장 간단한 솔루션입니다.
+* [NonSerialized](https://msdn.microsoft.com/library/system.nonserializedattribute(v=vs.110).aspx) 및 [OnDeserialized](https://msdn.microsoft.com/library/system.runtime.serialization.ondeserializedattribute(v=vs.110).aspx) 특성을 사용하여 역직렬화의 종속성을 복원합니다. 이것이 가장 간단한 솔루션입니다.
 * 종속성을 저장하지 않으므로 직렬화되지 않습니다. 이 솔루션은 기술적으로 가능하지만 권장되지는 않습니다.
 * 리플렉션 직렬화 서로게이트를 사용합니다. 이 솔루션은 일부 경우 불가능하며 직렬화가 너무 많이 발생할 위험이 있습니다.
 
@@ -224,7 +224,7 @@ builder.Update(Conversation.Container);
 
 상태 서비스를 사용하면 사용자가 나중에 위치를 잃지 않고 대화로 돌아올 수 있게 대화의 대화 상자에서 진행 상황을 유지할 수 있습니다. 이렇게 유지하기 위해, 봇의 코드를 수정할 때 State API를 통해 저장된 봇 데이터 속성 모음이 자동으로 지워지지 않습니다. 수정된 코드가 이전 데이터 버전과 호환 가능한지 여부에 따라 봇 데이터를 지울지 여부를 결정해야 합니다. 
 
-* 봇 개발 중에 수동으로 대화의 대화 스택과 상태를 재설정하려면 ` /deleteprofile` 명령을 사용하여 상태 데이터를 삭제할 수 있습니다. 채널이 해석하지 않도록 명령에 선행 공백을 포함해야 합니다.
+* 봇 개발 중에 수동으로 대화의 대화 스택과 상태를 재설정하려면 `/deleteprofile` 명령을 사용하여 상태 데이터를 삭제할 수 있습니다. 채널이 해석하지 않도록 명령에 선행 공백을 포함해야 합니다.
 * 봇을 프로덕션에 배포한 후에는 버전을 범프하면 연결된 상태 데이터가 지워지도록 봇 데이터 버전을 지정할 수 있습니다. Node.js용 Bot Framework SDK에서는 미들웨어를 통해, .NET용 Bot Framework SDK에서는 `IPostToBot` 구현을 통해 이를 수행할 수 있습니다.
 
 > [!NOTE]
@@ -234,7 +234,7 @@ builder.Update(Conversation.Container);
 
 ## <a name="what-are-the-possible-machine-readable-resolutions-of-the-luis-built-in-date-time-duration-and-set-entities"></a>LUIS 기본 제공 날짜, 시간, 기간, 설정 엔터티의 머신이 읽을 수 있는 가능한 해결책은 무엇인가요?
 
-예제 목록은 LUIS 문서의 [미리 작성된 엔터티 섹션][LUISPreBuiltEntities]을 참조하세요.
+예제 목록은 LUIS 문서의 [미리 빌드된 엔터티 섹션][LUISPreBuiltEntities]을 참조하세요.
 
 ## <a name="how-can-i-use-more-than-the-maximum-number-of-luis-intents"></a>최대 LUIS 의도보다 더 사용하려면 어떻게 해야 하나요?
 
@@ -251,9 +251,9 @@ Node.js용 Bot Framework SDK와 .NET용 Bot Framework SDK 모두 단일 LUIS 의
 ## <a name="where-can-i-get-more-help-on-luis"></a>LUIS에 대한 자세한 도움말은 어디서 얻을 수 있나요?
 
 * [LUIS(Language Understanding) 소개 - Microsoft Cognitive Services](https://www.youtube.com/watch?v=jWeLajon9M8) (동영상)
-* [LUIS(Language Understanding)에 대한 고급 교육 세션](https://www.youtube.com/watch?v=39L0Gv2EcSk)(비디오)
+* [LUIS(Language Understanding)에 대한 고급 학습 세션](https://www.youtube.com/watch?v=39L0Gv2EcSk)(동영상)
 * [LUIS 설명서](/azure/cognitive-services/LUIS/Home)
-* [Language Understanding 포럼](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=LUIS) 
+* [Language Understanding 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=LUIS) 
 
 
 ## <a name="what-are-some-community-authored-dialogs"></a>커뮤니티에서 작성된 대화에는 어떤 것이 있나요?

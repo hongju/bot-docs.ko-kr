@@ -9,18 +9,18 @@ ms.service: bot-service
 ms.subservice: cognitive-services
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 26b23c9beda872b71defd779563531328b63a0c8
-ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
+ms.openlocfilehash: ebbaa7473ec44ef9369df25a41873583abc28034
+ms.sourcegitcommit: a295a90eac461f8b96770dd902ba44919acf33fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54225378"
+ms.lasthandoff: 06/26/2019
+ms.locfileid: "67405660"
 ---
 # <a name="recognize-intents-and-entities-with-luis"></a>LUIS를 통해 의도 및 엔터티 인식 
 
 [!INCLUDE [pre-release-label](../includes/pre-release-label-v3.md)]
 
-이 문서에서는 Note(메모)를 작성하는 봇 예제를 사용하여, Language Understanding([LUIS][LUIS])이 봇이 자연어 입력에 적절하게 응답하는 데 어떻게 도움이 될 수 있는지를 보여줍니다. 봇은 **의도**를 식별하여 사용자가 원하는 바를 감지합니다. 의도는 음성이나 텍스트 입력 또는 **발언**을 통해 결정됩니다. 의도는 봇이 취하는 동작에 발언을 매핑합니다. 예를 들어 Note(메모)를 작성하는 봇은 `Notes.Create` 의도를 인식하여 메모를 생성하는 기능을 호출합니다. 봇은 발언에서 중요한 단어인 **엔터티**를 추출해야 할 수 도 있습니다. 메모 작성 봇의 예에서 `Notes.Title` 엔터티는 각 메모의 제목을 식별합니다.
+이 문서에서는 메모하는 봇 예제를 사용하여 [LUIS][LUIS](Language Understanding)가 봇이 자연어 입력에 적절하게 응답하는 데 어떻게 도움이 되는지를 보여 줍니다. 봇은 **의도**를 식별하여 사용자가 원하는 바를 감지합니다. 의도는 음성이나 텍스트 입력 또는 **발언**을 통해 결정됩니다. 의도는 봇이 취하는 동작에 발언을 매핑합니다. 예를 들어 Note(메모)를 작성하는 봇은 `Notes.Create` 의도를 인식하여 메모를 생성하는 기능을 호출합니다. 봇은 발언에서 중요한 단어인 **엔터티**를 추출해야 할 수 도 있습니다. 메모 작성 봇의 예에서 `Notes.Title` 엔터티는 각 메모의 제목을 식별합니다.
 
 ## <a name="create-a-language-understanding-bot-with-bot-service"></a>Bot Service를 사용하여 Language Understanding 봇 만들기
 
@@ -34,7 +34,7 @@ ms.locfileid: "54225378"
 
 3. **Bot Service** 블레이드에서 필요한 정보를 제공하고 **만들기**를 클릭합니다. 이렇게 하면 Bot Service 및 LUIS 앱이 만들어지고 Azure에 배포됩니다. 
    * **앱 이름**을 봇 이름으로 설정합니다. 이 이름은 봇이 클라우드에 배포될 때 하위 도메인으로 사용됩니다(예: mynotesbot.azurewebsites.net). 이 이름은 봇과 연결된 LUIS 앱의 이름으로도 사용됩니다. 나중에 봇과 관련된 LUIS 앱을 찾을 때 사용할 수 있도록 복사합니다.
-   * 구독, [리소스 그룹](/azure/azure-resource-manager/resource-group-overview), App Service 계획 및 [위치](https://azure.microsoft.com/en-us/regions/)를 선택합니다.
+   * 구독, [리소스 그룹](/azure/azure-resource-manager/resource-group-overview), App Service 계획 및 [위치](https://azure.microsoft.com/regions/)를 선택합니다.
    * **봇 템플릿** 필드에 **Language Understanding(C#)** 템플릿을 선택합니다.
 
      ![Bot Service 블레이드](../media/bot-builder-dotnet-use-luis/bot-service-setting-callout-template.png)

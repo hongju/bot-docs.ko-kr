@@ -7,14 +7,14 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
-ms.date: 12/13/17
+ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 3ee3af72d1c03faf485a64adb8d9fa2548f5d99d
-ms.sourcegitcommit: 980612a922b8290b2faadaca193496c4117e415a
+ms.openlocfilehash: fc4fe669c57c53b8b53a98bf495ed858094ef4b6
+ms.sourcegitcommit: 697a577d72aaf91a0834d4b4c2ef5aa11291f28f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64563587"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67496627"
 ---
 # <a name="manage-state-data"></a>상태 데이터 관리
 
@@ -92,7 +92,7 @@ GlobalConfiguration.Configure(WebApiConfig.Register);
 
 ## <a name="useful-properties-for-managing-state-data"></a>상태 데이터를 관리하는 데 유용한 속성
 
-각 [Activity][Activity] 개체에는 상태 데이터를 관리하는 데 사용하는 속성이 포함되어 있습니다.
+각 [활동][Activity] 개체에는 상태 데이터를 관리하는 데 사용하는 속성이 포함되어 있습니다.
 
 | 자산 | 설명 | 사용 사례 |
 |----|----|----|
@@ -114,4 +114,4 @@ GlobalConfiguration.Configure(WebApiConfig.Register);
 - [Bot Framework 문제 해결 가이드](../bot-service-troubleshoot-general-problems.md)
 - <a href="/dotnet/api/?view=botbuilder-3.11.0" target="_blank">.NET용 Bot Framework SDK 참조</a>
 
-[Activity]: https://docs.botframework.com/en-us/csharp/builder/sdkreference/dc/d2f/class_microsoft_1_1_bot_1_1_connector_1_1_activity.html
+[Activity]: https://docs.botframework.com/csharp/builder/sdkreference/dc/d2f/class_microsoft_1_1_bot_1_1_connector_1_1_activity.html

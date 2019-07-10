@@ -10,12 +10,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 05/23/2019
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 07a66eb468bc456fb463c9c215a2c941e4fafe0a
-ms.sourcegitcommit: ea64a56acfabc6a9c1576ebf9f17ac81e7e2a6b7
+ms.openlocfilehash: 56a95023810bd7d66687c892f449fa31c9394dc8
+ms.sourcegitcommit: 697a577d72aaf91a0834d4b4c2ef5aa11291f28f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66215331"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67496678"
 ---
 # <a name="write-directly-to-storage"></a>저장소에 직접 작성
 
@@ -441,7 +441,7 @@ Azure Blob Storage는 클라우드를 위한 Microsoft의 개체 스토리지 �
 
 ![Blob Storage 새 계정 페이지](./media/blob-storage-new-account.png)
 
-3. **새 계정 페이지**에서 스토리지 계정에 대한 **이름**을 입력하고, **계정 유형**에 **Blob Storage**를 선택하고, **위치**, **리소스 그룹** 및 **구독** 정보를 제공합니다.  
+3. **새 계정 페이지**에서 스토리지 계정의 **이름**을 입력하고, **계정 종류**으로 **Blob Storage**를 선택한 다음, **위치**, **리소스 그룹** 및 **구독** 정보를 제공합니다.  
 4. 그런 다음, **검토 + 만들기**를 클릭합니다.
 5. 유효성 검사에 성공하면 **만들기**를 클릭합니다.
 
@@ -671,7 +671,7 @@ protected override async Task OnMessageActivityAsync(ITurnContext<IMessageActivi
 
 ```
 
-다음 링크는 [Azure Blob Transcript Storage](https://docs.microsoft.com/en-us/dotnet/api/microsoft.bot.builder.azure.azureblobtranscriptstore)와 관련된 자세한 정보를 제공합니다. 
+다음 링크는 [Azure Blob Transcript Storage](https://docs.microsoft.com/dotnet/api/microsoft.bot.builder.azure.azureblobtranscriptstore)와 관련된 자세한 정보를 제공합니다. 
 
 ## <a name="additional-information"></a>추가 정보
 
@@ -680,7 +680,7 @@ protected override async Task OnMessageActivityAsync(ITurnContext<IMessageActivi
 
 <!-- define optimistic concurrency -->
 
-#### <a name="last-write-wins---allow-overwrites"></a>마지막 쓰기 우선 - 덮어쓰기 허용 
+#### <a name="last-write-wins---allow-overwrites"></a>마지막 쓰기 우선 - 덮어쓰기 허용
 별표(`*`)의 `eTag` 속성 값은 마지막 작성자가 우선임을 의미합니다. 새 데이터 저장소를 만들 때 속성의 `eTag`를 `*`로 설정하여 이전에 저장하지 않은 데이터를 쓰고 있거나, 마지막 작성자가 모든 이전에 저장한 속성을 덮어쓰기를 원한다고 표시합니다. 동시성은 봇에는 문제가 되지 않습니다. 쓰는 데이터에 대해 `eTag` 속성을 `*`로 설정하면 덮어쓰기를 활성화합니다.
 
 #### <a name="maintain-concurrency-and-prevent-overwrites"></a>동시성을 유지 관리 및 덮어쓰기 방지
@@ -718,7 +718,7 @@ var changes = Dictionary<string, object>();
 await NoteStore.WriteAsync(changes, cancellationToken);
 ```
 
-그런 다음, 나중에 메모를 액세스 및 업데이트하여 저장소에서 읽은 `eTag`를 유지합니다. 
+그런 다음, 나중에 메모를 액세스 및 업데이트하여 저장소에서 읽은 `eTag`를 유지합니다.
 
 **EchoBot.cs**
 ```csharp

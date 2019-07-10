@@ -9,18 +9,18 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 03/28/2018
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: acdc6053f7d666c2f086dca554efafc93c8af769
-ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
+ms.openlocfilehash: 1a3b8a4bfdd73674b972f43fe58afec49c63d8cc
+ms.sourcegitcommit: dbbfcf45a8d0ba66bd4fb5620d093abfa3b2f725
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54225288"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67464801"
 ---
 # <a name="recognize-intents-and-entities-with-luis"></a>LUIS를 통해 의도 및 엔터티 인식 
 
 [!INCLUDE [pre-release-label](../includes/pre-release-label-v3.md)]
 
-이 문서에서는 Note(메모)를 작성하는 봇 예제를 사용하여, Language Understanding([LUIS][LUIS])이 봇이 자연어 입력에 적절하게 응답하는 데 어떻게 도움이 될 수 있는지를 보여줍니다. 봇은 **의도**를 식별하여 사용자가 원하는 바를 감지합니다. 의도는 음성이나 텍스트 입력 또는 **발언**을 통해 결정됩니다. 의도는 대화 상자 호출처럼 봇이 취하는 동작에 발언을 매핑합니다. 봇은 발언에서 중요한 단어인 **엔터티**를 추출해야 할 수도 있습니다. 경우에 따라 의도 충족을 위해 엔터티가 필요합니다. 메모 작성 봇의 예에서 `Notes.Title` 엔터티는 각 메모의 제목을 식별합니다.
+이 문서에서는 메모하는 봇 예제를 사용하여 [LUIS][LUIS](Language Understanding)가 봇이 자연어 입력에 적절하게 응답하는 데 어떻게 도움이 되는지를 보여 줍니다. 봇은 **의도**를 식별하여 사용자가 원하는 바를 감지합니다. 의도는 음성이나 텍스트 입력 또는 **발언**을 통해 결정됩니다. 의도는 대화 상자 호출처럼 봇이 취하는 동작에 발언을 매핑합니다. 봇은 발언에서 중요한 단어인 **엔터티**를 추출해야 할 수도 있습니다. 경우에 따라 의도 충족을 위해 엔터티가 필요합니다. 메모 작성 봇의 예에서 `Notes.Title` 엔터티는 각 메모의 제목을 식별합니다.
 
 ## <a name="create-a-language-understanding-bot-with-bot-service"></a>Bot Service를 사용하여 Language Understanding 봇 만들기
 
@@ -34,7 +34,7 @@ ms.locfileid: "54225288"
 
 3. **Bot Service** 블레이드에서 필요한 정보를 제공하고 **만들기**를 클릭합니다. 이렇게 하면 Bot Service 및 LUIS 앱이 만들어지고 Azure에 배포됩니다. 
    * **앱 이름**을 봇 이름으로 설정합니다. 이 이름은 봇이 클라우드에 배포될 때 하위 도메인으로 사용됩니다(예: mynotesbot.azurewebsites.net). 이 이름은 봇과 연결된 LUIS 앱의 이름으로도 사용됩니다. 나중에 봇과 관련된 LUIS 앱을 찾을 때 사용할 수 있도록 복사합니다.
-   * 구독, [리소스 그룹](/azure/azure-resource-manager/resource-group-overview), App Service 계획 및 [위치](https://azure.microsoft.com/en-us/regions/)를 선택합니다.
+   * 구독, [리소스 그룹](/azure/azure-resource-manager/resource-group-overview), App Service 계획 및 [위치](https://azure.microsoft.com/regions/)를 선택합니다.
    * **봇 템플릿** 필드에 **Language Understanding(Node.js)** 템플릿을 선택합니다.
 
      ![Bot Service 블레이드](../media/bot-builder-nodejs-use-luis/bot-service-setting-callout-template.png)
@@ -86,7 +86,7 @@ LUIS 앱은 4개 의도로 시작합니다. 취소: 인사말, 도움말 및 없
 
 
 3.  오른쪽 위에 있는 **학습** 단추를 클릭하여 앱을 학습시킵니다.
-4.  위쪽 탐색 모음에 있는 **게시**를 클릭하여 **게시** 페이지를 엽니다. **프로덕션 슬롯에 게시** 단추를 클릭합니다. 게시에 성공하면 **앱 게시** 페이지의 **엔드포인트** 열에 표시된 URL에서 Resource Name Starter_Key로 시작되는 행에 LUIS 앱이 배포됩니다. URL은 `https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx?subscription-key=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx&timezoneOffset=0&verbose=true&q=` 예제와 유사한 형식입니다.  이 URL의 앱 ID와 구독 키는 ** App Service 설정 > ApplicationSettings > 앱 설정 **의 LuisAppId 및 LuisAPIKey와 동일합니다.
+4.  위쪽 탐색 모음에 있는 **게시**를 클릭하여 **게시** 페이지를 엽니다. **프로덕션 슬롯에 게시** 단추를 클릭합니다. 게시에 성공하면 **앱 게시** 페이지의 **엔드포인트** 열에 표시된 URL에서 Resource Name Starter_Key로 시작되는 행에 LUIS 앱이 배포됩니다. URL은 `https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx?subscription-key=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx&timezoneOffset=0&verbose=true&q=` 예제와 유사한 형식입니다. 이 URL의 앱 ID와 구독 키는 **App Service 설정 > ApplicationSettings > 앱 설정**의 LuisAppId 및 LuisAPIKey와 동일합니다.
 
 
 ## <a name="modify-the-bot-code"></a>봇 코드 수정
@@ -149,7 +149,7 @@ var recognizer = new builder.LuisRecognizer(LuisModelUrl);
 bot.recognizer(recognizer);
 
 // Add a dialog for each intent that the LUIS app recognizes.
-// See https://docs.microsoft.com/en-us/bot-framework/nodejs/bot-builder-nodejs-recognize-intent-luis 
+// See https://docs.microsoft.com/bot-framework/nodejs/bot-builder-nodejs-recognize-intent-luis 
 bot.dialog('GreetingDialog',
     (session) => {
         session.send('You reached the Greeting intent. You said \'%s\'.', session.message.text);
@@ -181,7 +181,7 @@ bot.dialog('CancelDialog',
 
 
 > [!TIP] 
-> 이 문서에서 설명하는 샘플 코드는 [Notes 봇 샘플][NotesSample]에도 있습니다.
+> 이 문서에서 설명하는 샘플 코드는 [메모 봇 샘플][NotesSample]에서도 확인할 수 있습니다.
 
 
 
@@ -265,7 +265,7 @@ bot.dialog('CreateNote', [
 });
 ```
 
-발언의 모든 엔터티는 `args` 매개 변수를 사용하여 대화에 전달됩니다. [waterfall][waterfall]의 첫 단계는 [EntityRecognizer.findEntity][EntityRecognizer_findEntity]를 호출하여 LUIS 응답의 모든 `Note.Title` 엔터티에서 메모 제목을 가져오는 것입니다. LUIS 앱이 `Note.Title` 엔터티를 검색하지 않은 경우 봇은 사용자에게 메모 이름 입력을 요청하는 프롬프트를 표시합니다. waterfall의 두 번째 단계는 메모에 포함할 텍스트 입력을 요청하는 프롬프트입니다. 봇이 메모의 텍스트를 갖게 된 후 세 번째 단계는 제목을 키로 사용하여 [session.userData][session_userData]로 `notes` 개체에 메모를 저장하는 것입니다. `session.UserData`에 대한 자세한 내용은 [상태 데이터 관리](./bot-builder-nodejs-state.md)를 참조하세요. 
+발언의 모든 엔터티는 `args` 매개 변수를 사용하여 대화에 전달됩니다. [waterfall][waterfall]의 첫 번째 단계에서는 calls [EntityRecognizer.findEntity][EntityRecognizer_findEntity] to get the title of the note from any `Note.Title` entities in the LUIS response. If the LUIS app didn't detect a `Note.Title` entity, the bot prompts the user for the name of the note. The second step of the waterfall prompts for the text to include in the note. Once the bot has the text of the note, the third step uses [session.userData][session_userData]를 통해 제목을 키로 사용해서 `notes` 개체에 메모를 저장합니다. `session.UserData`에 대한 자세한 내용은 [상태 데이터 관리](./bot-builder-nodejs-state.md)를 참조하세요. 
 
 
 
@@ -572,40 +572,40 @@ Azure Portal에서 **Web Chat에서 테스트**를 클릭하여 봇을 테스트
 
 [LUIS]: https://www.luis.ai/
 
-[intentDialog]: https://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.intentdialog.html
+[intentDialog]: https://docs.botframework.com/node/builder/chat-reference/classes/_botbuilder_d_.intentdialog.html
 
-[intentDialog_matches]: https://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.intentdialog.html#matches 
+[intentDialog_matches]: https://docs.botframework.com/node/builder/chat-reference/classes/_botbuilder_d_.intentdialog.html#matches 
 
 [NotesSample]: https://github.com/Microsoft/BotFramework-Samples/tree/master/docs-samples/Node/basics-naturalLanguage
 
-[triggerAction]: https://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.dialog.html#triggeraction
+[triggerAction]: https://docs.botframework.com/node/builder/chat-reference/classes/_botbuilder_d_.dialog.html#triggeraction
 
-[confirmPrompt]: https://docs.botframework.com/en-us/node/builder/chat-reference/interfaces/_botbuilder_d_.itriggeractionoptions.html#confirmprompt
+[confirmPrompt]: https://docs.botframework.com/node/builder/chat-reference/interfaces/_botbuilder_d_.itriggeractionoptions.html#confirmprompt
 
 [waterfall]: bot-builder-nodejs-dialog-manage-conversation-flow.md#manage-conversation-flow-with-a-waterfall
 
-[session_userData]: https://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.session.html#userdata
+[session_userData]: https://docs.botframework.com/node/builder/chat-reference/classes/_botbuilder_d_.session.html#userdata
 
-[EntityRecognizer_findEntity]: https://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.entityrecognizer.html#findentity
+[EntityRecognizer_findEntity]: https://docs.botframework.com/node/builder/chat-reference/classes/_botbuilder_d_.entityrecognizer.html#findentity
 
-[matches]: https://docs.botframework.com/en-us/node/builder/chat-reference/interfaces/_botbuilder_d_.itriggeractionoptions.html#matches
+[matches]: https://docs.botframework.com/node/builder/chat-reference/interfaces/_botbuilder_d_.itriggeractionoptions.html#matches
 
 [LUISAzureDocs]: /azure/cognitive-services/LUIS/Home
 
-[Dialog]: https://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.dialog.html
+[Dialog]: https://docs.botframework.com/node/builder/chat-reference/classes/_botbuilder_d_.dialog.html
 
-[IntentRecognizerSetOptions]: https://docs.botframework.com/en-us/node/builder/chat-reference/interfaces/_botbuilder_d_.iintentrecognizersetoptions.html
+[IntentRecognizerSetOptions]: https://docs.botframework.com/node/builder/chat-reference/interfaces/_botbuilder_d_.iintentrecognizersetoptions.html
 
-[LuisRecognizer]: https://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.luisrecognizer
+[LuisRecognizer]: https://docs.botframework.com/node/builder/chat-reference/classes/_botbuilder_d_.luisrecognizer
 
-[LUISConcepts]: https://docs.botframework.com/en-us/node/builder/guides/understanding-natural-language/
+[LUISConcepts]: https://docs.botframework.com/node/builder/guides/understanding-natural-language/
 
 [DisambiguationSample]: https://aka.ms/v3-js-onDisambiguateRoute
 
-[IDisambiguateRouteHandler]: https://docs.botframework.com/en-us/node/builder/chat-reference/interfaces/_botbuilder_d_.idisambiguateroutehandler.html
+[IDisambiguateRouteHandler]: https://docs.botframework.com/node/builder/chat-reference/interfaces/_botbuilder_d_.idisambiguateroutehandler.html
 
-[RegExpRecognizer]: https://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.regexprecognizer.html
+[RegExpRecognizer]: https://docs.botframework.com/node/builder/chat-reference/classes/_botbuilder_d_.regexprecognizer.html
 
 [AlarmBot]: https://aka.ms/v3-js-luisSample
 
-[UniversalBot]: https://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.universalbot.html
+[UniversalBot]: https://docs.botframework.com/node/builder/chat-reference/classes/_botbuilder_d_.universalbot.html

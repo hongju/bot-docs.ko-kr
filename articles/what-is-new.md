@@ -10,12 +10,12 @@ ms.service: bot-service
 ms.subservice: abs
 ms.date: 05/23/2019
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 2c8284bf1a78c4f8dd9fb5cc3dcb346ac99ad936
-ms.sourcegitcommit: 710d279898db587abb1e81d13628177a4e182293
+ms.openlocfilehash: 2894ed29aa6d17089b9287ba4c4819571d18befd
+ms.sourcegitcommit: a295a90eac461f8b96770dd902ba44919acf33fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66751294"
+ms.lasthandoff: 06/26/2019
+ms.locfileid: "67405981"
 ---
 # <a name="whats-new-in-bot-framework"></a>Bot Framework의 새로운 기능
 
@@ -28,7 +28,7 @@ Bot Framework SDK v4는 개발자가 원하는 프로그래밍 언어를 사용�
 |   | C#  | JS  | Python |  Java | 
 |---|:---:|:---:|:------:|:-----:|
 |SDK) |[4.4.3][1] | [4.4.0][2] | [4.4.0b1(미리 보기)][3] | [4.0.0a6(미리 보기)][3a]|
-|Docs | [문서][5] |[문서][5] |  | |
+|Docs | [docs][5] |[docs][5] |  | |
 |샘플 |[.NET Core][6], [WebAPI][10] |[Node.js][7] , [TypeScript][8], [es6][9]  | [Python][111] | | 
 
 [1a]:https://github.com/microsoft/botframework-sdk/#readme
@@ -37,7 +37,7 @@ Bot Framework SDK v4는 개발자가 원하는 프로그래밍 언어를 사용�
 [3]:https://github.com/Microsoft/botbuilder-python#packages
 [3a]:https://github.com/Microsoft/botbuilder-java#packages
 [4]:https://github.com/Microsoft/botbuilder-java#packages
-[5]:https://docs.microsoft.com/en-us/azure/bot-service/?view=azure-bot-service-4.0
+[5]:https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-4.0
 [6]:https://github.com/Microsoft/BotBuilder-Samples/tree/master/samples/csharp_dotnetcore
 [7]:https://github.com/Microsoft/BotBuilder-Samples/tree/master/samples/javascript_nodejs
 [8]:https://github.com/Microsoft/BotBuilder-Samples/tree/master/samples/javascript_typescript
@@ -48,11 +48,11 @@ Bot Framework SDK v4는 개발자가 원하는 프로그래밍 언어를 사용�
 <a name="V4-whats-new"></a>
 ## <a name="bot-framework-sdk-new-in-preview"></a>Bot Framework SDK(신규! 미리 보기 상태)
 
-- [적응형 대화][47] | [문서][48] | [C# 샘플][49]: 적응형 대화는 개발자가 대화 진행 시 동적으로 변경될 수 있는 대화를 빌드할 수 있게 해줍니다.  기존에는 개발자가 대화의 전체 흐름을 사전에 매핑했기 때문에 대화의 유연성이 제한되었습니다.  적응형 대화는 개발자가 더 유연성을 발휘하고, 컨텍스트 변화에 대응하고, 대화 진행 시 대화에 새 단계 또는 전체 하위 대화를 삽입할 수 있게 해줍니다. 
+- [적응형 대화 상자][47] | [docs][48] | [C# 샘플][49]: 적응형 대화는 개발자가 대화 진행 시 동적으로 변경될 수 있는 대화를 빌드할 수 있게 해줍니다.  기존에는 개발자가 대화의 전체 흐름을 사전에 매핑했기 때문에 대화의 유연성이 제한되었습니다.  적응형 대화는 개발자가 더 유연성을 발휘하고, 컨텍스트 변화에 대응하고, 대화 진행 시 대화에 새 단계 또는 전체 하위 대화를 삽입할 수 있게 해줍니다. 
 
-- [언어 생성][43] | [문서][44] | [C# 샘플][45]: 언어 생성은 개발자가 코드 및 리소스 파일에서 포함된 문자열을 추출하여 언어 생성 런타임 및 파일 형식을 통해 관리할 수 있게 해줍니다.  언어 생성은 고객이 특정 문구에 여러 변형을 정의하고, 컨텍스트에 따라 단순한 식을 실행하고, 대화 메모리를 참조하고, 기능을 점차 추가하여 좀 더 자연스러운 대화 환경을 구축할 수 있게 해줍니다.
+- [언어 생성][43] | [docs][44] | [C# 샘플][45]: 언어 생성은 개발자가 코드 및 리소스 파일에서 포함된 문자열을 추출하여 언어 생성 런타임 및 파일 형식을 통해 관리할 수 있게 해줍니다.  언어 생성은 고객이 특정 문구에 여러 변형을 정의하고, 컨텍스트에 따라 단순한 식을 실행하고, 대화 메모리를 참조하고, 기능을 점차 추가하여 좀 더 자연스러운 대화 환경을 구축할 수 있게 해줍니다.
 
-- [공통 식 언어][40] | [api][41]: 적응형 대화와 언어 생성은 모두 공통 식 언어를 사용하여 봇 대화를 지원합니다.
+- [공통 식 언어][40]| [api][41]: 적응형 대화와 언어 생성은 모두 공통 식 언어를 사용하여 봇 대화를 지원합니다.
 
 [40]:https://github.com/Microsoft/BotBuilder-Samples/tree/master/experimental/common-expression-language#readme
 [41]:https://github.com/Microsoft/BotBuilder-Samples/blob/master/experimental/common-expression-language/api-reference.md
@@ -66,11 +66,11 @@ Bot Framework SDK v4는 개발자가 원하는 프로그래밍 언어를 사용�
 [50]:https://github.com/Microsoft/BotBuilder-Samples/tree/master/experimental/adaptive-dialog/declarative
 
 ## <a name="botkit"></a>Botkit
-[Botkit][100]은 주요 메시징 플랫폼용 챗봇, 앱 및 사용자 지정 통합을 구축하기 위한 개발자 도구이자 SDK입니다. Botkit은 `hear()` 트리거, `ask()` 질문 및 `say()` 답변을 자동 처리합니다. 개발자는 이러한 구문을 사용하여 최신 버전의 Bot Framework SDK와 상호 호환 가능한 대화를 구축합니다. 
+[Botkit][100]는 주요 메시징 플랫폼용 챗봇, 앱 및 사용자 지정 통합을 빌드하기 위한 개발자 도구이자 SDK입니다. Botkit은 `hear()` 트리거, `ask()` 질문 및 `say()` 답변을 자동 처리합니다. 개발자는 이러한 구문을 사용하여 최신 버전의 Bot Framework SDK와 상호 호환 가능한 대화를 구축합니다. 
 
-또한 Botkit에는 Javascript 봇 애플리케이션이 메시징 플랫폼과 직접 통신할 수 있게 해주는 [Slack][102], [Webex Teams][103], [Google 행아웃][104], [Facebook Messenger][105], [Twilio][106] 및 [Web chat][107]과 같은 6개의 플랫폼 어댑터가 기본 제공됩니다.
+또한 Botkit에는 Javascript 봇 애플리케이션이 메시징 플랫폼과 직접 통신할 수 있게 해주는 [Slack][102], [Webex Teams][103], [Google 행아웃][104], [Facebook Messenger][105], [Twilio][106], [웹 채팅][107] 등의 6개 플랫폼 어댑터가 포함되어 있습니다.
 
-Botkit은 Microsoft Bot Framework의 일부이며 [MIT 오픈 소스 라이선스][101]로 출시됩니다.
+Botkit는 Microsoft Bot Framework의 일부이며 [MIT 오픈 소스 라이선스][101]로 릴리스됩니다.
 
 [100]:https://github.com/howdyai/botkit#readme
 [101]:https://github.com/howdyai/botkit/blob/master/LICENSE.md
@@ -92,24 +92,24 @@ Botkit은 Microsoft Bot Framework의 일부이며 [MIT 오픈 소스 라이선�
 |[**분석**](https://github.com/Microsoft/AI/blob/master/docs/readme.md#analytics)| Conversational AI Analytics 솔루션을 사용하여 봇의 상태와 동작에 대한 핵심 인사이트를 확보하세요. 사용 가능한 원격 분석, 샘플 Application Insights 쿼리 및 Power BI 대시보드를 검토하여 사용자와 봇의 대화를 광범위하게 이해하세요. |
 
 ## <a name="azure-bot-service"></a>Azure Bot Service
-Azure Bot Service는 데이터에 대한 완전한 소유권과 제어권으로 인텔리전트 엔터프라이즈급 봇을 호스트할 수 있게 해줍니다. 개발자는 Skype, Microsoft Teams, Cortana, Web Chat 등에서 봇을 등록하고 사용자에게 연결할 수 있습니다. [Azure][27]  |  [문서][28] | [채널에 연결][29] 
+Azure Bot Service는 데이터에 대한 완전한 소유권과 제어권으로 인텔리전트 엔터프라이즈급 봇을 호스트할 수 있게 해줍니다. 개발자는 Skype, Microsoft Teams, Cortana, Web Chat 등에서 봇을 등록하고 사용자에게 연결할 수 있습니다. [Azure][27] |  [docs][28] | [채널에 연결][29] 
 
 * **Direct Line JS 클라이언트**: WebChat 클라이언트를 사용하고 있지 않으며 Azure Bot Service에서 Direct Line 채널을 사용하려면 사용자 지정 애플리케이션에서 Direct Line JS 클라이언트를 사용하면 됩니다. 자세한 내용을 보려면 [GitHub][30]로 이동하세요.
 
 <a name="ABS-whats-new"></a>
 
-* **신규! Direct Line Speech 채널**: 클라이언트와 봇 애플리케이션 간에 양방향으로 스트리밍되는 음성과 텍스트를 구현하는 채널을 제공하기 위해 Bot Framework와 Microsoft의 음성 서비스를 결합했습니다.  자세한 내용은 [봇에 음성 채널](https://docs.microsoft.com/en-us/azure/bot-service/directline-speech-bot?view=azure-bot-service-4.0)을 추가하는 방법을 참조하세요.
+* **신규! Direct Line Speech 채널**: 클라이언트와 봇 애플리케이션 간에 양방향으로 스트리밍되는 음성과 텍스트를 구현하는 채널을 제공하기 위해 Bot Framework와 Microsoft의 음성 서비스를 결합했습니다.  자세한 내용은 [봇에 음성 채널](https://docs.microsoft.com/azure/bot-service/directline-speech-bot?view=azure-bot-service-4.0)을 추가하는 방법을 참조하세요.
 
-[27]:https://azure.microsoft.com/en-us/services/bot-service/
-[28]:https://docs.microsoft.com/en-us/azure/bot-service/bot-service-overview-introduction?view=azure-bot-service-4.0
-[29]:https://docs.microsoft.com/en-us/azure/bot-service/bot-service-manage-channels?view=azure-bot-service-4.0
+[27]:https://azure.microsoft.com/services/bot-service/
+[28]:https://docs.microsoft.com/azure/bot-service/bot-service-overview-introduction?view=azure-bot-service-4.0
+[29]:https://docs.microsoft.com/azure/bot-service/bot-service-manage-channels?view=azure-bot-service-4.0
 [30]:https://github.com/Microsoft/BotFramework-DirectLineJS/blob/master/README.md
 
 
 ## <a name="bot-framework-emulator"></a>Bot Framework Emulator
 [Bot Framework Emulator][60]는 봇 개발자가 Bot Framework SDK를 사용하여 빌드된 봇을 테스트 및 디버그할 수 있게 해주는 플랫폼 간 데스크톱 애플리케이션입니다. Bot Framework Emulator를 사용하여 머신의 로컬에서 실행 중인 봇을 테스트하거나 원격에서 실행 중인 봇에 연결할 수 있습니다.
 
-- [최신 버전 다운로드][61] | [문서][62]
+- [최신 버전 다운로드][61] | [Docs][62]
 
 <a name="Emulator-whats-new"></a>
 ### <a name="bot-inspector-new-in-preview"></a>봇 검사기(신규! 미리 보기 상태)
@@ -118,7 +118,7 @@ Bot Framework Emulator에서 베타 버전의 새로운 봇 검사기 기능을 
 
 [60]:https://github.com/Microsoft/BotFramework-Emulator#readme
 [61]:https://github.com/Microsoft/BotFramework-Emulator/releases/latest
-[62]:https://docs.microsoft.com/en-us/azure/bot-service/bot-service-debug-emulator?view=azure-bot-service-4.0
+[62]:https://docs.microsoft.com/azure/bot-service/bot-service-debug-emulator?view=azure-bot-service-4.0
 
 
 ## <a name="related-services"></a>관련 서비스
@@ -132,13 +132,13 @@ Bot Framework Emulator에서 베타 버전의 새로운 봇 검사기 기능을 
 
 - **신규! Analytics 대시보드**: LUIS는 더 자세하고 시각적으로 풍부하며 포괄적인 분석 대시보드를 제공합니다. 사용자 친화적인 디자인은 애플리케이션을 설계할 때 대부분의 사용자가 마주하는 일반적인 문제를 해결하는 방법에 대한 간단한 설명을 제시하여 사용자가 모델의 품질, 잠재적 데이터 문제 및 모범 사례 도입 지침에 대한 자세한 인사이트를 확보할 수 있게 해줍니다.
 
-[문서][31] | [봇에 language understanding 추가][32] 
+[문서][31] | [Add language understanding to your bot][32] 
 
 [18]:https://github.com/Microsoft/botbuilder-tools/tree/master/packages/LUIS#readme
 [19]:https://github.com/Microsoft/botbuilder-tools/tree/master/packages/QnAMaker#readme
 [30]:https://www.luis.ai
-[31]:https://docs.microsoft.com/en-us/azure/cognitive-services/LUIS/Home
-[32]:https://docs.microsoft.com/en-us/azure/bot-service/bot-builder-howto-v4-luis?view=azure-bot-service-4.0&branch=pr-en-us-1325&tabs=csharp
+[31]:https://docs.microsoft.com/azure/cognitive-services/LUIS/Home
+[32]:https://docs.microsoft.com/azure/bot-service/bot-builder-howto-v4-luis?view=azure-bot-service-4.0&branch=pr-en-us-1325&tabs=csharp
 
 ### <a name="qna-maker"></a>QnA Maker
 [QnA Maker][33]는 데이터 위에 대화형 질문 및 답변 레이어를 만드는 클라우드 기반 API 서비스입니다. QnA Maker를 사용하면 몇 분 안에 FAQ URL, 구조화된 문서, 제품 설명서 또는 편집 콘텐츠에 따라 간단한 질문 및 대답 봇을 빌드하고, 학습시키고, 게시할 수 있습니다.
@@ -149,14 +149,14 @@ Bot Framework Emulator에서 베타 버전의 새로운 봇 검사기 기능을 
 - **신규! 인텔리전스**: 상황에 맞는 순위 지정 모델, 활성 학습 제안
 - **신규! 대화**: QnA Maker의 다중 순서 대화입니다.
 
-[문서][34]  | [봇에 qnamaker 추가][35] 
+[문서][34]  | [add qnamaker to your bot][35] 
 
 [33]:https://www.qnamaker.ai/
 [34]:https://aka.ms/qnamaker-docs-home
-[35]:https://docs.microsoft.com/en-us/azure/bot-service/bot-builder-howto-qna?view=azure-bot-service-4.0&branch=pr-en-us-1325&tabs=cs
+[35]:https://docs.microsoft.com/azure/bot-service/bot-builder-howto-qna?view=azure-bot-service-4.0&branch=pr-en-us-1325&tabs=cs
 
 ### <a name="speech-services"></a>Speech Services
-[Speech Services](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/)는 오디오를 텍스트로 변환하고, 음성 번역 및 텍스트 음성 변환을 수행합니다. Speech Services를 사용하면 봇에 음성을 통합하고, 사용자 지정 실행 단어를 만들고, 여러 언어로 제작할 수 있습니다.
+[Speech Services](https://docs.microsoft.com/azure/cognitive-services/speech-service/)는 오디오를 텍스트로 변환하고, 음성 번역 및 텍스트 음성 변환을 수행합니다. Speech Services를 사용하면 봇에 음성을 통합하고, 사용자 지정 실행 단어를 만들고, 여러 언어로 제작할 수 있습니다.
 
 ### <a name="adaptive-cards"></a>Adaptive Cards
 [적응형 카드](https://adaptivecards.io)는 개발자가 공통의 일관된 방식으로 카드 콘텐츠를 교환할 수 있게 해주는 개방형 표준이며, Bot Framework 개발자가 뛰어난 채널 간 대화 환경을 만드는 데 사용됩니다.

@@ -9,12 +9,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: f93ab91281cf0f19be10898436dc41a6a1583c9a
-ms.sourcegitcommit: f84b56beecd41debe6baf056e98332f20b646bda
+ms.openlocfilehash: 94c0e7dd55e36c88066662ec7c9f3be1ce2dfd06
+ms.sourcegitcommit: a295a90eac461f8b96770dd902ba44919acf33fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2019
-ms.locfileid: "65032981"
+ms.lasthandoff: 06/26/2019
+ms.locfileid: "67405599"
 ---
 # <a name="add-speech-to-messages"></a>메시지에 음성 추가
 
@@ -29,11 +29,11 @@ Cortana와 같은 음성 지원 채널을 위한 봇을 빌드하는 경우 봇�
 
 ## <a name="specify-text-to-be-spoken-by-your-bot"></a>봇의 음성 텍스트 지정
 
-.NET용 Bot Framework SDK를 사용하면 음성 지원 채널에서 봇의 음성 텍스트를 지정하는 여러 가지 방법이 있습니다. [메시지][IMessageActivity]의 `Speak` 속성을 설정하거나 `IDialogContext.SayAsync()` 메서드를 호출하거나 내장 프롬프트를 사용하여 메시지를 보낼 때 프롬프트 옵션 `speak` 및 `retrySpeak`을 지정할 수 있습니다.
+.NET용 Bot Framework SDK를 사용하면 음성 지원 채널에서 봇의 음성 텍스트를 지정하는 여러 가지 방법이 있습니다. [메시지][IMessageActivity]의 `Speak` 속성을 설정하거나, `IDialogContext.SayAsync()` 메서드를 호출하거나, 기본 제공 프롬프트를 사용하여 메시지를 보낼 때 프롬프트 옵션 `speak` 및 `retrySpeak`를 지정할 수 있습니다.
 
 ### <a id="message-speak"></a> IMessageActivity.Speak
 
-[메시지][IMessageActivity]를 만들어서 개별 속성을 설정하는 경우 메시지의 `Speak` 속성을 설정하여 봇의 음성 텍스트를 지정할 수 있습니다. 다음 코드 예제는 표시할 텍스트와 음성 텍스트를 지정하고 봇이 [사용자 입력을 수락](bot-builder-dotnet-add-input-hints.md)하는 것을 나타내는 메시지를 만듭니다.
+[메시지][IMessageActivity]를 만들고 개별 속성을 설정하는 경우 메시지의 `Speak` 속성을 설정하여 봇의 음성 텍스트를 지정할 수 있습니다. 다음 코드 예제는 표시할 텍스트와 음성 텍스트를 지정하고 봇이 [사용자 입력을 수락](bot-builder-dotnet-add-input-hints.md)하는 것을 나타내는 메시지를 만듭니다.
 
 [!code-csharp[Set speak property](../includes/code/dotnet-text-to-speech.cs#Speak1)]
 
@@ -51,7 +51,7 @@ Cortana와 같은 음성 지원 채널을 위한 봇을 빌드하는 경우 봇�
 
 ## <a id="ssml"></a>SSML(Speech Synthesis Markup Language)
 
-봇에서 사용할 텍스트를 지정하려면 SSML(Speech Synthesis Markup Language)로 서식이 지정된 문자열을 지정하면 됩니다. SSML은 음성, 속도, 볼륨, 발음, 피치 등과 같은 봇 음성의 다양한 특성을 제어할 수 있는 XML 기반 태그 언어입니다(따라서 올바른 XML이어야 함). SSML에 대한 자세한 내용은 <a href="https://msdn.microsoft.com/en-us/library/hh378377(v=office.14).aspx" target="_blank">Speech Synthesis Markup Language 참조</a>를 참조하세요.
+봇에서 사용할 텍스트를 지정하려면 SSML(Speech Synthesis Markup Language)로 서식이 지정된 문자열을 지정하면 됩니다. SSML은 음성, 속도, 볼륨, 발음, 피치 등과 같은 봇 음성의 다양한 특성을 제어할 수 있는 XML 기반 태그 언어입니다(따라서 올바른 XML이어야 함). SSML에 대한 자세한 내용은 <a href="https://msdn.microsoft.com/library/hh378377(v=office.14).aspx" target="_blank">Speech Synthesis Markup Language 참조</a>를 참조하세요.
 
 SSML 서식 지정 문자열을 제공할 때 외부 SSML 래퍼 요소를 생략할 수 있습니다.
 
@@ -67,9 +67,9 @@ SSML 서식 지정 문자열을 제공할 때 외부 SSML 래퍼 요소를 생�
 
 - [메시지 만들기](bot-builder-dotnet-create-messages.md)
 - [메시지에 입력 힌트 추가](bot-builder-dotnet-add-input-hints.md)
-- <a href="https://msdn.microsoft.com/en-us/library/hh378377(v=office.14).aspx" target="_blank">SSML(Speech Synthesis Markup Language)</a>
+- <a href="https://msdn.microsoft.com/library/hh378377(v=office.14).aspx" target="_blank">SSML(Speech Synthesis Markup Language)</a>
 - <a href="https://github.com/Microsoft/BotBuilder-Samples/tree/v3-sdk-samples/CSharp/demo-RollerSkill" target="_blank">롤러 스킬 샘플(GitHub)</a>
-- <a href="https://docs.botframework.com/en-us/csharp/builder/sdkreference/dc/d2f/class_microsoft_1_1_bot_1_1_connector_1_1_activity.html" target="_blank">활동 클래스</a>
+- <a href="https://docs.botframework.com/csharp/builder/sdkreference/dc/d2f/class_microsoft_1_1_bot_1_1_connector_1_1_activity.html" target="_blank">활동 클래스</a>
 - <a href="/dotnet/api/microsoft.bot.connector.imessageactivity" target="_blank">IMessageActivity 인터페이스</a>
 - <a href="/dotnet/api/microsoft.bot.builder.dialogs.internals.dialogcontext" target="_blank">DialogContext 클래스</a>
 - <a href="/dotnet/api/microsoft.bot.builder.dialogs.internals.prompt-2" target="_blank">Prompt 클래스</a>

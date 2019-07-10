@@ -7,12 +7,12 @@ ms.topic: article
 ms.service: bot-service
 ms.date: 12/13/2017
 ROBOTS: NoIndex, NoFollow
-ms.openlocfilehash: d41c2c24ed38fffe76cd73a6bb8a685d3861ac55
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: fee70da7288b3214ff7f384998a69b40f91b3226
+ms.sourcegitcommit: dbbfcf45a8d0ba66bd4fb5620d093abfa3b2f725
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "50000430"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67464526"
 ---
 # <a name="configure-adaptive-cards"></a>적응형 카드 구성
 > [!IMPORTANT]
@@ -41,19 +41,19 @@ ms.locfileid: "50000430"
 
 아래 코드 조각은 **myName** 엔터티가 코드로 정의되는 방식을 보여줍니다.
 
-``javascript
+```javascript
 {
    "type": "Input.Text",
    "id": "myName",
    "placeholder": "Last, First"
 }
-``
+```
 
 또한 필드에 `@task`의 ID가 있으면 필드의 값은 작업 이름으로 사용됩니다. 이 필드가 트리거(예: 단추 클릭)될 때 명명된 작업이 실행됩니다. 
 
 예를 들어 다음 코드 조각을 참조하세요.
 
-``javascript
+```javascript
 {
   'type': 'Action.Submit',
   'title': 'Search',
@@ -62,7 +62,7 @@ ms.locfileid: "50000430"
     '@task': 'Hotel Search'
   }
 }
-``
+```
 
 이 단추를 클릭하면 제출 동작이 트리거되고 `context.sticky`가 `Hotel Search`로 설정됩니다. 이로 인해 **Hotel Search** 작업이 실행됩니다. 이 기능을 사용하려면 `@task`가 대화 디자이너에서 정의한 작업 이름과 일치해야 합니다.
 
@@ -72,7 +72,7 @@ ms.locfileid: "50000430"
 * `entityName`은 카드 내 엔터티를 사용합니다.
 * `responseTemplateName`은 카드 내 간단한 또는 조건부 응답 템플릿을 사용합니다.
 
-적응형 카드에 대한 자세한 내용은 여기에서 확인할 수 있습니다. TODO: 적응형 카드 스키마 설명서에 대한 링크 삽입 -->
+적응형 카드에 대한 자세한 내용은 여기서 확인할 수 있습니다. TODO: 적응형 카드 스키마 문서의 링크 삽입 -->
 
 ## <a name="sample-adaptive-card-payload"></a>간단한 적응형(adaptive) 카드 페이로드
 

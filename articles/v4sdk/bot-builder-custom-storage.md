@@ -10,12 +10,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 05/23/2019
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 2b77b19a3b2d0fbd8e545e563f154124af894ffa
-ms.sourcegitcommit: e276008fb5dd7a37554e202ba5c37948954301f1
+ms.openlocfilehash: 138f3c943fc6c4a7882e808c3f280d4ebe04f62f
+ms.sourcegitcommit: 409e8f89a1e9bcd0e69a29a313add424f66a81e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66693731"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67153083"
 ---
 # <a name="implement-custom-storage-for-your-bot"></a>봇에 사용자 지정 스토리지 구현
 
@@ -114,7 +114,8 @@ Activity(활동)를 받으면 해당 대화에 해당하는 상태에 대한 키
 
 결과적으로 OnTurn 구현은 다음과 같습니다.
 
-**ScaleoutBot.cs** [!code-csharp[OnMessageActivity](~/../botbuilder-samples/samples/csharp_dotnetcore/42.scaleout/Bots/ScaleOutBot.cs?range=43-72)]
+**ScaleoutBot.cs**  
+[!code-csharp[OnMessageActivity](~/../botbuilder-samples/samples/csharp_dotnetcore/42.scaleout/Bots/ScaleOutBot.cs?range=43-72)]
 
 대화 실행을 함수 호출로 모델링했습니다. 아마도 더 정교한 구현은 인터페이스를 정의하고 이 종속성을 주입할 수 있게 만들었을 것입니다. 그러나 여기서의 목적을 위해 대화를 모두 정적 함수 뒤에 배치하면 이 접근 방식의 기능적 특성을 강조합니다. 일반적으로 중요한 부분이 기능하게 되도록 구현을 구성하면 네트워크에서 성공적으로 작동하는 데 매우 적합합니다.
 
@@ -124,7 +125,8 @@ Activity(활동)를 받으면 해당 대화에 해당하는 상태에 대한 키
 다음 요구 사항은 Save 작업이 성공적으로 수행될 때까지 아웃바운드 활동을 버퍼링한다는 것입니다. 이렇게 하려면 사용자 지정 BotAdapter 구현이 필요합니다. 다음 코드에서는 Activity를 보내는 대신 목록에 Activity를 추가하는 추상 SendActivity 함수를 구현합니다. 호스팅할 대화는 더 현명하지 않습니다.
 이 특정 시나리오에서는 UpdateActivity 및 DeleteActivity 작업이 지원되지 않으므로 이러한 메서드에서 '구현되지 않음'만 throw합니다. 또한 SendActivity에서 반환되는 값에는 관심이 없습니다. 이는 활동에 대한 업데이트를 보내야 하는 시나리오(예: 채널에 표시된 카드의 단추를 사용하지 않도록 설정하는 경우)의 일부 채널에서 사용합니다. 이러한 메시지 교환은 특히 상태가 필요할 때 복잡해질 수 있으며, 이는 이 문서의 범위를 벗어납니다. 사용자 지정 BotAdapter의 전체 구현은 다음과 같습니다.
 
-**DialogHostAdapter.cs** [!code-csharp[DialogHostAdapter](~/../botbuilder-samples/samples/csharp_dotnetcore/42.scaleout/DialogHostAdapter.cs?range=19-46)]
+**DialogHostAdapter.cs**  
+[!code-csharp[DialogHostAdapter](~/../botbuilder-samples/samples/csharp_dotnetcore/42.scaleout/DialogHostAdapter.cs?range=19-46)]
 
 ## <a name="integration"></a>통합
 
@@ -136,11 +138,13 @@ Activity(활동)를 받으면 해당 대화에 해당하는 상태에 대한 키
 
 드라이버 코드는 다음과 같습니다.
 
-**DialogHost.cs** [!code-csharp[DialogHost](~/../botbuilder-samples/samples/csharp_dotnetcore/42.scaleout/DialogHost.cs?range=22-72)]
+**DialogHost.cs**  
+[!code-csharp[DialogHost](~/../botbuilder-samples/samples/csharp_dotnetcore/42.scaleout/DialogHost.cs?range=22-72)]
 
 마지막으로, 상태가 참조로 사용되므로 사용자 지정 접근자인 Get을 구현하기만 하면 됩니다.
 
-**RefAccessor.cs** [!code-csharp[RefAccessor](~/../botbuilder-samples/samples/csharp_dotnetcore/42.scaleout/RefAccessor.cs?range=22-60)]
+**RefAccessor.cs**  
+[!code-csharp[RefAccessor](~/../botbuilder-samples/samples/csharp_dotnetcore/42.scaleout/RefAccessor.cs?range=22-60)]
 
 ## <a name="additional-information"></a>추가 정보
 이 문서에서 사용된 [C# 샘플](http://aka.ms/scale-out) 코드는 GitHub에서 사용할 수 있습니다.

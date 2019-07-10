@@ -9,12 +9,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 7ca595b1c24769addfbdf7975c48d3a052c4a2de
-ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
+ms.openlocfilehash: 5a0756be0a29660ef63f50a67ce4fa0f27ccc50f
+ms.sourcegitcommit: a295a90eac461f8b96770dd902ba44919acf33fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54226008"
+ms.lasthandoff: 06/26/2019
+ms.locfileid: "67405040"
 ---
 # <a name="handle-user-actions"></a>사용자 작업 처리
 
@@ -49,9 +49,9 @@ ms.locfileid: "54226008"
 
 ## <a name="bind-actions-to-dialog"></a>대화 상자에 작업 바인딩
 
-사용자 발언 또는 단추 클릭으로 [대화 상자](https://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.dialog.html)에 연결된 작업을 *트리거*할 수 있습니다.
+사용자 발언 또는 단추 클릭으로 [대화 상자](https://docs.botframework.com/node/builder/chat-reference/classes/_botbuilder_d_.dialog.html)에 연결된 작업을 *트리거*할 수 있습니다.
 *일치*가 지정되면 작업은 사용자가 작업을 트리거하는 단어나 구를 말할 때까지 수신 대기합니다.  `matches` 옵션은 [인식기][RecognizeIntent]의 이름 또는 정규식을 사용할 수 있습니다.
-단추 클릭에 동작을 바인딩하려면 [CardAction.dialogAction()][CardAction]을 사용하여 작업을 트리거합니다.
+단추 클릭에 작업을 바인딩하려면 [CardAction.dialogAction()][CardAction]을 사용하여 작업을 실행합니다.
 
 작업은 *연결이 가능*하여 원하는 만큼 많은 작업을 대화 상자에 바인딩할 수 있습니다.
 
@@ -116,7 +116,7 @@ bot.customAction({
 
 ### <a name="bind-a-begindialogaction"></a>beginDialogAction 바인딩
 
-대화 상자에 `beginDialogAction`을 바인딩하면 대화 상자에 작업이 등록됩니다. 이 메서드는 트리거될 때 다른 대화 상자를 시작합니다. 이 작업의 동작은 [beginDialog](https://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.session.html#begindialog) 메서드 호출과 유사합니다. 새 대화 상자가 대화 상자 스택의 맨 위로 푸시되어 현재 작업이 자동으로 종료되지 않습니다. 현재 작업은 새 대화 상자가 종료되면 계속됩니다. 
+대화 상자에 `beginDialogAction`을 바인딩하면 대화 상자에 작업이 등록됩니다. 이 메서드는 트리거될 때 다른 대화 상자를 시작합니다. 이 작업의 동작은 [beginDialog](https://docs.botframework.com/node/builder/chat-reference/classes/_botbuilder_d_.session.html#begindialog) 메서드 호출과 유사합니다. 새 대화 상자가 대화 상자 스택의 맨 위로 푸시되어 현재 작업이 자동으로 종료되지 않습니다. 현재 작업은 새 대화 상자가 종료되면 계속됩니다. 
 
 다음 코드 조각은 [beginDialogAction][beginDialogAction]을 대화 상자에 바인딩하는 방법을 보여 줍니다.
 
@@ -142,7 +142,7 @@ bot.dialog('showDinnerCart', function(session){
 });
 ```
 
-새 대화 상자에 추가 인수를 전달해야 하는 경우 [`dialogArgs`](https://docs.botframework.com/en-us/node/builder/chat-reference/interfaces/_botbuilder_d_.idialogactionoptions#dialogargs) 옵션을 작업에 추가할 수 있습니다.
+새 대화 상자에 추가 인수를 전달해야 하는 경우 [`dialogArgs`](https://docs.botframework.com/node/builder/chat-reference/interfaces/_botbuilder_d_.idialogactionoptions#dialogargs) 옵션을 작업에 추가할 수 있습니다.
 
 위의 샘플을 사용하여 `dialogArgs`를 통해 전달된 인수를 수락하도록 수정할 수 있습니다.
 
@@ -178,7 +178,7 @@ bot.dialog('showDinnerCart', function(session, args){
 
 ### <a name="bind-a-reloadaction"></a>reloadAction 바인딩
 
-대화 상자에 `reloadAction`을 바인딩하면 대화 상자에 작업이 등록됩니다. 대화 상자에 이 작업을 바인딩하면 작업이 트리거될 때 대화 상자가 다시 시작됩니다. 이 작업을 트리거하는 것은 [replaceDialog](https://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.session.html#replacedialog) 메서드를 호출하는 것과 유사합니다. 이는 “start over”와 같은 사용자 발언을 처리하거나 [loops](bot-builder-nodejs-dialog-replace.md#repeat-an-action)를 만들도록 논리를 구현하는 데 유용합니다.
+대화 상자에 `reloadAction`을 바인딩하면 대화 상자에 작업이 등록됩니다. 대화 상자에 이 작업을 바인딩하면 작업이 트리거될 때 대화 상자가 다시 시작됩니다. 이 작업을 트리거하는 것은 [replaceDialog](https://docs.botframework.com/node/builder/chat-reference/classes/_botbuilder_d_.session.html#replacedialog) 메서드를 호출하는 것과 유사합니다. 이는 “start over”와 같은 사용자 발언을 처리하거나 [loops](bot-builder-nodejs-dialog-replace.md#repeat-an-action)를 만들도록 논리를 구현하는 데 유용합니다.
 
 다음 코드 조각은 [reloadAction][reloadAction]을 대화 상자에 바인딩하는 방법을 보여 줍니다.
 
@@ -193,7 +193,7 @@ bot.dialog('orderDinner', [
 });
 ```
 
-다시 로드된 대화 상자에 추가 인수를 전달해야 하는 경우 [`dialogArgs`](https://docs.botframework.com/en-us/node/builder/chat-reference/interfaces/_botbuilder_d_.idialogactionoptions#dialogargs) 옵션을 작업에 추가할 수 있습니다. 이 옵션은 `args` 매개 변수로 전달됩니다. 다시 로드 작업에서 인수를 받기 위해 위의 샘플 코드를 다시 작성하면 다음과 같이 표시됩니다.
+다시 로드된 대화 상자에 추가 인수를 전달해야 하는 경우 [`dialogArgs`](https://docs.botframework.com/node/builder/chat-reference/interfaces/_botbuilder_d_.idialogactionoptions#dialogargs) 옵션을 작업에 추가할 수 있습니다. 이 옵션은 `args` 매개 변수로 전달됩니다. 다시 로드 작업에서 인수를 받기 위해 위의 샘플 코드를 다시 작성하면 다음과 같이 표시됩니다.
 
 ```javascript
 // Order dinner.
@@ -236,7 +236,7 @@ bot.dialog('orderDinner', [
 
 ### <a name="bind-an-endconversationaction"></a>endConversationAction 바인딩
 
-`endConversationAction`을 바인딩하면 대화 상자에 등록됩니다. 트리거되면 이 작업은 사용자와 대화를 종료합니다. 이 작업을 트리거하는 것은 [endConversation](https://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.session.html#endconversation) 메서드를 호출하는 것과 유사합니다. 대화가 종료되면 Node.js용 Bot Framework SDK는 대화 스택 및 유지된 상태 데이터를 지웁니다. 지속된 상태 데이터에 대한 자세한 내용은 [상태 데이터 관리](bot-builder-nodejs-state.md)를 참조하세요.
+`endConversationAction`을 바인딩하면 대화 상자에 등록됩니다. 트리거되면 이 작업은 사용자와 대화를 종료합니다. 이 작업을 트리거하는 것은 [endConversation](https://docs.botframework.com/node/builder/chat-reference/classes/_botbuilder_d_.session.html#endconversation) 메서드를 호출하는 것과 유사합니다. 대화가 종료되면 Node.js용 Bot Framework SDK는 대화 스택 및 유지된 상태 데이터를 지웁니다. 지속된 상태 데이터에 대한 자세한 내용은 [상태 데이터 관리](bot-builder-nodejs-state.md)를 참조하세요.
 
 다음 코드 조각은 [endConversationAction][endConversationAction]을 대화 상자에 바인딩하는 방법을 보여 줍니다.
 
@@ -255,7 +255,7 @@ bot.dialog('orderDinner', [
 
 모두는 아닐지라도 대부분 이러한 모든 작업은 대화의 정상 흐름을 중단시킵니다. 많은 대화가 중단되며, 신중하게 처리되어야 합니다. 예를 들어 `triggerAction`, `cancelAction` 또는 `endConversationAction`은 대화 상자 스택을 지웁니다. 사용자가 이러한 작업들을 실수로 트리거한 경우 작업을 다시 시작해야 합니다. `confirmPrompt` 옵션을 이러한 작업에 추가하면 사용자가 실제로 이러한 작업을 트리거할 의도인지 확인할 수 있습니다. `confirmPrompt`는 사용자가 현재 작업을 취소 또는 종료할 것인지를 묻습니다. 사용자는 이때 마음을 바꾸거나 프로세스를 계속할 수 있습니다.
 
-아래 코드 조각에는 [confirmPrompt](http://docs.botframework.com/en-us/node/builder/chat-reference/interfaces/_botbuilder_d_.itriggeractionoptions#confirmprompt)를 통해 사용자가 정말로 주문 프로세스를 취소하려는지 확인하는 [cancelAction][cancelAction]이 나와 있습니다.
+아래 코드 조각은 사용자에게 주문 프로세스를 취소할 것인지 확인하는 [confirmPrompt](http://docs.botframework.com/node/builder/chat-reference/interfaces/_botbuilder_d_.itriggeractionoptions#confirmprompt)가 있는 [cancelAction][cancelAction]을 보여 줍니다.
 
 ```javascript
 // Order dinner.
@@ -280,16 +280,16 @@ bot.dialog('orderDinner', [
 > [상태 데이터 관리](bot-builder-nodejs-state.md)
 
 
-[triggerAction]: https://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.dialog.html#triggeraction
+[triggerAction]: https://docs.botframework.com/node/builder/chat-reference/classes/_botbuilder_d_.dialog.html#triggeraction
 
-[cancelAction]: https://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.dialog.html#cancelaction
+[cancelAction]: https://docs.botframework.com/node/builder/chat-reference/classes/_botbuilder_d_.dialog.html#cancelaction
 
-[reloadAction]: https://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.dialog.html#reloadaction
+[reloadAction]: https://docs.botframework.com/node/builder/chat-reference/classes/_botbuilder_d_.dialog.html#reloadaction
 
-[beginDialogAction]: https://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.dialog.html#begindialogaction
+[beginDialogAction]: https://docs.botframework.com/node/builder/chat-reference/classes/_botbuilder_d_.dialog.html#begindialogaction
 
-[endConversationAction]: https://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.dialog.html#endconversationaction
+[endConversationAction]: https://docs.botframework.com/node/builder/chat-reference/classes/_botbuilder_d_.dialog.html#endconversationaction
 
 [RecognizeIntent]: bot-builder-nodejs-recognize-intent-messages.md
 
-[CardAction]: https://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.cardaction#dialogaction
+[CardAction]: https://docs.botframework.com/node/builder/chat-reference/classes/_botbuilder_d_.cardaction#dialogaction

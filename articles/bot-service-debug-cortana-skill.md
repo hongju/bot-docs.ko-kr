@@ -6,14 +6,14 @@ author: v-ducvo
 manager: kamrani
 ms.topic: article
 ms.service: bot-service
-ms.date: 05/01/18
+ms.date: 05/01/2018
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: acf4f73ea83646878e08d14e036d0d2d66686756
-ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
+ms.openlocfilehash: 7d07317afb6d89c2d22d6f4983f7b21c3a1a053c
+ms.sourcegitcommit: 697a577d72aaf91a0834d4b4c2ef5aa11291f28f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54224958"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67496672"
 ---
 # <a name="test-a-cortana-skill"></a>Cortana 스킬 테스트
 
@@ -62,7 +62,7 @@ Cortana에 호출 구를 말하여 Cortana 스킬을 호출할 수 있습니다.
 1. Cortana를 엽니다.
 2. Cortana 내에서 노트를 열고 **내 정보**를 클릭하여 Cortana에서 사용 중인 계정을 확인합니다. 봇을 등록하는 데 사용한 동일한 Microsoft 계정으로 로그인했는지 확인합니다. 
    ![Cortana의 노트에 로그인](~/media/cortana/cortana-notebook.png)
-2. Cortana 앱의 마이크 단추 또는 Windows의 "무엇이든지 물어보세요" 검색 상자를 클릭하고 봇의 [호출 구][InvocationNameGuidelines]를 말합니다. 호출 구에는 호출할 스킬을 고유하게 식별하는 *호출 이름*이 포함됩니다. 예를 들어, 스킬의 호출 이름이 "Northwind Photo"인 경우 적절한 호출 구에는 "Ask Northwind Photo to..." 또는 "Tell Northwind Photo that..."이 포함될 수 있습니다.
+2. Cortana 앱의 마이크 단추 또는 Windows의 “무엇이든지 물어보세요” 검색 상자를 클릭하고 봇의 [호출 구][InvocationNameGuidelines]를 말합니다. 호출 구에는 호출할 스킬을 고유하게 식별하는 *호출 이름*이 포함됩니다. 예를 들어, 스킬의 호출 이름이 "Northwind Photo"인 경우 적절한 호출 구에는 "Ask Northwind Photo to..." 또는 "Tell Northwind Photo that..."이 포함될 수 있습니다.
 
    Cortana용으로 구성한 경우 봇의 *호출 이름*을 지정합니다.
    ![Cortana 채널을 구성할 때 호출 이름 입력](~/media/cortana/cortana-invocation-name-callout.png)
@@ -77,20 +77,20 @@ Cortana 스킬이 시작되지 않으면 다음을 확인합니다.
 * 호출 이름이 [지침][InvocationNameGuidelines]을 충족하는지 확인합니다. 호출 이름이 세 단어보다 길거나, 발음하기 어렵거나, 다른 단어처럼 들리면 Cortana가 인식하는 데 문제가 있을 수 있습니다.
 * 스킬이 LUIS 모델을 사용하는 경우 [음성 인식 초기화를 사용하도록 설정](~/bot-service-manage-speech-priming.md)해야 합니다.
 
-추가 문제 해결 팁 및 Cortana 대시보드에서 스킬 디버깅을 사용하도록 설정하는 방법에 대한 내용은 [Cortana 스킬 디버깅 사용][Cortana-TestBestPractice]을 참조하세요. 
+추가 문제 해결 팁과 Cortana 대시보드에서 기술 디버깅을 사용하도록 설정하는 방법에 대한 자세한 내용은 [Cortana 기술 디버깅 사용][Cortana-TestBestPractice]을 참조하세요. 
 
 
 ## <a name="next-steps"></a>다음 단계
 
-Cortana 스킬을 테스트했으며 원하는 방식대로 작동하는지 확인했으면 베타 테스터 그룹에 배포하거나 공개적으로 릴리스할 수 있습니다. 자세한 내용은 [Cortana 스킬 게시][Cortana-Publish]를 참조하세요.
+Cortana 스킬을 테스트했으며 원하는 방식대로 작동하는지 확인했으면 베타 테스터 그룹에 배포하거나 공개적으로 릴리스할 수 있습니다. 자세한 내용은 [Cortana 기술 게시][Cortana-Publish]를 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
-* [Cortana Skill 키트][CortanaGetStarted]
+* [Cortana 기술 키트][CortanaGetStarted]
 
 [CortanaGetStarted]: /cortana/getstarted
 
 [BFPortal]: https://dev.botframework.com/
-[CortanaDevCenter]: https://developer.microsoft.com/en-us/cortana
+[CortanaDevCenter]: https://developer.microsoft.com/cortana
 
 [CortanaSpecificEntities]: https://aka.ms/lgvcto
 [CortanaAuth]: https://aka.ms/vsdqcj

@@ -11,12 +11,12 @@ ms.subservice: cognitive-services
 ms.date: 09/19/2018
 ms.reviewer: ''
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: bb280f3c43348a1293345bc698e83608694946b1
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: 0c0918b0ac0a10927bd8d7c52283e74b4fd480bf
+ms.sourcegitcommit: a295a90eac461f8b96770dd902ba44919acf33fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "50000320"
+ms.lasthandoff: 06/26/2019
+ms.locfileid: "67404639"
 ---
 # <a name="language-understanding"></a>언어 이해
 
@@ -33,7 +33,7 @@ ms.locfileid: "50000320"
 
 ## <a name="recognize-intent"></a>의도 인식
 
-[LUIS](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/home)는 말하는 내용에서 하고 싶은 것 즉, 사용자의 **의도**를 확인하여 도움을 주므로 봇이 적절하게 응답할 수 있습니다. LUIS는 봇에게 말하는 내용이 예측 가능한 구조 또는 특정 패턴을 따르지 않는 경우에 특히 유용합니다. 봇에게 사용자가 응답을 말하거나 입력하는 방식의 대화형 사용자 인터페이스가 있는 경우 사용자의 음성 또는 텍스트 입력인 *발언*에 대해 무한 변형이 있을 수 있습니다.
+[LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/home)는 말하는 내용에서 하고 싶은 것 즉, 사용자의 **의도**를 확인하여 도움을 주므로 봇이 적절하게 응답할 수 있습니다. LUIS는 봇에게 말하는 내용이 예측 가능한 구조 또는 특정 패턴을 따르지 않는 경우에 특히 유용합니다. 봇에게 사용자가 응답을 말하거나 입력하는 방식의 대화형 사용자 인터페이스가 있는 경우 사용자의 음성 또는 텍스트 입력인 *발언*에 대해 무한 변형이 있을 수 있습니다.
 
 여행 봇의 사용자가 항공권 예약을 요청할 수 있는 많은 방법을 예로 들어 보겠습니다.
 
@@ -51,9 +51,9 @@ ms.locfileid: "50000320"
 
 개발 시간을 절약하기 위해 LUIS는 봇의 일반 범주에 대한 일반적인 발언을 인식하는 미리 학습된 언어 모델을 제공합니다. 
 
-**미리 빌드된 도메인**은 미리 학습되고 사용할 준비가 된 의도 및 엔터티의 컬렉션으로 약속, 알림, 관리, 적합성, 엔터테인먼트, 통신, 예약 등과 같은 일반적인 시나리오에 대해 잘 협력합니다. **유틸리티** 미리 빌드된 도메인은 봇이 취소, 확인, 도움말, 반복, 중지 같은 일반적인 작업을 처리하는 데 도움이 됩니다. LUIS에서 제공하는 [미리 빌드된 도메인](https://docs.microsoft.com/en-us/azure/cognitive-services/LUIS/luis-how-to-use-prebuilt-domains)을 살펴봅니다.
+**미리 빌드된 도메인**은 미리 학습되고 사용할 준비가 된 의도 및 엔터티의 컬렉션으로 약속, 알림, 관리, 적합성, 엔터테인먼트, 통신, 예약 등과 같은 일반적인 시나리오에 대해 잘 협력합니다. **유틸리티** 미리 빌드된 도메인은 봇이 취소, 확인, 도움말, 반복, 중지 같은 일반적인 작업을 처리하는 데 도움이 됩니다. LUIS에서 제공하는 [미리 빌드된 도메인](https://docs.microsoft.com/azure/cognitive-services/LUIS/luis-how-to-use-prebuilt-domains)을 살펴봅니다.
 
-**미리 빌드된 엔터티**는 봇이 날짜, 시간, 숫자, 온도, 통화, 지리 및 기간 같은 일반적인 유형의 정보를 인식하는 데 도움이 됩니다. LUIS가 인식할 수 있는 형식의 배경은 [미리 빌드된 엔터티 사용](https://docs.microsoft.com/en-us/azure/cognitive-services/LUIS/pre-builtentities)을 참조하세요.
+**미리 빌드된 엔터티**는 봇이 날짜, 시간, 숫자, 온도, 통화, 지리 및 기간 같은 일반적인 유형의 정보를 인식하는 데 도움이 됩니다. LUIS가 인식할 수 있는 형식의 배경은 [미리 빌드된 엔터티 사용](https://docs.microsoft.com/azure/cognitive-services/LUIS/pre-builtentities)을 참조하세요.
 
 ## <a name="how-your-bot-gets-messages-from-luis"></a>봇이 LUIS에서 메시지를 가져오는 방법
 
@@ -61,7 +61,7 @@ LUIS를 설정하고 연결하면 봇은 의도 및 엔터티를 포함하는 JS
 
 ![의도 및 엔터티를 봇에 전달하는 방법](./media/cognitive-services-add-bot-language/cognitive-services-luis-message-flow-bot-code.png)
 
-봇에서 LUIS 앱 사용을 시작하려면 [Language Understanding에 LUIS 사용](https://docs.microsoft.com/en-us/azure/bot-service/bot-builder-howto-v4-luis?view=azure-bot-service-4.0)을 확인하세요.
+봇에서 LUIS 앱 사용을 시작하려면 [Language Understanding에 LUIS 사용](https://docs.microsoft.com/azure/bot-service/bot-builder-howto-v4-luis?view=azure-bot-service-4.0)을 확인하세요.
 
 ## <a name="best-practices-for-language-understanding"></a>Language Understanding의 모범 사례
 
@@ -100,7 +100,7 @@ Dispatch 도구를 사용하면 적절한 LUIS 및 QnAMaker 서비스에 메시�
 
 ## <a name="use-luis-to-improve-speech-recognition"></a>LUIS를 사용하여 음성 인식을 개선
 
-사용자가 대화하는 봇의 경우 LUIS와 통합하면 봇이 음성을 텍스트로 변환할 때 오해의 소지가 있는 단어를 식별할 수 있습니다.  예를 들어 체스 시나리오에서 사용자는 “기사를 A7로 이동(Move knight to A7)”하라고 말할 수 있습니다. 사용자의 의도에 대한 컨텍스트가 없으면 이 발언은 "밤 287 이동(Move night 287)"으로 잘못 인식될 수 있습니다. 체스의 말 및 좌표를 나타내는 엔터티를 만들고 발언의 엔터티에 레이블을 지정하여 엔터티를 식별하려면 음성 인식에 대한 컨텍스트를 제공합니다. Web Chat, Bot Framework Emulator, Cortana 등의 Bing Speech와 통합된 Bot Framework 채널을 사용하여 [음성 인식 초기화를 사용하도록 설정](https://docs.microsoft.com/en-us/azure/bot-service/bot-service-manage-speech-priming?view=azure-bot-service-4.0)할 수 있습니다.  
+사용자가 대화하는 봇의 경우 LUIS와 통합하면 봇이 음성을 텍스트로 변환할 때 오해의 소지가 있는 단어를 식별할 수 있습니다.  예를 들어 체스 시나리오에서 사용자는 “기사를 A7으로 이동(Move knight to A7)”하라고 말할 수 있습니다. 사용자 의도에 대한 컨텍스트가 없으면 이 발화는 “밤 287 이동(Move night 287)”으로 잘못 인식될 수 있습니다. 체스의 말 및 좌표를 나타내는 엔터티를 만들고 발언의 엔터티에 레이블을 지정하여 엔터티를 식별하려면 음성 인식에 대한 컨텍스트를 제공합니다. Web Chat, Bot Framework Emulator, Cortana 등의 Bing Speech와 통합된 Bot Framework 채널을 사용하여 [음성 인식 초기화를 사용하도록 설정](https://docs.microsoft.com/azure/bot-service/bot-service-manage-speech-priming?view=azure-bot-service-4.0)할 수 있습니다.  
 
 ## <a name="additional-resources"></a>추가 리소스
-자세한 내용은 [Cognitive Services](https://docs.microsoft.com/en-us/azure/cognitive-services/) 설명서를 참조하세요.
+자세한 내용은 [Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/) 설명서를 참조하세요.

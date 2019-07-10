@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
 ms.date: 09/20/2018
-ms.openlocfilehash: 0b5bc1e82b6ef2dc5550fcaa5db176d06a7d2ea7
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: ecccbcadab93417dd52f72512a0046e70a83e85e
+ms.sourcegitcommit: a295a90eac461f8b96770dd902ba44919acf33fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49999700"
+ms.lasthandoff: 06/26/2019
+ms.locfileid: "67405819"
 ---
 # <a name="design-the-user-experience"></a>사용자 환경 디자인
 
@@ -47,7 +47,7 @@ Microsoft Bot Service 카드는 다양한 채널에서 인식되는 서식 있�
 
 카드를 사용하여 봇을 한 번 디자인한 후 다양한 채널에서 사용할 수 있습니다. 그러나 모든 카드 종류가 사용 가능한 모든 채널에서 완전히 지원되는 것은 아닙니다. 
 
-봇에 카드를 추가하기 위한 자세한 지침은 [서식 있는 미디어 첨부 파일 추가](v4sdk/bot-builder-howto-add-media-attachments.md) 및 [메시지에 제안된 작업 추가](v4sdk/bot-builder-howto-add-suggested-actions.md) 섹션에서 찾을 수 있습니다. 카드에 대한 샘플 코드는 [C#](https://aka.ms/bot-cards-sample-code-cs)/[JS](https://aka.ms/bot-cards-sample-code-js) 적응형 카드: [C#](https://aka.ms/bot-adaptive-cards-sample-code)/[JS](https://aka.ms/bot-adaptive-cards-js-sample-code), 첨부 파일: [C#](https://aka.ms/bot-attachments-sample-code)/[JS](https://aka.ms/bot-attachments-js-sample-code) 및 제안된 작업: [C#](https://aka.ms/bot-suggested-actions-code)/[JS](https://aka.ms/bot-suggested-actions-js-code)에서 찾을 수도 있습니다.
+봇에 카드를 추가하기 위한 자세한 지침은 [서식 있는 미디어 첨부 파일 추가](v4sdk/bot-builder-howto-add-media-attachments.md) 및 [메시지에 제안된 작업 추가](v4sdk/bot-builder-howto-add-suggested-actions.md) 섹션에서 찾을 수 있습니다. 카드의 샘플 코드는 아래에서도 확인할 수 있습니다. [C#](https://aka.ms/bot-cards-sample-code-cs)/[JS](https://aka.ms/bot-cards-sample-code-js) 적응형 카드: [C#](https://aka.ms/bot-adaptive-cards-sample-code)/[JS](https://aka.ms/bot-adaptive-cards-js-sample-code), 첨부 파일: [C#](https://aka.ms/bot-attachments-sample-code)/[JS](https://aka.ms/bot-attachments-js-sample-code) 및 제안된 작업: [C#](https://aka.ms/bot-suggested-actions-code)/[JS](https://aka.ms/bot-suggested-actions-js-code).
 
 
 
@@ -63,7 +63,7 @@ Microsoft Bot Service 카드는 다양한 채널에서 인식되는 서식 있�
 
 일부 경우에 사용자는 **매우 구체적인 질문에 답변**할 수 있습니다. 예를 들어, 봇이 "What is your name?"이라고 물어보면 사용자는 "John"이라고 이름만 지정하는 텍스트로 답변하거나 “My name is John”이라고 문장으로 답변할 수 있습니다.
 
-구체적인 질문을 하면 봇이 수신할 수 있는 타당한 응답 범위가 감소하여 응답을 구문 분석하고 이해하는 데 필요한 논리의 복잡성이 줄어듭니다. 예를 들어, "How are you feeling?"과 같은 광범위한 주관식 질문을 고려해보세요. 이러한 질문에 대해 가능한 많은 답변 조합을 이해하는 일은 매우 복잡한 작업입니다.
+구체적인 질문을 하면 봇이 수신할 수 있는 타당한 응답 범위가 감소하여 응답을 구문 분석하고 이해하는 데 필요한 논리의 복잡성이 줄어듭니다. 예를 들어 “How are you feeling?”과 같은 광범위한 주관식 질문을 고려해 보세요. 이러한 질문에 대해 가능한 많은 답변 조합을 이해하는 일은 매우 복잡한 작업입니다.
 
 반면, "Are you feeling pain? yes/no" 및 "Where are you feeling pain? chest/head/arm/leg"와 같은 구체적인 질문은 봇이 자연어 인식을 구현하지 않고도 구문 분석하고 이해할 수 있는 보다 구체적인 답변을 얻기 쉽습니다. 
 
@@ -77,7 +77,7 @@ Microsoft Bot Service 카드는 다양한 채널에서 인식되는 서식 있�
 > 사용자의 특정 명령을 요구하도록 봇을 디자인하면 자연어 인식 기능에 대한 필요성을 없애면서 적절한 사용자 환경을 제공할 수 있습니다.
 
   
-*기술 자료* 봇 또는 *질문 및 답변* 봇의 경우 사용자는 **일반적인 질문을 제기**할 수 있습니다. 예를 들어, 수천 개의 문서 콘텐츠를 기준으로 질문에 대답할 수 있는 봇이 있다고 가정합니다. <a href="https://qnamaker.ai" target="_blank">QnA Maker</a> 및 <a href="https://azure.microsoft.com/en-us/services/search/" target="_blank">Azure Search</a>는 이러한 종류의 시나리오에 맞게 디자인된 두 가지 기술입니다. 자세한 내용은 [기술 봇을 디자인](bot-service-design-pattern-knowledge-base.md)을 참조하세요.
+*기술 자료* 봇 또는 *질문 및 답변* 봇의 경우 사용자는 **일반적인 질문을 제기**할 수 있습니다. 예를 들어, 수천 개의 문서 콘텐츠를 기준으로 질문에 대답할 수 있는 봇이 있다고 가정합니다. <a href="https://qnamaker.ai" target="_blank">QnA Maker</a> 및 <a href="https://azure.microsoft.com/services/search/" target="_blank">Azure Search</a>는 이러한 종류의 시나리오에 맞게 디자인된 두 가지 기술입니다. 자세한 내용은 [기술 봇을 디자인](bot-service-design-pattern-knowledge-base.md)을 참조하세요.
 
 > [!TIP]
 > 데이터베이스, 웹 페이지 또는 문서의 구조적 또는 비구조적 데이터를 기준으로 질문에 답변하는 봇을 디자인할 경우 자연어 인식으로 문제를 해결하지 않고 이 시나리오를 해결하도록 특별히 디자인된 기술을 사용하는 것이 좋습니다.
@@ -93,7 +93,7 @@ Microsoft Bot Service 카드는 다양한 채널에서 인식되는 서식 있�
 > 자연어 모델을 빌드하는 경우 사용자가 초기 쿼리에서 필요한 모든 정보를 제공할 것이라고 가정하지는 않도록 합니다. 필요한 경우 일련의 질문을 제기하고 사용자에게 필요한 정보를 구체적으로 제공하도록 요청하는 봇을 디자인합니다. 
 
   
-## <a name="speech"></a>음성
+## <a name="speech"></a>Speech
 
 봇은 **음성** 입력 및/또는 출력을 사용하여 사용자와 소통할 수 있습니다. 봇이 키보드 또는 모니터 없는 디바이스를 지원하도록 디자인된 경우 음성은 사용자와 소통하기 위한 유일한 수단입니다. 
 

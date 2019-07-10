@@ -9,12 +9,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 1911a5b0f8e8f8b53de6f661c0a939767df1efbb
-ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
+ms.openlocfilehash: ac74fff5fa7635bf0ef585423b0f8663a1df41c4
+ms.sourcegitcommit: a295a90eac461f8b96770dd902ba44919acf33fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54224698"
+ms.lasthandoff: 06/26/2019
+ms.locfileid: "67404832"
 ---
 # <a name="send-and-receive-attachments"></a>첨부 파일 보내기 및 받기
 
@@ -27,11 +27,11 @@ ms.locfileid: "54224698"
 
 사용자와 봇 간의 메시지 교환에는 이미지, 비디오, 오디오 및 파일과 같은 미디어 첨부 파일이 포함될 수 있습니다. 전송될 수 있는 첨부 파일의 형식은 채널에 따라 다르지만 기본 형식은 다음과 같습니다.
 
-* **미디어 및 파일**: **contentType**을 [IAttachment 개체][IAttachment]의 MIME 형식으로 설정한 다음, **contentUrl**에서 파일에 대한 링크를 전달하여 이미지, 오디오 및 비디오와 같은 파일을 보낼 수 있습니다.
-* **카드**: **contentType**을 원하는 카드의 형식으로 설정한 다음, 카드에 대한 JSON을 전달하여 다양한 세트의 시각적 카드 <!-- and custom keyboards -->를 보낼 수 있습니다. **HeroCard**와 같은 다양한 카드 작성기 클래스 중 하나를 사용하는 경우 첨부 파일은 자동으로 채워집니다. 이 예제는 [다양한 카드 보내기](bot-builder-nodejs-send-rich-cards.md)를 참조하세요.
+* **미디어 및 파일**: **contentType**을 [IAttachment 개체][IAttachment]의 MIME 형식으로 설정한 다음, **contentUrl**을 통해 파일 링크를 전달하여 이미지, 오디오 및 동영상과 같은 파일을 보낼 수 있습니다.
+* **카드**: **contentType**을 원하는 카드 형식으로 설정한 다음, 카드의 JSON을 전달하여 다양한 시각적 카드 세트를 <!-- and custom keyboards --> 보낼 수 있습니다. **HeroCard**와 같은 다양한 카드 작성기 클래스 중 하나를 사용하는 경우 첨부 파일은 자동으로 채워집니다. 이 예제는 [다양한 카드 보내기](bot-builder-nodejs-send-rich-cards.md)를 참조하세요.
 
 ## <a name="add-a-media-attachment"></a>미디어 첨부 파일 추가
-메시지 개체는 [IMessage][IMessage]의 인스턴스일 것으로 예상되며 이미지와 같은 첨부 파일을 포함하려는 경우 사용자에게 개체로 메시지를 보내는 데 가장 유용합니다. [session.send()][SessionSend] 메서드를 사용하여 JSON 개체의 양식으로 메시지를 보냅니다. 
+메시지 개체는 [IMessage][IMessage] 인스턴스여야 하며, and it's most useful to send the user a message as an object when you’d like to include an attachment like an image. Use the [session.send()][SessionSend] 메서드를 사용하여 메시지를 JSON 개체 형태로 보낼 수 있습니다. 
 
 ## <a name="example"></a>예
 
@@ -67,8 +67,8 @@ var bot = new builder.UniversalBot(connector, function (session) {
 * [다양한 카드 보내기][SendRichCard]
 * [session.send][SessionSend]
 
-[IMessage]: http://docs.botframework.com/en-us/node/builder/chat-reference/interfaces/_botbuilder_d_.imessage
+[IMessage]: http://docs.botframework.com/node/builder/chat-reference/interfaces/_botbuilder_d_.imessage
 [SendRichCard]: bot-builder-nodejs-send-rich-cards.md
-[SessionSend]: https://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.session.html#send
-[IAttachment]: https://docs.botframework.com/en-us/node/builder/chat-reference/interfaces/_botbuilder_d_.iattachment.html
+[SessionSend]: https://docs.botframework.com/node/builder/chat-reference/classes/_botbuilder_d_.session.html#send
+[IAttachment]: https://docs.botframework.com/node/builder/chat-reference/interfaces/_botbuilder_d_.iattachment.html
 [inspector]: ../bot-service-channel-inspector.md

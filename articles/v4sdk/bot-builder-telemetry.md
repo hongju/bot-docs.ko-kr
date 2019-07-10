@@ -10,12 +10,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 05/23/2019
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: b6b4d30aea493180fddaee4a7f74bef72c1992ae
-ms.sourcegitcommit: ea64a56acfabc6a9c1576ebf9f17ac81e7e2a6b7
+ms.openlocfilehash: 7225387933630eb7343a57aa849581ff1cbfbb0c
+ms.sourcegitcommit: dbbfcf45a8d0ba66bd4fb5620d093abfa3b2f725
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66215270"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67464706"
 ---
 # <a name="add-telemetry-to-your-bot"></a>봇에 원격 분석 추가
 
@@ -88,7 +88,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
     }
 ```
 
-Application Insights를 ASP.NET Core 애플리케이션에 추가하는 방법에 대한 자세한 내용은 [이 문서](https://docs.microsoft.com/en-us/azure/azure-monitor/app/asp-net-core-no-visualstudio)를 참조하세요. 
+Application Insights를 ASP.NET Core 애플리케이션에 추가하는 방법에 대한 자세한 내용은 [이 문서](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core-no-visualstudio)를 참조하세요. 
 
 ### <a name="customize-your-telemetry-client"></a>원격 분석 클라이언트 사용자 지정
 

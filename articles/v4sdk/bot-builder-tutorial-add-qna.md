@@ -10,12 +10,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 05/23/2019
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 5c8b164aa97ff4ea74acbd6765c72ea0c3f1ad3b
-ms.sourcegitcommit: e276008fb5dd7a37554e202ba5c37948954301f1
+ms.openlocfilehash: aff1440f739150181ddc2d65d9b749b4eeda5d79
+ms.sourcegitcommit: dbbfcf45a8d0ba66bd4fb5620d093abfa3b2f725
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66693653"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67464690"
 ---
 # <a name="tutorial-use-qna-maker-in-your-bot-to-answer-questions"></a>자습서: 봇에서 QnA Maker를 사용하여 질문에 대답
 
@@ -53,7 +53,7 @@ Azure 자격 증명을 사용하여 [QnA Maker 포털](https://qnamaker.ai/)에 
 
 1. 샘플 리포지토리를 컴퓨터에 복제 또는 복사합니다.
 1. QnA Maker 포털에서 **기술 자료를 만듭니다**.
-   1. 필요한 경우 QnA 서비스를 만듭니다. (기존 QnA Maker 서비스를 사용해도 되고 이 자습서에서 사용할 새 서비스를 만들어도 됩니다.) 보다 자세한 QnA Maker 지침은 [QnA Maker 서비스 만들기](https://docs.microsoft.com/en-us/azure/cognitive-services/qnamaker/how-to/set-up-qnamaker-service-azure) 및 [QnA Maker 기술 자료 만들기, 학습 및 게시](https://docs.microsoft.com/en-us/azure/cognitive-services/qnamaker/quickstarts/create-publish-knowledge-base)를 참조하세요.
+   1. 필요한 경우 QnA 서비스를 만듭니다. (기존 QnA Maker 서비스를 사용해도 되고 이 자습서에서 사용할 새 서비스를 만들어도 됩니다.) 보다 자세한 QnA Maker 지침은 [QnA Maker 서비스 만들기](https://docs.microsoft.com/azure/cognitive-services/qnamaker/how-to/set-up-qnamaker-service-azure) 및 [QnA Maker 기술 자료 만들기, 학습 및 게시](https://docs.microsoft.com/azure/cognitive-services/qnamaker/quickstarts/create-publish-knowledge-base)를 참조하세요.
    1. 기술 자료에 QnA 서비스를 연결합니다.
    1. 기술 자료의 이름을 지정합니다.
    1. 기술 자료를 채우려면 샘플 리포지토리의 **BotBuilder-Samples\samples\csharp_dotnetcore\11.qnamaker\CognitiveModels\smartLightFAQ.tsv** 파일을 사용합니다.
@@ -76,25 +76,25 @@ Authorization: EndpointKey <qna-maker-resource-key>
 봇에서 사용할 기술 자료가 준비되었습니다.
 
 ## <a name="add-knowledge-base-information-to-your-bot"></a>봇에 기술 자료 정보 추가
-Bot Framework v4.3부터 Azure는 다운로드한 봇 소스 코드의 일부로 .bot 파일을 더 이상 제공하지 않습니다. 다음 지침을 사용하여 CSharp 또는 JavaScript 봇을 기술 자료에 연결합니다.
+Bot Framework v4.3부터 Azure는 다운로드한 봇 소스 코드의 일부로 .bot 파일을 더 이상 제공하지 않습니다. 다음 지침을 사용하여 CSharp 또는 JavaScript 봇을 기술 자료에 연결할 수 있습니다.
 
-## <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 다음 값을 appseting.json 파일에 추가합니다.
 
 ```json
 {
-   "MicrosoftAppId": "",
+  "MicrosoftAppId": "",
   "MicrosoftAppPassword": "",
   "ScmType": "None",
   
-  "QnAKnowledgebaseId": "<knowledge-base-id>",
-  "QnAAuthKey": "<qna-maker-resource-key>",
-  "QnAEndpointHostName": "<your-hostname>" // This is a URL ending in /qnamaker
+  "QnAKnowledgebaseId": "knowledge-base-id",
+  "QnAAuthKey": "qna-maker-resource-key",
+  "QnAEndpointHostName": "your-hostname" // This is a URL ending in /qnamaker
 }
 ```
 
-## <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 다음 값을 .env 파일에 추가합니다.
 
@@ -103,9 +103,9 @@ MicrosoftAppId=""
 MicrosoftAppPassword=""
 ScmType=None
 
-QnAKnowledgebaseId="<knowledge-base-id>"
-QnAAuthKey="<qna-maker-resource-key>"
-QnAEndpointHostName="<your-hostname>" // This is a URL ending in /qnamaker
+QnAKnowledgebaseId="knowledge-base-id"
+QnAAuthKey="qna-maker-resource-key"
+QnAEndpointHostName="your-hostname" // This is a URL ending in /qnamaker
 ```
 
 ---
@@ -122,20 +122,33 @@ QnAEndpointHostName="<your-hostname>" // This is a URL ending in /qnamaker
 
 기술 자료에 대한 서비스 정보를 로드하도록 초기화 코드를 업데이트합니다.
 
-## <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 1. **Microsoft.Bot.Builder.AI.QnA** NuGet 패키지를 프로젝트에 추가합니다.
+
+   NuGet 패키지 관리자 또는 명령줄을 통해 이 작업을 수행할 수 있습니다.
+
+   ```cmd
+   dotnet add package Microsoft.Bot.Builder.AI.QnA
+   ```
+
+   NuGet에 대한 자세한 내용은 [NuGet 문서](https://docs.microsoft.com/nuget/#pivot=start&panel=start-all)를 참조하세요.
+
 1. **Microsoft.Extensions.Configuration** NuGet 패키지를 프로젝트에 추가합니다.
+
 1. **Startup.cs** 파일에서 다음 네임스페이스 참조를 추가합니다.
 
    **Startup.cs**
+
    ```csharp
    using Microsoft.Bot.Builder.AI.QnA;
    using Microsoft.Extensions.Configuration;
    ```
+
 1. 그리고 _ConfigureServices_ 메서드를 수정하여 **appsettings.json** 파일에 정의된 기술 자료에 연결하는 QnAMakerEndpoint를 만듭니다.
 
    **Startup.cs**
+
    ```csharp
    // Create QnAMaker endpoint as a singleton
    services.AddSingleton(new QnAMakerEndpoint
@@ -146,9 +159,11 @@ QnAEndpointHostName="<your-hostname>" // This is a URL ending in /qnamaker
     });
 
    ```
+
 1. **EchoBot.cs** 파일에서 다음 네임스페이스 참조를 추가합니다.
 
    **EchoBot.cs**
+
    ```csharp
    using System.Linq;
    using Microsoft.Bot.Builder.AI.QnA;
@@ -157,6 +172,7 @@ QnAEndpointHostName="<your-hostname>" // This is a URL ending in /qnamaker
 1. `EchoBotQnA` 커넥터를 추가하고 봇의 생성자에서 초기화합니다.
 
    **EchoBot.cs**
+
    ```csharp
    public QnAMaker EchoBotQnA { get; private set; }
    public EchoBot(QnAMakerEndpoint endpoint)
@@ -165,9 +181,11 @@ QnAEndpointHostName="<your-hostname>" // This is a URL ending in /qnamaker
       EchoBotQnA = new QnAMaker(endpoint);
    }
    ```
+
 1. _OnMembersAddedAsync( )_ 메서드 아래에서 다음 코드를 추가하여 _AccessQnAMaker( )_ 메서드를 만듭니다.
 
    **EchoBot.cs**
+
    ```csharp
    private async Task AccessQnAMaker(ITurnContext<IMessageActivity> turnContext, CancellationToken cancellationToken)
    {
@@ -182,19 +200,21 @@ QnAEndpointHostName="<your-hostname>" // This is a URL ending in /qnamaker
       }
    }
    ```
+
 1. 이제 _OnMessageActivityAsync( )_ 내에서 새 _AccessQnAMaker( )_ 메서드를 다음과 같이 호출합니다.
 
    **EchoBot.cs**
+
    ```csharp
    protected override async Task OnMessageActivityAsync(ITurnContext<IMessageActivity> turnContext, CancellationToken cancellationToken)
    {
-      // First send the user input to your QnA Maker knowledgebase
+      // First send the user input to your QnA Maker knowledge base
       await AccessQnAMaker(turnContext, cancellationToken);
       ...
    }
    ```
 
-## <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 1. 터미널 또는 명령 프롬프트를 프로젝트의 루트 디렉터리로 엽니다.
 1. 프로젝트에 **botbuilder-ai** npm 패키지를 추가합니다.
@@ -206,7 +226,7 @@ QnAEndpointHostName="<your-hostname>" // This is a URL ending in /qnamaker
 
    **index.js**
    ```javascript
-   // Map knowledgebase endpoint values from .env file into the required format for `QnAMaker`.
+   // Map knowledge base endpoint values from .env file into the required format for `QnAMaker`.
    const configuration = {
       knowledgeBaseId: process.env.QnAKnowledgebaseId,
       endpointKey: process.env.QnAAuthKey,
@@ -242,24 +262,29 @@ QnAEndpointHostName="<your-hostname>" // This is a URL ending in /qnamaker
             this.qnaMaker = new QnAMaker(configuration, qnaOptions);
    ```
 
-1. 마지막으로, 각 사용자 입력을 QnA Maker 기술 자료에 전달하고 사용자에게 QnA Maker 응답을 다시 반환하는 onMessage( ) 호출에 다음 코드를 추가하여 응답에 대한 기술 자료를 쿼리합니다.
- 
-    **bot.js**
-    ```javascript
-   // send user input to QnA Maker.
-   const qnaResults = await this.qnaMaker.getAnswers(turnContext);
+1. 마지막으로, 기술 자료를 쿼리하여 답변을 찾도록 `onMessage` 함수를 업데이트합니다. 각 사용자 입력을 QnA Maker 기술 자료에 전달하고, 첫 번째 QnA Maker 응답을 사용자에게 다시 반환합니다.
 
-   // If an answer was received from QnA Maker, send the answer back to the user.
-   if (qnaResults[0]) {
-      await turnContext.sendActivity(`QnAMaker returned response: ' ${ qnaResults[0].answer}`);
-   } 
-   else { 
-      // If no answers were returned from QnA Maker, reply with help.
-      await turnContext.sendActivity('No QnA Maker response was returned.'
-           + 'This example uses a QnA Maker Knowledge Base that focuses on smart light bulbs. '
-           + `Ask the bot questions like "Why won't it turn on?" or "I need help."`);
-   }
-   ```
+    **bot.js**
+
+    ```javascript
+    this.onMessage(async (context, next) => {
+        // send user input to QnA Maker.
+        const qnaResults = await this.qnaMaker.getAnswers(context);
+
+        // If an answer was received from QnA Maker, send the answer back to the user.
+        if (qnaResults[0]) {
+            await context.sendActivity(`QnAMaker returned response: ' ${ qnaResults[0].answer}`);
+        }
+        else {
+            // If no answers were returned from QnA Maker, reply with help.
+            await context.sendActivity('No QnA Maker response was returned.'
+                + 'This example uses a QnA Maker Knowledge Base that focuses on smart light bulbs. '
+                + `Ask the bot questions like "Why won't it turn on?" or "I need help."`);
+        }
+        await next();
+    });
+    ```
+
 ---
 
 ### <a name="test-the-bot-locally"></a>로컬로 봇 테스트
@@ -281,12 +306,12 @@ QnAEndpointHostName="<your-hostname>" // This is a URL ending in /qnamaker
 >
 > 루트 폴더 위치가 올바르지 않을 경우 **봇이 Azure Portal에서 실행되지 못하게 됩니다**.
 
-## <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 ```cmd
-az webapp deployment source config-zip --resource-group <resource-group-name> --name <bot-name-in-azure> --src "c:\bot\mybot.zip"
+az webapp deployment source config-zip --resource-group "resource-group-name" --name "bot-name-in-azure" --src "c:\bot\mybot.zip"
 ```
 
-## <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 [!INCLUDE [publish snippet](~/includes/deploy/snippet-publish-js.md)]
 

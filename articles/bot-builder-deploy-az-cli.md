@@ -10,12 +10,12 @@ ms.service: bot-service
 ms.subservice: abs
 ms.date: 05/23/2019
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: afb27ad20ec8585c2ca30810a9be6858adc17187
-ms.sourcegitcommit: e276008fb5dd7a37554e202ba5c37948954301f1
+ms.openlocfilehash: cc49cab1a3c82b3f0af2a4d8ebf261415c137e36
+ms.sourcegitcommit: a295a90eac461f8b96770dd902ba44919acf33fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66693522"
+ms.lasthandoff: 06/26/2019
+ms.locfileid: "67405969"
 ---
 # <a name="deploy-your-bot"></a>봇 배포
 
@@ -26,7 +26,8 @@ ms.locfileid: "66693522"
 ## <a name="prerequisites"></a>필수 조건
 - Azure 구독이 없는 경우 시작하기 전에 [계정](https://azure.microsoft.com/free/)을 만드세요.
 - 로컬 머신에서 개발한 CSharp, JavaScript 또는 TypeScript 봇이 있어야 합니다.
-- [Azure cli](https://docs.microsoft.com/en-us/cli/azure/?view=azure-cli-latest) 최신 버전
+- [Azure cli](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) 최신 버전
+- [Azure cli 및 ARM 템플릿](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)을 숙지합니다.
 
 ## <a name="1-prepare-for-deployment"></a>1. 배포 준비
 Visual Studio 또는 Yeoman 템플릿을 사용하여 봇을 만들 때 생성된 소스 코드에는 ARM 템플릿이 있는 `deploymentTemplates` 폴더가 있습니다. 여기서 설명하는 배포 프로세스에서는 ARM 템플릿을 사용하여 Azure CLI를 통해 Azure의 봇에 필요한 리소스를 프로비전합니다. 
@@ -182,7 +183,7 @@ az webapp deployment source config-zip --resource-group "<new-group-name>" --nam
 - 배포가 성공하면 몇 초 동안 기다린 후 필요에 따라 웹앱을 다시 시작하여 캐시를 지웁니다. 웹앱 봇 블레이드로 돌아가서 Azure Portal에 제공된 웹 채팅을 사용하여 테스트합니다.
 
 ## <a name="additional-information"></a>추가 정보
-봇이 Azure에 배포되면 사용하는 서비스에 대한 비용을 지불해야 합니다. [청구 및 비용 관리](https://docs.microsoft.com/en-us/azure/billing/) 문서는 Azure 청구를 이해하고, 사용량과 비용을 모니터링하며, 계정과 구독을 관리하는 데 도움이 됩니다.
+봇이 Azure에 배포되면 사용하는 서비스에 대한 비용을 지불해야 합니다. [청구 및 비용 관리](https://docs.microsoft.com/azure/billing/) 문서는 Azure 청구를 이해하고, 사용량과 비용을 모니터링하며, 계정과 구독을 관리하는 데 도움이 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 > [!div class="nextstepaction"]

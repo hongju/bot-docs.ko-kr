@@ -9,12 +9,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 06fcdd26980b719e7f7db76bc585650176c1d84f
-ms.sourcegitcommit: 980612a922b8290b2faadaca193496c4117e415a
+ms.openlocfilehash: 4e9991dc3a6c9279d4789b9acd9100eb9f7d286d
+ms.sourcegitcommit: a295a90eac461f8b96770dd902ba44919acf33fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64564024"
+ms.lasthandoff: 06/26/2019
+ms.locfileid: "67405106"
 ---
 # <a name="use-the-backchannel-mechanism"></a>백채널 메커니즘 사용
 
@@ -111,9 +111,9 @@ bot.on("event", function (event) {
 
 ## <a name="additional-resources"></a>추가 리소스
 
-- [직접 회선 API][directLineAPI]
+- [Direct Line API][directLineAPI]
 - <a href="https://github.com/Microsoft/BotFramework-WebChat" target="_blank">Microsoft Bot Framework WebChat 컨트롤</a>
 - <a href="https://aka.ms/v3-js-backchannel-sample" target="_blank">백채널 샘플</a>
 - <a href="https://github.com/ryanvolum/backChannelBot" target="_blank">백채널 봇</a>
 
-[directLineAPI]: https://docs.botframework.com/en-us/restapi/directline3/#navtitle
+[directLineAPI]: https://docs.botframework.com/restapi/directline3/#navtitle

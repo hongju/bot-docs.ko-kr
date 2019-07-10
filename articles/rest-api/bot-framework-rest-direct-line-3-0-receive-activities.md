@@ -7,27 +7,29 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
-ms.date: 12/13/2017
-ms.openlocfilehash: dd5e81ba3feaba09e60011c138dcbe1537144b5a
-ms.sourcegitcommit: 721bb09f10524b0cb3961d7131966f57501734b8
+ms.date: 06/13/2019
+ms.openlocfilehash: c99e7ce86415ee1291a92e2684b975fd03c822f7
+ms.sourcegitcommit: a47183f5d1c2b2454c4a06c0f292d7c075612cdd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59541009"
+ms.lasthandoff: 06/19/2019
+ms.locfileid: "67252698"
 ---
 # <a name="receive-activities-from-the-bot"></a>봇에서 활동 수신
 
-직접 회선 3.0 프로토콜을 사용하면 클라이언트는 `WebSocket` 스트림을 통해 활동을 수신하거나 `HTTP GET` 요청을 실행하여 활동을 검색할 수 있습니다. 
+직접 회선 3.0 프로토콜을 사용하면 클라이언트는 `WebSocket` 스트림을 통해 활동을 수신하거나 `HTTP GET` 요청을 실행하여 활동을 검색할 수 있습니다.
 
 ## <a name="websocket-vs-http-get"></a>WebSocket 대 HTTP GET
 
-스트리밍 WebSocket은 메시지를 클라이언트에 효율적으로 푸시하지만, GET 인터페이스를 사용하면 클라이언트가 메시지를 명시적으로 요청할 수 있습니다. WebSocket 메커니즘은 효율성으로 인해 종종 선호되지만, GET 메커니즘은 WebSocket을 사용할 수 없는 클라이언트에 유용할 수 있습니다. 
+스트리밍 WebSocket은 메시지를 클라이언트에 효율적으로 푸시하지만, GET 인터페이스를 사용하면 클라이언트가 메시지를 명시적으로 요청할 수 있습니다. WebSocket 메커니즘은 효율성으로 인해 종종 선호되지만, GET 메커니즘은 WebSocket을 사용할 수 없는 클라이언트에 유용할 수 있습니다.
+
+이 서비스는 대화당 하나의 WebSocket 연결만 허용합니다. Direct Line은 추가 WebSocket 연결을 이유 값 `collision`으로 닫을 수 있습니다.
 
 모든 [활동 형식](bot-framework-rest-connector-activities.md)이 WebSocket 및 HTTP GET을 둘 다 사용하여 제공되는 것은 아닙니다. 다음 표에서는 직접 회선 프로토콜을 사용하는 클라이언트에 대한 다양한 활동 형식의 가용성을 설명합니다.
 
 | 활동 유형 | 가용성 | 
 |----|----|
-| Message | HTTP GET 및 WebSocket |
+| message | HTTP GET 및 WebSocket |
 | 입력 | WebSocket만 |
 | conversationUpdate | 클라이언트를 통해 전송/수신되지 않음 |
 | contactRelationUpdate | 직접 회선에서 지원되지 않음 |

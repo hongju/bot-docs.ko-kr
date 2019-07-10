@@ -9,12 +9,12 @@ ms.service: bot-service
 ROBOTS: NOINDEX
 ms.date: 10/04/2018
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 8e2cb944e56271be9ff925e05c48236e94998f1d
-ms.sourcegitcommit: f84b56beecd41debe6baf056e98332f20b646bda
+ms.openlocfilehash: d1b14d405b4df19db81269fc1f588305840485bd
+ms.sourcegitcommit: a295a90eac461f8b96770dd902ba44919acf33fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2019
-ms.locfileid: "65033015"
+ms.lasthandoff: 06/26/2019
+ms.locfileid: "67405966"
 ---
 # <a name="add-authentication-to-your-bot-via-azure-bot-service"></a>Azure Bot Service를 통해 봇에 인증 추가
 
@@ -76,73 +76,62 @@ These capabilities were bundled in the BotAuth and AuthBot samples that are on G
 
 ### <a name="register-an-application-in-azure-ad"></a>Azure AD에서 애플리케이션 등록
 
-봇에서 Microsoft Graph API, 사용자 고유의 Azure AD로 보호된 리소스 등에 연결하는 데 사용할 수 있는 Azure AD 애플리케이션이 필요합니다.
+봇이 Microsoft Graph API에 연결하는 데 사용할 수 있는 Azure AD 애플리케이션이 필요합니다.
 
 이 봇의 경우 Azure AD v1 또는 v2 엔드포인트를 사용할 수 있습니다.
 v1 및 v2 엔드포인트 간의 차이점에 대한 정보는 [v1-v2 비교](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-compare) 및 [Azure AD v2.0 엔드포인트 개요](https://docs.microsoft.com/azure/active-directory/develop/active-directory-appmodel-v2-overview)를 참조하세요.
 
-#### <a name="to-create-an-azure-ad-v1-application"></a>Azure AD v1 애플리케이션을 만들려면
+#### <a name="to-create-an-azure-ad-application"></a>Azure AD 애플리케이션을 만들려면 다음을 수행합니다.
 
-1. [Azure Portal에서 Azure AD](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview)로 이동합니다.
-1. **앱 등록**을 클릭합니다.
-1. **앱 등록** 패널에서 **새 애플리케이션 등록**을 클릭합니다.
+다음 단계에 따라 새 Azure AD 애플리케이션을 만듭니다. 만드는 앱에 v1 또는 v2 엔드포인트를 사용할 수 있습니다.
+
+> [!TIP]
+> 애플리케이션이 요청한 대리자 권한에 동의할 수 있는 테넌트에 Azure AD 애플리케이션을 만들고 등록해야 합니다.
+
+1. Azure Portal에서 [Azure Active Directory][azure-aad-blade] 패널을 엽니다.
+    올바른 테넌트에 있지 않은 경우 **디렉터리 전환**을 클릭하여 올바른 테넌트로 전환합니다. (테넌트를 만드는 방법에 대한 지침은 [포털에 액세스 및 테넌트 만들기](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)를 참조하세요.)
+1. **앱 등록** 패널을 엽니다.
+1. **앱 등록** 패널에서 **새 등록**을 클릭합니다.
 1. 필수 필드를 입력하고 앱 등록을 만듭니다.
+
    1. 애플리케이션의 이름을 지정합니다.
-   1. **애플리케이션 유형**을 **웹앱/API**로 설정합니다.
-   1. **로그온 URL**을 `https://token.botframework.com/.auth/web/redirect`로 설정합니다.
-   1. **만들기**를 클릭합니다.
-      - 만들어지면 **등록된 앱** 창에 표시됩니다.
-      - **애플리케이션 ID** 값을 기록합니다. 나중에 이를 _클라이언트 ID_로 제공합니다.
-1. **설정**을 클릭하여 애플리케이션을 구성합니다.
-1. **키**를 클릭하여 **키** 패널을 엽니다.
-   1. **암호** 아래에서 `BotLogin` 키를 만듭니다.
-   1. 해당 **기간**을 **무기한**으로 설정합니다.
-   1. **저장**을 클릭하고 키 값을 기록합니다. 나중에 이를 _애플리케이션 비밀_로 제공합니다.
-   1. **키** 패널을 닫습니다.
-1. **필요한 사용 권한**을 클릭하여 **필요한 사용 권한** 패널을 엽니다.
+   1. 애플리케이션에 **지원되는 계정 유형**을 선택합니다. (옵션 중 하나는 이 샘플에서 작동합니다.)
+   1. **리디렉션 URI**에 대해
+       1. **웹**을 선택합니다.
+       1. `https://token.botframework.com/.auth/web/redirect` URL을 선택합니다.
+   1. **등록**을 클릭합니다.
+
+      - 생성되면 Azure에 앱에 대한 **개요** 페이지가 표시됩니다.
+      - **애플리케이션(클라이언트) ID** 값을 기록해 둡니다. 나중에 Azure AD 애플리케이션을 봇에 등록할 때 이 값을 _클라이언트 ID_로 사용할 것입니다.
+      - **디렉터리(테넌트) ID** 값도 기록해 둡니다. 애플리케이션을 봇에 등록할 때 이 값도 사용됩니다.
+
+1. 탐색 창에서 **인증서 및 비밀**을 클릭하여 애플리케이션 비밀을 만듭니다.
+
+   1. **클라이언트 비밀** 아래에서 **새 클라이언트 비밀**을 클릭합니다.
+   1. 이 앱을 만드는 데 필요할 수도 있는 비밀을 식별하는 설명(예: `bot login`)을 추가합니다.
+   1. **만료**를 **안 함**으로 선택합니다.
    1. **추가**를 클릭합니다.
-   1. **API 선택**을 클릭한 다음, **Microsoft Graph**를 선택하고 **선택**을 클릭합니다.
-   1. **사용 권한 선택**을 클릭합니다. 애플리케이션에서 사용할 애플리케이션 사용 권한을 선택합니다.
+   1. 페이지를 나가기 전에 비밀을 기록해 둡니다. 나중에 Azure AD 애플리케이션을 봇에 등록할 때 이 값을 _클라이언트 암호_로 사용할 것입니다.
+
+1. 탐색 창에서 **API 사용 권한**을 클릭하여 **API 사용 권한** 패널을 엽니다. 앱의 API 사용 권한을 명시적으로 설정하는 것이 좋습니다.
+
+   1. **사용 권한 추가**을 클릭하여 **API 사용 권한 요청** 창을 표시합니다.
+   1. 샘플에서 **Microsoft API** 및 **Microsoft Graph**를 선택합니다.
+   1. **위임된 권한**을 선택하고 필요한 사용 권한이 선택되어 있는지 확인합니다. 이 샘플에는 다음과 같은 사용 권한이 필요합니다.
 
       > [!NOTE]
-      > **관리자 필요**로 표시된 모든 사용 권한에는 사용자 및 테넌트 관리자가 모두 로그인해야 합니다. 따라서 봇은 이를 사용하지 않는 경향이 있습니다.
+      > **관리자 동의가 필요함**으로 표시된 모든 사용 권한에는 사용자와 테넌트 관리자가 모두 로그인되어 있어야 합니다. 그래야 봇이 거리를 둘 수 있습니다.
 
-      다음 Microsoft Graph 위임된 사용 권한을 선택합니다.
-      - 모든 사용자의 기본 프로필 읽기
-      - 사용자 메일 읽기
-      - 로그인 및 사용자 프로필 읽기
-      - 사용자로 메일 보내기
-      - 사용자의 기본 프로필 보기기
-      - 사용자의 이메일 주소 보기
+      - **openid**
+      - **profile**
+      - **Mail.Read**
+      - **Mail.Send**
+      - **User.Read**
+      - **User.ReadBasic.All**
 
-   1. **선택**을 클릭한 다음, **완료**를 클릭합니다.
-   1. **필요한 사용 권한** 패널을 닫습니다.
+   1. **권한 추가**를 클릭합니다. (봇을 통해 사용자가 이 앱에 처음 액세스하면 동의를 허용해야 합니다.)
 
-이제 Azure AD v1 애플리케이션이 구성되었습니다.
-
-#### <a name="to-create-an-azure-ad-v2-application"></a>Azure AD v2 애플리케이션을 만들려면
-
-1. [Microsoft 애플리케이션 등록 포털](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade)로 이동합니다.
-1. **앱 추가**를 클릭합니다.
-1. Azure AD 앱에 이름을 지정하고, **만들기**를 클릭합니다.
-
-    **애플리케이션 ID** GUID를 기록합니다. 나중에 이를 연결 설정에 대한 클라이언트 ID로 제공합니다.
-
-1. **애플리케이션 비밀** 아래에서 **새 암호 생성**을 클릭합니다.
-
-    팝업에서 암호를 기록합니다. 나중에 이를 연결 설정에 대한 클라이언트 비밀로 제공합니다.
-
-1. **플랫폼** 아래에서 **플랫폼 추가**를 클릭합니다.
-1. **플랫폼 추가** 팝업에서 **웹**을 클릭합니다.
-    1. **암시적 흐름 허용**을 표시한 채로 둡니다.
-    1. **리디렉션 URL**의 경우 `https://token.botframework.com/.auth/web/redirect`를 입력합니다.
-    1. **로그아웃 URL** 비어 둡니다.
-1. **Microsoft Graph 권한** 아래에서 추가 위임된 권한을 추가할 수 있습니다.
-    - 이 자습서의 경우 **Mail.Read**, **Mail.Send**, **openid**, **프로필**, **User.Read** 및 **User.ReadBasic.All** 권한을 추가합니다.
-      연결 설정의 범위는 **openid** 및 **Mail.Read**와 같은 Azure AD 그래프의 리소스를 모두 포함해야 합니다.
-    - 선택한 사용 권한을 기록합니다. 나중에 이를 연결 설정에 대한 범위로 제공합니다.
-
-1. 페이지 맨 아래에서 **저장**을 클릭합니다.
+이제 Azure AD 애플리케이션이 구성되었습니다.
 
 ### <a name="create-your-bot-on-azure"></a>Azure에서 봇 만들기
 
@@ -152,44 +141,45 @@ v1 및 v2 엔드포인트 간의 차이점에 대한 정보는 [v1-v2 비교](ht
 
 다음 단계는 방금 만든 Azure AD 애플리케이션을 봇에 등록하는 것입니다.
 
-#### <a name="to-register-an-azure-ad-v1-application"></a>Azure AD v1 애플리케이션을 등록하려면
+# <a name="azure-ad-v1tabaadv1"></a>[Azure AD v1](#tab/aadv1)
 
 1. [Azure Portal](http://portal.azure.com/)에서 봇의 리소스 페이지로 이동합니다.
 1. **설정**을 클릭합니다.
 1. 페이지 아래쪽의 **OAuth 연결 설정** 아래에서 **설정 추가**를 클릭합니다.
 1. 다음과 같이 양식을 채웁니다.
-    1. **이름**에 대해 연결의 이름을 입력합니다. 봇 코드에서 사용합니다.
+
+    1. **이름**에 대해 연결의 이름을 입력합니다. 이 이름을 봇 코드에 사용할 것입니다.
     1. **서비스 공급자**에 대해 **Azure Active Directory**를 선택합니다. 이를 선택하면 Azure AD 관련 필드가 표시됩니다.
-    1. **클라이언트 ID**에 대해 Azure AD v1 애플리케이션에 대해 기록한 애플리케이션 ID를 입력합니다.
-    1. **클라이언트 비밀**에 대해 애플리케이션의 `BotLogin` 키에 대해 기록한 키를 입력합니다.
+    1. **클라이언트 ID**에 대해 Azure AD v1 애플리케이션에 대해 기록한 애플리케이션(클라이언트) ID를 입력합니다.
+    1. **클라이언트 비밀**에 Azure AD 앱에 봇이 액세스하는 것을 허용하기 위해 만든 비밀을 입력합니다.
     1. **권한 부여 유형**에 대해 `authorization_code`를 입력합니다.
     1. **로그인 URL**에 대해 `https://login.microsoftonline.com`을 입력합니다.
-    1. **테넌트 ID**에 대해 Azure Active Directory에 대한 테넌트 ID를 입력합니다(예: `microsoft.com` 또는 `common`).
+    1. **Tenant ID**에 Azure AD 앱에 대해 앞서 기록해 둔 디렉터리(테넌트) ID를 입력합니다.
 
-       인증될 수 있는 사용자와 연결된 테넌트가 됩니다. 누구든지 봇을 통해 자신을 인증하도록 허용하려면 `common` 테넌트를 사용합니다.
+       인증될 수 있는 사용자와 연결된 테넌트가 됩니다.
 
     1. **리소스 URL**에 `https://graph.microsoft.com/`을 입력합니다.
     1. **범위**를 비워 둡니다.
+
 1. **저장**을 클릭합니다.
 
 > [!NOTE]
 > 이러한 값을 사용하면 애플리케이션은 Microsoft Graph API를 통해 Office 365 데이터에 액세스할 수 있습니다.
 
-이제 봇 코드에서 이 연결 이름을 사용하여 사용자 토큰을 검색할 수 있습니다.
-
-#### <a name="to-register-an-azure-ad-v2-application"></a>Azure AD v2 애플리케이션을 등록하려면
+# <a name="azure-ad-v2tabaadv2"></a>[Azure AD v2](#tab/aadv2)
 
 1. [Azure Portal](http://portal.azure.com/)에서 봇의 봇 채널 등록 페이지로 이동합니다.
 1. **설정**을 클릭합니다.
 1. 페이지 아래쪽의 **OAuth 연결 설정** 아래에서 **설정 추가**를 클릭합니다.
 1. 다음과 같이 양식을 채웁니다.
+
     1. **이름**에 대해 연결의 이름을 입력합니다. 봇 코드에서 사용합니다.
     1. **서비스 공급자**에 대해 **Azure Active Directory v2**를 선택합니다. 이를 선택하면 Azure AD 관련 필드가 표시됩니다.
-    1. **클라이언트 ID**에 대해 애플리케이션 등록의 Azure AD v2 애플리케이션 ID를 입력합니다.
-    1. **클라이언트 비밀**에 대해 애플리케이션 등록의 Azure AD v2 애플리케이션 암호를 입력합니다.
-    1. **테넌트 ID**에 대해 Azure Active Directory에 대한 테넌트 ID를 입력합니다(예: `microsoft.com` 또는 `common`).
+    1. **클라이언트 ID**에 대해 Azure AD v1 애플리케이션에 대해 기록한 애플리케이션(클라이언트) ID를 입력합니다.
+    1. **클라이언트 비밀**에 Azure AD 앱에 봇이 액세스하는 것을 허용하기 위해 만든 비밀을 입력합니다.
+    1. **Tenant ID**에 Azure AD 앱에 대해 앞서 기록해 둔 디렉터리(테넌트) ID를 입력합니다.
 
-        인증될 수 있는 사용자와 연결된 테넌트가 됩니다. 누구든지 봇을 통해 자신을 인증하도록 허용하려면 `common` 테넌트를 사용합니다.
+       인증될 수 있는 사용자와 연결된 테넌트가 됩니다.
 
     1. **범위**에 대해 애플리케이션 등록에서 선택한 사용 권한의 이름을 입력합니다. `Mail.Read Mail.Send openid profile User.Read User.ReadBasic.All`
 
@@ -201,7 +191,7 @@ v1 및 v2 엔드포인트 간의 차이점에 대한 정보는 [v1-v2 비교](ht
 > [!NOTE]
 > 이러한 값을 사용하면 애플리케이션은 Microsoft Graph API를 통해 Office 365 데이터에 액세스할 수 있습니다.
 
-이제 봇 코드에서 이 연결 이름을 사용하여 사용자 토큰을 검색할 수 있습니다.
+---
 
 #### <a name="to-test-your-connection"></a>연결을 테스트하려면
 
@@ -213,7 +203,7 @@ v1 및 v2 엔드포인트 간의 차이점에 대한 정보는 [v1-v2 비교](ht
 
 ## <a name="prepare-the-bot-sample-code"></a>봇 샘플 코드 준비
 
-1. [https://github.com/Microsoft/BotBuilder](https://github.com/Microsoft/BotBuilder) 에서 github 리포지토리를 복제합니다.
+1. [https://github.com/Microsoft/BotBuilder](https://github.com/Microsoft/BotBuilder ) 에서 github 리포지토리를 복제합니다.
 1. 솔루션 `BotBuilder\CSharp\Microsoft.Bot.Builder.sln`을 열고 빌드합니다.
 1. 해당 솔루션을 닫고 `BotBuilder\CSharp\Samples\Microsoft.Bot.Builder.Samples.sln`을 엽니다.
 1. 시작 프로젝트를 설정합니다.

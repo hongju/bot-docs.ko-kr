@@ -9,12 +9,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 2/13/2018
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 21324f68332be6a60f55e6ab55545fc6102bedb9
-ms.sourcegitcommit: f84b56beecd41debe6baf056e98332f20b646bda
+ms.openlocfilehash: d81a7e55ab7ac5e3b430ae051d1abbb4ca94b44d
+ms.sourcegitcommit: a295a90eac461f8b96770dd902ba44919acf33fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2019
-ms.locfileid: "65033024"
+ms.lasthandoff: 06/26/2019
+ms.locfileid: "67405836"
 ---
 # <a name="create-task-automation-bots"></a>태스크 자동화 봇 만들기
 
@@ -85,7 +85,7 @@ Contoso의 숙련된 개발자인 John은 암호 재설정 태스크를 자동�
 
 ## <a name="bot-app-or-website"></a>봇, 앱 또는 웹 사이트?
 
-태스크 자동화 봇이 앱이나 웹 사이트와 매우 유사하다면 왜 앱이나 웹 사이트를 빌드하지 않는 것인지 의문이 생길 수 있습니다. 특정 시나리오에 따라, 봇 대신 앱이나 웹 사이트를 빌드하는 것이 훨씬 더 적절할 수 있습니다. [Bot Framework 직접 회선 API][directLineAPI] 또는 <a href="https://aka.ms/BotFramework-WebChat" target="_blank">웹 채팅 컨트롤</a>을 사용하여 앱에 봇을 포함하도록 선택할 수도 있습니다. 앱 컨텍스트에서 봇을 구현하면 풍부한 앱 환경과 대화형 환경이라는 두 가지 장점을 한 곳에서 제공할 수 있습니다. 
+태스크 자동화 봇이 앱이나 웹 사이트와 매우 유사하다면 왜 앱이나 웹 사이트를 빌드하지 않는 것인지 의문이 생길 수 있습니다. 특정 시나리오에 따라, 봇 대신 앱이나 웹 사이트를 빌드하는 것이 훨씬 더 적절할 수 있습니다. [Bot Framework Direct Line API][directLineAPI] 또는 <a href="https://aka.ms/BotFramework-WebChat" target="_blank">웹 채팅 컨트롤</a>을 사용하여 봇을 앱에 포함할 수도 있습니다. 앱 컨텍스트에서 봇을 구현하면 풍부한 앱 환경과 대화형 환경이라는 두 가지 장점을 한 곳에서 제공할 수 있습니다. 
 
 그렇지만 대부분의 경우 앱이나 웹 사이트를 빌드하는 것이 봇을 빌드하는 것보다 훨씬 더 복잡하고 비용도 많이 들 수 있습니다. 앱 또는 웹 사이트는 종종 여러 클라이언트와 플랫폼을 지원해야 하고, 패키징 및 배포도 까다롭고 시간이 많이 소요되며, 앱을 다운로드하여 설치하는 사용자 환경이 편리하지 않은 경우도 많습니다. 이러한 이유로, 봇은 종종 당면한 문제를 해결할 수 있는 훨씬 더 간단한 방법을 제공할 수 있습니다. 
 
@@ -106,4 +106,4 @@ For a complete sample that shows how to implement simple task automation using t
 - [다이얼로그를 사용하여 대화 흐름 관리(Node.js)](~/nodejs/bot-builder-nodejs-manage-conversation-flow.md)
 
 
-[directLineAPI]: https://docs.botframework.com/en-us/restapi/directline3/#navtitle
+[directLineAPI]: https://docs.botframework.com/restapi/directline3/#navtitle

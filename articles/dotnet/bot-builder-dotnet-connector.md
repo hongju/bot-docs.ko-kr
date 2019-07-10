@@ -9,12 +9,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 0407ec0d90c58e10aa14616e2aa9205bb8840d55
-ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
+ms.openlocfilehash: 4df2dcc8857c2af9a69c18e6acf8c8d064e1e043
+ms.sourcegitcommit: a295a90eac461f8b96770dd902ba44919acf33fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54225228"
+ms.lasthandoff: 06/26/2019
+ms.locfileid: "67405697"
 ---
 # <a name="send-and-receive-activities"></a>작업 보내기 및 받기
 
@@ -29,7 +29,7 @@ Bot Framework Connector는 봇이 Skype, 이메일, Slack 등과 같은 여러 �
 
 ## <a name="create-a-connector-client"></a>커넥터 클라이언트 만들기
 
-[ConnectorClient][ConnectorClient] 클래스에는 봇이 채널에서 사용자와 통신하는 데 사용하는 메서드가 포함되어 있습니다. 봇이 커넥터에서 <a href="https://docs.botframework.com/en-us/csharp/builder/sdkreference/dc/d2f/class_microsoft_1_1_bot_1_1_connector_1_1_activity.html" target="_blank">작업</a> 개체를 받으면 해당 작업에 지정된 `ServiceUrl`을 사용하여 나중에 응답을 생성하는 데 사용할 커넥터 클라이언트를 만들어야 합니다. 
+[ConnectorClient][ConnectorClient] 클래스에는 봇이 채널의 사용자와 통신하는 데 사용하는 메서드가 포함되어 있습니다. 봇이 커넥터에서 <a href="https://docs.botframework.com/csharp/builder/sdkreference/dc/d2f/class_microsoft_1_1_bot_1_1_connector_1_1_activity.html" target="_blank">작업</a> 개체를 받으면 해당 작업에 지정된 `ServiceUrl`을 사용하여 나중에 응답을 생성하는 데 사용할 커넥터 클라이언트를 만들어야 합니다. 
 
 [!code-csharp[Create connector client](../includes/code/dotnet-send-and-receive.cs#createConnectorClient)]
 
@@ -70,7 +70,7 @@ Bot Framework Connector는 봇이 Skype, 이메일, Slack 등과 같은 여러 �
 
 ## <a name="start-a-conversation"></a>대화 시작
 
-봇이 한 명 이상의 사용자와 대화를 시작해야 하는 경우도 있을 수 있습니다. `CreateDirectConversation` 메서드(단일 사용자와 개인 대화인 경우) 또는 `CreateConversation` 메서드(여러 사용자와 그룹 대화인 경우)를 호출하여 `ConversationAccount` 개체를 검색해서 대화를 시작할 수 있습니다. 그런 다음, 메시지를 만들고 `SendToConversation` 메서드를 호출하여 메시지를 보냅니다. `CreateDirectConversation` 메서드 또는 `CreateConversation` 메서드를 사용하려면 먼저 대상 채널의 서비스 URL을 사용하여 [커넥터 클라이언트를 생성](#create-a-connector-client)해야 합니다(이전 메시지에서 계속 유지한 경우 캐시에서 검색할 수 있음). 
+봇이 한 명 이상의 사용자와 대화를 시작해야 하는 경우도 있을 수 있습니다. `CreateDirectConversation` 메서드(단일 사용자와 프라이빗 대화인 경우) 또는 `CreateConversation` 메서드(여러 사용자와 그룹 대화인 경우)를 호출하여 `ConversationAccount` 개체를 검색해서 대화를 시작할 수 있습니다. 그런 다음, 메시지를 만들고 `SendToConversation` 메서드를 호출하여 메시지를 보냅니다. `CreateDirectConversation` 메서드 또는 `CreateConversation` 메서드를 사용하려면 먼저 대상 채널의 서비스 URL을 사용하여 [커넥터 클라이언트를 생성](#create-a-connector-client)해야 합니다(이전 메시지에서 계속 유지한 경우 캐시에서 검색할 수 있음). 
 
 > [!NOTE]
 > 일부 채널은 그룹 대화를 지원하지 않습니다. 채널이 그룹 대화를 지원하는지 여부를 확인하려면 채널의 설명서를 참조하세요.
@@ -88,7 +88,7 @@ Bot Framework Connector는 봇이 Skype, 이메일, Slack 등과 같은 여러 �
 - [작업 개요](bot-builder-dotnet-activities.md)
 - [메시지 만들기](bot-builder-dotnet-create-messages.md)
 - <a href="/dotnet/api/?view=botbuilder-3.11.0" target="_blank">.NET용 Bot Framework SDK 참조</a>
-- <a href="https://docs.botframework.com/en-us/csharp/builder/sdkreference/dc/d2f/class_microsoft_1_1_bot_1_1_connector_1_1_activity.html" target="_blank">활동 클래스</a>
+- <a href="https://docs.botframework.com/csharp/builder/sdkreference/dc/d2f/class_microsoft_1_1_bot_1_1_connector_1_1_activity.html" target="_blank">활동 클래스</a>
 - <a href="/dotnet/api/microsoft.bot.connector.connectorclient" target="_blank">ConnectorClient 클래스</a>
 
 [ConnectorClient]: /dotnet/api/microsoft.bot.connector.connectorclient

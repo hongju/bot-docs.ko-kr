@@ -10,12 +10,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 05/23/2019
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 591f58e1cefca576e2e3e4a486ecc6fbe0a6b0e4
-ms.sourcegitcommit: ea64a56acfabc6a9c1576ebf9f17ac81e7e2a6b7
+ms.openlocfilehash: 573dabba7a16f88db890f0d095a2d4a0f983660c
+ms.sourcegitcommit: 41c8caf0e0c849beeeb50cdccf6dbc1ba7cce442
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66215600"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67344587"
 ---
 # <a name="migrate-a-sdk-v3-javascript-bot-to-v4"></a>SDK v3 Javascript 봇을 v4로 마이그레이션
 
@@ -30,7 +30,7 @@ ms.locfileid: "66215600"
 
 이 프로세스가 완료되면 v4 봇이 작동합니다. 변환된 봇의 복사본도 [core-MultiDialogs-v4](https://aka.ms/v4-js-core-multidialog-migration-sample) 리포지토리 샘플에 있습니다.
 
-Bot Framework SDK v4는 SDK v3과 동일한 기본 REST API를 기반으로 합니다. 그러나 SDK v4는 이전 버전의 SDK를 리팩터링하여 개발자가 자신의 봇을 더 유연하게 제어할 수 있도록 합니다. SDK의 주요 변경 내용은 다음과 같습니다.
+Bot Framework SDK v4는 SDK v3와 동일한 기본 REST API를 기반으로 합니다. 그러나 SDK v4는 이전 버전의 SDK를 리팩터링하여 개발자가 자신의 봇을 더 유연하게 제어할 수 있도록 합니다. SDK의 주요 변경 내용은 다음과 같습니다.
 
 - 상태가 상태 관리 개체 및 속성 접근자를 통해 관리됩니다.
 - 턴을 처리하는 방법, 즉 봇에서 사용자 채널로부터 들어오는 활동을 받고 응답하는 방법이 변경되었습니다.
@@ -411,7 +411,7 @@ exports.FlightDialog = FlightDialog;
     }
     ```
 
-    `createHotelHeroCard`는 호텔에 대한 정보가 포함된 대표 카드를 만듭니다.
+    `createHotelHeroCard`는 호텔에 대한 정보가 포함된 영웅 카드를 만듭니다.
 
 1. 대화에서 사용되는 폭포 단계를 클래스에 추가합니다.
 
@@ -489,7 +489,7 @@ v4에서 봇은 대화 시스템 외부의 활동에 대응할 수 있습니다.
 
 **./bot.js**의 이름을 **./bots/reservationBot.js**로 바꾸고 편집합니다.
 
-1. 이 파일은 이미 봇의 기본 구현을 제공하는 **ActivityHandler**를 가져옵니다.
+1. 이 파일은 봇의 기본 구현을 제공하는 `ActivityHandler`를 이미 가져옵니다.
 
     ```javascript
     const { ActivityHandler } = require('botbuilder');
@@ -634,3 +634,5 @@ v4 방법 항목:
 - [문자 메시지 보내기 및 받기](../bot-builder-howto-send-messages.md)
 - [사용자 및 대화 데이터 저장](../bot-builder-howto-v4-state.md)
 - [순차적 대화 흐름 구현](../bot-builder-dialog-manage-conversation-flow.md)
+- [에뮬레이터를 사용하여 디버그](../../bot-service-debug-emulator.md)
+- [봇에 원격 분석 추가](../bot-builder-telemetry.md)

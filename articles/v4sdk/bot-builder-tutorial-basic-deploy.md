@@ -10,12 +10,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 05/23/2019
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 305e89f5bef4b50e99b24780b0e31580e3b38fb9
-ms.sourcegitcommit: e276008fb5dd7a37554e202ba5c37948954301f1
+ms.openlocfilehash: fd6b1b7ed38b57e8245098679d7753bd5cbb9387
+ms.sourcegitcommit: dbbfcf45a8d0ba66bd4fb5620d093abfa3b2f725
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66693697"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67464679"
 ---
 # <a name="tutorial-create-and-deploy-a-basic-bot"></a>자습서: 기본 봇 만들기 및 배포
 
@@ -47,7 +47,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 ### <a name="prerequisites"></a>필수 조건
 - Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 - 위의 봇이 로컬 컴퓨터에서 실행 중입니다.
-- [Azure cli](https://docs.microsoft.com/en-us/cli/azure/?view=azure-cli-latest) 최신 버전
+- [Azure cli](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) 최신 버전
 
 ### <a name="1-prepare-for-deployment"></a>1. 배포 준비
 Visual Studio 또는 Yeoman 템플릿을 사용하여 봇을 만들 때 생성된 소스 코드에는 ARM 템플릿이 있는 `deploymentTemplates` 폴더가 있습니다. 여기서 설명하는 배포 프로세스에서는 ARM 템플릿을 사용하여 Azure CLI를 통해 Azure의 봇에 필요한 리소스를 프로비저닝합니다. 
@@ -65,7 +65,7 @@ az login
 사용할 기본 구독을 설정합니다.
 
 ```cmd
-az account set --subscription "<azure-subscription>"
+az account set --subscription "azure-subscription"
 ```
 
 봇을 배포하는 데 사용할 구독이 확실하지 않은 경우 `az account list` 명령을 사용하여 계정에 대한 구독 목록을 볼 수 있습니다. 봇 폴더로 이동합니다.
@@ -94,7 +94,7 @@ az ad app create --display-name "displayName" --password "AtLeastSixteenCharacte
 새 리소스 그룹을 Azure에 만들고 ARM 템플릿을 사용하여 그 안에 지정된 리소스를 만듭니다. 이 경우 새 App Service 계획, 웹앱 및 봇 채널 등록을 제공합니다.
 
 ```cmd
-az deployment create --name "<name-of-deployment>" --template-file "template-with-new-rg.json" --location "location-name" --parameters appId="<msa-app-guid>" appSecret="<msa-app-password>" botId="<id-or-name-of-bot>" botSku=F0 newAppServicePlanName="<name-of-app-service-plan>" newWebAppName="<name-of-web-app>" groupName="<new-group-name>" groupLocation="<location>" newAppServicePlanLocation="<location>"
+az deployment create --name "name-of-deployment" --template-file "template-with-new-rg.json" --location "location-name" --parameters appId="msa-app-guid" appSecret="msa-app-password" botId="id-or-name-of-bot" botSku=F0 newAppServicePlanName="name-of-app-service-plan" newWebAppName="name-of-web-app" groupName="new-group-name" groupLocation="location" newAppServicePlanLocation="location"
 ```
 
 | 옵션   | 설명 |
@@ -117,7 +117,7 @@ az deployment create --name "<name-of-deployment>" --template-file "template-wit
 _참고: botId 매개 변수는 전역적으로 고유해야 하며 변경이 불가능한 봇 ID로 사용됩니다. 또한 변경 가능한 봇의 표시 이름을 구성하는 데도 사용됩니다._
 
 ```cmd
-az group deployment create --name "<name-of-deployment>" --resource-group "<name-of-resource-group>" --template-file "template-with-preexisting-rg.json" --parameters appId="<msa-app-guid>" appSecret="<msa-app-password>" botId="<id-or-name-of-bot>" newWebAppName="<name-of-web-app>" existingAppServicePlan="<name-of-app-service-plan>" appServicePlanLocation="<location>"
+az group deployment create --name "name-of-deployment" --resource-group "name-of-resource-group" --template-file "template-with-preexisting-rg.json" --parameters appId="msa-app-guid" appSecret="msa-app-password" botId="id-or-name-of-bot" newWebAppName="name-of-web-app" existingAppServicePlan="name-of-app-service-plan" appServicePlanLocation="location"
 ```
 
 **옵션 2: 새 App Service 계획** 
@@ -125,7 +125,7 @@ az group deployment create --name "<name-of-deployment>" --resource-group "<name
 이 경우 새 App Service 계획, 웹앱 및 봇 채널 등록을 만듭니다. 
 
 ```cmd
-az group deployment create --name "<name-of-deployment>" --resource-group "<name-of-resource-group>" --template-file "template-with-preexisting-rg.json" --parameters appId="<msa-app-guid>" appSecret="<msa-app-password>" botId="<id-or-name-of-bot>" newWebAppName="<name-of-web-app>" newAppServicePlanName="<name-of-app-service-plan>" appServicePlanLocation="<location>"
+az group deployment create --name "name-of-deployment" --resource-group "name-of-resource-group" --template-file "template-with-preexisting-rg.json" --parameters appId="msa-app-guid" appSecret="msa-app-password" botId="id-or-name-of-bot" newWebAppName="name-of-web-app" newAppServicePlanName="name-of-app-service-plan" appServicePlanLocation="location"
 ```
 
 | 옵션   | 설명 |
@@ -177,7 +177,7 @@ _Kudu는 기본적으로 Zip 파일을 통한 배포가 실행 준비되었으�
 이제 Azure Web App에 코드를 배포할 준비가 되었습니다. 명령줄에서 다음 명령을 실행하여 웹앱에 대해 kudu zip 푸시 배포를 사용하는 배포를 수행합니다.
 
 ```cmd
-az webapp deployment source config-zip --resource-group "<new-group-name>" --name "<name-of-web-app>" --src "code.zip" 
+az webapp deployment source config-zip --resource-group "new-group-name" --name "name-of-web-app" --src "code.zip" 
 ```
 
 | 옵션   | 설명 |

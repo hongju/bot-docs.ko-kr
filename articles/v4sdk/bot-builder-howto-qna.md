@@ -10,12 +10,12 @@ ms.service: bot-service
 ms.subservice: cognitive-services
 ms.date: 05/23/2019
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 09b8261ea69e04345cb9fb2d80542ae754efdc25
-ms.sourcegitcommit: ea64a56acfabc6a9c1576ebf9f17ac81e7e2a6b7
+ms.openlocfilehash: 15581daa570b9e51ff8f7bec93d16deebcd71d45
+ms.sourcegitcommit: 93508adfb79523f610a919b361fc34f5c8dd3eff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66215368"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67533387"
 ---
 # <a name="use-qna-maker-to-answer-questions"></a>QnA Maker를 사용하여 질문에 답변
 
@@ -29,7 +29,7 @@ QnA Maker는 사용자의 데이터에 대한 대화형 질문 및 답변 레이
 
 - 이 문서의 코드는 QnA Maker 샘플을 기반으로 합니다. **[CSharp](https://aka.ms/cs-qna) 또는 [JavaScript](https://aka.ms/js-qna-sample)** 로 작성된 샘플의 복사본이 필요합니다.
 - [QnA Maker](https://www.qnamaker.ai/) 계정
-- [봇 기본 사항](bot-builder-basics.md), [QnA Maker](https://docs.microsoft.com/en-us/azure/cognitive-services/qnamaker/overview/overview) 및 [봇 리소스 관리](bot-file-basics.md)에 대한 지식
+- [봇 기본 사항](bot-builder-basics.md), [QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/overview/overview) 및 [봇 리소스 관리](bot-file-basics.md)에 대한 지식
 
 ## <a name="about-this-sample"></a>이 샘플 정보
 
@@ -49,9 +49,9 @@ QnA Maker는 사용자의 데이터에 대한 대화형 질문 및 답변 레이
 사용자의 입력은 기술 자료에 보내지며 반환된 최선의 답변이 사용자에게 다시 표시됩니다.
 
 ## <a name="create-a-qna-maker-service-and-publish-a-knowledge-base"></a>QnA Maker 서비스를 만들고 기술 자료 게시
-먼저 QnA Maker 서비스를 만들어야 합니다. Azure에서 서비스를 만들려면 QnA Maker [설명서](https://docs.microsoft.com/en-us/azure/cognitive-services/qnamaker/how-to/set-up-qnamaker-service-azure)에 나열된 단계를 따릅니다.
+먼저 QnA Maker 서비스를 만들어야 합니다. Azure에서 서비스를 만들려면 QnA Maker [설명서](https://docs.microsoft.com/azure/cognitive-services/qnamaker/how-to/set-up-qnamaker-service-azure)에 나열된 단계를 따릅니다.
 
-다음으로, 샘플 프로젝트의 CognitiveModels 폴더에 있는 `smartLightFAQ.tsv` 파일을 사용하여 기술 자료를 만듭니다. QnA Maker [기술 자료](https://docs.microsoft.com/en-us/azure/cognitive-services/qnamaker/quickstarts/create-publish-knowledge-base)를 생성, 학습 및 게시하는 단계는 QnA Maker 설명서에 나와 있습니다. 다음 단계에 따라 `qna` KB의 이름을 지정하고, `smartLightFAQ.tsv` 파일을 사용하여 KB를 채웁니다.
+다음으로, 샘플 프로젝트의 CognitiveModels 폴더에 있는 `smartLightFAQ.tsv` 파일을 사용하여 기술 자료를 만듭니다. QnA Maker [기술 자료](https://docs.microsoft.com/azure/cognitive-services/qnamaker/quickstarts/create-publish-knowledge-base)를 생성, 학습 및 게시하는 단계는 QnA Maker 설명서에 나와 있습니다. 다음 단계에 따라 `qna` KB의 이름을 지정하고, `smartLightFAQ.tsv` 파일을 사용하여 KB를 채웁니다.
 
 > 참고. 이 문서는 사용자가 개발한 QnA Maker 기술 자료에 액세스하는 데 사용할 수도 있습니다.
 
@@ -83,9 +83,9 @@ QnA Maker는 사용자의 데이터에 대한 대화형 질문 및 답변 레이
   "MicrosoftAppId": "",
   "MicrosoftAppPassword": "",
   
-  "QnA-sample-qna-kbId": "<knowledge-base-id>",
-  "QnA-sample-qna-endpointKey": "<your-endpoint-key>",
-  "QnA-sample-qna-hostname": "<your-hostname>"
+  "QnAKnowledgebaseId": "<knowledge-base-id>",
+  "QnAAuthKey": "<your-endpoint-key>",
+  "QnAEndpointHostName": "<your-hostname>"
 }
 ```
 
@@ -114,7 +114,8 @@ QnAEndpointHostName="<your-hostname>"
 
 **QnABot.cs**의 `OnMessageActivityAsync` 메서드에서 QnAMaker 인스턴스를 만듭니다. 또한 위에서 `appsettings.json`에 저장한 연결 정보의 이름을 `QnABot` 클래스에서 끌어올 수도 있습니다. 설정 파일의 기술 자료 연결 정보에 대해 다른 이름을 선택한 경우 여기서 선택한 이름을 반영하여 이름을 업데이트해야 합니다.
 
-**Bots/QnABot.cs** [!code-csharp[qna connection](~/../botbuilder-samples/samples/csharp_dotnetcore/11.qnamaker/Bots/QnABot.cs?range=32-37)]
+**Bots/QnABot.cs**  
+[!code-csharp[qna connection](~/../botbuilder-samples/samples/csharp_dotnetcore/11.qnamaker/Bots/QnABot.cs?range=32-37)]
 
 ## <a name="javascripttabjs"></a>[JavaScript](#tab/js)
 
@@ -135,7 +136,8 @@ QnAEndpointHostName="<your-hostname>"
 
 봇에서 QnAMaker의 응답을 요구하는 경우 봇 코드에서 `GetAnswersAsync()`를 호출하여 현재 컨텍스트에 맞는 응답을 가져옵니다. 자신의 고유한 기술 자료에 액세스하는 경우 아래의 _답변을 찾을 수 없음_ 메시지를 변경하여 사용자에게 유용한 지침을 제공하세요.
 
-**QnABot.cs** [!code-csharp[qna connection](~/../botbuilder-samples/samples/csharp_dotnetcore/11.qnamaker/Bots/QnABot.cs?range=43-52)]
+**QnABot.cs**  
+[!code-csharp[qna connection](~/../botbuilder-samples/samples/csharp_dotnetcore/11.qnamaker/Bots/QnABot.cs?range=43-52)]
 
 ## <a name="javascripttabjs"></a>[JavaScript](#tab/js)
 
