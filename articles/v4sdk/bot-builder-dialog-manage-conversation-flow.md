@@ -8,14 +8,14 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
-ms.date: 05/23/2019
+ms.date: 07/05/2019
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 0f29520b993d12ce01c65cd29517b3a4b2aada84
-ms.sourcegitcommit: a295a90eac461f8b96770dd902ba44919acf33fc
+ms.openlocfilehash: c3c116eec8222ce50cd7dde672cc86f9765a3f97
+ms.sourcegitcommit: b498649da0b44f073dc5b23c9011ea2831edb31e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/26/2019
-ms.locfileid: "67404549"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67587480"
 ---
 # <a name="implement-sequential-conversation-flow"></a>순차적 대화 흐름 구현
 
@@ -122,29 +122,13 @@ ms.locfileid: "67404549"
 
 [!code-javascript[user profile](~/../botbuilder-samples/samples/javascript_nodejs/05.multi-turn-prompt/userProfile.js?range=4-10)]
 
-**Dialogs\UserProfileDialog.cs**
+**dialogs\userProfileDialog.js**
 
 마지막 단계에서는 이전의 폭포 단계에서 호출된 대화가 반환한 `step.result`를 확인합니다. 반환 값이 true이면 사용자 프로필 접근자를 사용하여 사용자 프로필을 가져오고 업데이트합니다. 사용자 프로필을 가져오기 위해 `get` 메서드를 호출한 후 `userProfile.transport`, `userProfile.name` 및 `userProfile.age` 속성 값을 설정합니다. 마지막으로, 대화를 종료하는 `endDialog`를 호출하기 전에 사용자의 정보를 요약합니다. 대화를 종료하면 대화 스택이 사라지고 대화 부모에 선택적 결과가 반환됩니다. 부모는 대화 또는 방금 전에 종료된 대화를 시작한 메서드입니다.
 
 [!code-javascript[summary step](~/../botbuilder-samples/samples/javascript_nodejs/05.multi-turn-prompt/dialogs/userProfileDialog.js?range=115-136&highlight=4-8,20-21)]
 
----
-
-## <a name="create-the-extension-method-to-run-the-waterfall-dialog"></a>폭포 대화를 실행하는 확장 메서드 만들기
-
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
-
-대화 컨텍스트를 만들고 액세스하는 데 사용할 `Run` 확장 메서드를 정의했습니다. 여기서 `accessor`는 대화 상태 속성의 상태 속성 접근자이며, `dialog`는 사용자 프로필 구성 요소 대화입니다. 구성 요소 대화는 내부 대화 세트를 정의하므로 메시지 처리기 코드에서 볼 수 있는 외부 대화 세트를 만들어야 하며, 대화 컨텍스트를 만들 때 해당 세트를 사용합니다.
-
-대화 컨텍스트는 `CreateContext` 메서드를 호출하여 생성되며, 봇의 순서 처리기 내에서 대화 세트와 상호 작용하는 데 사용됩니다. 대화 컨텍스트는 현재 순서 컨텍스트, 부모 대화 및 대화 상태를 포함하여 대화 내에서 정보를 유지하는 메서드를 제공합니다.
-
-대화 컨텍스트를 사용하면 해당 문자열 ID를 통해 대화를 시작하거나 현재 대화(예: 여러 단계가 있는 폭포 대화)를 계속할 수 있습니다. 대화 컨텍스트는 봇의 모든 대화 및 폭포 단계를 통해 전달됩니다.
-
-**DialogExtensions.cs**
-
-[!code-csharp[Run method](~/../botbuilder-samples/samples/csharp_dotnetcore/05.multi-turn-prompt/DialogExtensions.cs?range=13-24)]
-
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+**폭포 대화를 실행하는 확장 메서드 만들기**
 
 대화 컨텍스트를 만들고 액세스하는 데 사용할 `run` 도우미 메서드를 `userProfileDialog` 내에 정의했습니다. 여기서 `accessor`는 대화 상태 속성의 상태 속성 접근자이며, `this`는 사용자 프로필 구성 요소 대화입니다. 구성 요소 대화는 내부 대화 세트를 정의하므로 메시지 처리기 코드에서 볼 수 있는 외부 대화 세트를 만들어야 하며, 대화 컨텍스트를 만들 때 해당 세트를 사용합니다.
 
@@ -162,7 +146,7 @@ ms.locfileid: "67404549"
 
 **Bots\DialogBot.cs**
 
-`OnMessageActivityAsync` 처리기는 확장 메서드를 사용하여 대화를 시작하거나 계속합니다. `OnTurnAsync`에서는 봇의 상태 관리 개체를 사용하여 스토리지에 대한 모든 상태 변경 사항을 유지합니다. (`ActivityHandler.OnTurnAsync` 메서드는 `OnMessageActivityAsync`와 같은 다양한 작업 처리기 메서드를 호출합니다. 메시지 처리기가 완료된 후 순서 자체가 완료되기 전에 상태를 이러한 방식으로 저장하고 있습니다.)
+`OnMessageActivityAsync` 처리기는 `RunAsync` 메서드를 사용하여 대화를 시작하거나 계속합니다. `OnTurnAsync`에서는 봇의 상태 관리 개체를 사용하여 스토리지에 대한 모든 상태 변경 사항을 유지합니다. (`ActivityHandler.OnTurnAsync` 메서드는 `OnMessageActivityAsync`와 같은 다양한 작업 처리기 메서드를 호출합니다. 메시지 처리기가 완료된 후 순서 자체가 완료되기 전에 상태를 이러한 방식으로 저장하고 있습니다.)
 
 [!code-csharp[overrides](~/../botbuilder-samples/samples/csharp_dotnetcore/05.multi-turn-prompt/Bots/DialogBot.cs?range=33-48&highlight=5-7)]
 

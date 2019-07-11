@@ -8,14 +8,14 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
-ms.date: 05/23/2019
+ms.date: 07/05/2019
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: bc11e5a4a5dec1a9588254b3a9d28d56ad163fb4
-ms.sourcegitcommit: 409e8f89a1e9bcd0e69a29a313add424f66a81e1
+ms.openlocfilehash: b7ffa16c2f0a00043b12faec1d31bbfe5bfa250f
+ms.sourcegitcommit: b498649da0b44f073dc5b23c9011ea2831edb31e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67153057"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67587469"
 ---
 # <a name="create-advanced-conversation-flow-using-branches-and-loops"></a>분기 및 루프를 사용하여 고급 대화 흐름 만들기
 
@@ -27,8 +27,8 @@ ms.locfileid: "67153057"
 
 ## <a name="prerequisites"></a>필수 조건
 
-- [봇 기본 사항][concept-basics], [상태 관리][concept-state], [대화 상자 라이브러리][concept-dialogs] 및 [순차적인 대화 흐름을 구현하는 방법][simple-dialog]에 대한 지식
-- [**CSharp**][cs-sample] 또는 [**JavaScript**][js-sample]로 작성된 복잡한 대화 상자 샘플의 복사본
+- [봇 기본 사항][concept-basics], [managing state][concept-state], [대화 상자 라이브러리][concept-dialogs] 및 [순차적인 대화 흐름을 구현][simple-dialog]하는 방법에 대한 지식.
+- [**CSharp**][cs-sample]or [**JavaScript**][js-sample]로 작성된 복잡한 대화 상자 샘플의 복사본.
 
 ## <a name="about-this-sample"></a>이 샘플 정보
 
@@ -186,19 +186,21 @@ ms.locfileid: "67153057"
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
-**DialogExtensions.cs**
+<!-- **DialogExtensions.cs**
 
-이 샘플에서는 대화 상자 컨텍스트에서 만들고 액세스하는 데 사용할 `Run` 도우미 메서드를 정의했습니다.
-구성 요소 대화 상자는 내부 대화 상자 세트를 정의하므로 메시지 처리기 코드에서 볼 수 있는 외부 대화 상자 세트를 만들어야 하며, 대화 상자 컨텍스트를 만들 때 해당 세트를 사용합니다.
+In this sample, we've defined a `Run` helper method that we will use to create and access the dialog context.
+Since component dialog defines an inner dialog set, we have to create an outer dialog set that's visible to the message handler code, and use that to create a dialog context.
 
-- `dialog`는 봇에 대한 주 구성 요소 대화 상자입니다.
-- `turnContext`는 봇에 대한 현재 턴 컨텍스트입니다.
+- `dialog` is the main component dialog for the bot.
+- `turnContext` is the current turn context for the bot.
 
 [!code-csharp[Run method](~/../botbuilder-samples/samples/csharp_dotnetcore/43.complex-dialog/DialogExtensions.cs?range=13-24)]
 
+-->
+
 **Bots\DialogBot.cs**
 
-메시지 처리기는 `Run` 도우미 메서드를 호출하여 대화 상자를 관리하며, 여기서는 턴 중에 발생했을 수 있는 대화 및 사용자 상태의 변경 내용을 저장하도록 턴 처리기를 재정의했습니다. 기본 `OnTurnAsync`는 `OnMessageActivityAsync` 메서드를 호출하여 해당 턴의 끝에서 저장 호출이 발생하는지 확인합니다.
+메시지 처리기는 `RunAsync` 메서드를 호출하여 대화 상자를 관리하며, 여기서는 턴 중에 발생했을 수 있는 대화 및 사용자 상태의 변경 내용을 저장하도록 순서 처리기를 재정의했습니다. 기본 `OnTurnAsync`는 `OnMessageActivityAsync` 메서드를 호출하여 해당 턴의 끝에서 저장 호출이 발생하는지 확인합니다.
 
 [!code-csharp[Overrides](~/../botbuilder-samples/samples/csharp_dotnetcore/43.complex-dialog/Bots/DialogBot.cs?range=33-48&highlight=5-7)]
 
@@ -276,12 +278,12 @@ ms.locfileid: "67153057"
 
 ## <a name="additional-resources"></a>추가 리소스
 
-대화 상자를 구현하는 방법에 대한 소개는 [순차적 대화 흐름 구현][simple-dialog]을 참조하세요. 여기서는 단일 폭포 대화 상자와 몇 가지 프롬프트를 사용하여 사용자에게 일련의 질문을 하는 간단한 상호 작용을 만듭니다.
+대화를 구현하는 방법에 대한 소개는 [순차적 대화 흐름 구현][simple-dialog]을 참조하세요. 여기에서는 단일 폭포 대화와 몇 가지 프롬프트를 사용하여 사용자에게 일련의 질문을 하는 간단한 상호 작용을 만듭니다.
 
-Dialogs 라이브러리에는 프롬프트에 대한 기본 유효성 검사가 포함되어 있습니다. 사용자 지정 유효성 검사를 추가할 수도 있습니다. 자세한 내용은 [대화 상자 프롬프트를 사용하여 사용자 입력 수집][dialog-prompts]을 참조하세요.
+Dialogs 라이브러리에는 프롬프트에 대한 기본 유효성 검사가 포함되어 있습니다. 사용자 지정 유효성 검사를 추가할 수도 있습니다. 자세한 내용은 [대화 프롬프트를 사용하여 사용자 입력 수집][dialog-prompts]을 참조하세요.
 
 대화 코드를 단순화하고 여러 봇을 다시 사용하기 위해 대화 세트의 일부를 별도의 클래스로 정의할 수 있습니다.
-자세한 내용은 [대화 상자 재사용][component-dialogs]을 참조하세요.
+자세한 내용은 [대화 재사용][component-dialogs]을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
