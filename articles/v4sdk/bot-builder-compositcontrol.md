@@ -8,14 +8,14 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
-ms.date: 05/23/2019
+ms.date: 07/05/2019
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 1f9070b0fd3b4e88eb7d752f5a73c4374bfe8415
-ms.sourcegitcommit: ea64a56acfabc6a9c1576ebf9f17ac81e7e2a6b7
+ms.openlocfilehash: 77f1c154af5821b1e476546f307a01be27f568c0
+ms.sourcegitcommit: b498649da0b44f073dc5b23c9011ea2831edb31e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66215520"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67587497"
 ---
 # <a name="reuse-dialogs"></a>대화 상자 재사용
 
@@ -25,8 +25,8 @@ ms.locfileid: "66215520"
 
 ## <a name="prerequisites"></a>필수 조건
 
-- [봇 기본 사항][concept-basics], [대화 상자 라이브러리][concept-dialogs] 및 [대화 관리 방법][simple-flow]에 대한 지식
-- [**CSharp**][cs-sample] 또는 [**JavaScript**][js-sample]로 작성된 다중 턴 프롬프트 샘플의 복사본
+- [봇 기본 사항][concept-basics], the [dialogs library][concept-dialogs] 및 [대화 관리][간단한 흐름]에 대한 방법의 지식.
+- [**CSharp**][cs-sample] or [**JavaScript**][js-sample]로 작성된 다중 턴 프롬프트 샘플의 복사본.
 
 ## <a name="about-the-sample"></a>샘플 정보
 
@@ -106,15 +106,9 @@ ms.locfileid: "66215520"
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
-**DialogExtensions.cs**
+**Bots\DialoBot.cs**
 
-샘플에서는 아래와 같이 `Run` 확장 메서드를 사용하여 이 작업을 수행합니다.
-
-[!code-csharp[Run method](~/../botbuilder-samples/samples/csharp_dotnetcore/05.multi-turn-prompt/DialogExtensions.cs?range=13-24)]
-
-**Bots\DialogBot.cs**
-
-`Run` 메서드는 봇의 `OnMessageActivityAsync` 메서드에서 호출됩니다.
+샘플에서 이 작업은 봇의 `OnMessageActivityAsync` 메서드에서 호출된 `RunAsync` 메서드를 사용하여 수행됩니다.
 
 [!code-csharp[OnMessageActivityAsync](~/../botbuilder-samples/samples/csharp_dotnetcore/05.multi-turn-prompt/Bots/DialogBot.cs?range=42-48)]
 
