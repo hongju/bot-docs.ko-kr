@@ -92,7 +92,7 @@ Application Insights에 액세스하려면 [Azure Portal](https://portal.azure.c
 
 1. Application Insights [리소스](/azure/application-insights/app-insights-create-new-resource)를 만듭니다.
 2. 대시보드에서 봇을 엽니다. **설정**을 클릭하고 **분석** 섹션까지 아래로 스크롤합니다.
-3. 봇을을 Application Insights에 연결하기 위한 정보를 입력합니다. 모든 필드는 필수입니다.
+3. 봇을 Application Insights에 연결하기 위한 정보를 입력합니다. 모든 필드는 필수입니다.
 
 ![Insights 연결](~/media/analytics-enable.png)
 
