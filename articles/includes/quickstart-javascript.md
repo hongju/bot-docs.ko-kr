@@ -61,7 +61,7 @@ Yeoman은 봇을 만드는 데 사용할 일부 정보에 대한 메시지를 �
 - 봇의 이름을 입력합니다. (my-chat-bot)
 - 설명을 입력합니다. (Microsoft Bot Framework의 핵심 기능을 설명합니다.)
 - 봇에 대한 언어를 선택합니다. (JavaScript)
-- 사용할 템플릿을 선택합니다. (에코 봇 - https://aka.ms/bot-template-echo)
+- 사용할 템플릿을 선택합니다. (Echo Bot - https://aka.ms/bot-template-echo)
 
 이 템플릿을 통해 프로젝트에는 이 빠른 시작에서 봇을 만드는 데 필요한 모든 코드가 포함되어 있습니다. 실제로 추가 코드를 작성할 필요가 없습니다.
 
