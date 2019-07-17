@@ -1,5 +1,6 @@
-<!--# [Migration overview](migratration-overview.md)-->
+# [마이그레이션 개요](migration-overview.md)
 # [v3 및 v4 .NET SDK 간의 차이점](migration-about.md)
+# [v3 및 v4 JavaScript SDK 간의 차이점](migration-about-javascript.md)
 # [.NET 마이그레이션 빠른 참조](net-migration-quickreference.md)
 # [JavaScript 마이그레이션 빠른 참조](javascript-migration-quickreference.md)
 # [.NET v3 봇을 .NET Framework v4 봇으로 마이그레이션](conversion-framework.md)
