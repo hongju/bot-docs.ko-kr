@@ -1,10 +1,10 @@
 ---
 ms.openlocfilehash: 0b991c438c0006d1fb4bafa90982f73f4a18be77
-ms.sourcegitcommit: 980612a922b8290b2faadaca193496c4117e415a
+ms.sourcegitcommit: fa6e775dcf95a4253ad854796f5906f33af05a42
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64563455"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68230658"
 ---
 Bot Builder Framework를 사용하면 사용자, 대화 또는 특정 대화 컨텍스트 내의 특정 사용자와 연결된 상태 데이터를 봇이 저장하고 검색할 수 있습니다. 상태 데이터는 이전 대화를 중단한 위치를 확인하거나 단순히 돌아온 사용자에게 이름으로 인사말을 제공하는 등의 다양한 용도로 사용할 수 있습니다. 사용자의 기본 설정을 저장하면 이 정보를 사용하여 다음에 채팅할 때 대화를 사용자 지정할 수 있습니다. 예를 들어, 관심 있는 주제에 대한 뉴스 기사를 사용자에게 알리거나 약속이 가능해질 때 사용자에게 알릴 수 있습니다. 
 

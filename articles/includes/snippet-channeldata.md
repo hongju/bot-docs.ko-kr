@@ -1,3 +1,11 @@
+---
+ms.openlocfilehash: c19287b38a2c807e6675af2c3f7e1824eb7eab8e
+ms.sourcegitcommit: fa6e775dcf95a4253ad854796f5906f33af05a42
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68230776"
+---
 일부 채널은 메시지 텍스트 및 첨부 파일만으로는 구현할 수 없는 기능을 제공합니다. 채널 관련 기능을 구현하려면 활동 개체의 _채널 데이터_ 속성에서 채널에 네이티브 메타데이터를 전달할 수 있습니다. 예를 들어, 봇은 채널 데이터 속성을 사용하여 Telegram에 스티커를 전송하도록 지시하거나 Office365에 이메일을 전송하도록 지시할 수 있습니다.
 
 이 문서에서는 메시지 작업의 채널 데이터 속성을 사용하여 다음과 같은 채널 관련 기능을 구현하는 방법을 설명합니다.
@@ -269,8 +277,8 @@ Facebook 알림을 만들려면 활동 개체의 채널 데이터 속성을 이�
 
 | 자산 | 설명 |
 |----|----|
-| 메서드 | 호출할 Telegram Bot API 메서드입니다. |
-| 매개 변수 | 지정된 메서드의 매개 변수입니다. |
+| method | 호출할 Telegram Bot API 메서드입니다. |
+| parameters | 지정된 메서드의 매개 변수입니다. |
 
 다음과 같은 Telegram 메서드가 지원됩니다. 
 

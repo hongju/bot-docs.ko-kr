@@ -1,10 +1,10 @@
 ---
 ms.openlocfilehash: b5809b6d46cdc09035efb36c3ea58c2ca9dc6c3e
-ms.sourcegitcommit: 980612a922b8290b2faadaca193496c4117e415a
+ms.sourcegitcommit: fa6e775dcf95a4253ad854796f5906f33af05a42
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64563627"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68230718"
 ---
 사용자는 일반적으로 “도움말”, “취소” 또는 “다시 시작”과 같은 키워드를 사용하여 봇의 특정 기능에 액세스하려고 합니다. 이런 상황은 대화 도중 봇이 다른 응답을 예상하는 경우에 자주 발생합니다. **전역 메시지 처리기**를 구현하면 이러한 요청을 정상적으로 처리하도록 봇을 디자인할 수 있습니다.
 처리기는 사용자 입력에서 “도움말”, “취소” 또는 “다시 시작”과 같은 지정한 키워드를 검사하고 적절하게 응답합니다. 

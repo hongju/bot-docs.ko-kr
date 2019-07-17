@@ -1,10 +1,10 @@
 ---
 ms.openlocfilehash: 86faca976bc95a5e91e17749096cd148483edc61
-ms.sourcegitcommit: 980612a922b8290b2faadaca193496c4117e415a
+ms.sourcegitcommit: fa6e775dcf95a4253ad854796f5906f33af05a42
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64563649"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68230704"
 ---
 ## <a name="payment-process-overview"></a>결제 프로세스 개요
 

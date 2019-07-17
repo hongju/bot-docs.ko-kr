@@ -1,10 +1,10 @@
 ---
 ms.openlocfilehash: 869a6865524e0e3c431980299a557052f677a658
-ms.sourcegitcommit: a295a90eac461f8b96770dd902ba44919acf33fc
+ms.sourcegitcommit: fa6e775dcf95a4253ad854796f5906f33af05a42
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/26/2019
-ms.locfileid: "67405511"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68230457"
 ---
 ::: moniker range="azure-bot-service-3.0"
 > [!NOTE]

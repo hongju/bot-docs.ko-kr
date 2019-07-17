@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: 94f9faa55c8e956d7f451576a01e9378d81c3446
-ms.sourcegitcommit: 980612a922b8290b2faadaca193496c4117e415a
+ms.sourcegitcommit: fa6e775dcf95a4253ad854796f5906f33af05a42
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64563903"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68230749"
 ---
 제안된 동작은 사용자가 입력하기 위해 탭할 수 있는 단추를 봇이 표시하도록 합니다. 제안된 동작은 작성기 근처에 표시되며, 사용자가 키보드를 사용하여 응답을 입력하는 대신 질문에 대답하거나 간단히 단추를 탭하여 선택할 수 있도록 하여 사용자 환경을 개선합니다. 제안된 동작 창 내에 표시되는 단추는 서식 있는 카드 내에 표시되는 단추와 달리(탭한 후에도 사용자에게 표시되고 액세스 가능함) 사용자가 선택한 후에 사라집니다. 따라서 사용자가 대화 내에서 유효하지 않은 단추를 탭하지 않게 되며, 봇 개발이 간소화됩니다(해당 시나리오를 고려할 필요가 없으므로).

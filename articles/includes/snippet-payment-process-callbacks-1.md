@@ -1,10 +1,10 @@
 ---
 ms.openlocfilehash: f09d0a7b81e3cfa69fd42356faf27f79e3bc038c
-ms.sourcegitcommit: 980612a922b8290b2faadaca193496c4117e415a
+ms.sourcegitcommit: fa6e775dcf95a4253ad854796f5906f33af05a42
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64563702"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68230695"
 ---
 배송지 주소 업데이트 또는 배송 옵션 업데이트 콜백을 받으면 봇에는 클라이언트에서 `Activity.Value` 속성으로 결제 정보의 현재 상태가 제공됩니다.
 가맹점은 이러한 콜백을 정적으로 처리해야 합니다. 입력 결제 세부 정보가 제공되면 일부 출력 결제 세부 정보를 계산하고, 클라이언트에서 제공된 입력 상태가 어떤 이유로든 잘못된 경우에는 실패합니다. 
