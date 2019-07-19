@@ -605,7 +605,7 @@ WaterfallDialog가 시작되면 `WaterfallStart` 이벤트가 기록됩니다.
   - Bot Framework 프로토콜의 [받는 사람 이름](https://github.com/Microsoft/BotBuilder/blob/master/specs/botframework-activity/botframework-activity.md#from) 필드에 해당합니다.
   - 로깅되는 속성 이름은 `fromName`입니다.
 
-- 로캘
+- Locale
   - Bot Framework 프로토콜의 [받는 사람 이름](https://github.com/Microsoft/BotBuilder/blob/master/specs/botframework-activity/botframework-activity.md#from) 필드에 해당합니다.
   - 로깅되는 속성 이름은 `fromName`입니다.
 
@@ -617,14 +617,14 @@ WaterfallDialog가 시작되면 `WaterfallStart` 이벤트가 기록됩니다.
 - UserID  ([원격 분석 이니셜라이저에서](https://aka.ms/telemetry-initializer))
 - SessionID([원격 분석 이니셜라이저에서](https://aka.ms/telemetry-initializer))
 - ActivityID  ([원격 분석 이니셜라이저에서](https://aka.ms/telemetry-initializer))
-- 채널  ([원격 분석 이니셜라이저에서](https://aka.ms/telemetry-initializer))
+- Channel ([원격 분석 이니셜라이저에서](https://aka.ms/telemetry-initializer))
 - ActivityType  ([원격 분석 이니셜라이저에서](https://aka.ms/telemetry-initializer))
 - ReplyToID
 - RecipientId
 - ConversationName
-- 로캘
+- Locale
 - RecipientName(PII의 경우 선택 사항)
-- 텍스트(PII의 경우 선택 사항)
+- Text(PII의 경우 선택 사항)
 - Speak(PII의 경우 선택 사항)
 
 
@@ -633,13 +633,13 @@ WaterfallDialog가 시작되면 `WaterfallStart` 이벤트가 기록됩니다.
 - UserID  ([원격 분석 이니셜라이저에서](https://aka.ms/telemetry-initializer))
 - SessionID([원격 분석 이니셜라이저에서](https://aka.ms/telemetry-initializer))
 - ActivityID([원격 분석 이니셜라이저에서](https://aka.ms/telemetry-initializer))
-- 채널  ([원격 분석 이니셜라이저에서](https://aka.ms/telemetry-initializer))
+- Channel ([원격 분석 이니셜라이저에서](https://aka.ms/telemetry-initializer))
 - ActivityType  ([원격 분석 이니셜라이저에서](https://aka.ms/telemetry-initializer))
 - RecipientId
 - ConversationId
 - ConversationName
-- 로캘
-- 텍스트(PII의 경우 선택 사항)
+- Locale
+- Text(PII의 경우 선택 사항)
 
 
 ### <a name="customevent-botmessagedelete"></a>CustomEvent: BotMessageDelete
@@ -647,7 +647,7 @@ WaterfallDialog가 시작되면 `WaterfallStart` 이벤트가 기록됩니다.
 - UserID  ([원격 분석 이니셜라이저에서](https://aka.ms/telemetry-initializer))
 - SessionID([원격 분석 이니셜라이저에서](https://aka.ms/telemetry-initializer))
 - ActivityID  ([원격 분석 이니셜라이저에서](https://aka.ms/telemetry-initializer))
-- 채널  ([원격 분석 이니셜라이저에서](https://aka.ms/telemetry-initializer))
+- Channel ([원격 분석 이니셜라이저에서](https://aka.ms/telemetry-initializer))
 - ActivityType  ([원격 분석 이니셜라이저에서](https://aka.ms/telemetry-initializer))
 - RecipientId
 - ConversationId
@@ -664,7 +664,7 @@ LUIS 서비스의 결과를 기록합니다.
 - Channel([원격 분석 이니셜라이저에서](https://aka.ms/telemetry-initializer))
 - ActivityType([원격 분석 이니셜라이저에서](https://aka.ms/telemetry-initializer))
 - ApplicationId
-- 의도
+- Intent
 - IntentScore
 - Intent2 
 - IntentScore2 
@@ -688,7 +688,7 @@ QnA Maker 서비스의 결과를 기록합니다.
 - Question(PII의 경우 선택 사항)
 - MatchedQuestion
 - QuestionId
-- 응답
+- Answer
 - Score
 - ArticleFound
 
