@@ -1,10 +1,10 @@
 ---
 ms.openlocfilehash: 8e2dac514d2f7e7ec729f32b8048151e88a1116a
-ms.sourcegitcommit: 980612a922b8290b2faadaca193496c4117e415a
+ms.sourcegitcommit: fa6e775dcf95a4253ad854796f5906f33af05a42
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64563421"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68230435"
 ---
 | 자산 | 설명 |
 | :--- | :--- |

@@ -8,16 +8,16 @@ manager: kamrani
 ms.topic: get-started-article
 ms.service: bot-service
 ms.subservice: abs
-ms.date: 05/23/2019
+ms.date: 07/15/2019
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 73a675c6e54d676f74dad2df24b3668d5e4e98be
-ms.sourcegitcommit: a47183f5d1c2b2454c4a06c0f292d7c075612cdd
+ms.openlocfilehash: 898136303d2c5bbf6a8ce5ea5b87bff0bac0a5c7
+ms.sourcegitcommit: fa6e775dcf95a4253ad854796f5906f33af05a42
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2019
-ms.locfileid: "67252373"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68230762"
 ---
-## <a name="use-direct-line-speech-in-your-bot"></a>봇에서 Direct Line Speech 사용 
+# <a name="use-direct-line-speech-in-your-bot"></a>봇에서 Direct Line Speech 사용 
 
 [!INCLUDE [applies-to-v4](includes/applies-to.md)]
 
@@ -29,11 +29,24 @@ Direct Line Speech 미리 보기를 위해 봇에 추가해야 하는 추가 NuG
 
 2.  봇 프로젝트의 속성 아래에 있는 Nuget 패키지 관리로 이동합니다.
 
-3.  아직 원본으로 가지고 있지 않은 경우 오른쪽 위의 NuGet 피드 설정에서 `https://botbuilder.myget.org/F/experimental/api/v3/index.json`을 피드로 추가합니다.
+3.  `Microsoft.Bot.Builder.StreamingExtensions` 패키지를 추가합니다. 미리 보기 패키지를 보려면 "시험판 포함" 확인란을 선택해야 합니다.
 
-4.  이 NuGet 원본을 선택하고 `Microsoft.Bot.Protocol.StreamingExtensions.NetCore` 패키지 중 하나를 추가합니다.
+4.  프롬프트를 모두 수락하고 프로젝트에 패키지 추가를 완료합니다.
 
-5.  프롬프트를 모두 수락하고 프로젝트에 패키지 추가를 완료합니다.
+## <a name="set-the-speak-field-on-activities-you-want-spoken-to-the-user"></a>사용자에게 말하려는 활동에 대한 Speak(대화) 필드 설정
+사용자에게 말하려는 봇에서 보내는 Activity의 Speak 필드를 설정해야 합니다. 
+
+```cs
+public IActivity Speak(string message)
+{
+    var activity = MessageFactory.Text(message);
+    string body = @"<speak version='1.0' xmlns='https://www.w3.org/2001/10/synthesis' xml:lang='en-US'>
+        <voice name='Microsoft Server Speech Text to Speech Voice (en-US, JessaNeural)'>" +
+        $"{message}" + "</voice></speak>";
+    activity.Speak = body;
+    return activity;
+}
+```
 
 ## <a name="option-1-update-your-net-core-bot-code-if-your-bot-has-a-botcontrollercs"></a>옵션 #1: _봇에 BotController.cs가 있는 경우_ .NET Core 봇 코드를 업데이트합니다.
 템플릿(예: EchoBot) 중 하나를 사용하여 Azure Portal에서 새 봇을 만들면 단일 POST 엔드포인트를 표시하는 ASP.NET MVC 컨트롤러를 포함하는 봇을 얻습니다. 이 지침은 해당 봇을 GET 엔드포인트인 WebSocket 스트리밍 엔드포인트를 수락하는 엔드포인트도 표시하도록 확장하는 방법을 설명합니다.
@@ -55,7 +68,7 @@ public async Task PostAsync()
 5.  새 네임스페이스를 추가합니다.
 
 ```cs
-using Microsoft.Bot.Protocol.StreamingExtensions.NetCore;
+using Microsoft.Bot.Builder.StreamingExtensions;
 ```
 
 6.  ConfigureServices 메서드에서 AdapterWithErrorHandler의 사용을 해당 services.AddSingleton 호출의 WebSocketEnabledHttpAdapter로 바꿉니다.

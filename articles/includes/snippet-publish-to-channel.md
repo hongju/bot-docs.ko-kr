@@ -1,10 +1,10 @@
 ---
 ms.openlocfilehash: 8484df6b140447d175805b396a81832c059c3b76
-ms.sourcegitcommit: a295a90eac461f8b96770dd902ba44919acf33fc
+ms.sourcegitcommit: fa6e775dcf95a4253ad854796f5906f33af05a42
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/26/2019
-ms.locfileid: "67405199"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68230530"
 ---
 ### <a name="cortana"></a>Cortana
 봇은 [대시보드](https://aka.ms/cortana-publish)의 Cortana에 게시되고 Cortana 기술을 구동하는 데 사용됩니다. 봇을 게시하면 봇이 검토를 위해 제출됩니다. Cortana 기술을 직접 사용할 용도로 배포할 수도 있고, 소규모 그룹에 배포할 수도 있고, 전 세계에 게시할 수도 있습니다.

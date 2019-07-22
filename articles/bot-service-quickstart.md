@@ -47,7 +47,7 @@ Bot Service는 봇 개발을 위한 Bot Framework SDK 및 채널에 봇을 연�
    | **앱 이름** | 고유한 이름 | 봇의 고유한 URL 이름입니다. 예를 들어, 봇 이름을 *myawesomebot*으로 지정하면 봇 URL은 `http://myawesomebot.azurewebsites.net`입니다. 이름에는 영숫자 및 밑줄 문자만 사용해야 합니다. 이 필드는 35자로 제한됩니다. 봇이 만들어진 후에는 앱 이름을 변경할 수 없습니다. |
    | **봇 템플릿** | Basic | **C#** 또는 **Node.js**를 선택하고, 이 빠른 시작의 **기본** 템플릿을 선택한 다음, **선택**을 클릭합니다. 기본 템플릿은 에코 봇을 만듭니다. 템플릿을 [자세히 알아봅니다](bot-service-concept-templates.md). |
    | **App Service 계획/위치** | App Service 계획  | [App Service 계획](https://azure.microsoft.com/pricing/details/app-service/plans/) 위치를 선택합니다. 나열된 모든 위치 중에 선택할 수 있지만, 고객에게 가장 가까운 위치를 선택하는 것이 좋습니다. (Functions 봇에 사용할 수 없음) |
-   | **Application Insights** | 다른 | [Application Insights](/bot-framework/bot-service-manage-analytics)를 **켜기** 또는 **끄기**로 설정할지 결정합니다. **켜기**를 선택하면 지역 위치를 지정해야 합니다. 나열된 모든 위치 중에 선택할 수 있지만, 봇 서비스 위치와 동일한 위치를 선택하는 것이 대체적으로 가장 좋습니다. |
+   | **Application Insights** | 설정 | [Application Insights](/bot-framework/bot-service-manage-analytics)를 **설정** 또는 **해제**로 설정할지 결정합니다. **설정**을 선택하면 지역 위치를 지정해야 합니다. 나열된 모든 위치 중에 선택할 수 있지만, 봇 서비스 위치와 동일한 위치를 선택하는 것이 대체적으로 가장 좋습니다. |
    | **Microsoft 앱 ID 및 암호** | 자동 앱 ID 및 암호 만들기 | Microsoft 앱 ID 및 암호를 수동으로 입력해야 하는 경우 이 옵션을 사용합니다. 그렇지 않으면 봇 만들기 프로세스에서 새 Microsoft 앱 ID 및 암호가 만들어집니다. Bot Service에 사용할 앱 등록을 수동으로 만드는 경우 지원되는 계정 유형을 ‘조직 디렉터리의 계정' 또는 ‘조직 디렉터리의 계정 및 개인 Microsoft 계정(예: Skype, Outlook.com, Xbox 등)’으로 설정해야 합니다.  |
 
    > [!NOTE]
@@ -108,7 +108,7 @@ Azure Bot Service는 봇 개발을 위한 Bot Framework SDK 및 채널에 봇을
  | **앱 이름** | 고유한 이름 | 봇의 고유한 URL 이름입니다. 예를 들어, 봇 이름을 *myawesomebot*으로 지정하면 봇 URL은 `http://myawesomebot.azurewebsites.net`입니다. 이름에는 영숫자 및 밑줄 문자만 사용해야 합니다. 이 필드는 35자로 제한됩니다. 봇이 만들어진 후에는 앱 이름을 변경할 수 없습니다. |
  | **봇 템플릿** | Echo 봇 | **SDK v4**를 선택합니다. 이 빠른 시작에 대해 C# 또는 Node.js를 선택한 다음, **선택**을 클릭합니다.  
  | **App Service 계획/위치** | App Service 계획  | [App Service 계획](https://azure.microsoft.com/pricing/details/app-service/plans/) 위치를 선택합니다. 나열된 모든 위치 중에 선택할 수 있지만, 봇 서비스와 동일한 위치를 선택하는 것이 대체적으로 가장 좋습니다. |
- | **Application Insights** | 다른 | [Application Insights](/bot-framework/bot-service-manage-analytics)를 **켜기** 또는 **끄기**로 설정할지 결정합니다. **켜기**를 선택하면 지역 위치를 지정해야 합니다. 나열된 모든 위치 중에 선택할 수 있지만, 봇 서비스와 동일한 위치를 선택하는 것이 대체적으로 가장 좋습니다. |
+ | **Application Insights** | 설정 | [Application Insights](/bot-framework/bot-service-manage-analytics)를 **설정** 또는 **해제**로 설정할지 결정합니다. **설정**을 선택하면 지역 위치를 지정해야 합니다. 나열된 모든 위치 중에 선택할 수 있지만, 봇 서비스와 동일한 위치를 선택하는 것이 대체적으로 가장 좋습니다. |
  | **Microsoft 앱 ID 및 암호** | 자동 앱 ID 및 암호 만들기 | Microsoft 앱 ID 및 암호를 수동으로 입력해야 하는 경우 이 옵션을 사용합니다. 그렇지 않으면 봇 만들기 프로세스에서 새 Microsoft 앱 ID 및 암호가 만들어집니다. Bot Service에 사용할 앱 등록을 수동으로 만드는 경우 지원되는 계정 유형을 ‘조직 디렉터리의 계정' 또는 ‘조직 디렉터리의 계정 및 개인 Microsoft 계정(예: Skype, Outlook.com, Xbox 등)’으로 설정해야 합니다. |
 
 4. **만들기**를 클릭하여 서비스를 만들고 봇을 클라우드에 배포합니다. 이 프로세스에는 몇 분 정도 걸릴 수 있습니다.

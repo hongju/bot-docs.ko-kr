@@ -1,10 +1,10 @@
 ---
 ms.openlocfilehash: 0570ec6a44c9fe1b007c1fd1b8c335288baa63cb
-ms.sourcegitcommit: dbbfcf45a8d0ba66bd4fb5620d093abfa3b2f725
+ms.sourcegitcommit: fa6e775dcf95a4253ad854796f5906f33af05a42
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67464851"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68230668"
 ---
 ## <a name="prerequisites"></a>필수 조건
 - [Visual Studio 2017 이상](https://www.visualstudio.com/downloads)

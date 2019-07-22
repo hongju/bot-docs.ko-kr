@@ -1,10 +1,10 @@
 ---
 ms.openlocfilehash: 2c06c67099f44fe1df2eb0099a514a697ef0d1c9
-ms.sourcegitcommit: a295a90eac461f8b96770dd902ba44919acf33fc
+ms.sourcegitcommit: fa6e775dcf95a4253ad854796f5906f33af05a42
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/26/2019
-ms.locfileid: "67405588"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68230817"
 ---
 봇이 배포되면 일반적으로 Azure Portal에 만들어지는 리소스는 다음과 같습니다.
 

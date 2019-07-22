@@ -1,10 +1,10 @@
 ---
 ms.openlocfilehash: 0891b9652154f8ed086cc45ce6018aa0be1a67b8
-ms.sourcegitcommit: aea57820b8a137047d59491b45320cf268043861
+ms.sourcegitcommit: fa6e775dcf95a4253ad854796f5906f33af05a42
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59905175"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68230570"
 ---
 로컬 JavaScript 봇을 Azure에 다시 게시하려면 먼저 봇을 로컬로 빌드하고 실행하는 데 사용되는 모든 파일이 포함된 단일 압축 파일을 수동으로 만들어야 합니다. 여기에는 `node_modules` 폴더에 다운로드된 모든 npm 라이브러리가 포함됩니다. 이 zip 파일을 만드는 경우 _사용하는 루트 디렉터리가 index.js 파일이 있는 디렉터리와 동일해야 합니다_.
 
