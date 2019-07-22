@@ -73,7 +73,7 @@ const adapter = new BotFrameworkAdapter({
 이 시나리오에서는 이미 .bot 파일을 사용하여 봇을 Azure Portal에 배포했으며, 이제 설정을 .bot 파일에서 appsettings.json 또는 .env 파일로 마이그레이션하려고 합니다.
 
 - Azure Portal에서 봇 코드를 다운로드합니다. 코드가 다운로드되면 MicrosoftAppId, MicrosoftAppPassword 및 해당 추가 설정이 배치될 appsettings.json 또는 .env 파일을 포함하도록 요구하는 메시지가 표시됩니다. 
-- _다운로드_한 appsettings.json 또는 .env 파일을 열고, 해당 파일의 설정을 _로컬_ appsettings.json 또는 .env 파일에 복사합니다. 로컬 appsettings.json 또는 .env 파일에서 botSecret 및 botFilePath 항목을 제거하는 것을 잊지 마세요.
+- _다운로드_ 한 appsettings.json 또는 .env 파일을 열고, 해당 파일의 설정을 _로컬_ appsettings.json 또는 .env 파일에 복사합니다. 로컬 appsettings.json 또는 .env 파일에서 botSecret 및 botFilePath 항목을 제거하는 것을 잊지 마세요.
 - appsettings.json 또는 .env 파일에서 설정을 읽도록 코드를 업데이트합니다.
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
