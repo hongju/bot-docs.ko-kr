@@ -41,7 +41,7 @@ ms.locfileid: "67252683"
 
 ### <a name="defining-a-turn"></a>순서 정의
 
-대화에서 사람들은 한 번에 한 명씩 순서대로 말을 합니다. 봇을 사용하면 봇은 일반적으로 사용자 입력에 반응합니다. Bot Framework SDK 내에서 _순서_는 사용자로부터 봇으로 들어오는 작업과 봇이 즉각적으로 응답하여 사용자에게 되돌려 보내는 작업으로 구성됩니다. 순서를 특정 작업의 도착과 관련된 프로세싱으로 생각하시면 됩니다.
+대화에서 사람들은 한 번에 한 명씩 순서대로 말을 합니다. 봇을 사용하면 봇은 일반적으로 사용자 입력에 반응합니다. Bot Framework SDK 내에서 _순서_ 는 사용자로부터 봇으로 들어오는 작업과 봇이 즉각적으로 응답하여 사용자에게 되돌려 보내는 작업으로 구성됩니다. 순서를 특정 작업의 도착과 관련된 프로세싱으로 생각하시면 됩니다.
 
 *순서 컨텍스트* 개체는 발신자 및 수신자, 채널, 활동을 처리하는 데 필요한 기타 데이터와 같은 활동에 대한 정보를 제공합니다. 또한 봇의 다양한 계층에서 순서가 처리되는 동안 정보를 추가할 수 있게 해줍니다.
 
@@ -95,7 +95,7 @@ SDK의 통합 구성 요소인 *어댑터*는 SDK 런타임의 핵심입니다. 
 
 ## <a name="bot-structure"></a>봇 구조체
 
-다음 섹션에서는 [**CSharp**](../dotnet/bot-builder-dotnet-sdk-quickstart.md) 또는 [**JavaScript**](../javascript/bot-builder-javascript-quickstart.md)용으로 제공되는 템플릿을 사용하여 손쉽게 만들 수 있는 EchoBot의 _핵심 부분_을 살펴봅니다.
+다음 섹션에서는 [**CSharp**](../dotnet/bot-builder-dotnet-sdk-quickstart.md) 또는 [**JavaScript**](../javascript/bot-builder-javascript-quickstart.md)용으로 제공되는 템플릿을 사용하여 손쉽게 만들 수 있는 EchoBot의 _핵심 부분_ 을 살펴봅니다.
 
 <!--Need to add section calling out the controller in code, and explaining it further-->
 

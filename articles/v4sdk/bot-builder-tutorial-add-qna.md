@@ -299,6 +299,7 @@ QnAEndpointHostName="your-hostname" // This is a URL ending in /qnamaker
 
 > [!IMPORTANT]
 > 프로젝트 파일의 zip 파일을 만들기 전에 올바른 폴더 _안_ 에 있는지 확인합니다.
+
 > - C# 봇의 경우 .csproj 파일이 있는 폴더입니다. 
 > - JS 봇의 경우 app.js 또는 index.js 파일이 있는 폴더입니다. 
 >

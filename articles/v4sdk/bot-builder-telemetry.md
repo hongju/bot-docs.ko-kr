@@ -480,10 +480,10 @@ AddDialog(new WaterfallDialog(ProfileDialog, waterfallSteps) { TelemetryClient =
 봇 코드에서 이벤트를 생성하는 `WaterfallDialog` 외에도 Bot Framework 채널 서비스도 이벤트를 기록합니다.  이 기능을 사용하면 채널 또는 전체 봇 오류 문제를 진단할 수 있습니다.
 
 ### <a name="customevent-activity"></a>CustomEvent: "활동"
-**로그인 출처:** 채널 서비스는 메시지 수신 시 채널 서비스에서 기록됩니다.
+**로깅된 출처:** 채널 서비스는 메시지 수신 시 채널 서비스에서 기록됩니다.
 
 ### <a name="exception-bot-errors"></a>예외: "봇 오류"
-**로그인 출처:** 봇에 대한 호출이 비 2XX Http 응답을 반환하는 경우 채널에 의해 로깅되는 채널 서비스입니다.
+**로깅된 출처:** 봇에 대한 호출이 비 2XX Http 응답을 반환하는 경우 채널에 의해 로깅되는 채널 서비스입니다.
 
 ## <a name="all-events-generated"></a>생성된 모든 이벤트
 
@@ -605,56 +605,59 @@ WaterfallDialog가 시작되면 `WaterfallStart` 이벤트가 기록됩니다.
   - Bot Framework 프로토콜의 [받는 사람 이름](https://github.com/Microsoft/BotBuilder/blob/master/specs/botframework-activity/botframework-activity.md#from) 필드에 해당합니다.
   - 로깅되는 속성 이름은 `fromName`입니다.
 
-- 로캘
+- Locale
   - Bot Framework 프로토콜의 [받는 사람 이름](https://github.com/Microsoft/BotBuilder/blob/master/specs/botframework-activity/botframework-activity.md#from) 필드에 해당합니다.
   - 로깅되는 속성 이름은 `fromName`입니다.
 
 ### <a name="customevent-botmessagesend"></a>CustomEvent: BotMessageSend 
-**로그인 출처:** TelemetryLoggerMiddleware 
+**로깅된 출처:** TelemetryLoggerMiddleware 
 
 봇이 메시지를 보낼 때 기록됩니다.
 
 - UserID  ([원격 분석 이니셜라이저에서](https://aka.ms/telemetry-initializer))
 - SessionID([원격 분석 이니셜라이저에서](https://aka.ms/telemetry-initializer))
 - ActivityID  ([원격 분석 이니셜라이저에서](https://aka.ms/telemetry-initializer))
-- 채널  ([원격 분석 이니셜라이저에서](https://aka.ms/telemetry-initializer))
+- Channel ([원격 분석 이니셜라이저에서](https://aka.ms/telemetry-initializer))
 - ActivityType  ([원격 분석 이니셜라이저에서](https://aka.ms/telemetry-initializer))
 - ReplyToID
 - RecipientId
 - ConversationName
-- 로캘
+- Locale
 - RecipientName(PII의 경우 선택 사항)
-- 텍스트(PII의 경우 선택 사항)
+- Text(PII의 경우 선택 사항)
 - Speak(PII의 경우 선택 사항)
 
 
 ### <a name="customevent-botmessageupdate"></a>CustomEvent: BotMessageUpdate
-**로그인 출처:** TelemetryLoggerMiddleware는 봇에서 메시지를 업데이트할 때 기록됩니다(희귀 사례).
+**로깅된 출처:** TelemetryLoggerMiddleware는 봇에서 메시지를 업데이트할 때 기록됩니다(희귀 사례).
 - UserID  ([원격 분석 이니셜라이저에서](https://aka.ms/telemetry-initializer))
 - SessionID([원격 분석 이니셜라이저에서](https://aka.ms/telemetry-initializer))
 - ActivityID([원격 분석 이니셜라이저에서](https://aka.ms/telemetry-initializer))
-- 채널  ([원격 분석 이니셜라이저에서](https://aka.ms/telemetry-initializer))
+- Channel([원격 분석 이니셜라이저에서](https://aka.ms/telemetry-initializer))
+
 - ActivityType  ([원격 분석 이니셜라이저에서](https://aka.ms/telemetry-initializer))
 - RecipientId
 - ConversationId
 - ConversationName
-- 로캘
-- 텍스트(PII의 경우 선택 사항)
+- Locale
+- Text(PII의 경우 선택 사항)
 
 
 ### <a name="customevent-botmessagedelete"></a>CustomEvent: BotMessageDelete
-**로그인 출처:** TelemetryLoggerMiddleware는 봇에서 메시지를 삭제할 때 기록됩니다(희귀 사례).
+**로깅된 출처:** TelemetryLoggerMiddleware는 봇에서 메시지를 삭제할 때 기록됩니다(희귀 사례).
 - UserID  ([원격 분석 이니셜라이저에서](https://aka.ms/telemetry-initializer))
 - SessionID([원격 분석 이니셜라이저에서](https://aka.ms/telemetry-initializer))
 - ActivityID  ([원격 분석 이니셜라이저에서](https://aka.ms/telemetry-initializer))
-- 채널  ([원격 분석 이니셜라이저에서](https://aka.ms/telemetry-initializer))
+
+- Channel([원격 분석 이니셜라이저에서](https://aka.ms/telemetry-initializer))
+
 - ActivityType  ([원격 분석 이니셜라이저에서](https://aka.ms/telemetry-initializer))
 - RecipientId
 - ConversationId
 - ConversationName
 
 ### <a name="customevent-luisevent"></a>CustomEvent: LuisEvent
-**로그인 출처:** LuisRecognizer
+**로깅된 출처:** LuisRecognizer
 
 LUIS 서비스의 결과를 기록합니다.
 
@@ -664,7 +667,7 @@ LUIS 서비스의 결과를 기록합니다.
 - Channel([원격 분석 이니셜라이저에서](https://aka.ms/telemetry-initializer))
 - ActivityType([원격 분석 이니셜라이저에서](https://aka.ms/telemetry-initializer))
 - ApplicationId
-- 의도
+- Intent
 - IntentScore
 - Intent2 
 - IntentScore2 
@@ -675,7 +678,7 @@ LUIS 서비스의 결과를 기록합니다.
 - Question(PII의 경우 선택 사항)
 
 ## <a name="customevent-qnamessage"></a>CustomEvent: QnAMessage
-**로그인 출처:** QnAMaker
+**로깅된 출처:** QnAMaker
 
 QnA Maker 서비스의 결과를 기록합니다.
 
@@ -688,7 +691,7 @@ QnA Maker 서비스의 결과를 기록합니다.
 - Question(PII의 경우 선택 사항)
 - MatchedQuestion
 - QuestionId
-- 응답
+- Answer
 - Score
 - ArticleFound
 
