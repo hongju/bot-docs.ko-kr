@@ -617,14 +617,14 @@ WaterfallDialog가 시작되면 `WaterfallStart` 이벤트가 기록됩니다.
 - UserID  ([원격 분석 이니셜라이저에서](https://aka.ms/telemetry-initializer))
 - SessionID([원격 분석 이니셜라이저에서](https://aka.ms/telemetry-initializer))
 - ActivityID  ([원격 분석 이니셜라이저에서](https://aka.ms/telemetry-initializer))
-- Channel  ([원격 분석 이니셜라이저에서](https://aka.ms/telemetry-initializer))
+- Channel ([원격 분석 이니셜라이저에서](https://aka.ms/telemetry-initializer))
 - ActivityType  ([원격 분석 이니셜라이저에서](https://aka.ms/telemetry-initializer))
 - ReplyToID
 - RecipientId
 - ConversationName
 - Locale
 - RecipientName(PII의 경우 선택 사항)
-- Text(PII의 경우 선택 사항
+- Text(PII의 경우 선택 사항)
 - Speak(PII의 경우 선택 사항)
 
 
@@ -633,7 +633,7 @@ WaterfallDialog가 시작되면 `WaterfallStart` 이벤트가 기록됩니다.
 - UserID  ([원격 분석 이니셜라이저에서](https://aka.ms/telemetry-initializer))
 - SessionID([원격 분석 이니셜라이저에서](https://aka.ms/telemetry-initializer))
 - ActivityID([원격 분석 이니셜라이저에서](https://aka.ms/telemetry-initializer))
-- Channel  ([원격 분석 이니셜라이저에서](https://aka.ms/telemetry-initializer))
+- Channel([원격 분석 이니셜라이저에서](https://aka.ms/telemetry-initializer))
 - ActivityType  ([원격 분석 이니셜라이저에서](https://aka.ms/telemetry-initializer))
 - RecipientId
 - ConversationId
@@ -647,7 +647,7 @@ WaterfallDialog가 시작되면 `WaterfallStart` 이벤트가 기록됩니다.
 - UserID  ([원격 분석 이니셜라이저에서](https://aka.ms/telemetry-initializer))
 - SessionID([원격 분석 이니셜라이저에서](https://aka.ms/telemetry-initializer))
 - ActivityID  ([원격 분석 이니셜라이저에서](https://aka.ms/telemetry-initializer))
-- Channel  ([원격 분석 이니셜라이저에서](https://aka.ms/telemetry-initializer))
+- Channel([원격 분석 이니셜라이저에서](https://aka.ms/telemetry-initializer))
 - ActivityType  ([원격 분석 이니셜라이저에서](https://aka.ms/telemetry-initializer))
 - RecipientId
 - ConversationId
