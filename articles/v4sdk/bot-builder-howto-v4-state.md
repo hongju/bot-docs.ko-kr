@@ -102,8 +102,8 @@ ms.locfileid: "66693719"
 
 ## <a name="access-state-from-your-bot"></a>봇에서 상태 액세스
 앞의 섹션에서는 상태 속성 접근자를 봇에 추가하는 초기화 시간 단계에 대해 다루고 있습니다. 이제 런타임에 이러한 접근자를 사용하여 상태 정보를 읽고 쓸 수 있습니다. 아래 샘플 코드는 다음 논리 흐름을 사용합니다.
-- userProfile.Name이 비어 있고 conversationData.PromptedUserForName이 *True*이면 제공된 사용자 이름을 검색하고 이를 사용자 상태 내에 저장합니다.
-- userProfile.Name이 비어 있고 conversationData.PromptedUserForName이 *False*이면 사용자의 이름을 요청합니다.
+- userProfile.Name이 비어 있고 conversationData.PromptedUserForName이 _True_ 이면 제공된 사용자 이름을 검색하고 이를 사용자 상태 내에 저장합니다.
+- userProfile.Name이 비어 있고 conversationData.PromptedUserForName이 _False_ 이면 사용자의 이름을 요청합니다.
 - userProfile.Name이 이전에 저장된 경우 사용자 입력에서 메시지 시간 및 채널 ID를 검색하고 모든 데이터를 사용자에게 다시 보여주고 검색된 데이터를 대화 상태 내에 저장합니다.
 
 ## <a name="ctabcsharp"></a>[C#](#tab/csharp)
