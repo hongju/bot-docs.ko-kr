@@ -46,11 +46,11 @@ ms.locfileid: "67160625"
 
 ![사용자 환영 논리 흐름](media/welcome-user-flow-js.png)
 
-새 사용자가 연결될 때마다 봇이 사용자에게 `welcomeMessage`, `infoMessage`, `patternMessage`를 표시합니다. 새 사용자 입력이 수신되면 봇이 `welcomedUserProperty`의 `didBotWelcomeUser`가 _true_로 설정되어 있는지 확인합니다. 그렇지 않을 경우 초기 사용자 환영 메시지가 사용자에게 반환됩니다.
+새 사용자가 연결될 때마다 봇이 사용자에게 `welcomeMessage`, `infoMessage`, `patternMessage`를 표시합니다. 새 사용자 입력이 수신되면 봇이 `welcomedUserProperty`의 `didBotWelcomeUser`가 _true_ 로 설정되어 있는지 확인합니다. 그렇지 않을 경우 초기 사용자 환영 메시지가 사용자에게 반환됩니다.
 
 ---
 
- DidBotWelcomeUser가 _true_일 경우 사용자 입력이 평가됩니다. 이 봇은 사용자 입력의 내용에 따라 다음 중 하나를 수행합니다.
+ DidBotWelcomeUser가 _true_ 일 경우 사용자 입력이 평가됩니다. 이 봇은 사용자 입력의 내용에 따라 다음 중 하나를 수행합니다.
 - 사용자로부터 수신한 인사말을 그대로 출력합니다.
 - 봇에 대한 추가 정보를 제공하는 영웅 카드를 표시합니다.
 - 이 봇의 올바른 입력을 설명하는 `WelcomeMessage`를 다시 보냅니다.
@@ -141,7 +141,7 @@ ms.locfileid: "67160625"
 
 ## <a name="using-hero-card-greeting"></a>영웅 카드 인사말 사용
 
-앞서 말했듯이, 일부 사용자 입력은 요청에 대한 응답으로 _영웅 카드_를 생성합니다. [시작 카드 보내기](./bot-builder-howto-add-media-attachments.md)에서 영웅 카드 인사말에 대해 자세히 알아볼 수 있습니다. 이 봇의 영웅 카드 응답을 만드는 데 필요한 코드는 다음과 같습니다.
+앞서 말했듯이, 일부 사용자 입력은 요청에 대한 응답으로 _영웅 카드_ 를 생성합니다. [시작 카드 보내기](./bot-builder-howto-add-media-attachments.md)에서 영웅 카드 인사말에 대해 자세히 알아볼 수 있습니다. 이 봇의 영웅 카드 응답을 만드는 데 필요한 코드는 다음과 같습니다.
 
 ### <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
