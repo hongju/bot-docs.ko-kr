@@ -90,7 +90,7 @@ Open the **Emulator Settings**, enter the path to ngrok, select whether or not t
 
 ## <a name="login-to-azure"></a>Azure에 로그인
 
-Azure 계정에 로그인하는 데 에뮬레이터를 사용할 수 있습니다. 특히 봇이 종속된 서비스를 추가 및 관리할 때 유용합니다. 에뮬레이터로 관리할 수 있는 서비스에 대한 자세한 정보는 [위](#add-services)를 참조하세요.
+Azure 계정에 로그인하는데 에뮬레이터를 사용할 수 있습니다. 특히 봇이 종속된 서비스를 추가 및 관리할 때 유용합니다. 에뮬레이터로 관리할 수 있는 서비스에 대한 자세한 정보는 [위](#add-services)를 참조하세요.
 
 ### <a name="to-login"></a>로그인하기
 
@@ -122,7 +122,7 @@ Azure 계정에 로그인하는 데 에뮬레이터를 사용할 수 있습니�
 
 ## <a name="additional-resources"></a>추가 리소스
 
-Bot Framework Emulator는 오픈 소스입니다. 개발에 [기여][EmulatorGithubContribute]하고 to the development and [submit bugs and suggestions][EmulatorGithubBugs]할 수 있습니다.
+Bot Framework Emulator는 오픈 소스입니다. 개발에 [기여][EmulatorGithubContribute]하고 [버그와 제안을 제출][EmulatorGithubBugs]할 수 있습니다.
 
 문제를 해결하려면 [일반 문제 해결](bot-service-troubleshoot-bot-configuration.md) 및 해당 섹션의 다른 문제 해결 문서를 참조하세요.
 
