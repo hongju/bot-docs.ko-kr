@@ -63,7 +63,7 @@ az ad app create --display-name "displayName" --password "AtLeastSixteenCharacte
 | 옵션   | 설명 |
 |:---------|:------------|
 | display-name | 애플리케이션의 표시 이름입니다. |
-| 암호 | 앱 암호, 즉 '클라이언트 비밀'입니다. 암호는 길이가 16자 이상이며 알파벳 대문자 또는 소문자 1자 이상과, 특수 문자 1자 이상을 포함해야 합니다.|
+| password | 앱 암호, 즉 '클라이언트 비밀'입니다. 암호는 길이가 16자 이상이며 알파벳 대문자 또는 소문자 1자 이상과, 특수 문자 1자 이상을 포함해야 합니다.|
 | available-to-other-tenants| 모든 Azure AD 테넌트에서 애플리케이션을 사용할 수 있습니다. 봇이 Azure Bot Service 채널에서 작동하려면 이 값이 `true`여야 합니다.|
 
 위의 명령은 `appId` 키가 있는 JSON을 출력하고, `appId` 매개 변수에 사용되는 ARM 배포를 위해 이 키 값을 저장합니다. 제공된 암호는 `appSecret` 매개 변수에 사용됩니다.
@@ -82,10 +82,10 @@ az deployment create --name "<name-of-deployment>" --template-file "template-wit
 
 | 옵션   | 설명 |
 |:---------|:------------|
-| 이름 | 배포의 식별 이름입니다. |
+| name | 배포의 식별 이름입니다. |
 | template-file | ARM 템플릿의 경로입니다. 프로젝트의 `deploymentTemplates` 폴더에서 제공하는 `template-with-new-rg.json` 파일을 사용할 수 있습니다. |
 | location |위치입니다. 값 출처: `az account list-locations`. `az configure --defaults location=<location>`을 사용하여 기본 위치를 구성할 수 있습니다. |
-| 매개 변수 | 배포 매개 변수 값을 제공합니다. `az ad app create` 명령 실행에서 가져온 `appId` 값입니다. `appSecret`은 이전 단계에서 제공한 암호입니다. `botId` 매개 변수는 전역적으로 고유해야 하며 변경이 불가능한 봇 ID로 사용됩니다. 또한 변경 가능한 봇의 표시 이름을 구성하는 데도 사용됩니다. `botSku`는 가격 책정 계층으로, F0(무료) 또는 S1(표준)일 수 있습니다. `newAppServicePlanName`은 App Service 계획의 이름입니다. `newWebAppName`은 만들고 있는 웹앱의 이름입니다. `groupName`은 만들고 있는 Azure 리소스 그룹의 이름입니다. `groupLocation`은 Azure 리소스 그룹의 위치입니다. `newAppServicePlanLocation`은 App Service 계획의 위치입니다. |
+| parameters | 배포 매개 변수 값을 제공합니다. `az ad app create` 명령 실행에서 가져온 `appId` 값입니다. `appSecret`은 이전 단계에서 제공한 암호입니다. `botId` 매개 변수는 전역적으로 고유해야 하며 변경이 불가능한 봇 ID로 사용됩니다. 또한 변경 가능한 봇의 표시 이름을 구성하는 데도 사용됩니다. `botSku`는 가격 책정 계층으로, F0(무료) 또는 S1(표준)일 수 있습니다. `newAppServicePlanName`은 App Service 계획의 이름입니다. `newWebAppName`은 만들고 있는 웹앱의 이름입니다. `groupName`은 만들고 있는 Azure 리소스 그룹의 이름입니다. `groupLocation`은 Azure 리소스 그룹의 위치입니다. `newAppServicePlanLocation`은 App Service 계획의 위치입니다. |
 
 # <a name="deploy-via-arm-template-with-existing--resource-grouptaberg"></a>[ARM 템플릿을 통해 배포(**기존** 리소스 그룹 포함)](#tab/erg)
 
@@ -113,11 +113,11 @@ az group deployment create --name "<name-of-deployment>" --resource-group "<name
 
 | 옵션   | 설명 |
 |:---------|:------------|
-| 이름 | 배포의 식별 이름입니다. |
+| name | 배포의 식별 이름입니다. |
 | resource-group | Azure 리소스 그룹의 이름입니다. |
 | template-file | ARM 템플릿의 경로입니다. 프로젝트의 `deploymentTemplates` 폴더에서 제공하는 `template-with-preexisting-rg.json` 파일을 사용할 수 있습니다. |
 | location |위치입니다. 값 출처: `az account list-locations`. `az configure --defaults location=<location>`을 사용하여 기본 위치를 구성할 수 있습니다. |
-| 매개 변수 | 배포 매개 변수 값을 제공합니다. `az ad app create` 명령 실행에서 가져온 `appId` 값입니다. `appSecret`은 이전 단계에서 제공한 암호입니다. `botId` 매개 변수는 전역적으로 고유해야 하며 변경이 불가능한 봇 ID로 사용됩니다. 또한 변경 가능한 봇의 표시 이름을 구성하는 데도 사용됩니다. `newWebAppName`은 만들고 있는 웹앱의 이름입니다. `newAppServicePlanName`은 App Service 계획의 이름입니다. `newAppServicePlanLocation`은 App Service 계획의 위치입니다. |
+| parameters | 배포 매개 변수 값을 제공합니다. `az ad app create` 명령 실행에서 가져온 `appId` 값입니다. `appSecret`은 이전 단계에서 제공한 암호입니다. `botId` 매개 변수는 전역적으로 고유해야 하며 변경이 불가능한 봇 ID로 사용됩니다. 또한 변경 가능한 봇의 표시 이름을 구성하는 데도 사용됩니다. `newWebAppName`은 만들고 있는 웹앱의 이름입니다. `newAppServicePlanName`은 App Service 계획의 이름입니다. `newAppServicePlanLocation`은 App Service 계획의 위치입니다. |
 
 ---
 
@@ -174,7 +174,7 @@ az webapp deployment source config-zip --resource-group "<new-group-name>" --nam
 | 옵션   | 설명 |
 |:---------|:------------|
 | resource-group | 이전에 만든 Azure의 리소스 그룹 이름입니다. |
-| 이름 | 이전에 사용한 웹앱의 이름입니다. |
+| name | 이전에 사용한 웹앱의 이름입니다. |
 | src  | 만든 압축 파일의 경로입니다. |
 
 ## <a name="3-test-in-web-chat"></a>3. 웹 채팅에서 테스트
