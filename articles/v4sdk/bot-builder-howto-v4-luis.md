@@ -25,7 +25,7 @@ ms.locfileid: "67404500"
 
 ## <a name="prerequisites"></a>필수 조건
 - [LUIS](https://www.luis.ai) 계정
-- 이 문서의 코드는 **Core Bot** 샘플을 기반으로 합니다. **[CSharp](https://aka.ms/cs-core-sample) 또는 [JavaScript](https://aka.ms/js-core-sample)** 로 작성된 샘플의 복사본이 필요합니다. 
+- 이 문서의 코드는 **Core Bot** 샘플을 기반으로 합니다. **[C#](https://aka.ms/cs-core-sample) 또는 [JavaScript](https://aka.ms/js-core-sample)** 로 작성된 샘플의 복사본이 필요합니다. 
 - [봇 기본 ](bot-builder-basics.md), [자연어 처리](https://docs.microsoft.com/azure/cognitive-services/luis/what-is-luis) 및 [봇 리소스 관리 처리](bot-file-basics.md)에 대한 지식이 필요합니다.
 
 ## <a name="about-this-sample"></a>이 샘플 정보
@@ -85,9 +85,9 @@ LUIS 앱이 게시되면 봇에서 액세스할 수 있습니다. 봇 내에서 
 설정 파일(`appsettings.json` 또는 `.env`)은 모든 서비스 참조를 한 곳에 모을 수 있는 장소입니다. 검색한 정보는 다음 섹션에서 이 파일에 추가됩니다. 
 1. [luis.ai](https://www.luis.ai)에서 게시된 LUIS 앱을 선택합니다.
 1. 게시된 LUIS 앱이 열리면 **관리** 탭을 선택합니다. ![LUIS 앱 관리](./media/how-to-luis/manage-luis-app.png)
-1. 왼쪽에서 **애플리케이션 정보** 탭을 선택하고 _애플리케이션 ID_에 &lt;YOUR_APP_ID&gt;로 표시되는 값을 기록합니다.
-1. 왼쪽에서 **키 및 엔드포인트** 탭을 선택하고 _제작 키_에 <YOUR_AUTHORING_KEY>로 표시되는 값을 기록합니다.
-1. 페이지 끝까지 아래로 스크롤하여 _지역_에 대해 표시된 값을 <YOUR_REGION>으로 기록합니다.
+1. 왼쪽에서 **애플리케이션 정보** 탭을 선택하고 _애플리케이션 ID_ 에 &lt;YOUR_APP_ID&gt;로 표시되는 값을 기록합니다.
+1. 왼쪽에서 **키 및 엔드포인트** 탭을 선택하고 _제작 키_ 에 <YOUR_AUTHORING_KEY>로 표시되는 값을 기록합니다.
+1. 페이지 끝까지 아래로 스크롤하여 _지역_ 에 대해 표시된 값을 <YOUR_REGION>으로 기록합니다.
 
 ### <a name="update-the-settings-file"></a>설정 파일 업데이트
 
