@@ -25,7 +25,7 @@ ms.locfileid: "67160625"
 
 ## <a name="prerequisites"></a>필수 조건
 - [봇 기본 사항](bot-builder-basics.md)을 이해합니다. 
-- [C# 샘플](https://aka.ms/welcome-user-mvc) 또는 [JS 샘플](https://aka.ms/bot-welcome-sample-js)의 **환영 사용자 샘플** 복사본입니다. 샘플의 코드는 환영 메시지를 보내는 방법을 설명하는 데 사용됩니다.
+- [C# 샘플](https://aka.ms/welcome-user-mvc) 또는 [JS 샘플](https://aka.ms/bot-welcome-sample-js)의 **사용자 환영 샘플** 복사본입니다. 샘플의 코드는 환영 메시지를 보내는 방법을 설명하는 데 사용됩니다.
 
 ## <a name="about-this-sample-code"></a>이 샘플 코드 정보
 이 샘플 코드는 새로운 사용자가 봇에 처음 연결되었을 때 이를 감지하고 환영 메시지를 표시하는 방법을 보여줍니다. 다음 다이어그램은 이 봇의 논리적 흐름을 보여줍니다. 
@@ -37,7 +37,7 @@ ms.locfileid: "67160625"
 
 ![사용자 환영 논리 흐름](media/welcome-user-flow.png)
 
-새 사용자가 연결될 때마다 봇이 사용자에게 `WelcomeMessage`, `InfoMessage`, `PatternMessage`를 표시합니다. 새 사용자 입력이 수신되면 봇이 WelcomeUserState의 `DidBotWelcomeUser`가 _true_로 설정되어 있는지 확인합니다. 그렇지 않을 경우 초기 사용자 환영 메시지가 사용자에게 반환됩니다.
+새 사용자가 연결될 때마다 봇이 사용자에게 `WelcomeMessage`, `InfoMessage`, `PatternMessage`를 표시합니다. 새 사용자 입력이 수신되면 봇이 WelcomeUserState의 `DidBotWelcomeUser`가 _true_ 로 설정되어 있는지 확인합니다. 그렇지 않을 경우 초기 사용자 환영 메시지가 사용자에게 반환됩니다.
 
 ### <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 봇에서 발생하는 두 가지 주요 이벤트는 다음과 같습니다.
