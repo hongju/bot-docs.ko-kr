@@ -32,7 +32,7 @@ ms.locfileid: "67587480"
 ## <a name="prerequisites"></a>필수 조건
 
 - [봇 기본 사항][concept-basics], [managing state][concept-state] 및 [대화 상자 라이브러리][concept-dialogs]에 대한 지식
-- [**CSharp**][cs-sample] or [**JavaScript**][js-sample]로 작성된 **다중 순서 프롬프트** 샘플의 복사본
+- [**C#**][cs-sample] 또는 [**JavaScript**][js-sample]로 작성된 **다중 순서 프롬프트** 샘플의 복사본
 
 ## <a name="about-this-sample"></a>이 샘플 정보
 
