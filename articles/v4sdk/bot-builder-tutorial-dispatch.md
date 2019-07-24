@@ -26,7 +26,7 @@ ms.locfileid: "67492006"
 ## <a name="prerequisites"></a>필수 조건
 - [봇 기본 사항](bot-builder-basics.md), [LUIS][howto-luis], and [QnA Maker][howto-qna]에 대한 지식 
 - [Dispatch 도구](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/Dispatch)
-- [C# 샘플][cs-sample]or [JS Sample][js-sample] 코드 리포지토리의 **NLP with Dispatch** 복사본
+- [C# 샘플][cs-sample] 또는 [JS Sample][js-sample] 코드 리포지토리의 **NLP with Dispatch** 복사본
 - LUIS 앱을 게시할 사용할 [luis.ai](https://www.luis.ai/) 계정
 - QnA 지식 자료를 게시할 [QnA Maker](https://www.qnamaker.ai/) 계정
 
@@ -74,7 +74,7 @@ ms.locfileid: "67492006"
 
 2. _앱 파일 선택_ 단추를 선택하고 샘플 코드의 CognitiveModel 폴더로 이동한 후 'HomeAutomation.json' 파일을 선택합니다. 이름 필드(옵션)는 비워 두세요. 
 
-3. _완료_를 선택합니다.
+3. _완료_ 를 선택합니다.
 
 4. LUIS에 Home Automation 앱이 열리면 _학습_ 단추를 선택합니다. 그러면 'home-automation.json' 파일을 사용하여 방금 가져온 발화 세트를 앱이 학습합니다.
 
@@ -86,13 +86,13 @@ ms.locfileid: "67492006"
 
 7. 새 LUIS 앱이 게시되면 _관리_ 탭을 선택합니다. '애플리케이션 정보' 페이지에서 `Application ID` 값에 "_app-id-for-app_"를, `Display name` 값에 "_name-of-app_"를 기재합니다. '키 및 엔드포인트' 페이지에서 `Authoring Key` 값에 "_your-luis-authoring-key_"를, `Region`에 "_your-region_"을 기재합니다. 이러한 값은 나중에 'appsetting.json' 파일 내에서 사용됩니다.
 
-8. 완료되면 'Weather.json' 파일에 이러한 단계를 반복하여 LUIS 날씨 앱 및 LUIS 디스패치 앱을 모두 _학습_시키고 _게시_합니다.
+8. 완료되면 'Weather.json' 파일에 이러한 단계를 반복하여 LUIS 날씨 앱 및 LUIS 디스패치 앱을 모두 _학습_ 시키고 _게시_ 합니다.
 
 ### <a name="create-qna-maker-knowledge-base"></a>QnA Maker 기술 자료 만들기
 
 QnA Maker 기술 자료를 설정하는 첫 번째 단계는 Azure에서 QnA Maker 서비스를 설정하는 것입니다. 이렇게 하려면 [여기](https://aka.ms/create-qna-maker)에 나와 있는 단계별 지침을 따르세요.
 
-Azure에서 QnA Maker 서비스가 만들어지면 QnA Maker 서비스에 제공된 Cognitive Services _키 1_을 기록해야 합니다. 이 키는 QnA Maker 앱을 디스패치 애플리케이션에 추가할 때 \<azure-qna-service-key1>로 사용됩니다. 다음 단계에서는 이 키를 제공합니다.
+Azure에서 QnA Maker 서비스가 만들어지면 QnA Maker 서비스에 제공된 Cognitive Services _키 1_ 을 기록해야 합니다. 이 키는 QnA Maker 앱을 디스패치 애플리케이션에 추가할 때 \<azure-qna-service-key1>로 사용됩니다. 다음 단계에서는 이 키를 제공합니다.
     
 ![Cognitive Service 선택](./media/tutorial-dispatch/select-qna-cognitive-service.png)
 
@@ -287,14 +287,14 @@ LuisAPIHostName=<your-dispatch-app-region>
 
 ## <a name="ctabcs"></a>[C#](#tab/cs)
 
-**BotServices.cs**에서 구성 파일 _appsettings.json_에 포함된 정보는 디스패치 봇을 `Dispatch` 및 `SampleQnA` 서비스에 연결하는 데 사용됩니다. 생성자는 개발자가 지정한 값을 사용하여 이러한 서비스에 연결합니다.
+**BotServices.cs**에서 구성 파일 _appsettings.json_ 에 포함된 정보는 디스패치 봇을 `Dispatch` 및 `SampleQnA` 서비스에 연결하는 데 사용됩니다. 생성자는 개발자가 지정한 값을 사용하여 이러한 서비스에 연결합니다.
 
 **BotServices.cs**  
 [!code-csharp[ReadConfigurationInfo](~/../botbuilder-samples/samples/csharp_dotnetcore/14.nlp-with-dispatch/BotServices.cs?range=14-30)]
 
 ## <a name="javascripttabjs"></a>[JavaScript](#tab/js)
 
-**dispatchBot.js**에서 구성 파일 _.env_에 포함된 정보는 디스패치 봇을 _LuisRecognizer(디스패치)_ 및 _QnAMaker_ 서비스에 연결하는 데 사용됩니다. 생성자는 개발자가 지정한 값을 사용하여 이러한 서비스에 연결합니다.
+**dispatchBot.js**에서 구성 파일 _.env_ 에 포함된 정보는 디스패치 봇을 _LuisRecognizer(디스패치)_ 및 _QnAMaker_ 서비스에 연결하는 데 사용됩니다. 생성자는 개발자가 지정한 값을 사용하여 이러한 서비스에 연결합니다.
 
 **dispatchBot.js**  
 [!code-javascript[ReadConfigurationInfo](~/../botbuilder-samples/samples/javascript_nodejs/14.nlp-with-dispatch/bots/dispatchBot.js?range=18-31)]
@@ -314,7 +314,7 @@ LuisAPIHostName=<your-dispatch-app-region>
 
 ## <a name="javascripttabjs"></a>[JavaScript](#tab/js)
 
-**dispatchBot.js** `onMessage` 메서드에서 디스패치 모델을 기준으로 사용자 입력 메시지를 검사하고, _topIntent_를 확인한 후, _dispatchToTopIntentAsync_를 호출하여 이를 전달합니다.
+**dispatchBot.js** `onMessage` 메서드에서 디스패치 모델을 기준으로 사용자 입력 메시지를 검사하고, _topIntent_ 를 확인한 후, _dispatchToTopIntentAsync_ 를 호출하여 이를 전달합니다.
 
 **dispatchBot.js**  
 
@@ -326,7 +326,7 @@ LuisAPIHostName=<your-dispatch-app-region>
 
 ## <a name="ctabcs"></a>[C#](#tab/cs)
 
-모델에서 생성하는 결과에 발언을 가장 적절하게 처리할 수 있는 서비스가 나타납니다. 이 봇의 코드는 해당 서비스에 요청을 라우팅한 후 호출된 서비스에의 응답을 요약합니다. 이 코드는 디스패치에서 반환된 _의도_에 따라 올바른 LUIS 모델 또는 QnA 서비스로 라우팅합니다.
+모델에서 생성하는 결과에 발언을 가장 적절하게 처리할 수 있는 서비스가 나타납니다. 이 봇의 코드는 해당 서비스에 요청을 라우팅한 후 호출된 서비스에의 응답을 요약합니다. 이 코드는 디스패치에서 반환된 _의도_ 에 따라 올바른 LUIS 모델 또는 QnA 서비스로 라우팅합니다.
 
 **DispatchBot.cs**  
 [!code-csharp[DispatchToTop](~/../botbuilder-samples/samples/csharp_dotnetcore/14.nlp-with-dispatch/bots/DispatchBot.cs?range=51-69)]
@@ -337,7 +337,7 @@ LuisAPIHostName=<your-dispatch-app-region>
 
 ## <a name="javascripttabjs"></a>[JavaScript](#tab/js)
 
-모델에서 생성하는 결과에 발언을 가장 적절하게 처리할 수 있는 서비스가 나타납니다. 이 샘플의 코드는 인식된 _topIntent_를 사용하여 요청을 해당 서비스로 라우팅하는 방법을 보여줍니다.
+모델에서 생성하는 결과에 발언을 가장 적절하게 처리할 수 있는 서비스가 나타납니다. 이 샘플의 코드는 인식된 _topIntent_ 를 사용하여 요청을 해당 서비스로 라우팅하는 방법을 보여줍니다.
 
 **DispatchBot.cs**  
 [!code-javascript[DispatchToTop](~/../botbuilder-samples/samples/javascript_nodejs/14.nlp-with-dispatch/bots/dispatchBot.js?range=67-83)]
@@ -459,7 +459,7 @@ LUIS 리소스를 삭제하려면:
    - `Home Automation`
    - `Weather`
    - `NLP-With-Dispatch-BotDispatch`
-1. _삭제_를 클릭하고 _확인_을 클릭하여 확인합니다.
+1. _삭제_ 를 클릭하고 _확인_ 을 클릭하여 확인합니다.
 
 QnA Maker 리소스를 삭제하려면:
 
