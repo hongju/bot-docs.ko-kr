@@ -37,7 +37,7 @@ ms.locfileid: "67160625"
 
 ![사용자 환영 논리 흐름](media/welcome-user-flow.png)
 
-새 사용자가 연결될 때마다 봇이 사용자에게 `WelcomeMessage`, `InfoMessage`, `PatternMessage`를 표시합니다. 새 사용자 입력이 수신되면 봇이 WelcomeUserState의 `DidBotWelcomeUser`가 _true_로 설정되어 있는지 확인합니다. 그렇지 않을 경우 초기 사용자 환영 메시지가 사용자에게 반환됩니다.
+새 사용자가 연결될 때마다 봇이 사용자에게 `WelcomeMessage`, `InfoMessage`, `PatternMessage`를 표시합니다. 새 사용자 입력이 수신되면 봇이 WelcomeUserState의 `DidBotWelcomeUser`가 _true_ 로 설정되어 있는지 확인합니다. 그렇지 않을 경우 초기 사용자 환영 메시지가 사용자에게 반환됩니다.
 
 ### <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 봇에서 발생하는 두 가지 주요 이벤트는 다음과 같습니다.
