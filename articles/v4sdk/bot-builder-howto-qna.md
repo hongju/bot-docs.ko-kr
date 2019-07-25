@@ -57,7 +57,7 @@ QnA Maker는 사용자의 데이터에 대한 대화형 질문 및 답변 레이
 
 ## <a name="obtain-values-to-connect-your-bot-to-the-knowledge-base"></a>봇을 기술 자료에 연결하는 데 필요한 값 가져오기
 1. [QnA Maker](https://www.qnamaker.ai/) 사이트에서 기술 자료를 선택합니다.
-1. 기술 자료를 연 후 **설정**을 선택합니다. _서비스 이름_에 표시되는 값을 기록합니다. 이 값은 QnA Maker 포털 인터페이스를 사용하는 경우 관심 있는 기술 자료를 찾는 데 유용합니다. 기술 자료에 봇 앱을 연결하는 데 사용되지 않습니다. 
+1. 기술 자료를 연 후 **설정**을 선택합니다. _서비스 이름_ 에 표시되는 값을 기록합니다. 이 값은 QnA Maker 포털 인터페이스를 사용하는 경우 관심 있는 기술 자료를 찾는 데 유용합니다. 기술 자료에 봇 앱을 연결하는 데 사용되지 않습니다. 
 1. 아래로 스크롤하여 **배포 세부 정보**를 찾아 Postman HTTP 요청 샘플에서 다음 값을 적어 둡니다.
    - POST /knowledgebases/\<knowledge-base-id>/generateAnswer
    - Host: \<your-hostname> // Full URL ending with /qnamaker
