@@ -44,7 +44,7 @@ ms.locfileid: "67587497"
 
 ## <a name="implement-the-component-dialog"></a>구성 요소 대화 상자 구현
 
-다중 턴 프롬프트 샘플에서는 _폭포 대화 상자_, 몇 가지 _프롬프트_ 및 _구성 요소 대화 상자_를 사용하여 사용자에게 일련의 질문을 하는 간단한 상호 작용을 만듭니다.
+다중 턴 프롬프트 샘플에서는 _폭포 대화 상자_, 몇 가지 _프롬프트_ 및 _구성 요소 대화 상자_ 를 사용하여 사용자에게 일련의 질문을 하는 간단한 상호 작용을 만듭니다.
 
 구성 요소 대화 상자는 하나 이상의 대화 상자를 캡슐화합니다. 구성 요소 대화 상자에는 내부 대화 상자 세트가 있으며, 이 내부 대화 상자 세트에 추가하는 대화 상자 및 프롬프트에는 구성 요소 대화 상자 내에서만 볼 수 있는 자체의 고유한 ID가 있습니다.
 
@@ -58,7 +58,7 @@ ms.locfileid: "67587497"
 
 [!code-csharp[Class](~/../botbuilder-samples/samples/csharp_dotnetcore/05.multi-turn-prompt/Dialogs/UserProfileDialog.cs?range=13)]
 
-생성자 내에서 `AddDialog` 메서드는 구성 요소 대화 상자에 프롬프트를 표시합니다. 이 메서드를 사용하여 추가하는 첫 번째 항목은 초기 대화 상자로 설정되지만 `InitialDialogId` 속성을 명시적으로 설정하여 이를 변경할 수 있습니다. 구성 요소 대화 상자를 시작하면 해당 _초기 대화 상자_가 시작됩니다.
+생성자 내에서 `AddDialog` 메서드는 구성 요소 대화 상자에 프롬프트를 표시합니다. 이 메서드를 사용하여 추가하는 첫 번째 항목은 초기 대화 상자로 설정되지만 `InitialDialogId` 속성을 명시적으로 설정하여 이를 변경할 수 있습니다. 구성 요소 대화 상자를 시작하면 해당 _초기 대화 상자_ 가 시작됩니다.
 
 [!code-csharp[Constructor](~/../botbuilder-samples/samples/csharp_dotnetcore/05.multi-turn-prompt/Dialogs/UserProfileDialog.cs?range=17-42)]
 
@@ -78,7 +78,7 @@ ms.locfileid: "67587497"
 
 [!code-javascript[Class](~/../botbuilder-samples/samples/javascript_nodejs/05.multi-turn-prompt/dialogs/userProfileDialog.js?range=24)]
 
-생성자 내에서 `AddDialog` 메서드는 구성 요소 대화 상자에 프롬프트를 표시합니다. 이 메서드를 사용하여 추가하는 첫 번째 항목은 초기 대화 상자로 설정되지만 `InitialDialogId` 속성을 명시적으로 설정하여 이를 변경할 수 있습니다. 구성 요소 대화 상자를 시작하면 해당 _초기 대화 상자_가 시작됩니다.
+생성자 내에서 `AddDialog` 메서드는 구성 요소 대화 상자에 프롬프트를 표시합니다. 이 메서드를 사용하여 추가하는 첫 번째 항목은 초기 대화 상자로 설정되지만 `InitialDialogId` 속성을 명시적으로 설정하여 이를 변경할 수 있습니다. 구성 요소 대화 상자를 시작하면 해당 _초기 대화 상자_ 가 시작됩니다.
 
 [!code-javascript[Constructor](~/../botbuilder-samples/samples/javascript_nodejs/05.multi-turn-prompt/dialogs/userProfileDialog.js?range=25-47)]
 
@@ -140,9 +140,9 @@ ms.locfileid: "67587497"
 
 ### <a name="how-cancellation-works-for-component-dialogs"></a>구성 요소 대화 상자에 대한 취소가 작동하는 방법
 
-구성 요소 대화 상자의 컨텍스트에서 _모든 대화 상자 취소_를 호출하면 구성 요소 대화 상자에서 자체의 스택에 있는 모든 대화 상자를 취소한 다음, 종료하고 제어권을 외부 스택의 다음 대화 상자에 되돌려줍니다.
+구성 요소 대화 상자의 컨텍스트에서 _모든 대화 상자 취소_ 를 호출하면 구성 요소 대화 상자에서 자체의 스택에 있는 모든 대화 상자를 취소한 다음, 종료하고 제어권을 외부 스택의 다음 대화 상자에 되돌려줍니다.
 
-외부 컨텍스트에서 _모든 대화 상자 취소_를 호출하면 구성 요소가 외부 컨텍스트의 나머지 대화 상자와 함께 취소됩니다.
+외부 컨텍스트에서 _모든 대화 상자 취소_ 를 호출하면 구성 요소가 외부 컨텍스트의 나머지 대화 상자와 함께 취소됩니다.
 
 봇에서 중첩된 구성 요소 대화 상자를 관리할 때 이 점을 염두에 두어야 합니다.
 
