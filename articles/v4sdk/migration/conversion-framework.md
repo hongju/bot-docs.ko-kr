@@ -10,12 +10,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 05/23/2019
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 45830f099833c41c308b0f5a5e7b104986604e03
-ms.sourcegitcommit: 93508adfb79523f610a919b361fc34f5c8dd3eff
+ms.openlocfilehash: 519515a2174a7028af7bc170ca8a7c40f7d48c52
+ms.sourcegitcommit: b053c0ca7f2e9e60679f7e82e583c57ae83fcb50
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67533398"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68336728"
 ---
 # <a name="migrate-a-net-v3-bot-to-a-net-framework-v4-bot"></a>.NET v3 봇을 .NET Framework v4 봇으로 마이그레이션
 
@@ -30,7 +30,7 @@ ms.locfileid: "67533398"
 이 변환의 결과가 [.NET Framework v4 ContosoHelpdeskChatBot](https://github.com/microsoft/BotBuilder-Samples/tree/master/MigrationV3V4/CSharp/ContosoHelpdeskChatBot-V4NetFramework)입니다.
 새 프로젝트에서 .NET Core v4 봇으로 마이그레이션하려면 [.NET v3 봇을 .NET Core v4 봇으로 마이그레이션](conversion-core.md)을 참조하세요.
 
-Bot Framework SDK v4는 SDK v3와 동일한 기본 REST API를 기반으로 합니다. 그러나 SDK v4는 이전 버전의 SDK를 리팩터링하여 개발자가 자신의 봇을 더 유연하게 제어할 수 있도록 합니다. SDK의 주요 변경 내용은 다음과 같습니다.
+Bot Framework SDK v4는 SDK v3과 동일한 기본 REST API를 기반으로 합니다. 그러나 SDK v4는 이전 버전의 SDK를 리팩터링하여 개발자가 자신의 봇을 더 유연하게 제어할 수 있도록 합니다. SDK의 주요 변경 내용은 다음과 같습니다.
 
 - 상태가 상태 관리 개체 및 속성 접근자를 통해 관리됩니다.
 - 턴 처리기 설정 및 활동 전달이 변경되었습니다.
@@ -53,6 +53,10 @@ Bot Framework SDK v4는 SDK v3와 동일한 기본 REST API를 기반으로 합�
 1. **Bot.Builder.Community.Dialogs.Formflow**를 추가합니다.
 
     이 패키지는 v3 Formflow 정의 파일에서 v4 대화를 빌드하기 위한 커뮤니티 라이브러리입니다. **Microsoft.Bot.Builder.Dialogs**도 종속성 중 하나이므로 설치됩니다.
+
+> [!TIP]
+> **Bot.Builder.Community.Dialogs.Formflow**는 .NET Standard 2.0 라이브러리이므로 프로젝트가 .NET Framework 4.6을 대상으로 하는 경우 4.6.1 이상으로 업데이트해야 합니다.
+> 자세한 내용은 [.NET 구현 지원](https://docs.microsoft.com/en-us/dotnet/standard/net-standard#net-implementation-support)을 참조하세요.
 
 이 시점에서 빌드하면 컴파일러 오류가 발생하지만, 무시할 수 있습니다. 변환이 완료되면 작업 코드가 준비됩니다.
 

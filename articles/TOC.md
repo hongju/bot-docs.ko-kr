@@ -3,10 +3,9 @@
 ## [Azure Bot Service 정보](bot-service-overview-introduction.md)
 ## [새로운 기능](what-is-new.md)
 # 빠른 시작
-## [Azure Bot Service로 봇 만들기](~/bot-service-quickstart.md)
-## 로컬에서 봇 만들기
-### [.NET](dotnet/bot-builder-dotnet-sdk-quickstart.md)
-### [JavaScript](javascript/bot-builder-javascript-quickstart.md)
+## [.NET을 사용하여 봇 만들기](dotnet/bot-builder-dotnet-sdk-quickstart.md)
+## [JavaScript를 사용하여 봇 만들기](javascript/bot-builder-javascript-quickstart.md)
+## [Azure Bot Service를 사용하여 봇 만들기](v4sdk/abs-quickstart.md)
 # 자습서
 ## [1. 기본 봇 만들기 및 배포](v4sdk/bot-builder-tutorial-basic-deploy.md)
 ## [2. QnA Maker를 추가하고 봇 재배포](v4sdk/bot-builder-tutorial-add-qna.md)
@@ -55,6 +54,8 @@
 ### [봇에서 Direct Line Speech 사용](directline-speech-bot.md)
 ### [.NET](dotnet/TOC.md)
 ### [Node.JS](nodejs/TOC.md)
+## 테스트
+### [유닛 테스트 봇](v4sdk/unit-test-bots.md)
 ## [디버그](debug/TOC.md)
 ## 배포
 ### [Azure에 봇 배포](bot-builder-deploy-az-cli.md)
