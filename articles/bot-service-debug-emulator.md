@@ -90,7 +90,7 @@ Open the **Emulator Settings**, enter the path to ngrok, select whether or not t
 
 ## <a name="login-to-azure"></a>Azure에 로그인
 
-Azure 계정에 로그인하는데 에뮬레이터를 사용할 수 있습니다. 특히 봇이 종속된 서비스를 추가 및 관리할 때 유용합니다. 에뮬레이터로 관리할 수 있는 서비스에 대한 자세한 정보는 [위](#add-services)를 참조하세요.
+Azure 계정에 로그인하는 데 에뮬레이터를 사용할 수 있습니다. 특히 봇이 종속된 서비스를 추가 및 관리할 때 유용합니다. 에뮬레이터로 관리할 수 있는 서비스에 대한 자세한 정보는 [위](#add-services)를 참조하세요.
 
 ### <a name="to-login"></a>로그인하기
 
